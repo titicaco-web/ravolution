@@ -6,8 +6,8 @@ const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Logo */}
-      <div className="absolute top-6 left-6 z-20">
-        <h2 className="font-playfair text-3xl md:text-4xl font-bold text-white tracking-wider">
+      <div className="absolute top-4 left-4 md:top-6 md:left-6 z-20">
+        <h2 className="font-playfair text-xl md:text-2xl font-bold text-white tracking-wider">
           RAVOLUTION
         </h2>
       </div>
@@ -23,7 +23,7 @@ const Hero = () => {
       </div>
       
       {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 text-center text-white">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 text-center text-white pt-16 md:pt-0">
         <div className="animate-fade-in-up">
           <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
             Revolutionizing European
