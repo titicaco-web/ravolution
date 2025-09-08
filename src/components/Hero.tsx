@@ -40,9 +40,11 @@ const Hero = () => {
           
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-            <Button className="btn-hero group">
-              Request Partnership Meeting
-              <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+            <Button asChild className="btn-hero group">
+              <a href="mailto:ivan.daza@ravolution.se?subject=Partnership Meeting Request">
+                Request Partnership Meeting
+                <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+              </a>
             </Button>
             <Button className="btn-accent group">
               <Download className="mr-2 h-5 w-5" />
