@@ -75,35 +75,6 @@ const StrategicPartnerships = () => {
           </p>
         </div>
 
-        {/* Current Partnerships */}
-        <div className="mb-16">
-          <h3 className="text-3xl font-bold text-foreground mb-8 text-center">
-            Current Strategic Alliances
-          </h3>
-          
-          <div className="grid lg:grid-cols-2 gap-8">
-            {currentPartners.map((partner, index) => (
-              <div key={index} className="card-feature">
-                <div className="flex items-start justify-between mb-4">
-                  <div>
-                    <h4 className="text-xl font-bold text-foreground mb-2">{partner.name}</h4>
-                    <p className="text-muted-foreground font-medium">{partner.brands}</p>
-                  </div>
-                  <span className={`px-3 py-1 rounded-full text-sm font-medium ${partner.statusColor}`}>
-                    {partner.status}
-                  </span>
-                </div>
-                
-                <p className="text-muted-foreground mb-4">{partner.description}</p>
-                
-                <div className="flex items-center justify-between pt-4 border-t border-border">
-                  <span className="text-sm font-medium text-accent">{partner.value}</span>
-                  <CheckCircle2 className="h-5 w-5 text-accent" />
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
 
         {/* Partnership Value Proposition */}
         <div className="card-elevated bg-primary text-white mb-16">
