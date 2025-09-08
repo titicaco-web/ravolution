@@ -67,6 +67,11 @@ const ContactSection = () => {
                         option.variant === 'accent' ? 'btn-accent' :
                         'btn-outline'
                       }
+                      onClick={() => {
+                        if (option.type === "Investor Inquiries" || option.type === "Strategic Partners") {
+                          window.open('https://meetings-eu1.hubspot.com/daza', '_blank');
+                        }
+                      }}
                     >
                       {option.cta}
                     </Button>
@@ -154,7 +159,10 @@ const ContactSection = () => {
             <p className="text-xl opacity-90 mb-8 max-w-2xl mx-auto">
               Join industry leaders in revolutionizing PPE technology. The future of worker protection starts here.
             </p>
-            <Button className="btn-accent">
+            <Button 
+              className="btn-accent"
+              onClick={() => window.open('https://meetings-eu1.hubspot.com/daza', '_blank')}
+            >
               Start the Conversation
             </Button>
           </div>
