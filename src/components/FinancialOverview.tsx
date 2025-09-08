@@ -115,10 +115,6 @@ const FinancialOverview = () => {
               <ul className="space-y-4">
                 <li className="flex items-start">
                   <TrendingUp className="h-5 w-5 mr-3 mt-1 flex-shrink-0" />
-                  <span>Confirmed LOI with €7B+ Hultafors Group</span>
-                </li>
-                <li className="flex items-start">
-                  <TrendingUp className="h-5 w-5 mr-3 mt-1 flex-shrink-0" />
                   <span>€24B+ addressable European market</span>
                 </li>
                 <li className="flex items-start">
