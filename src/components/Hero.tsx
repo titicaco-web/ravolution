@@ -5,6 +5,13 @@ import heroImage from "@/assets/hero-cooling-tech.jpg";
 const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Logo */}
+      <div className="absolute top-6 left-6 z-20">
+        <h2 className="font-playfair text-3xl md:text-4xl font-bold text-white tracking-wider">
+          RAVOLUTION
+        </h2>
+      </div>
+      
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <img 
