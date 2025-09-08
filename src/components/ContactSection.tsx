@@ -89,7 +89,7 @@ const ContactSection = () => {
                 </div>
                 <div className="flex items-center space-x-3">
                   <MapPin className="h-5 w-5 text-accent" />
-                  <span>Stockholm, Sweden</span>
+                  <span>Kungsgatan 9, Stockholm, Sweden</span>
                 </div>
               </div>
             </div>
