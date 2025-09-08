@@ -8,7 +8,7 @@ const Hero = () => {
       {/* Logo */}
       <div className="absolute top-4 left-4 md:top-6 md:left-6 z-20">
         <h2 className="text-lg md:text-xl font-bold text-white tracking-wider">
-          RAVOLUTION
+          RAVOLUTION AB
         </h2>
       </div>
       
