@@ -138,9 +138,14 @@ const FinancialOverview = () => {
               Join us in revolutionizing European worker protection and capturing a massive market opportunity.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="btn-accent">
+              <a 
+                href="https://meetings-eu1.hubspot.com/daza" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="btn-accent"
+              >
                 Schedule Investor Meeting
-              </button>
+              </a>
               <button className="btn-outline border-white text-white hover:bg-white hover:text-primary">
                 Download Financial Model
               </button>
