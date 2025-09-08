@@ -43,7 +43,7 @@ const SolutionOverview = () => {
             Our <span className="text-accent">Active Cooling</span> Solution
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Revolutionary fan-cooled PPE technology that provides continuous temperature regulation, 
+            Revolutionary cooling PPE technology that provides continuous temperature regulation, 
             keeping workers safe and productive in extreme heat conditions.
           </p>
         </div>

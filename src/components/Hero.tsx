@@ -27,7 +27,7 @@ const Hero = () => {
           </h1>
           
           <p className="text-xl md:text-2xl mb-8 max-w-4xl mx-auto leading-relaxed opacity-90">
-            Protecting 77.5M workers from Europe's heat crisis with ISO-certified fan-cooled jackets, 
+            Protecting 77.5M workers from Europe's heat crisis with ISO-certified cooling jackets, 
             vests, and complete cooling ecosystems
           </p>
           
