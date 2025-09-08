@@ -85,7 +85,7 @@ const ContactSection = () => {
                 </div>
                 <div className="flex items-center space-x-3">
                   <Phone className="h-5 w-5 text-accent" />
-                  <span>+46 (0)8 XXX-XXXX</span>
+                  <span>+46 (0)769 456 600</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <MapPin className="h-5 w-5 text-accent" />
