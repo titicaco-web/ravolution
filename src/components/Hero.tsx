@@ -7,8 +7,8 @@ const Hero = () => {
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Logo */}
       <div className="absolute top-4 left-4 md:top-6 md:left-6 z-20">
-        <h2 className="text-sm md:text-base font-bold text-white tracking-wider">
-          RAVOLUTION AB
+        <h2 className="text-lg md:text-xl font-bold text-white tracking-wide font-serif">
+          CoolAir<span className="text-accent font-sans">Jacket</span>
         </h2>
       </div>
       
