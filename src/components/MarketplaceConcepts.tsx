@@ -53,7 +53,7 @@ const concepts = [
     tagline: "Interactive villa advisory & marketplace",
     problem: "Homeowners need centralized advice & partner discovery",
     market: "1.5M+ Swedish villas, €3–7.5B annual spend",
-    revenue: "Premium €9.99–19.99/mo, partner commissions 5–15%",
+    revenue: "Partner commissions 5–15%",
     status: "Early Validation",
     color: "gold",
   },
