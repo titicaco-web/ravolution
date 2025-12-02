@@ -1,8 +1,25 @@
 import { useState } from "react";
-import { Languages, Mic, Users, Globe, ChevronDown, ChevronUp, CheckCircle } from "lucide-react";
+import { Languages, Mic, Users, Globe, GraduationCap, ChevronDown, ChevronUp, CheckCircle, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const portfolios = [
+  {
+    id: "communicaring",
+    icon: GraduationCap,
+    title: "CommunicaringSchool™",
+    subtitle: "UN-Compliant Global Education Platform",
+    valueProposition: "9 patented technologies enabling cross-national student benchmarking, curriculum equivalency, and rights-based learning",
+    marketPotential: "$850B Global EdTech Market",
+    patentCoverage: "9 Patents | 116 Claims covering GEPI, curriculum mapping, child rights verification",
+    revenueModel: "Government licensing, UN agency partnerships, international school subscriptions",
+    details: {
+      features: ["54 UNCRC Articles Compliance", "Global Position Index (GEPI)", "20+ Curricula Support", "Real-time Global Comparison", "Child Rights Verification System", "Cross-national Credential Recognition"],
+      markets: ["Government education ministries", "UN agencies (UNICEF, UNESCO)", "International school networks", "NGOs focused on child rights"],
+    },
+    color: "primary",
+    featured: true,
+    externalLink: "https://communicaringschool.com/patents",
+  },
   {
     id: "rosetta",
     icon: Languages,
@@ -21,7 +38,7 @@ const portfolios = [
   {
     id: "voice",
     icon: Mic,
-    title: "Voice Biometric Security",
+    title: "VoiceProtector™",
     subtitle: "Enterprise Deepfake Protection",
     valueProposition: "Anti-deepfake detection, enterprise integration, telecom compliance",
     marketPotential: "€12.9B global voice security market",
@@ -36,23 +53,23 @@ const portfolios = [
   {
     id: "linkedin",
     icon: Users,
-    title: "Professional Networking Innovation",
-    subtitle: "LinkedIn Gifting Solution",
+    title: "Givin™",
+    subtitle: "LinkedIn Professional Gifting",
     valueProposition: "Digital professional recognition, frictionless value exchange",
-    marketPotential: "1B+ LinkedIn users, corporate recognition budgets",
+    marketPotential: "$175B Corporate Gifting Market, 1B+ LinkedIn users",
     patentCoverage: "Gift integration architecture, professional recognition systems",
     revenueModel: "Transaction fees, enterprise licensing",
     details: {
       features: ["Seamless LinkedIn integration", "Corporate gift programs", "Recognition badges", "Professional appreciation flows"],
       markets: ["HR tech platforms", "Corporate recognition", "Professional services", "Recruitment agencies"],
     },
-    color: "primary",
+    color: "accent",
   },
   {
     id: "xportmatch",
     icon: Globe,
-    title: "B2B Export-Import Intelligence",
-    subtitle: "xPortMatch Technology",
+    title: "xPortMatch™",
+    subtitle: "B2B Export-Import Intelligence",
     valueProposition: "AI matching, 150+ countries, 180,500 SME targets",
     marketPotential: "€194B Swedish export market",
     patentCoverage: "Algorithmic matching, verification systems, trade intelligence",
@@ -61,7 +78,7 @@ const portfolios = [
       features: ["AI-powered matching algorithms", "Verified buyer/supplier database", "Real-time market intelligence", "Trade compliance automation"],
       markets: ["Swedish SMEs (180,500 targets)", "International trade agencies", "Government export programs", "Trade finance providers"],
     },
-    color: "accent",
+    color: "primary",
   },
 ];
 
@@ -80,10 +97,10 @@ const PatentPortfolios = () => {
             <span className="text-sm font-semibold">Defensible IP Assets</span>
           </div>
           <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">
-            Four Strategic Patent Verticals
+            Five Strategic Patent Verticals
           </h2>
           <p className="text-lg text-muted-foreground">
-            Protecting innovation across language, voice, security & global commerce
+            Protecting innovation across education, language, voice, security & global commerce
           </p>
         </div>
 
@@ -105,15 +122,22 @@ const PatentPortfolios = () => {
             return (
               <div
                 key={portfolio.id}
-                className={`bg-card rounded-2xl border-2 transition-all duration-300 ${colorClasses[portfolio.color as keyof typeof colorClasses]} ${isExpanded ? 'shadow-elevated' : 'shadow-card'}`}
+                className={`bg-card rounded-2xl border-2 transition-all duration-300 ${colorClasses[portfolio.color as keyof typeof colorClasses]} ${isExpanded ? 'shadow-elevated' : 'shadow-card'} ${portfolio.featured ? 'md:col-span-2 ring-2 ring-gold/30' : ''}`}
               >
                 <div
                   className="p-6 cursor-pointer"
                   onClick={() => toggleExpand(portfolio.id)}
                 >
                   <div className="flex items-start justify-between mb-4">
-                    <div className={`inline-flex items-center justify-center w-12 h-12 rounded-xl ${iconBgClasses[portfolio.color as keyof typeof iconBgClasses]}`}>
-                      <IconComponent className="w-6 h-6" />
+                    <div className="flex items-center gap-3">
+                      <div className={`inline-flex items-center justify-center w-12 h-12 rounded-xl ${iconBgClasses[portfolio.color as keyof typeof iconBgClasses]}`}>
+                        <IconComponent className="w-6 h-6" />
+                      </div>
+                      {portfolio.featured && (
+                        <span className="bg-gold text-gold-foreground text-xs font-semibold px-3 py-1 rounded-full">
+                          FLAGSHIP
+                        </span>
+                      )}
                     </div>
                     <button className="text-muted-foreground hover:text-foreground transition-colors">
                       {isExpanded ? <ChevronUp className="w-6 h-6" /> : <ChevronDown className="w-6 h-6" />}
@@ -165,15 +189,24 @@ const PatentPortfolios = () => {
                         </ul>
                       </div>
                     </div>
-                    <div className="mt-6 flex gap-3">
+                    <div className="mt-6 flex flex-wrap gap-3">
                       <Button className="bg-primary hover:bg-primary-light" asChild>
                         <a href="https://meetings-eu1.hubspot.com/daza" target="_blank" rel="noopener noreferrer">
                           Inquire About Licensing
                         </a>
                       </Button>
-                      <Button variant="outline">
-                        Download Patent Summary
-                      </Button>
+                      {portfolio.externalLink && (
+                        <Button variant="outline" asChild>
+                          <a href={portfolio.externalLink} target="_blank" rel="noopener noreferrer">
+                            View Patent Portfolio <ExternalLink className="w-4 h-4 ml-2" />
+                          </a>
+                        </Button>
+                      )}
+                      {!portfolio.externalLink && (
+                        <Button variant="outline">
+                          Download Patent Summary
+                        </Button>
+                      )}
                     </div>
                   </div>
                 )}
