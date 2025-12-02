@@ -158,7 +158,7 @@ const Founder = () => {
             </div>
             
             <div className="relative">
-              <div className="aspect-[3/4] max-w-md mx-auto rounded-2xl bg-gradient-to-br from-primary/20 to-accent/20 p-1">
+              <div className="aspect-[3/4] max-w-xs mx-auto rounded-2xl bg-gradient-to-br from-primary/20 to-accent/20 p-1">
                 <img 
                   src={ivanPhoto} 
                   alt="Ivan Daza - Founder and CEO of Ravolution" 
