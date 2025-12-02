@@ -54,8 +54,8 @@ const FooterCTA = () => {
                 </div>
                 <div>
                   <h4 className="font-semibold text-foreground">Email</h4>
-                  <a href="mailto:contact@ravolution.se" className="text-muted-foreground hover:text-primary transition-colors">
-                    contact@ravolution.se
+                  <a href="mailto:ivan.daza@ravolution.se" className="text-muted-foreground hover:text-primary transition-colors">
+                    ivan.daza@ravolution.se
                   </a>
                 </div>
               </div>

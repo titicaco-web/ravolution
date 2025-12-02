@@ -166,8 +166,10 @@ const PatentPortfolios = () => {
                       </div>
                     </div>
                     <div className="mt-6 flex gap-3">
-                      <Button className="bg-primary hover:bg-primary-light">
-                        Inquire About Licensing
+                      <Button className="bg-primary hover:bg-primary-light" asChild>
+                        <a href="https://meetings-eu1.hubspot.com/daza" target="_blank" rel="noopener noreferrer">
+                          Inquire About Licensing
+                        </a>
                       </Button>
                       <Button variant="outline">
                         Download Patent Summary

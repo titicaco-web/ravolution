@@ -105,7 +105,11 @@ const FeaturedProducts = () => {
                     <ExternalLink className="ml-2 w-4 h-4" />
                   </a>
                 </Button>
-                <Button variant="outline">Request B2B Demo</Button>
+                <Button variant="outline" asChild>
+                  <a href="https://meetings-eu1.hubspot.com/daza" target="_blank" rel="noopener noreferrer">
+                    Request B2B Demo
+                  </a>
+                </Button>
               </div>
             </div>
           </div>
@@ -174,7 +178,11 @@ const FeaturedProducts = () => {
                     <ExternalLink className="ml-2 w-4 h-4" />
                   </a>
                 </Button>
-                <Button variant="outline">Schedule Security Audit</Button>
+                <Button variant="outline" asChild>
+                  <a href="https://meetings-eu1.hubspot.com/daza" target="_blank" rel="noopener noreferrer">
+                    Schedule Security Audit
+                  </a>
+                </Button>
               </div>
             </div>
 

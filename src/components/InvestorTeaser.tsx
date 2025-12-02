@@ -23,13 +23,15 @@ const InvestorTeaser = () => {
 
             <div className="flex flex-col sm:flex-row gap-4">
               <Button className="bg-accent hover:bg-accent-light text-white group" asChild>
-                <a href="#contact">
+                <a href="https://meetings-eu1.hubspot.com/daza" target="_blank" rel="noopener noreferrer">
                   Schedule Investor Call
                   <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
                 </a>
               </Button>
-              <Button variant="outline" className="border-white/30 text-white hover:bg-white/10">
-                Request Financial Model
+              <Button variant="outline" className="border-white/30 text-white hover:bg-white/10" asChild>
+                <a href="mailto:ivan.daza@ravolution.se?subject=Financial Model Request">
+                  Request Financial Model
+                </a>
               </Button>
             </div>
           </div>
