@@ -41,11 +41,13 @@ const Navbar = () => {
 
           {/* CTA Buttons */}
           <div className="hidden md:flex items-center gap-3">
-            <Button variant="ghost" className="text-white hover:bg-white/10">
-              Contact
+            <Button variant="ghost" className="text-white hover:bg-white/10" asChild>
+              <a href="#contact">Contact</a>
             </Button>
-            <Button className="bg-accent hover:bg-accent-light text-white">
-              Licensing Inquiry
+            <Button className="bg-accent hover:bg-accent-light text-white" asChild>
+              <a href="https://meetings-eu1.hubspot.com/daza" target="_blank" rel="noopener noreferrer">
+                Licensing Inquiry
+              </a>
             </Button>
           </div>
 
@@ -73,11 +75,13 @@ const Navbar = () => {
                 </a>
               ))}
               <div className="flex flex-col gap-2 pt-4 border-t border-white/10">
-                <Button variant="ghost" className="text-white hover:bg-white/10 justify-start">
-                  Contact
+                <Button variant="ghost" className="text-white hover:bg-white/10 justify-start" asChild>
+                  <a href="#contact">Contact</a>
                 </Button>
-                <Button className="bg-accent hover:bg-accent-light text-white">
-                  Licensing Inquiry
+                <Button className="bg-accent hover:bg-accent-light text-white" asChild>
+                  <a href="https://meetings-eu1.hubspot.com/daza" target="_blank" rel="noopener noreferrer">
+                    Licensing Inquiry
+                  </a>
                 </Button>
               </div>
             </div>
