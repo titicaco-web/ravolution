@@ -30,7 +30,7 @@ const portfolios = [
     patents: 4,
     claims: 52,
     valueProposition: "Multimodal language acquisition, 34 languages, real-time vocational calibration",
-    marketPotential: "Nordic government contracts, international enterprise",
+    marketPotential: "$82B Global Language Learning Market | Nordic governments, international enterprise, corporate training",
     patentCoverage: "System architecture, real-time analysis, deployment frameworks",
     revenueModel: "Licensing, co-development, acquisition",
     details: {
