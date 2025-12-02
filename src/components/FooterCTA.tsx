@@ -66,8 +66,8 @@ const FooterCTA = () => {
                 </div>
                 <div>
                   <h4 className="font-semibold text-foreground">Phone</h4>
-                  <a href="tel:+46123456789" className="text-muted-foreground hover:text-accent transition-colors">
-                    +46 12 345 67 89
+                  <a href="tel:+46769456600" className="text-muted-foreground hover:text-accent transition-colors">
+                    +46 76 945 66 00
                   </a>
                 </div>
               </div>
