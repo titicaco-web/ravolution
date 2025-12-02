@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import ValueProposition from "@/components/ValueProposition";
+import PatentVerticalsPreview from "@/components/PatentVerticalsPreview";
 import PatentPortfolios from "@/components/PatentPortfolios";
 import FeaturedProducts from "@/components/FeaturedProducts";
 import MarketplaceConcepts from "@/components/MarketplaceConcepts";
@@ -15,6 +16,7 @@ const Index = () => {
       <Navbar />
       <HeroSection />
       <ValueProposition />
+      <PatentVerticalsPreview />
       <PatentPortfolios />
       <FeaturedProducts />
       <MarketplaceConcepts />
