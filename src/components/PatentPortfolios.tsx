@@ -8,9 +8,11 @@ const portfolios = [
     icon: GraduationCap,
     title: "CommunicaringSchool™",
     subtitle: "UN-Compliant Global Education Platform",
+    patents: 9,
+    claims: 116,
     valueProposition: "9 patented technologies enabling cross-national student benchmarking, curriculum equivalency, and rights-based learning",
     marketPotential: "$850B Global EdTech Market",
-    patentCoverage: "9 Patents | 116 Claims covering GEPI, curriculum mapping, child rights verification",
+    patentCoverage: "GEPI, curriculum mapping, child rights verification",
     revenueModel: "Government licensing, UN agency partnerships, international school subscriptions",
     details: {
       features: ["54 UNCRC Articles Compliance", "Global Position Index (GEPI)", "20+ Curricula Support", "Real-time Global Comparison", "Child Rights Verification System", "Cross-national Credential Recognition"],
@@ -25,9 +27,11 @@ const portfolios = [
     icon: Languages,
     title: "Rosetta Livingstone™",
     subtitle: "Language Learning Revolution",
+    patents: 4,
+    claims: 52,
     valueProposition: "Multimodal language acquisition, 34 languages, real-time vocational calibration",
     marketPotential: "Nordic government contracts, international enterprise",
-    patentCoverage: "Claims span system architecture, real-time analysis, deployment frameworks",
+    patentCoverage: "System architecture, real-time analysis, deployment frameworks",
     revenueModel: "Licensing, co-development, acquisition",
     details: {
       features: ["34 languages supported", "Ambient learning technology", "Spectrographic feedback", "Vocational calibration"],
@@ -40,9 +44,11 @@ const portfolios = [
     icon: Mic,
     title: "VoiceProtector™",
     subtitle: "Enterprise Deepfake Protection",
+    patents: 3,
+    claims: 38,
     valueProposition: "Anti-deepfake detection, enterprise integration, telecom compliance",
     marketPotential: "€12.9B global voice security market",
-    patentCoverage: "Real-time analysis methods, deployment frameworks, biometric verification",
+    patentCoverage: "Real-time analysis methods, biometric verification",
     revenueModel: "SaaS licensing, per-gateway pricing, volume-based",
     details: {
       features: ["Real-time deepfake detection (<100ms)", "Voice watermarking", "SOC 2 & GDPR compliant", "Zero false-positive design"],
@@ -55,6 +61,8 @@ const portfolios = [
     icon: Users,
     title: "Givin™",
     subtitle: "LinkedIn Professional Gifting",
+    patents: 2,
+    claims: 24,
     valueProposition: "Digital professional recognition, frictionless value exchange",
     marketPotential: "$175B Corporate Gifting Market, 1B+ LinkedIn users",
     patentCoverage: "Gift integration architecture, professional recognition systems",
@@ -70,6 +78,8 @@ const portfolios = [
     icon: Globe,
     title: "xPortMatch™",
     subtitle: "B2B Export-Import Intelligence",
+    patents: 2,
+    claims: 28,
     valueProposition: "AI matching, 150+ countries, 180,500 SME targets",
     marketPotential: "€194B Swedish export market",
     patentCoverage: "Algorithmic matching, verification systems, trade intelligence",
@@ -147,7 +157,13 @@ const PatentPortfolios = () => {
                   <h3 className="text-xl font-display font-bold text-foreground mb-1">
                     {portfolio.title}
                   </h3>
-                  <p className="text-sm text-muted-foreground mb-4">{portfolio.subtitle}</p>
+                  <p className="text-sm text-muted-foreground mb-2">{portfolio.subtitle}</p>
+                  
+                  <div className="inline-flex items-center gap-2 bg-muted rounded-full px-3 py-1 mb-4">
+                    <span className="text-xs font-semibold text-foreground">{portfolio.patents} Patents</span>
+                    <span className="text-muted-foreground">|</span>
+                    <span className="text-xs font-semibold text-foreground">{portfolio.claims} Claims</span>
+                  </div>
 
                   <p className="text-foreground font-medium mb-4">{portfolio.valueProposition}</p>
 
