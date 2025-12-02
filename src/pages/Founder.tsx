@@ -138,7 +138,7 @@ const Founder = () => {
                 Tech Inventor & Patent Strategist
               </p>
               <p className="text-lg text-muted-foreground mb-8">
-                30+ Years of Entrepreneurial Innovation | Voice Biometrics Pioneer | International Business Builder
+                30+ Years of Entrepreneurial Innovation | Language Learning Pioneer | International Business Builder
               </p>
               <div className="flex flex-wrap gap-4">
                 <Button size="lg" asChild>
