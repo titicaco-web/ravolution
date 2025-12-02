@@ -78,7 +78,7 @@ const FooterCTA = () => {
                 </div>
                 <div>
                   <h4 className="font-semibold text-foreground">Location</h4>
-                  <p className="text-muted-foreground">Stockholm, Sweden</p>
+                  <p className="text-muted-foreground">Kungsgatan 9, 111 43 Stockholm, Sweden</p>
                 </div>
               </div>
             </div>
