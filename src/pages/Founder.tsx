@@ -18,6 +18,7 @@ import {
   Mail,
   ArrowRight
 } from "lucide-react";
+import ivanPhoto from "@/assets/ivan-daza.jpg";
 
 const Founder = () => {
   const expertiseAreas = [
@@ -157,15 +158,12 @@ const Founder = () => {
             </div>
             
             <div className="relative">
-              <div className="aspect-square max-w-md mx-auto rounded-2xl bg-gradient-to-br from-primary/20 to-accent/20 p-1">
-                <div className="w-full h-full rounded-xl bg-muted flex items-center justify-center">
-                  <div className="text-center p-8">
-                    <div className="w-32 h-32 mx-auto rounded-full bg-primary/10 flex items-center justify-center mb-4">
-                      <span className="text-5xl font-display font-bold text-primary">ID</span>
-                    </div>
-                    <p className="text-muted-foreground text-sm">Professional photo coming soon</p>
-                  </div>
-                </div>
+              <div className="aspect-[3/4] max-w-md mx-auto rounded-2xl bg-gradient-to-br from-primary/20 to-accent/20 p-1">
+                <img 
+                  src={ivanPhoto} 
+                  alt="Ivan Daza - Founder and CEO of Ravolution" 
+                  className="w-full h-full rounded-xl object-cover object-top"
+                />
               </div>
             </div>
           </div>
