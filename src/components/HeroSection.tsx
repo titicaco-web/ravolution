@@ -92,11 +92,10 @@ const HeroSection = () => {
           <div className="card-glass p-6 md:p-8 max-w-4xl mx-auto">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
               <div className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-gold mb-1">4</div>
-                <div className="text-white/70 text-sm">Patent Portfolios</div>
+                <div className="text-3xl md:text-4xl font-bold text-gold mb-1">25 Patents | 308 Claims</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-accent mb-1">€338M+</div>
+                <div className="text-3xl md:text-4xl font-bold text-accent mb-1">€354M+</div>
                 <div className="text-white/70 text-sm">Combined ARR Potential</div>
               </div>
               <div className="text-center">
