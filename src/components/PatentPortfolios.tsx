@@ -143,13 +143,13 @@ const PatentPortfolios = () => {
               accent: "border-accent/30 hover:border-accent/50",
               gold: "border-gold/30 hover:border-gold/50",
               primary: "border-primary/30 hover:border-primary/50",
-              gyro: "border-gyrocraft-blue/30 hover:border-gyrocraft-blue/50",
+              gyro: "border-primary/30 hover:border-primary/50",
             };
             const iconBgClasses = {
               accent: "bg-accent text-accent-foreground",
               gold: "bg-gold text-gold-foreground",
               primary: "bg-primary text-primary-foreground",
-              gyro: "bg-gyrocraft-teal text-gyrocraft-dark",
+              gyro: "bg-primary text-primary-foreground",
             };
 
             return (
