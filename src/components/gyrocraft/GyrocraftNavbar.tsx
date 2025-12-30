@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, ArrowLeft } from "lucide-react";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -44,6 +44,12 @@ const GyrocraftNavbar = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-6">
+            <Link
+              to="/"
+              className="flex items-center gap-1 text-gyrocraft-text/70 hover:text-gyrocraft-text font-medium transition-colors"
+            >
+              <ArrowLeft className="w-4 h-4" /> Ravolution
+            </Link>
             {navLinks.map((link) => (
               <Link
                 key={link.label}
@@ -116,6 +122,13 @@ const GyrocraftNavbar = () => {
         {isOpen && (
           <div className="md:hidden py-4 border-t border-gyrocraft-text/10 animate-fade-in">
             <div className="flex flex-col gap-4">
+              <Link
+                to="/"
+                className="flex items-center gap-1 font-medium py-2 text-gyrocraft-text/70"
+                onClick={() => setIsOpen(false)}
+              >
+                <ArrowLeft className="w-4 h-4" /> Back to Ravolution
+              </Link>
               {navLinks.map((link) => (
                 <Link
                   key={link.label}
