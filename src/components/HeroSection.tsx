@@ -7,15 +7,15 @@ const HeroSection = () => {
       {/* Multi-layer Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-[hsl(210,100%,8%)] via-[hsl(210,100%,15%)] to-[hsl(210,80%,20%)]" />
       
-      {/* Subtle Grid Pattern */}
+      {/* Grid Pattern */}
       <div 
-        className="absolute inset-0 opacity-[0.03]"
+        className="absolute inset-0 opacity-[0.08]"
         style={{
           backgroundImage: `
-            linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)
+            linear-gradient(rgba(255,255,255,0.3) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255,255,255,0.3) 1px, transparent 1px)
           `,
-          backgroundSize: '60px 60px'
+          backgroundSize: '50px 50px'
         }}
       />
       
