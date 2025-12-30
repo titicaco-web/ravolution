@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { Languages, Mic, Users, Globe, GraduationCap, ChevronDown, ChevronUp, CheckCircle, ExternalLink } from "lucide-react";
+import { Languages, Mic, Users, Globe, GraduationCap, ChevronDown, ChevronUp, CheckCircle, ExternalLink, Rocket } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const portfolios = [
   {
@@ -21,6 +22,25 @@ const portfolios = [
     color: "primary",
     featured: true,
     externalLink: "https://communicaringschool.com/patents",
+  },
+  {
+    id: "gyrocraft",
+    icon: Rocket,
+    title: "Gyrocraft™",
+    subtitle: "Revolutionary Propellant-Free Propulsion",
+    patents: 5,
+    claims: 50,
+    valueProposition: "Inertial electromagnetic propulsion system that works in space, air, and water without fuel, exhaust, or batteries",
+    marketPotential: "$284B Cumulative TAM | Satellites, Military UAVs, eVTOL",
+    patentCoverage: "Gyroscopic electromagnetic propulsion, thrust generation, multi-environment deployment",
+    revenueModel: "Exclusive regional licensing, development contracts, running royalties",
+    details: {
+      features: ["Doubles Satellite Lifetime", "72-Hour Drone Endurance", "Unlimited eVTOL Range", "Silent Operation", "No Propellant Required", "Multi-Environment Capable"],
+      markets: ["Satellite Operators (Inmarsat, Viasat)", "Defense Contractors (Lockheed, Northrop)", "eVTOL Companies (Joby, Archer)", "Propulsion Integrators (GE, Rolls-Royce)"],
+    },
+    color: "gyro",
+    featured: true,
+    internalLink: "/gyrocraft",
   },
   {
     id: "rosetta",
@@ -107,10 +127,10 @@ const PatentPortfolios = () => {
             <span className="text-sm font-semibold">Defensible IP Assets</span>
           </div>
           <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">
-            Five Strategic Patent Verticals
+            Six Strategic Patent Verticals
           </h2>
           <p className="text-lg text-muted-foreground">
-            Protecting innovation across education, language, voice, security & global commerce
+            Protecting innovation across aerospace, education, language, voice, security & global commerce
           </p>
         </div>
 
@@ -122,11 +142,13 @@ const PatentPortfolios = () => {
               accent: "border-accent/30 hover:border-accent/50",
               gold: "border-gold/30 hover:border-gold/50",
               primary: "border-primary/30 hover:border-primary/50",
+              gyro: "border-gyrocraft-primary/30 hover:border-gyrocraft-primary/50",
             };
             const iconBgClasses = {
               accent: "bg-accent text-accent-foreground",
               gold: "bg-gold text-gold-foreground",
               primary: "bg-primary text-primary-foreground",
+              gyro: "bg-gyrocraft-primary text-white",
             };
 
             return (
@@ -218,7 +240,14 @@ const PatentPortfolios = () => {
                           </a>
                         </Button>
                       )}
-                      {!portfolio.externalLink && (
+                      {portfolio.internalLink && (
+                        <Button variant="outline" asChild>
+                          <Link to={portfolio.internalLink}>
+                            Explore Gyrocraft <ExternalLink className="w-4 h-4 ml-2" />
+                          </Link>
+                        </Button>
+                      )}
+                      {!portfolio.externalLink && !portfolio.internalLink && (
                         <Button variant="outline">
                           Download Patent Summary
                         </Button>
