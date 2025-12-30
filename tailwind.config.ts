@@ -67,6 +67,14 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        // Gyrocraft Design System
+        gyrocraft: {
+          dark: "hsl(var(--gyrocraft-dark))",
+          blue: "hsl(var(--gyrocraft-blue))",
+          teal: "hsl(var(--gyrocraft-teal))",
+          orange: "hsl(var(--gyrocraft-orange))",
+          text: "hsl(var(--gyrocraft-text))",
+        },
       },
       fontFamily: {
         sans: ["Inter", "system-ui", "sans-serif"],
