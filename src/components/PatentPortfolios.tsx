@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { Languages, Mic, Users, Globe, GraduationCap, ChevronDown, ChevronUp, CheckCircle, ExternalLink, Rocket } from "lucide-react";
+import { Languages, Mic, Users, Globe, GraduationCap, ChevronDown, ChevronUp, CheckCircle, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import GyroscopeIcon from "@/components/icons/GyroscopeIcon";
 
 const portfolios = [
   {
@@ -25,7 +26,7 @@ const portfolios = [
   },
   {
     id: "gyrocraft",
-    icon: Rocket,
+    icon: GyroscopeIcon,
     title: "Gyrocraft™",
     subtitle: "Revolutionary Propellant-Free Propulsion",
     patents: 5,
