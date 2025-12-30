@@ -31,7 +31,7 @@ const portfolios = [
     subtitle: "Revolutionary Propellant-Free Propulsion",
     patents: 5,
     claims: 50,
-    valueProposition: "Inertial electromagnetic propulsion system that works in space, air, and water without fuel, exhaust, or batteries",
+    valueProposition: "Inertial electromagnetic propulsion system that works in space and air",
     marketPotential: "$284B Cumulative TAM | Satellites, Military UAVs, eVTOL",
     patentCoverage: "Gyroscopic electromagnetic propulsion, thrust generation, multi-environment deployment",
     revenueModel: "Exclusive regional licensing, development contracts, running royalties",
