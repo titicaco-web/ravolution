@@ -153,7 +153,7 @@ const GyrocraftAbout = () => {
               <h3 className="text-2xl font-bold text-gyrocraft-text mb-2">Ivan Daza</h3>
               <p className="text-gyrocraft-teal font-medium mb-4">Founder & CEO | Patent Inventor</p>
               <p className="text-gyrocraft-text/60 max-w-xl mx-auto mb-6">
-                20+ years aerospace engineering experience. Inventor of the Gyrocraft propulsion system. 
+                Construction Engineer and Inventor of the Gyrocraft propulsion system. 
                 Leading the development of revolutionary technology that will reshape the aerospace industry.
               </p>
               <div className="flex flex-wrap justify-center gap-4">
