@@ -40,7 +40,7 @@ const ValueProposition = () => {
             Solving Global Challenges Through Strategic IP.
           </h2>
           <p className="text-xl md:text-2xl font-display font-semibold text-gradient-gold mb-4">
-            Three Revenue Streams, One Transformational Vision.
+            Three Revenue Streams for Acquisition. One Transformational Vision.
           </p>
         </div>
 
