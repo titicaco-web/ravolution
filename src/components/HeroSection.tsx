@@ -61,8 +61,8 @@ const HeroSection = () => {
 
           {/* Headline */}
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold text-white leading-tight mb-6">
-            Solving Civilization-Scale Challenges
-            <span className="block text-gradient-gold">with Patented Deep Tech.</span>
+            Solving Civilization-Scale Challenges with
+            <span className="block text-gradient-gold">Patented Deep Tech.</span>
           </h1>
 
           {/* Subheadline */}
