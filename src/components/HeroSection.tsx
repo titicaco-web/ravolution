@@ -61,15 +61,14 @@ const HeroSection = () => {
 
           {/* Headline */}
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold text-white leading-tight mb-6">
-            Innovation Protected.
-            <span className="block text-gradient-gold">Revenue Generated.</span>
-            <span className="block text-white/90">Scale Proven.</span>
+            Solving Civilization-Scale Challenges
+            <span className="block text-gradient-gold">with Patented Deep Tech.</span>
           </h1>
 
           {/* Subheadline */}
           <p className="text-lg md:text-xl text-white/80 max-w-3xl mx-auto mb-10 leading-relaxed">
-            Strategic IP Development Across Language, Voice, Trade & Education.
-            <span className="block mt-2">Four patent portfolios. Two funded products. Five marketplace concepts.</span>
+            From accelerating language learning by 24x to democratizing K1-K9 education.
+            <span className="block mt-2">We build and protect the technologies that level the playing field for the global economy.</span>
           </p>
 
           {/* CTA Buttons */}
