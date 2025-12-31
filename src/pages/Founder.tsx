@@ -28,7 +28,7 @@ const founderSchema = {
   "@id": "https://ravolution.se/#ivan-daza",
   "name": "Ivan Daza",
   "jobTitle": "Super Inventor & Founder",
-  "description": "Pioneer in voice biometrics and AI, holding patents foundational to multi-billion dollar identity security and language learning markets. Inventor of high-value patents targeting unicorn-status valuation sectors.",
+  "description": "Super Inventor transforming education and language learning through patented technologies. Creator of methodologies that accelerate immigrant language acquisition 24x faster and democratize quality K1-K9 education globally.",
   "url": "https://ravolution.se/founder",
   "image": "https://ravolution.se/ivan-daza.jpg",
   "sameAs": [
@@ -41,11 +41,12 @@ const founderSchema = {
     "url": "https://ravolution.se"
   },
   "knowsAbout": [
+    "Education Technology",
+    "Language Learning Innovation",
     "Voice Biometrics",
     "Artificial Intelligence",
     "Patent Strategy",
-    "Language Learning Technology",
-    "Billion-Dollar Market Creation",
+    "Immigrant Integration",
     "IP Portfolio Development"
   ],
   "award": [
@@ -55,18 +56,18 @@ const founderSchema = {
   "owns": [
     {
       "@type": "Patent",
-      "name": "Voice-Based Authentication System",
-      "description": "Foundational patent for voice biometrics authentication, addressing the $20B+ global cybersecurity identity market. Critical technology for unicorn-status valuation in the biometric sector."
-    },
-    {
-      "@type": "Patent",
       "name": "AI Language Learning Partner Technology",
-      "description": "Patent portfolio for intelligent language learning with AI partners, targeting the $50B+ global EdTech market with scalable, high-growth infrastructure."
+      "description": "Revolutionary methodology accelerating language acquisition 24x faster than conventional approaches, enabling rapid labor market integration for immigrants."
     },
     {
       "@type": "Patent",
-      "name": "Voice Anti-Deepfake Protection",
-      "description": "Strategic IP asset for voice authentication and deepfake detection, addressing critical security needs in the rapidly expanding voice AI market."
+      "name": "Scalable K1-K9 Education Platform",
+      "description": "Technology democratizing quality education across rural communities through scalable curricula that establish baseline educational parity globally."
+    },
+    {
+      "@type": "Patent",
+      "name": "Voice-Based Authentication System",
+      "description": "Foundational patent for voice biometrics authentication, addressing the global cybersecurity identity market."
     }
   ]
 };
@@ -168,16 +169,16 @@ const Founder = () => {
   return (
     <>
       <Helmet>
-        <title>Ivan Daza | Super Inventor & Founder | High-Value Patent Portfolio | Ravolution</title>
-        <meta name="description" content="Ivan Daza is a pioneer in voice biometrics and AI, holding foundational patents for billion-dollar markets. Inventor of high-value IP targeting unicorn-status sectors in cybersecurity and EdTech." />
-        <meta name="keywords" content="Ivan Daza, super inventor, voice biometrics, AI patents, high-value patents, unicorn market, patent portfolio, Swedish entrepreneur" />
+        <title>Ivan Daza | Super Inventor & Founder | Education & Language Learning Pioneer | Ravolution</title>
+        <meta name="description" content="Ivan Daza is a Super Inventor transforming global education and language learning. His patented methodology accelerates immigrant language acquisition 24x faster while democratizing K1-K9 education worldwide." />
+        <meta name="keywords" content="Ivan Daza, super inventor, education technology, language learning, immigrant integration, EdTech patents, Swedish entrepreneur, K1-K9 education, voice biometrics" />
         <link rel="canonical" href="https://ravolution.se/founder" />
-        <meta property="og:title" content="Ivan Daza | Super Inventor & Founder | High-Value Patent Portfolio" />
-        <meta property="og:description" content="Pioneer in voice biometrics and AI. Inventor of high-value patents foundational to billion-dollar identity security and language learning markets." />
+        <meta property="og:title" content="Ivan Daza | Super Inventor | Education & Language Learning Pioneer" />
+        <meta property="og:description" content="Super Inventor transforming education globally. Patented methodology accelerates language acquisition 24x faster and democratizes quality K1-K9 education across rural communities." />
         <meta property="og:url" content="https://ravolution.se/founder" />
         <meta property="og:type" content="profile" />
-        <meta name="twitter:title" content="Ivan Daza | Super Inventor & Founder | High-Value Patent Portfolio" />
-        <meta name="twitter:description" content="Pioneer in voice biometrics and AI. Inventor of high-value patents foundational to billion-dollar identity security and language learning markets." />
+        <meta name="twitter:title" content="Ivan Daza | Super Inventor | Education & Language Learning Pioneer" />
+        <meta name="twitter:description" content="Super Inventor transforming education globally. Patented methodology accelerates language acquisition 24x faster and democratizes quality K1-K9 education." />
         <script type="application/ld+json">
           {JSON.stringify(founderSchema)}
         </script>
