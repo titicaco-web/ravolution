@@ -97,7 +97,7 @@ const portfolios = [
     icon: GyroscopeIcon,
     title: "Gyrocraft™",
     subtitle: "Electromagnetic Gyroscopic Propulsion Research",
-    patents: 1,
+    patents: 5,
     claims: 25,
     valueProposition: "Early-stage research into electromagnetic actuation of high-speed gyroscopic systems for potential aerospace applications",
     marketPotential: "$23B Satellite Propulsion Market | Seeking Validation Partners",
