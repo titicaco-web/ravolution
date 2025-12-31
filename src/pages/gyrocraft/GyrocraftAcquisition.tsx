@@ -110,8 +110,8 @@ const GyrocraftAcquisition = () => {
         <div className="max-w-6xl mx-auto px-6">
           <div className="flex items-center justify-center gap-4 text-center">
             <Tag className="w-6 h-6 text-gyrocraft-teal flex-shrink-0" />
-            <p className="text-gyrocraft-text">
-              <span className="font-semibold text-gyrocraft-teal">Available for Acquisition:</span> 5 patents filed with global protection. Early-stage pricing offers strategic entry point for qualified acquirers.
+            <p className="text-gyrocraft-dark">
+              <span className="font-semibold text-gyrocraft-dark">Available for Acquisition:</span> 5 patents filed with global protection. Early-stage pricing offers strategic entry point for qualified acquirers.
             </p>
           </div>
         </div>
