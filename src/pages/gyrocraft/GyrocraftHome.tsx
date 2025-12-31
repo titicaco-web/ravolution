@@ -1,7 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Satellite, Plane, Car, Globe, ArrowRight, Zap, Shield, Infinity } from "lucide-react";
+import { Satellite, Plane, Car, Globe, ArrowRight, Zap, Shield, Infinity, FlaskConical, Microscope, AlertCircle } from "lucide-react";
 import GyrocraftNavbar from "@/components/gyrocraft/GyrocraftNavbar";
 import GyrocraftFooter from "@/components/gyrocraft/GyrocraftFooter";
 
@@ -9,43 +9,39 @@ const GyrocraftHome = () => {
   const features = [
     {
       icon: Satellite,
-      title: "Doubles Satellite Lifetime",
-      description: "No propellant depletion - permanent orbital capability",
+      title: "Satellite Attitude Control",
+      description: "Precision torque vectoring for zero-propellant station-keeping",
     },
     {
       icon: Plane,
-      title: "72-Hour Endurance",
-      description: "Military drones with silent, undetectable flight",
+      title: "Aerospace Applications",
+      description: "High-frequency electromagnetic control for UAV stabilization",
     },
     {
       icon: Car,
-      title: "Unlimited Range",
-      description: "Solve the eVTOL battery problem forever",
+      title: "Advanced Air Mobility",
+      description: "Next-generation control systems for eVTOL platforms",
     },
     {
       icon: Globe,
-      title: "$284B Market Opportunity",
-      description: "Cumulative TAM across three explosive sectors",
+      title: "Multi-Environment",
+      description: "Investigating applications in space, air, and underwater",
     },
   ];
 
   const stats = [
-    { value: "$2-5B", label: "Patent Value" },
+    { value: "Seed", label: "Current Stage" },
     { value: "5-10", label: "Core Patents" },
-    { value: "$284B", label: "Addressable Market" },
-    { value: "3", label: "Sectors Ready" },
-  ];
-
-  const partners = [
-    "Inmarsat", "Lockheed Martin", "Joby Aviation"
+    { value: "18-24mo", label: "To Validation" },
+    { value: "3", label: "Target Sectors" },
   ];
 
   return (
     <>
       <Helmet>
-        <title>Gyrocraft | Revolutionary Propellant-Free Propulsion Technology</title>
-        <meta name="description" content="Gyrocraft - Revolutionary inertial electromagnetic propulsion. Works everywhere: space, air, water. No fuel. No exhaust. No batteries. $284B market opportunity." />
-        <meta name="keywords" content="Gyrocraft, propulsion, aerospace, satellite, eVTOL, military drone, patent, Ravolution" />
+        <title>Gyrocraft | Advanced Electromagnetic Control Systems for Aerospace</title>
+        <meta name="description" content="Gyrocraft - Investigating electromagnetic gyroscopic effects for aerospace applications. Research-stage technology seeking validation through rigorous independent testing." />
+        <meta name="keywords" content="Gyrocraft, electromagnetic control, aerospace, satellite attitude control, gyroscopic systems, Ravolution" />
       </Helmet>
 
       <GyrocraftNavbar />
@@ -70,33 +66,35 @@ const GyrocraftHome = () => {
         </div>
 
         <div className="relative z-10 max-w-6xl mx-auto px-6 text-center pt-24">
-          <div className="inline-flex items-center gap-2 bg-gyrocraft-teal/20 text-gyrocraft-teal rounded-full px-4 py-2 mb-6 animate-fade-in">
-            <Zap className="w-4 h-4" />
-            <span className="text-sm font-semibold">Revolutionary Aerospace Technology</span>
+          <div className="inline-flex items-center gap-2 bg-gyrocraft-orange/20 text-gyrocraft-orange rounded-full px-4 py-2 mb-6 animate-fade-in">
+            <FlaskConical className="w-4 h-4" />
+            <span className="text-sm font-semibold">Research-Stage Technology</span>
           </div>
 
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-display font-bold text-gyrocraft-text mb-6 animate-fade-in" style={{ animationDelay: '0.1s' }}>
-            The Future of Propulsion
+            Investigating Electromagnetic
             <br />
-            <span className="text-gyrocraft-teal">Has Arrived</span>
+            <span className="text-gyrocraft-teal">Gyroscopic Effects</span>
           </h1>
 
-          <p className="text-xl md:text-2xl text-gyrocraft-text/70 max-w-3xl mx-auto mb-10 animate-fade-in" style={{ animationDelay: '0.2s' }}>
-            Revolutionary inertial electromagnetic propulsion.
-            <br />
-            <span className="text-gyrocraft-teal font-semibold">Works everywhere: space, air, water. No fuel. No exhaust. No batteries.</span>
+          <p className="text-xl md:text-2xl text-gyrocraft-text/70 max-w-3xl mx-auto mb-6 animate-fade-in" style={{ animationDelay: '0.2s' }}>
+            Early-stage research platform exploring force generation through asymmetric magnetic field interactions in high-speed gyroscopic systems.
+          </p>
+
+          <p className="text-lg text-gyrocraft-text/50 max-w-2xl mx-auto mb-10 animate-fade-in" style={{ animationDelay: '0.25s' }}>
+            Seeking validation through rigorous independent testing. Currently raising seed funding for prototype development.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16 animate-fade-in" style={{ animationDelay: '0.3s' }}>
             <Button size="lg" className="bg-gyrocraft-teal hover:bg-gyrocraft-teal/90 text-gyrocraft-dark font-semibold px-8 py-6 text-lg" asChild>
-              <Link to="/gyrocraft/licensing">
-                For Companies: Explore Licensing
+              <Link to="/gyrocraft/investors">
+                Investment Opportunity
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Link>
             </Button>
             <Button size="lg" variant="outline" className="border-gyrocraft-orange text-gyrocraft-orange hover:bg-gyrocraft-orange/10 font-semibold px-8 py-6 text-lg" asChild>
-              <Link to="/gyrocraft/investors">
-                For Investors: See Pitch Deck
+              <Link to="/gyrocraft/licensing">
+                Partnership Inquiries
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Link>
             </Button>
@@ -104,15 +102,15 @@ const GyrocraftHome = () => {
         </div>
       </section>
 
-      {/* Why Gyrocraft Section */}
+      {/* Research Focus Section */}
       <section className="py-20 bg-gyrocraft-dark">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-display font-bold text-gyrocraft-text mb-4">
-              Why <span className="text-gyrocraft-teal">Gyrocraft</span>?
+              Research <span className="text-gyrocraft-teal">Focus Areas</span>
             </h2>
             <p className="text-gyrocraft-text/60 max-w-2xl mx-auto">
-              A breakthrough technology that generates thrust using only electromagnetic forces and rotational dynamics
+              Exploring electromagnetic actuation mechanisms in gyroscopic systems with potential applications across aerospace sectors
             </p>
           </div>
 
@@ -137,21 +135,14 @@ const GyrocraftHome = () => {
         </div>
       </section>
 
-      {/* Market Proof Section */}
-      <section className="py-16 bg-gyrocraft-blue/5">
+      {/* Development Status Banner */}
+      <section className="py-8 bg-gyrocraft-orange/10 border-y border-gyrocraft-orange/20">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-10">
-            <h3 className="text-xl text-gyrocraft-text/60 mb-6">Strategic Partners Express Strong Interest</h3>
-            <div className="flex flex-wrap justify-center gap-12 items-center">
-              {partners.map((partner) => (
-                <div
-                  key={partner}
-                  className="text-2xl font-display font-bold text-gyrocraft-text/40 hover:text-gyrocraft-teal transition-colors"
-                >
-                  {partner}
-                </div>
-              ))}
-            </div>
+          <div className="flex items-center justify-center gap-4 text-center">
+            <AlertCircle className="w-6 h-6 text-gyrocraft-orange flex-shrink-0" />
+            <p className="text-gyrocraft-text">
+              <span className="font-semibold text-gyrocraft-orange">Current Status:</span> Patent filed December 2025. Benchtop prototype under development. Seeking university partnerships for independent validation.
+            </p>
           </div>
         </div>
       </section>
@@ -180,30 +171,39 @@ const GyrocraftHome = () => {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl md:text-4xl font-display font-bold text-gyrocraft-text mb-6">
-                Propulsion Without Propellant
+                Research Questions Under Investigation
               </h2>
               <p className="text-gyrocraft-text/70 mb-6 text-lg">
-                Gyrocraft generates sustained thrust using only electromagnetic forces and rotational dynamics. 
-                Our patented system works in space, air, and underwater environments without fuel, exhaust, or external reaction mass.
+                Our patent-pending approach combines ultra-high-speed rotor dynamics (up to 20,000 RPM), 
+                Halbach array electromagnetic coils, and predictive digital control algorithms.
               </p>
               <div className="space-y-4">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-gyrocraft-teal/20 rounded-lg flex items-center justify-center">
+                <div className="flex items-start gap-3">
+                  <div className="w-10 h-10 bg-gyrocraft-teal/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Microscope className="w-5 h-5 text-gyrocraft-teal" />
+                  </div>
+                  <div>
+                    <span className="text-gyrocraft-text font-medium">Electromagnetic Actuation</span>
+                    <p className="text-gyrocraft-text/50 text-sm">Can asymmetric field actuation produce measurable force effects?</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="w-10 h-10 bg-gyrocraft-teal/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <FlaskConical className="w-5 h-5 text-gyrocraft-teal" />
+                  </div>
+                  <div>
+                    <span className="text-gyrocraft-text font-medium">Physical Mechanisms</span>
+                    <p className="text-gyrocraft-text/50 text-sm">What are the underlying principles and potential applications?</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="w-10 h-10 bg-gyrocraft-teal/20 rounded-lg flex items-center justify-center flex-shrink-0">
                     <Shield className="w-5 h-5 text-gyrocraft-teal" />
                   </div>
-                  <span className="text-gyrocraft-text">Patent application filed December 30, 2025</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-gyrocraft-teal/20 rounded-lg flex items-center justify-center">
-                    <Globe className="w-5 h-5 text-gyrocraft-teal" />
+                  <div>
+                    <span className="text-gyrocraft-text font-medium">Patent Protection</span>
+                    <p className="text-gyrocraft-text/50 text-sm">Application filed December 30, 2025 - global protection planned</p>
                   </div>
-                  <span className="text-gyrocraft-text">5-10 core patents protected globally</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-gyrocraft-teal/20 rounded-lg flex items-center justify-center">
-                    <Infinity className="w-5 h-5 text-gyrocraft-teal" />
-                  </div>
-                  <span className="text-gyrocraft-text">Works in all environments: space, air, water</span>
                 </div>
               </div>
             </div>
@@ -221,22 +221,56 @@ const GyrocraftHome = () => {
         </div>
       </section>
 
+      {/* Timeline Section */}
+      <section className="py-20 bg-gyrocraft-blue/5">
+        <div className="max-w-4xl mx-auto px-6">
+          <h2 className="text-3xl font-display font-bold text-gyrocraft-text text-center mb-12">
+            Development Roadmap
+          </h2>
+          <div className="space-y-4">
+            {[
+              { status: "complete", phase: "Q4 2025", title: "Patent Application Filed", desc: "Core technology documented and submitted" },
+              { status: "active", phase: "Q1-Q2 2026", title: "Benchtop Prototype", desc: "Complete initial hardware assembly and testing" },
+              { status: "planned", phase: "Q3-Q4 2026", title: "Laboratory Testing", desc: "Controlled testing with independent measurement" },
+              { status: "planned", phase: "2027", title: "University Partnership", desc: "Third-party validation and peer review" },
+              { status: "future", phase: "2028+", title: "Commercial Applications", desc: "Contingent on successful validation results" },
+            ].map((item) => (
+              <div key={item.phase} className="flex items-center gap-4">
+                <div className={`w-4 h-4 rounded-full flex-shrink-0 ${
+                  item.status === 'complete' ? 'bg-gyrocraft-teal' :
+                  item.status === 'active' ? 'bg-gyrocraft-orange animate-pulse' :
+                  'bg-gyrocraft-text/20'
+                }`} />
+                <div className="flex-1 bg-gyrocraft-dark rounded-xl p-4 border border-gyrocraft-text/10">
+                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+                    <div>
+                      <span className="text-gyrocraft-teal font-bold">{item.phase}</span>
+                      <span className="text-gyrocraft-text ml-3">{item.title}</span>
+                    </div>
+                    <span className="text-gyrocraft-text/50 text-sm">{item.desc}</span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-br from-gyrocraft-blue to-gyrocraft-dark">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <h2 className="text-3xl md:text-4xl font-display font-bold text-gyrocraft-text mb-6">
-            Ready to Revolutionize Propulsion?
+            Support Breakthrough Research
           </h2>
           <p className="text-gyrocraft-text/70 mb-8 text-lg">
-            Whether you're a corporation looking to license breakthrough technology or an investor seeking the next aerospace unicorn, 
-            Gyrocraft offers unprecedented opportunity.
+            We're seeking seed investment to complete prototype development and establish university partnerships for independent validation.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" className="bg-gyrocraft-teal hover:bg-gyrocraft-teal/90 text-gyrocraft-dark font-semibold px-8" asChild>
-              <Link to="/gyrocraft/licensing">Explore Licensing</Link>
+              <Link to="/gyrocraft/investors">Investment Details</Link>
             </Button>
             <Button size="lg" variant="outline" className="border-gyrocraft-text/30 text-gyrocraft-text hover:bg-gyrocraft-text/10 font-semibold px-8" asChild>
-              <Link to="/gyrocraft/about">Learn About Us</Link>
+              <Link to="/gyrocraft/about">About the Research</Link>
             </Button>
           </div>
         </div>
