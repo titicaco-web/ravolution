@@ -109,6 +109,7 @@ const portfolios = [
     },
     color: "gyro",
     featured: true,
+    badge: "RESEARCH STAGE",
     internalLink: "/gyrocraft",
   },
 ];
@@ -167,8 +168,8 @@ const PatentPortfolios = () => {
                         <IconComponent className="w-6 h-6" />
                       </div>
                       {portfolio.featured && (
-                        <span className="bg-gold text-gold-foreground text-xs font-semibold px-3 py-1 rounded-full">
-                          FLAGSHIP
+                        <span className={`text-xs font-semibold px-3 py-1 rounded-full ${portfolio.badge === "RESEARCH STAGE" ? "bg-accent/20 text-accent" : "bg-gold text-gold-foreground"}`}>
+                          {portfolio.badge || "FLAGSHIP"}
                         </span>
                       )}
                     </div>
