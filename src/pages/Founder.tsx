@@ -247,10 +247,14 @@ const Founder = () => {
             <p className="text-lg leading-relaxed">
               Ivan Daza is a <strong>Super Inventor</strong> and serial entrepreneur with over 30 years of experience 
               transforming breakthrough ideas into high-value strategic assets. As CEO and founder of Ravolution AB, 
-              Ivan holds <strong>foundational patents for voice-based authentication</strong>, a critical technology 
-              securing the <strong>$20 billion global mobile identity market</strong>. His inventions solve the 
-              scalability crisis in digital security—a key driver for <strong>unicorn-status valuation</strong> in 
-              the biometric sector.
+              Ivan holds foundational patents for several technologies aimed at improving civilization, business or life in general.
+            </p>
+            <p className="text-lg leading-relaxed">
+              His innovations address critical global challenges: democratizing quality education across rural communities 
+              through scalable K1-K9 curricula that establish baseline educational parity, thereby elevating educational 
+              outcomes universally. In immigrant language acquisition, his proprietary methodology accelerates literacy 
+              and professional proficiency <strong>24x faster</strong> than conventional approaches, enabling accelerated 
+              labor market integration and economic self-sufficiency.
             </p>
             <p className="text-lg leading-relaxed">
               Recognized as one of 200 entrepreneurs who shaped Sweden's business landscape over the past 
