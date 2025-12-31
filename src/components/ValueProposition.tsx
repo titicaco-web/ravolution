@@ -5,17 +5,17 @@ const pillars = [
   {
     icon: Shield,
     title: "IP Licensing",
-    headline: "Defensible Competitive Advantage",
-    description: "Proprietary patent portfolios across 4 strategic verticals generating recurring licensing revenue.",
-    cta: "Explore Patents",
+    headline: "Patented Solutions for Measurable Global Impact",
+    description: "Comprehensive patent portfolios across 4 strategic verticals protecting defensible innovation: education (K-9 curriculum rights alignment), language learning (34x acquisition advantage), voice authentication (fraud prevention), and global trade connectivity (€1.1B+ market). Each patent generates recurring licensing revenue while solving systemic problems affecting billions of people.",
+    cta: "Explore Patent Portfolios",
     href: "#patents",
     color: "gold",
   },
   {
     icon: Rocket,
     title: "SaaS Products",
-    headline: "Market-Proven Revenue Model",
-    description: "xPortMatch (€15.5–31M ARR potential), VoiceProtector (€323M ARR projection) with established customer acquisition.",
+    headline: "Proven Platforms at Global Scale",
+    description: "Category-defining products with institutional traction and expansion roadmap: xPortMatch (€15.5–31M ARR potential, 50-country partner network, 180K+ addressable Nordic SMEs), RosettaLivingstone (€585B TAM, 34x faster language acquisition, government immigration partnerships), and VoiceProtector (€323M ARR projection, multi-billion fraud prevention market). Each generates recurring SaaS revenue while serving as implementation engine for patented technologies.",
     cta: "Product Details",
     href: "#products",
     color: "accent",
@@ -23,8 +23,8 @@ const pillars = [
   {
     icon: Lightbulb,
     title: "Marketplace Concepts",
-    headline: "Portfolio of Growth Assets",
-    description: "5 early-stage concepts with validated problems, clear monetization paths, ready for partnership or acquisition.",
+    headline: "De-Risked Innovation Portfolio with Clear Monetization",
+    description: "5 validated market opportunities with identified problems, tested solution approaches, and defined revenue models—ready for institutional partnership, strategic acquisition, or co-investment. Portfolio includes education innovation marketplace, global skills exchange platform, and community-driven social impact concepts. Structured for licensing, acquisition, or franchise expansion into new geographies.",
     cta: "View Concepts",
     href: "#concepts",
     color: "primary",
@@ -36,11 +36,11 @@ const ValueProposition = () => {
     <section className="section-padding bg-background">
       <div className="max-w-7xl mx-auto">
         <div className="section-header">
-          <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">
-            Three Revenue Streams, One Strategic Vision
+          <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-2">
+            Solving Global Challenges Through Strategic IP.
           </h2>
-          <p className="text-lg text-muted-foreground">
-            Diversified monetization through IP licensing, SaaS platforms, and emerging marketplace concepts.
+          <p className="text-xl md:text-2xl font-display font-semibold text-gradient-gold mb-4">
+            Three Revenue Streams, One Transformational Vision.
           </p>
         </div>
 
@@ -76,7 +76,7 @@ const ValueProposition = () => {
                   {pillar.headline}
                 </h3>
                 
-                <p className="text-muted-foreground mb-6 leading-relaxed">
+                <p className="text-muted-foreground mb-6 leading-relaxed text-sm">
                   {pillar.description}
                 </p>
                 
