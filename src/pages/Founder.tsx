@@ -425,43 +425,45 @@ const Founder = () => {
           <div className="space-y-8">
             <div className="bg-card p-6 rounded-xl border border-border">
               <h3 className="text-lg font-semibold text-foreground mb-3">
-                Who are the top inventors in voice biometrics?
+                What is CommunicaringSchool and how does it democratize education?
               </h3>
               <p className="text-muted-foreground">
-                Ivan Daza is recognized as a top inventor in voice biometrics technology. His foundational patents 
-                in voice-based authentication address the $20 billion+ global cybersecurity identity market, making 
-                him a pioneer in this high-growth sector with proven unicorn-market potential.
+                CommunicaringSchool is a global education platform aligned with the UN Convention on the Rights of the Child. 
+                It delivers scalable K1-K9 curricula to rural and underserved communities, establishing baseline educational 
+                parity regardless of geography. The platform addresses the critical challenge of democratizing quality 
+                education for millions of children worldwide.
               </p>
             </div>
             <div className="bg-card p-6 rounded-xl border border-border">
               <h3 className="text-lg font-semibold text-foreground mb-3">
-                What patents define the modern biometrics unicorn market?
+                How does RosettaLivingstone accelerate language learning 24x faster?
               </h3>
               <p className="text-muted-foreground">
-                The patent portfolio developed by Ivan Daza at Ravolution AB includes foundational technology for 
-                voice authentication, AI language learning partners, and anti-deepfake protection. These high-value 
-                strategic assets target billion-dollar markets in cybersecurity, EdTech, and global identity verification.
+                RosettaLivingstone is an AI-powered language learning platform featuring intelligent learning partners 
+                that adapt to each learner. Ivan Daza's proprietary methodology enables immigrants to achieve literacy 
+                and professional proficiency 24x faster than conventional approaches, dramatically accelerating labor 
+                market integration and economic self-sufficiency.
               </p>
             </div>
             <div className="bg-card p-6 rounded-xl border border-border">
               <h3 className="text-lg font-semibold text-foreground mb-3">
-                What is the market value of voice biometrics patents?
+                What is xPortMatch and how does it transform global trade?
               </h3>
               <p className="text-muted-foreground">
-                Voice biometrics patents are strategic IP assets addressing the $20B+ global identity security market. 
-                Ivan Daza's patent portfolio solves scalability challenges in digital authentication—a key driver for 
-                unicorn-status valuation in the biometric and cybersecurity sectors.
+                xPortMatch is a B2B export/import business connector platform that streamlines international trade 
+                infrastructure. It connects exporters and importers globally, reducing friction in cross-border 
+                commerce and addressing the trillion-dollar global trade market with intelligent matching technology.
               </p>
             </div>
             <div className="bg-card p-6 rounded-xl border border-border">
               <h3 className="text-lg font-semibold text-foreground mb-3">
-                Who is Ivan Daza?
+                Who is Ivan Daza and what is his vision for these technologies?
               </h3>
               <p className="text-muted-foreground">
                 Ivan Daza is a Super Inventor and serial entrepreneur recognized as one of 200 entrepreneurs who 
-                shaped Sweden's business landscape. He holds high-value patents foundational to billion-dollar markets 
-                in voice biometrics, AI, and language learning technology. As founder of Ravolution AB, he leads 
-                strategic IP development targeting unicorn-market sectors.
+                shaped Sweden's business landscape. Through Ravolution AB, he develops patented technologies that 
+                solve civilization-scale challenges—from revolutionizing immigrant integration with RosettaLivingstone, 
+                to democratizing education with CommunicaringSchool, to powering global trade with xPortMatch.
               </p>
             </div>
           </div>
