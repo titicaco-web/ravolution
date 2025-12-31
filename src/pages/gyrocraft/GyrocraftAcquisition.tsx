@@ -1,7 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { FileText, Database, BarChart3, Shield, Building2, Rocket, Plane, Settings, CheckCircle, AlertTriangle, TrendingUp } from "lucide-react";
+import { FileText, Database, BarChart3, Shield, Building2, Rocket, Plane, Settings, CheckCircle, TrendingUp, Tag } from "lucide-react";
 import GyrocraftNavbar from "@/components/gyrocraft/GyrocraftNavbar";
 import GyrocraftFooter from "@/components/gyrocraft/GyrocraftFooter";
 import GyrocraftNDAForm from "@/components/gyrocraft/GyrocraftNDAForm";
@@ -106,12 +106,12 @@ const GyrocraftAcquisition = () => {
       </section>
 
       {/* Current Status Notice */}
-      <section className="py-6 bg-gyrocraft-orange/10 border-y border-gyrocraft-orange/20">
+      <section className="py-6 bg-gyrocraft-teal/10 border-y border-gyrocraft-teal/20">
         <div className="max-w-6xl mx-auto px-6">
           <div className="flex items-center justify-center gap-4 text-center">
-            <AlertTriangle className="w-6 h-6 text-gyrocraft-orange flex-shrink-0" />
+            <Tag className="w-6 h-6 text-gyrocraft-teal flex-shrink-0" />
             <p className="text-gyrocraft-text">
-              <span className="font-semibold text-gyrocraft-orange">Development Stage:</span> Patent filed, benchtop prototype in progress. Technology unvalidated. Pricing reflects pre-validation risk.
+              <span className="font-semibold text-gyrocraft-teal">Available for Acquisition:</span> 5 patents filed with global protection. Early-stage pricing offers strategic entry point for qualified acquirers.
             </p>
           </div>
         </div>
