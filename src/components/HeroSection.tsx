@@ -4,51 +4,48 @@ import { ArrowRight, FileText, Languages, Shield, Globe, Mic } from "lucide-reac
 const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-      {/* Multi-layer Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[hsl(210,100%,8%)] via-[hsl(210,100%,15%)] to-[hsl(210,80%,20%)]" />
+      {/* Animated Shifting Blue Background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-[hsl(220,100%,8%)] via-[hsl(200,100%,12%)] to-[hsl(210,100%,18%)] animate-[shiftBlue_12s_ease-in-out_infinite]" />
+      <div className="absolute inset-0 bg-gradient-to-tl from-[hsl(195,100%,15%)] via-transparent to-[hsl(230,100%,20%)] opacity-60 animate-[shiftBlue_8s_ease-in-out_infinite_reverse]" />
       
-      {/* Subtle Grid Pattern */}
+      {/* White Grid Pattern - Small Squares */}
       <div 
-        className="absolute inset-0 opacity-[0.03]"
+        className="absolute inset-0 opacity-[0.12]"
         style={{
           backgroundImage: `
-            linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)
+            linear-gradient(to right, rgba(255,255,255,0.4) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(255,255,255,0.4) 1px, transparent 1px)
           `,
-          backgroundSize: '60px 60px'
+          backgroundSize: '32px 32px'
         }}
       />
       
-      {/* Radial Gradient Overlay */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_hsl(210,100%,25%)_0%,_transparent_70%)] opacity-30" />
+      {/* Subtle Radial Glow */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_hsl(200,100%,25%)_0%,_transparent_60%)] opacity-25" />
       
-      {/* Animated Background Elements */}
+      {/* Animated Color Shifts */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-accent/15 rounded-full blur-[100px] animate-float" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-gold/12 rounded-full blur-[120px] animate-float" style={{ animationDelay: '2s' }} />
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-primary-light/8 rounded-full blur-[150px]" />
-        
-        {/* Additional accent glow */}
-        <div className="absolute top-[10%] right-[10%] w-48 h-48 bg-accent/20 rounded-full blur-[80px]" />
-        <div className="absolute bottom-[15%] left-[5%] w-56 h-56 bg-gold/15 rounded-full blur-[90px]" />
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[hsl(200,100%,50%)]/10 rounded-full blur-[150px] animate-float" />
+        <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-[hsl(220,100%,40%)]/15 rounded-full blur-[180px] animate-float" style={{ animationDelay: '2s' }} />
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[hsl(190,100%,30%)]/10 rounded-full blur-[200px] animate-[shiftBlue_10s_ease-in-out_infinite]" />
         
         {/* Floating Icons */}
-        <div className="absolute top-1/4 right-[15%] text-white/10 animate-float" style={{ animationDelay: '1s' }}>
+        <div className="absolute top-1/4 right-[15%] text-white/8 animate-float" style={{ animationDelay: '1s' }}>
           <Languages className="w-16 h-16" />
         </div>
-        <div className="absolute bottom-1/3 left-[10%] text-white/10 animate-float" style={{ animationDelay: '3s' }}>
+        <div className="absolute bottom-1/3 left-[10%] text-white/8 animate-float" style={{ animationDelay: '3s' }}>
           <Shield className="w-20 h-20" />
         </div>
-        <div className="absolute top-1/3 left-[20%] text-white/10 animate-float" style={{ animationDelay: '0.5s' }}>
+        <div className="absolute top-1/3 left-[20%] text-white/8 animate-float" style={{ animationDelay: '0.5s' }}>
           <Globe className="w-12 h-12" />
         </div>
-        <div className="absolute bottom-1/4 right-[20%] text-white/10 animate-float" style={{ animationDelay: '2.5s' }}>
+        <div className="absolute bottom-1/4 right-[20%] text-white/8 animate-float" style={{ animationDelay: '2.5s' }}>
           <Mic className="w-14 h-14" />
         </div>
       </div>
       
       {/* Top Edge Highlight */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent/30 to-transparent" />
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
 
       {/* Content */}
       <div className="relative z-10 max-w-6xl mx-auto px-6 text-center">
