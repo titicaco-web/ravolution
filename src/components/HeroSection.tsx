@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, FileText, Languages, Shield, Globe, Mic } from "lucide-react";
+import { ArrowRight, FileText } from "lucide-react";
 
 const HeroSection = () => {
   return (
@@ -28,20 +28,6 @@ const HeroSection = () => {
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[hsl(200,100%,50%)]/10 rounded-full blur-[150px] animate-float" />
         <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-[hsl(220,100%,40%)]/15 rounded-full blur-[180px] animate-float" style={{ animationDelay: '2s' }} />
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[hsl(190,100%,30%)]/10 rounded-full blur-[200px] animate-[shiftBlue_10s_ease-in-out_infinite]" />
-        
-        {/* Floating Icons */}
-        <div className="absolute top-1/4 right-[15%] text-white/8 animate-float" style={{ animationDelay: '1s' }}>
-          <Languages className="w-16 h-16" />
-        </div>
-        <div className="absolute bottom-1/3 left-[10%] text-white/8 animate-float" style={{ animationDelay: '3s' }}>
-          <Shield className="w-20 h-20" />
-        </div>
-        <div className="absolute top-1/3 left-[20%] text-white/8 animate-float" style={{ animationDelay: '0.5s' }}>
-          <Globe className="w-12 h-12" />
-        </div>
-        <div className="absolute bottom-1/4 right-[20%] text-white/8 animate-float" style={{ animationDelay: '2.5s' }}>
-          <Mic className="w-14 h-14" />
-        </div>
       </div>
       
       {/* Top Edge Highlight */}
