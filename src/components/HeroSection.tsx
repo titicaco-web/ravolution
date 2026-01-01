@@ -16,7 +16,7 @@ const HeroSection = () => {
             linear-gradient(to right, rgba(255,255,255,0.4) 1px, transparent 1px),
             linear-gradient(to bottom, rgba(255,255,255,0.4) 1px, transparent 1px)
           `,
-          backgroundSize: '32px 32px'
+          backgroundSize: '18px 18px'
         }}
       />
       
