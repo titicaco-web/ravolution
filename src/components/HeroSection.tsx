@@ -20,16 +20,8 @@ const HeroSection = () => {
         }}
       />
       
-      {/* Subtle Radial Glow */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_hsl(200,100%,25%)_0%,_transparent_60%)] opacity-25" />
-      
-      {/* Animated Color Shifts */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[hsl(200,100%,50%)]/10 rounded-full blur-[150px] animate-float" />
-        <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-[hsl(220,100%,40%)]/15 rounded-full blur-[180px] animate-float" style={{ animationDelay: '2s' }} />
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[hsl(190,100%,30%)]/10 rounded-full blur-[200px] animate-[shiftBlue_10s_ease-in-out_infinite]" />
-      </div>
-      
+      {/* Additional shifting gradient layer */}
+      <div className="absolute inset-0 bg-gradient-to-tr from-[hsl(210,100%,20%)] via-transparent to-[hsl(195,100%,18%)] opacity-40 animate-[shiftBlue_15s_ease-in-out_infinite]" />
       {/* Top Edge Highlight */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
 
