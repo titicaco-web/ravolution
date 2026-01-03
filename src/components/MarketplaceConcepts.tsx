@@ -24,7 +24,7 @@ const concepts = [
     revenue: "Premium €7.99/mo, event commissions, B2B municipal",
     status: "Early Validation",
     color: "gold",
-    link: "https://naravan.se/",
+    link: "https://xn--nravn-grad.se/",
   },
   {
     id: "beredskapad",
