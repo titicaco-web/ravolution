@@ -9,6 +9,7 @@ import WhyRavolution from "@/components/WhyRavolution";
 import InvestorTeaser from "@/components/InvestorTeaser";
 import FooterCTA from "@/components/FooterCTA";
 import Footer from "@/components/Footer";
+import { ScrollAnimateWrapper } from "@/hooks/use-scroll-animation";
 
 const Index = () => {
   return (
@@ -33,13 +34,27 @@ const Index = () => {
       <div className="min-h-screen">
         <Navbar />
         <HeroSection />
-        <ValueProposition />
-        <PatentPortfolios />
-        <FeaturedProducts />
-        <MarketplaceConcepts />
-        <WhyRavolution />
-        <InvestorTeaser />
-        <FooterCTA />
+        <ScrollAnimateWrapper>
+          <ValueProposition />
+        </ScrollAnimateWrapper>
+        <ScrollAnimateWrapper delay={0.1}>
+          <PatentPortfolios />
+        </ScrollAnimateWrapper>
+        <ScrollAnimateWrapper delay={0.1}>
+          <FeaturedProducts />
+        </ScrollAnimateWrapper>
+        <ScrollAnimateWrapper delay={0.1}>
+          <MarketplaceConcepts />
+        </ScrollAnimateWrapper>
+        <ScrollAnimateWrapper delay={0.1}>
+          <WhyRavolution />
+        </ScrollAnimateWrapper>
+        <ScrollAnimateWrapper delay={0.1}>
+          <InvestorTeaser />
+        </ScrollAnimateWrapper>
+        <ScrollAnimateWrapper delay={0.1}>
+          <FooterCTA />
+        </ScrollAnimateWrapper>
         <Footer />
       </div>
     </>
