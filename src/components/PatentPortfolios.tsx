@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Languages, Mic, Users, Globe, GraduationCap, ChevronDown, ChevronUp, CheckCircle, ExternalLink, Calendar, Briefcase } from "lucide-react";
+import { Languages, Mic, Users, Globe, GraduationCap, ChevronDown, ChevronUp, CheckCircle, ExternalLink, Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import GyroscopeIcon from "@/components/icons/GyroscopeIcon";
@@ -128,24 +128,6 @@ const portfolios = [
     },
     color: "accent",
   },
-  {
-    id: "nordic-freelance",
-    icon: Briefcase,
-    title: "Nordic Freelance™",
-    subtitle: "Nordic Region Freelance Marketplace",
-    patents: 1,
-    claims: 12,
-    valueProposition: "Leading freelance marketplace serving Sweden, Norway, Denmark & Finland with 50% lower fees than competitors",
-    marketPotential: "€1.18B Nordic Market → €1.60B by 2028 | 368K Tech Freelancers",
-    patentCoverage: "Nordic payment integrations, F-skatt compliance, GDPR-native matching",
-    revenueModel: "10% commission, enterprise subscriptions €99-599/mo, premium listings",
-    details: {
-      features: ["10% Commission (vs 20% Fiverr)", "Zero Client Fees", "Swish/Vipps/MobilePay Integration", "F-skatt Tax Compliance", "GDPR-Native Platform", "AI-Powered Matching"],
-      markets: ["368,000 Nordic Tech Freelancers", "77,000 Tech Companies", "21,600 Enterprise Clients", "Government Integration Programs"],
-    },
-    color: "gold",
-    externalLink: "https://nordicfreelance.se/",
-  },
 ];
 
 const PatentPortfolios = () => {
@@ -163,10 +145,10 @@ const PatentPortfolios = () => {
             <span className="text-sm font-semibold">Defensible IP Assets</span>
           </div>
           <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">
-            Eight Strategic Patent Verticals
+            Seven Strategic Patent Verticals
           </h2>
           <p className="text-lg text-muted-foreground">
-            Protecting innovation across aerospace, education, language, voice, events, freelance marketplaces & global commerce
+            Protecting innovation across aerospace, education, language, voice, events, security & global commerce
           </p>
         </div>
 

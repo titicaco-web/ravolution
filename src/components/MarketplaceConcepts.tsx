@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Dog, Heart, ShieldAlert, Droplets, Home, ArrowRight, TrendingUp, Users } from "lucide-react";
+import { Dog, Heart, ShieldAlert, Droplets, Home, ArrowRight, TrendingUp, Users, Briefcase, ExternalLink } from "lucide-react";
 
 const concepts = [
   {
@@ -57,6 +57,18 @@ const concepts = [
     status: "Early Validation",
     color: "gold",
   },
+  {
+    id: "nordic-freelance",
+    icon: Briefcase,
+    name: "NordicFreelance.se",
+    tagline: "Leading Nordic freelance marketplace",
+    problem: "Nordic freelancers pay 20% fees to global platforms lacking local integration",
+    market: "€1.18B → €1.60B by 2028 | 368K tech freelancers",
+    revenue: "10% commission, enterprise €99-599/mo, premium listings",
+    status: "Live Platform",
+    color: "primary",
+    link: "https://nordicfreelance.se/",
+  },
 ];
 
 const MarketplaceConcepts = () => {
@@ -92,6 +104,7 @@ const MarketplaceConcepts = () => {
               "Concept": "bg-muted text-muted-foreground",
               "Early Validation": "bg-gold/10 text-gold",
               "MVP Ready": "bg-accent/10 text-accent",
+              "Live Platform": "bg-primary/10 text-primary",
             };
 
             return (
@@ -128,10 +141,19 @@ const MarketplaceConcepts = () => {
                   <p className="text-xs text-muted-foreground mb-3">
                     <span className="font-semibold">Revenue:</span> {concept.revenue}
                   </p>
-                  <Button variant="ghost" className="w-full group" size="sm">
-                    Learn More
-                    <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
-                  </Button>
+                  {concept.link ? (
+                    <Button variant="ghost" className="w-full group" size="sm" asChild>
+                      <a href={concept.link} target="_blank" rel="noopener noreferrer">
+                        Visit Platform
+                        <ExternalLink className="ml-2 w-4 h-4" />
+                      </a>
+                    </Button>
+                  ) : (
+                    <Button variant="ghost" className="w-full group" size="sm">
+                      Learn More
+                      <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
+                    </Button>
+                  )}
                 </div>
               </div>
             );
