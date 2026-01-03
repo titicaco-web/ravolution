@@ -3,7 +3,7 @@ import { ExternalLink, TrendingUp, Users, Globe, Shield, Zap, BarChart3 } from "
 
 const FeaturedProducts = () => {
   return (
-    <section id="products" className="section-padding pt-6 md:pt-8 bg-background">
+    <section id="products" className="section-padding pt-10 md:pt-12 bg-background">
       <div className="max-w-7xl mx-auto">
         <div className="section-header">
           <div className="inline-flex items-center gap-2 bg-accent/10 text-accent rounded-full px-4 py-2 mb-4">
