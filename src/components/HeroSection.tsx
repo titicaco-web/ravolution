@@ -77,7 +77,7 @@ const HeroSection = () => {
                 <div className="text-white/70 text-sm">Countries Reached</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-accent mb-1">6</div>
+                <div className="text-3xl md:text-4xl font-bold text-accent mb-1">7</div>
                 <div className="text-white/70 text-sm">Marketplace Concepts</div>
               </div>
             </div>
