@@ -17,8 +17,14 @@ import GyrocraftLicensing from "./pages/gyrocraft/GyrocraftLicensing";
 import GyrocraftInvestors from "./pages/gyrocraft/GyrocraftInvestors";
 import GyrocraftAcquisition from "./pages/gyrocraft/GyrocraftAcquisition";
 import GyrocraftAbout from "./pages/gyrocraft/GyrocraftAbout";
+import GyrocraftPasswordGate from "./components/gyrocraft/GyrocraftPasswordGate";
 
 const queryClient = new QueryClient();
+
+// Protected Gyrocraft Route wrapper
+const ProtectedGyrocraftRoute = ({ children }: { children: React.ReactNode }) => (
+  <GyrocraftPasswordGate>{children}</GyrocraftPasswordGate>
+);
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
@@ -33,12 +39,12 @@ const App = () => (
           <Route path="/terms-of-service" element={<TermsOfService />} />
           <Route path="/founder" element={<Founder />} />
           
-          {/* Gyrocraft Routes */}
-          <Route path="/gyrocraft" element={<GyrocraftHome />} />
-          <Route path="/gyrocraft/licensing" element={<GyrocraftLicensing />} />
-          <Route path="/gyrocraft/investors" element={<GyrocraftInvestors />} />
-          <Route path="/gyrocraft/acquisition" element={<GyrocraftAcquisition />} />
-          <Route path="/gyrocraft/about" element={<GyrocraftAbout />} />
+          {/* Gyrocraft Routes - Password Protected */}
+          <Route path="/gyrocraft" element={<ProtectedGyrocraftRoute><GyrocraftHome /></ProtectedGyrocraftRoute>} />
+          <Route path="/gyrocraft/licensing" element={<ProtectedGyrocraftRoute><GyrocraftLicensing /></ProtectedGyrocraftRoute>} />
+          <Route path="/gyrocraft/investors" element={<ProtectedGyrocraftRoute><GyrocraftInvestors /></ProtectedGyrocraftRoute>} />
+          <Route path="/gyrocraft/acquisition" element={<ProtectedGyrocraftRoute><GyrocraftAcquisition /></ProtectedGyrocraftRoute>} />
+          <Route path="/gyrocraft/about" element={<ProtectedGyrocraftRoute><GyrocraftAbout /></ProtectedGyrocraftRoute>} />
           
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
