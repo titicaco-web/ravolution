@@ -19,7 +19,7 @@ const FeaturedProducts = () => {
 
         <div className="grid md:grid-cols-2 gap-6">
           {/* xPortMatch */}
-          <div className="bg-card rounded-2xl border border-border shadow-card overflow-hidden">
+          <div className="bg-card rounded-2xl border border-border shadow-card overflow-hidden transition-all duration-300 hover:shadow-elevated hover:-translate-y-1 hover:border-accent/40">
             <div className="bg-gradient-to-br from-accent/10 to-accent/5 p-6 flex items-center justify-center">
               <div className="text-center">
                 <div className="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-accent text-accent-foreground mb-4">
@@ -99,7 +99,7 @@ const FeaturedProducts = () => {
           </div>
 
           {/* VoiceProtector */}
-          <div className="bg-card rounded-2xl border border-border shadow-card overflow-hidden">
+          <div className="bg-card rounded-2xl border border-border shadow-card overflow-hidden transition-all duration-300 hover:shadow-elevated hover:-translate-y-1 hover:border-gold/40">
             <div className="bg-gradient-to-br from-gold/10 to-gold/5 p-6 flex items-center justify-center">
               <div className="text-center">
                 <div className="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-gold text-gold-foreground mb-4">
