@@ -12,6 +12,7 @@ const concepts = [
     revenue: "Freemium €4.99–9.99/mo, vet commissions 10–15%",
     status: "Concept",
     color: "accent",
+    link: "https://hundelser.se/",
   },
   {
     id: "naravan",
@@ -23,6 +24,7 @@ const concepts = [
     revenue: "Premium €7.99/mo, event commissions, B2B municipal",
     status: "Early Validation",
     color: "gold",
+    link: "https://naravan.se/",
   },
   {
     id: "beredskapad",
@@ -34,6 +36,7 @@ const concepts = [
     revenue: "B2B €50–150/employee, B2C €19.99–49.99/course",
     status: "MVP Ready",
     color: "primary",
+    link: "https://beredskapad.se/",
   },
   {
     id: "endofthirst",
@@ -45,6 +48,7 @@ const concepts = [
     revenue: "Diploma €55/person, B2B team training €500–2K",
     status: "Concept",
     color: "accent",
+    link: "https://endofthirst.com/",
   },
   {
     id: "villaspar",
@@ -56,6 +60,7 @@ const concepts = [
     revenue: "Partner commissions 5–15%",
     status: "Early Validation",
     color: "gold",
+    link: "https://villaspar.se/",
   },
   {
     id: "nordic-freelance",
