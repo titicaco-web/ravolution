@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Languages, Mic, Users, Globe, GraduationCap, ChevronDown, ChevronUp, CheckCircle, ExternalLink } from "lucide-react";
+import { Languages, Mic, Users, Globe, GraduationCap, ChevronDown, ChevronUp, CheckCircle, ExternalLink, Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import GyroscopeIcon from "@/components/icons/GyroscopeIcon";
@@ -108,9 +108,25 @@ const portfolios = [
       markets: ["University Research Partners", "Aerospace Research Institutions", "Satellite Attitude Control R&D", "Technology Validation Labs"],
     },
     color: "gyro",
-    featured: true,
     badge: "RESEARCH STAGE",
     internalLink: "/gyrocraft",
+  },
+  {
+    id: "eventor",
+    icon: Calendar,
+    title: "Eventor™",
+    subtitle: "World Event Hub & Discovery Platform",
+    patents: 1,
+    claims: 15,
+    valueProposition: "AI-powered event discovery using financial transaction data with calendar-integrated booking and one-click payment acceptance",
+    marketPotential: "$60-90B Online Event Ticketing | $1.2T Live Events Industry by 2032",
+    patentCoverage: "Transaction-based recommendations, calendar integration, B2B SDK/API infrastructure",
+    revenueModel: "2.5-5% transaction fees, API licensing, partner integrations",
+    details: {
+      features: ["Financial Data-Driven Recommendations", "One-Click Calendar Booking", "Privacy-Preserving AI/ML", "B2B SDK & API Platform", "10,000+ Partner Ecosystem", "GDPR & PSD2 Compliant"],
+      markets: ["Ticketing Platforms", "Banks & Financial Services", "Corporate Event Organizers", "Venue Management Systems"],
+    },
+    color: "accent",
   },
 ];
 
@@ -129,10 +145,10 @@ const PatentPortfolios = () => {
             <span className="text-sm font-semibold">Defensible IP Assets</span>
           </div>
           <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">
-            Six Strategic Patent Verticals
+            Seven Strategic Patent Verticals
           </h2>
           <p className="text-lg text-muted-foreground">
-            Protecting innovation across aerospace, education, language, voice, security & global commerce
+            Protecting innovation across aerospace, education, language, voice, events, security & global commerce
           </p>
         </div>
 
