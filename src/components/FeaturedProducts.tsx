@@ -10,7 +10,7 @@ const FeaturedProducts = () => {
             <span className="text-sm font-semibold">Revenue Drivers</span>
           </div>
           <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">
-            Proven Revenue Drivers
+            Revenue Drivers
           </h2>
           <p className="text-lg text-muted-foreground">
             Market-validated SaaS platforms with established revenue models
