@@ -1,10 +1,30 @@
 import { useState } from "react";
-import { Languages, Mic, Users, Globe, GraduationCap, ChevronDown, ChevronUp, CheckCircle, ExternalLink, Calendar } from "lucide-react";
+import { Languages, Mic, Users, Globe, GraduationCap, ChevronDown, ChevronUp, CheckCircle, ExternalLink, Calendar, FileSearch } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import GyroscopeIcon from "@/components/icons/GyroscopeIcon";
 
 const portfolios = [
+  {
+    id: "iapply",
+    icon: FileSearch,
+    title: "iApply™",
+    subtitle: "Candidate-Centric Transparent Recruitment Platform",
+    patents: 7,
+    claims: 89,
+    valueProposition: "Category-creating innovation: Real-time recruiter transparency, AI-powered autonomous references, blockchain credentials & pre-screening with candidate coaching",
+    marketPotential: "$924B Global Recruiting Market by 2030",
+    patentCoverage: "Recruiter action transparency, AI reference interviews, credential verification, pre-screening systems",
+    revenueModel: "Freemium SaaS, enterprise licensing, data insights partnerships",
+    details: {
+      features: ["Real-time recruiter action visibility", "AI-powered autonomous reference interviews", "Blockchain credential verification", "Company transparency ratings", "AI pre-screening with feedback loops", "Candidate coaching & development"],
+      markets: ["Global job seekers (2B+ annually)", "Enterprise HR departments", "Recruitment agencies", "Background verification providers"],
+    },
+    color: "primary",
+    featured: true,
+    externalLink: "https://iapply.se",
+    valuationRange: "$800M–1.5B pre-launch",
+  },
   {
     id: "communicaring",
     icon: GraduationCap,
@@ -145,7 +165,7 @@ const PatentPortfolios = () => {
             <span className="text-sm font-semibold">Defensible IP Assets</span>
           </div>
           <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">
-            Seven Strategic Patent Verticals
+            Eight Strategic Patent Verticals
           </h2>
           <p className="text-lg text-muted-foreground">
             Protecting innovation across aerospace, education, language, voice, events, security & global commerce
