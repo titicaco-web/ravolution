@@ -192,7 +192,7 @@ const PatentPortfolios = () => {
             return (
               <div
                 key={portfolio.id}
-                className={`bg-card rounded-2xl border-2 transition-all duration-300 hover:-translate-y-1 ${colorClasses[portfolio.color as keyof typeof colorClasses]} ${isExpanded ? 'shadow-elevated' : 'shadow-card hover:shadow-elevated'} ${portfolio.featured ? 'md:col-span-2 ring-2 ring-gold/30' : ''}`}
+                className={`bg-card rounded-2xl border-2 transition-all duration-300 hover:-translate-y-1 ${colorClasses[portfolio.color as keyof typeof colorClasses]} ${isExpanded ? 'shadow-elevated' : 'shadow-card hover:shadow-elevated'} ${portfolio.featured ? 'ring-2 ring-gold/30' : ''}`}
               >
                 <div
                   className="p-6 cursor-pointer"
