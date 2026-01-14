@@ -218,6 +218,17 @@ const PatentPortfolios = () => {
             );
           })}
         </div>
+
+        {/* Additional Patent Note */}
+        <div className="mt-8 text-center">
+          <p className="text-muted-foreground italic">
+            3 more Strategic Patent Verticals presented under{" "}
+            <a href="#concepts" className="text-gold hover:text-gold-light underline underline-offset-2 transition-colors">
+              Emerging Marketplace Opportunities
+            </a>{" "}
+            and one secret presented only after investment made in current projects.
+          </p>
+        </div>
       </div>
     </section>
   );
