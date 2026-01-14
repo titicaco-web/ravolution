@@ -1,4 +1,5 @@
-import { Shield, Rocket, Lightbulb, ArrowRight } from "lucide-react";
+import { useState } from "react";
+import { Shield, Rocket, Lightbulb, ArrowRight, ChevronDown, ChevronUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const pillars = [
@@ -32,60 +33,75 @@ const pillars = [
 ];
 
 const ValueProposition = () => {
-  return (
-    <section className="section-padding bg-background">
-      <div className="max-w-7xl mx-auto">
-        <div className="section-header">
-          <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-2">
-            Solving Global Challenges Through Strategic IP.
-          </h2>
-          <p className="text-xl md:text-2xl font-display font-semibold text-gradient-gold mb-4">
-            Three Revenue Streams for Acquisition. One Transformational Vision.
-          </p>
-        </div>
+  const [expandedCard, setExpandedCard] = useState<string | null>(null);
 
-        <div className="grid md:grid-cols-3 gap-8">
+  const toggleCard = (title: string) => {
+    setExpandedCard(expandedCard === title ? null : title);
+  };
+
+  return (
+    <section className="section-padding py-12 bg-background">
+      <div className="max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-3 gap-4">
           {pillars.map((pillar, index) => {
             const IconComponent = pillar.icon;
+            const isExpanded = expandedCard === pillar.title;
             const colorClasses = {
-              gold: "bg-gold/10 text-gold border-gold/20 hover:border-gold/40",
-              accent: "bg-accent/10 text-accent border-accent/20 hover:border-accent/40",
-              primary: "bg-primary/10 text-primary border-primary/20 hover:border-primary/40",
+              gold: "border-gold/20 hover:border-gold/40",
+              accent: "border-accent/20 hover:border-accent/40",
+              primary: "border-primary/20 hover:border-primary/40",
             };
             const iconBgClasses = {
-              gold: "bg-gold/20",
-              accent: "bg-accent/20",
-              primary: "bg-primary/20",
+              gold: "bg-gold/10 text-gold",
+              accent: "bg-accent/10 text-accent",
+              primary: "bg-primary/10 text-primary",
             };
 
             return (
               <div
                 key={pillar.title}
-                className={`card-interactive p-8 ${colorClasses[pillar.color as keyof typeof colorClasses]}`}
+                className={`bg-card rounded-xl border transition-all duration-300 ${colorClasses[pillar.color as keyof typeof colorClasses]} ${isExpanded ? 'shadow-elevated' : 'shadow-sm hover:shadow-card'}`}
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <div className={`inline-flex items-center justify-center w-14 h-14 rounded-xl ${iconBgClasses[pillar.color as keyof typeof iconBgClasses]} mb-6`}>
-                  <IconComponent className="w-7 h-7" />
+                {/* Compact Header - Always Visible */}
+                <div 
+                  className="p-4 cursor-pointer"
+                  onClick={() => toggleCard(pillar.title)}
+                >
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-3">
+                      <div className={`inline-flex items-center justify-center w-10 h-10 rounded-lg ${iconBgClasses[pillar.color as keyof typeof iconBgClasses]}`}>
+                        <IconComponent className="w-5 h-5" />
+                      </div>
+                      <div>
+                        <div className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                          {pillar.title}
+                        </div>
+                        <h3 className="text-sm font-display font-bold text-foreground leading-tight">
+                          {pillar.headline}
+                        </h3>
+                      </div>
+                    </div>
+                    <button className="text-muted-foreground hover:text-foreground transition-colors ml-2 flex-shrink-0">
+                      {isExpanded ? <ChevronUp className="w-5 h-5" /> : <ChevronDown className="w-5 h-5" />}
+                    </button>
+                  </div>
                 </div>
-                
-                <div className="text-sm font-semibold uppercase tracking-wider text-muted-foreground mb-2">
-                  {pillar.title}
-                </div>
-                
-                <h3 className="text-xl font-display font-bold text-foreground mb-3">
-                  {pillar.headline}
-                </h3>
-                
-                <p className="text-muted-foreground mb-6 leading-relaxed text-sm">
-                  {pillar.description}
-                </p>
-                
-                <Button variant="ghost" className="group p-0 h-auto font-semibold" asChild>
-                  <a href={pillar.href}>
-                    {pillar.cta}
-                    <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                  </a>
-                </Button>
+
+                {/* Expandable Content */}
+                {isExpanded && (
+                  <div className="px-4 pb-4 border-t border-border pt-3 animate-fade-in">
+                    <p className="text-muted-foreground text-sm leading-relaxed mb-4">
+                      {pillar.description}
+                    </p>
+                    <Button variant="ghost" className="group p-0 h-auto font-semibold text-sm" asChild>
+                      <a href={pillar.href}>
+                        {pillar.cta}
+                        <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                      </a>
+                    </Button>
+                  </div>
+                )}
               </div>
             );
           })}
