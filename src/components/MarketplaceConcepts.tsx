@@ -1,7 +1,51 @@
 import { Button } from "@/components/ui/button";
-import { Dog, Heart, ShieldAlert, Droplets, Home, ArrowRight, TrendingUp, Users, Briefcase, ExternalLink, Calendar, Mic, Gift } from "lucide-react";
+import { Dog, Heart, ShieldAlert, Droplets, Home, ArrowRight, TrendingUp, Users, Briefcase, ExternalLink, Calendar, Mic, Gift, FileText } from "lucide-react";
 
 const concepts = [
+  // Patent-backed opportunities first
+  {
+    id: "eventor",
+    icon: Calendar,
+    name: "Eventor™",
+    tagline: "World Event Hub & Discovery Platform",
+    problem: "AI-powered event discovery using financial transaction data with calendar booking",
+    market: "$60-90B Online Event Ticketing | $1.2T Live Events by 2032",
+    revenue: "2.5-5% transaction fees, API licensing, partner integrations",
+    status: "Concept",
+    color: "accent",
+    link: null,
+    patents: 1,
+    claims: 15,
+  },
+  {
+    id: "voiceprotector",
+    icon: Mic,
+    name: "VoiceProtector™",
+    tagline: "Enterprise Deepfake Protection",
+    problem: "Anti-deepfake detection for enterprise & telecom compliance",
+    market: "€12.9B global voice security market",
+    revenue: "SaaS licensing, per-gateway pricing, volume-based",
+    status: "Concept",
+    color: "gold",
+    link: null,
+    patents: 3,
+    claims: 38,
+  },
+  {
+    id: "givin",
+    icon: Gift,
+    name: "Givin™",
+    tagline: "LinkedIn Professional Gifting",
+    problem: "Digital professional recognition & frictionless value exchange",
+    market: "$175B Corporate Gifting Market, 1B+ LinkedIn users",
+    revenue: "Transaction fees, enterprise licensing",
+    status: "Concept",
+    color: "accent",
+    link: null,
+    patents: 2,
+    claims: 24,
+  },
+  // Other marketplace concepts
   {
     id: "hundelser",
     icon: Dog,
@@ -74,42 +118,6 @@ const concepts = [
     color: "primary",
     link: "https://nordicfreelance.se/",
   },
-  {
-    id: "eventor",
-    icon: Calendar,
-    name: "Eventor™",
-    tagline: "World Event Hub & Discovery Platform",
-    problem: "AI-powered event discovery using financial transaction data with calendar booking",
-    market: "$60-90B Online Event Ticketing | $1.2T Live Events by 2032",
-    revenue: "2.5-5% transaction fees, API licensing, partner integrations",
-    status: "Concept",
-    color: "accent",
-    link: null,
-  },
-  {
-    id: "voiceprotector",
-    icon: Mic,
-    name: "VoiceProtector™",
-    tagline: "Enterprise Deepfake Protection",
-    problem: "Anti-deepfake detection for enterprise & telecom compliance",
-    market: "€12.9B global voice security market",
-    revenue: "SaaS licensing, per-gateway pricing, volume-based",
-    status: "Concept",
-    color: "gold",
-    link: null,
-  },
-  {
-    id: "givin",
-    icon: Gift,
-    name: "Givin™",
-    tagline: "LinkedIn Professional Gifting",
-    problem: "Digital professional recognition & frictionless value exchange",
-    market: "$175B Corporate Gifting Market, 1B+ LinkedIn users",
-    revenue: "Transaction fees, enterprise licensing",
-    status: "Concept",
-    color: "accent",
-    link: null,
-  },
 ];
 
 const MarketplaceConcepts = () => {
@@ -165,7 +173,17 @@ const MarketplaceConcepts = () => {
                 <h3 className="text-lg font-display font-bold text-foreground mb-1">
                   {concept.name}
                 </h3>
-                <p className="text-sm text-muted-foreground mb-4">{concept.tagline}</p>
+                <p className="text-sm text-muted-foreground mb-2">{concept.tagline}</p>
+                
+                {concept.patents && concept.claims && (
+                  <div className="inline-flex items-center gap-2 bg-gold/10 rounded-full px-3 py-1 mb-4">
+                    <FileText className="w-3 h-3 text-gold" />
+                    <span className="text-xs font-semibold text-gold">{concept.patents} Patents</span>
+                    <span className="text-gold/50">|</span>
+                    <span className="text-xs font-semibold text-gold">{concept.claims} Claims</span>
+                  </div>
+                )}
+                {!concept.patents && <div className="mb-4" />}
 
                 <div className="space-y-3 mb-6">
                   <div className="flex items-start gap-2">
