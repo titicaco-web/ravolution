@@ -83,11 +83,11 @@ const HeroSection = () => {
 
       {/* White Grid Pattern - Small Squares (See-through) */}
       <div
-        className="absolute inset-0 opacity-[0.05] z-[1] pointer-events-none"
+        className="absolute inset-0 opacity-[0.12] z-[1] pointer-events-none"
         style={{
           backgroundImage: `
-            linear-gradient(to right, rgba(255,255,255,0.3) 1px, transparent 1px),
-            linear-gradient(to bottom, rgba(255,255,255,0.3) 1px, transparent 1px)
+            linear-gradient(to right, rgba(255,255,255,0.5) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(255,255,255,0.5) 1px, transparent 1px)
           `,
           backgroundSize: "18px 18px",
         }}
