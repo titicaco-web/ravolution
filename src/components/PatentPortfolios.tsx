@@ -1,8 +1,6 @@
 import { useState } from "react";
-import { Languages, Mic, Users, Globe, GraduationCap, ChevronDown, ChevronUp, CheckCircle, ExternalLink, Calendar, FileSearch } from "lucide-react";
+import { Languages, Mic, Users, Globe, GraduationCap, ChevronDown, ChevronUp, CheckCircle, ExternalLink, FileSearch } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
-import GyroscopeIcon from "@/components/icons/GyroscopeIcon";
 
 const portfolios = [
   {
@@ -112,42 +110,6 @@ const portfolios = [
     },
     color: "accent",
   },
-  {
-    id: "gyrocraft",
-    icon: GyroscopeIcon,
-    title: "Gyrocraft™",
-    subtitle: "Electromagnetic Gyroscopic Propulsion Research",
-    patents: 5,
-    claims: 25,
-    valueProposition: "Early-stage research into electromagnetic actuation of high-speed gyroscopic systems for potential aerospace applications",
-    marketPotential: "$23B Satellite Propulsion Market | Seeking Validation Partners",
-    patentCoverage: "Patent pending: electromagnetic control, Halbach array optimization, predictive algorithms",
-    revenueModel: "Research partnerships, development licensing, co-development agreements",
-    details: {
-      features: ["High-Speed EM Control (10-100 kHz)", "Halbach Array Optimization", "Predictive Control Algorithms", "Multi-Environment Design", "Research Stage Technology", "Seeking Independent Validation"],
-      markets: ["University Research Partners", "Aerospace Research Institutions", "Satellite Attitude Control R&D", "Technology Validation Labs"],
-    },
-    color: "gyro",
-    badge: "RESEARCH STAGE",
-    internalLink: "/gyrocraft",
-  },
-  {
-    id: "eventor",
-    icon: Calendar,
-    title: "Eventor™",
-    subtitle: "World Event Hub & Discovery Platform",
-    patents: 1,
-    claims: 15,
-    valueProposition: "AI-powered event discovery using financial transaction data with calendar-integrated booking and one-click payment acceptance",
-    marketPotential: "$60-90B Online Event Ticketing | $1.2T Live Events Industry by 2032",
-    patentCoverage: "Transaction-based recommendations, calendar integration, B2B SDK/API infrastructure",
-    revenueModel: "2.5-5% transaction fees, API licensing, partner integrations",
-    details: {
-      features: ["Financial Data-Driven Recommendations", "One-Click Calendar Booking", "Privacy-Preserving AI/ML", "B2B SDK & API Platform", "10,000+ Partner Ecosystem", "GDPR & PSD2 Compliant"],
-      markets: ["Ticketing Platforms", "Banks & Financial Services", "Corporate Event Organizers", "Venue Management Systems"],
-    },
-    color: "accent",
-  },
 ];
 
 const PatentPortfolios = () => {
@@ -204,8 +166,8 @@ const PatentPortfolios = () => {
                         <IconComponent className="w-6 h-6" />
                       </div>
                       {portfolio.featured && (
-                        <span className={`text-xs font-semibold px-3 py-1 rounded-full ${portfolio.badge === "RESEARCH STAGE" ? "bg-accent/20 text-accent" : "bg-gold text-gold-foreground"}`}>
-                          {portfolio.badge || "FLAGSHIP"}
+                        <span className="text-xs font-semibold px-3 py-1 rounded-full bg-gold text-gold-foreground">
+                          FLAGSHIP
                         </span>
                       )}
                     </div>
@@ -278,14 +240,7 @@ const PatentPortfolios = () => {
                           </a>
                         </Button>
                       )}
-                      {portfolio.internalLink && (
-                        <Button variant="outline" asChild>
-                          <Link to={portfolio.internalLink}>
-                            Explore Gyrocraft <ExternalLink className="w-4 h-4 ml-2" />
-                          </Link>
-                        </Button>
-                      )}
-                      {!portfolio.externalLink && !portfolio.internalLink && (
+                      {!portfolio.externalLink && (
                         <Button variant="outline">
                           Download Patent Summary
                         </Button>

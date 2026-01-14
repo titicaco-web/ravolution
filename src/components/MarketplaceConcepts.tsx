@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Dog, Heart, ShieldAlert, Droplets, Home, ArrowRight, TrendingUp, Users, Briefcase, ExternalLink } from "lucide-react";
+import { Dog, Heart, ShieldAlert, Droplets, Home, ArrowRight, TrendingUp, Users, Briefcase, ExternalLink, Calendar } from "lucide-react";
 
 const concepts = [
   {
@@ -73,6 +73,18 @@ const concepts = [
     status: "Live Platform",
     color: "primary",
     link: "https://nordicfreelance.se/",
+  },
+  {
+    id: "eventor",
+    icon: Calendar,
+    name: "Eventor™",
+    tagline: "World Event Hub & Discovery Platform",
+    problem: "AI-powered event discovery using financial transaction data with calendar booking",
+    market: "$60-90B Online Event Ticketing | $1.2T Live Events by 2032",
+    revenue: "2.5-5% transaction fees, API licensing, partner integrations",
+    status: "Concept",
+    color: "accent",
+    link: null,
   },
 ];
 
