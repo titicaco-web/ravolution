@@ -112,9 +112,9 @@ const HeroSection = () => {
           </h1>
 
           {/* Subheadline */}
-          <p className="text-lg md:text-xl text-white/80 max-w-3xl mx-auto mb-10 leading-relaxed">
-            From accelerating language learning by 24x to democratizing K1-K9 education.
-            <span className="block mt-2">We build and protect the technologies that level the playing field for the global economy.</span>
+          <p className="text-lg md:text-xl text-white/80 max-w-4xl mx-auto mb-10 leading-relaxed">
+            We protect and scale the four platforms transforming global opportunity: <span className="text-white">iApply™</span> (transparent recruiting), <span className="text-white">CommunicaringSchool™</span> (K1-K9 equity), <span className="text-white">Rosetta Livingstone™</span> (24X faster language fluency), and <span className="text-white">xPortMatch™</span> (AI-driven borderless trade).
+            <span className="block mt-2 text-gold">Leveling the playing field through defensible innovation.</span>
           </p>
 
           {/* CTA Buttons */}
