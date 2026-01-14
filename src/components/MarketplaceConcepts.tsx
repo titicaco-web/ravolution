@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Dog, Heart, ShieldAlert, Droplets, Home, ArrowRight, TrendingUp, Users, Briefcase, ExternalLink, Calendar } from "lucide-react";
+import { Dog, Heart, ShieldAlert, Droplets, Home, ArrowRight, TrendingUp, Users, Briefcase, ExternalLink, Calendar, Mic, Gift } from "lucide-react";
 
 const concepts = [
   {
@@ -82,6 +82,30 @@ const concepts = [
     problem: "AI-powered event discovery using financial transaction data with calendar booking",
     market: "$60-90B Online Event Ticketing | $1.2T Live Events by 2032",
     revenue: "2.5-5% transaction fees, API licensing, partner integrations",
+    status: "Concept",
+    color: "accent",
+    link: null,
+  },
+  {
+    id: "voiceprotector",
+    icon: Mic,
+    name: "VoiceProtector™",
+    tagline: "Enterprise Deepfake Protection",
+    problem: "Anti-deepfake detection for enterprise & telecom compliance",
+    market: "€12.9B global voice security market",
+    revenue: "SaaS licensing, per-gateway pricing, volume-based",
+    status: "Concept",
+    color: "gold",
+    link: null,
+  },
+  {
+    id: "givin",
+    icon: Gift,
+    name: "Givin™",
+    tagline: "LinkedIn Professional Gifting",
+    problem: "Digital professional recognition & frictionless value exchange",
+    market: "$175B Corporate Gifting Market, 1B+ LinkedIn users",
+    revenue: "Transaction fees, enterprise licensing",
     status: "Concept",
     color: "accent",
     link: null,

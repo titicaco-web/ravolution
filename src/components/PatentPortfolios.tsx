@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Languages, Mic, Users, Globe, GraduationCap, ChevronDown, ChevronUp, CheckCircle, ExternalLink, FileSearch } from "lucide-react";
+import { Languages, Globe, GraduationCap, ChevronDown, ChevronUp, CheckCircle, ExternalLink, FileSearch } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const portfolios = [
@@ -75,40 +75,6 @@ const portfolios = [
       markets: ["Swedish SMEs (180,500 targets)", "International trade agencies", "Government export programs", "Trade finance providers"],
     },
     color: "primary",
-  },
-  {
-    id: "voice",
-    icon: Mic,
-    title: "VoiceProtector™",
-    subtitle: "Enterprise Deepfake Protection",
-    patents: 3,
-    claims: 38,
-    valueProposition: "Anti-deepfake detection, enterprise integration, telecom compliance",
-    marketPotential: "€12.9B global voice security market",
-    patentCoverage: "Real-time analysis methods, biometric verification",
-    revenueModel: "SaaS licensing, per-gateway pricing, volume-based",
-    details: {
-      features: ["Real-time deepfake detection (<100ms)", "Voice watermarking", "SOC 2 & GDPR compliant", "Zero false-positive design"],
-      markets: ["Tier-1 telecom operators", "Investment banks", "Government agencies", "Identity verification platforms"],
-    },
-    color: "gold",
-  },
-  {
-    id: "linkedin",
-    icon: Users,
-    title: "Givin™",
-    subtitle: "LinkedIn Professional Gifting",
-    patents: 2,
-    claims: 24,
-    valueProposition: "Digital professional recognition, frictionless value exchange",
-    marketPotential: "$175B Corporate Gifting Market, 1B+ LinkedIn users",
-    patentCoverage: "Gift integration architecture, professional recognition systems",
-    revenueModel: "Transaction fees, enterprise licensing",
-    details: {
-      features: ["Seamless LinkedIn integration", "Corporate gift programs", "Recognition badges", "Professional appreciation flows"],
-      markets: ["HR tech platforms", "Corporate recognition", "Professional services", "Recruitment agencies"],
-    },
-    color: "accent",
   },
 ];
 
