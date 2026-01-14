@@ -1,29 +1,100 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, FileText } from "lucide-react";
+import { useEffect, useState } from "react";
+import { supabase } from "@/integrations/supabase/client";
 
 const HeroSection = () => {
+  const [videos, setVideos] = useState<string[]>([]);
+  const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
+  const [isTransitioning, setIsTransitioning] = useState(false);
+
+  useEffect(() => {
+    const fetchVideos = async () => {
+      const { data, error } = await supabase.storage
+        .from("hero-videos")
+        .list("", { limit: 100, sortBy: { column: "name", order: "asc" } });
+
+      if (error) {
+        console.error("Error fetching videos:", error);
+        return;
+      }
+
+      if (data && data.length > 0) {
+        const videoUrls = data
+          .filter((file) => file.name.match(/\.(mp4|webm|mov)$/i))
+          .map((file) => {
+            const { data: urlData } = supabase.storage
+              .from("hero-videos")
+              .getPublicUrl(file.name);
+            return urlData.publicUrl;
+          });
+        setVideos(videoUrls);
+      }
+    };
+
+    fetchVideos();
+  }, []);
+
+  // Cycle through videos with smooth transition
+  useEffect(() => {
+    if (videos.length <= 1) return;
+
+    const interval = setInterval(() => {
+      setIsTransitioning(true);
+      setTimeout(() => {
+        setCurrentVideoIndex((prev) => (prev + 1) % videos.length);
+        setIsTransitioning(false);
+      }, 1000); // Transition duration
+    }, 8000); // Change video every 8 seconds
+
+    return () => clearInterval(interval);
+  }, [videos.length]);
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-      {/* Animated Shifting Blue Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[hsl(220,100%,8%)] via-[hsl(200,100%,12%)] to-[hsl(210,100%,18%)] animate-[shiftBlue_12s_ease-in-out_infinite]" />
-      <div className="absolute inset-0 bg-gradient-to-tl from-[hsl(195,100%,15%)] via-transparent to-[hsl(230,100%,20%)] opacity-60 animate-[shiftBlue_8s_ease-in-out_infinite_reverse]" />
-      
-      {/* White Grid Pattern - Small Squares */}
-      <div 
-        className="absolute inset-0 opacity-[0.12]"
+      {/* Video Background */}
+      {videos.length > 0 && (
+        <div className="absolute inset-0 z-0">
+          <video
+            key={videos[currentVideoIndex]}
+            autoPlay
+            muted
+            loop
+            playsInline
+            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
+              isTransitioning ? "opacity-0" : "opacity-100"
+            }`}
+          >
+            <source src={videos[currentVideoIndex]} type="video/mp4" />
+          </video>
+          {/* Dark overlay for text readability */}
+          <div className="absolute inset-0 bg-black/50" />
+        </div>
+      )}
+
+      {/* Fallback Animated Shifting Blue Background (when no videos) */}
+      {videos.length === 0 && (
+        <>
+          <div className="absolute inset-0 bg-gradient-to-br from-[hsl(220,100%,8%)] via-[hsl(200,100%,12%)] to-[hsl(210,100%,18%)] animate-[shiftBlue_12s_ease-in-out_infinite]" />
+          <div className="absolute inset-0 bg-gradient-to-tl from-[hsl(195,100%,15%)] via-transparent to-[hsl(230,100%,20%)] opacity-60 animate-[shiftBlue_8s_ease-in-out_infinite_reverse]" />
+          <div className="absolute inset-0 bg-gradient-to-tr from-[hsl(210,100%,20%)] via-transparent to-[hsl(195,100%,18%)] opacity-40 animate-[shiftBlue_15s_ease-in-out_infinite]" />
+        </>
+      )}
+
+      {/* White Grid Pattern - Small Squares (See-through) */}
+      <div
+        className="absolute inset-0 opacity-[0.05] z-[1] pointer-events-none"
         style={{
           backgroundImage: `
-            linear-gradient(to right, rgba(255,255,255,0.4) 1px, transparent 1px),
-            linear-gradient(to bottom, rgba(255,255,255,0.4) 1px, transparent 1px)
+            linear-gradient(to right, rgba(255,255,255,0.3) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(255,255,255,0.3) 1px, transparent 1px)
           `,
-          backgroundSize: '18px 18px'
+          backgroundSize: "18px 18px",
         }}
       />
-      
-      {/* Additional shifting gradient layer */}
-      <div className="absolute inset-0 bg-gradient-to-tr from-[hsl(210,100%,20%)] via-transparent to-[hsl(195,100%,18%)] opacity-40 animate-[shiftBlue_15s_ease-in-out_infinite]" />
+
       {/* Top Edge Highlight */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent z-[2]" />
 
       {/* Content */}
       <div className="relative z-10 max-w-6xl mx-auto px-6 text-center">
@@ -86,7 +157,7 @@ const HeroSection = () => {
       </div>
 
       {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce z-10">
         <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center">
           <div className="w-1.5 h-3 bg-accent rounded-full mt-2 animate-pulse" />
         </div>
