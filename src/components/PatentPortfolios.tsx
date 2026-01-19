@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Languages, Globe, GraduationCap, ChevronDown, ChevronUp, CheckCircle, ExternalLink, FileSearch, Shirt } from "lucide-react";
+import { Languages, Globe, GraduationCap, ChevronDown, ChevronUp, CheckCircle, ExternalLink, FileSearch, Shirt, Mic } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const portfolios = [
@@ -95,6 +95,23 @@ const portfolios = [
     color: "accent",
     externalLink: "https://itsafitt.com",
   },
+  {
+    id: "voiceprotector",
+    icon: Mic,
+    title: "VoiceProtector™",
+    subtitle: "Enterprise Deepfake Protection",
+    patents: 3,
+    claims: 38,
+    valueProposition: "Anti-deepfake detection for enterprise & telecom compliance—protecting organizations from voice fraud and synthetic media threats",
+    marketPotential: "€12.9B Global Voice Security Market",
+    patentCoverage: "Voice authentication, deepfake detection, synthetic media analysis, real-time verification",
+    revenueModel: "SaaS licensing, per-gateway pricing, volume-based enterprise",
+    details: {
+      features: ["Real-time deepfake detection", "Voice authentication verification", "Telecom compliance integration", "Enterprise security dashboards", "Synthetic media analysis", "Multi-channel protection"],
+      markets: ["Enterprise security departments", "Telecom operators", "Financial institutions", "Government agencies"],
+    },
+    color: "gold",
+  },
 ];
 
 const PatentPortfolios = () => {
@@ -112,10 +129,10 @@ const PatentPortfolios = () => {
             <span className="text-sm font-semibold">Defensible IP Assets</span>
           </div>
           <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">
-            Eight Strategic Patent Verticals
+            Six Strategic Patent Verticals
           </h2>
           <p className="text-lg text-muted-foreground">
-            Protecting innovation across aerospace, education, language, voice, events, security & global commerce
+            Protecting innovation across education, recruitment, language, fashion, voice security & global commerce
           </p>
         </div>
 
