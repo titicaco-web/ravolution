@@ -79,7 +79,7 @@ const portfolios = [
   {
     id: "itsafitt",
     icon: Shirt,
-    title: "itsaFitt™",
+    title: "It's a Fitt™",
     subtitle: "AI Video Virtual Try-On Technology",
     patents: 1,
     claims: 25,
@@ -90,6 +90,7 @@ const portfolios = [
     details: {
       features: ["15-45 second realistic try-on videos", "15+ diverse body-type AI models", "Real-time fabric physics simulation", "Platform-optimized social sharing", "ML-powered size prediction", "Return risk forecasting"],
       markets: ["Fashion e-commerce retailers", "Luxury brand platforms", "Social commerce integrations", "Marketplace aggregators"],
+      ownership: "Co-owned with Egyptian developer team.",
     },
     color: "accent",
     externalLink: "https://itsafitt.com",
@@ -209,6 +210,12 @@ const PatentPortfolios = () => {
                             </li>
                           ))}
                         </ul>
+                        {portfolio.details.ownership && (
+                          <div className="mt-4">
+                            <span className="font-bold text-foreground">Ownership: </span>
+                            <span className="text-muted-foreground">{portfolio.details.ownership}</span>
+                          </div>
+                        )}
                       </div>
                     </div>
                     <div className="mt-6 flex flex-wrap gap-3">
