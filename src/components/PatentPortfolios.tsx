@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Languages, Globe, GraduationCap, ChevronDown, ChevronUp, CheckCircle, ExternalLink, FileSearch } from "lucide-react";
+import { Languages, Globe, GraduationCap, ChevronDown, ChevronUp, CheckCircle, ExternalLink, FileSearch, Shirt } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const portfolios = [
@@ -75,6 +75,24 @@ const portfolios = [
       markets: ["Swedish SMEs (180,500 targets)", "International trade agencies", "Government export programs", "Trade finance providers"],
     },
     color: "primary",
+  },
+  {
+    id: "itsafitt",
+    icon: Shirt,
+    title: "itsaFitt™",
+    subtitle: "AI Video Virtual Try-On Technology",
+    patents: 1,
+    claims: 25,
+    valueProposition: "Temporal fabric physics simulation, multi-body-type AI personalization, predictive sizing & return prediction—reducing returns by 15-50%",
+    marketPotential: "$48.1B Virtual Try-On Market by 2030 | 25.95% CAGR",
+    patentCoverage: "Fabric physics simulation, body-type AI models, social sharing optimization, predictive sizing, return prediction",
+    revenueModel: "SaaS subscription, API licensing, enterprise white-label",
+    details: {
+      features: ["15-45 second realistic try-on videos", "15+ diverse body-type AI models", "Real-time fabric physics simulation", "Platform-optimized social sharing", "ML-powered size prediction", "Return risk forecasting"],
+      markets: ["Fashion e-commerce retailers", "Luxury brand platforms", "Social commerce integrations", "Marketplace aggregators"],
+    },
+    color: "accent",
+    externalLink: "https://itsafitt.com",
   },
 ];
 
