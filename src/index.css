@@ -31,8 +31,8 @@
     
     /* Dot pattern */
     --dot-color: 210 25% 15%;
-    --dot-size: 1px;
-    --dot-spacing: 24px;
+    --dot-size: 1.5px;
+    --dot-spacing: 20px;
     
     --card: 0 0% 100%;
     --card-foreground: 210 25% 15%;
@@ -227,7 +227,7 @@
 
   /* Dot Pattern Background */
   .bg-dot-pattern {
-    background-image: radial-gradient(circle, hsl(var(--dot-color) / 0.08) var(--dot-size), transparent var(--dot-size));
+    background-image: radial-gradient(circle, hsl(var(--dot-color) / 0.15) var(--dot-size), transparent var(--dot-size));
     background-size: var(--dot-spacing) var(--dot-spacing);
   }
 
