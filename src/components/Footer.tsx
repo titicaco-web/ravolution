@@ -15,7 +15,7 @@ const Footer = () => {
               <span className="text-xs font-medium bg-gold/20 text-gold px-2 py-0.5 rounded">AB</span>
             </div>
             <p className="text-white/70 text-sm mb-2">
-              Strategic IP Innovation across Language, Voice, Trade & Education.
+              Swedish Venture Studio & IP Innovation Company.
             </p>
             <p className="text-white/60 text-xs">
               Founded by Ivan Daza, inventor of high-value patents targeting billion-dollar markets.
