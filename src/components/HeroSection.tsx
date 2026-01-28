@@ -162,17 +162,6 @@ const HeroSection = () => {
           <div className="w-1.5 h-3 bg-accent rounded-full mt-2 animate-pulse" />
         </div>
       </div>
-      {/* Bottom Dot Pattern Transition */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 z-[5] pointer-events-none">
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-white" />
-        <div 
-          className="absolute inset-0 opacity-30"
-          style={{
-            backgroundImage: `radial-gradient(circle, hsl(var(--foreground)) 1px, transparent 1px)`,
-            backgroundSize: '16px 16px',
-          }}
-        />
-      </div>
     </section>
   );
 };
