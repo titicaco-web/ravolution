@@ -34,28 +34,30 @@ const Index = () => {
       <div className="min-h-screen">
         <Navbar />
         <HeroSection />
-        <ScrollAnimateWrapper>
-          <ValueProposition />
-        </ScrollAnimateWrapper>
-        <ScrollAnimateWrapper delay={0.1}>
-          <PatentPortfolios />
-        </ScrollAnimateWrapper>
-        <ScrollAnimateWrapper delay={0.1}>
-          <FeaturedProducts />
-        </ScrollAnimateWrapper>
-        <ScrollAnimateWrapper delay={0.1}>
-          <MarketplaceConcepts />
-        </ScrollAnimateWrapper>
-        <ScrollAnimateWrapper delay={0.1}>
-          <WhyRavolution />
-        </ScrollAnimateWrapper>
-        <ScrollAnimateWrapper delay={0.1}>
-          <InvestorTeaser />
-        </ScrollAnimateWrapper>
-        <ScrollAnimateWrapper delay={0.1}>
-          <FooterCTA />
-        </ScrollAnimateWrapper>
-        <Footer />
+        <div className="bg-dot-pattern">
+          <ScrollAnimateWrapper>
+            <ValueProposition />
+          </ScrollAnimateWrapper>
+          <ScrollAnimateWrapper delay={0.1}>
+            <PatentPortfolios />
+          </ScrollAnimateWrapper>
+          <ScrollAnimateWrapper delay={0.1}>
+            <FeaturedProducts />
+          </ScrollAnimateWrapper>
+          <ScrollAnimateWrapper delay={0.1}>
+            <MarketplaceConcepts />
+          </ScrollAnimateWrapper>
+          <ScrollAnimateWrapper delay={0.1}>
+            <WhyRavolution />
+          </ScrollAnimateWrapper>
+          <ScrollAnimateWrapper delay={0.1}>
+            <InvestorTeaser />
+          </ScrollAnimateWrapper>
+          <ScrollAnimateWrapper delay={0.1}>
+            <FooterCTA />
+          </ScrollAnimateWrapper>
+          <Footer />
+        </div>
       </div>
     </>
   );
