@@ -15,21 +15,21 @@ const Index = () => {
   return (
     <>
       <Helmet>
-        <title>Ravolution AB | Solving Civilization-Scale Challenges with Patented Deep Tech</title>
-        <meta name="description" content="From accelerating language learning by 24x to democratizing K1-K9 education. We build and protect the technologies that level the playing field for the global economy." />
-        <meta name="keywords" content="deep tech, patent portfolio, language learning, education technology, 24x faster learning, K1-K9 education, voice biometrics, AI language learning, global trade infrastructure, strategic IP" />
+        <title>Ravolution AB | Swedish Venture Studio & IP Innovation Company</title>
+        <meta name="description" content="27 patents, 343 claims. Swedish venture studio building deep tech unicorns in language learning (24x faster), voice security, AI trade infrastructure & K1-K9 education. Founded by Ivan Daza, inventor of high-value patents foundational to billion-dollar markets." />
+        <meta name="keywords" content="venture studio, deep tech, patent portfolio, Swedish innovation, language learning AI, voice biometrics, education technology, 24x faster learning, K1-K9 education, global trade AI, strategic IP, Ivan Daza, unicorn startups, billion-dollar markets" />
         <link rel="canonical" href="https://ravolution.se/" />
         
         {/* Open Graph */}
-        <meta property="og:title" content="Ravolution AB | Solving Civilization-Scale Challenges with Patented Deep Tech" />
-        <meta property="og:description" content="From accelerating language learning by 24x to democratizing K1-K9 education. We build and protect the technologies that level the playing field for the global economy." />
+        <meta property="og:title" content="Ravolution AB | Swedish Venture Studio & IP Innovation Company" />
+        <meta property="og:description" content="27 patents, 343 claims. Building deep tech unicorns in language learning, voice security, AI trade & education. Founded by Ivan Daza, inventor of high-value patents foundational to billion-dollar markets." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://ravolution.se/" />
         
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Ravolution AB | Solving Civilization-Scale Challenges with Patented Deep Tech" />
-        <meta name="twitter:description" content="From accelerating language learning by 24x to democratizing K1-K9 education. We build and protect the technologies that level the playing field for the global economy." />
+        <meta name="twitter:title" content="Ravolution AB | Swedish Venture Studio & IP Innovation Company" />
+        <meta name="twitter:description" content="27 patents, 343 claims. Building deep tech unicorns in language learning, voice security, AI trade & education. Founded by Ivan Daza, inventor of high-value patents foundational to billion-dollar markets." />
       </Helmet>
       <div className="min-h-screen">
         <Navbar />
