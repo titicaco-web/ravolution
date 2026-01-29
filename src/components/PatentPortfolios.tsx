@@ -40,7 +40,7 @@ const portfolios = [
     },
     color: "primary",
     featured: true,
-    externalLink: "https://communicaringschool.com/patents",
+    externalLink: "https://communicaringschool.com",
   },
   {
     id: "rosetta",
@@ -244,7 +244,7 @@ const PatentPortfolios = () => {
                       {portfolio.externalLink && (
                         <Button variant="outline" asChild>
                           <a href={portfolio.externalLink} target="_blank" rel="noopener noreferrer">
-                            {portfolio.id === "iapply" || portfolio.id === "itsafitt" ? "Visit Website" : "View Patent Portfolio"} <ExternalLink className="w-4 h-4 ml-2" />
+                            {portfolio.id === "iapply" || portfolio.id === "itsafitt" || portfolio.id === "communicaring" ? "Visit Website" : "View Patent Portfolio"} <ExternalLink className="w-4 h-4 ml-2" />
                           </a>
                         </Button>
                       )}
