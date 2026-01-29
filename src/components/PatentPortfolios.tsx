@@ -244,7 +244,7 @@ const PatentPortfolios = () => {
                       {portfolio.externalLink && (
                         <Button variant="outline" asChild>
                           <a href={portfolio.externalLink} target="_blank" rel="noopener noreferrer">
-                            View Patent Portfolio <ExternalLink className="w-4 h-4 ml-2" />
+                            {portfolio.id === "iapply" || portfolio.id === "itsafitt" ? "Visit Website" : "View Patent Portfolio"} <ExternalLink className="w-4 h-4 ml-2" />
                           </a>
                         </Button>
                       )}
