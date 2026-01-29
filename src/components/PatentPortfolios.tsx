@@ -58,6 +58,7 @@ const portfolios = [
       markets: ["Government education contracts", "Corporate L&D", "International schools", "Immigration integration programs"],
     },
     color: "accent",
+    externalLink: "https://rosettalivingstone.com",
   },
   {
     id: "xportmatch",
@@ -75,6 +76,7 @@ const portfolios = [
       markets: ["Swedish SMEs (180,500 targets)", "International trade agencies", "Government export programs", "Trade finance providers"],
     },
     color: "primary",
+    externalLink: "https://xportmatch.com",
   },
   {
     id: "itsafitt",
@@ -244,7 +246,7 @@ const PatentPortfolios = () => {
                       {portfolio.externalLink && (
                         <Button variant="outline" asChild>
                           <a href={portfolio.externalLink} target="_blank" rel="noopener noreferrer">
-                            {portfolio.id === "iapply" || portfolio.id === "itsafitt" || portfolio.id === "communicaring" ? "Visit Website" : "View Patent Portfolio"} <ExternalLink className="w-4 h-4 ml-2" />
+                            Visit Website <ExternalLink className="w-4 h-4 ml-2" />
                           </a>
                         </Button>
                       )}
