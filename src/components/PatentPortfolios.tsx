@@ -113,6 +113,7 @@ const portfolios = [
       markets: ["Enterprise security departments", "Telecom operators", "Financial institutions", "Government agencies"],
     },
     color: "gold",
+    externalLink: "https://voiceprotector.com",
   },
 ];
 
