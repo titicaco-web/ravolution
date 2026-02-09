@@ -1,10 +1,12 @@
 import { Linkedin, Twitter, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/i18n/LanguageContext";
+import { useLangPath } from "@/hooks/use-lang-path";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   const { t } = useLanguage();
+  const lp = useLangPath();
 
   return (
     <footer className="bg-primary text-white py-12">
@@ -41,11 +43,11 @@ const Footer = () => {
           <div>
             <h4 className="font-semibold mb-4">{t("footer.company")}</h4>
             <ul className="space-y-2 text-sm text-white/70">
-              <li><Link to="/founder" className="hover:text-white transition-colors">{t("footer.aboutFounder")}</Link></li>
+              <li><Link to={lp("/founder")} className="hover:text-white transition-colors">{t("footer.aboutFounder")}</Link></li>
               <li><a href="#investors" className="hover:text-white transition-colors">{t("footer.investorRelations")}</a></li>
               <li><a href="#contact" className="hover:text-white transition-colors">{t("footer.contact")}</a></li>
-              <li><Link to="/privacy-policy" className="hover:text-white transition-colors">{t("footer.privacyPolicy")}</Link></li>
-              <li><Link to="/terms-of-service" className="hover:text-white transition-colors">{t("footer.termsOfService")}</Link></li>
+              <li><Link to={lp("/privacy-policy")} className="hover:text-white transition-colors">{t("footer.privacyPolicy")}</Link></li>
+              <li><Link to={lp("/terms-of-service")} className="hover:text-white transition-colors">{t("footer.termsOfService")}</Link></li>
             </ul>
           </div>
         </div>

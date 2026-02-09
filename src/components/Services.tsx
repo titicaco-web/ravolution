@@ -1,9 +1,11 @@
 import { Monitor, Palette, Brain, Shield, Settings, Workflow, ArrowRight, CheckCircle2, Zap, Target, Users } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/i18n/LanguageContext";
+import { useLangPath } from "@/hooks/use-lang-path";
 
 const Services = () => {
   const { t } = useLanguage();
+  const lp = useLangPath();
 
   const services = [
     {
@@ -148,7 +150,7 @@ const Services = () => {
                   <ArrowRight className="w-5 h-5" />
                 </a>
                 <Link
-                  to="/services"
+                  to={lp("/services")}
                   className="inline-flex items-center justify-center gap-2 border-2 border-white/30 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 hover:bg-white/10 hover:border-white/50"
                 >
                   {t("services.ctaExplore")}

@@ -8,27 +8,29 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { useLangPath } from "@/hooks/use-lang-path";
 
 const GyrocraftNavbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
+  const lp = useLangPath();
 
   const isActive = (path: string) => location.pathname === path;
 
   const navLinks = [
-    { label: "Home", href: "/gyrocraft" },
-    { label: "About", href: "/gyrocraft/about" },
+    { label: "Home", href: lp("/gyrocraft") },
+    { label: "About", href: lp("/gyrocraft/about") },
   ];
 
   const companyLinks = [
-    { label: "Licensing Tiers", href: "/gyrocraft/licensing" },
-    { label: "Technical Specs", href: "/gyrocraft/licensing#specs" },
+    { label: "Licensing Tiers", href: lp("/gyrocraft/licensing") },
+    { label: "Technical Specs", href: lp("/gyrocraft/licensing#specs") },
   ];
 
   const investorLinks = [
-    { label: "Investment Thesis", href: "/gyrocraft/investors" },
-    { label: "Financial Projections", href: "/gyrocraft/investors#financials" },
-    { label: "Patent Acquisition", href: "/gyrocraft/acquisition" },
+    { label: "Investment Thesis", href: lp("/gyrocraft/investors") },
+    { label: "Financial Projections", href: lp("/gyrocraft/investors#financials") },
+    { label: "Patent Acquisition", href: lp("/gyrocraft/acquisition") },
   ];
 
   return (
@@ -36,7 +38,7 @@ const GyrocraftNavbar = () => {
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
-          <Link to="/gyrocraft" className="flex items-center gap-2">
+          <Link to={lp("/gyrocraft")} className="flex items-center gap-2">
             <span className="text-xl md:text-2xl font-display font-bold text-gyrocraft-text">
               GYROCRAFT
             </span>
@@ -45,7 +47,7 @@ const GyrocraftNavbar = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-6">
             <Link
-              to="/"
+              to={lp("/")}
               className="flex items-center gap-1 text-gyrocraft-text/70 hover:text-gyrocraft-text font-medium transition-colors"
             >
               <ArrowLeft className="w-4 h-4" /> Ravolution
@@ -100,7 +102,7 @@ const GyrocraftNavbar = () => {
           {/* CTA Buttons */}
           <div className="hidden md:flex items-center gap-3">
             <Button variant="ghost" className="text-gyrocraft-text hover:bg-gyrocraft-text/10" asChild>
-              <Link to="/gyrocraft/about#contact">Contact</Link>
+              <Link to={lp("/gyrocraft/about#contact")}>Contact</Link>
             </Button>
             <Button className="bg-gyrocraft-teal hover:bg-gyrocraft-teal/90 text-gyrocraft-dark font-semibold" asChild>
               <a href="https://meetings-eu1.hubspot.com/daza" target="_blank" rel="noopener noreferrer">
@@ -123,7 +125,7 @@ const GyrocraftNavbar = () => {
           <div className="md:hidden py-4 border-t border-gyrocraft-text/10 animate-fade-in">
             <div className="flex flex-col gap-4">
               <Link
-                to="/"
+                to={lp("/")}
                 className="flex items-center gap-1 font-medium py-2 text-gyrocraft-text/70"
                 onClick={() => setIsOpen(false)}
               >
@@ -172,7 +174,7 @@ const GyrocraftNavbar = () => {
 
               <div className="flex flex-col gap-2 pt-4 border-t border-gyrocraft-text/10">
                 <Button variant="ghost" className="text-gyrocraft-text hover:bg-gyrocraft-text/10 justify-start" asChild>
-                  <Link to="/gyrocraft/about#contact" onClick={() => setIsOpen(false)}>Contact</Link>
+                  <Link to={lp("/gyrocraft/about#contact")} onClick={() => setIsOpen(false)}>Contact</Link>
                 </Button>
                 <Button className="bg-gyrocraft-teal hover:bg-gyrocraft-teal/90 text-gyrocraft-dark font-semibold" asChild>
                   <a href="https://meetings-eu1.hubspot.com/daza" target="_blank" rel="noopener noreferrer">

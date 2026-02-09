@@ -3,18 +3,20 @@ import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
+import { useLangPath } from "@/hooks/use-lang-path";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { t } = useLanguage();
+  const lp = useLangPath();
 
   const navLinks = [
-    { label: t("nav.founder"), href: "/founder" },
-    { label: t("nav.services"), href: "/services" },
-    { label: t("nav.patents"), href: "/#patents" },
-    { label: t("nav.products"), href: "/#products" },
-    { label: t("nav.concepts"), href: "/#concepts" },
-    { label: t("nav.investors"), href: "/#investors" },
+    { label: t("nav.founder"), href: lp("/founder") },
+    { label: t("nav.services"), href: lp("/services") },
+    { label: t("nav.patents"), href: lp("/#patents") },
+    { label: t("nav.products"), href: lp("/#products") },
+    { label: t("nav.concepts"), href: lp("/#concepts") },
+    { label: t("nav.investors"), href: lp("/#investors") },
   ];
 
   return (
@@ -22,7 +24,7 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
-          <a href="/" className="flex items-center gap-3">
+          <a href={lp("/")} className="flex items-center gap-3">
             <span className="text-xl md:text-2xl font-display font-bold text-white uppercase tracking-[0.25em]">
               Ravolution
             </span>

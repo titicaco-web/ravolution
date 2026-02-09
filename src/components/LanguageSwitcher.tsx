@@ -1,6 +1,7 @@
 import { useLanguage, Language } from "@/i18n/LanguageContext";
 import { Globe } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const languages: { code: Language; label: string; flag: string }[] = [
   { code: "en", label: "EN", flag: "🇬🇧" },
@@ -12,6 +13,8 @@ const LanguageSwitcher = () => {
   const { language, setLanguage } = useLanguage();
   const [isOpen, setIsOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const handleClick = (e: MouseEvent) => {
@@ -22,6 +25,19 @@ const LanguageSwitcher = () => {
   }, []);
 
   const current = languages.find((l) => l.code === language)!;
+
+  const switchLanguage = (lang: Language) => {
+    setLanguage(lang);
+    setIsOpen(false);
+    // Replace the language prefix in the current path
+    const pathParts = location.pathname.split("/");
+    if (pathParts.length >= 2 && ["en", "sv", "es"].includes(pathParts[1])) {
+      pathParts[1] = lang;
+    } else {
+      pathParts.splice(1, 0, lang);
+    }
+    navigate(pathParts.join("/") + location.search + location.hash);
+  };
 
   return (
     <div ref={ref} className="relative">
@@ -37,7 +53,7 @@ const LanguageSwitcher = () => {
           {languages.map((lang) => (
             <button
               key={lang.code}
-              onClick={() => { setLanguage(lang.code); setIsOpen(false); }}
+              onClick={() => switchLanguage(lang.code)}
               className={`w-full flex items-center gap-2 px-3 py-2 text-sm transition-colors ${
                 lang.code === language ? "bg-white/20 text-white" : "text-white/70 hover:bg-white/10 hover:text-white"
               }`}

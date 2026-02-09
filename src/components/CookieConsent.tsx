@@ -2,10 +2,12 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/i18n/LanguageContext";
+import { useLangPath } from "@/hooks/use-lang-path";
 
 const CookieConsent = () => {
   const [isVisible, setIsVisible] = useState(false);
   const { t } = useLanguage();
+  const lp = useLangPath();
 
   useEffect(() => {
     const consent = localStorage.getItem("cookie-consent");
@@ -31,7 +33,7 @@ const CookieConsent = () => {
       <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
         <p className="text-sm text-muted-foreground text-center sm:text-left">
           {t("cookie.message")}{" "}
-          <Link to="/privacy-policy" className="text-primary hover:underline">
+          <Link to={lp("/privacy-policy")} className="text-primary hover:underline">
             {t("cookie.learnMore")}
           </Link>
         </p>
