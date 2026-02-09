@@ -264,7 +264,7 @@ export const sv = {
     achievement4Desc: "Privat konsult till svenska arbetsmarknads-, integrations- och utbildningsministrar.",
     achievement5Title: "Nationellt erkännande",
     achievement5Year: "2010-tal",
-    achievement5Desc: "En av 200 entreprenörer erkända av Kungliga Myntkabinettet för att ha format Sveriges affärslandskap.",
+    achievement5Desc: "En av 200 entreprenörer erkända av Kungliga Myntkabinettet för att ha bidragit till att forma Sveriges utveckling som nation.",
     achievement6Title: "Opinionsbildare",
     achievement6Year: "Pågående",
     achievement6Desc: "100+ föredrag om entreprenörskap, ledarskap och förändringsledning. Porträtterad i biografin 'Uppdrag arbete'.",
