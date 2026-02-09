@@ -245,7 +245,7 @@ export const sv = {
     expertise2: "Internationell affärsexpansion",
     expertise2Desc: "Byggt verksamheter för internationell expansion med fokus på tillväxtmarknader",
     expertise3: "Produktinnovation",
-    expertise3Desc: "Grundat och skalat flera SaaS-plattformar och digitala produkter",
+    expertise3Desc: "Grundat och skalat flera bolag och plattformar med digitala produkter",
     expertise4: "Ledarskap & transformation",
     expertise4Desc: "20+ års ledningserfarenhet och organisationsutveckling",
     trackRecordTitle: "Meritlista",
