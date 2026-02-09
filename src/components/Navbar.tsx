@@ -26,9 +26,6 @@ const Navbar = () => {
             <span className="text-xl md:text-2xl font-display font-bold text-white uppercase tracking-[0.25em]">
               Ravolution
             </span>
-            <span className="text-[10px] md:text-xs font-display font-semibold text-gold/90 tracking-[0.2em] border-l border-white/30 pl-3">
-              AB
-            </span>
           </a>
 
           {/* Desktop Navigation */}
