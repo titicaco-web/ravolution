@@ -238,11 +238,11 @@ export const en = {
     ctaLinkedIn: "Connect on LinkedIn",
     aboutTitle: "About Ivan",
     aboutP1:
-      "Ivan Daza is a <strong>Super Inventor</strong> and serial entrepreneur with over 30 years of experience transforming breakthrough ideas into high-value strategic assets. As CEO and founder of Ravolution AB, Ivan holds foundational patents for several technologies aimed at improving civilization, business or life in general.",
+      "Ivan Daza is an <strong>inventor</strong> and serial entrepreneur with over 30 years of experience transforming breakthrough ideas into high-value strategic assets. As CEO and founder of Ravolution AB, Ivan holds foundational patents for several technologies aimed at improving civilization, business or life in general.",
     aboutP2:
       "His innovations address critical global challenges: democratizing quality education across rural communities through scalable K1-K9 curricula that establish baseline educational parity, thereby elevating educational outcomes universally. In immigrant language acquisition, his proprietary methodology accelerates literacy and professional proficiency <strong>24x faster</strong> than conventional approaches, enabling accelerated labor market integration and economic self-sufficiency.",
     aboutP3:
-      "Recognized as one of 200 entrepreneurs who shaped Sweden's business landscape over the past century (by the National Museum of Economy and The Royal Coin Cabinet), Ivan combines strategic business acumen with deep technical expertise. His <strong>IP portfolio targets billion-dollar markets</strong> including voice biometrics, AI-powered language learning, and global trade infrastructure—all high-growth sectors with proven market cap potential.",
+      "Recognized as one of 200 entrepreneurs who shaped Sweden's business landscape over the past century (by the National Museum of Economy and The Royal Coin Cabinet), Ivan combines strategic business acumen with deep technical expertise.",
     expertiseTitle: "Areas of Expertise",
     expertise1: "Patent Development & IP Strategy",
     expertise1Desc:
