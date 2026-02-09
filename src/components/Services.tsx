@@ -36,7 +36,7 @@ const services = [
   },
   {
     icon: Settings,
-    title: "Ongoing Operations",
+    title: "Maintenance: Ongoing Platform Evolution & Support",
     outcome: "Your platform keeps delivering—month after month.",
     deliverables: ["Performance monitoring & optimization", "Feature iteration & roadmap execution", "Scalability planning & infrastructure"],
     idealFor: "Companies with live platforms that need continuous evolution.",
