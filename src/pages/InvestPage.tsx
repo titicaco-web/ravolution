@@ -79,7 +79,7 @@ const InvestPage = () => {
         <Navbar />
 
         {/* Hero */}
-        <section className="gradient-hero text-primary-foreground pt-28 pb-20 md:pt-36 md:pb-28">
+        <section className="gradient-hero text-primary-foreground pt-28 pb-20 md:pt-36 md:pb-28" style={{ background: 'linear-gradient(135deg, hsl(210, 100%, 20%) 0%, hsl(210, 100%, 12%) 100%)' }}>
           <div className="max-w-5xl mx-auto px-6">
             <div className="inline-flex items-center gap-2 bg-accent/20 text-accent-light px-4 py-1.5 rounded-full text-sm font-medium mb-6 animate-fade-in">
               <TrendingUp className="w-4 h-4" />
