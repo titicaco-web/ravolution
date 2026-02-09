@@ -12,6 +12,7 @@ import TermsOfService from "./pages/TermsOfService";
 import Founder from "./pages/Founder";
 import ServicesPage from "./pages/ServicesPage";
 import BlogPodcast from "./pages/BlogPodcast";
+import InvestPage from "./pages/InvestPage";
 import NotFound from "./pages/NotFound";
 import CookieConsent from "./components/CookieConsent";
 import ScrollToTop from "./components/ScrollToTop";
@@ -50,6 +51,7 @@ const App = () => (
           <Route path="/:lang/founder" element={<LanguageSync><Founder /></LanguageSync>} />
           <Route path="/:lang/services" element={<LanguageSync><ServicesPage /></LanguageSync>} />
           <Route path="/:lang/blog" element={<LanguageSync><BlogPodcast /></LanguageSync>} />
+          <Route path="/:lang/invest" element={<LanguageSync><InvestPage /></LanguageSync>} />
           
           {/* Gyrocraft Routes - Password Protected */}
           <Route path="/:lang/gyrocraft" element={<LanguageSync><ProtectedGyrocraftRoute><GyrocraftHome /></ProtectedGyrocraftRoute></LanguageSync>} />
