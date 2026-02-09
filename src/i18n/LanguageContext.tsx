@@ -1,5 +1,4 @@
 import { createContext, useContext, useState, useCallback, ReactNode } from "react";
-
 import { en } from "./translations/en";
 import { sv } from "./translations/sv";
 import { es } from "./translations/es";
@@ -55,7 +54,6 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
     (key: string): string => {
       const value = getNestedValue(translations[language], key);
       if (value === key) {
-        // Fallback to English
         return getNestedValue(translations.en, key);
       }
       return value;
@@ -72,6 +70,8 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
 
 export const useLanguage = (): LanguageContextType => {
   const context = useContext(LanguageContext);
-  if (!context) throw new Error("useLanguage must be used within LanguageProvider");
+  if (!context) {
+    throw new Error("useLanguage must be used within LanguageProvider");
+  }
   return context;
 };
