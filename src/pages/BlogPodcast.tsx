@@ -3,7 +3,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { ScrollAnimateWrapper } from "@/hooks/use-scroll-animation";
-import { Headphones, BookOpen, ExternalLink, Mic, Calendar, Clock, ArrowRight, Mail, Phone, User } from "lucide-react";
+import { Headphones, BookOpen, ExternalLink, Mic, Calendar, Clock, ArrowRight, Mail, Phone, User, FileDown, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const BlogPodcast = () => {
@@ -169,6 +169,46 @@ const BlogPodcast = () => {
                   </article>
                 </ScrollAnimateWrapper>
               ))}
+            </div>
+          </section>
+
+          {/* Whitepaper Download */}
+          <section className="section-padding pt-0">
+            <div className="max-w-5xl mx-auto">
+              <ScrollAnimateWrapper>
+                <div className="flex items-center gap-3 mb-10">
+                  <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+                    <Shield className="w-5 h-5 text-primary" />
+                  </div>
+                  <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground">
+                    {t("blogPod.whitepaperHeading")}
+                  </h2>
+                </div>
+              </ScrollAnimateWrapper>
+
+              <ScrollAnimateWrapper delay={0.1}>
+                <div className="card-elevated p-8 md:p-10 flex flex-col md:flex-row md:items-center gap-6">
+                  <div className="flex-1">
+                    <h3 className="text-xl font-display font-bold text-foreground mb-3">
+                      {t("blogPod.whitepaperTitle")}
+                    </h3>
+                    <p className="text-muted-foreground leading-relaxed mb-4">
+                      {t("blogPod.whitepaperDesc")}
+                    </p>
+                    <p className="text-sm text-muted-foreground italic border-l-2 border-primary/30 pl-4">
+                      {t("blogPod.whitepaperNote")}
+                    </p>
+                  </div>
+                  <div className="shrink-0">
+                    <Button className="bg-primary hover:bg-primary/90 text-primary-foreground gap-2" asChild>
+                      <a href="/downloads/Defensible_Platform_Engineering_by_RAVOLUTION.pdf" download>
+                        <FileDown className="w-4 h-4" />
+                        {t("blogPod.whitepaperDownload")}
+                      </a>
+                    </Button>
+                  </div>
+                </div>
+              </ScrollAnimateWrapper>
             </div>
           </section>
 
