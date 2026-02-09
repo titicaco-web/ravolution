@@ -7,6 +7,7 @@ import Index from "./pages/Index";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
 import Founder from "./pages/Founder";
+import ServicesPage from "./pages/ServicesPage";
 import NotFound from "./pages/NotFound";
 import CookieConsent from "./components/CookieConsent";
 import ScrollToTop from "./components/ScrollToTop";
@@ -38,6 +39,7 @@ const App = () => (
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms-of-service" element={<TermsOfService />} />
           <Route path="/founder" element={<Founder />} />
+          <Route path="/services" element={<ServicesPage />} />
           
           {/* Gyrocraft Routes - Password Protected */}
           <Route path="/gyrocraft" element={<ProtectedGyrocraftRoute><GyrocraftHome /></ProtectedGyrocraftRoute>} />
