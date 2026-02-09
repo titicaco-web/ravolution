@@ -132,9 +132,19 @@ const BlogPodcast = () => {
                       <p className="text-muted-foreground leading-relaxed text-base md:text-lg max-w-none">
                         {pod.description}
                       </p>
-                      <p className="mt-6 text-sm text-muted-foreground italic border-l-2 border-accent/30 pl-4">
-                        {t("blogPod.podcastComingSoon")}
-                      </p>
+                      <div className="mt-6">
+                        <audio
+                          controls
+                          className="w-full"
+                          preload="metadata"
+                        >
+                          <source
+                            src="https://vldyfbfjsyomjsckvftg.supabase.co/storage/v1/object/public/podcast/Turn_Custom_Software_Into_Defensible_Assets.mp4"
+                            type="audio/mp4"
+                          />
+                          Your browser does not support the audio element.
+                        </audio>
+                      </div>
                     </div>
                   </article>
                 </ScrollAnimateWrapper>
