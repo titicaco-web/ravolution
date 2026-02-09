@@ -18,11 +18,11 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
-          <a href="/" className="flex items-center gap-2">
-            <span className="text-xl md:text-2xl font-display font-bold text-white">
+          <a href="/" className="flex items-center gap-3">
+            <span className="text-xl md:text-2xl font-display font-bold text-white uppercase tracking-[0.25em]">
               Ravolution
             </span>
-            <span className="text-xs font-medium text-gold bg-gold/20 px-2 py-0.5 rounded">
+            <span className="text-[10px] md:text-xs font-display font-semibold text-gold/90 tracking-[0.2em] border-l border-white/30 pl-3">
               AB
             </span>
           </a>
