@@ -109,7 +109,7 @@ const InvestPage = () => {
                   {t("invest.ctaDeck")}
                 </a>
               </Button>
-              <Button size="lg" variant="outline" className="border-white/30 text-white hover:bg-white/10" asChild>
+              <Button size="lg" className="bg-gold hover:bg-gold-light text-gold-foreground border-0" asChild>
                 <a href="https://meetings-eu1.hubspot.com/daza" target="_blank" rel="noopener noreferrer">
                   <Calendar className="mr-2 w-5 h-5" />
                   {t("invest.ctaCall")}
