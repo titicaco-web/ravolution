@@ -246,13 +246,13 @@ export const en = {
     expertiseTitle: "Areas of Expertise",
     expertise1: "Patent Development & IP Strategy",
     expertise1Desc:
-      "Multiple granted patents in voice biometrics and language learning technologies",
+      "Multiple granted patents in K1-K9 education, recruiting and language learning technologies",
     expertise2: "International Business Expansion",
     expertise2Desc:
-      "Built operations across continents with focus on emerging markets",
+      "Built operations for international expansion with focus on emerging markets",
     expertise3: "Product Innovation",
     expertise3Desc:
-      "Founded and scaled multiple SaaS platforms and digital products",
+      "Founded and scaled multiple companies and platforms with digital products",
     expertise4: "Leadership & Transformation",
     expertise4Desc:
       "20+ years of management experience and organizational development",
