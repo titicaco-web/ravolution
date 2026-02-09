@@ -22,19 +22,20 @@ type TranslationKey = NestedKeyOf<TranslationKeys>;
 interface LanguageContextType {
   language: Language;
   setLanguage: (lang: Language) => void;
-  t: (key: string) => string;
+  t: (key: string) => any;
 }
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
-function getNestedValue(obj: any, path: string): string {
+function getNestedValue(obj: any, path: string): any {
   const keys = path.split(".");
   let current = obj;
   for (const key of keys) {
     if (current === undefined || current === null) return path;
     current = current[key];
   }
-  return typeof current === "string" ? current : path;
+  if (current === undefined || current === null) return path;
+  return current;
 }
 
 export const LanguageProvider = ({ children }: { children: ReactNode }) => {
