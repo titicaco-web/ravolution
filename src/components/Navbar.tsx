@@ -13,6 +13,7 @@ const Navbar = () => {
   const navLinks = [
     { label: t("nav.founder"), href: lp("/founder") },
     { label: t("nav.services"), href: lp("/services") },
+    { label: t("nav.blog"), href: lp("/blog") },
     { label: t("nav.patents"), href: lp("/#patents") },
     { label: t("nav.products"), href: lp("/#products") },
     { label: t("nav.concepts"), href: lp("/#concepts") },

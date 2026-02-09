@@ -11,6 +11,7 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
 import Founder from "./pages/Founder";
 import ServicesPage from "./pages/ServicesPage";
+import BlogPodcast from "./pages/BlogPodcast";
 import NotFound from "./pages/NotFound";
 import CookieConsent from "./components/CookieConsent";
 import ScrollToTop from "./components/ScrollToTop";
@@ -48,6 +49,7 @@ const App = () => (
           <Route path="/:lang/terms-of-service" element={<LanguageSync><TermsOfService /></LanguageSync>} />
           <Route path="/:lang/founder" element={<LanguageSync><Founder /></LanguageSync>} />
           <Route path="/:lang/services" element={<LanguageSync><ServicesPage /></LanguageSync>} />
+          <Route path="/:lang/blog" element={<LanguageSync><BlogPodcast /></LanguageSync>} />
           
           {/* Gyrocraft Routes - Password Protected */}
           <Route path="/:lang/gyrocraft" element={<LanguageSync><ProtectedGyrocraftRoute><GyrocraftHome /></ProtectedGyrocraftRoute></LanguageSync>} />
