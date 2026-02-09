@@ -2,115 +2,54 @@ import { Helmet } from "react-helmet-async";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Monitor, Palette, Brain, Shield, Settings, ArrowRight, CheckCircle2, Target, Zap, Users, Workflow } from "lucide-react";
+import { useLanguage } from "@/i18n/LanguageContext";
 
-const serviceDetails = [
-  {
-    slug: "platform-development",
-    icon: Monitor,
-    title: "Platform Development for Complex Workflows",
-    tagline: "Custom CRM, partner portals, marketplaces, and process tools built around your business logic.",
-    description: "We design and build tailored digital platforms that replace fragmented tools and manual processes with unified, scalable systems. Whether you need a partner portal, trade marketplace, or internal operations platform—we architect it to fit your workflows, not the other way around.",
-    whoFor: "Enterprises, scale-ups, and organizations with complex multi-stakeholder workflows that off-the-shelf tools can't handle.",
-    deliverables: ["Custom CRM & partner portals", "Marketplace architecture & development", "Workflow automation & process tools", "API integrations & data pipelines", "Role-based access & permission systems"],
-    useCases: [
-      { problem: "Scattered spreadsheets and siloed tools for partner management.", approach: "Unified partner portal with real-time dashboards.", outcome: "50% reduction in coordination overhead." },
-      { problem: "Manual cross-border trade documentation.", approach: "Automated trade platform with compliance workflows.", outcome: "3x faster order processing." },
-    ],
-    faq: [
-      { q: "How long does a typical platform build take?", a: "Discovery sprint takes 2-3 weeks. MVP delivery in 8-12 weeks depending on complexity." },
-      { q: "Do you build on specific frameworks?", a: "We select the best stack for each project—React, Node.js, Python, cloud-native—based on requirements." },
-      { q: "Can you integrate with our existing systems?", a: "Yes. API-first architecture means we connect to ERPs, CRMs, and legacy systems." },
-      { q: "Do you handle hosting and infrastructure?", a: "Yes, we can manage the full stack including CI/CD, monitoring, and scaling." },
-    ],
-  },
-  {
-    slug: "product-design",
-    icon: Palette,
-    title: "Product + UX Design That Ships",
-    tagline: "From concept to production-ready product—with strong usability and real-world focus.",
-    description: "We combine product strategy, UX research, and visual design into a streamlined process. The result: products that solve real problems, look polished, and launch on time. No design-for-design's-sake—every pixel serves a purpose.",
-    whoFor: "Teams launching new digital products, redesigning legacy tools, or validating new ideas quickly.",
-    deliverables: ["UX research & user journey mapping", "Interface design & design systems", "Interactive prototyping & validation", "Production-ready front-end implementation", "Usability testing & iteration"],
-    useCases: [
-      { problem: "Low adoption of an internal tool due to poor UX.", approach: "User research, redesigned interface, and phased rollout.", outcome: "85% increase in daily active users." },
-      { problem: "Need to validate a new B2B SaaS concept.", approach: "Design sprint with clickable prototype in 2 weeks.", outcome: "Secured pilot customers before writing production code." },
-    ],
-    faq: [
-      { q: "Do you only do design, or also development?", a: "Both. We deliver production-ready front-ends, not just mockups." },
-      { q: "What tools do you use?", a: "Figma for design, React/TypeScript for implementation, and real-user testing." },
-      { q: "Can you work with our existing design system?", a: "Absolutely. We extend and improve existing systems or build new ones." },
-    ],
-  },
-  {
-    slug: "ai-systems",
-    icon: Brain,
-    title: "AI-Enabled Systems for Operations",
-    tagline: "AI where it creates measurable value—qualification, summarization, and decision support.",
-    description: "We implement AI systems that automate repetitive decisions, extract structured data, and generate actionable insights. No science experiments—every AI integration is tied to a measurable business outcome and validated before scale.",
-    whoFor: "Operations-heavy organizations looking to reduce manual work and improve decision speed.",
-    deliverables: ["Decision support & scoring systems", "Document summarization & extraction", "Qualification flows & lead routing", "Content generation pipelines", "Custom model fine-tuning & prompt engineering"],
-    useCases: [
-      { problem: "Analysts spending 20+ hours/week on report summarization.", approach: "AI pipeline for automated extraction and summary generation.", outcome: "90% time reduction, analysts focus on insights." },
-      { problem: "Inconsistent lead qualification across sales teams.", approach: "AI-driven scoring model integrated into CRM.", outcome: "35% improvement in conversion rate." },
-    ],
-    faq: [
-      { q: "Do you build custom models or use existing ones?", a: "We use the best tool for the job—fine-tuned models, LLMs, or traditional ML depending on the use case." },
-      { q: "How do you ensure AI accuracy?", a: "Rigorous testing with your real data, human-in-the-loop validation, and ongoing monitoring." },
-      { q: "What about data privacy?", a: "We design systems with privacy-first architecture and can deploy on-premise if required." },
-    ],
-  },
-  {
-    slug: "patent-ip",
-    icon: Shield,
-    title: "IP & Patent Strategy for Defensible Innovation",
-    tagline: "Protect your methods and systems—turn innovation into lasting competitive advantage.",
-    description: "We help founders and technical leaders identify patentable inventions within their products, develop filing strategies, and build IP portfolios that create real business value. With 27 patents and 343 claims of our own, we understand what makes IP commercially powerful.",
-    whoFor: "Founders, CTOs, and innovation teams with novel methods or systems worth protecting.",
-    deliverables: ["Patent landscape & freedom-to-operate analysis", "Invention disclosure & claim drafting", "Filing strategy & prosecution support", "IP monetization & licensing frameworks", "Portfolio management & valuation"],
-    useCases: [
-      { problem: "SaaS company with a unique algorithm but no IP protection.", approach: "Patent landscape analysis, 3 provisional filings in 6 weeks.", outcome: "Defensible IP portfolio that increased valuation 40%." },
-      { problem: "Enterprise needing to license technology to partners.", approach: "Licensing framework, rate card, and standard agreements.", outcome: "New revenue stream from existing IP." },
-    ],
-    faq: [
-      { q: "Do you handle patent prosecution?", a: "We support the full process and work with specialized patent attorneys for formal prosecution." },
-      { q: "Is it worth patenting software methods?", a: "Yes—when claims are drafted correctly, software patents provide strong competitive moats." },
-      { q: "How much does a patent portfolio cost?", a: "Varies widely. We help prioritize filings to maximize value per dollar spent." },
-    ],
-  },
-  {
-    slug: "ongoing-operations",
-    icon: Settings,
-    title: "Ongoing Platform Evolution & Support",
-    tagline: "Continuous management, optimization, and development so your platform keeps delivering.",
-    description: "Launch is just the beginning. We provide ongoing technical operations, performance monitoring, feature iteration, and strategic roadmap execution. Your platform evolves with your business—without the overhead of building an in-house team.",
-    whoFor: "Companies with live platforms that need continuous improvement without hiring a full engineering team.",
-    deliverables: ["24/7 monitoring & incident response", "Performance optimization & scaling", "Feature development & roadmap execution", "Security updates & compliance", "Analytics & growth experimentation"],
-    useCases: [
-      { problem: "Platform performance degrading as user base grows.", approach: "Infrastructure audit, caching strategy, and database optimization.", outcome: "Response times reduced by 70%, supporting 10x traffic." },
-      { problem: "Feature requests piling up with no development capacity.", approach: "Dedicated sprint team delivering bi-weekly releases.", outcome: "Cleared 6-month backlog in 3 months." },
-    ],
-    faq: [
-      { q: "What's the minimum engagement?", a: "We offer monthly retainers starting from a few days per month." },
-      { q: "Can you take over a platform built by another team?", a: "Yes. We audit, stabilize, and then iterate." },
-      { q: "Do you provide SLAs?", a: "Yes—response time and uptime SLAs are part of every retainer agreement." },
-    ],
-  },
-];
-
-const engagementModels = [
-  { title: "Fixed-Scope Sprint", description: "Defined deliverables, timeline, and budget. Ideal for MVPs, prototypes, and well-scoped modules.", duration: "4–12 weeks" },
-  { title: "Build Phase", description: "Full platform development with milestones and iterative delivery. For complex, multi-module projects.", duration: "3–9 months" },
-  { title: "Retainer / Ongoing", description: "Continuous development, support, and platform evolution. Scales up or down as needed.", duration: "Monthly" },
-];
-
-const processSteps = [
-  { icon: Target, label: "Discovery Sprint", description: "Map your challenge, define scope & success criteria." },
-  { icon: Zap, label: "Build MVP / Module", description: "Rapid development of your first working solution." },
-  { icon: Users, label: "Launch & Validate", description: "Go live, gather feedback, measure impact." },
-  { icon: Workflow, label: "Iterate & Support", description: "Continuous improvement with dedicated support." },
-];
+const serviceIcons = [Monitor, Palette, Brain, Shield, Settings];
+const serviceSlugs = ["platform-development", "product-design", "ai-systems", "patent-ip", "ongoing-operations"];
 
 const ServicesPage = () => {
+  const { t } = useLanguage();
+  const sp = (key: string) => t(`servicesPage.${key}`);
+
+  const serviceDetails = [1, 2, 3, 4, 5].map((n) => ({
+    slug: serviceSlugs[n - 1],
+    icon: serviceIcons[n - 1],
+    title: sp(`service${n}Title`) as string,
+    tagline: sp(`service${n}Tagline`) as string,
+    description: sp(`service${n}Desc`) as string,
+    whoFor: sp(`service${n}WhoFor`) as string,
+    deliverables: [1, 2, 3, 4, 5].map((d) => sp(`service${n}D${d}`) as string),
+    useCases: [1, 2].map((u) => ({
+      problem: sp(`service${n}UC${u}Problem`) as string,
+      approach: sp(`service${n}UC${u}Approach`) as string,
+      outcome: sp(`service${n}UC${u}Outcome`) as string,
+    })),
+    faq: (() => {
+      const faqs = [];
+      for (let f = 1; f <= 4; f++) {
+        const q = sp(`service${n}FAQ${f}Q`);
+        const a = sp(`service${n}FAQ${f}A`);
+        if (q && typeof q === 'string' && q !== `servicesPage.service${n}FAQ${f}Q`) {
+          faqs.push({ q: q as string, a: a as string });
+        }
+      }
+      return faqs;
+    })(),
+  }));
+
+  const processSteps = [
+    { icon: Target, label: sp("step1") as string, description: sp("step1Desc") as string },
+    { icon: Zap, label: sp("step2") as string, description: sp("step2Desc") as string },
+    { icon: Users, label: sp("step3") as string, description: sp("step3Desc") as string },
+    { icon: Workflow, label: sp("step4") as string, description: sp("step4Desc") as string },
+  ];
+
+  const engagementModels = [
+    { title: sp("fixedScopeTitle") as string, description: sp("fixedScopeDesc") as string, duration: sp("fixedScopeDuration") as string },
+    { title: sp("buildPhaseTitle") as string, description: sp("buildPhaseDesc") as string, duration: sp("buildPhaseDuration") as string },
+    { title: sp("retainerTitle") as string, description: sp("retainerDesc") as string, duration: sp("retainerDuration") as string },
+  ];
+
   return (
     <>
       <Helmet>
@@ -121,27 +60,6 @@ const ServicesPage = () => {
         <meta property="og:description" content="Custom platform development, AI systems, product design, patent strategy, and ongoing operations. We build defensible platforms." />
         <meta property="og:url" content="https://ravolution.se/services" />
         <meta property="og:type" content="website" />
-        <script type="application/ld+json">{JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "Organization",
-          name: "Ravolution AB",
-          url: "https://ravolution.se",
-          description: "Swedish Venture Studio & IP Innovation Company. 27 patents, 343 claims. Building defensible platforms.",
-          areaServed: "Global",
-          hasOfferCatalog: {
-            "@type": "OfferCatalog",
-            name: "Tech Development & IP Innovation Services",
-            itemListElement: serviceDetails.map((s, i) => ({
-              "@type": "Service",
-              position: i + 1,
-              name: s.title,
-              description: s.tagline,
-              provider: { "@type": "Organization", name: "Ravolution AB" },
-              areaServed: "Global",
-              url: `https://ravolution.se/services#${s.slug}`,
-            })),
-          },
-        })}</script>
       </Helmet>
 
       <div className="min-h-screen">
@@ -150,12 +68,12 @@ const ServicesPage = () => {
         {/* Hero */}
         <section className="pt-32 pb-16 px-6 bg-gradient-to-b from-primary to-primary-dark text-primary-foreground">
           <div className="max-w-4xl mx-auto text-center">
-            <span className="inline-block text-sm font-semibold tracking-widest uppercase text-accent-light mb-4">Services</span>
+            <span className="inline-block text-sm font-semibold tracking-widest uppercase text-accent-light mb-4">{sp("services")}</span>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-              Tech Development & <span className="text-gradient-gold">IP Innovation</span>
+              {sp("heroTitle")} <span className="text-gradient-gold">{sp("heroTitleHighlight")}</span>
             </h1>
             <p className="text-lg md:text-xl text-white/80 max-w-3xl mx-auto mb-8">
-              We build tailored platforms that operationalize growth—combined with patent & IP support to make the innovation defensible. From discovery to ongoing evolution.
+              {sp("heroSubtitle")}
             </p>
             <a
               href="https://meetings-eu1.hubspot.com/daza"
@@ -163,7 +81,7 @@ const ServicesPage = () => {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-gold text-gold-foreground px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 hover:bg-gold-light hover:shadow-elevated hover:scale-[1.02] active:scale-[0.98]"
             >
-              Book a Discovery Call <ArrowRight className="w-5 h-5" />
+              {sp("heroCtaBook")} <ArrowRight className="w-5 h-5" />
             </a>
           </div>
         </section>
@@ -171,7 +89,7 @@ const ServicesPage = () => {
         {/* How We Work */}
         <section className="py-16 px-6 bg-secondary">
           <div className="max-w-5xl mx-auto">
-            <h2 className="text-2xl md:text-3xl font-bold text-foreground text-center mb-10">How We Work</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground text-center mb-10">{sp("howWeWork")}</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {processSteps.map((step, index) => (
                 <div key={index} className="relative flex flex-col items-center text-center p-6">
@@ -208,13 +126,12 @@ const ServicesPage = () => {
                 <p className="text-muted-foreground leading-relaxed mb-6 max-w-3xl">{service.description}</p>
 
                 <p className="text-sm text-foreground/70 mb-8">
-                  <span className="font-semibold">Who it's for:</span> {service.whoFor}
+                  <span className="font-semibold">{sp("whoFor")}</span> {service.whoFor}
                 </p>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
-                  {/* Deliverables */}
                   <div className="card-elevated">
-                    <h3 className="font-bold text-foreground mb-4">What's Included</h3>
+                    <h3 className="font-bold text-foreground mb-4">{sp("whatsIncluded")}</h3>
                     <ul className="space-y-2">
                       {service.deliverables.map((d, i) => (
                         <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
@@ -225,14 +142,13 @@ const ServicesPage = () => {
                     </ul>
                   </div>
 
-                  {/* Use Cases */}
                   <div className="space-y-4">
-                    <h3 className="font-bold text-foreground mb-2">Use Cases</h3>
+                    <h3 className="font-bold text-foreground mb-2">{sp("useCases")}</h3>
                     {service.useCases.map((uc, i) => (
                       <div key={i} className="card-elevated !p-4">
-                        <p className="text-sm font-medium text-foreground mb-1">Problem: <span className="font-normal text-muted-foreground">{uc.problem}</span></p>
-                        <p className="text-sm font-medium text-foreground mb-1">Approach: <span className="font-normal text-muted-foreground">{uc.approach}</span></p>
-                        <p className="text-sm font-medium text-accent">Outcome: {uc.outcome}</p>
+                        <p className="text-sm font-medium text-foreground mb-1">{sp("problem")} <span className="font-normal text-muted-foreground">{uc.problem}</span></p>
+                        <p className="text-sm font-medium text-foreground mb-1">{sp("approach")} <span className="font-normal text-muted-foreground">{uc.approach}</span></p>
+                        <p className="text-sm font-medium text-accent">{sp("outcome")} {uc.outcome}</p>
                       </div>
                     ))}
                   </div>
@@ -241,7 +157,7 @@ const ServicesPage = () => {
                 {/* FAQ */}
                 <details className="group">
                   <summary className="cursor-pointer font-bold text-foreground flex items-center gap-2 mb-4 select-none">
-                    <span>Frequently Asked Questions</span>
+                    <span>{sp("faq")}</span>
                     <ArrowRight className="w-4 h-4 transition-transform group-open:rotate-90" />
                   </summary>
                   <div className="space-y-4 pl-2 border-l-2 border-accent/30">
@@ -254,7 +170,6 @@ const ServicesPage = () => {
                   </div>
                 </details>
 
-                {/* Internal links */}
                 <div className="mt-6 flex flex-wrap gap-3">
                   {serviceDetails
                     .filter((_, i) => i !== index)
@@ -265,7 +180,7 @@ const ServicesPage = () => {
                         href={`#${related.slug}`}
                         className="text-sm text-primary hover:text-accent transition-colors underline underline-offset-2"
                       >
-                        See also: {related.title.split(" for")[0].split(" –")[0]}
+                        {sp("seeAlso")} {related.title.split(" for")[0].split(" –")[0]}
                       </a>
                     ))}
                 </div>
@@ -277,7 +192,7 @@ const ServicesPage = () => {
         {/* Engagement Models */}
         <section className="py-16 px-6 bg-secondary">
           <div className="max-w-5xl mx-auto">
-            <h2 className="text-2xl md:text-3xl font-bold text-foreground text-center mb-10">Engagement Models</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground text-center mb-10">{sp("engagementModels")}</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {engagementModels.map((model, index) => (
                 <div key={index} className="card-elevated text-center">
@@ -293,9 +208,9 @@ const ServicesPage = () => {
         {/* Bottom CTA */}
         <section className="py-20 px-6 bg-primary text-primary-foreground">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Let's Build Something Defensible</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">{sp("bottomCtaTitle")}</h2>
             <p className="text-white/70 mb-8 text-lg">
-              30-minute discovery call. No obligations. Just a conversation about what you're building and how we can help.
+              {sp("bottomCtaDesc")}
             </p>
             <a
               href="https://meetings-eu1.hubspot.com/daza"
@@ -303,7 +218,7 @@ const ServicesPage = () => {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-gold text-gold-foreground px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 hover:bg-gold-light hover:shadow-elevated hover:scale-[1.02] active:scale-[0.98]"
             >
-              Book Discovery Call <ArrowRight className="w-5 h-5" />
+              {sp("bottomCtaBook")} <ArrowRight className="w-5 h-5" />
             </a>
           </div>
         </section>
