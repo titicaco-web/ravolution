@@ -3,7 +3,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { ScrollAnimateWrapper } from "@/hooks/use-scroll-animation";
-import { Headphones, BookOpen, ExternalLink, Mic, Calendar, Clock, ArrowRight } from "lucide-react";
+import { Headphones, BookOpen, ExternalLink, Mic, Calendar, Clock, ArrowRight, Mail, Phone, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const BlogPodcast = () => {
@@ -228,6 +228,52 @@ const BlogPodcast = () => {
                   </ScrollAnimateWrapper>
                 ))}
               </div>
+            </div>
+          </section>
+
+          {/* Press Contact */}
+          <section className="section-padding pt-0">
+            <div className="max-w-5xl mx-auto">
+              <ScrollAnimateWrapper>
+                <div className="flex items-center gap-3 mb-10">
+                  <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center">
+                    <Mail className="w-5 h-5 text-accent" />
+                  </div>
+                  <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground">
+                    {t("blogPod.pressContactHeading")}
+                  </h2>
+                </div>
+              </ScrollAnimateWrapper>
+
+              <ScrollAnimateWrapper delay={0.1}>
+                <div className="card-elevated p-8 md:p-10">
+                  <p className="text-muted-foreground text-lg mb-6">
+                    {t("blogPod.pressContactDesc")}
+                  </p>
+                  <div className="grid sm:grid-cols-2 gap-6 mb-6">
+                    <div className="flex items-center gap-3">
+                      <User className="w-5 h-5 text-accent" />
+                      <div>
+                        <p className="font-semibold text-foreground">{t("blogPod.pressName")}</p>
+                        <p className="text-sm text-muted-foreground">{t("blogPod.pressRole")}</p>
+                      </div>
+                    </div>
+                    <div className="space-y-2">
+                      <a href={`mailto:${t("blogPod.pressEmail")}`} className="flex items-center gap-2 text-accent hover:text-accent-light transition-colors">
+                        <Mail className="w-4 h-4" />
+                        <span>{t("blogPod.pressEmail")}</span>
+                      </a>
+                      <a href={`tel:${t("blogPod.pressPhone")}`} className="flex items-center gap-2 text-accent hover:text-accent-light transition-colors">
+                        <Phone className="w-4 h-4" />
+                        <span>{t("blogPod.pressPhone")}</span>
+                      </a>
+                    </div>
+                  </div>
+                  <p className="text-sm text-muted-foreground italic border-l-2 border-accent/30 pl-4">
+                    {t("blogPod.pressNote")}
+                  </p>
+                </div>
+              </ScrollAnimateWrapper>
             </div>
           </section>
 
