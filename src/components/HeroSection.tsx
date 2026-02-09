@@ -2,11 +2,13 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, FileText } from "lucide-react";
 import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 const HeroSection = () => {
   const [videos, setVideos] = useState<string[]>([]);
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const { t } = useLanguage();
 
   useEffect(() => {
     const fetchVideos = async () => {
@@ -35,7 +37,6 @@ const HeroSection = () => {
     fetchVideos();
   }, []);
 
-  // Cycle through videos with smooth transition
   useEffect(() => {
     if (videos.length <= 1) return;
 
@@ -44,8 +45,8 @@ const HeroSection = () => {
       setTimeout(() => {
         setCurrentVideoIndex((prev) => (prev + 1) % videos.length);
         setIsTransitioning(false);
-      }, 1000); // Transition duration
-    }, 8000); // Change video every 8 seconds
+      }, 1000);
+    }, 8000);
 
     return () => clearInterval(interval);
   }, [videos.length]);
@@ -67,12 +68,11 @@ const HeroSection = () => {
           >
             <source src={videos[currentVideoIndex]} type="video/mp4" />
           </video>
-          {/* Dark overlay for text readability */}
           <div className="absolute inset-0 bg-black/50" />
         </div>
       )}
 
-      {/* Fallback Animated Shifting Blue Background (when no videos) */}
+      {/* Fallback Animated Shifting Blue Background */}
       {videos.length === 0 && (
         <>
           <div className="absolute inset-0 bg-gradient-to-br from-[hsl(220,100%,8%)] via-[hsl(200,100%,12%)] to-[hsl(210,100%,18%)] animate-[shiftBlue_12s_ease-in-out_infinite]" />
@@ -81,7 +81,7 @@ const HeroSection = () => {
         </>
       )}
 
-      {/* White Grid Pattern - Small Squares (See-through) */}
+      {/* White Grid Pattern */}
       <div
         className="absolute inset-0 opacity-[0.12] z-[1] pointer-events-none"
         style={{
@@ -93,70 +93,63 @@ const HeroSection = () => {
         }}
       />
 
-      {/* Top Edge Highlight */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent z-[2]" />
 
       {/* Content */}
       <div className="relative z-10 max-w-6xl mx-auto px-6 text-center">
         <div className="animate-fade-in-up">
-          {/* Badge */}
           <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 mb-8">
             <span className="w-2 h-2 bg-accent rounded-full animate-pulse" />
-            <span className="text-white/90 text-sm font-medium">Swedish Venture Studio & IP Innovation Company</span>
+            <span className="text-white/90 text-sm font-medium">{t("hero.badge")}</span>
           </div>
 
-          {/* Headline */}
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold text-white leading-tight mb-6">
-            Solving Civilization-Scale Challenges with
-            <span className="block text-gradient-gold">Patented Deep Tech.</span>
+            {t("hero.headline")}
+            <span className="block text-gradient-gold">{t("hero.headlineHighlight")}</span>
           </h1>
 
-          {/* Subheadline */}
           <p className="text-lg md:text-xl text-white/80 max-w-4xl mx-auto mb-10 leading-relaxed">
-            We protect and scale the four platforms transforming global opportunity: <span className="text-white">iApply™</span> (transparent recruiting), <span className="text-white">CommunicaringSchool™</span> (K1-K9 equity), <span className="text-white">Rosetta Livingstone™</span> (24X faster language fluency), and <span className="text-white">xPortMatch™</span> (AI-driven borderless trade).
-            <span className="block mt-2 text-gold">Leveling the playing field through defensible innovation.</span>
+            {t("hero.subheadline")} <span className="text-white">iApply™</span>, <span className="text-white">CommunicaringSchool™</span>, <span className="text-white">Rosetta Livingstone™</span>, <span className="text-white">xPortMatch™</span>.
+            <span className="block mt-2 text-gold">{t("hero.subheadlineEnd")}</span>
           </p>
 
-          {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
             <Button className="btn-accent group text-lg px-8 py-6" asChild>
               <a href="#patents">
-                Explore Patent Portfolios
+                {t("hero.ctaExplore")}
                 <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
               </a>
             </Button>
             <Button className="btn-outline-light group text-lg px-8 py-6" asChild>
               <a href="#contact">
                 <FileText className="mr-2 h-5 w-5" />
-                Licensing Inquiry
+                {t("hero.ctaLicensing")}
               </a>
             </Button>
           </div>
 
-          {/* Stats Bar */}
           <div className="card-glass p-6 md:p-8 max-w-4xl mx-auto">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
               <div className="text-center">
-                <div className="text-xl md:text-2xl font-bold text-gold mb-1">27 Patents | 343 Claims</div>
+                <div className="text-xl md:text-2xl font-bold text-gold mb-1">{t("hero.statPatents")}</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-accent mb-1">€354M+</div>
-                <div className="text-white/70 text-sm">Combined ARR Potential</div>
+                <div className="text-3xl md:text-4xl font-bold text-accent mb-1">{t("hero.statARR")}</div>
+                <div className="text-white/70 text-sm">{t("hero.statARRLabel")}</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-gold mb-1">150+</div>
-                <div className="text-white/70 text-sm">Countries Reached</div>
+                <div className="text-3xl md:text-4xl font-bold text-gold mb-1">{t("hero.statCountries")}</div>
+                <div className="text-white/70 text-sm">{t("hero.statCountriesLabel")}</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-accent mb-1">7</div>
-                <div className="text-white/70 text-sm">Marketplace Concepts</div>
+                <div className="text-3xl md:text-4xl font-bold text-accent mb-1">{t("hero.statConcepts")}</div>
+                <div className="text-white/70 text-sm">{t("hero.statConceptsLabel")}</div>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Scroll Indicator */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce z-10">
         <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center">
           <div className="w-1.5 h-3 bg-accent rounded-full mt-2 animate-pulse" />

@@ -1,17 +1,20 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import { useLanguage } from "@/i18n/LanguageContext";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { t } = useLanguage();
 
   const navLinks = [
-    { label: "Founder", href: "/founder" },
-    { label: "Services", href: "/services" },
-    { label: "Patents", href: "/#patents" },
-    { label: "Products", href: "/#products" },
-    { label: "Concepts", href: "/#concepts" },
-    { label: "Investors", href: "/#investors" },
+    { label: t("nav.founder"), href: "/founder" },
+    { label: t("nav.services"), href: "/services" },
+    { label: t("nav.patents"), href: "/#patents" },
+    { label: t("nav.products"), href: "/#products" },
+    { label: t("nav.concepts"), href: "/#concepts" },
+    { label: t("nav.investors"), href: "/#investors" },
   ];
 
   return (
@@ -32,7 +35,7 @@ const Navbar = () => {
           <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
               <a
-                key={link.label}
+                key={link.href}
                 href={link.href}
                 className="text-white/80 hover:text-white font-medium transition-colors"
               >
@@ -41,14 +44,15 @@ const Navbar = () => {
             ))}
           </div>
 
-          {/* CTA Buttons */}
+          {/* CTA Buttons + Language Switcher */}
           <div className="hidden md:flex items-center gap-3">
+            <LanguageSwitcher />
             <Button variant="ghost" className="text-white hover:bg-white/10" asChild>
-              <a href="#contact">Contact</a>
+              <a href="#contact">{t("nav.contact")}</a>
             </Button>
             <Button className="bg-accent hover:bg-accent-light text-white" asChild>
               <a href="https://meetings-eu1.hubspot.com/daza" target="_blank" rel="noopener noreferrer">
-                Licensing Inquiry
+                {t("nav.licensingInquiry")}
               </a>
             </Button>
           </div>
@@ -68,7 +72,7 @@ const Navbar = () => {
             <div className="flex flex-col gap-4">
               {navLinks.map((link) => (
                 <a
-                  key={link.label}
+                  key={link.href}
                   href={link.href}
                   className="text-white/80 hover:text-white font-medium py-2"
                   onClick={() => setIsOpen(false)}
@@ -77,12 +81,15 @@ const Navbar = () => {
                 </a>
               ))}
               <div className="flex flex-col gap-2 pt-4 border-t border-white/10">
+                <div className="py-2">
+                  <LanguageSwitcher />
+                </div>
                 <Button variant="ghost" className="text-white hover:bg-white/10 justify-start" asChild>
-                  <a href="#contact">Contact</a>
+                  <a href="#contact">{t("nav.contact")}</a>
                 </Button>
                 <Button className="bg-accent hover:bg-accent-light text-white" asChild>
                   <a href="https://meetings-eu1.hubspot.com/daza" target="_blank" rel="noopener noreferrer">
-                    Licensing Inquiry
+                    {t("nav.licensingInquiry")}
                   </a>
                 </Button>
               </div>

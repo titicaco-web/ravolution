@@ -1,36 +1,39 @@
 import { Shield, BarChart3, Globe } from "lucide-react";
-
-const features = [
-  {
-    icon: Shield,
-    title: "Patent-First Design",
-    description: "Every solution built on defensible IP from inception. Strategic protection before market entry.",
-    color: "gold",
-  },
-  {
-    icon: BarChart3,
-    title: "Scalable Monetization",
-    description: "Licensing, SaaS, marketplace revenue—diversified streams with proven unit economics.",
-    color: "accent",
-  },
-  {
-    icon: Globe,
-    title: "Global Impact",
-    description: "Nordic innovation with international reach across 150+ countries and multiple industries.",
-    color: "primary",
-  },
-];
+import { useLanguage } from "@/i18n/LanguageContext";
 
 const WhyRavolution = () => {
+  const { t } = useLanguage();
+
+  const features = [
+    {
+      icon: Shield,
+      title: t("whyRavolution.patentFirst"),
+      description: t("whyRavolution.patentFirstDesc"),
+      color: "gold",
+    },
+    {
+      icon: BarChart3,
+      title: t("whyRavolution.scalable"),
+      description: t("whyRavolution.scalableDesc"),
+      color: "accent",
+    },
+    {
+      icon: Globe,
+      title: t("whyRavolution.globalImpact"),
+      description: t("whyRavolution.globalImpactDesc"),
+      color: "primary",
+    },
+  ];
+
   return (
     <section className="section-padding bg-background">
       <div className="max-w-7xl mx-auto">
         <div className="section-header">
           <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">
-            Strategic IP Leadership
+            {t("whyRavolution.title")}
           </h2>
           <p className="text-lg text-muted-foreground">
-            Why Ravolution is positioned for sustainable growth
+            {t("whyRavolution.subtitle")}
           </p>
         </div>
 
@@ -45,7 +48,7 @@ const WhyRavolution = () => {
 
             return (
               <div
-                key={feature.title}
+                key={index}
                 className="text-center group"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
