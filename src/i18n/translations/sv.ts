@@ -241,7 +241,7 @@ export const sv = {
     aboutP3: "Erkänd som en av 200 entreprenörer som format Sveriges affärslandskap under det senaste seklet (av Kungliga Myntkabinettet), kombinerar Ivan strategisk affärskunskap med djup teknisk expertis.",
     expertiseTitle: "Expertområden",
     expertise1: "Patentutv. & IP-strategi",
-    expertise1Desc: "Flera beviljade patent inom röstbiometri och språkinlärningsteknologier",
+    expertise1Desc: "Flera beviljade patent inom K1-K9 utbildning, rekrytering och språkinlärningsteknologier",
     expertise2: "Internationell affärsexpansion",
     expertise2Desc: "Byggt verksamheter över kontinenter med fokus på tillväxtmarknader",
     expertise3: "Produktinnovation",
