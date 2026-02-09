@@ -159,7 +159,7 @@ const BlogPodcast = () => {
                           preload="metadata"
                         >
                           <source
-                            src="https://vldyfbfjsyomjsckvftg.supabase.co/storage/v1/object/public/podcast/Turn_Custom_Software_Into_Defensible_Assets.mp4"
+                            src="https://vldyfbfjsyomjsckvftg.supabase.co/storage/v1/object/public/podcast/Turn_Custom_Software_Into_Defensible_Assets.m4a"
                             type="audio/mp4"
                           />
                           Your browser does not support the audio element.
