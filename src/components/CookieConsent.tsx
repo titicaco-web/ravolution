@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 const CookieConsent = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const { t } = useLanguage();
 
   useEffect(() => {
     const consent = localStorage.getItem("cookie-consent");
@@ -28,17 +30,17 @@ const CookieConsent = () => {
     <div className="fixed bottom-0 left-0 right-0 z-50 p-4 bg-background/95 backdrop-blur-sm border-t border-border shadow-lg">
       <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
         <p className="text-sm text-muted-foreground text-center sm:text-left">
-          We use cookies to enhance your experience. By continuing to visit this site you agree to our use of cookies.{" "}
+          {t("cookie.message")}{" "}
           <Link to="/privacy-policy" className="text-primary hover:underline">
-            Learn more
+            {t("cookie.learnMore")}
           </Link>
         </p>
         <div className="flex gap-3 shrink-0">
           <Button variant="outline" size="sm" onClick={handleDecline}>
-            Decline
+            {t("cookie.decline")}
           </Button>
           <Button size="sm" onClick={handleAccept}>
-            Accept
+            {t("cookie.accept")}
           </Button>
         </div>
       </div>
