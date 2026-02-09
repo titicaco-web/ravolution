@@ -251,7 +251,7 @@ export const sv = {
     trackRecordTitle: "Meritlista",
     trackRecordSubtitle: "En historia av att bygga framgångsrika företag och driva meningsfull förändring",
     achievement1Title: "Jobbfabriken",
-    achievement1Year: "2006",
+    achievement1Year: "2009",
     achievement1Desc: "Grundade Sveriges största program för långtidsarbetslösa med 20% (mot riksgenomsnitt 2%) anställningsgrad. Gasellföretag 2012 enligt Dagens Industri.",
     achievement2Title: "Give™ App-framgång",
     achievement2Year: "2014",
