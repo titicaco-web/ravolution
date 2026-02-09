@@ -99,14 +99,14 @@ const MarketplaceConcepts = () => {
                     <span className="font-semibold">{t("concepts.revenue")}</span> {itemT?.revenue}
                   </p>
                   {concept.link ? (
-                    <Button variant="ghost" className="w-full group" size="sm" asChild>
+                    <Button className="w-full group bg-accent hover:bg-accent-light text-white" size="sm" asChild>
                       <a href={concept.link} target="_blank" rel="noopener noreferrer">
                         {t("concepts.visitPlatform")}
                         <ExternalLink className="ml-2 w-4 h-4" />
                       </a>
                     </Button>
                   ) : (
-                    <Button variant="ghost" className="w-full group" size="sm">
+                    <Button className="w-full group bg-accent hover:bg-accent-light text-white" size="sm">
                       {t("concepts.learnMore")}
                       <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
                     </Button>
