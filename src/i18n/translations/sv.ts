@@ -243,7 +243,7 @@ export const sv = {
     expertise1: "Patentutv. & IP-strategi",
     expertise1Desc: "Flera beviljade patent inom K1-K9 utbildning, rekrytering och språkinlärningsteknologier",
     expertise2: "Internationell affärsexpansion",
-    expertise2Desc: "Byggt verksamheter över kontinenter med fokus på tillväxtmarknader",
+    expertise2Desc: "Byggt verksamheter för internationell expansion med fokus på tillväxtmarknader",
     expertise3: "Produktinnovation",
     expertise3Desc: "Grundat och skalat flera SaaS-plattformar och digitala produkter",
     expertise4: "Ledarskap & transformation",
