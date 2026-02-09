@@ -79,8 +79,19 @@ const InvestPage = () => {
         <Navbar />
 
         {/* Hero */}
-        <section className="gradient-hero text-primary-foreground pt-28 pb-20 md:pt-36 md:pb-28" style={{ background: 'linear-gradient(135deg, hsl(210, 100%, 20%) 0%, hsl(210, 100%, 12%) 100%)' }}>
-          <div className="max-w-5xl mx-auto px-6">
+        <section className="relative gradient-hero text-primary-foreground pt-28 pb-20 md:pt-36 md:pb-28 overflow-hidden" style={{ background: 'linear-gradient(135deg, hsl(210, 100%, 20%) 0%, hsl(210, 100%, 12%) 100%)' }}>
+          {/* White Grid Pattern */}
+          <div
+            className="absolute inset-0 opacity-[0.12] z-[1] pointer-events-none"
+            style={{
+              backgroundImage: `
+                linear-gradient(to right, rgba(255,255,255,0.5) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255,255,255,0.5) 1px, transparent 1px)
+              `,
+              backgroundSize: "18px 18px",
+            }}
+          />
+          <div className="relative z-10 max-w-5xl mx-auto px-6">
             <div className="inline-flex items-center gap-2 bg-accent/20 text-accent-light px-4 py-1.5 rounded-full text-sm font-medium mb-6 animate-fade-in">
               <TrendingUp className="w-4 h-4" />
               {t("invest.heroBadge")}
