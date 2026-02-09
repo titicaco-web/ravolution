@@ -6,7 +6,7 @@ export const en = {
     patents: "Patents",
     products: "Products",
     concepts: "Concepts",
-    investors: "Investors",
+    investors: "Invest",
     contact: "Contact",
     licensingInquiry: "Licensing Inquiry",
   },
@@ -768,5 +768,126 @@ export const en = {
     ctaTitle: "Want to Collaborate?",
     ctaDesc: "Whether you're exploring licensing opportunities, investment potential, or partnership—let's talk.",
     ctaButton: "Book a Call",
+  },
+  invest: {
+    metaTitle: "Invest in Ravolution | IP-Protected Deep Tech Platforms",
+    metaDesc: "Early investment opportunity in Ravolution—venture studio building patented, AI-enabled platforms for civilization-scale challenges. Request the deck.",
+    heroBadge: "Investment Opportunity",
+    heroH1: "Solving Civilization-Scale Challenges with Patented Deep Tech & IP‑Protected Platforms",
+    heroSubhead: "Ravolution is a Swedish venture studio building AI-enabled platforms and patentable systems designed for scale, defensibility, and real-world adoption.",
+    ctaDeck: "Request Investor Deck",
+    ctaCall: "Book a Call",
+    trustLine: "NDA-friendly. We share the deck within 24–48h.",
+    opportunityTitle: "The Opportunity — Why Now",
+    opp1: "AI is shifting software from 'tools' to 'operational systems,' creating new category leaders in every vertical.",
+    opp2: "Venture studios compound execution by reusing platform architecture, playbooks, and go-to-market patterns across multiple ventures.",
+    opp3: "Defensible IP increases durability in platform markets—patents are integrated into product decisions from day one, not as an afterthought.",
+    opp4: "Civilization-scale challenges in education, recruitment, language, and trade remain underserved by technology—creating massive TAM opportunities.",
+    portfolioTitle: "What We're Building",
+    portfolio: {
+      recruiting: {
+        title: "Transparent Recruiting (iApply™)",
+        desc: "Patent-protected platform transforming recruitment with AI-driven candidate matching, bias reduction, and full process transparency. Addressing a $924B global recruiting market."
+      },
+      education: {
+        title: "Education Equity (CommunicaringSchool™)",
+        desc: "Patented K1–K9 curriculum platform designed to democratize access to quality education. Built for institutional adoption and government partnership."
+      },
+      language: {
+        title: "Language Learning (Rosetta Livingstone™)",
+        desc: "34x faster language acquisition through ambient learning methods. Patent-protected technology accelerating immigrant integration and fluency programs."
+      },
+      trade: {
+        title: "Borderless Trade (xPortMatch™)",
+        desc: "AI-powered B2B export-import matching platform connecting Nordic SMEs with global markets. Operational with a 50-country partner network."
+      }
+    },
+    diffTitle: "Why Ravolution Can Win",
+    pillar: {
+      execution: {
+        title: "Platform Execution",
+        desc: "Repeatable delivery model: discovery → build → launch → iterate. The venture studio architecture lets us compound learnings and infrastructure across every platform we build."
+      },
+      ip: {
+        title: "IP Defensibility",
+        desc: "Patent strategy is integrated into product decisions from the start—not bolted on later. 27 patents and 343 claims create durable competitive moats across all verticals."
+      },
+      ai: {
+        title: "AI Where It Pays",
+        desc: "Applied AI in workflows that matter: candidate qualification, language acquisition, trade matching, and decision support. Practical AI that drives measurable outcomes."
+      }
+    },
+    focusTitle: "We Are Looking For",
+    focusTypes: "Investor Types",
+    focusTypesDesc: "Angels, family offices, micro-VCs, and strategic partners with alignment to our mission.",
+    focusValue: "Value-Add",
+    focusValueDesc: "Networks in public sector/enterprise, GTM support, deep tech/IP expertise, and international distribution.",
+    focusStage: "Stage",
+    focusStageDesc: "Early-stage / pre-seed. We're building the foundation for a defensible, multi-platform IP company.",
+    roadmapTitle: "Use of Funds",
+    roadmap: {
+      ipFilings: {
+        title: "IP Strategy & Patent Filings",
+        desc: "Expand patent coverage for core methods across priority jurisdictions."
+      },
+      productization: {
+        title: "Productization (MVP → v1)",
+        desc: "Accelerate 1–2 priority platforms from validated concept to market-ready product."
+      },
+      pilots: {
+        title: "Pilot Customers & Distribution",
+        desc: "Secure pilot customers and strategic distribution partnerships in target markets."
+      },
+      team: {
+        title: "Team Expansion",
+        desc: "Grow engineering, product, and commercial teams to support multi-platform execution."
+      }
+    },
+    proofTitle: "Proof & Credibility",
+    proofFounder: "Led by Ivan Daza—serial tech inventor and digitalization expert with 30+ years of experience building patented platforms. Recognized by the Royal Coin Cabinet as one of 200 entrepreneurs who shaped Sweden's development.",
+    proofDelivery: "Track record across Swedish public sector and international environments. Founded and scaled multiple companies including Jobbfabriken (20% employment rate for long-term unemployed vs. 2% national average) and Blatteförmedlingen (Gasell status 2012).",
+    proofNDA: "Selected financial details, traction metrics, and customer pipeline data available in the investor deck under NDA.",
+    faqTitle: "Frequently Asked Questions",
+    faq: {
+      whatBuild: {
+        q: "What does Ravolution build?",
+        a: "Ravolution is a Swedish venture studio that builds AI-enabled platforms and patentable systems for civilization-scale challenges. We focus on transparent recruiting, K1–K9 education, language learning, and borderless trade—each with integrated IP protection."
+      },
+      defensibility: {
+        q: "How do you create defensibility?",
+        a: "Patent strategy is embedded in our product development process. We currently hold 27 patents with 343 claims across 4 strategic verticals. This creates durable competitive moats that protect our platforms and licensing revenue."
+      },
+      studioModel: {
+        q: "What is your venture studio model?",
+        a: "We build multiple platforms using shared architecture, playbooks, and GTM patterns. This compound execution model reduces per-venture risk while accelerating time-to-market. Each platform benefits from cross-pollinated infrastructure and learnings."
+      },
+      patentsInSoftware: {
+        q: "How do you use patents in software platforms?",
+        a: "Our patents protect foundational methods—not just features. This means competitors can't replicate our core approaches. Patents also generate recurring licensing revenue independent of direct product sales, creating diversified income streams."
+      },
+      investorNext: {
+        q: "What does an investor receive and what are the next steps?",
+        a: "After submitting a request, we share the investor deck under NDA within 24–48 hours. The deck includes financial projections, market analysis, patent portfolio details, and team information. From there, we schedule a call to discuss alignment and terms."
+      }
+    },
+    formHeadline: "Interested in Early Access?",
+    formSubhead: "Request the investor deck or book a call directly. We respond to all inquiries within 48 hours.",
+    orEmail: "Or email us directly at",
+    form: {
+      name: "Your Name",
+      email: "Email Address",
+      type: "Investor Type",
+      typeAngel: "Angel Investor",
+      typeFamily: "Family Office",
+      typeFund: "VC / Micro-VC Fund",
+      typeStrategic: "Strategic Partner",
+      ticket: "Ticket Range",
+      message: "Message (optional)",
+      consent: "I consent to Ravolution AB processing my data for investor relations purposes. Information shared is treated as confidential.",
+      confidentiality: "All submissions are treated confidentially. We do not share your information with third parties."
+    },
+    thankYou: "Thank You!",
+    thankYouMsg: "We'll send the investor deck within 24–48 hours. In the meantime, feel free to book a call.",
+    disclaimer: "This page is for informational purposes only and does not constitute an offer to sell securities or a solicitation of an offer to buy securities in any jurisdiction. Any investment involves risk, including the possible loss of principal."
   },
 };

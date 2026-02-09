@@ -17,7 +17,7 @@ const Navbar = () => {
     { label: t("nav.patents"), href: lp("/#patents") },
     { label: t("nav.products"), href: lp("/#products") },
     { label: t("nav.concepts"), href: lp("/#concepts") },
-    { label: t("nav.investors"), href: lp("/#investors") },
+    { label: t("nav.investors"), href: lp("/invest") },
   ];
 
   return (
