@@ -6,6 +6,7 @@ import PatentPortfolios from "@/components/PatentPortfolios";
 import FeaturedProducts from "@/components/FeaturedProducts";
 import MarketplaceConcepts from "@/components/MarketplaceConcepts";
 import WhyRavolution from "@/components/WhyRavolution";
+import Services from "@/components/Services";
 import InvestorTeaser from "@/components/InvestorTeaser";
 import FooterCTA from "@/components/FooterCTA";
 import Footer from "@/components/Footer";
@@ -49,6 +50,9 @@ const Index = () => {
           </ScrollAnimateWrapper>
           <ScrollAnimateWrapper delay={0.1}>
             <WhyRavolution />
+          </ScrollAnimateWrapper>
+          <ScrollAnimateWrapper delay={0.1}>
+            <Services />
           </ScrollAnimateWrapper>
           <ScrollAnimateWrapper delay={0.1}>
             <InvestorTeaser />
