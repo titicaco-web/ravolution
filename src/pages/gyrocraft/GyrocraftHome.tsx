@@ -4,8 +4,10 @@ import { Button } from "@/components/ui/button";
 import { Satellite, Plane, Car, Globe, ArrowRight, Zap, Shield, Infinity, FlaskConical, Microscope, AlertCircle } from "lucide-react";
 import GyrocraftNavbar from "@/components/gyrocraft/GyrocraftNavbar";
 import GyrocraftFooter from "@/components/gyrocraft/GyrocraftFooter";
+import { useLangPath } from "@/hooks/use-lang-path";
 
 const GyrocraftHome = () => {
+  const lp = useLangPath();
   const features = [
     {
       icon: Satellite,
@@ -87,13 +89,13 @@ const GyrocraftHome = () => {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16 animate-fade-in" style={{ animationDelay: '0.3s' }}>
             <Button size="lg" className="bg-gyrocraft-teal hover:bg-gyrocraft-teal/90 text-gyrocraft-dark font-semibold px-8 py-6 text-lg" asChild>
-              <Link to="/gyrocraft/investors">
+              <Link to={lp("/gyrocraft/investors")}>
                 Investment Opportunity
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Link>
             </Button>
             <Button size="lg" variant="outline" className="border-gyrocraft-orange text-gyrocraft-orange hover:bg-gyrocraft-orange/10 font-semibold px-8 py-6 text-lg" asChild>
-              <Link to="/gyrocraft/licensing">
+              <Link to={lp("/gyrocraft/licensing")}>
                 Partnership Inquiries
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Link>
@@ -267,10 +269,10 @@ const GyrocraftHome = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" className="bg-gyrocraft-teal hover:bg-gyrocraft-teal/90 text-gyrocraft-dark font-semibold px-8" asChild>
-              <Link to="/gyrocraft/investors">Investment Details</Link>
+              <Link to={lp("/gyrocraft/investors")}>Investment Details</Link>
             </Button>
             <Button size="lg" variant="outline" className="border-gyrocraft-text/30 text-gyrocraft-text hover:bg-gyrocraft-text/10 font-semibold px-8" asChild>
-              <Link to="/gyrocraft/about">About the Research</Link>
+              <Link to={lp("/gyrocraft/about")}>About the Research</Link>
             </Button>
           </div>
         </div>

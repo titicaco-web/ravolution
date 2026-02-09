@@ -1,10 +1,12 @@
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import { useLanguage } from "@/i18n/LanguageContext";
+import { useLangPath } from "@/hooks/use-lang-path";
 
 const NotFound = () => {
   const location = useLocation();
   const { t } = useLanguage();
+  const lp = useLangPath();
 
   useEffect(() => {
     console.error("404 Error: User attempted to access non-existent route:", location.pathname);
@@ -15,7 +17,7 @@ const NotFound = () => {
       <div className="text-center">
         <h1 className="mb-4 text-4xl font-bold">{t("notFound.title")}</h1>
         <p className="mb-4 text-xl text-gray-600">{t("notFound.message")}</p>
-        <a href="/" className="text-blue-500 underline hover:text-blue-700">
+        <a href={lp("/")} className="text-blue-500 underline hover:text-blue-700">
           {t("notFound.returnHome")}
         </a>
       </div>
