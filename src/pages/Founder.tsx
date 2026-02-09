@@ -21,6 +21,7 @@ import {
   ArrowRight
 } from "lucide-react";
 import ivanPhoto from "@/assets/ivan-daza.jpg";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 const founderSchema = {
   "@context": "https://schema.org",
@@ -73,89 +74,29 @@ const founderSchema = {
 };
 
 const Founder = () => {
+  const { t } = useLanguage();
+
   const expertiseAreas = [
-    {
-      icon: FileText,
-      title: "Patent Development & IP Strategy",
-      description: "Multiple granted patents in voice biometrics and language learning technologies"
-    },
-    {
-      icon: Globe,
-      title: "International Business Expansion",
-      description: "Built operations across continents with focus on emerging markets"
-    },
-    {
-      icon: Lightbulb,
-      title: "Product Innovation",
-      description: "Founded and scaled multiple SaaS platforms and digital products"
-    },
-    {
-      icon: Users,
-      title: "Leadership & Transformation",
-      description: "20+ years of management experience and organizational development"
-    }
+    { icon: FileText, title: t("founder.expertise1") as string, description: t("founder.expertise1Desc") as string },
+    { icon: Globe, title: t("founder.expertise2") as string, description: t("founder.expertise2Desc") as string },
+    { icon: Lightbulb, title: t("founder.expertise3") as string, description: t("founder.expertise3Desc") as string },
+    { icon: Users, title: t("founder.expertise4") as string, description: t("founder.expertise4Desc") as string },
   ];
 
   const achievements = [
-    {
-      icon: TrendingUp,
-      title: "Blatteförmedlingen",
-      year: "2006",
-      description: "Founded Sweden's largest long-term unemployment program, achieving 20% employment conversion rate. Recognized as Gasell Company 2012 by Dagens Industri."
-    },
-    {
-      icon: Award,
-      title: "Give™ App Success",
-      year: "2014",
-      description: "Record crowdfunding campaign on FundedByMe with successful exit in 2016."
-    },
-    {
-      icon: Heart,
-      title: "Post-Tsunami Response",
-      year: "2005",
-      description: "Led disaster operations, established microloan bank and school infrastructure for affected communities."
-    },
-    {
-      icon: BookOpen,
-      title: "Government Consultant",
-      year: "2000s",
-      description: "Private consultant to Swedish Ministers of Employment, Integration, and Education."
-    },
-    {
-      icon: Award,
-      title: "National Recognition",
-      year: "2010s",
-      description: "One of 200 entrepreneurs recognized by the National Museum of Economy for shaping Sweden's business landscape."
-    },
-    {
-      icon: Users,
-      title: "Thought Leader",
-      year: "Ongoing",
-      description: "100+ speaking engagements on entrepreneurship, leadership, and change management. Featured in 'Uppdrag arbete' biography."
-    }
+    { icon: TrendingUp, title: t("founder.achievement1Title") as string, year: t("founder.achievement1Year") as string, description: t("founder.achievement1Desc") as string },
+    { icon: Award, title: t("founder.achievement2Title") as string, year: t("founder.achievement2Year") as string, description: t("founder.achievement2Desc") as string },
+    { icon: Heart, title: t("founder.achievement3Title") as string, year: t("founder.achievement3Year") as string, description: t("founder.achievement3Desc") as string },
+    { icon: BookOpen, title: t("founder.achievement4Title") as string, year: t("founder.achievement4Year") as string, description: t("founder.achievement4Desc") as string },
+    { icon: Award, title: t("founder.achievement5Title") as string, year: t("founder.achievement5Year") as string, description: t("founder.achievement5Desc") as string },
+    { icon: Users, title: t("founder.achievement6Title") as string, year: t("founder.achievement6Year") as string, description: t("founder.achievement6Desc") as string },
   ];
 
   const portfolio = [
-    {
-      name: "Rosetta Livingstone™",
-      description: "AI-powered language learning platform with intelligent learning partners",
-      status: "Patent Portfolio"
-    },
-    {
-      name: "VoiceProtector",
-      description: "Voice biometrics and anti-deepfake authentication technology",
-      status: "Active Product"
-    },
-    {
-      name: "xPortMatch",
-      description: "B2B export/import business connector platform",
-      status: "Active Product"
-    },
-    {
-      name: "CommunicaringSchool",
-      description: "Global education platform aligned with UN Convention on Rights of the Child",
-      status: "In Development"
-    }
+    { name: "Rosetta Livingstone™", description: t("founder.portfolio1Desc") as string, status: t("founder.patentPortfolio") as string },
+    { name: "VoiceProtector", description: t("founder.portfolio2Desc") as string, status: t("founder.activeProduct") as string },
+    { name: "xPortMatch", description: t("founder.portfolio3Desc") as string, status: t("founder.activeProduct") as string },
+    { name: "CommunicaringSchool", description: t("founder.portfolio4Desc") as string, status: t("founder.inDevelopment") as string },
   ];
 
   const adventures = [
@@ -198,28 +139,28 @@ const Founder = () => {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <Badge variant="outline" className="mb-4 border-gold text-gold">
-                Founder & CEO
+                {t("founder.badge")}
               </Badge>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-foreground mb-6">
-                Ivan Daza
+                {t("founder.name")}
               </h1>
               <p className="text-xl md:text-2xl text-primary font-medium mb-4">
-                Tech Inventor & Patent Strategist
+                {t("founder.role")}
               </p>
               <p className="text-lg text-muted-foreground mb-8">
-                30+ Years of Entrepreneurial Innovation | Language Learning Pioneer | International Business Builder
+                {t("founder.subtitle")}
               </p>
               <div className="flex flex-wrap gap-4">
                 <Button size="lg" asChild>
                   <a href="/#patents">
-                    Explore Our Patents
+                    {t("founder.ctaPatents")}
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </a>
                 </Button>
                 <Button variant="outline" size="lg" asChild>
                   <a href="https://linkedin.com/in/ivandaza" target="_blank" rel="noopener noreferrer">
                     <Linkedin className="mr-2 h-5 w-5" />
-                    Connect on LinkedIn
+                    {t("founder.ctaLinkedIn")}
                   </a>
                 </Button>
               </div>
@@ -242,28 +183,12 @@ const Founder = () => {
       <section className="py-20 bg-muted/30">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-display font-bold text-foreground mb-8 text-center">
-            About Ivan
+            {t("founder.aboutTitle")}
           </h2>
           <div className="prose prose-lg max-w-none text-muted-foreground space-y-6">
-            <p className="text-lg leading-relaxed">
-              Ivan Daza is a <strong>Super Inventor</strong> and serial entrepreneur with over 30 years of experience 
-              transforming breakthrough ideas into high-value strategic assets. As CEO and founder of Ravolution AB, 
-              Ivan holds foundational patents for several technologies aimed at improving civilization, business or life in general.
-            </p>
-            <p className="text-lg leading-relaxed">
-              His innovations address critical global challenges: democratizing quality education across rural communities 
-              through scalable K1-K9 curricula that establish baseline educational parity, thereby elevating educational 
-              outcomes universally. In immigrant language acquisition, his proprietary methodology accelerates literacy 
-              and professional proficiency <strong>24x faster</strong> than conventional approaches, enabling accelerated 
-              labor market integration and economic self-sufficiency.
-            </p>
-            <p className="text-lg leading-relaxed">
-              Recognized as one of 200 entrepreneurs who shaped Sweden's business landscape over the past 
-              century (by the National Museum of Economy and The Royal Coin Cabinet), Ivan combines strategic 
-              business acumen with deep technical expertise. His <strong>IP portfolio targets billion-dollar markets</strong> including 
-              voice biometrics, AI-powered language learning, and global trade infrastructure—all high-growth 
-              sectors with proven market cap potential.
-            </p>
+            <p className="text-lg leading-relaxed" dangerouslySetInnerHTML={{ __html: t("founder.aboutP1") as string }} />
+            <p className="text-lg leading-relaxed" dangerouslySetInnerHTML={{ __html: t("founder.aboutP2") as string }} />
+            <p className="text-lg leading-relaxed" dangerouslySetInnerHTML={{ __html: t("founder.aboutP3") as string }} />
           </div>
         </div>
       </section>
@@ -272,7 +197,7 @@ const Founder = () => {
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-display font-bold text-foreground mb-12 text-center">
-            Areas of Expertise
+            {t("founder.expertiseTitle")}
           </h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {expertiseAreas.map((area, index) => (
@@ -294,10 +219,10 @@ const Founder = () => {
       <section className="py-20 bg-muted/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-display font-bold text-foreground mb-4 text-center">
-            Track Record
+            {t("founder.trackRecordTitle")}
           </h2>
           <p className="text-muted-foreground text-center mb-12 max-w-2xl mx-auto">
-            A history of building impactful businesses and driving meaningful change
+            {t("founder.trackRecordSubtitle")}
           </p>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {achievements.map((achievement, index) => (
@@ -328,15 +253,13 @@ const Founder = () => {
           <div className="text-center mb-12">
             <Mountain className="w-12 h-12 text-gold mx-auto mb-4" />
             <h2 className="text-3xl font-display font-bold text-foreground mb-4">
-              Vision Through Perseverance
+              {t("founder.visionTitle")}
             </h2>
           </div>
           
           <div className="bg-gradient-to-br from-primary/5 to-accent/5 rounded-2xl p-8 md:p-12 border border-border">
             <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-              Beyond the boardroom, Ivan tests his limits through extraordinary adventures that mirror 
-              the entrepreneurial journey. These experiences shape his approach to business challenges 
-              and inspire the Ravolution team's commitment to ambitious, transformative goals.
+              {t("founder.visionDescription")}
             </p>
             
             <div className="flex flex-wrap gap-2 mb-8">
@@ -348,9 +271,7 @@ const Founder = () => {
             </div>
             
             <blockquote className="border-l-4 border-gold pl-6 italic text-foreground text-lg">
-              "Success in any undertaking hinges on the potency of vision, preparation, determination, 
-              discipline, endurance, adaptability, and the ability to motivate and lead oneself and 
-              one's team towards a goal, one step at a time."
+              {t("founder.visionQuote")}
             </blockquote>
           </div>
         </div>
@@ -360,17 +281,17 @@ const Founder = () => {
       <section className="py-20 bg-muted/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-display font-bold text-foreground mb-4 text-center">
-            Current Innovation Portfolio
+            {t("founder.portfolioTitle")}
           </h2>
           <p className="text-muted-foreground text-center mb-12 max-w-2xl mx-auto">
-            Leading Ravolution's strategic patent portfolios and funded products
+            {t("founder.portfolioSubtitle")}
           </p>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {portfolio.map((product, index) => (
               <Card key={index} className="bg-card border-border hover:shadow-lg transition-shadow">
                 <CardContent className="p-6">
                   <Badge 
-                    variant={product.status === "Active Product" ? "default" : "secondary"} 
+                    variant={product.status === (t("founder.activeProduct") as string) ? "default" : "secondary"} 
                     className="mb-4"
                   >
                     {product.status}
@@ -388,83 +309,56 @@ const Founder = () => {
       <section className="py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-display font-bold text-foreground mb-4">
-            Let's Build Something Great Together
+            {t("founder.ctaTitle")}
           </h2>
           <p className="text-lg text-muted-foreground mb-8">
-            Interested in licensing our patents, exploring partnerships, or learning more about Ravolution?
+            {t("founder.ctaDescription")}
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Button size="lg" asChild>
               <a href="/#patents">
                 <FileText className="mr-2 h-5 w-5" />
-                View Patent Portfolios
+                {t("founder.ctaViewPatents")}
               </a>
             </Button>
             <Button variant="outline" size="lg" asChild>
               <a href="/#products">
                 <ExternalLink className="mr-2 h-5 w-5" />
-                Explore Products
+                {t("founder.ctaExploreProducts")}
               </a>
             </Button>
             <Button variant="secondary" size="lg" asChild>
               <a href="mailto:ivan.daza@ravolution.se">
                 <Mail className="mr-2 h-5 w-5" />
-                Contact Ivan
+                {t("founder.ctaContactIvan")}
               </a>
             </Button>
           </div>
         </div>
       </section>
 
-      {/* FAQ Section for GEO Optimization */}
+      {/* FAQ Section */}
       <section className="py-20 bg-muted/30">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-display font-bold text-foreground mb-12 text-center">
-            Frequently Asked Questions
+            {t("founder.faqTitle")}
           </h2>
           <div className="space-y-8">
             <div className="bg-card p-6 rounded-xl border border-border">
-              <h3 className="text-lg font-semibold text-foreground mb-3">
-                What is CommunicaringSchool and how does it democratize education?
-              </h3>
-              <p className="text-muted-foreground">
-                CommunicaringSchool is a global education platform aligned with the UN Convention on the Rights of the Child. 
-                It delivers scalable K1-K9 curricula to rural and underserved communities, establishing baseline educational 
-                parity regardless of geography. The platform addresses the critical challenge of democratizing quality 
-                education for millions of children worldwide.
-              </p>
+              <h3 className="text-lg font-semibold text-foreground mb-3">{t("founder.faq1Q")}</h3>
+              <p className="text-muted-foreground">{t("founder.faq1A")}</p>
             </div>
             <div className="bg-card p-6 rounded-xl border border-border">
-              <h3 className="text-lg font-semibold text-foreground mb-3">
-                How does RosettaLivingstone accelerate language learning 24x faster?
-              </h3>
-              <p className="text-muted-foreground">
-                RosettaLivingstone is an AI-powered language learning platform featuring intelligent learning partners 
-                that adapt to each learner. Ivan Daza's proprietary methodology enables immigrants to achieve literacy 
-                and professional proficiency 24x faster than conventional approaches, dramatically accelerating labor 
-                market integration and economic self-sufficiency.
-              </p>
+              <h3 className="text-lg font-semibold text-foreground mb-3">{t("founder.faq2Q")}</h3>
+              <p className="text-muted-foreground">{t("founder.faq2A")}</p>
             </div>
             <div className="bg-card p-6 rounded-xl border border-border">
-              <h3 className="text-lg font-semibold text-foreground mb-3">
-                What is xPortMatch and how does it transform global trade?
-              </h3>
-              <p className="text-muted-foreground">
-                xPortMatch is a B2B export/import business connector platform that streamlines international trade 
-                infrastructure. It connects exporters and importers globally, reducing friction in cross-border 
-                commerce and addressing the trillion-dollar global trade market with intelligent matching technology.
-              </p>
+              <h3 className="text-lg font-semibold text-foreground mb-3">{t("founder.faq3Q")}</h3>
+              <p className="text-muted-foreground">{t("founder.faq3A")}</p>
             </div>
             <div className="bg-card p-6 rounded-xl border border-border">
-              <h3 className="text-lg font-semibold text-foreground mb-3">
-                Who is Ivan Daza and what is his vision for these technologies?
-              </h3>
-              <p className="text-muted-foreground">
-                Ivan Daza is a Super Inventor and serial entrepreneur recognized as one of 200 entrepreneurs who 
-                shaped Sweden's business landscape. Through Ravolution AB, he develops patented technologies that 
-                solve civilization-scale challenges—from revolutionizing immigrant integration with RosettaLivingstone, 
-                to democratizing education with CommunicaringSchool, to powering global trade with xPortMatch.
-              </p>
+              <h3 className="text-lg font-semibold text-foreground mb-3">{t("founder.faq4Q")}</h3>
+              <p className="text-muted-foreground">{t("founder.faq4A")}</p>
             </div>
           </div>
         </div>
