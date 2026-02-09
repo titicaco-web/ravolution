@@ -30,7 +30,7 @@ const LanguageSwitcher = () => {
         className="flex items-center gap-1.5 text-white/80 hover:text-white transition-colors text-sm font-medium px-2 py-1 rounded-md hover:bg-white/10"
       >
         <Globe className="w-4 h-4" />
-        <span>{current.flag} {current.label}</span>
+        <span>{current.flag}</span>
       </button>
       {isOpen && (
         <div className="absolute right-0 top-full mt-1 bg-primary border border-white/20 rounded-lg shadow-xl overflow-hidden z-50 min-w-[100px]">
