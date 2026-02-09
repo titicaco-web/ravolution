@@ -26,6 +26,11 @@ const BlogPodcast = () => {
       color: "from-primary to-primary-light",
       icon: "🌍",
       description: t("blogPod.xportmatchDesc"),
+      articles: [
+        t("blogPod.xportmatchArticle1"),
+        t("blogPod.xportmatchArticle2"),
+        t("blogPod.xportmatchArticle3"),
+      ],
     },
     {
       source: "iApply",
@@ -33,6 +38,11 @@ const BlogPodcast = () => {
       color: "from-accent to-accent-light",
       icon: "👤",
       description: t("blogPod.iapplyDesc"),
+      articles: [
+        t("blogPod.iapplyArticle1"),
+        t("blogPod.iapplyArticle2"),
+        t("blogPod.iapplyArticle3"),
+      ],
     },
     {
       source: "itsaFitt",
@@ -40,6 +50,11 @@ const BlogPodcast = () => {
       color: "from-gold to-gold-light",
       icon: "👗",
       description: t("blogPod.itsafittDesc"),
+      articles: [
+        t("blogPod.itsafittArticle1"),
+        t("blogPod.itsafittArticle2"),
+        t("blogPod.itsafittArticle3"),
+      ],
     },
     {
       source: "Rosetta Livingstone",
@@ -47,6 +62,11 @@ const BlogPodcast = () => {
       color: "from-primary-light to-accent",
       icon: "🗣️",
       description: t("blogPod.rosettaDesc"),
+      articles: [
+        t("blogPod.rosettaArticle1"),
+        t("blogPod.rosettaArticle2"),
+        t("blogPod.rosettaArticle3"),
+      ],
     },
   ];
 
@@ -188,10 +208,18 @@ const BlogPodcast = () => {
                         </h3>
                       </div>
                       <div className="p-6 flex-1 flex flex-col">
-                        <p className="text-muted-foreground leading-relaxed flex-1">
+                        <p className="text-muted-foreground leading-relaxed mb-4">
                           {article.description}
                         </p>
-                        <div className="flex items-center gap-2 mt-4 text-sm font-medium text-accent group-hover:text-accent-light transition-colors">
+                        <ul className="space-y-2 mb-4 flex-1">
+                          {article.articles.map((title: string, j: number) => (
+                            <li key={j} className="flex items-start gap-2 text-sm text-foreground/80">
+                              <ArrowRight className="w-3.5 h-3.5 mt-0.5 text-accent shrink-0" />
+                              <span>{title}</span>
+                            </li>
+                          ))}
+                        </ul>
+                        <div className="flex items-center gap-2 text-sm font-medium text-accent group-hover:text-accent-light transition-colors">
                           {t("blogPod.readArticles")}
                           <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                         </div>
