@@ -6,7 +6,7 @@ const corsHeaders = {
     "authorization, x-client-info, apikey, content-type",
 };
 
-const RECIPIENT = "ivan.daza@ravolution.se";
+const RECIPIENT = "titicaco@gmail.com";
 
 Deno.serve(async (req) => {
   if (req.method === "OPTIONS") {
