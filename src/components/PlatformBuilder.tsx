@@ -5,8 +5,9 @@ import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { ChevronDown, ChevronUp, Send, CalendarDays, X } from "lucide-react";
+import { ChevronDown, ChevronUp, Send, CalendarDays, X, Loader2 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 
 interface ComponentGroup {
   name: string;
@@ -118,6 +119,7 @@ const PlatformBuilder = () => {
   const [launch, setLaunch] = useState("");
   const [idea, setIdea] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
 
   const complexity = useMemo(() => getComplexity(selected.size), [selected.size]);
 
@@ -139,7 +141,7 @@ const PlatformBuilder = () => {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!name.trim() || !email.trim()) {
       toast({ title: "Missing fields", description: "Please fill in your name and email.", variant: "destructive" });
@@ -149,10 +151,20 @@ const PlatformBuilder = () => {
       toast({ title: "No components selected", description: "Please select at least one component.", variant: "destructive" });
       return;
     }
-    // In production, this would POST to CRM / edge function
-    console.log("Platform spec submitted:", { name, email, company, budget, launch, idea, components: Array.from(selected) });
-    toast({ title: "Spec sent!", description: "We'll review your configuration and get back within 48 hours." });
-    setSubmitted(true);
+    setSending(true);
+    try {
+      const { data, error } = await supabase.functions.invoke("send-platform-spec", {
+        body: { name, email, company, budget, launch, idea, components: Array.from(selected) },
+      });
+      if (error) throw error;
+      toast({ title: "Spec sent!", description: "We'll review your configuration and get back within 48 hours." });
+      setSubmitted(true);
+    } catch (err) {
+      console.error("Submit error:", err);
+      toast({ title: "Failed to send", description: "Something went wrong. Please try again or book a call instead.", variant: "destructive" });
+    } finally {
+      setSending(false);
+    }
   };
 
   if (submitted) {
@@ -322,9 +334,9 @@ const PlatformBuilder = () => {
               )}
 
               <div className="space-y-3">
-                <Button type="submit" className="w-full bg-accent hover:bg-accent-light text-white" disabled={selected.size === 0}>
-                  <Send className="w-4 h-4 mr-2" />
-                  Send my spec
+                <Button type="submit" className="w-full bg-accent hover:bg-accent-light text-white" disabled={selected.size === 0 || sending}>
+                  {sending ? <Loader2 className="w-4 h-4 mr-2 animate-spin" /> : <Send className="w-4 h-4 mr-2" />}
+                  {sending ? "Sending..." : "Send my spec"}
                 </Button>
                 <Button type="button" variant="outline" className="w-full" asChild>
                   <a href="https://meetings-eu1.hubspot.com/daza" target="_blank" rel="noopener noreferrer">
