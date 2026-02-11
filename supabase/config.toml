@@ -1,1 +1,4 @@
 project_id = "vldyfbfjsyomjsckvftg"
+
+[functions.send-platform-spec]
+verify_jwt = false
