@@ -1,7 +1,7 @@
 export const en = {
   nav: {
     founder: "Founder",
-    services: "Services",
+    services: "Develop",
     blog: "Press",
     patents: "Patents",
     products: "Products",
