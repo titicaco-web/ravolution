@@ -92,19 +92,6 @@ const ServicesPage = () => {
           </div>
         </section>
 
-        {/* Platform Builder */}
-        <section className="py-20 px-6 bg-background">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Configure your platform</h2>
-              <p className="text-muted-foreground max-w-2xl mx-auto">
-                Pick the components you need and get an instant scope estimate. Submit your spec or jump straight to a discovery call.
-              </p>
-            </div>
-            <PlatformBuilder />
-          </div>
-        </section>
-
         {/* Proof + Portfolio */}
         <section className="py-16 px-6 bg-secondary">
           <div className="max-w-5xl mx-auto">
@@ -264,6 +251,19 @@ const ServicesPage = () => {
                 </div>
               ))}
             </div>
+          </div>
+        </section>
+
+        {/* Platform Builder */}
+        <section id="builder" className="py-20 px-6 bg-background">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Configure your platform</h2>
+              <p className="text-muted-foreground max-w-2xl mx-auto">
+                Pick the components you need and get an instant scope estimate. Submit your spec or jump straight to a discovery call.
+              </p>
+            </div>
+            <PlatformBuilder />
           </div>
         </section>
 
