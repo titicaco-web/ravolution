@@ -1,6 +1,6 @@
 export const sv = {
   nav: {
-    founder: "Grundare",
+    founder: "Om oss",
     services: "Utveckla",
     blog: "Press",
     patents: "Patent",

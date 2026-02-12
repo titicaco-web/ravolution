@@ -1,6 +1,6 @@
 export const es = {
   nav: {
-    founder: "Fundador",
+    founder: "Acerca de",
     services: "Desarrollar",
     blog: "Prensa",
     patents: "Patentes",

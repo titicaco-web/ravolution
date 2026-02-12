@@ -1,6 +1,6 @@
 export const en = {
   nav: {
-    founder: "Founder",
+    founder: "About",
     services: "Develop",
     blog: "Press",
     patents: "Patents",

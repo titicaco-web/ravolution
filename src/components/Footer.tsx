@@ -43,7 +43,7 @@ const Footer = () => {
           <div>
             <h4 className="font-semibold mb-4">{t("footer.company")}</h4>
             <ul className="space-y-2 text-sm text-white/70">
-              <li><Link to={lp("/founder")} className="hover:text-white transition-colors">{t("footer.aboutFounder")}</Link></li>
+              <li><Link to={lp("/about")} className="hover:text-white transition-colors">{t("footer.aboutFounder")}</Link></li>
               <li><Link to={lp("/blog")} className="hover:text-white transition-colors">{t("nav.blog")}</Link></li>
               <li><Link to={lp("/invest")} className="hover:text-white transition-colors">{t("footer.investorRelations")}</Link></li>
               <li><a href="#contact" className="hover:text-white transition-colors">{t("footer.contact")}</a></li>
