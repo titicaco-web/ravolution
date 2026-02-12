@@ -12,11 +12,11 @@ const Navbar = () => {
 
   const navLinks = [
     { label: t("nav.founder"), href: lp("/about") },
+    { label: t("nav.angel"), href: lp("/angel-investor") },
     { label: t("nav.services"), href: lp("/services") },
     { label: t("nav.ventures"), href: lp("/#products") },
     { label: t("nav.patents"), href: lp("/#patents") },
     { label: t("nav.blog"), href: lp("/blog") },
-    { label: t("nav.angel"), href: lp("/angel-investor") },
     { label: t("nav.investors"), href: lp("/invest") },
   ];
 
