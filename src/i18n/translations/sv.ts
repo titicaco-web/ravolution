@@ -5,6 +5,7 @@ export const sv = {
     blog: "Press",
     patents: "Patent",
     ventures: "Satsningar",
+    angel: "Ängel",
     investors: "Investera",
     contact: "Kontakt",
     licensingInquiry: "Licensförfrågan",
