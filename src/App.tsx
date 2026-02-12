@@ -48,7 +48,7 @@ const App = () => (
           <Route path="/:lang" element={<LanguageSync><Index /></LanguageSync>} />
           <Route path="/:lang/privacy-policy" element={<LanguageSync><PrivacyPolicy /></LanguageSync>} />
           <Route path="/:lang/terms-of-service" element={<LanguageSync><TermsOfService /></LanguageSync>} />
-          <Route path="/:lang/founder" element={<LanguageSync><Founder /></LanguageSync>} />
+          <Route path="/:lang/about" element={<LanguageSync><Founder /></LanguageSync>} />
           <Route path="/:lang/services" element={<LanguageSync><ServicesPage /></LanguageSync>} />
           <Route path="/:lang/blog" element={<LanguageSync><BlogPodcast /></LanguageSync>} />
           <Route path="/:lang/invest" element={<LanguageSync><InvestPage /></LanguageSync>} />
