@@ -7,6 +7,7 @@ import FeaturedProducts from "@/components/FeaturedProducts";
 import MarketplaceConcepts from "@/components/MarketplaceConcepts";
 import WhyRavolution from "@/components/WhyRavolution";
 import Services from "@/components/Services";
+import AngelInvestorTeaser from "@/components/AngelInvestorTeaser";
 import InvestorTeaser from "@/components/InvestorTeaser";
 import FooterCTA from "@/components/FooterCTA";
 import Footer from "@/components/Footer";
@@ -53,6 +54,9 @@ const Index = () => {
           </ScrollAnimateWrapper>
           <ScrollAnimateWrapper delay={0.1}>
             <Services />
+          </ScrollAnimateWrapper>
+          <ScrollAnimateWrapper delay={0.1}>
+            <AngelInvestorTeaser />
           </ScrollAnimateWrapper>
           <ScrollAnimateWrapper delay={0.1}>
             <InvestorTeaser />
