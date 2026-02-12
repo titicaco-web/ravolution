@@ -2,12 +2,47 @@ import { Helmet } from "react-helmet-async";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import PlatformBuilder from "@/components/PlatformBuilder";
-import { ArrowRight, CheckCircle2, Target, Zap, Users, Workflow, Rocket, ExternalLink, Monitor, Palette, Brain, Shield, Settings } from "lucide-react";
+import { ArrowRight, CheckCircle2, Target, Zap, Users, Workflow, Rocket, ExternalLink, Monitor, Palette, Brain, Shield, Settings, Clock, Layers, Lock, BarChart3, Globe, Gauge } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/i18n/LanguageContext";
 
 const serviceIcons = [Monitor, Palette, Brain, Shield, Settings];
 const serviceSlugs = ["platform-development", "product-design", "ai-systems", "patent-ip", "ongoing-operations"];
+
+const globalFaqs = [
+  {
+    q: "How fast can you start?",
+    a: "We can kick off a discovery sprint within 48 hours of signing. Most projects have a concrete proposal within 3–5 business days.",
+  },
+  {
+    q: "Can you take over an existing codebase?",
+    a: "Yes. We audit, stabilize, and then iterate. We've taken over codebases from agencies, freelancers, and in-house teams.",
+  },
+  {
+    q: "Do you do discovery workshops?",
+    a: "Every engagement starts with a structured discovery sprint—stakeholder interviews, technical audit, user journey mapping, and scope definition.",
+  },
+  {
+    q: "Do you deliver fixed price or time & materials?",
+    a: "Both. Fixed-scope sprints for well-defined modules, time & materials for ongoing development. We recommend the model that fits your risk profile.",
+  },
+  {
+    q: "Do you build with no-code + custom code?",
+    a: "We use low-code tools where they accelerate delivery (admin panels, dashboards) but build custom where it matters—core logic, integrations, and anything that needs to scale.",
+  },
+  {
+    q: "What tech stack do you use?",
+    a: "React, TypeScript, Node.js, Python, and cloud-native infrastructure. We select the best stack for each project based on requirements, not dogma.",
+  },
+  {
+    q: "Do you handle design, QA, and DevOps?",
+    a: "Yes—end-to-end. Product strategy, UX/UI design, development, QA, CI/CD, monitoring, and post-launch support. No handoffs to third parties.",
+  },
+  {
+    q: "What industries do you serve?",
+    a: "Education, recruitment, international trade, SaaS, and marketplace verticals. We've built 10+ platforms across these sectors.",
+  },
+];
 
 const ServicesPage = () => {
   const { t } = useLanguage();
@@ -52,16 +87,61 @@ const ServicesPage = () => {
     { title: sp("retainerTitle") as string, description: sp("retainerDesc") as string, duration: sp("retainerDuration") as string },
   ];
 
+  // JSON-LD structured data
+  const jsonLdOrganization = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "Ravolution AB",
+    url: "https://ravolution.se",
+    logo: "https://ravolution.se/og-image.png",
+    description: "Swedish venture studio and IP innovation company building industry-grade platforms.",
+    foundingDate: "2006",
+    founder: { "@type": "Person", name: "Ivan Daza" },
+    sameAs: ["https://www.linkedin.com/company/ravolution"],
+  };
+
+  const jsonLdService = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: "End-to-End Platform Development",
+    provider: { "@type": "Organization", name: "Ravolution AB", url: "https://ravolution.se" },
+    description: "Discovery to launch in weeks. We build complex, industry-grade platforms fast—architecture, design, dev, AI, integrations, and scaling.",
+    areaServed: "Worldwide",
+    serviceType: "Platform Development",
+    offers: {
+      "@type": "Offer",
+      description: "Fixed-scope sprints from 4 weeks, build phases 3–9 months, or monthly retainers.",
+    },
+  };
+
+  const jsonLdFaq = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: globalFaqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.q,
+      acceptedAnswer: { "@type": "Answer", text: faq.a },
+    })),
+  };
+
   return (
     <>
       <Helmet>
-        <title>Develop | Ravolution AB – Configure Your Platform</title>
-        <meta name="description" content="Build an industry-grade platform fast. Select components, get a scope estimate in 60 seconds, or book a discovery call with Ravolution's venture studio." />
+        <title>End-to-End Platform Development Partner | Ravolution</title>
+        <meta name="description" content="Discovery to launch in weeks. We build complex, industry-grade platforms fast—architecture, design, dev, AI, integrations, and scaling." />
         <link rel="canonical" href="https://ravolution.se/services" />
-        <meta property="og:title" content="Develop | Ravolution AB – Configure Your Platform" />
-        <meta property="og:description" content="Select the components you need for your platform. Get a scope in 60 seconds, or book a discovery call." />
+        <meta property="og:title" content="End-to-End Platform Development Partner | Ravolution" />
+        <meta property="og:description" content="Discovery to launch in weeks. We build complex, industry-grade platforms fast—architecture, design, dev, AI, integrations, and scaling." />
         <meta property="og:url" content="https://ravolution.se/services" />
         <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://ravolution.se/og-image.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="End-to-End Platform Development Partner | Ravolution" />
+        <meta name="twitter:description" content="Discovery to launch in weeks. We build complex, industry-grade platforms fast—architecture, design, dev, AI, integrations, and scaling." />
+        <meta name="twitter:image" content="https://ravolution.se/og-image.png" />
+        <script type="application/ld+json">{JSON.stringify(jsonLdOrganization)}</script>
+        <script type="application/ld+json">{JSON.stringify(jsonLdService)}</script>
+        <script type="application/ld+json">{JSON.stringify(jsonLdFaq)}</script>
       </Helmet>
 
       <div className="min-h-screen">
@@ -72,11 +152,27 @@ const ServicesPage = () => {
           <div className="max-w-4xl mx-auto text-center">
             <span className="inline-block text-sm font-semibold tracking-widest uppercase text-accent-light mb-4">Venture Studio</span>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-              Build an industry-grade platform—<span className="text-gradient-gold">fast.</span>
+              End-to-End Platform Development—<span className="text-gradient-gold">Fast.</span>
             </h1>
             <p className="text-lg md:text-xl text-white/80 max-w-3xl mx-auto mb-8">
-              Select the components you need. Get a scope in 60 seconds, or book a discovery call.
+              We understand complex needs by listening first—then we architect, build, and launch in short notice with venture‑studio execution.
             </p>
+
+            {/* 3-bullet value prop */}
+            <div className="flex flex-col sm:flex-row gap-6 justify-center mb-10 text-white/90">
+              {[
+                { icon: Target, label: "Listen deeply" },
+                { icon: Zap, label: "Architect quickly" },
+                { icon: Rocket, label: "Ship reliably" },
+              ].map((item, i) => (
+                <div key={i} className="flex items-center gap-2 text-sm font-medium">
+                  <item.icon className="w-5 h-5 text-accent-light" />
+                  <span>{item.label}</span>
+                  {i < 2 && <ArrowRight className="w-4 h-4 text-white/40 hidden sm:block ml-2" />}
+                </div>
+              ))}
+            </div>
+
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" className="bg-accent hover:bg-accent-light text-white" asChild>
                 <a href="#builder">
@@ -89,6 +185,28 @@ const ServicesPage = () => {
                 </a>
               </Button>
             </div>
+          </div>
+        </section>
+
+        {/* Services Facts (AI / LLM scannable block) */}
+        <section className="py-12 px-6 bg-background border-b border-border">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-xl font-bold text-foreground mb-6">Services at a glance</h2>
+            <dl className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4 text-sm">
+              {[
+                { dt: "What we are", dd: "Venture studio + end-to-end delivery partner." },
+                { dt: "What we build", dd: "Complex web platforms—dashboards, marketplaces, LMS, CRM, AI features." },
+                { dt: "How fast", dd: "Discovery in 48 h, proposal in 3–5 days, MVP in 4–8 weeks." },
+                { dt: "Who it's for", dd: "Founders, SMEs, innovation teams, and enterprises." },
+                { dt: "What's included", dd: "Product, UX, architecture, backend, frontend, integrations, QA, launch." },
+                { dt: "IP advantage", dd: "27 patents, 343 claims—we build platforms that are defensible." },
+              ].map((item, i) => (
+                <div key={i} className="flex flex-col">
+                  <dt className="font-semibold text-foreground">{item.dt}</dt>
+                  <dd className="text-muted-foreground">{item.dd}</dd>
+                </div>
+              ))}
+            </dl>
           </div>
         </section>
 
@@ -130,6 +248,57 @@ const ServicesPage = () => {
                   <p className="text-xs text-muted-foreground mb-2">{project.desc}</p>
                   <ExternalLink className="w-3.5 h-3.5 text-muted-foreground group-hover:text-primary transition-colors mx-auto" />
                 </a>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* What Makes Us Fast */}
+        <section className="py-16 px-6 bg-background">
+          <div className="max-w-5xl mx-auto">
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground text-center mb-10">What makes us fast</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {[
+                { icon: Layers, title: "Reusable modules", desc: "Battle-tested auth, dashboards, payments, and CRM components from 10+ platform builds." },
+                { icon: Brain, title: "Senior architecture first", desc: "Principal engineers scope and architect before any code is written—no rework." },
+                { icon: Gauge, title: "Weekly releases", desc: "CI/CD pipelines with automated testing. You see progress every week, not every quarter." },
+                { icon: Target, title: "Tight scope control", desc: "Discovery sprints define what matters. We cut scope creep, not corners." },
+              ].map((item, i) => (
+                <div key={i} className="card-elevated text-center">
+                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
+                    <item.icon className="w-6 h-6 text-primary" />
+                  </div>
+                  <h3 className="font-bold text-foreground mb-2">{item.title}</h3>
+                  <p className="text-sm text-muted-foreground">{item.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Complexity We Handle */}
+        <section className="py-16 px-6 bg-secondary">
+          <div className="max-w-5xl mx-auto">
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground text-center mb-10">Complexity we handle</h2>
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+              {[
+                "Roles & permissions (RBAC)",
+                "Multi-tenant architecture",
+                "Payment integrations",
+                "Third-party API integrations",
+                "GDPR & compliance",
+                "Audit logs & traceability",
+                "Real-time dashboards",
+                "Multi-language (i18n)",
+                "AI/ML pipelines",
+                "SSO & 2FA",
+                "File storage & CDN",
+                "Workflow automation",
+              ].map((item, i) => (
+                <div key={i} className="flex items-center gap-2 text-sm text-foreground/80">
+                  <CheckCircle2 className="w-4 h-4 text-accent flex-shrink-0" />
+                  <span>{item}</span>
+                </div>
               ))}
             </div>
           </div>
@@ -254,6 +423,26 @@ const ServicesPage = () => {
           </div>
         </section>
 
+        {/* Global FAQ */}
+        <section id="faq" className="py-16 px-6 bg-secondary">
+          <div className="max-w-3xl mx-auto">
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground text-center mb-10">Frequently Asked Questions</h2>
+            <div className="space-y-4">
+              {globalFaqs.map((faq, i) => (
+                <details key={i} className="group card-elevated !p-0 overflow-hidden">
+                  <summary className="cursor-pointer font-semibold text-foreground text-sm flex items-center justify-between px-5 py-4 select-none hover:bg-secondary/50 transition-colors">
+                    <span>{faq.q}</span>
+                    <ArrowRight className="w-4 h-4 transition-transform group-open:rotate-90 flex-shrink-0 ml-2" />
+                  </summary>
+                  <div className="px-5 pb-4 text-sm text-muted-foreground">
+                    {faq.a}
+                  </div>
+                </details>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* Platform Builder */}
         <section id="builder" className="py-20 px-6 bg-background">
           <div className="max-w-6xl mx-auto">
@@ -274,14 +463,22 @@ const ServicesPage = () => {
             <p className="text-white/70 mb-8 text-lg">
               {sp("bottomCtaDesc")}
             </p>
-            <a
-              href="https://meetings-eu1.hubspot.com/daza"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-gold text-gold-foreground px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 hover:bg-gold-light hover:shadow-elevated hover:scale-[1.02] active:scale-[0.98]"
-            >
-              {sp("bottomCtaBook")} <ArrowRight className="w-5 h-5" />
-            </a>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <a
+                href="https://meetings-eu1.hubspot.com/daza"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-gold text-gold-foreground px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 hover:bg-gold-light hover:shadow-elevated hover:scale-[1.02] active:scale-[0.98]"
+              >
+                {sp("bottomCtaBook")} <ArrowRight className="w-5 h-5" />
+              </a>
+              <a
+                href="#builder"
+                className="inline-flex items-center gap-2 bg-white/10 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 hover:bg-white/20 hover:scale-[1.02] active:scale-[0.98]"
+              >
+                Configure my platform <ArrowRight className="w-5 h-5" />
+              </a>
+            </div>
           </div>
         </section>
 
