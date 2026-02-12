@@ -3,6 +3,7 @@ import { Helmet } from "react-helmet-async";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { useLanguage } from "@/i18n/LanguageContext";
+import { useLangPath } from "@/hooks/use-lang-path";
 import { ScrollAnimateWrapper } from "@/hooks/use-scroll-animation";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -13,13 +14,14 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import {
   Send, Calendar, CheckCircle, Briefcase, GraduationCap,
   Languages, Globe, Shield, Zap, FileText, Target, Rocket,
-  Lock, ArrowRight, Wrench, Scale
+  Lock, ArrowRight, Wrench, Scale, ExternalLink
 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 
 const AngelInvestor = () => {
   const { t } = useLanguage();
+  const lp = useLangPath();
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -60,17 +62,20 @@ const AngelInvestor = () => {
     { icon: FileText, key: "patent" },
   ];
 
-  const faqKeys = ["boardSeats", "equityRange", "codeOwnership", "internationalPatents", "mvpTimeline"];
+  const faqKeys = ["whatIsIt", "whatPlatforms", "boardSeats", "equityRange", "codeOwnership", "internationalPatents", "mvpTimeline", "onlySweden"];
 
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Service",
-    name: "Angel Investment by Building",
-    description: "Venture studio investment model: platform development + IP protection + patent strategy in exchange for equity.",
+    name: "Angel Investor & Build-for-Equity Partner",
+    description: "Swedish venture studio that acts as an angel investor via build-for-equity: end-to-end platform development, IP protection, and patent strategy in exchange for shares.",
+    serviceType: ["Angel investment", "Build-for-equity", "Platform development", "IP & patent support"],
+    areaServed: { "@type": "Place", name: "Global" },
     provider: {
       "@type": "Organization",
       name: "Ravolution AB",
       url: "https://ravolution.se",
+      description: "Swedish Venture Studio & IP Innovation Company",
     },
   };
 
@@ -87,12 +92,18 @@ const AngelInvestor = () => {
   return (
     <>
       <Helmet>
-        <title>{t("angel.metaTitle")}</title>
-        <meta name="description" content={t("angel.metaDesc")} />
+        <title>Angel Investor &amp; Build-for-Equity Partner | Ravolution</title>
+        <meta name="description" content="Angel investor and build-for-equity partner for complex platforms. We build, protect IP, and support patents in return for shares. Swedish venture studio." />
+        <meta name="keywords" content="angel investor, build for equity, platform development, IP protection, patent strategy, Swedish venture studio, tech startup, equity for build" />
         <link rel="canonical" href="https://ravolution.se/en/angel-investor" />
-        <meta property="og:title" content={t("angel.metaTitle")} />
-        <meta property="og:description" content={t("angel.metaDesc")} />
+        <meta property="og:title" content="Angel Investor & Build-for-Equity Partner | Ravolution" />
+        <meta property="og:description" content="Angel investor and build-for-equity partner for complex platforms. We build, protect IP, and support patents in return for shares." />
         <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://ravolution.se/en/angel-investor" />
+        <meta property="og:image" content="https://ravolution.se/og-image.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Angel Investor & Build-for-Equity Partner | Ravolution" />
+        <meta name="twitter:description" content="Angel investor and build-for-equity partner for complex platforms. We build, protect IP, and support patents in return for shares." />
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
         <script type="application/ld+json">{JSON.stringify(faqJsonLd)}</script>
       </Helmet>
@@ -115,10 +126,14 @@ const AngelInvestor = () => {
               {t("angel.heroBadge")}
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6 leading-tight animate-fade-in-up">
-              {t("angel.heroH1")}
+              Angel Investor &amp; Build‑for‑Equity
             </h1>
-            <p className="text-lg md:text-xl text-primary-foreground/80 max-w-3xl leading-relaxed mb-8 animate-fade-in-up">
+            <p className="text-lg md:text-xl text-primary-foreground/80 max-w-3xl leading-relaxed mb-4 animate-fade-in-up">
               {t("angel.heroSubhead")}
+            </p>
+            {/* SEO summary paragraph */}
+            <p className="text-base text-primary-foreground/60 max-w-3xl leading-relaxed mb-8 animate-fade-in-up">
+              Ravolution is a <strong>Swedish venture studio &amp; IP innovation company</strong> that acts as an <strong>angel investor via build‑for‑equity</strong>. We build complex tech platforms end‑to‑end, protect your IP, and support patent strategy—in return for equity. Proven across platforms like Rosetta Livingstone, iApply, CommunicaringSchool, and xPortMatch.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 animate-fade-in-up">
               <Button size="lg" className="bg-accent hover:bg-accent-light text-accent-foreground" asChild>
@@ -212,7 +227,10 @@ const AngelInvestor = () => {
                 <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">
                   {t("angel.portfolioTitle")}
                 </h2>
-                <p className="text-muted-foreground text-lg mb-10">{t("angel.portfolioSubhead")}</p>
+                <p className="text-muted-foreground text-lg mb-4">{t("angel.portfolioSubhead")}</p>
+                <p className="text-muted-foreground mb-10">
+                  See our full <a href={lp("/services")} className="text-accent hover:text-accent-light underline font-medium">platform development services</a> or explore our <a href={lp("/#products")} className="text-accent hover:text-accent-light underline font-medium">portfolio of platforms</a>.
+                </p>
               </ScrollAnimateWrapper>
               <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                 {portfolioCards.map((card, i) => (
@@ -260,8 +278,11 @@ const AngelInvestor = () => {
                     <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">
                       {t("angel.formHeadline")}
                     </h2>
-                    <p className="text-muted-foreground text-lg mb-8 leading-relaxed">
+                    <p className="text-muted-foreground text-lg mb-4 leading-relaxed">
                       {t("angel.formSubhead")}
+                    </p>
+                    <p className="text-muted-foreground text-sm mb-8">
+                      Founders and teams who want an angel investor that also builds and protects IP can send us a brief here.
                     </p>
                     <div className="flex flex-col gap-4">
                       <Button size="lg" className="bg-gold hover:bg-gold-light text-gold-foreground w-fit" asChild>

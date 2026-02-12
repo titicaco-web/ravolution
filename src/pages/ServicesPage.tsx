@@ -5,6 +5,7 @@ import PlatformBuilder from "@/components/PlatformBuilder";
 import { ArrowRight, CheckCircle2, Target, Zap, Users, Workflow, Rocket, ExternalLink, Monitor, Palette, Brain, Shield, Settings, Clock, Layers, Lock, BarChart3, Globe, Gauge } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/i18n/LanguageContext";
+import { useLangPath } from "@/hooks/use-lang-path";
 
 const serviceIcons = [Monitor, Palette, Brain, Shield, Settings];
 const serviceSlugs = ["platform-development", "product-design", "ai-systems", "patent-ip", "ongoing-operations"];
@@ -46,6 +47,7 @@ const globalFaqs = [
 
 const ServicesPage = () => {
   const { t } = useLanguage();
+  const lp = useLangPath();
   const sp = (key: string) => t(`servicesPage.${key}`);
 
   const serviceDetails = [1, 2, 3, 4, 5].map((n) => ({
@@ -453,6 +455,22 @@ const ServicesPage = () => {
               </p>
             </div>
             <PlatformBuilder />
+          </div>
+        </section>
+
+        {/* Bottom CTA */}
+        {/* Angel Investor Cross-Link */}
+        <section className="py-12 px-6">
+          <div className="max-w-5xl mx-auto">
+            <div className="card-elevated p-8 flex flex-col md:flex-row items-center justify-between gap-6">
+              <div>
+                <h3 className="text-xl font-display font-bold text-foreground mb-2">Looking for an angel investor who builds?</h3>
+                <p className="text-muted-foreground">We can invest by building your platform end‑to‑end and protecting your IP—in return for equity.</p>
+              </div>
+              <a href={lp("/angel-investor")} className="btn-accent whitespace-nowrap inline-flex items-center gap-2">
+                Angel Investor &amp; Build‑for‑Equity <ArrowRight className="w-4 h-4" />
+              </a>
+            </div>
           </div>
         </section>
 
