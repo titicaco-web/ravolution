@@ -5,6 +5,7 @@ export const es = {
     blog: "Prensa",
     patents: "Patentes",
     ventures: "Ventures",
+    angel: "Ángel",
     investors: "Invertir",
     contact: "Contacto",
     licensingInquiry: "Consulta de licencia",
