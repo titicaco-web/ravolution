@@ -51,7 +51,7 @@ const Navbar = () => {
               <a href="#contact">{t("nav.contact")}</a>
             </Button>
             <Button className="bg-accent hover:bg-accent-light text-white" asChild>
-              <a href="https://meetings-eu1.hubspot.com/daza" target="_blank" rel="noopener noreferrer">
+              <a href="mailto:ivan.daza@ravolution.se" target="_blank" rel="noopener noreferrer">
                 {t("nav.licensingInquiry")}
               </a>
             </Button>
@@ -88,7 +88,7 @@ const Navbar = () => {
                   <a href="#contact">{t("nav.contact")}</a>
                 </Button>
                 <Button className="bg-accent hover:bg-accent-light text-white" asChild>
-                  <a href="https://meetings-eu1.hubspot.com/daza" target="_blank" rel="noopener noreferrer">
+                  <a href="mailto:ivan.daza@ravolution.se" target="_blank" rel="noopener noreferrer">
                     {t("nav.licensingInquiry")}
                   </a>
                 </Button>

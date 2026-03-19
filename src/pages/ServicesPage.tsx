@@ -182,7 +182,7 @@ const ServicesPage = () => {
                 </a>
               </Button>
               <Button size="lg" className="bg-gold hover:bg-gold-light text-gold-foreground" asChild>
-                <a href="https://meetings-eu1.hubspot.com/daza" target="_blank" rel="noopener noreferrer">
+                <a href="mailto:ivan.daza@ravolution.se" target="_blank" rel="noopener noreferrer">
                   Book discovery call
                 </a>
               </Button>
@@ -483,7 +483,7 @@ const ServicesPage = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="https://meetings-eu1.hubspot.com/daza"
+                href="mailto:ivan.daza@ravolution.se"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-gold text-gold-foreground px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 hover:bg-gold-light hover:shadow-elevated hover:scale-[1.02] active:scale-[0.98]"

@@ -354,7 +354,7 @@ const GyrocraftInvestors = () => {
               Request Technical Specifications
             </Button>
             <Button size="lg" variant="outline" className="border-gyrocraft-text/30 text-gyrocraft-text hover:bg-gyrocraft-text/10 font-semibold px-8" asChild>
-              <a href="https://meetings-eu1.hubspot.com/daza" target="_blank" rel="noopener noreferrer">
+              <a href="mailto:ivan.daza@ravolution.se" target="_blank" rel="noopener noreferrer">
                 <Calendar className="mr-2 w-5 h-5" />
                 Schedule Discussion
               </a>

@@ -105,7 +105,7 @@ const GyrocraftNavbar = () => {
               <Link to={lp("/gyrocraft/about#contact")}>Contact</Link>
             </Button>
             <Button className="bg-gyrocraft-teal hover:bg-gyrocraft-teal/90 text-gyrocraft-dark font-semibold" asChild>
-              <a href="https://meetings-eu1.hubspot.com/daza" target="_blank" rel="noopener noreferrer">
+              <a href="mailto:ivan.daza@ravolution.se" target="_blank" rel="noopener noreferrer">
                 Schedule Demo
               </a>
             </Button>
@@ -177,7 +177,7 @@ const GyrocraftNavbar = () => {
                   <Link to={lp("/gyrocraft/about#contact")} onClick={() => setIsOpen(false)}>Contact</Link>
                 </Button>
                 <Button className="bg-gyrocraft-teal hover:bg-gyrocraft-teal/90 text-gyrocraft-dark font-semibold" asChild>
-                  <a href="https://meetings-eu1.hubspot.com/daza" target="_blank" rel="noopener noreferrer">
+                  <a href="mailto:ivan.daza@ravolution.se" target="_blank" rel="noopener noreferrer">
                     Schedule Demo
                   </a>
                 </Button>

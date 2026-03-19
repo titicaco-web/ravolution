@@ -99,7 +99,7 @@ const FeaturedProducts = () => {
                   </a>
                 </Button>
                 <Button size="sm" variant="outline" asChild>
-                  <a href="https://meetings-eu1.hubspot.com/daza" target="_blank" rel="noopener noreferrer">
+                  <a href="mailto:ivan.daza@ravolution.se" target="_blank" rel="noopener noreferrer">
                     {t("products.investorInquiry")}
                   </a>
                 </Button>
@@ -183,7 +183,7 @@ const FeaturedProducts = () => {
                   </a>
                 </Button>
                 <Button size="sm" variant="outline" asChild>
-                  <a href="https://meetings-eu1.hubspot.com/daza" target="_blank" rel="noopener noreferrer">
+                  <a href="mailto:ivan.daza@ravolution.se" target="_blank" rel="noopener noreferrer">
                     {t("products.investorInquiry")}
                   </a>
                 </Button>
@@ -265,7 +265,7 @@ const FeaturedProducts = () => {
                   </a>
                 </Button>
                 <Button size="sm" variant="outline" asChild>
-                  <a href="https://meetings-eu1.hubspot.com/daza" target="_blank" rel="noopener noreferrer">
+                  <a href="mailto:ivan.daza@ravolution.se" target="_blank" rel="noopener noreferrer">
                     {t("products.requestDemo")}
                   </a>
                 </Button>
@@ -345,7 +345,7 @@ const FeaturedProducts = () => {
                   </a>
                 </Button>
                 <Button size="sm" variant="outline" asChild>
-                  <a href="https://meetings-eu1.hubspot.com/daza" target="_blank" rel="noopener noreferrer">
+                  <a href="mailto:ivan.daza@ravolution.se" target="_blank" rel="noopener noreferrer">
                     {t("products.securityAudit")}
                   </a>
                 </Button>

@@ -358,7 +358,7 @@ const PlatformBuilder = () => {
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Button onClick={() => setSubmitted(false)} variant="outline">Configure another platform</Button>
           <Button className="bg-gold hover:bg-gold-light text-gold-foreground" asChild>
-            <a href="https://meetings-eu1.hubspot.com/daza" target="_blank" rel="noopener noreferrer">
+            <a href="mailto:ivan.daza@ravolution.se" target="_blank" rel="noopener noreferrer">
               <CalendarDays className="w-4 h-4 mr-2" /> Book discovery call now
             </a>
           </Button>
@@ -668,7 +668,7 @@ const PlatformBuilder = () => {
                   {sending ? "Sending…" : "Send requirements"}
                 </Button>
                 <Button type="button" variant="outline" className="w-full" asChild>
-                  <a href="https://meetings-eu1.hubspot.com/daza" target="_blank" rel="noopener noreferrer">
+                  <a href="mailto:ivan.daza@ravolution.se" target="_blank" rel="noopener noreferrer">
                     <CalendarDays className="w-4 h-4 mr-2" />
                     Book discovery call
                   </a>

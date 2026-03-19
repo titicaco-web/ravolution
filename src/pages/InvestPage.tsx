@@ -110,7 +110,7 @@ const InvestPage = () => {
                 </a>
               </Button>
               <Button size="lg" className="bg-gold hover:bg-gold-light text-gold-foreground border-0" asChild>
-                <a href="https://meetings-eu1.hubspot.com/daza" target="_blank" rel="noopener noreferrer">
+                <a href="mailto:ivan.daza@ravolution.se" target="_blank" rel="noopener noreferrer">
                   <Calendar className="mr-2 w-5 h-5" />
                   {t("invest.ctaCall")}
                 </a>
@@ -306,7 +306,7 @@ const InvestPage = () => {
                     </p>
                     <div className="flex flex-col gap-4">
                       <Button size="lg" className="bg-accent hover:bg-accent-light text-accent-foreground w-fit" asChild>
-                        <a href="https://meetings-eu1.hubspot.com/daza" target="_blank" rel="noopener noreferrer">
+                        <a href="mailto:ivan.daza@ravolution.se" target="_blank" rel="noopener noreferrer">
                           <Calendar className="mr-2 w-5 h-5" />
                           {t("invest.ctaCall")}
                         </a>
@@ -329,7 +329,7 @@ const InvestPage = () => {
                         <h3 className="text-xl font-display font-bold text-foreground mb-2">{t("invest.thankYou")}</h3>
                         <p className="text-muted-foreground mb-4">{t("invest.thankYouMsg")}</p>
                         <Button variant="outline" asChild>
-                          <a href="https://meetings-eu1.hubspot.com/daza" target="_blank" rel="noopener noreferrer">
+                          <a href="mailto:ivan.daza@ravolution.se" target="_blank" rel="noopener noreferrer">
                             <Calendar className="mr-2 w-4 h-4" />
                             {t("invest.ctaCall")}
                           </a>

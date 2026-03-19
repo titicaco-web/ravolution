@@ -42,7 +42,7 @@ const FooterCTA = () => {
             </div>
             <div className="space-y-3">
               <Button className="w-full sm:w-auto bg-primary hover:bg-primary-light" asChild>
-                <a href="https://meetings-eu1.hubspot.com/daza" target="_blank" rel="noopener noreferrer"><Calendar className="mr-2 w-4 h-4" />{t("contact.scheduleLicensing")}</a>
+                <a href="mailto:ivan.daza@ravolution.se" target="_blank" rel="noopener noreferrer"><Calendar className="mr-2 w-4 h-4" />{t("contact.scheduleLicensing")}</a>
               </Button>
               <Button variant="outline" className="w-full sm:w-auto ml-0 sm:ml-3"><FileText className="mr-2 w-4 h-4" />{t("contact.downloadOverview")}</Button>
             </div>
