@@ -245,7 +245,19 @@
 
   /* Text Utilities */
   .text-gradient-gold {
-    @apply bg-gradient-to-r from-gold to-gold-light bg-clip-text text-transparent;
+    background: linear-gradient(
+      105deg,
+      hsl(36, 38%, 35%) 0%,
+      hsl(36, 55%, 55%) 40%,
+      hsl(40, 60%, 70%) 50%,
+      hsl(36, 55%, 55%) 60%,
+      hsl(36, 38%, 35%) 100%
+    );
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmer 4s ease-in-out infinite;
   }
 
   .text-gradient-accent {
