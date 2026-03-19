@@ -355,7 +355,7 @@ const AngelInvestor = () => {
                             {t("angel.form.consent")}
                           </label>
                         </div>
-                        <Button type="submit" className="w-full bg-accent hover:bg-accent-light text-accent-foreground" disabled={!consent || isSubmitting}>
+                        <Button type="submit" className="w-full bg-primary hover:bg-primary-light text-primary-foreground" disabled={!consent || isSubmitting}>
                           <Send className="mr-2 w-4 h-4" />
                           {isSubmitting ? t("angel.form.sending") : t("angel.ctaBrief")}
                         </Button>

@@ -94,7 +94,29 @@
     --gyrocraft-text: 210 20% 93%;
   }
 
-  .dark {
+  /* Angel Investor Page — financial, sober overrides */
+  .angel-theme {
+    /* Deeper navy #102A43 */
+    --primary: 210 62% 16%;
+    --primary-foreground: 40 37% 95%;
+    --primary-light: 210 45% 26%;
+
+    /* Steel blue #5B7C99 as accent */
+    --accent: 206 26% 48%;
+    --accent-foreground: 0 0% 100%;
+    --accent-light: 206 30% 58%;
+    --accent-dark: 206 26% 38%;
+
+    /* Bronze #A2664E as gold */
+    --gold: 17 38% 47%;
+    --gold-foreground: 40 37% 95%;
+    --gold-light: 17 42% 57%;
+    --gold-dark: 17 38% 37%;
+
+    /* Text slightly warmer graphite #2B2F36 */
+    --foreground: 222 12% 19%;
+    --muted-foreground: 215 15% 45%;
+  }
     --background: 213 40% 8%;
     --foreground: 40 15% 92%;
 
