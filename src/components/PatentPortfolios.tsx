@@ -30,8 +30,15 @@ const PatentPortfolios = () => {
   };
 
   return (
-    <section id="patents" className="section-padding pt-6 md:pt-8 text-white" style={{ background: 'linear-gradient(135deg, hsl(210, 62%, 16%) 0%, hsl(210, 62%, 9%) 100%)' }}>
-      <div className="max-w-7xl mx-auto">
+    <section id="patents" className="section-padding pt-6 md:pt-8 text-white relative overflow-hidden" style={{ background: 'linear-gradient(135deg, hsl(210, 62%, 16%) 0%, hsl(210, 62%, 9%) 100%)' }}>
+      <div
+        className="absolute inset-0 opacity-[0.12] z-[1] pointer-events-none"
+        style={{
+          backgroundImage: `linear-gradient(to right, rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.5) 1px, transparent 1px)`,
+          backgroundSize: "18px 18px",
+        }}
+      />
+      <div className="max-w-7xl mx-auto relative z-10">
         <div className="section-header">
           <div className="inline-flex items-center gap-2 bg-white/10 text-gold-light rounded-full px-4 py-2 mb-4">
             <span className="text-sm font-semibold">{t("patents.badge")}</span>
