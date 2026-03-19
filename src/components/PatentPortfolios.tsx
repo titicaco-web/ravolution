@@ -30,7 +30,7 @@ const PatentPortfolios = () => {
   };
 
   return (
-    <section id="patents" className="section-padding pt-6 md:pt-8 bg-secondary">
+    <section id="patents" className="section-padding pt-6 md:pt-8 text-white" style={{ background: 'linear-gradient(135deg, hsl(210, 62%, 16%) 0%, hsl(210, 62%, 9%) 100%)' }}>
       <div className="max-w-7xl mx-auto">
         <div className="section-header">
           <div className="inline-flex items-center gap-2 bg-gold/10 text-gold rounded-full px-4 py-2 mb-4">
