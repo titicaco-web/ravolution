@@ -108,11 +108,11 @@ const AngelInvestor = () => {
         <script type="application/ld+json">{JSON.stringify(faqJsonLd)}</script>
       </Helmet>
 
-      <div className="min-h-screen">
+      <div className="min-h-screen angel-theme">
         <Navbar />
 
         {/* Hero */}
-        <section className="relative gradient-hero text-primary-foreground pt-28 pb-20 md:pt-36 md:pb-28 overflow-hidden" style={{ background: 'linear-gradient(135deg, hsl(210, 100%, 20%) 0%, hsl(210, 100%, 12%) 100%)' }}>
+        <section className="relative text-white pt-28 pb-20 md:pt-36 md:pb-28 overflow-hidden" style={{ background: 'linear-gradient(135deg, hsl(210, 62%, 16%) 0%, hsl(210, 62%, 9%) 100%)' }}>
           <div
             className="absolute inset-0 opacity-[0.12] z-[1] pointer-events-none"
             style={{
