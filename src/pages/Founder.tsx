@@ -99,7 +99,11 @@ const Founder = () => {
         <title>Ivan Daza | Super Inventor & Founder | Education & Language Learning Pioneer | Ravolution</title>
         <meta name="description" content="Ivan Daza is a Super Inventor transforming global education and language learning. His patented methodology accelerates immigrant language acquisition 24x faster while democratizing K1-K9 education worldwide." />
         <meta name="keywords" content="Ivan Daza, super inventor, education technology, language learning, immigrant integration, EdTech patents, Swedish entrepreneur, K1-K9 education, voice biometrics" />
-        <link rel="canonical" href="https://ravolution.se/founder" />
+        <link rel="canonical" href="https://ravolution.se/en/about" />
+        <link rel="alternate" hrefLang="en" href="https://ravolution.se/en/about" />
+        <link rel="alternate" hrefLang="sv" href="https://ravolution.se/sv/about" />
+        <link rel="alternate" hrefLang="es" href="https://ravolution.se/es/about" />
+        <link rel="alternate" hrefLang="x-default" href="https://ravolution.se/en/about" />
         <meta property="og:title" content="Ivan Daza | Super Inventor | Education & Language Learning Pioneer" />
         <meta property="og:description" content="Super Inventor transforming education globally. Patented methodology accelerates language acquisition 24x faster and democratizes quality K1-K9 education across rural communities." />
         <meta property="og:url" content="https://ravolution.se/founder" />
