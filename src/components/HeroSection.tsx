@@ -3,6 +3,8 @@ import { ArrowRight, FileText } from "lucide-react";
 import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { useLanguage } from "@/i18n/LanguageContext";
+import { Link } from "react-router-dom";
+import { useLangPath } from "@/hooks/use-lang-path";
 
 const HeroSection = () => {
   const [videos, setVideos] = useState<string[]>([]);
