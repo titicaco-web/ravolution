@@ -117,6 +117,8 @@
     --foreground: 222 12% 19%;
     --muted-foreground: 215 15% 45%;
   }
+
+  .dark {
     --background: 213 40% 8%;
     --foreground: 40 15% 92%;
 
