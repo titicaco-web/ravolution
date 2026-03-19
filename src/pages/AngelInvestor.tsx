@@ -308,7 +308,7 @@ const AngelInvestor = () => {
                         </div>
                         <h3 className="text-xl font-display font-bold text-foreground mb-2">{t("angel.thankYou")}</h3>
                         <p className="text-muted-foreground mb-4">{t("angel.thankYouMsg")}</p>
-                        <Button variant="outline" asChild>
+                        <Button className="bg-primary hover:bg-primary-light text-white" asChild>
                           <a href="mailto:ivan.daza@ravolution.se" target="_blank" rel="noopener noreferrer">
                             <Calendar className="mr-2 w-4 h-4" />
                             {t("angel.ctaMeeting")}
