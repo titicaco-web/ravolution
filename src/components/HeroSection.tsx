@@ -11,6 +11,7 @@ const HeroSection = () => {
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const { t } = useLanguage();
+  const lp = useLangPath();
 
   useEffect(() => {
     const fetchVideos = async () => {
