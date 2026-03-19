@@ -169,7 +169,7 @@ const PatentPortfolios = () => {
         </div>
 
         <div className="mt-8 text-center">
-          <p className="text-muted-foreground italic">
+          <p className="text-white/60 italic">
             {t("patents.additionalNote")}{" "}
             <a href="#concepts" className="text-gold hover:text-gold-light underline underline-offset-2 transition-colors">
               {t("patents.emergingOpportunities")}
