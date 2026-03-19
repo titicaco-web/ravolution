@@ -78,7 +78,7 @@ export default {
       },
       fontFamily: {
         sans: ["Inter", "system-ui", "sans-serif"],
-        display: ["Montserrat", "Inter", "system-ui", "sans-serif"],
+        display: ["IBM Plex Sans", "Inter", "system-ui", "sans-serif"],
       },
       borderRadius: {
         lg: "var(--radius)",
