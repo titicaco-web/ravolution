@@ -13,11 +13,11 @@
     --primary-light: 213 50% 28%;
     --primary-dark: 213 65% 12%;
 
-    /* Muted Gold #B08D57 - Executive, leadership */
-    --accent: 36 40% 51%;
+    /* Muted Gold #8B7340 - Executive, leadership */
+    --accent: 36 38% 40%;
     --accent-foreground: 0 0% 100%;
-    --accent-light: 36 50% 65%;
-    --accent-dark: 36 40% 40%;
+    --accent-light: 36 42% 52%;
+    --accent-dark: 36 38% 30%;
 
     /* Gold (alias for accent) */
     --gold: 36 40% 51%;
