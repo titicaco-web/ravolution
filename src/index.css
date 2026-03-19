@@ -7,64 +7,67 @@
 @layer base {
   :root {
     /* Core Brand Colors (HSL) */
-    /* Deep Swedish Blue - Trust, professionalism */
-    --primary: 210 100% 20%;
-    --primary-foreground: 0 0% 100%;
-    --primary-light: 210 80% 35%;
-    --primary-dark: 210 100% 15%;
+    /* Marine Navy #0F2747 - Trust, professionalism, international authority */
+    --primary: 213 65% 17%;
+    --primary-foreground: 40 37% 95%;
+    --primary-light: 213 50% 28%;
+    --primary-dark: 213 65% 12%;
 
-    /* Innovation Green - Growth, technology */
-    --accent: 145 100% 35%;
+    /* Muted Gold #B08D57 - Executive, leadership */
+    --accent: 36 40% 51%;
     --accent-foreground: 0 0% 100%;
-    --accent-light: 145 85% 45%;
-    --accent-dark: 145 100% 25%;
+    --accent-light: 36 50% 65%;
+    --accent-dark: 36 40% 40%;
 
-    /* Gold/Copper - Premium, patent value */
-    --gold: 43 74% 51%;
-    --gold-foreground: 210 100% 15%;
-    --gold-light: 43 85% 65%;
-    --gold-dark: 43 74% 40%;
+    /* Gold (alias for accent) */
+    --gold: 36 40% 51%;
+    --gold-foreground: 213 65% 17%;
+    --gold-light: 36 50% 65%;
+    --gold-dark: 36 40% 40%;
 
     /* Neutral System */
-    --background: 0 0% 100%;
-    --foreground: 210 25% 15%;
+    /* Warm white #F7F5F0 */
+    --background: 40 37% 95%;
+    /* Graphite #1E2430 */
+    --foreground: 220 25% 15%;
     
     /* Dot pattern */
-    --dot-color: 210 25% 15%;
+    --dot-color: 220 25% 15%;
     --dot-size: 1.5px;
     --dot-spacing: 20px;
     
-    --card: 0 0% 100%;
-    --card-foreground: 210 25% 15%;
+    --card: 40 30% 97%;
+    --card-foreground: 220 25% 15%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 210 25% 15%;
+    --popover: 40 30% 97%;
+    --popover-foreground: 220 25% 15%;
 
-    --secondary: 210 15% 97%;
-    --secondary-foreground: 210 25% 15%;
+    /* Steel blue #5B6C84 */
+    --secondary: 215 19% 44%;
+    --secondary-foreground: 40 37% 95%;
 
-    --muted: 210 15% 95%;
-    --muted-foreground: 210 10% 45%;
+    --muted: 40 15% 92%;
+    --muted-foreground: 215 19% 44%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 210 15% 90%;
-    --input: 210 15% 90%;
-    --ring: 210 100% 20%;
+    --border: 40 15% 88%;
+    --input: 40 15% 88%;
+    --ring: 213 65% 17%;
 
     /* Gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(210, 100%, 20%) 0%, hsl(210, 100%, 12%) 100%);
-    --gradient-accent: linear-gradient(135deg, hsl(145, 100%, 35%) 0%, hsl(145, 85%, 45%) 100%);
-    --gradient-gold: linear-gradient(135deg, hsl(43, 74%, 51%) 0%, hsl(43, 85%, 65%) 100%);
-    --gradient-subtle: linear-gradient(180deg, hsl(210, 15%, 97%) 0%, hsl(0, 0%, 100%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(213, 65%, 17%) 0%, hsl(213, 65%, 10%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(36, 40%, 51%) 0%, hsl(36, 50%, 65%) 100%);
+    --gradient-gold: linear-gradient(135deg, hsl(36, 40%, 51%) 0%, hsl(36, 50%, 65%) 100%);
+    --gradient-subtle: linear-gradient(180deg, hsl(40, 37%, 95%) 0%, hsl(40, 30%, 97%) 100%);
 
     /* Shadows */
-    --shadow-sm: 0 2px 8px hsl(210 25% 15% / 0.06);
-    --shadow-card: 0 4px 24px hsl(210 25% 15% / 0.08);
-    --shadow-elevated: 0 12px 48px hsl(210 25% 15% / 0.12);
-    --shadow-glow-green: 0 0 40px hsl(145, 100%, 35%, 0.3);
-    --shadow-glow-gold: 0 0 40px hsl(43, 74%, 51%, 0.3);
+    --shadow-sm: 0 2px 8px hsl(220 25% 15% / 0.06);
+    --shadow-card: 0 4px 24px hsl(220 25% 15% / 0.08);
+    --shadow-elevated: 0 12px 48px hsl(220 25% 15% / 0.12);
+    --shadow-glow-green: 0 0 40px hsl(36, 40%, 51%, 0.3);
+    --shadow-glow-gold: 0 0 40px hsl(36, 40%, 51%, 0.3);
 
     /* Transitions */
     --transition-fast: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
@@ -74,14 +77,14 @@
     --radius: 0.75rem;
 
     /* Sidebar */
-    --sidebar-background: 210 100% 18%;
-    --sidebar-foreground: 0 0% 100%;
-    --sidebar-primary: 145 100% 35%;
+    --sidebar-background: 213 65% 14%;
+    --sidebar-foreground: 40 37% 95%;
+    --sidebar-primary: 36 40% 51%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 210 80% 25%;
-    --sidebar-accent-foreground: 0 0% 100%;
-    --sidebar-border: 210 60% 25%;
-    --sidebar-ring: 145 100% 35%;
+    --sidebar-accent: 213 50% 22%;
+    --sidebar-accent-foreground: 40 37% 95%;
+    --sidebar-border: 213 50% 25%;
+    --sidebar-ring: 36 40% 51%;
 
     /* Gyrocraft Design System */
     --gyrocraft-dark: 220 20% 7%;
@@ -92,33 +95,33 @@
   }
 
   .dark {
-    --background: 210 25% 8%;
-    --foreground: 210 15% 95%;
+    --background: 213 40% 8%;
+    --foreground: 40 15% 92%;
 
-    --card: 210 25% 12%;
-    --card-foreground: 210 15% 95%;
+    --card: 213 35% 12%;
+    --card-foreground: 40 15% 92%;
 
-    --popover: 210 25% 12%;
-    --popover-foreground: 210 15% 95%;
+    --popover: 213 35% 12%;
+    --popover-foreground: 40 15% 92%;
 
-    --primary: 210 80% 50%;
+    --primary: 213 50% 45%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 20% 18%;
-    --secondary-foreground: 210 15% 95%;
+    --secondary: 215 19% 30%;
+    --secondary-foreground: 40 15% 92%;
 
-    --muted: 210 20% 18%;
-    --muted-foreground: 210 15% 65%;
+    --muted: 213 25% 18%;
+    --muted-foreground: 215 15% 60%;
 
-    --accent: 145 80% 45%;
+    --accent: 36 40% 51%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 62% 45%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 210 20% 22%;
-    --input: 210 20% 22%;
-    --ring: 210 80% 50%;
+    --border: 213 25% 20%;
+    --input: 213 25% 20%;
+    --ring: 213 50% 45%;
   }
 }
 
@@ -280,11 +283,11 @@
   }
 
   .hover-glow-green {
-    @apply transition-all duration-300 hover:shadow-[0_0_30px_hsl(145,100%,35%,0.3)];
+    @apply transition-all duration-300 hover:shadow-[0_0_30px_hsl(36,40%,51%,0.3)];
   }
 
   .hover-glow-gold {
-    @apply transition-all duration-300 hover:shadow-[0_0_30px_hsl(43,74%,51%,0.3)];
+    @apply transition-all duration-300 hover:shadow-[0_0_30px_hsl(36,40%,51%,0.3)];
   }
 }
 
