@@ -257,7 +257,7 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    animation: shimmer 4s ease-in-out infinite;
+    animation: shimmer 8s ease-in-out infinite;
   }
 
   .text-gradient-accent {
