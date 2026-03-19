@@ -128,7 +128,7 @@ const AngelInvestor = () => {
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6 leading-tight animate-fade-in-up">
               Angel Investor &amp; Build‑for‑Equity
             </h1>
-            <p className="text-lg md:text-xl text-primary-foreground/80 max-w-3xl leading-relaxed mb-4 animate-fade-in-up">
+            <p className="text-lg md:text-xl text-white/75 max-w-3xl leading-relaxed mb-4 animate-fade-in-up">
               {t("angel.heroSubhead")}
             </p>
             {/* SEO summary paragraph */}
