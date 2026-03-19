@@ -77,14 +77,14 @@
     --radius: 0.75rem;
 
     /* Sidebar */
-    --sidebar-background: 210 100% 18%;
-    --sidebar-foreground: 0 0% 100%;
-    --sidebar-primary: 145 100% 35%;
+    --sidebar-background: 213 65% 14%;
+    --sidebar-foreground: 40 37% 95%;
+    --sidebar-primary: 36 40% 51%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 210 80% 25%;
-    --sidebar-accent-foreground: 0 0% 100%;
-    --sidebar-border: 210 60% 25%;
-    --sidebar-ring: 145 100% 35%;
+    --sidebar-accent: 213 50% 22%;
+    --sidebar-accent-foreground: 40 37% 95%;
+    --sidebar-border: 213 50% 25%;
+    --sidebar-ring: 36 40% 51%;
 
     /* Gyrocraft Design System */
     --gyrocraft-dark: 220 20% 7%;
