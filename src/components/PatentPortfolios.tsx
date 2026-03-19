@@ -36,8 +36,8 @@ const PatentPortfolios = () => {
           <div className="inline-flex items-center gap-2 bg-gold/10 text-gold rounded-full px-4 py-2 mb-4">
             <span className="text-sm font-semibold">{t("patents.badge")}</span>
           </div>
-          <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">
-            {t("patents.title")}
+          <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">
+            <span className="text-gradient-gold">{t("patents.title")}</span>
           </h2>
           <p className="text-lg text-muted-foreground">
             {t("patents.subtitle")}
@@ -143,7 +143,7 @@ const PatentPortfolios = () => {
                       </div>
                     </div>
                     <div className="mt-6 flex flex-wrap gap-3">
-                      <Button className="bg-primary hover:bg-primary-light" asChild>
+                      <Button className="bg-gold hover:bg-gold-light text-gold-foreground" asChild>
                         <a href="https://meetings-eu1.hubspot.com/daza" target="_blank" rel="noopener noreferrer">
                           {t("patents.inquireLicensing")}
                         </a>
