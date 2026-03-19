@@ -28,7 +28,7 @@ const Index = () => {
         <meta name="google-site-verification" content="fZ5wqD3QL629AjpMRpzKfj4z6mrxJXjraVGIHx1HjwU" />
         
         {/* Open Graph */}
-        <meta property="og:title" content="Ravolution AB | Swedish Venture Studio & IP Innovation Company" />
+        <meta property="og:title" content="Ravolution AB | Swedish Venture Studio & Angel Investor | Build‑for‑Equity for Startups" />
         <meta property="og:description" content="27 patents, 343 claims. Building deep tech unicorns in language learning, voice security, AI trade & education. Founded by Ivan Daza, inventor of high-value patents foundational to billion-dollar markets." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://ravolution.se/" />
