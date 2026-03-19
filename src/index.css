@@ -7,51 +7,54 @@
 @layer base {
   :root {
     /* Core Brand Colors (HSL) */
-    /* Deep Swedish Blue - Trust, professionalism */
-    --primary: 210 100% 20%;
-    --primary-foreground: 0 0% 100%;
-    --primary-light: 210 80% 35%;
-    --primary-dark: 210 100% 15%;
+    /* Marine Navy #0F2747 - Trust, professionalism, international authority */
+    --primary: 213 65% 17%;
+    --primary-foreground: 40 37% 95%;
+    --primary-light: 213 50% 28%;
+    --primary-dark: 213 65% 12%;
 
-    /* Innovation Green - Growth, technology */
-    --accent: 145 100% 35%;
+    /* Muted Gold #B08D57 - Executive, leadership */
+    --accent: 36 40% 51%;
     --accent-foreground: 0 0% 100%;
-    --accent-light: 145 85% 45%;
-    --accent-dark: 145 100% 25%;
+    --accent-light: 36 50% 65%;
+    --accent-dark: 36 40% 40%;
 
-    /* Gold/Copper - Premium, patent value */
-    --gold: 43 74% 51%;
-    --gold-foreground: 210 100% 15%;
-    --gold-light: 43 85% 65%;
-    --gold-dark: 43 74% 40%;
+    /* Gold (alias for accent) */
+    --gold: 36 40% 51%;
+    --gold-foreground: 213 65% 17%;
+    --gold-light: 36 50% 65%;
+    --gold-dark: 36 40% 40%;
 
     /* Neutral System */
-    --background: 0 0% 100%;
-    --foreground: 210 25% 15%;
+    /* Warm white #F7F5F0 */
+    --background: 40 37% 95%;
+    /* Graphite #1E2430 */
+    --foreground: 220 25% 15%;
     
     /* Dot pattern */
-    --dot-color: 210 25% 15%;
+    --dot-color: 220 25% 15%;
     --dot-size: 1.5px;
     --dot-spacing: 20px;
     
-    --card: 0 0% 100%;
-    --card-foreground: 210 25% 15%;
+    --card: 40 30% 97%;
+    --card-foreground: 220 25% 15%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 210 25% 15%;
+    --popover: 40 30% 97%;
+    --popover-foreground: 220 25% 15%;
 
-    --secondary: 210 15% 97%;
-    --secondary-foreground: 210 25% 15%;
+    /* Steel blue #5B6C84 */
+    --secondary: 215 19% 44%;
+    --secondary-foreground: 40 37% 95%;
 
-    --muted: 210 15% 95%;
-    --muted-foreground: 210 10% 45%;
+    --muted: 40 15% 92%;
+    --muted-foreground: 215 19% 44%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 210 15% 90%;
-    --input: 210 15% 90%;
-    --ring: 210 100% 20%;
+    --border: 40 15% 88%;
+    --input: 40 15% 88%;
+    --ring: 213 65% 17%;
 
     /* Gradients */
     --gradient-hero: linear-gradient(135deg, hsl(210, 100%, 20%) 0%, hsl(210, 100%, 12%) 100%);
