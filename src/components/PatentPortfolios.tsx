@@ -33,13 +33,13 @@ const PatentPortfolios = () => {
     <section id="patents" className="section-padding pt-6 md:pt-8 text-white" style={{ background: 'linear-gradient(135deg, hsl(210, 62%, 16%) 0%, hsl(210, 62%, 9%) 100%)' }}>
       <div className="max-w-7xl mx-auto">
         <div className="section-header">
-          <div className="inline-flex items-center gap-2 bg-gold/10 text-gold rounded-full px-4 py-2 mb-4">
+          <div className="inline-flex items-center gap-2 bg-white/10 text-gold-light rounded-full px-4 py-2 mb-4">
             <span className="text-sm font-semibold">{t("patents.badge")}</span>
           </div>
           <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">
             <span className="text-gradient-gold">{t("patents.title")}</span>
           </h2>
-          <p className="text-lg text-muted-foreground">
+          <p className="text-lg text-white/70">
             {t("patents.subtitle")}
           </p>
         </div>
