@@ -136,13 +136,13 @@ const AngelInvestor = () => {
               Ravolution is a <strong>Swedish venture studio &amp; IP innovation company</strong> that acts as an <strong>angel investor via build‑for‑equity</strong>. We build complex tech platforms end‑to‑end, protect your IP, and support patent strategy—in return for equity. Proven across platforms like Rosetta Livingstone, iApply, CommunicaringSchool, and xPortMatch.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 animate-fade-in-up">
-              <Button size="lg" className="bg-accent hover:bg-accent-light text-accent-foreground" asChild>
+              <Button size="lg" className="bg-white text-primary hover:bg-white/90 font-semibold" asChild>
                 <a href="#brief-form">
                   <Send className="mr-2 w-5 h-5" />
                   {t("angel.ctaBrief")}
                 </a>
               </Button>
-              <Button size="lg" className="bg-gold hover:bg-gold-light text-gold-foreground border-0" asChild>
+              <Button size="lg" variant="outline" className="border-white/30 text-white hover:bg-white/10 hover:border-white/50" asChild>
                 <a href="https://meetings-eu1.hubspot.com/daza" target="_blank" rel="noopener noreferrer">
                   <Calendar className="mr-2 w-5 h-5" />
                   {t("angel.ctaMeeting")}
