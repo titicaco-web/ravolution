@@ -35,7 +35,7 @@ const Index = () => {
         
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Ravolution AB | Swedish Venture Studio & IP Innovation Company" />
+        <meta name="twitter:title" content="Ravolution AB | Swedish Venture Studio & Angel Investor | Build‑for‑Equity for Startups" />
         <meta name="twitter:description" content="27 patents, 343 claims. Building deep tech unicorns in language learning, voice security, AI trade & education. Founded by Ivan Daza, inventor of high-value patents foundational to billion-dollar markets." />
 
         {/* Organization structured data */}
