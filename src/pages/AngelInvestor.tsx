@@ -285,7 +285,7 @@ const AngelInvestor = () => {
                       Founders and teams who want an angel investor that also builds and protects IP can send us a brief here.
                     </p>
                     <div className="flex flex-col gap-4">
-                      <Button size="lg" className="bg-gold hover:bg-gold-light text-gold-foreground w-fit" asChild>
+                      <Button size="lg" className="bg-primary hover:bg-primary-light text-primary-foreground w-fit" asChild>
                         <a href="https://meetings-eu1.hubspot.com/daza" target="_blank" rel="noopener noreferrer">
                           <Calendar className="mr-2 w-5 h-5" />
                           {t("angel.ctaMeeting")}
