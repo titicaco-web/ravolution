@@ -143,7 +143,7 @@ const AngelInvestor = () => {
                 </a>
               </Button>
               <Button size="lg" variant="outline" className="border-white/30 text-white hover:bg-white/10 hover:border-white/50" asChild>
-                <a href="https://meetings-eu1.hubspot.com/daza" target="_blank" rel="noopener noreferrer">
+                <a href="mailto:ivan.daza@ravolution.se" target="_blank" rel="noopener noreferrer">
                   <Calendar className="mr-2 w-5 h-5" />
                   {t("angel.ctaMeeting")}
                 </a>
@@ -286,7 +286,7 @@ const AngelInvestor = () => {
                     </p>
                     <div className="flex flex-col gap-4">
                       <Button size="lg" className="bg-primary hover:bg-primary-light text-white w-fit" asChild>
-                        <a href="https://meetings-eu1.hubspot.com/daza" target="_blank" rel="noopener noreferrer">
+                        <a href="mailto:ivan.daza@ravolution.se" target="_blank" rel="noopener noreferrer">
                           <Calendar className="mr-2 w-5 h-5" />
                           {t("angel.ctaMeeting")}
                         </a>
@@ -309,7 +309,7 @@ const AngelInvestor = () => {
                         <h3 className="text-xl font-display font-bold text-foreground mb-2">{t("angel.thankYou")}</h3>
                         <p className="text-muted-foreground mb-4">{t("angel.thankYouMsg")}</p>
                         <Button variant="outline" asChild>
-                          <a href="https://meetings-eu1.hubspot.com/daza" target="_blank" rel="noopener noreferrer">
+                          <a href="mailto:ivan.daza@ravolution.se" target="_blank" rel="noopener noreferrer">
                             <Calendar className="mr-2 w-4 h-4" />
                             {t("angel.ctaMeeting")}
                           </a>

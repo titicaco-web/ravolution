@@ -31,7 +31,7 @@ const AngelInvestorTeaser = () => {
                 </a>
               </Button>
               <Button size="lg" className="bg-gold hover:bg-gold-light text-gold-foreground border-0" asChild>
-                <a href="https://meetings-eu1.hubspot.com/daza" target="_blank" rel="noopener noreferrer">
+                <a href="mailto:ivan.daza@ravolution.se" target="_blank" rel="noopener noreferrer">
                   <Calendar className="mr-2 w-5 h-5" />
                   {t("angel.ctaMeeting")}
                 </a>

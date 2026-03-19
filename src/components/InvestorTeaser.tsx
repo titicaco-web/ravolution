@@ -24,7 +24,7 @@ const InvestorTeaser = () => {
 
             <div className="flex flex-col sm:flex-row gap-4">
               <Button className="bg-accent hover:bg-accent-light text-white group" asChild>
-                <a href="https://meetings-eu1.hubspot.com/daza" target="_blank" rel="noopener noreferrer">
+                <a href="mailto:ivan.daza@ravolution.se" target="_blank" rel="noopener noreferrer">
                   {t("investors.ctaCall")}
                   <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
                 </a>

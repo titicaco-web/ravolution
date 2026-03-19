@@ -329,7 +329,7 @@ const BlogPodcast = () => {
                     {t("blogPod.ctaDesc")}
                   </p>
                   <Button className="bg-accent hover:bg-accent-light text-accent-foreground" asChild>
-                    <a href="https://meetings-eu1.hubspot.com/daza" target="_blank" rel="noopener noreferrer">
+                    <a href="mailto:ivan.daza@ravolution.se" target="_blank" rel="noopener noreferrer">
                       {t("blogPod.ctaButton")}
                     </a>
                   </Button>

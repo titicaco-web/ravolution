@@ -151,7 +151,7 @@ const PatentPortfolios = () => {
                     </div>
                     <div className="mt-6 flex flex-wrap gap-3">
                       <Button className="bg-gold hover:bg-gold-light text-gold-foreground" asChild>
-                        <a href="https://meetings-eu1.hubspot.com/daza" target="_blank" rel="noopener noreferrer">
+                        <a href="mailto:ivan.daza@ravolution.se" target="_blank" rel="noopener noreferrer">
                           {t("patents.inquireLicensing")}
                         </a>
                       </Button>
