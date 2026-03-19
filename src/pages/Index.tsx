@@ -21,6 +21,10 @@ const Index = () => {
         <meta name="description" content="27 patents, 343 claims. Swedish venture studio building deep tech unicorns in language learning (24x faster), voice security, AI trade infrastructure & K1-K9 education. Founded by Ivan Daza, inventor of high-value patents foundational to billion-dollar markets." />
         <meta name="keywords" content="venture studio, deep tech, patent portfolio, Swedish innovation, language learning AI, voice biometrics, education technology, 24x faster learning, K1-K9 education, global trade AI, strategic IP, Ivan Daza, unicorn startups, billion-dollar markets" />
         <link rel="canonical" href="https://ravolution.se/" />
+        <link rel="alternate" hrefLang="en" href="https://ravolution.se/en" />
+        <link rel="alternate" hrefLang="sv" href="https://ravolution.se/sv" />
+        <link rel="alternate" hrefLang="es" href="https://ravolution.se/es" />
+        <link rel="alternate" hrefLang="x-default" href="https://ravolution.se/en" />
         <meta name="google-site-verification" content="fZ5wqD3QL629AjpMRpzKfj4z6mrxJXjraVGIHx1HjwU" />
         
         {/* Open Graph */}

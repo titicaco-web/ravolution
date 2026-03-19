@@ -28,18 +28,19 @@ const founderSchema = {
   "@type": "Person",
   "@id": "https://ravolution.se/#ivan-daza",
   "name": "Ivan Daza",
-  "jobTitle": "Super Inventor & Founder",
-  "description": "Super Inventor transforming education and language learning through patented technologies. Creator of methodologies that accelerate immigrant language acquisition 24x faster and democratize quality K1-K9 education globally.",
-  "url": "https://ravolution.se/founder",
+  "jobTitle": "Tech Inventor, Founder & CEO",
+  "description": "Serial tech inventor and digitalization expert with 30+ years of experience building patented platforms. Creator of methodologies that accelerate immigrant language acquisition 34x faster and democratize quality K1-K9 education globally. Recognized by the Royal Coin Cabinet as one of 200 entrepreneurs who shaped Sweden's development.",
+  "url": "https://ravolution.se/en/about",
   "image": "https://ravolution.se/ivan-daza.jpg",
   "sameAs": [
     "https://www.linkedin.com/in/ivandaza/",
     "https://patents.google.com/?inventor=Ivan+Daza"
   ],
   "worksFor": {
-    "@type": "Organization",
-    "name": "Ravolution AB",
-    "url": "https://ravolution.se"
+    "@id": "https://ravolution.se/#organization"
+  },
+  "memberOf": {
+    "@id": "https://ravolution.se/#organization"
   },
   "knowsAbout": [
     "Education Technology",
@@ -48,28 +49,13 @@ const founderSchema = {
     "Artificial Intelligence",
     "Patent Strategy",
     "Immigrant Integration",
-    "IP Portfolio Development"
+    "IP Portfolio Development",
+    "Build-for-Equity",
+    "Venture Studio Operations"
   ],
   "award": [
     "One of 200 entrepreneurs recognized by National Museum of Economy for shaping Sweden's business landscape",
     "Gasell Company 2012 by Dagens Industri"
-  ],
-  "owns": [
-    {
-      "@type": "Patent",
-      "name": "AI Language Learning Partner Technology",
-      "description": "Revolutionary methodology accelerating language acquisition 24x faster than conventional approaches, enabling rapid labor market integration for immigrants."
-    },
-    {
-      "@type": "Patent",
-      "name": "Scalable K1-K9 Education Platform",
-      "description": "Technology democratizing quality education across rural communities through scalable curricula that establish baseline educational parity globally."
-    },
-    {
-      "@type": "Patent",
-      "name": "Voice-Based Authentication System",
-      "description": "Foundational patent for voice biometrics authentication, addressing the global cybersecurity identity market."
-    }
   ]
 };
 
@@ -113,7 +99,11 @@ const Founder = () => {
         <title>Ivan Daza | Super Inventor & Founder | Education & Language Learning Pioneer | Ravolution</title>
         <meta name="description" content="Ivan Daza is a Super Inventor transforming global education and language learning. His patented methodology accelerates immigrant language acquisition 24x faster while democratizing K1-K9 education worldwide." />
         <meta name="keywords" content="Ivan Daza, super inventor, education technology, language learning, immigrant integration, EdTech patents, Swedish entrepreneur, K1-K9 education, voice biometrics" />
-        <link rel="canonical" href="https://ravolution.se/founder" />
+        <link rel="canonical" href="https://ravolution.se/en/about" />
+        <link rel="alternate" hrefLang="en" href="https://ravolution.se/en/about" />
+        <link rel="alternate" hrefLang="sv" href="https://ravolution.se/sv/about" />
+        <link rel="alternate" hrefLang="es" href="https://ravolution.se/es/about" />
+        <link rel="alternate" hrefLang="x-default" href="https://ravolution.se/en/about" />
         <meta property="og:title" content="Ivan Daza | Super Inventor | Education & Language Learning Pioneer" />
         <meta property="og:description" content="Super Inventor transforming education globally. Patented methodology accelerates language acquisition 24x faster and democratizes quality K1-K9 education across rural communities." />
         <meta property="og:url" content="https://ravolution.se/founder" />
