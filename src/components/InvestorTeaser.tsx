@@ -29,7 +29,7 @@ const InvestorTeaser = () => {
                   <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
                 </a>
               </Button>
-              <Button variant="outline" className="border-white/30 text-white hover:bg-white/10" asChild>
+              <Button variant="outline" className="bg-transparent border-white/30 text-white hover:bg-white/10 hover:border-white/50 hover:text-white" asChild>
                 <a href="mailto:ivan.daza@ravolution.se?subject=Financial Model Request">
                   {t("investors.ctaModel")}
                 </a>
