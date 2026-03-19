@@ -121,7 +121,7 @@ const AngelInvestor = () => {
             }}
           />
           <div className="relative z-10 max-w-5xl mx-auto px-6">
-            <div className="inline-flex items-center gap-2 bg-gold/20 text-gold-light px-4 py-1.5 rounded-full text-sm font-medium mb-6 animate-fade-in">
+            <div className="inline-flex items-center gap-2 bg-white/10 text-white/80 px-4 py-1.5 rounded-full text-sm font-medium mb-6 animate-fade-in border border-white/15">
               <Rocket className="w-4 h-4" />
               {t("angel.heroBadge")}
             </div>
