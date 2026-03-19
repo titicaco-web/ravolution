@@ -57,6 +57,9 @@ const App = () => (
           <Route path="/:lang/blog" element={<LanguageSync><BlogPodcast /></LanguageSync>} />
           <Route path="/:lang/invest" element={<LanguageSync><InvestPage /></LanguageSync>} />
           <Route path="/:lang/angel-investor" element={<LanguageSync><AngelInvestor /></LanguageSync>} />
+          <Route path="/:lang/build-for-equity" element={<LanguageSync><BuildForEquity /></LanguageSync>} />
+          <Route path="/:lang/patent-strategy-for-startups" element={<LanguageSync><PatentStrategyForStartups /></LanguageSync>} />
+          <Route path="/:lang/technical-cofounder-alternative" element={<LanguageSync><TechnicalCofounderAlternative /></LanguageSync>} />
           
           {/* Gyrocraft Routes - Password Protected */}
           <Route path="/:lang/gyrocraft" element={<LanguageSync><ProtectedGyrocraftRoute><GyrocraftHome /></ProtectedGyrocraftRoute></LanguageSync>} />
