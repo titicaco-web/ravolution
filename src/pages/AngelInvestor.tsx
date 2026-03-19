@@ -132,7 +132,7 @@ const AngelInvestor = () => {
               {t("angel.heroSubhead")}
             </p>
             {/* SEO summary paragraph */}
-            <p className="text-base text-primary-foreground/60 max-w-3xl leading-relaxed mb-8 animate-fade-in-up">
+            <p className="text-base text-white/50 max-w-3xl leading-relaxed mb-8 animate-fade-in-up">
               Ravolution is a <strong>Swedish venture studio &amp; IP innovation company</strong> that acts as an <strong>angel investor via build‑for‑equity</strong>. We build complex tech platforms end‑to‑end, protect your IP, and support patent strategy—in return for equity. Proven across platforms like Rosetta Livingstone, iApply, CommunicaringSchool, and xPortMatch.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 animate-fade-in-up">
