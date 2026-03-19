@@ -20,10 +20,10 @@
     --accent-dark: 36 38% 30%;
 
     /* Gold (alias for accent) */
-    --gold: 36 40% 51%;
-    --gold-foreground: 213 65% 17%;
-    --gold-light: 36 50% 65%;
-    --gold-dark: 36 40% 40%;
+    --gold: 36 38% 40%;
+    --gold-foreground: 40 37% 95%;
+    --gold-light: 36 42% 52%;
+    --gold-dark: 36 38% 30%;
 
     /* Neutral System */
     /* Warm white #F7F5F0 */
