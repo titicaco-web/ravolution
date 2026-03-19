@@ -108,11 +108,11 @@ const AngelInvestor = () => {
         <script type="application/ld+json">{JSON.stringify(faqJsonLd)}</script>
       </Helmet>
 
-      <div className="min-h-screen">
+      <div className="min-h-screen angel-theme">
         <Navbar />
 
         {/* Hero */}
-        <section className="relative gradient-hero text-primary-foreground pt-28 pb-20 md:pt-36 md:pb-28 overflow-hidden" style={{ background: 'linear-gradient(135deg, hsl(210, 100%, 20%) 0%, hsl(210, 100%, 12%) 100%)' }}>
+        <section className="relative text-white pt-28 pb-20 md:pt-36 md:pb-28 overflow-hidden" style={{ background: 'linear-gradient(135deg, hsl(210, 62%, 16%) 0%, hsl(210, 62%, 9%) 100%)' }}>
           <div
             className="absolute inset-0 opacity-[0.12] z-[1] pointer-events-none"
             style={{
@@ -121,28 +121,28 @@ const AngelInvestor = () => {
             }}
           />
           <div className="relative z-10 max-w-5xl mx-auto px-6">
-            <div className="inline-flex items-center gap-2 bg-gold/20 text-gold-light px-4 py-1.5 rounded-full text-sm font-medium mb-6 animate-fade-in">
+            <div className="inline-flex items-center gap-2 bg-white/10 text-white/80 px-4 py-1.5 rounded-full text-sm font-medium mb-6 animate-fade-in border border-white/15">
               <Rocket className="w-4 h-4" />
               {t("angel.heroBadge")}
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6 leading-tight animate-fade-in-up">
               Angel Investor &amp; Build‑for‑Equity
             </h1>
-            <p className="text-lg md:text-xl text-primary-foreground/80 max-w-3xl leading-relaxed mb-4 animate-fade-in-up">
+            <p className="text-lg md:text-xl text-white/75 max-w-3xl leading-relaxed mb-4 animate-fade-in-up">
               {t("angel.heroSubhead")}
             </p>
             {/* SEO summary paragraph */}
-            <p className="text-base text-primary-foreground/60 max-w-3xl leading-relaxed mb-8 animate-fade-in-up">
+            <p className="text-base text-white/50 max-w-3xl leading-relaxed mb-8 animate-fade-in-up">
               Ravolution is a <strong>Swedish venture studio &amp; IP innovation company</strong> that acts as an <strong>angel investor via build‑for‑equity</strong>. We build complex tech platforms end‑to‑end, protect your IP, and support patent strategy—in return for equity. Proven across platforms like Rosetta Livingstone, iApply, CommunicaringSchool, and xPortMatch.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 animate-fade-in-up">
-              <Button size="lg" className="bg-accent hover:bg-accent-light text-accent-foreground" asChild>
+              <Button size="lg" className="bg-white text-primary hover:bg-white/90 font-semibold" asChild>
                 <a href="#brief-form">
                   <Send className="mr-2 w-5 h-5" />
                   {t("angel.ctaBrief")}
                 </a>
               </Button>
-              <Button size="lg" className="bg-gold hover:bg-gold-light text-gold-foreground border-0" asChild>
+              <Button size="lg" variant="outline" className="border-white/30 text-white hover:bg-white/10 hover:border-white/50" asChild>
                 <a href="https://meetings-eu1.hubspot.com/daza" target="_blank" rel="noopener noreferrer">
                   <Calendar className="mr-2 w-5 h-5" />
                   {t("angel.ctaMeeting")}
@@ -285,7 +285,7 @@ const AngelInvestor = () => {
                       Founders and teams who want an angel investor that also builds and protects IP can send us a brief here.
                     </p>
                     <div className="flex flex-col gap-4">
-                      <Button size="lg" className="bg-gold hover:bg-gold-light text-gold-foreground w-fit" asChild>
+                      <Button size="lg" className="bg-primary hover:bg-primary-light text-primary-foreground w-fit" asChild>
                         <a href="https://meetings-eu1.hubspot.com/daza" target="_blank" rel="noopener noreferrer">
                           <Calendar className="mr-2 w-5 h-5" />
                           {t("angel.ctaMeeting")}
@@ -355,7 +355,7 @@ const AngelInvestor = () => {
                             {t("angel.form.consent")}
                           </label>
                         </div>
-                        <Button type="submit" className="w-full bg-accent hover:bg-accent-light text-accent-foreground" disabled={!consent || isSubmitting}>
+                        <Button type="submit" className="w-full bg-primary hover:bg-primary-light text-primary-foreground" disabled={!consent || isSubmitting}>
                           <Send className="mr-2 w-4 h-4" />
                           {isSubmitting ? t("angel.form.sending") : t("angel.ctaBrief")}
                         </Button>
