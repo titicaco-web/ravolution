@@ -112,6 +112,10 @@ const AngelInvestor = () => {
         <meta name="description" content={t("angel.metaDesc")} />
         <meta name="keywords" content="build-for-equity investor, venture studio for equity, technical co-founder alternative, startup product development for equity, angel investor Sweden startup, IP strategy for startups, patent strategy startups, build-for-equity angel investor" />
         <link rel="canonical" href="https://ravolution.se/en/angel-investor" />
+        <link rel="alternate" hrefLang="en" href="https://ravolution.se/en/angel-investor" />
+        <link rel="alternate" hrefLang="sv" href="https://ravolution.se/sv/angel-investor" />
+        <link rel="alternate" hrefLang="es" href="https://ravolution.se/es/angel-investor" />
+        <link rel="alternate" hrefLang="x-default" href="https://ravolution.se/en/angel-investor" />
         <meta property="og:title" content={t("angel.ogTitle")} />
         <meta property="og:description" content={t("angel.ogDesc")} />
         <meta property="og:type" content="website" />
