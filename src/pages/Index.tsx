@@ -33,6 +33,28 @@ const Index = () => {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Ravolution AB | Swedish Venture Studio & IP Innovation Company" />
         <meta name="twitter:description" content="27 patents, 343 claims. Building deep tech unicorns in language learning, voice security, AI trade & education. Founded by Ivan Daza, inventor of high-value patents foundational to billion-dollar markets." />
+
+        {/* Organization structured data */}
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "@id": "https://ravolution.se/#organization",
+          "name": "Ravolution AB",
+          "legalName": "Ravolution AB",
+          "url": "https://ravolution.se/",
+          "logo": "https://ravolution.se/favicon.png",
+          "description": "Swedish venture studio and IP innovation company. 27 patents, 343 claims. Building defensible platforms in language learning, voice security, AI trade infrastructure and K1-K9 education.",
+          "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "SE"
+          },
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "email": "ivan.daza@ravolution.se",
+            "contactType": "business inquiries"
+          },
+          "sameAs": []
+        })}</script>
       </Helmet>
       <div className="min-h-screen">
         <Navbar />

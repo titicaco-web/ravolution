@@ -14,7 +14,8 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import {
   Send, Calendar, CheckCircle, Briefcase, GraduationCap,
   Languages, Globe, Shield, Zap, FileText, Target, Rocket,
-  Lock, ArrowRight, Wrench, Scale, ExternalLink
+  Lock, ArrowRight, Wrench, Scale, ExternalLink, XCircle,
+  Users, Building, UserCheck
 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
@@ -48,12 +49,10 @@ const AngelInvestor = () => {
     }
   };
 
-  const portfolioCards = [
-    { icon: Briefcase, name: "iApply™", desc: t("angel.portfolio.iapply") },
-    { icon: GraduationCap, name: "CommunicaringSchool™", desc: t("angel.portfolio.communicaring") },
-    { icon: Languages, name: "Rosetta Livingstone™", desc: t("angel.portfolio.rosetta") },
-    { icon: Globe, name: "xPortMatch™", desc: t("angel.portfolio.xportmatch") },
-  ];
+  const faqKeys = ["whatIsIt", "diffAgency", "bestFit", "onlySweden", "whatProvide", "codeOwnership", "ipOwnership", "patents", "mvpTimeline", "cashEquity"];
+
+  const caseKeys = ["iapply", "communicaring", "rosetta", "xportmatch"];
+  const caseIcons = [Briefcase, GraduationCap, Languages, Globe];
 
   const deliverables = [
     { icon: Target, key: "discovery" },
@@ -62,50 +61,66 @@ const AngelInvestor = () => {
     { icon: FileText, key: "patent" },
   ];
 
-  const faqKeys = ["whatIsIt", "whatPlatforms", "boardSeats", "equityRange", "codeOwnership", "internationalPatents", "mvpTimeline", "onlySweden"];
+  const equityKeys = ["equityOnly", "hybrid", "milestone", "scope"];
 
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    name: "Angel Investor & Build-for-Equity Partner",
-    description: "Swedish venture studio that acts as an angel investor via build-for-equity: end-to-end platform development, IP protection, and patent strategy in exchange for shares.",
-    serviceType: ["Angel investment", "Build-for-equity", "Platform development", "IP & patent support"],
-    areaServed: { "@type": "Place", name: "Global" },
-    provider: {
-      "@type": "Organization",
-      name: "Ravolution AB",
-      url: "https://ravolution.se",
-      description: "Swedish Venture Studio & IP Innovation Company",
-    },
-  };
+  const diffKeys = ["devShop", "vc", "cofounder"];
+  const diffIcons = [Building, Scale, UserCheck];
 
-  const faqJsonLd = {
+  // Structured data: @graph with Organization reference, Service and FAQPage
+  const structuredData = {
     "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: faqKeys.map((key) => ({
-      "@type": "Question",
-      name: t(`angel.faq.${key}.q`),
-      acceptedAnswer: { "@type": "Answer", text: t(`angel.faq.${key}.a`) },
-    })),
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://ravolution.se/#organization",
+        name: "Ravolution AB",
+        url: "https://ravolution.se/",
+        logo: "https://ravolution.se/favicon.png",
+        description: "Swedish venture studio and IP innovation company offering build-for-equity, platform development, IP protection and patent strategy.",
+        sameAs: [],
+      },
+      {
+        "@type": "Service",
+        "@id": "https://ravolution.se/en/angel-investor#service",
+        serviceType: "Build-for-equity venture studio and angel investor support",
+        name: "Angel Investor & Build-for-Equity",
+        provider: { "@id": "https://ravolution.se/#organization" },
+        areaServed: "International",
+        audience: {
+          "@type": "Audience",
+          audienceType: "Pre-seed to seed founders and startups building complex platforms",
+        },
+        url: "https://ravolution.se/en/angel-investor",
+        description: "Ravolution invests senior product, engineering, IP protection and patent strategy in exchange for equity.",
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://ravolution.se/en/angel-investor#faq",
+        mainEntity: faqKeys.map((key) => ({
+          "@type": "Question",
+          name: t(`angel.faq.${key}.q`),
+          acceptedAnswer: { "@type": "Answer", text: t(`angel.faq.${key}.a`) },
+        })),
+      },
+    ],
   };
 
   return (
     <>
       <Helmet>
-        <title>Angel Investor &amp; Build-for-Equity Partner | Ravolution</title>
-        <meta name="description" content="Angel investor and build-for-equity partner for complex platforms. We build, protect IP, and support patents in return for shares. Swedish venture studio." />
-        <meta name="keywords" content="angel investor, build for equity, platform development, IP protection, patent strategy, Swedish venture studio, tech startup, equity for build" />
+        <title>{t("angel.metaTitle")}</title>
+        <meta name="description" content={t("angel.metaDesc")} />
+        <meta name="keywords" content="build-for-equity investor, venture studio for equity, technical co-founder alternative, startup product development for equity, angel investor Sweden startup, IP strategy for startups, patent strategy startups, build-for-equity angel investor" />
         <link rel="canonical" href="https://ravolution.se/en/angel-investor" />
-        <meta property="og:title" content="Angel Investor & Build-for-Equity Partner | Ravolution" />
-        <meta property="og:description" content="Angel investor and build-for-equity partner for complex platforms. We build, protect IP, and support patents in return for shares." />
+        <meta property="og:title" content={t("angel.ogTitle")} />
+        <meta property="og:description" content={t("angel.ogDesc")} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://ravolution.se/en/angel-investor" />
         <meta property="og:image" content="https://ravolution.se/og-image.png" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Angel Investor & Build-for-Equity Partner | Ravolution" />
-        <meta name="twitter:description" content="Angel investor and build-for-equity partner for complex platforms. We build, protect IP, and support patents in return for shares." />
-        <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
-        <script type="application/ld+json">{JSON.stringify(faqJsonLd)}</script>
+        <meta name="twitter:title" content={t("angel.ogTitle")} />
+        <meta name="twitter:description" content={t("angel.ogDesc")} />
+        <script type="application/ld+json">{JSON.stringify(structuredData)}</script>
       </Helmet>
 
       <div className="min-h-screen angel-theme">
@@ -126,14 +141,14 @@ const AngelInvestor = () => {
               {t("angel.heroBadge")}
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6 leading-tight animate-fade-in-up">
-              Angel Investor &amp; Build‑for‑Equity
+              {t("angel.heroH1")}
             </h1>
             <p className="text-lg md:text-xl text-white/75 max-w-3xl leading-relaxed mb-4 animate-fade-in-up">
               {t("angel.heroSubhead")}
             </p>
-            {/* SEO summary paragraph */}
-            <p className="text-base text-white/50 max-w-3xl leading-relaxed mb-8 animate-fade-in-up">
-              Ravolution is a <strong>Swedish venture studio &amp; IP innovation company</strong> that acts as an <strong>angel investor via build‑for‑equity</strong>. We build complex tech platforms end‑to‑end, protect your IP, and support patent strategy—in return for equity. Proven across platforms like Rosetta Livingstone, iApply, CommunicaringSchool, and xPortMatch.
+            {/* Trust strip */}
+            <p className="text-sm text-white/40 max-w-3xl mb-8 animate-fade-in-up tracking-wide">
+              {t("angel.trustStrip")}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 animate-fade-in-up">
               <Button size="lg" className="bg-white text-primary hover:bg-white/90 font-semibold" asChild>
@@ -153,20 +168,119 @@ const AngelInvestor = () => {
         </section>
 
         <div className="bg-dot-pattern">
-          {/* Who it's for */}
+          {/* Introtext — definition block */}
           <section className="section-padding">
+            <div className="max-w-4xl mx-auto">
+              <ScrollAnimateWrapper>
+                <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-6">
+                  {t("angel.introTitle")}
+                </h2>
+                <div className="space-y-4 text-muted-foreground leading-relaxed text-base md:text-lg">
+                  <p>{t("angel.introText1")}</p>
+                  <p>{t("angel.introText2")}</p>
+                  <p>{t("angel.introText3")}</p>
+                </div>
+              </ScrollAnimateWrapper>
+            </div>
+          </section>
+
+          {/* Who we invest in + Who we're not for — side by side */}
+          <section className="section-padding pt-0">
+            <div className="max-w-5xl mx-auto">
+              <div className="grid lg:grid-cols-2 gap-10">
+                <ScrollAnimateWrapper>
+                  <h2 className="text-2xl md:text-3xl font-display font-bold text-foreground mb-6">
+                    {t("angel.whoTitle")}
+                  </h2>
+                  <div className="space-y-4">
+                    {["preSeed", "complex", "speed"].map((key) => (
+                      <div key={key} className="card-elevated p-5 flex gap-4 items-start">
+                        <CheckCircle className="w-5 h-5 text-accent mt-0.5 shrink-0" />
+                        <p className="text-muted-foreground text-sm">{t(`angel.who.${key}`)}</p>
+                      </div>
+                    ))}
+                  </div>
+                </ScrollAnimateWrapper>
+
+                <ScrollAnimateWrapper delay={0.1}>
+                  <h2 className="text-2xl md:text-3xl font-display font-bold text-foreground mb-6">
+                    {t("angel.notForTitle")}
+                  </h2>
+                  <div className="space-y-4">
+                    {["simple", "noSkin", "justCode"].map((key) => (
+                      <div key={key} className="card-elevated p-5 flex gap-4 items-start">
+                        <XCircle className="w-5 h-5 text-muted-foreground/50 mt-0.5 shrink-0" />
+                        <p className="text-muted-foreground text-sm">{t(`angel.notFor.${key}`)}</p>
+                      </div>
+                    ))}
+                  </div>
+                </ScrollAnimateWrapper>
+              </div>
+            </div>
+          </section>
+
+          {/* How Ravolution Differs */}
+          <section className="section-padding pt-0">
             <div className="max-w-5xl mx-auto">
               <ScrollAnimateWrapper>
-                <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-8">
-                  {t("angel.whoTitle")}
+                <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-10">
+                  {t("angel.diffTitle")}
                 </h2>
-                <div className="grid md:grid-cols-3 gap-6">
-                  {["preSeed", "complex", "speed"].map((key, i) => (
-                    <div key={key} className="card-elevated p-6">
-                      <ArrowRight className="w-5 h-5 text-accent mb-3" />
-                      <p className="text-muted-foreground">{t(`angel.who.${key}`)}</p>
-                    </div>
-                  ))}
+              </ScrollAnimateWrapper>
+              <div className="grid md:grid-cols-3 gap-6">
+                {diffKeys.map((key, i) => {
+                  const Icon = diffIcons[i];
+                  return (
+                    <ScrollAnimateWrapper key={key} delay={i * 0.1}>
+                      <div className="card-elevated p-8 h-full">
+                        <Icon className="w-8 h-8 text-accent mb-4" />
+                        <h3 className="text-lg font-display font-bold text-foreground mb-2">
+                          {t(`angel.diff.${key}.title`)}
+                        </h3>
+                        <p className="text-muted-foreground text-sm leading-relaxed">
+                          {t(`angel.diff.${key}.desc`)}
+                        </p>
+                      </div>
+                    </ScrollAnimateWrapper>
+                  );
+                })}
+              </div>
+            </div>
+          </section>
+
+          {/* Typical Equity Models */}
+          <section className="section-padding pt-0">
+            <div className="max-w-5xl mx-auto">
+              <ScrollAnimateWrapper>
+                <div className="card-elevated p-8 md:p-10 bg-gradient-to-br from-card to-secondary">
+                  <h2 className="text-2xl md:text-3xl font-display font-bold text-foreground mb-3">
+                    {t("angel.equityTitle")}
+                  </h2>
+                  <p className="text-muted-foreground mb-8">{t("angel.equityIntro")}</p>
+                  <div className="grid sm:grid-cols-2 gap-6">
+                    {equityKeys.map((key) => (
+                      <div key={key}>
+                        <Scale className="w-5 h-5 text-gold mb-2" />
+                        <h4 className="font-semibold text-foreground mb-1">{t(`angel.equity.${key}.title`)}</h4>
+                        <p className="text-muted-foreground text-sm">{t(`angel.equity.${key}.desc`)}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </ScrollAnimateWrapper>
+            </div>
+          </section>
+
+          {/* IP & Ownership */}
+          <section className="section-padding pt-0">
+            <div className="max-w-4xl mx-auto">
+              <ScrollAnimateWrapper>
+                <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-6">
+                  {t("angel.ipTitle")}
+                </h2>
+                <div className="space-y-4 text-muted-foreground leading-relaxed">
+                  <p>{t("angel.ipText1")}</p>
+                  <p>{t("angel.ipText2")}</p>
                 </div>
               </ScrollAnimateWrapper>
             </div>
@@ -198,50 +312,35 @@ const AngelInvestor = () => {
             </div>
           </section>
 
-          {/* How the deal works */}
-          <section className="section-padding pt-0">
-            <div className="max-w-5xl mx-auto">
-              <ScrollAnimateWrapper>
-                <div className="card-elevated p-8 md:p-10 bg-gradient-to-br from-card to-secondary">
-                  <h2 className="text-2xl md:text-3xl font-display font-bold text-foreground mb-6">
-                    {t("angel.dealTitle")}
-                  </h2>
-                  <div className="grid sm:grid-cols-2 gap-6">
-                    {["equity", "milestones", "hybrid", "scope"].map((key) => (
-                      <div key={key}>
-                        <Scale className="w-5 h-5 text-gold mb-2" />
-                        <h4 className="font-semibold text-foreground mb-1">{t(`angel.deal.${key}.title`)}</h4>
-                        <p className="text-muted-foreground text-sm">{t(`angel.deal.${key}.desc`)}</p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </ScrollAnimateWrapper>
-            </div>
-          </section>
-
-          {/* Portfolio alignment */}
+          {/* Case Proof */}
           <section className="section-padding pt-0">
             <div className="max-w-5xl mx-auto">
               <ScrollAnimateWrapper>
                 <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">
-                  {t("angel.portfolioTitle")}
+                  {t("angel.caseTitle")}
                 </h2>
-                <p className="text-muted-foreground text-lg mb-4">{t("angel.portfolioSubhead")}</p>
-                <p className="text-muted-foreground mb-10">
-                  See our full <a href={lp("/services")} className="text-accent hover:text-accent-light underline font-medium">platform development services</a> or explore our <a href={lp("/#products")} className="text-accent hover:text-accent-light underline font-medium">portfolio of platforms</a>.
+                <p className="text-muted-foreground mb-4">
+                  <a href={lp("/services")} className="text-accent hover:text-accent-light underline font-medium">{t("angel.seeServices")}</a>
+                  {" · "}
+                  <a href={lp("/#products")} className="text-accent hover:text-accent-light underline font-medium">{t("angel.seePortfolio")}</a>
+                  {" · "}
+                  <a href={lp("/#patents")} className="text-accent hover:text-accent-light underline font-medium">{t("angel.seePatents")}</a>
                 </p>
               </ScrollAnimateWrapper>
-              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                {portfolioCards.map((card, i) => (
-                  <ScrollAnimateWrapper key={card.name} delay={i * 0.1}>
-                    <div className="card-elevated p-6 text-center h-full">
-                      <card.icon className="w-8 h-8 text-accent mx-auto mb-3" />
-                      <h3 className="font-display font-bold text-foreground mb-2">{card.name}</h3>
-                      <p className="text-muted-foreground text-sm">{card.desc}</p>
-                    </div>
-                  </ScrollAnimateWrapper>
-                ))}
+              <div className="grid md:grid-cols-2 gap-6">
+                {caseKeys.map((key, i) => {
+                  const Icon = caseIcons[i];
+                  return (
+                    <ScrollAnimateWrapper key={key} delay={i * 0.1}>
+                      <div className="card-elevated p-6 h-full">
+                        <Icon className="w-7 h-7 text-accent mb-3" />
+                        <h3 className="font-display font-bold text-foreground mb-1">{t(`angel.cases.${key}.name`)}</h3>
+                        <p className="text-xs text-accent font-medium mb-2 uppercase tracking-wide">{t(`angel.cases.${key}.type`)}</p>
+                        <p className="text-muted-foreground text-sm">{t(`angel.cases.${key}.detail`)}</p>
+                      </div>
+                    </ScrollAnimateWrapper>
+                  );
+                })}
               </div>
             </div>
           </section>
@@ -282,7 +381,7 @@ const AngelInvestor = () => {
                       {t("angel.formSubhead")}
                     </p>
                     <p className="text-muted-foreground text-sm mb-8">
-                      Founders and teams who want an angel investor that also builds and protects IP can send us a brief here.
+                      {t("angel.formSupportText")}
                     </p>
                     <div className="flex flex-col gap-4">
                       <Button size="lg" className="bg-primary hover:bg-primary-light text-white w-fit" asChild>
