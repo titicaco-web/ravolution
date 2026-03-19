@@ -100,10 +100,20 @@ const HeroSection = () => {
       {/* Content */}
       <div className="relative z-10 max-w-6xl mx-auto px-6 text-center">
         <div className="animate-fade-in-up">
-          <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 mb-8">
+          <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 mb-4">
             <span className="w-2 h-2 bg-accent rounded-full animate-pulse" />
             <span className="text-white/90 text-sm font-medium">{t("hero.badge")}</span>
           </div>
+
+          <p className="text-white/70 text-sm md:text-base font-medium tracking-wide uppercase mb-2">
+            Swedish Venture Studio & IP Innovation Company
+          </p>
+          <Link
+            to={lp("/angel-investor")}
+            className="inline-block text-gold hover:text-accent text-sm md:text-base font-medium tracking-wide uppercase mb-8 transition-colors underline underline-offset-4 decoration-gold/40 hover:decoration-accent/60"
+          >
+            Angel Investor & Build‑for‑Equity for Complex Startups →
+          </Link>
 
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold text-white leading-tight mb-6">
             {t("hero.headline")}
