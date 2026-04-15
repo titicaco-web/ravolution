@@ -5,6 +5,8 @@ import { useDropzone } from "react-dropzone";
 import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { supabase } from "@/integrations/supabase/client";
+import { useToast } from "@/hooks/use-toast";
 import { useLangPath } from "@/hooks/use-lang-path";
 import {
   ArrowRight,
@@ -157,8 +159,47 @@ const ServicesPage = () => {
     formRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
-  const onSubmit = (data: FormData) => {
-    const fileNames = files.map((f) => f.name).join(", ");
+  const uploadFiles = async (): Promise<string[]> => {
+    if (files.length === 0) return [];
+    const folder = `brief-${Date.now()}`;
+    const urls: string[] = [];
+    for (const file of files) {
+      const path = `${folder}/${file.name}`;
+      const { error } = await supabase.storage
+        .from("project-briefs")
+        .upload(path, file);
+      if (error) {
+        console.error("Upload error:", error);
+        continue;
+      }
+      const { data: urlData } = supabase.storage
+        .from("project-briefs")
+        .getPublicUrl(path);
+      urls.push(`${file.name}: ${urlData.publicUrl}`);
+    }
+    return urls;
+  };
+
+  const [uploading, setUploading] = useState(false);
+  const { toast } = useToast();
+
+  const onSubmit = async (data: FormData) => {
+    setUploading(true);
+    let fileLinks: string[] = [];
+
+    if (files.length > 0) {
+      try {
+        fileLinks = await uploadFiles();
+      } catch (e) {
+        console.error("File upload failed:", e);
+        toast({ title: "File upload failed", description: "Brief will be sent without file links.", variant: "destructive" });
+      }
+    }
+
+    const fileSection = fileLinks.length > 0
+      ? fileLinks.join("\n")
+      : "No files attached";
+
     const msg = `📋 *NEW PROJECT BRIEF — Ravolution*
 
 👤 *About*
@@ -185,7 +226,7 @@ ${data.targetAudience || "—"}
 ${data.keyFeatures || "—"}
 
 📎 *Files*
-${fileNames || "No files attached"}
+${fileSection}
 
 💬 *Additional Notes*
 ${data.additionalNotes || "—"}`;
@@ -193,6 +234,7 @@ ${data.additionalNotes || "—"}`;
     const encoded = encodeURIComponent(msg);
     window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encoded}`, "_blank");
     setSubmitted(true);
+    setUploading(false);
   };
 
   const nextStep = () => {
@@ -219,7 +261,7 @@ ${data.additionalNotes || "—"}`;
             <h1 className="text-3xl font-bold text-foreground mb-4">Your brief has been sent to WhatsApp ✓</h1>
             {files.length > 0 && (
               <p className="text-muted-foreground mb-4">
-                Please also send your uploaded files in the WhatsApp chat if you haven't already.
+                Your files have been uploaded and their download links are included in the WhatsApp message.
               </p>
             )}
             <p className="text-muted-foreground mb-8">
@@ -531,16 +573,20 @@ ${data.additionalNotes || "—"}`;
                     </div>
                     {files.length > 0 && (
                       <div className="bg-accent/10 border border-accent/30 rounded-xl p-4 text-sm text-foreground">
-                        <p className="font-medium mb-1">📎 Files ready</p>
-                        <p className="text-muted-foreground">Click the button below to open WhatsApp — your brief summary will be pre-filled. Then attach your files in the chat.</p>
+                        <p className="font-medium mb-1">📎 {files.length} file{files.length > 1 ? "s" : ""} ready</p>
+                        <p className="text-muted-foreground">Files will be uploaded automatically and download links included in your WhatsApp message.</p>
                       </div>
                     )}
                     <div className="flex justify-between pt-4">
                       <Button type="button" variant="outline" onClick={prevStep}>
                         <ArrowLeft className="w-4 h-4 mr-2" /> Back
                       </Button>
-                      <Button type="submit" className="bg-gold hover:bg-gold-light text-gold-foreground text-lg px-8">
-                        <MessageCircle className="w-5 h-5 mr-2" /> Submit Brief → Send via WhatsApp
+                      <Button type="submit" disabled={uploading} className="bg-gold hover:bg-gold-light text-gold-foreground text-lg px-8">
+                        {uploading ? (
+                          <><span className="animate-spin mr-2">⏳</span> Uploading files…</>
+                        ) : (
+                          <><MessageCircle className="w-5 h-5 mr-2" /> Submit Brief → Send via WhatsApp</>
+                        )}
                       </Button>
                     </div>
                   </div>
