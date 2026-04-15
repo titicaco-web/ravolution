@@ -112,7 +112,7 @@ const HeroSection = () => {
               className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm border border-gold/30 rounded-full px-4 py-2 text-gold text-sm font-medium hover:bg-white/25 hover:border-gold/50 transition-all"
             >
               <span className="w-2 h-2 bg-gold rounded-full" />
-              <span className="text-gradient-gold">Angel Investor & Build‑for‑Equity for Startups</span>
+              <span className="text-gradient-gold">{t("hero.angelBadge")}</span>
               <ArrowRight className="h-3.5 w-3.5" />
             </Link>
           </div>

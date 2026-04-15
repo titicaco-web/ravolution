@@ -14,6 +14,7 @@ export const es = {
     badge: "Venture Studio sueco & empresa de innovación IP",
     headline: "Resolviendo desafíos a escala civilizatoria con",
     headlineHighlight: "Deep Tech patentada.",
+    angelBadge: "Inversor Ángel & Construcción por Equity para Startups",
     subheadline: "Protegemos y escalamos las cuatro plataformas que transforman la oportunidad global:",
     subheadlineEnd: "Nivelando el campo de juego a través de innovación defendible.",
     ctaExplore: "Explorar portafolios de patentes",
