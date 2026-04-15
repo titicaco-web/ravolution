@@ -46,7 +46,7 @@ const CounterItem = ({ end, suffix = "", label }: CounterItemProps) => {
       <span className="text-5xl md:text-6xl font-bold text-primary">
         {count}{suffix}
       </span>
-      <span className="text-sm text-muted-foreground mt-2">{label}</span>
+      <span className="text-sm text-foreground/70 mt-2 font-medium">{label}</span>
     </div>
   );
 };
