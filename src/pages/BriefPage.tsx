@@ -76,7 +76,7 @@ const portfolioProjects = [
   { name: "Partysta", key: "portfolioPartysta", url: "https://partysta.com" },
 ];
 
-const ServicesPage = () => {
+const BriefPage = () => {
   const lp = useLangPath();
   const { t, language } = useLanguage();
   const [step, setStep] = useState(0);
