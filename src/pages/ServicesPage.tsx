@@ -165,9 +165,12 @@ const getOgLocale = (lang: string) => {
 };
 
 const ServicesPage = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const lp = useLangPath();
   const briefHref = lp("/brief");
+  const canonicalUrl = getCanonicalUrl(language);
+  const ogImage = `https://ravolution.se/og/services-${language}.png`;
+  const structuredData = buildStructuredData(language, t);
 
   const engagementModels = [
     {
