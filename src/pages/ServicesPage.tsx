@@ -588,14 +588,38 @@ const ServicesPage = () => {
         {/* 🆕 Section 5 — Tech Stack Strip */}
         <TechStackStrip />
 
-        {/* 🆕 Section 6 — Founder Authority */}
+        {/* Cost + Comparison Section */}
+        <section className="py-16 px-6 bg-background">
+          <div className="max-w-4xl mx-auto space-y-10">
+            <div>
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">{t("servicesPage.h2Cost")}</h2>
+              <p className="text-muted-foreground leading-relaxed">{t("servicesPage.costP1")}</p>
+            </div>
+            <div className="rounded-2xl border border-border bg-background p-6">
+              <h3 className="text-xl font-bold text-foreground mb-3">{t("servicesPage.comparisonTitle")}</h3>
+              <p className="text-muted-foreground">{t("servicesPage.comparisonText")}</p>
+            </div>
+          </div>
+        </section>
+
+        {/* LatAm Presence (Spanish only) */}
+        {language === "es" && (
+          <section className="py-12 px-6" style={{ backgroundColor: '#F7F5F0' }}>
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">{t("servicesPage.latamTitle")}</h2>
+              <p className="text-muted-foreground leading-relaxed">{t("servicesPage.latamText")}</p>
+            </div>
+          </section>
+        )}
+
+        {/* Founder Authority */}
         <FounderBlock />
 
-        {/* ✅ Submit Brief CTA — untouched */}
+        {/* Submit Brief CTA */}
         <section className="py-16 px-6 bg-background">
           <div className="max-w-4xl mx-auto">
             <div className="card-elevated text-center">
-              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">{t("intake.submitBrief")}</h2>
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">{t("servicesPage.h2Brief")}</h2>
               <p className="text-muted-foreground mb-6">{t("intake.briefSubtitle")}</p>
               <Button size="lg" className="bg-primary hover:bg-primary/90" asChild>
                 <Link to={briefHref}>
@@ -606,7 +630,7 @@ const ServicesPage = () => {
           </div>
         </section>
 
-        {/* 🆕 Section 7 — Expanded FAQ */}
+        {/* Expanded FAQ */}
         <ExpandedFAQ />
 
         {/* ✅ Footer CTA — untouched */}
