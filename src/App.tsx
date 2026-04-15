@@ -56,6 +56,8 @@ const App = () => (
           <Route path="/:lang/terms-of-service" element={<LanguageSync><TermsOfService /></LanguageSync>} />
           <Route path="/:lang/about" element={<LanguageSync><Founder /></LanguageSync>} />
           <Route path="/:lang/services" element={<LanguageSync><ServicesPage /></LanguageSync>} />
+          <Route path="/sv/tjanster" element={<LanguageSync><ServicesPage /></LanguageSync>} />
+          <Route path="/es/servicios" element={<LanguageSync><ServicesPage /></LanguageSync>} />
           <Route path="/:lang/brief" element={<LanguageSync><BriefPage /></LanguageSync>} />
           <Route path="/:lang/configure" element={<LanguageSync><ConfigurePage /></LanguageSync>} />
           <Route path="/:lang/blog" element={<LanguageSync><BlogPodcast /></LanguageSync>} />

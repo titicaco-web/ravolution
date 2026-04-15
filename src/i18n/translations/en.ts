@@ -319,6 +319,30 @@ export const en = {
     portfolio4Desc: "Global education platform aligned with UN Convention on Rights of the Child",
   },
   servicesPage: {
+    // SEO meta
+    seoTitle: "Build Your SaaS Platform Fast — Swedish Venture Studio | Ravolution",
+    seoDesc: "End-to-end platform development from a Swedish venture studio. SaaS, marketplaces, AI tools, CRMs — MVP in 8–12 weeks. 27 patents filed. Submit your brief and get a cost estimate in 48 hours.",
+    ogTitle: "Build Your SaaS Platform Fast — Ravolution",
+    ogDesc: "Submit your project brief in 5 minutes. Cost estimate or live mockup within 48 hours. MVP in 8–12 weeks. 27 patents. Swedish venture studio.",
+    ogImageAlt: "Ravolution — Build Your SaaS Platform Fast. Brief → 48h estimate → MVP in 8–12 weeks.",
+    twitterDesc: "Brief → 48h estimate → MVP in 8–12 weeks. 27 patents. Swedish venture studio.",
+    // SEO H1 (sr-only for search engines)
+    seoH1: "End-to-End SaaS Platform Development — Swedish Venture Studio",
+    // GEO intro paragraph
+    geoIntro: "Ravolution is a Swedish venture studio that builds complex SaaS platforms, marketplaces, AI-powered tools, and CRMs end-to-end. With 27 patents filed and 10+ platforms live across 6 industries, we take your project from brief to production in 8–12 weeks.",
+    // Section H2s
+    h2Platforms: "SaaS Platforms, Marketplaces & AI Tools Built in Sweden",
+    h2Built: "Platforms We've Built — Real Products, Live Users",
+    h2HowWeWork: "How Ravolution Builds Your Platform in 8–12 Weeks",
+    h2Custom: "Custom CRM, Recruitment & EdTech Development",
+    h2Cost: "What Does Platform Development Cost?",
+    h2Brief: "Submit Your Project Brief",
+    h2Faq: "Frequently Asked Questions About Platform Development",
+    // Cost section
+    costP1: "Sprint projects at Ravolution range from EUR 8,000 to EUR 40,000 for 4–12 weeks of development. Complex multi-module platforms (3–9 months) range EUR 30,000–120,000. An honest estimate is provided within 48 hours of brief submission.",
+    // Comparison
+    comparisonTitle: "Ravolution vs. Traditional Agencies",
+    comparisonText: "Sprint project MVPs in 8–12 weeks vs. typical agency timelines of 6–12 months. One senior team from discovery to production. No handoffs, no vendor lock-in.",
     heroTitle: "Tech Development &",
     heroTitleHighlight: "IP Innovation",
     heroSubtitle:
