@@ -261,7 +261,7 @@ ${data.additionalNotes || "—"}`;
             <h1 className="text-3xl font-bold text-foreground mb-4">Your brief has been sent to WhatsApp ✓</h1>
             {files.length > 0 && (
               <p className="text-muted-foreground mb-4">
-                Please also send your uploaded files in the WhatsApp chat if you haven't already.
+                Your files have been uploaded and their download links are included in the WhatsApp message.
               </p>
             )}
             <p className="text-muted-foreground mb-8">
