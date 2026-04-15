@@ -11,6 +11,7 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
 import Founder from "./pages/Founder";
 import ServicesPage from "./pages/ServicesPage";
+import ConfigurePage from "./pages/ConfigurePage";
 import BlogPodcast from "./pages/BlogPodcast";
 import InvestPage from "./pages/InvestPage";
 import AngelInvestor from "./pages/AngelInvestor";
@@ -54,6 +55,7 @@ const App = () => (
           <Route path="/:lang/terms-of-service" element={<LanguageSync><TermsOfService /></LanguageSync>} />
           <Route path="/:lang/about" element={<LanguageSync><Founder /></LanguageSync>} />
           <Route path="/:lang/services" element={<LanguageSync><ServicesPage /></LanguageSync>} />
+          <Route path="/:lang/configure" element={<LanguageSync><ConfigurePage /></LanguageSync>} />
           <Route path="/:lang/blog" element={<LanguageSync><BlogPodcast /></LanguageSync>} />
           <Route path="/:lang/invest" element={<LanguageSync><InvestPage /></LanguageSync>} />
           <Route path="/:lang/angel-investor" element={<LanguageSync><AngelInvestor /></LanguageSync>} />

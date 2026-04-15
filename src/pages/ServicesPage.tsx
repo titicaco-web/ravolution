@@ -1,149 +1,245 @@
+import { useState, useCallback, useRef } from "react";
 import { Helmet } from "react-helmet-async";
+import { useForm } from "react-hook-form";
+import { useDropzone } from "react-dropzone";
+import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import PlatformBuilder from "@/components/PlatformBuilder";
-import { ArrowRight, CheckCircle2, Target, Zap, Users, Workflow, Rocket, ExternalLink, Monitor, Palette, Brain, Shield, Settings, Clock, Layers, Lock, BarChart3, Globe, Gauge } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { useLanguage } from "@/i18n/LanguageContext";
 import { useLangPath } from "@/hooks/use-lang-path";
+import {
+  ArrowRight,
+  ArrowLeft,
+  Zap,
+  Lock,
+  Rocket,
+  CheckCircle2,
+  Upload,
+  X,
+  FileText,
+  MessageCircle,
+  Globe,
+  Users,
+  Brain,
+  BarChart3,
+  Layers,
+  ShieldCheck,
+  Leaf,
+  Monitor,
+  Briefcase,
+  GraduationCap,
+  ExternalLink,
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
 
-const serviceIcons = [Monitor, Palette, Brain, Shield, Settings];
-const serviceSlugs = ["platform-development", "product-design", "ai-systems", "patent-ip", "ongoing-operations"];
+const WHATSAPP_NUMBER = "46769456600";
 
-const globalFaqs = [
-  {
-    q: "How fast can you start?",
-    a: "We can kick off a discovery sprint within 48 hours of signing. Most projects have a concrete proposal within 3–5 business days.",
-  },
-  {
-    q: "Can you take over an existing codebase?",
-    a: "Yes. We audit, stabilize, and then iterate. We've taken over codebases from agencies, freelancers, and in-house teams.",
-  },
-  {
-    q: "Do you do discovery workshops?",
-    a: "Every engagement starts with a structured discovery sprint—stakeholder interviews, technical audit, user journey mapping, and scope definition.",
-  },
-  {
-    q: "Do you deliver fixed price or time & materials?",
-    a: "Both. Fixed-scope sprints for well-defined modules, time & materials for ongoing development. We recommend the model that fits your risk profile.",
-  },
-  {
-    q: "Do you build with no-code + custom code?",
-    a: "We use low-code tools where they accelerate delivery (admin panels, dashboards) but build custom where it matters—core logic, integrations, and anything that needs to scale.",
-  },
-  {
-    q: "What tech stack do you use?",
-    a: "React, TypeScript, Node.js, Python, and cloud-native infrastructure. We select the best stack for each project based on requirements, not dogma.",
-  },
-  {
-    q: "Do you handle design, QA, and DevOps?",
-    a: "Yes—end-to-end. Product strategy, UX/UI design, development, QA, CI/CD, monitoring, and post-launch support. No handoffs to third parties.",
-  },
-  {
-    q: "What industries do you serve?",
-    a: "Education, recruitment, international trade, SaaS, and marketplace verticals. We've built 10+ platforms across these sectors.",
-  },
+type FormData = {
+  fullName: string;
+  email: string;
+  company: string;
+  website: string;
+  country: string;
+  platformType: string;
+  description: string;
+  targetAudience: string;
+  keyFeatures: string;
+  hasExisting: string;
+  projectStage: string;
+  budget: string;
+  timeline: string;
+  additionalNotes: string;
+};
+
+const platformTypes = [
+  "SaaS Platform",
+  "Marketplace",
+  "Recruitment Tool",
+  "EdTech",
+  "CRM/Portal",
+  "AI Workflow",
+  "Mobile App",
+  "Other",
+];
+
+const budgetRanges = [
+  "Under €5,000",
+  "€5,000–€20,000",
+  "€20,000–€50,000",
+  "€50,000+",
+  "Equity / Build-for-equity model",
+  "Not sure yet",
+];
+
+const timelines = ["ASAP", "1–3 months", "3–6 months", "Flexible"];
+
+const projectStages = [
+  "Just an idea",
+  "Have a wireframe or spec",
+  "Already have a prototype",
+  "Existing platform to upgrade",
+];
+
+const buildTypes = [
+  { icon: Monitor, label: "SaaS Platforms", desc: "Custom B2B & B2C software" },
+  { icon: Globe, label: "Marketplaces & Trade", desc: "Multi-sided platforms" },
+  { icon: Users, label: "Recruitment & Matching", desc: "AI-powered talent matching" },
+  { icon: GraduationCap, label: "EdTech & Learning", desc: "LMS, courses, assessments" },
+  { icon: Briefcase, label: "CRM & Partner Portals", desc: "Client & partner management" },
+  { icon: Brain, label: "AI-Powered Workflows", desc: "Automation & intelligence" },
+  { icon: Leaf, label: "Carbon & Compliance", desc: "ESG reporting & tracking" },
+  { icon: Layers, label: "Custom Web Apps", desc: "Tailored B2B/B2C solutions" },
+];
+
+const portfolioProjects = [
+  { name: "iApply™", desc: "Transparent recruiting platform", url: "https://iapply.se" },
+  { name: "CommunicaringSchool", desc: "UN-aligned global education", url: "https://communicaringschool.com" },
+  { name: "xPortMatch", desc: "B2B export-import connector", url: "https://xportmatch.com" },
+  { name: "NewsToast", desc: "News & Language Learning Platform", url: "https://newstoast.com" },
+  { name: "CarbonX", desc: "Carbon offset marketplace", url: "https://carbonx.se" },
+  { name: "Autos Zofri", desc: "Vehicle marketplace & exports", url: "https://autos-zofri.com" },
+  { name: "Titicaco", desc: "Latin American e-commerce", url: "https://titicaco.com" },
+  { name: "Partysta", desc: "Event & party planning platform", url: "https://partysta.com" },
 ];
 
 const ServicesPage = () => {
-  const { t } = useLanguage();
   const lp = useLangPath();
-  const sp = (key: string) => t(`servicesPage.${key}`);
+  const [step, setStep] = useState(0);
+  const [files, setFiles] = useState<File[]>([]);
+  const [submitted, setSubmitted] = useState(false);
+  const formRef = useRef<HTMLDivElement>(null);
 
-  const serviceDetails = [1, 2, 3, 4, 5].map((n) => ({
-    slug: serviceSlugs[n - 1],
-    icon: serviceIcons[n - 1],
-    title: sp(`service${n}Title`) as string,
-    tagline: sp(`service${n}Tagline`) as string,
-    description: sp(`service${n}Desc`) as string,
-    whoFor: sp(`service${n}WhoFor`) as string,
-    deliverables: [1, 2, 3, 4, 5].map((d) => sp(`service${n}D${d}`) as string),
-    useCases: [1, 2].map((u) => ({
-      problem: sp(`service${n}UC${u}Problem`) as string,
-      approach: sp(`service${n}UC${u}Approach`) as string,
-      outcome: sp(`service${n}UC${u}Outcome`) as string,
-    })),
-    faq: (() => {
-      const faqs = [];
-      for (let f = 1; f <= 4; f++) {
-        const q = sp(`service${n}FAQ${f}Q`);
-        const a = sp(`service${n}FAQ${f}A`);
-        if (q && typeof q === 'string' && q !== `servicesPage.service${n}FAQ${f}Q`) {
-          faqs.push({ q: q as string, a: a as string });
-        }
-      }
-      return faqs;
-    })(),
-  }));
-
-  const processSteps = [
-    { icon: Target, label: sp("step1") as string, description: sp("step1Desc") as string },
-    { icon: Zap, label: sp("step2") as string, description: sp("step2Desc") as string },
-    { icon: Users, label: sp("step3") as string, description: sp("step3Desc") as string },
-    { icon: Workflow, label: sp("step4") as string, description: sp("step4Desc") as string },
-  ];
-
-  const engagementModels = [
-    { title: sp("fixedScopeTitle") as string, description: sp("fixedScopeDesc") as string, duration: sp("fixedScopeDuration") as string },
-    { title: sp("buildPhaseTitle") as string, description: sp("buildPhaseDesc") as string, duration: sp("buildPhaseDuration") as string },
-    { title: sp("retainerTitle") as string, description: sp("retainerDesc") as string, duration: sp("retainerDuration") as string },
-  ];
-
-  // JSON-LD structured data
-  const jsonLdOrganization = {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    name: "Ravolution AB",
-    url: "https://ravolution.se",
-    logo: "https://ravolution.se/og-image.png",
-    description: "Swedish venture studio and IP innovation company building industry-grade platforms.",
-    foundingDate: "2006",
-    founder: { "@type": "Person", name: "Ivan Daza" },
-    sameAs: ["https://www.linkedin.com/company/ravolution"],
-  };
-
-  const jsonLdService = {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    name: "End-to-End Platform Development",
-    provider: { "@type": "Organization", name: "Ravolution AB", url: "https://ravolution.se" },
-    description: "Discovery to launch in weeks. We build complex, industry-grade platforms fast—architecture, design, dev, AI, integrations, and scaling.",
-    areaServed: "Worldwide",
-    serviceType: "Platform Development",
-    offers: {
-      "@type": "Offer",
-      description: "Fixed-scope sprints from 4 weeks, build phases 3–9 months, or monthly retainers.",
+  const {
+    register,
+    handleSubmit,
+    watch,
+    setValue,
+    formState: { errors },
+  } = useForm<FormData>({
+    defaultValues: {
+      hasExisting: "",
+      projectStage: "",
+      platformType: "",
+      budget: "",
+      timeline: "",
     },
+  });
+
+  const onDrop = useCallback(
+    (acceptedFiles: File[]) => {
+      const remaining = 10 - files.length;
+      const valid = acceptedFiles
+        .filter((f) => f.size <= 10 * 1024 * 1024)
+        .slice(0, remaining);
+      setFiles((prev) => [...prev, ...valid]);
+    },
+    [files]
+  );
+
+  const { getRootProps, getInputProps, isDragActive } = useDropzone({
+    onDrop,
+    accept: {
+      "application/pdf": [".pdf"],
+      "application/vnd.openxmlformats-officedocument.wordprocessingml.document": [".docx"],
+      "image/png": [".png"],
+      "image/jpeg": [".jpg", ".jpeg"],
+      "image/webp": [".webp"],
+      "application/zip": [".zip"],
+    },
+    maxSize: 10 * 1024 * 1024,
+    maxFiles: 10,
+  });
+
+  const removeFile = (index: number) => {
+    setFiles((prev) => prev.filter((_, i) => i !== index));
   };
 
-  const jsonLdFaq = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: globalFaqs.map((faq) => ({
-      "@type": "Question",
-      name: faq.q,
-      acceptedAnswer: { "@type": "Answer", text: faq.a },
-    })),
+  const scrollToForm = () => {
+    formRef.current?.scrollIntoView({ behavior: "smooth" });
   };
+
+  const onSubmit = (data: FormData) => {
+    const fileNames = files.map((f) => f.name).join(", ");
+    const msg = `📋 *NEW PROJECT BRIEF — Ravolution*
+
+👤 *About*
+Name: ${data.fullName}
+Email: ${data.email}
+Company: ${data.company || "—"}
+Website: ${data.website || "—"}
+Location: ${data.country || "—"}
+
+🏗️ *Project*
+Type: ${data.platformType}
+Stage: ${data.projectStage || "—"}
+Existing platform: ${data.hasExisting || "—"}
+Budget: ${data.budget || "—"}
+Timeline: ${data.timeline || "—"}
+
+📝 *Description*
+${data.description}
+
+👥 *Target Audience*
+${data.targetAudience || "—"}
+
+⚙️ *Key Features*
+${data.keyFeatures || "—"}
+
+📎 *Files*
+${fileNames || "No files attached"}
+
+💬 *Additional Notes*
+${data.additionalNotes || "—"}`;
+
+    const encoded = encodeURIComponent(msg);
+    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encoded}`, "_blank");
+    setSubmitted(true);
+  };
+
+  const nextStep = () => {
+    if (step < 2) setStep(step + 1);
+  };
+
+  const prevStep = () => {
+    if (step > 0) setStep(step - 1);
+  };
+
+  const selectedPlatformType = watch("platformType");
+  const selectedStage = watch("projectStage");
+  const selectedHasExisting = watch("hasExisting");
+
+  if (submitted) {
+    return (
+      <>
+        <Navbar />
+        <div className="min-h-screen flex items-center justify-center px-6 bg-background">
+          <div className="max-w-lg mx-auto text-center">
+            <div className="w-20 h-20 rounded-full bg-accent/20 flex items-center justify-center mx-auto mb-6">
+              <CheckCircle2 className="w-10 h-10 text-accent" />
+            </div>
+            <h1 className="text-3xl font-bold text-foreground mb-4">Your brief has been sent to WhatsApp ✓</h1>
+            {files.length > 0 && (
+              <p className="text-muted-foreground mb-4">
+                Please also send your uploaded files in the WhatsApp chat if you haven't already.
+              </p>
+            )}
+            <p className="text-muted-foreground mb-8">
+              Expect a response within 48 hours at <span className="font-semibold text-foreground">{watch("email")}</span>.
+            </p>
+            <Link to={lp("/")} className="btn-primary inline-flex items-center gap-2">
+              Back to Ravolution <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+        </div>
+      </>
+    );
+  }
 
   return (
     <>
       <Helmet>
-        <title>End-to-End Platform Development Partner | Ravolution</title>
-        <meta name="description" content="Discovery to launch in weeks. We build complex, industry-grade platforms fast—architecture, design, dev, AI, integrations, and scaling." />
+        <title>Start Your Platform Project | Ravolution AB</title>
+        <meta name="description" content="Send us your brief in 5 minutes. Within 48 hours we send back a cost estimate, platform description — or in some cases a live mockup." />
         <link rel="canonical" href="https://ravolution.se/services" />
-        <meta property="og:title" content="End-to-End Platform Development Partner | Ravolution" />
-        <meta property="og:description" content="Discovery to launch in weeks. We build complex, industry-grade platforms fast—architecture, design, dev, AI, integrations, and scaling." />
-        <meta property="og:url" content="https://ravolution.se/services" />
-        <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://ravolution.se/og-image.png" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="End-to-End Platform Development Partner | Ravolution" />
-        <meta name="twitter:description" content="Discovery to launch in weeks. We build complex, industry-grade platforms fast—architecture, design, dev, AI, integrations, and scaling." />
-        <meta name="twitter:image" content="https://ravolution.se/og-image.png" />
-        <script type="application/ld+json">{JSON.stringify(jsonLdOrganization)}</script>
-        <script type="application/ld+json">{JSON.stringify(jsonLdService)}</script>
-        <script type="application/ld+json">{JSON.stringify(jsonLdFaq)}</script>
       </Helmet>
 
       <div className="min-h-screen">
@@ -154,95 +250,341 @@ const ServicesPage = () => {
           <div className="max-w-4xl mx-auto text-center">
             <span className="inline-block text-sm font-semibold tracking-widest uppercase text-accent-light mb-4">Venture Studio</span>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-              End-to-End Platform Development—<span className="text-gradient-gold">Fast.</span>
+              Start Your Platform Project
             </h1>
             <p className="text-lg md:text-xl text-white/80 max-w-3xl mx-auto mb-8">
-              We understand complex needs by listening first—then we architect, build, and launch in short notice with venture‑studio execution.
+              Send us your brief in 5 minutes. Within 48 hours we send back a cost estimate, platform description — or in some cases a live mockup.
             </p>
+            <Button size="lg" className="bg-gold hover:bg-gold-light text-gold-foreground" onClick={scrollToForm}>
+              Submit Your Brief <ArrowRight className="w-5 h-5 ml-2" />
+            </Button>
 
-            {/* 3-bullet value prop */}
-            <div className="flex flex-col sm:flex-row gap-6 justify-center mb-10 text-white/90">
+            {/* Trust bar */}
+            <div className="flex flex-wrap justify-center gap-6 mt-10 text-white/70 text-sm">
               {[
-                { icon: Target, label: "Listen deeply" },
-                { icon: Zap, label: "Architect quickly" },
-                { icon: Rocket, label: "Ship reliably" },
+                { icon: Zap, label: "48h response guarantee" },
+                { icon: Lock, label: "NDA on request" },
+                { icon: Rocket, label: "MVP in 8–12 weeks" },
+                { icon: ShieldCheck, label: "Swedish venture studio" },
               ].map((item, i) => (
-                <div key={i} className="flex items-center gap-2 text-sm font-medium">
-                  <item.icon className="w-5 h-5 text-accent-light" />
+                <div key={i} className="flex items-center gap-2">
+                  <item.icon className="w-4 h-4 text-accent-light" />
                   <span>{item.label}</span>
-                  {i < 2 && <ArrowRight className="w-4 h-4 text-white/40 hidden sm:block ml-2" />}
                 </div>
               ))}
-            </div>
-
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-accent hover:bg-accent-light text-white" asChild>
-                <a href="#builder">
-                  Configure my platform <ArrowRight className="w-5 h-5 ml-2" />
-                </a>
-              </Button>
-              <Button size="lg" className="bg-gold hover:bg-gold-light text-gold-foreground" asChild>
-                <a href="mailto:ivan.daza@ravolution.se" target="_blank" rel="noopener noreferrer">
-                  Book discovery call
-                </a>
-              </Button>
             </div>
           </div>
         </section>
 
-        {/* Services Facts (AI / LLM scannable block) */}
-        <section className="py-12 px-6 bg-background border-b border-border">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-xl font-bold text-foreground mb-6">Services at a glance</h2>
-            <dl className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4 text-sm">
-              {[
-                { dt: "What we are", dd: "Venture studio + end-to-end delivery partner." },
-                { dt: "What we build", dd: "Complex web platforms—dashboards, marketplaces, LMS, CRM, AI features." },
-                { dt: "How fast", dd: "Discovery in 48 h, proposal in 3–5 days, MVP in 4–8 weeks." },
-                { dt: "Who it's for", dd: "Founders, SMEs, innovation teams, and enterprises." },
-                { dt: "What's included", dd: "Product, UX, architecture, backend, frontend, integrations, QA, launch." },
-                { dt: "IP advantage", dd: "27 patents, 343 claims—we build platforms that are defensible." },
-              ].map((item, i) => (
-                <div key={i} className="flex flex-col">
-                  <dt className="font-semibold text-foreground">{item.dt}</dt>
-                  <dd className="text-muted-foreground">{item.dd}</dd>
-                </div>
-              ))}
-            </dl>
-          </div>
-        </section>
-
-        {/* Proof + Portfolio */}
+        {/* What You Can Build */}
         <section className="py-16 px-6 bg-secondary">
           <div className="max-w-5xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-              {[
-                { title: "Venture-studio build discipline", desc: "Proven delivery methodology from building 10+ platforms across education, trade, recruitment, and SaaS." },
-                { title: "Defensible IP mindset", desc: "27 patents, 343 claims—we know how to build platforms that are legally protected and commercially powerful." },
-                { title: "End-to-end delivery", desc: "From discovery to launch to ongoing evolution. No handoffs, no gaps." },
-              ].map((item, i) => (
-                <div key={i} className="flex items-start gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-accent flex-shrink-0 mt-1" />
-                  <div>
-                    <h3 className="font-bold text-foreground mb-1">{item.title}</h3>
-                    <p className="text-sm text-muted-foreground">{item.desc}</p>
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground text-center mb-10">What you can build with us</h2>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              {buildTypes.map((item, i) => (
+                <div key={i} className="card-elevated group text-center p-5 hover:border-primary/30 transition-all">
+                  <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mx-auto mb-3 group-hover:bg-primary/20 transition-colors">
+                    <item.icon className="w-5 h-5 text-primary" />
                   </div>
+                  <h3 className="font-bold text-foreground text-sm mb-1">{item.label}</h3>
+                  <p className="text-xs text-muted-foreground">{item.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Intake Form */}
+        <section ref={formRef} className="py-20 px-6 bg-background scroll-mt-8">
+          <div className="max-w-3xl mx-auto">
+            <div className="text-center mb-10">
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-3">Brief Us On Your Project</h2>
+              <p className="text-muted-foreground">Fill in what you know. Don't worry about what you don't — we'll figure it out together.</p>
+            </div>
+
+            {/* Progress bar */}
+            <div className="flex items-center justify-center gap-2 mb-10">
+              {["About You", "Your Project", "Files & Submit"].map((label, i) => (
+                <div key={i} className="flex items-center gap-2">
+                  <div className={`flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-colors ${i <= step ? "bg-primary text-primary-foreground" : "bg-muted text-muted-foreground"}`}>
+                    <span className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center text-xs font-bold">{i + 1}</span>
+                    <span className="hidden sm:inline">{label}</span>
+                  </div>
+                  {i < 2 && <div className={`w-8 h-0.5 ${i < step ? "bg-primary" : "bg-muted"}`} />}
                 </div>
               ))}
             </div>
 
-            <h3 className="text-xl font-bold text-foreground text-center mb-6">Examples from our portfolio</h3>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <form onSubmit={handleSubmit(onSubmit)}>
+              <div className="bg-card border border-border rounded-2xl p-6 md:p-10 shadow-card">
+                {/* Step 1 */}
+                {step === 0 && (
+                  <div className="space-y-5 animate-fade-in">
+                    <div>
+                      <label className="block text-sm font-medium text-foreground mb-1.5">Full Name *</label>
+                      <input
+                        {...register("fullName", { required: "Full name is required" })}
+                        className="w-full px-4 py-3 rounded-xl border border-border bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50"
+                        placeholder="Your full name"
+                      />
+                      {errors.fullName && <p className="text-sm text-destructive mt-1">{errors.fullName.message}</p>}
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-foreground mb-1.5">Email *</label>
+                      <input
+                        type="email"
+                        {...register("email", { required: "Email is required" })}
+                        className="w-full px-4 py-3 rounded-xl border border-border bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50"
+                        placeholder="you@company.com"
+                      />
+                      {errors.email && <p className="text-sm text-destructive mt-1">{errors.email.message}</p>}
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-foreground mb-1.5">Company / Project Name</label>
+                      <input
+                        {...register("company")}
+                        className="w-full px-4 py-3 rounded-xl border border-border bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50"
+                        placeholder="Acme Inc."
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-foreground mb-1.5">Your Website URL</label>
+                      <input
+                        {...register("website")}
+                        className="w-full px-4 py-3 rounded-xl border border-border bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50"
+                        placeholder="https://yoursite.com — or leave blank"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-foreground mb-1.5">Country / Location</label>
+                      <input
+                        {...register("country")}
+                        className="w-full px-4 py-3 rounded-xl border border-border bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50"
+                        placeholder="Sweden"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-foreground mb-1.5">Platform Type *</label>
+                      <div className="flex flex-wrap gap-2">
+                        {platformTypes.map((type) => (
+                          <button
+                            key={type}
+                            type="button"
+                            onClick={() => setValue("platformType", type)}
+                            className={`px-4 py-2 rounded-full text-sm font-medium border transition-all ${selectedPlatformType === type ? "bg-primary text-primary-foreground border-primary" : "border-border text-muted-foreground hover:border-primary/50 hover:text-foreground"}`}
+                          >
+                            {type}
+                          </button>
+                        ))}
+                      </div>
+                      {errors.platformType && <p className="text-sm text-destructive mt-1">{errors.platformType.message}</p>}
+                    </div>
+                    <div className="flex justify-end pt-4">
+                      <Button type="button" onClick={nextStep} className="bg-primary hover:bg-primary/90">
+                        Next <ArrowRight className="w-4 h-4 ml-2" />
+                      </Button>
+                    </div>
+                  </div>
+                )}
+
+                {/* Step 2 */}
+                {step === 1 && (
+                  <div className="space-y-5 animate-fade-in">
+                    <div>
+                      <label className="block text-sm font-medium text-foreground mb-1.5">Project Description *</label>
+                      <textarea
+                        {...register("description", { required: "Please describe your project" })}
+                        rows={5}
+                        className="w-full px-4 py-3 rounded-xl border border-border bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 resize-none"
+                        placeholder="Describe your idea, problem you're solving, who uses it, and what it needs to do. The more detail the better."
+                      />
+                      {errors.description && <p className="text-sm text-destructive mt-1">{errors.description.message}</p>}
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-foreground mb-1.5">Target Audience</label>
+                      <input
+                        {...register("targetAudience")}
+                        className="w-full px-4 py-3 rounded-xl border border-border bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50"
+                        placeholder="Who are your users? B2B, B2C, both?"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-foreground mb-1.5">Key Features Needed</label>
+                      <textarea
+                        {...register("keyFeatures")}
+                        rows={3}
+                        className="w-full px-4 py-3 rounded-xl border border-border bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 resize-none"
+                        placeholder="List the main features you need — e.g. user login, admin dashboard, payments, AI matching, API integrations…"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-foreground mb-1.5">Do you have an existing website or platform?</label>
+                      <div className="flex gap-3">
+                        {["Yes", "No", "In progress"].map((opt) => (
+                          <button
+                            key={opt}
+                            type="button"
+                            onClick={() => setValue("hasExisting", opt)}
+                            className={`px-4 py-2 rounded-full text-sm font-medium border transition-all ${selectedHasExisting === opt ? "bg-primary text-primary-foreground border-primary" : "border-border text-muted-foreground hover:border-primary/50"}`}
+                          >
+                            {opt}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-foreground mb-1.5">Stage of project</label>
+                      <div className="flex flex-wrap gap-2">
+                        {projectStages.map((s) => (
+                          <button
+                            key={s}
+                            type="button"
+                            onClick={() => setValue("projectStage", s)}
+                            className={`px-4 py-2 rounded-full text-sm font-medium border transition-all ${selectedStage === s ? "bg-primary text-primary-foreground border-primary" : "border-border text-muted-foreground hover:border-primary/50"}`}
+                          >
+                            {s}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-foreground mb-1.5">Approximate budget range</label>
+                      <select
+                        {...register("budget")}
+                        className="w-full px-4 py-3 rounded-xl border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50"
+                      >
+                        <option value="">Select budget range</option>
+                        {budgetRanges.map((b) => (
+                          <option key={b} value={b}>{b}</option>
+                        ))}
+                      </select>
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-foreground mb-1.5">Desired timeline</label>
+                      <select
+                        {...register("timeline")}
+                        className="w-full px-4 py-3 rounded-xl border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50"
+                      >
+                        <option value="">Select timeline</option>
+                        {timelines.map((t) => (
+                          <option key={t} value={t}>{t}</option>
+                        ))}
+                      </select>
+                    </div>
+                    <div className="flex justify-between pt-4">
+                      <Button type="button" variant="outline" onClick={prevStep}>
+                        <ArrowLeft className="w-4 h-4 mr-2" /> Back
+                      </Button>
+                      <Button type="button" onClick={nextStep} className="bg-primary hover:bg-primary/90">
+                        Next <ArrowRight className="w-4 h-4 ml-2" />
+                      </Button>
+                    </div>
+                  </div>
+                )}
+
+                {/* Step 3 */}
+                {step === 2 && (
+                  <div className="space-y-5 animate-fade-in">
+                    <div>
+                      <label className="block text-sm font-medium text-foreground mb-1.5">Upload Supporting Materials (optional)</label>
+                      <div
+                        {...getRootProps()}
+                        className={`border-2 border-dashed rounded-xl p-8 text-center cursor-pointer transition-colors ${isDragActive ? "border-primary bg-primary/5" : "border-border hover:border-primary/50"}`}
+                      >
+                        <input {...getInputProps()} />
+                        <Upload className="w-8 h-8 text-muted-foreground mx-auto mb-3" />
+                        <p className="text-sm text-foreground font-medium mb-1">
+                          {isDragActive ? "Drop files here…" : "Drag & drop or click to browse"}
+                        </p>
+                        <p className="text-xs text-muted-foreground">PDF, DOCX, PNG, JPG, WEBP, ZIP — max 10 MB each, up to 10 files</p>
+                      </div>
+                      <div className="text-xs text-muted-foreground mt-2 space-y-0.5">
+                        <p>💡 Business plan or pitch deck</p>
+                        <p>💡 Wireframes or design mockups</p>
+                        <p>💡 Screenshots of reference sites</p>
+                        <p>💡 Logo or brand assets</p>
+                      </div>
+                      {files.length > 0 && (
+                        <ul className="mt-4 space-y-2">
+                          {files.map((file, i) => (
+                            <li key={i} className="flex items-center justify-between bg-muted rounded-lg px-4 py-2 text-sm">
+                              <span className="flex items-center gap-2 text-foreground truncate">
+                                <FileText className="w-4 h-4 text-muted-foreground flex-shrink-0" />
+                                {file.name}
+                              </span>
+                              <button type="button" onClick={() => removeFile(i)} className="text-muted-foreground hover:text-destructive">
+                                <X className="w-4 h-4" />
+                              </button>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-foreground mb-1.5">Additional notes / links</label>
+                      <textarea
+                        {...register("additionalNotes")}
+                        rows={3}
+                        className="w-full px-4 py-3 rounded-xl border border-border bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 resize-none"
+                        placeholder="Any reference websites, Figma links, Google Docs, or extra context"
+                      />
+                    </div>
+                    {files.length > 0 && (
+                      <div className="bg-accent/10 border border-accent/30 rounded-xl p-4 text-sm text-foreground">
+                        <p className="font-medium mb-1">📎 Files ready</p>
+                        <p className="text-muted-foreground">Click the button below to open WhatsApp — your brief summary will be pre-filled. Then attach your files in the chat.</p>
+                      </div>
+                    )}
+                    <div className="flex justify-between pt-4">
+                      <Button type="button" variant="outline" onClick={prevStep}>
+                        <ArrowLeft className="w-4 h-4 mr-2" /> Back
+                      </Button>
+                      <Button type="submit" className="bg-gold hover:bg-gold-light text-gold-foreground text-lg px-8">
+                        <MessageCircle className="w-5 h-5 mr-2" /> Submit Brief → Send via WhatsApp
+                      </Button>
+                    </div>
+                  </div>
+                )}
+              </div>
+            </form>
+          </div>
+        </section>
+
+        {/* What Happens Next */}
+        <section className="py-16 px-6 bg-secondary">
+          <div className="max-w-5xl mx-auto">
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground text-center mb-10">What happens next</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {[
-                { name: "iApply™", desc: "Transparent recruiting platform", url: "https://iapply.se" },
-                { name: "CommunicaringSchool", desc: "UN-aligned global education", url: "https://communicaringschool.com" },
-                { name: "xPortMatch", desc: "B2B export-import connector", url: "https://xportmatch.com" },
-                { name: "NewsToast", desc: "News & Language Learning Platform", url: "https://newstoast.com" },
-                { name: "CarbonX", desc: "Carbon offset marketplace", url: "https://carbonx.se" },
-                { name: "Autos Zofri", desc: "Vehicle marketplace & exports", url: "https://autos-zofri.com" },
-                { name: "Titicaco", desc: "Latin American e-commerce", url: "https://titicaco.com" },
-                { name: "Partysta", desc: "Event & party planning platform", url: "https://partysta.com" },
-              ].map((project) => (
+                { step: "1", title: "You submit your brief", desc: "Takes ~5 minutes" },
+                { step: "2", title: "We review within 24–48h", desc: "Ivan and the team analyse your brief" },
+                { step: "3", title: "You receive back", desc: "A cost estimate + platform scope description, or a clickable mockup" },
+                { step: "4", title: "We align & start", desc: "Once you're happy, we lock scope and begin production" },
+              ].map((item, i) => (
+                <div key={i} className="relative flex flex-col items-center text-center p-6">
+                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
+                    <span className="text-lg font-bold text-primary">{item.step}</span>
+                  </div>
+                  <h3 className="font-bold text-foreground mb-2">{item.title}</h3>
+                  <p className="text-sm text-muted-foreground">{item.desc}</p>
+                  {i < 3 && <div className="hidden lg:block absolute top-10 -right-3 w-6 border-t-2 border-dashed border-primary/30" />}
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Social Proof / Portfolio */}
+        <section className="py-16 px-6 bg-background">
+          <div className="max-w-5xl mx-auto text-center">
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">Built for complexity. Proven across industries.</h2>
+            <div className="flex flex-wrap justify-center gap-6 text-sm text-muted-foreground mb-10">
+              <span>✅ Built 10+ complex platforms across 6 industries</span>
+              <span>✅ Patents filed across 3 continents</span>
+              <span>✅ Clients from Sweden, Spain, MENA, and North America</span>
+            </div>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+              {portfolioProjects.map((project) => (
                 <a
                   key={project.name}
                   href={project.url}
@@ -256,224 +598,37 @@ const ServicesPage = () => {
                 </a>
               ))}
             </div>
-          </div>
-        </section>
-
-        {/* What Makes Us Fast */}
-        <section className="py-16 px-6 bg-background">
-          <div className="max-w-5xl mx-auto">
-            <h2 className="text-2xl md:text-3xl font-bold text-foreground text-center mb-10">What makes us fast</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {[
-                { icon: Layers, title: "Reusable modules", desc: "Battle-tested auth, dashboards, payments, and CRM components from 10+ platform builds." },
-                { icon: Brain, title: "Senior architecture first", desc: "Principal engineers scope and architect before any code is written—no rework." },
-                { icon: Gauge, title: "Weekly releases", desc: "CI/CD pipelines with automated testing. You see progress every week, not every quarter." },
-                { icon: Target, title: "Tight scope control", desc: "Discovery sprints define what matters. We cut scope creep, not corners." },
-              ].map((item, i) => (
-                <div key={i} className="card-elevated text-center">
-                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                    <item.icon className="w-6 h-6 text-primary" />
-                  </div>
-                  <h3 className="font-bold text-foreground mb-2">{item.title}</h3>
-                  <p className="text-sm text-muted-foreground">{item.desc}</p>
-                </div>
-              ))}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link to={lp("/angel-investor")} className="text-sm text-accent hover:text-accent-light font-medium underline underline-offset-2 transition-colors">
+                Interested in equity instead of cash? →
+              </Link>
+              <Link to={lp("/configure")} className="text-sm text-primary hover:text-primary/80 font-medium underline underline-offset-2 transition-colors">
+                Configure your platform →
+              </Link>
             </div>
           </div>
         </section>
 
-        {/* Complexity We Handle */}
+        {/* FAQ */}
         <section className="py-16 px-6 bg-secondary">
-          <div className="max-w-5xl mx-auto">
-            <h2 className="text-2xl md:text-3xl font-bold text-foreground text-center mb-10">Complexity we handle</h2>
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-              {[
-                "Roles & permissions (RBAC)",
-                "Multi-tenant architecture",
-                "Payment integrations",
-                "Third-party API integrations",
-                "GDPR & compliance",
-                "Audit logs & traceability",
-                "Real-time dashboards",
-                "Multi-language (i18n)",
-                "AI/ML pipelines",
-                "SSO & 2FA",
-                "File storage & CDN",
-                "Workflow automation",
-              ].map((item, i) => (
-                <div key={i} className="flex items-center gap-2 text-sm text-foreground/80">
-                  <CheckCircle2 className="w-4 h-4 text-accent flex-shrink-0" />
-                  <span>{item}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* How We Work (original 4-step) */}
-        <section className="py-16 px-6 bg-background">
-          <div className="max-w-5xl mx-auto">
-            <h2 className="text-2xl md:text-3xl font-bold text-foreground text-center mb-10">{sp("howWeWork")}</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {processSteps.map((step, index) => (
-                <div key={index} className="relative flex flex-col items-center text-center p-6">
-                  <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-4 relative">
-                    <step.icon className="w-6 h-6 text-primary" />
-                    <span className="absolute -top-1 -right-1 w-6 h-6 rounded-full bg-gold text-gold-foreground text-xs font-bold flex items-center justify-center">{index + 1}</span>
-                  </div>
-                  <h3 className="font-bold text-foreground mb-2">{step.label}</h3>
-                  <p className="text-sm text-muted-foreground">{step.description}</p>
-                  {index < processSteps.length - 1 && (
-                    <div className="hidden lg:block absolute top-10 -right-3 w-6 border-t-2 border-dashed border-primary/30" />
-                  )}
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Service Details */}
-        <section className="py-20 px-6 bg-secondary">
-          <div className="max-w-5xl mx-auto space-y-24">
-            {serviceDetails.map((service, index) => (
-              <article key={index} id={service.slug} className="scroll-mt-24">
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center">
-                    <service.icon className="w-7 h-7 text-primary" />
-                  </div>
-                  <div>
-                    <h2 className="text-2xl md:text-3xl font-bold text-foreground">{service.title}</h2>
-                    <p className="text-accent font-medium">{service.tagline}</p>
-                  </div>
-                </div>
-
-                <p className="text-muted-foreground leading-relaxed mb-6 max-w-3xl">{service.description}</p>
-
-                <p className="text-sm text-foreground/70 mb-8">
-                  <span className="font-semibold">{sp("whoFor")}</span> {service.whoFor}
-                </p>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
-                  <div className="card-elevated">
-                    <h3 className="font-bold text-foreground mb-4">{sp("whatsIncluded")}</h3>
-                    <ul className="space-y-2">
-                      {service.deliverables.map((d, i) => (
-                        <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
-                          <CheckCircle2 className="w-4 h-4 text-accent flex-shrink-0 mt-0.5" />
-                          {d}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <div className="space-y-4">
-                    <h3 className="font-bold text-foreground mb-2">{sp("useCases")}</h3>
-                    {service.useCases.map((uc, i) => (
-                      <div key={i} className="card-elevated !p-4">
-                        <p className="text-sm font-medium text-foreground mb-1">{sp("problem")} <span className="font-normal text-muted-foreground">{uc.problem}</span></p>
-                        <p className="text-sm font-medium text-foreground mb-1">{sp("approach")} <span className="font-normal text-muted-foreground">{uc.approach}</span></p>
-                        <p className="text-sm font-medium text-accent">{sp("outcome")} {uc.outcome}</p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* FAQ */}
-                <details className="group">
-                  <summary className="cursor-pointer font-bold text-foreground flex items-center gap-2 mb-4 select-none">
-                    <span>{sp("faq")}</span>
-                    <ArrowRight className="w-4 h-4 transition-transform group-open:rotate-90" />
-                  </summary>
-                  <div className="space-y-4 pl-2 border-l-2 border-accent/30">
-                    {service.faq.map((item, i) => (
-                      <div key={i}>
-                        <p className="font-medium text-foreground text-sm">{item.q}</p>
-                        <p className="text-sm text-muted-foreground">{item.a}</p>
-                      </div>
-                    ))}
-                  </div>
-                </details>
-
-                <div className="mt-6 flex flex-wrap gap-3">
-                  {serviceDetails
-                    .filter((_, i) => i !== index)
-                    .slice(0, 2)
-                    .map((related) => (
-                      <a
-                        key={related.slug}
-                        href={`#${related.slug}`}
-                        className="text-sm text-primary hover:text-accent transition-colors underline underline-offset-2"
-                      >
-                        {sp("seeAlso")} {related.title.split(" for")[0].split(" –")[0]}
-                      </a>
-                    ))}
-                </div>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        {/* Engagement Models */}
-        <section className="py-16 px-6 bg-background">
-          <div className="max-w-5xl mx-auto">
-            <h2 className="text-2xl md:text-3xl font-bold text-foreground text-center mb-10">{sp("engagementModels")}</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {engagementModels.map((model, index) => (
-                <div key={index} className="card-elevated text-center">
-                  <h3 className="font-bold text-foreground text-lg mb-2">{model.title}</h3>
-                  <p className="text-sm text-muted-foreground mb-4">{model.description}</p>
-                  <span className="inline-block text-xs font-semibold tracking-widest uppercase text-accent">{model.duration}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Global FAQ */}
-        <section id="faq" className="py-16 px-6 bg-secondary">
           <div className="max-w-3xl mx-auto">
             <h2 className="text-2xl md:text-3xl font-bold text-foreground text-center mb-10">Frequently Asked Questions</h2>
             <div className="space-y-4">
-              {globalFaqs.map((faq, i) => (
+              {[
+                { q: "What happens to my uploaded files?", a: "They are sent securely to our production team. We never share your files with third parties. NDA available on request." },
+                { q: "Do I need a finished idea to submit?", a: "No. Many of our best projects started with a rough concept. Submit what you have." },
+                { q: "How do you respond?", a: "Via email and/or WhatsApp within 48 hours with a cost estimate or mockup." },
+                { q: "Can I request an equity deal instead of paying?", a: "Yes — see our Build-for-Equity model." },
+                { q: "What does it cost?", a: "Depends entirely on scope. Typical MVPs range from €8,000–€40,000. We'll give you an honest estimate after reviewing your brief." },
+              ].map((faq, i) => (
                 <details key={i} className="group card-elevated !p-0 overflow-hidden">
                   <summary className="cursor-pointer font-semibold text-foreground text-sm flex items-center justify-between px-5 py-4 select-none hover:bg-secondary/50 transition-colors">
                     <span>{faq.q}</span>
                     <ArrowRight className="w-4 h-4 transition-transform group-open:rotate-90 flex-shrink-0 ml-2" />
                   </summary>
-                  <div className="px-5 pb-4 text-sm text-muted-foreground">
-                    {faq.a}
-                  </div>
+                  <div className="px-5 pb-4 text-sm text-muted-foreground">{faq.a}</div>
                 </details>
               ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Platform Builder */}
-        <section id="builder" className="py-20 px-6 bg-background">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Configure your platform</h2>
-              <p className="text-muted-foreground max-w-2xl mx-auto">
-                Pick the components you need and get an instant scope estimate. Submit your spec or jump straight to a discovery call.
-              </p>
-            </div>
-            <PlatformBuilder />
-          </div>
-        </section>
-
-        {/* Bottom CTA */}
-        {/* Angel Investor Cross-Link */}
-        <section className="py-12 px-6">
-          <div className="max-w-5xl mx-auto">
-            <div className="card-elevated p-8 flex flex-col md:flex-row items-center justify-between gap-6">
-              <div>
-                <h3 className="text-xl font-display font-bold text-foreground mb-2">Looking for an angel investor who builds?</h3>
-                <p className="text-muted-foreground">We can invest by building your platform end‑to‑end and protecting your IP—in return for equity.</p>
-              </div>
-              <a href={lp("/angel-investor")} className="btn-accent whitespace-nowrap inline-flex items-center gap-2">
-                Angel Investor &amp; Build‑for‑Equity <ArrowRight className="w-4 h-4" />
-              </a>
             </div>
           </div>
         </section>
@@ -481,25 +636,22 @@ const ServicesPage = () => {
         {/* Bottom CTA */}
         <section className="py-20 px-6 bg-primary text-primary-foreground">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">{sp("bottomCtaTitle")}</h2>
-            <p className="text-white/70 mb-8 text-lg">
-              {sp("bottomCtaDesc")}
-            </p>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to build something great?</h2>
+            <p className="text-white/70 mb-8 text-lg">Submit your brief in 5 minutes. We'll respond within 48 hours.</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="mailto:ivan.daza@ravolution.se"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-gold text-gold-foreground px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 hover:bg-gold-light hover:shadow-elevated hover:scale-[1.02] active:scale-[0.98]"
-              >
-                {sp("bottomCtaBook")} <ArrowRight className="w-5 h-5" />
-              </a>
-              <a
-                href="#builder"
-                className="inline-flex items-center gap-2 bg-white/10 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 hover:bg-white/20 hover:scale-[1.02] active:scale-[0.98]"
-              >
-                Configure my platform <ArrowRight className="w-5 h-5" />
-              </a>
+              <Button size="lg" className="bg-gold hover:bg-gold-light text-gold-foreground" onClick={scrollToForm}>
+                Submit Your Brief <ArrowRight className="w-5 h-5 ml-2" />
+              </Button>
+              <Button size="lg" variant="outline" className="border-white/30 text-white hover:bg-white/10" asChild>
+                <Link to={lp("/configure")}>
+                  Configure my platform <ArrowRight className="w-5 h-5 ml-2" />
+                </Link>
+              </Button>
+              <Button size="lg" variant="outline" className="border-white/30 text-white hover:bg-white/10" asChild>
+                <a href="mailto:ivan.daza@ravolution.se" target="_blank" rel="noopener noreferrer">
+                  Book discovery call
+                </a>
+              </Button>
             </div>
           </div>
         </section>
