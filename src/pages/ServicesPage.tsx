@@ -99,6 +99,7 @@ const ServicesPage = () => {
       platformType: "",
       budget: "",
       timeline: "",
+      country: language === "es" ? "Chile" : language === "sv" ? "Sverige" : "",
     },
   });
 
@@ -422,7 +423,7 @@ ${data.additionalNotes || "—"}`;
                       <select
                         {...register("country")}
                         className="w-full px-4 py-3 rounded-xl border border-border bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50"
-                        defaultValue=""
+                        
                       >
                         <option value="" disabled>{t("intake.countryPlaceholder")}</option>
                         {getCountryList(language).map((c) => (
