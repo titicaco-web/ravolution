@@ -390,7 +390,8 @@ const ServicesPage = () => {
               )}
             </div>
           </section>
-        ))}
+          );
+        })}
 
         {/* 🆕 Section 4 — How We Work Timeline */}
         <HowWeWorkTimeline />
