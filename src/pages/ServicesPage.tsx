@@ -226,27 +226,35 @@ const ServicesPage = () => {
         <Navbar />
 
         <section className="pt-32 pb-20 px-6 bg-gradient-to-b from-primary to-primary-dark text-primary-foreground">
-          <div className="max-w-5xl mx-auto text-center">
+          <div className="max-w-4xl mx-auto text-center">
             <span className="inline-block text-sm font-semibold tracking-widest uppercase text-accent-light mb-4">
-              {t("servicesPage.services")}
+              {t("intake.badge")}
             </span>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-              {t("servicesPage.heroTitle")} <span className="text-gradient-gold">{t("servicesPage.heroTitleHighlight")}</span>
+              {t("intake.heroTitle")}
             </h1>
             <p className="text-lg md:text-xl text-primary-foreground/80 max-w-3xl mx-auto mb-8">
-              {t("servicesPage.heroSubtitle")}
+              {t("intake.heroSubtitle")}
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-gold hover:bg-gold-light text-gold-foreground" asChild>
-                <Link to={briefHref}>
-                  {t("intake.submitBrief")} <ArrowRight className="w-5 h-5 ml-2" />
-                </Link>
-              </Button>
-              <Button size="lg" variant="outline" className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10" asChild>
-                <a href="mailto:ivan.daza@ravolution.se" target="_blank" rel="noopener noreferrer">
-                  {t("servicesPage.heroCtaBook")}
-                </a>
-              </Button>
+            <Button size="lg" className="bg-gold hover:bg-gold-light text-gold-foreground" asChild>
+              <Link to={briefHref}>
+                {t("intake.submitBrief")} <ArrowRight className="w-5 h-5 ml-2" />
+              </Link>
+            </Button>
+
+            {/* Trust bar */}
+            <div className="flex flex-wrap justify-center gap-6 mt-10 text-primary-foreground/70 text-sm">
+              {[
+                { icon: Zap, label: t("intake.trust1") },
+                { icon: ShieldCheck, label: t("intake.trust2") },
+                { icon: Workflow, label: t("intake.trust3") },
+                { icon: Target, label: t("intake.trust4") },
+              ].map((item, i) => (
+                <div key={i} className="flex items-center gap-2">
+                  <item.icon className="w-4 h-4 text-accent-light" />
+                  <span>{item.label}</span>
+                </div>
+              ))}
             </div>
           </div>
         </section>
