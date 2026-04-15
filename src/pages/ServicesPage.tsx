@@ -416,13 +416,15 @@ const ServicesPage = () => {
             }}
           />
           <div className="relative max-w-4xl mx-auto text-center">
+            {/* SEO H1 — sr-only for search engines */}
+            <h1 className="sr-only">{t("servicesPage.seoH1")}</h1>
             <span className="inline-block text-sm font-semibold tracking-widest uppercase text-accent-light mb-4">
               {t("intake.badge")}
             </span>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+            <p className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6" role="heading" aria-level={2}>
               {t("intake.heroTitle")}
-            </h1>
-            <p className="text-lg md:text-xl text-primary-foreground/80 max-w-3xl mx-auto mb-8">
+            </p>
+            <p className="hero-description text-lg md:text-xl text-primary-foreground/80 max-w-3xl mx-auto mb-8">
               {t("intake.heroSubtitle")}
             </p>
             <Button size="lg" className="bg-gold hover:bg-gold-light text-gold-foreground" asChild>
@@ -445,6 +447,15 @@ const ServicesPage = () => {
                 </div>
               ))}
             </div>
+          </div>
+        </section>
+
+        {/* GEO Intro Paragraph */}
+        <section className="py-12 px-6 bg-background">
+          <div className="max-w-4xl mx-auto">
+            <p className="service-summary text-lg leading-relaxed text-muted-foreground">
+              {t("servicesPage.geoIntro")}
+            </p>
           </div>
         </section>
 
