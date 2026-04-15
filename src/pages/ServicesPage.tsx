@@ -355,9 +355,48 @@ const ServicesPage = () => {
   return (
     <>
       <Helmet>
-        <title>{t("servicesPage.services")} | Ravolution AB</title>
-        <meta name="description" content={t("servicesPage.heroSubtitle")} />
-        <link rel="canonical" href={`https://ravolution.se${lp("/services")}`} />
+        <html lang={language} />
+        <title>{t("servicesPage.seoTitle")}</title>
+        <meta name="description" content={t("servicesPage.seoDesc")} />
+        <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
+        <link rel="canonical" href={canonicalUrl} />
+
+        {/* Hreflang */}
+        <link rel="alternate" hrefLang="en" href="https://ravolution.se/en/services" />
+        <link rel="alternate" hrefLang="en-SE" href="https://ravolution.se/en/services" />
+        <link rel="alternate" hrefLang="sv-SE" href="https://ravolution.se/sv/tjanster" />
+        <link rel="alternate" hrefLang="sv" href="https://ravolution.se/sv/tjanster" />
+        <link rel="alternate" hrefLang="es-CL" href="https://ravolution.se/es/servicios" />
+        <link rel="alternate" hrefLang="es-BO" href="https://ravolution.se/es/servicios" />
+        <link rel="alternate" hrefLang="es" href="https://ravolution.se/es/servicios" />
+        <link rel="alternate" hrefLang="x-default" href="https://ravolution.se/en/services" />
+
+        {/* OG */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={canonicalUrl} />
+        <meta property="og:title" content={t("servicesPage.ogTitle")} />
+        <meta property="og:description" content={t("servicesPage.ogDesc")} />
+        <meta property="og:image" content={ogImage} />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content={t("servicesPage.ogImageAlt")} />
+        <meta property="og:locale" content={getOgLocale(language)} />
+        {language === "en" && <meta property="og:locale:alternate" content="sv_SE" />}
+        {language === "en" && <meta property="og:locale:alternate" content="es_CL" />}
+        {language === "es" && <meta property="og:locale:alternate" content="es_BO" />}
+        <meta property="og:site_name" content="Ravolution AB" />
+
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={t("servicesPage.ogTitle")} />
+        <meta name="twitter:description" content={t("servicesPage.twitterDesc")} />
+        <meta name="twitter:image" content={ogImage} />
+
+        {/* Preload OG image */}
+        <link rel="preload" as="image" href={ogImage} />
+
+        {/* Structured Data */}
+        <script type="application/ld+json">{JSON.stringify(structuredData)}</script>
       </Helmet>
 
       <div className="min-h-screen bg-background">
