@@ -280,7 +280,15 @@ const ServicesPage = () => {
         <MiniCaseStudies />
 
         {/* ✅ Engagement Models — untouched */}
-        <section className="py-16 px-6 bg-secondary">
+        <section className="relative py-16 px-6 bg-secondary overflow-hidden">
+          {/* Dot Pattern */}
+          <div
+            className="absolute inset-0 opacity-[0.15] pointer-events-none"
+            style={{
+              backgroundImage: `radial-gradient(circle, hsl(var(--primary) / 0.3) 1px, transparent 1px)`,
+              backgroundSize: "20px 20px",
+            }}
+          />
           <div className="max-w-5xl mx-auto">
             <h2 className="text-2xl md:text-3xl font-bold text-foreground text-center mb-10">
               {t("servicesPage.engagementModels")}
