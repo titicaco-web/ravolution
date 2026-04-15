@@ -22,7 +22,7 @@ const FounderBlock = () => {
             </p>
             <div className="flex flex-wrap gap-2 mb-6 justify-center md:justify-start">
               {["27 Patents", "343 Claims", "10+ Platforms", "6 Industries"].map((s) => (
-                <span key={s} className="text-xs font-medium px-3 py-1.5 rounded-full border border-border bg-secondary text-foreground">
+                <span key={s} className="text-xs font-medium px-3 py-1.5 rounded-full border border-primary/20 bg-primary text-primary-foreground">
                   {s}
                 </span>
               ))}
