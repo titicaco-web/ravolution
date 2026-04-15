@@ -308,34 +308,16 @@ ${data.additionalNotes || "—"}`;
       <div className="min-h-screen">
         <Navbar />
 
-        {/* Hero */}
-        <section className="pt-32 pb-16 px-6 bg-gradient-to-b from-primary to-primary-dark text-primary-foreground">
+        {/* Hero - compact */}
+        <section className="pt-32 pb-8 px-6 bg-gradient-to-b from-primary to-primary-dark text-primary-foreground">
           <div className="max-w-4xl mx-auto text-center">
             <span className="inline-block text-sm font-semibold tracking-widest uppercase text-accent-light mb-4">{t("intake.badge")}</span>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
               {t("intake.heroTitle")}
             </h1>
-            <p className="text-lg md:text-xl text-white/80 max-w-3xl mx-auto mb-8">
+            <p className="text-base md:text-lg text-white/80 max-w-2xl mx-auto">
               {t("intake.heroSubtitle")}
             </p>
-            <Button size="lg" className="bg-gold hover:bg-gold-light text-gold-foreground" onClick={scrollToForm}>
-              {t("intake.submitBrief")} <ArrowRight className="w-5 h-5 ml-2" />
-            </Button>
-
-            {/* Trust bar */}
-            <div className="flex flex-wrap justify-center gap-6 mt-10 text-white/70 text-sm">
-              {[
-                { icon: Zap, label: t("intake.trust1") },
-                { icon: Lock, label: t("intake.trust2") },
-                { icon: Rocket, label: t("intake.trust3") },
-                { icon: ShieldCheck, label: t("intake.trust4") },
-              ].map((item, i) => (
-                <div key={i} className="flex items-center gap-2">
-                  <item.icon className="w-4 h-4 text-accent-light" />
-                  <span>{item.label}</span>
-                </div>
-              ))}
-            </div>
           </div>
         </section>
 
