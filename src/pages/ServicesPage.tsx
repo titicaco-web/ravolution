@@ -221,7 +221,7 @@ const ServicesPage = () => {
         <link rel="canonical" href={`https://ravolution.se${lp("/services")}`} />
       </Helmet>
 
-      <div className="min-h-screen bg-background angel-theme">
+      <div className="min-h-screen bg-background">
         <Navbar />
 
         {/* ✅ Hero — untouched */}
