@@ -259,6 +259,50 @@ const ServicesPage = () => {
           </div>
         </section>
 
+        {/* Portfolio */}
+        <section className="py-16 px-6 bg-secondary">
+          <div className="max-w-5xl mx-auto text-center">
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">{t("intake.provenTitle")}</h2>
+            <div className="flex flex-wrap justify-center gap-6 text-sm text-muted-foreground mb-10">
+              <span>{t("intake.provenStat1")}</span>
+              <span>{t("intake.provenStat2")}</span>
+              <span>{t("intake.provenStat3")}</span>
+            </div>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+              {[
+                { name: "iApply™", key: "portfolioIapply", url: "https://iapply.se" },
+                { name: "CommunicaringSchool", key: "portfolioCommunicaring", url: "https://communicaringschool.com" },
+                { name: "xPortMatch", key: "portfolioXportmatch", url: "https://xportmatch.com" },
+                { name: "NewsToast", key: "portfolioNewstoast", url: "https://newstoast.com" },
+                { name: "CarbonX", key: "portfolioCarbonx", url: "https://carbonx.se" },
+                { name: "Autos Zofri", key: "portfolioAutoszofri", url: "https://autos-zofri.com" },
+                { name: "Titicaco", key: "portfolioTiticaco", url: "https://titicaco.com" },
+                { name: "Partysta", key: "portfolioPartysta", url: "https://partysta.com" },
+              ].map((project) => (
+                <a
+                  key={project.name}
+                  href={project.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="card-elevated group hover:border-primary/30 transition-all text-center p-4"
+                >
+                  <h4 className="font-bold text-foreground text-sm mb-1 group-hover:text-primary transition-colors">{project.name}</h4>
+                  <p className="text-xs text-muted-foreground mb-2">{t(`intake.${project.key}`)}</p>
+                  <ExternalLink className="w-3.5 h-3.5 text-muted-foreground group-hover:text-primary transition-colors mx-auto" />
+                </a>
+              ))}
+            </div>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link to={lp("/angel-investor")} className="text-sm text-accent hover:text-accent-light font-medium underline underline-offset-2 transition-colors">
+                {t("intake.equityLink")}
+              </Link>
+              <Link to={lp("/configure")} className="text-sm text-primary hover:text-primary/80 font-medium underline underline-offset-2 transition-colors">
+                {t("intake.configureLink")}
+              </Link>
+            </div>
+          </div>
+        </section>
+
         <section className="py-16 px-6 bg-secondary">
           <div className="max-w-5xl mx-auto">
             <h2 className="text-2xl md:text-3xl font-bold text-foreground text-center mb-10">
@@ -396,49 +440,7 @@ const ServicesPage = () => {
           </section>
         ))}
 
-        {/* Portfolio */}
-        <section className="py-16 px-6 bg-background">
-          <div className="max-w-5xl mx-auto text-center">
-            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">{t("intake.provenTitle")}</h2>
-            <div className="flex flex-wrap justify-center gap-6 text-sm text-muted-foreground mb-10">
-              <span>{t("intake.provenStat1")}</span>
-              <span>{t("intake.provenStat2")}</span>
-              <span>{t("intake.provenStat3")}</span>
-            </div>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-              {[
-                { name: "iApply™", key: "portfolioIapply", url: "https://iapply.se" },
-                { name: "CommunicaringSchool", key: "portfolioCommunicaring", url: "https://communicaringschool.com" },
-                { name: "xPortMatch", key: "portfolioXportmatch", url: "https://xportmatch.com" },
-                { name: "NewsToast", key: "portfolioNewstoast", url: "https://newstoast.com" },
-                { name: "CarbonX", key: "portfolioCarbonx", url: "https://carbonx.se" },
-                { name: "Autos Zofri", key: "portfolioAutoszofri", url: "https://autos-zofri.com" },
-                { name: "Titicaco", key: "portfolioTiticaco", url: "https://titicaco.com" },
-                { name: "Partysta", key: "portfolioPartysta", url: "https://partysta.com" },
-              ].map((project) => (
-                <a
-                  key={project.name}
-                  href={project.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="card-elevated group hover:border-primary/30 transition-all text-center p-4"
-                >
-                  <h4 className="font-bold text-foreground text-sm mb-1 group-hover:text-primary transition-colors">{project.name}</h4>
-                  <p className="text-xs text-muted-foreground mb-2">{t(`intake.${project.key}`)}</p>
-                  <ExternalLink className="w-3.5 h-3.5 text-muted-foreground group-hover:text-primary transition-colors mx-auto" />
-                </a>
-              ))}
-            </div>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link to={lp("/angel-investor")} className="text-sm text-accent hover:text-accent-light font-medium underline underline-offset-2 transition-colors">
-                {t("intake.equityLink")}
-              </Link>
-              <Link to={lp("/configure")} className="text-sm text-primary hover:text-primary/80 font-medium underline underline-offset-2 transition-colors">
-                {t("intake.configureLink")}
-              </Link>
-            </div>
-          </div>
-        </section>
+
 
         <section className="py-20 px-6 bg-primary text-primary-foreground">
           <div className="max-w-3xl mx-auto text-center">
