@@ -303,7 +303,7 @@ const ServicesPage = () => {
           </div>
         </section>
 
-        <section className="py-16 px-6 bg-secondary">
+        <section className="py-16 px-6 bg-background">
           <div className="max-w-5xl mx-auto">
             <h2 className="text-2xl md:text-3xl font-bold text-foreground text-center mb-10">
               {t("servicesPage.howWeWork")}
