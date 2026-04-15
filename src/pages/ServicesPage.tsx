@@ -573,16 +573,20 @@ ${data.additionalNotes || "—"}`;
                     </div>
                     {files.length > 0 && (
                       <div className="bg-accent/10 border border-accent/30 rounded-xl p-4 text-sm text-foreground">
-                        <p className="font-medium mb-1">📎 Files ready</p>
-                        <p className="text-muted-foreground">Click the button below to open WhatsApp — your brief summary will be pre-filled. Then attach your files in the chat.</p>
+                        <p className="font-medium mb-1">📎 {files.length} file{files.length > 1 ? "s" : ""} ready</p>
+                        <p className="text-muted-foreground">Files will be uploaded automatically and download links included in your WhatsApp message.</p>
                       </div>
                     )}
                     <div className="flex justify-between pt-4">
                       <Button type="button" variant="outline" onClick={prevStep}>
                         <ArrowLeft className="w-4 h-4 mr-2" /> Back
                       </Button>
-                      <Button type="submit" className="bg-gold hover:bg-gold-light text-gold-foreground text-lg px-8">
-                        <MessageCircle className="w-5 h-5 mr-2" /> Submit Brief → Send via WhatsApp
+                      <Button type="submit" disabled={uploading} className="bg-gold hover:bg-gold-light text-gold-foreground text-lg px-8">
+                        {uploading ? (
+                          <><span className="animate-spin mr-2">⏳</span> Uploading files…</>
+                        ) : (
+                          <><MessageCircle className="w-5 h-5 mr-2" /> Submit Brief → Send via WhatsApp</>
+                        )}
                       </Button>
                     </div>
                   </div>
