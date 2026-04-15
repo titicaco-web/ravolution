@@ -47,7 +47,7 @@ const FeaturedProducts = () => {
                     <span className="text-xs font-medium">{t("products.marketTAM")}</span>
                   </div>
                   <div className="text-lg font-bold text-white">$924B</div>
-                  <div className="text-xs text-muted-foreground">{p("iapplyGlobalRecruiting")}</div>
+                  <div className="text-xs text-white/70">{p("iapplyGlobalRecruiting")}</div>
                 </div>
                 <div className="bg-secondary rounded-lg p-3">
                   <div className="flex items-center gap-1.5 text-primary mb-1">
@@ -55,7 +55,7 @@ const FeaturedProducts = () => {
                     <span className="text-xs font-medium">{t("products.valuation")}</span>
                   </div>
                   <div className="text-lg font-bold text-white">$800M–1.5B</div>
-                  <div className="text-xs text-muted-foreground">{p("iapplyPreLaunch")}</div>
+                  <div className="text-xs text-white/70">{p("iapplyPreLaunch")}</div>
                 </div>
                 <div className="bg-secondary rounded-lg p-3">
                   <div className="flex items-center gap-1.5 text-gold mb-1">
@@ -63,7 +63,7 @@ const FeaturedProducts = () => {
                     <span className="text-xs font-medium">{t("products.targetUsers")}</span>
                   </div>
                   <div className="text-lg font-bold text-white">2B+</div>
-                  <div className="text-xs text-muted-foreground">{p("iapplyJobSeekers")}</div>
+                  <div className="text-xs text-white/70">{p("iapplyJobSeekers")}</div>
                 </div>
                 <div className="bg-secondary rounded-lg p-3">
                   <div className="flex items-center gap-1.5 text-gold mb-1">
@@ -71,7 +71,7 @@ const FeaturedProducts = () => {
                     <span className="text-xs font-medium">{t("products.patentPortfolio")}</span>
                   </div>
                   <div className="text-lg font-bold text-white">7 {t("patents.patents")}</div>
-                  <div className="text-xs text-muted-foreground">{p("iapplyPatentValue")}</div>
+                  <div className="text-xs text-white/70">{p("iapplyPatentValue")}</div>
                 </div>
               </div>
 
@@ -131,7 +131,7 @@ const FeaturedProducts = () => {
                     <span className="text-xs font-medium">{t("products.marketTAM")}</span>
                   </div>
                   <div className="text-lg font-bold text-white">€585B</div>
-                  <div className="text-xs text-muted-foreground">{p("rosettaLanguageLearning")}</div>
+                  <div className="text-xs text-white/70">{p("rosettaLanguageLearning")}</div>
                 </div>
                 <div className="bg-secondary rounded-lg p-3">
                   <div className="flex items-center gap-1.5 text-accent mb-1">
@@ -139,7 +139,7 @@ const FeaturedProducts = () => {
                     <span className="text-xs font-medium">{t("products.year5Revenue")}</span>
                   </div>
                   <div className="text-lg font-bold text-white">€730M+</div>
-                  <div className="text-xs text-muted-foreground">{p("rosettaConsolidated")}</div>
+                  <div className="text-xs text-white/70">{p("rosettaConsolidated")}</div>
                 </div>
                 <div className="bg-secondary rounded-lg p-3">
                   <div className="flex items-center gap-1.5 text-gold mb-1">
@@ -147,7 +147,7 @@ const FeaturedProducts = () => {
                     <span className="text-xs font-medium">{t("products.cagr")}</span>
                   </div>
                   <div className="text-lg font-bold text-white">17.67%</div>
-                  <div className="text-xs text-muted-foreground">{p("rosettaMarketGrowth")}</div>
+                  <div className="text-xs text-white/70">{p("rosettaMarketGrowth")}</div>
                 </div>
                 <div className="bg-secondary rounded-lg p-3">
                   <div className="flex items-center gap-1.5 text-gold mb-1">
@@ -155,7 +155,7 @@ const FeaturedProducts = () => {
                     <span className="text-xs font-medium">{t("products.patentClaims")}</span>
                   </div>
                   <div className="text-lg font-bold text-white">23 {t("patents.claims")}</div>
-                  <div className="text-xs text-muted-foreground">{p("rosettaNoPriorArt")}</div>
+                  <div className="text-xs text-white/70">{p("rosettaNoPriorArt")}</div>
                 </div>
               </div>
 
@@ -213,7 +213,7 @@ const FeaturedProducts = () => {
                     <span className="text-xs font-medium">{t("products.marketTAM")}</span>
                   </div>
                   <div className="text-lg font-bold text-white">€194B</div>
-                  <div className="text-xs text-muted-foreground">{p("xportmatchSwedishExport")}</div>
+                  <div className="text-xs text-white/70">{p("xportmatchSwedishExport")}</div>
                 </div>
                 <div className="bg-secondary rounded-lg p-3">
                   <div className="flex items-center gap-1.5 text-accent mb-1">
@@ -221,7 +221,7 @@ const FeaturedProducts = () => {
                     <span className="text-xs font-medium">{t("products.arrPotential")}</span>
                   </div>
                   <div className="text-lg font-bold text-white">€15.5–31M</div>
-                  <div className="text-xs text-muted-foreground">{p("xportmatchPenetration")}</div>
+                  <div className="text-xs text-white/70">{p("xportmatchPenetration")}</div>
                 </div>
                 <div className="bg-secondary rounded-lg p-3">
                   <div className="flex items-center gap-1.5 text-gold mb-1">
@@ -229,7 +229,7 @@ const FeaturedProducts = () => {
                     <span className="text-xs font-medium">{t("products.targetSMEs")}</span>
                   </div>
                   <div className="text-lg font-bold text-white">180,500</div>
-                  <div className="text-xs text-muted-foreground">{p("xportmatchVerifiedSuppliers")}</div>
+                  <div className="text-xs text-white/70">{p("xportmatchVerifiedSuppliers")}</div>
                 </div>
                 <div className="bg-secondary rounded-lg p-3">
                   <div className="flex items-center gap-1.5 text-gold mb-1">
@@ -237,7 +237,7 @@ const FeaturedProducts = () => {
                     <span className="text-xs font-medium">{t("products.geographicReach")}</span>
                   </div>
                   <div className="text-lg font-bold text-white">150+</div>
-                  <div className="text-xs text-muted-foreground">{p("xportmatchCountries")}</div>
+                  <div className="text-xs text-white/70">{p("xportmatchCountries")}</div>
                 </div>
               </div>
 
@@ -293,7 +293,7 @@ const FeaturedProducts = () => {
                     <span className="text-xs font-medium">{t("products.marketTAM")}</span>
                   </div>
                   <div className="text-lg font-bold text-white">€12.9B</div>
-                  <div className="text-xs text-muted-foreground">{p("voiceprotectorGlobalSecurity")}</div>
+                  <div className="text-xs text-white/70">{p("voiceprotectorGlobalSecurity")}</div>
                 </div>
                 <div className="bg-secondary rounded-lg p-3">
                   <div className="flex items-center gap-1.5 text-gold mb-1">
@@ -301,7 +301,7 @@ const FeaturedProducts = () => {
                     <span className="text-xs font-medium">{t("products.arrProjection")}</span>
                   </div>
                   <div className="text-lg font-bold text-white">€323M+</div>
-                  <div className="text-xs text-muted-foreground">{p("voiceprotector5Year")}</div>
+                  <div className="text-xs text-white/70">{p("voiceprotector5Year")}</div>
                 </div>
                 <div className="bg-secondary rounded-lg p-3">
                   <div className="flex items-center gap-1.5 text-accent mb-1">
@@ -309,7 +309,7 @@ const FeaturedProducts = () => {
                     <span className="text-xs font-medium">{t("products.detectionSpeed")}</span>
                   </div>
                   <div className="text-lg font-bold text-white">&lt;100ms</div>
-                  <div className="text-xs text-muted-foreground">{p("voiceprotectorLatency")}</div>
+                  <div className="text-xs text-white/70">{p("voiceprotectorLatency")}</div>
                 </div>
                 <div className="bg-secondary rounded-lg p-3">
                   <div className="flex items-center gap-1.5 text-accent mb-1">
@@ -317,7 +317,7 @@ const FeaturedProducts = () => {
                     <span className="text-xs font-medium">{t("products.compliance")}</span>
                   </div>
                   <div className="text-lg font-bold text-white">SOC 2</div>
-                  <div className="text-xs text-muted-foreground">{p("voiceprotectorGdpr")}</div>
+                  <div className="text-xs text-white/70">{p("voiceprotectorGdpr")}</div>
                 </div>
               </div>
 
