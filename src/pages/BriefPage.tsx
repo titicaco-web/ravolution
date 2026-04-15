@@ -738,4 +738,4 @@ ${data.additionalNotes || "—"}`;
   );
 };
 
-export default ServicesPage;
+export default BriefPage;
