@@ -225,8 +225,19 @@ const ServicesPage = () => {
         <Navbar />
 
         {/* ✅ Hero — untouched */}
-        <section className="pt-32 pb-20 px-6 bg-gradient-to-b from-primary to-primary-dark text-primary-foreground">
-          <div className="max-w-4xl mx-auto text-center">
+        <section className="relative pt-32 pb-20 px-6 bg-gradient-to-b from-primary to-primary-dark text-primary-foreground overflow-hidden">
+          {/* White Grid Pattern */}
+          <div
+            className="absolute inset-0 opacity-[0.08] pointer-events-none"
+            style={{
+              backgroundImage: `
+                linear-gradient(to right, rgba(255,255,255,0.5) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255,255,255,0.5) 1px, transparent 1px)
+              `,
+              backgroundSize: "24px 24px",
+            }}
+          />
+          <div className="relative max-w-4xl mx-auto text-center">
             <span className="inline-block text-sm font-semibold tracking-widest uppercase text-accent-light mb-4">
               {t("intake.badge")}
             </span>
