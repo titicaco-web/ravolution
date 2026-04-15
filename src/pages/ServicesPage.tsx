@@ -66,7 +66,7 @@ const portfolioProjects = [
 
 const ServicesPage = () => {
   const lp = useLangPath();
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [step, setStep] = useState(0);
   const [files, setFiles] = useState<File[]>([]);
   const [submitted, setSubmitted] = useState(false);
