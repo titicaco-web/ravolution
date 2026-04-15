@@ -28,6 +28,142 @@ import TechStackStrip from "@/components/services/TechStackStrip";
 import FounderBlock from "@/components/services/FounderBlock";
 import ExpandedFAQ from "@/components/services/ExpandedFAQ";
 
+const getServiceRouteSlug = (lang: string) => {
+  switch (lang) {
+    case "sv": return "tjanster";
+    case "es": return "servicios";
+    default: return "services";
+  }
+};
+
+const getCanonicalUrl = (lang: string) => {
+  return `https://ravolution.se/${lang}/${getServiceRouteSlug(lang)}`;
+};
+
+const buildStructuredData = (lang: string, t: (key: string) => string) => {
+  const url = getCanonicalUrl(lang);
+  const faqEntries = lang === "sv" ? [
+    { q: "Hur snabbt kan Ravolution bygga en SaaS-plattform?", a: "Upptäcktssprint tar 2–3 veckor. MVP-leverans på 8–12 veckor beroende på komplexitet. Fullständiga plattformar med flera moduler tar 3–9 månader med milstolpebaserad leverans." },
+    { q: "Hur får jag en kostnadsuppskattning från Ravolution?", a: "Skicka din projektbrief via formuläret på ravolution.se/sv/tjanster. Ravolution svarar inom 48 timmar med en kostnadsuppskattning och plattformsbeskrivning, eller i många fall en klickbar mockup." },
+    { q: "Arbetar Ravolution med kunder i Chile och Bolivia?", a: "Ja. Ravolution betjänar kunder i Sverige, Chile, Bolivia, Spanien, MENA och globalt. Teamet kommunicerar på engelska, svenska och spanska. Formuläret finns på alla tre språken." },
+    { q: "Vilka typer av plattformar bygger Ravolution?", a: "SaaS-plattformar, marknadsplatser, rekryterings- och matchningssystem, EdTech och språkinlärningsplattformar, CRM och partnerportaler, AI-drivna arbetsflödesverktyg, koldioxidhandels- och efterlevnadssystem samt anpassade B2B- och B2C-webbapplikationer." },
+    { q: "Kan jag få equity-baserad utveckling istället för kontant betalning?", a: "Ja. Ravolution erbjuder en Build-for-Equity-modell för pre-seed till seed-grundare med validerade koncept. Engineering, design och patentstrategi investeras i utbyte mot ägarandel. Detaljer på ravolution.se/sv/angel-investor." },
+    { q: "Hur många patent har Ravolution lämnat in?", a: "27 patent med 343 krav inom 6 branscher inklusive rekrytering, språkutbildning, AI, handel, koldioxidmarknader och modeteknologi." },
+    { q: "Vilken teknikstack använder Ravolution?", a: "Kärnstack: React, TypeScript, Node.js, Supabase, PostgreSQL, Tailwind CSS. Betalningar: Stripe. AI: OpenAI API:er, finjusterade modeller. Design: Figma. Hosting: Vercel. Teamet väljer den bästa stacken för varje projekt utan leverantörsinlåsning." },
+    { q: "Vad kostar plattformsutveckling på Ravolution?", a: "Sprintprojekt (4–12 veckor) kostar normalt EUR 8 000–40 000. Komplexa plattformar med flera moduler (3–9 månader) kostar EUR 30 000–120 000. En ärlig uppskattning ges inom 48 timmar efter inskickad brief." },
+  ] : lang === "es" ? [
+    { q: "¿Qué tan rápido puede Ravolution construir una plataforma SaaS?", a: "El sprint de descubrimiento toma 2–3 semanas. La entrega del MVP toma 8–12 semanas según la complejidad. Plataformas completas con múltiples módulos toman 3–9 meses con entrega basada en hitos." },
+    { q: "¿Cómo obtengo una estimación de costos de Ravolution?", a: "Envía tu brief de proyecto a través del formulario en ravolution.se/es/servicios. Ravolution responde en 48 horas con una estimación de costos y descripción de plataforma, o en muchos casos un mockup clickeable." },
+    { q: "¿Trabaja Ravolution con clientes en Chile y Bolivia?", a: "Sí. Ravolution atiende clientes en Suecia, Chile, Bolivia, España, MENA y globalmente. El equipo se comunica en inglés, sueco y español. El formulario está disponible en los tres idiomas. Atendemos Santiago, Valparaíso, Santa Cruz, Cochabamba y La Paz." },
+    { q: "¿Qué tipos de plataformas construye Ravolution?", a: "Plataformas SaaS, marketplaces, sistemas de reclutamiento y matching, plataformas EdTech y de aprendizaje de idiomas, CRM y portales de socios, herramientas de flujo de trabajo con IA, sistemas de comercio de carbono y cumplimiento, y aplicaciones web B2B y B2C personalizadas." },
+    { q: "¿Puedo obtener desarrollo basado en equity en lugar de pagar en efectivo?", a: "Sí. Ravolution ofrece un modelo Build-for-Equity para fundadores pre-seed a seed con conceptos validados. Ingeniería, diseño y estrategia de patentes se invierten a cambio de participación accionaria. Detalles en ravolution.se/es/angel-investor." },
+    { q: "¿Cuántas patentes ha registrado Ravolution?", a: "27 patentes con 343 reivindicaciones en 6 industrias incluyendo reclutamiento, educación de idiomas, IA, comercio, mercados de carbono y tecnología de moda." },
+    { q: "¿Qué stack tecnológico usa Ravolution?", a: "Stack principal: React, TypeScript, Node.js, Supabase, PostgreSQL, Tailwind CSS. Pagos: Stripe. IA: APIs de OpenAI, modelos ajustados. Diseño: Figma. Hosting: Vercel. El equipo selecciona el mejor stack para cada proyecto sin dependencia de proveedor." },
+    { q: "¿Cuánto cuesta el desarrollo de plataformas en Ravolution?", a: "Proyectos sprint (4–12 semanas) típicamente van desde EUR 8.000 hasta EUR 40.000. Plataformas complejas con múltiples módulos (3–9 meses) van desde EUR 30.000–120.000. Se entrega una estimación honesta dentro de 48 horas de recibir el brief." },
+  ] : [
+    { q: "How fast can Ravolution build a SaaS platform?", a: "Discovery sprint takes 2–3 weeks. MVP delivery in 8–12 weeks depending on complexity. Full platforms with multiple modules take 3–9 months with milestone-based delivery." },
+    { q: "How do I get a cost estimate from Ravolution?", a: "Submit your project brief via the intake form at ravolution.se/en/services. Ravolution responds within 48 hours with a cost estimate and platform description, or in many cases a clickable mockup." },
+    { q: "Does Ravolution work with clients in Chile and Bolivia?", a: "Yes. Ravolution serves clients in Sweden, Chile, Bolivia, Spain, MENA, and globally. The team communicates in English, Swedish, and Spanish. The intake form is available in all three languages." },
+    { q: "What types of platforms does Ravolution build?", a: "SaaS platforms, marketplaces, recruitment and matching systems, EdTech and language learning platforms, CRM and partner portals, AI-powered workflow tools, carbon trading and compliance systems, and custom B2B and B2C web applications." },
+    { q: "Can I get equity-based development instead of paying cash?", a: "Yes. Ravolution offers a Build-for-Equity model for pre-seed to seed founders with validated concepts. Engineering, design, and patent strategy are invested in exchange for equity. Details at ravolution.se/en/angel-investor." },
+    { q: "How many patents has Ravolution filed?", a: "27 patents with 343 claims across 6 industries including recruitment, language education, AI, trade, carbon markets, and fashion technology." },
+    { q: "What tech stack does Ravolution use?", a: "Core stack: React, TypeScript, Node.js, Supabase, PostgreSQL, Tailwind CSS. Payments: Stripe. AI: OpenAI APIs, fine-tuned models. Design: Figma. Hosting: Vercel. The team selects the best stack for each project with no vendor lock-in." },
+    { q: "What does platform development cost at Ravolution?", a: "Sprint projects (4–12 weeks) typically range EUR 8,000–40,000. Complex multi-module platforms (3–9 months) range EUR 30,000–120,000. An honest estimate is provided within 48 hours of brief submission." },
+  ];
+
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://ravolution.se/#organization",
+        "name": "Ravolution AB",
+        "alternateName": ["Ravolution", "Ravolution Venture Studio"],
+        "url": "https://ravolution.se",
+        "logo": { "@type": "ImageObject", "url": "https://ravolution.se/logo.png", "width": 512, "height": 512 },
+        "sameAs": ["https://www.linkedin.com/company/ravolution", "https://github.com/ravolution"],
+        "foundingDate": "2023",
+        "founder": {
+          "@type": "Person",
+          "@id": "https://ravolution.se/#founder",
+          "name": "Ivan Daza",
+          "jobTitle": "Founder & CEO",
+          "sameAs": "https://www.linkedin.com/in/ivandaza/",
+          "knowsAbout": ["SaaS platform architecture", "Patent strategy and IP protection", "AI integration and machine learning", "Carbon markets and environmental compliance", "Recruitment technology", "Language education technology", "International business development"],
+          "knowsLanguage": ["en", "sv", "es"]
+        },
+        "address": [{ "@type": "PostalAddress", "addressCountry": "SE", "addressLocality": "Stockholm", "addressRegion": "Stockholms län" }],
+        "areaServed": [
+          { "@type": "Country", "name": "Sweden", "sameAs": "https://en.wikipedia.org/wiki/Sweden" },
+          { "@type": "Country", "name": "Chile", "sameAs": "https://en.wikipedia.org/wiki/Chile" },
+          { "@type": "Country", "name": "Bolivia", "sameAs": "https://en.wikipedia.org/wiki/Bolivia" },
+          { "@type": "Country", "name": "Spain", "sameAs": "https://en.wikipedia.org/wiki/Spain" }
+        ],
+        "knowsAbout": ["SaaS platform development", "Custom marketplace architecture", "AI-powered workflow tools", "Recruitment and matching platforms", "EdTech and language learning systems", "CRM and partner portal development", "Carbon trading and compliance platforms", "Patent filing and IP strategy", "MVP development and rapid prototyping"],
+        "knowsLanguage": ["en", "sv", "es"],
+        "numberOfEmployees": { "@type": "QuantitativeValue", "minValue": 2, "maxValue": 10 },
+        "contactPoint": [{ "@type": "ContactPoint", "contactType": "Sales", "availableLanguage": ["English", "Swedish", "Spanish"], "url": "https://ravolution.se/en/services", "email": "ivan.daza@ravolution.se" }]
+      },
+      {
+        "@type": "ProfessionalService",
+        "@id": `${url}#service`,
+        "name": "End-to-End SaaS Platform Development",
+        "description": "Ravolution AB is a Swedish venture studio that builds custom SaaS platforms, marketplaces, AI tools, recruitment systems, EdTech platforms, and CRMs. MVP delivered in 8–12 weeks. 27 patents filed with 343 claims across 6 industries. Submit a project brief and receive a cost estimate within 48 hours.",
+        "provider": { "@id": "https://ravolution.se/#organization" },
+        "serviceType": ["SaaS Platform Development", "Marketplace Development", "AI Workflow Development", "Recruitment Platform Development", "EdTech Platform Development", "CRM Development", "MVP Development", "Patent Strategy"],
+        "areaServed": [{ "@type": "Country", "name": "Sweden" }, { "@type": "Country", "name": "Chile" }, { "@type": "Country", "name": "Bolivia" }, { "@type": "Country", "name": "Spain" }],
+        "availableChannel": { "@type": "ServiceChannel", "serviceUrl": url, "availableLanguage": ["English", "Swedish", "Spanish"] },
+        "termsOfService": "https://ravolution.se/en/terms",
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Development Services",
+          "itemListElement": [
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Sprint Project", "description": "Defined deliverables, timeline, and budget. Ideal for MVPs, prototypes, and well-scoped modules. 1–12 weeks." } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Milestone Project", "description": "Full platform development with milestones and iterative delivery. For complex, multi-module projects. 3–9 months." } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Retainer", "description": "Continuous development, support, and platform evolution. Scales up or down as needed. Monthly." } }
+          ]
+        }
+      },
+      {
+        "@type": "WebPage",
+        "@id": `${url}#webpage`,
+        "url": url,
+        "name": t("servicesPage.seoTitle"),
+        "description": t("servicesPage.seoDesc"),
+        "inLanguage": lang,
+        "isPartOf": { "@id": "https://ravolution.se/#website" },
+        "about": { "@id": `${url}#service` },
+        "dateModified": "2026-04-15",
+        "breadcrumb": {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": lang === "sv" ? "Hem" : lang === "es" ? "Inicio" : "Home", "item": `https://ravolution.se/${lang}` },
+            { "@type": "ListItem", "position": 2, "name": t("servicesPage.services"), "item": url }
+          ]
+        },
+        "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".hero-description", ".service-summary"] }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": `${url}#faq`,
+        "mainEntity": faqEntries.map(f => ({
+          "@type": "Question",
+          "name": f.q,
+          "acceptedAnswer": { "@type": "Answer", "text": f.a }
+        }))
+      }
+    ]
+  };
+};
+
+const getOgLocale = (lang: string) => {
+  switch (lang) {
+    case "sv": return "sv_SE";
+    case "es": return "es_CL";
+    default: return "en_SE";
+  }
+};
+
 const ServicesPage = () => {
   const { t } = useLanguage();
   const lp = useLangPath();
