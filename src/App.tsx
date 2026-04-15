@@ -11,6 +11,7 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
 import Founder from "./pages/Founder";
 import ServicesPage from "./pages/ServicesPage";
+import ConfigurePage from "./pages/ConfigurePage";
 import BlogPodcast from "./pages/BlogPodcast";
 import InvestPage from "./pages/InvestPage";
 import AngelInvestor from "./pages/AngelInvestor";
