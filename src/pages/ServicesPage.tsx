@@ -159,8 +159,47 @@ const ServicesPage = () => {
     formRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
-  const onSubmit = (data: FormData) => {
-    const fileNames = files.map((f) => f.name).join(", ");
+  const uploadFiles = async (): Promise<string[]> => {
+    if (files.length === 0) return [];
+    const folder = `brief-${Date.now()}`;
+    const urls: string[] = [];
+    for (const file of files) {
+      const path = `${folder}/${file.name}`;
+      const { error } = await supabase.storage
+        .from("project-briefs")
+        .upload(path, file);
+      if (error) {
+        console.error("Upload error:", error);
+        continue;
+      }
+      const { data: urlData } = supabase.storage
+        .from("project-briefs")
+        .getPublicUrl(path);
+      urls.push(`${file.name}: ${urlData.publicUrl}`);
+    }
+    return urls;
+  };
+
+  const [uploading, setUploading] = useState(false);
+  const { toast } = useToast();
+
+  const onSubmit = async (data: FormData) => {
+    setUploading(true);
+    let fileLinks: string[] = [];
+
+    if (files.length > 0) {
+      try {
+        fileLinks = await uploadFiles();
+      } catch (e) {
+        console.error("File upload failed:", e);
+        toast({ title: "File upload failed", description: "Brief will be sent without file links.", variant: "destructive" });
+      }
+    }
+
+    const fileSection = fileLinks.length > 0
+      ? fileLinks.join("\n")
+      : "No files attached";
+
     const msg = `📋 *NEW PROJECT BRIEF — Ravolution*
 
 👤 *About*
@@ -187,7 +226,7 @@ ${data.targetAudience || "—"}
 ${data.keyFeatures || "—"}
 
 📎 *Files*
-${fileNames || "No files attached"}
+${fileSection}
 
 💬 *Additional Notes*
 ${data.additionalNotes || "—"}`;
@@ -195,6 +234,7 @@ ${data.additionalNotes || "—"}`;
     const encoded = encodeURIComponent(msg);
     window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encoded}`, "_blank");
     setSubmitted(true);
+    setUploading(false);
   };
 
   const nextStep = () => {
