@@ -311,65 +311,67 @@ const ServicesPage = () => {
         </section>
 
         {/* ✅ Service detail sections — untouched */}
-        {services.map((service, index) => (
+        {services.map((service, index) => {
+          const isDark = index % 2 !== 0;
+          return (
           <section
             key={service.title}
-            className={`py-20 px-6 ${index % 2 === 0 ? "bg-background" : "bg-secondary"}`}
+            className={`py-20 px-6 ${isDark ? "bg-secondary" : "bg-background"}`}
           >
             <div className="max-w-6xl mx-auto">
               <div className="mb-10 max-w-4xl">
-                <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-5">
-                  <service.icon className="w-7 h-7 text-primary" />
+                <div className={`w-14 h-14 rounded-2xl ${isDark ? "bg-white/10" : "bg-primary/10"} flex items-center justify-center mb-5`}>
+                  <service.icon className={`w-7 h-7 ${isDark ? "text-accent-light" : "text-primary"}`} />
                 </div>
-                <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-3">{service.title}</h2>
-                <p className="text-lg text-primary font-medium mb-4">{service.tagline}</p>
-                <p className="text-muted-foreground text-base md:text-lg leading-relaxed">{service.description}</p>
+                <h2 className={`text-3xl md:text-4xl font-bold mb-3 ${isDark ? "text-white" : "text-foreground"}`}>{service.title}</h2>
+                <p className={`text-lg font-medium mb-4 ${isDark ? "text-accent-light" : "text-primary"}`}>{service.tagline}</p>
+                <p className={`text-base md:text-lg leading-relaxed ${isDark ? "text-white/75" : "text-muted-foreground"}`}>{service.description}</p>
               </div>
 
               <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-8 items-start">
                 <div className="space-y-6">
-                  <div className="card-elevated">
-                    <h3 className="text-xl font-bold text-foreground mb-4">{t("servicesPage.whatsIncluded")}</h3>
+                  <div className={isDark ? "rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm" : "card-elevated"}>
+                    <h3 className={`text-xl font-bold mb-4 ${isDark ? "text-white" : "text-foreground"}`}>{t("servicesPage.whatsIncluded")}</h3>
                     <ul className="space-y-3">
                       {service.deliverables.map((item) => (
-                        <li key={item} className="flex items-start gap-3 text-muted-foreground">
-                          <CheckCircle2 className="w-4 h-4 text-accent flex-shrink-0 mt-1" />
+                        <li key={item} className={`flex items-start gap-3 ${isDark ? "text-white/70" : "text-muted-foreground"}`}>
+                          <CheckCircle2 className={`w-4 h-4 flex-shrink-0 mt-1 ${isDark ? "text-accent-light" : "text-accent"}`} />
                           <span>{item}</span>
                         </li>
                       ))}
                     </ul>
                   </div>
 
-                  <div className="card-elevated">
-                    <h3 className="text-xl font-bold text-foreground mb-3">{t("servicesPage.whoFor")}</h3>
-                    <p className="text-muted-foreground">{service.whoFor}</p>
+                  <div className={isDark ? "rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm" : "card-elevated"}>
+                    <h3 className={`text-xl font-bold mb-3 ${isDark ? "text-white" : "text-foreground"}`}>{t("servicesPage.whoFor")}</h3>
+                    <p className={isDark ? "text-white/70" : "text-muted-foreground"}>{service.whoFor}</p>
                   </div>
                 </div>
 
                 <div className="space-y-6">
-                  <div className="card-elevated">
-                    <h3 className="text-xl font-bold text-foreground mb-4">{t("servicesPage.useCases")}</h3>
+                  <div className={isDark ? "rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm" : "card-elevated"}>
+                    <h3 className={`text-xl font-bold mb-4 ${isDark ? "text-white" : "text-foreground"}`}>{t("servicesPage.useCases")}</h3>
                     <div className="space-y-4">
                       {service.useCases.map((item, caseIndex) => (
-                        <div key={`${service.title}-${caseIndex}`} className="rounded-2xl border border-border bg-background p-5">
-                          <p className="text-sm text-foreground mb-2"><span className="font-semibold">{t("servicesPage.problem")}</span> {item.problem}</p>
-                          <p className="text-sm text-foreground mb-2"><span className="font-semibold">{t("servicesPage.approach")}</span> {item.approach}</p>
-                          <p className="text-sm text-foreground"><span className="font-semibold">{t("servicesPage.outcome")}</span> {item.outcome}</p>
+                        <div key={`${service.title}-${caseIndex}`} className={`rounded-2xl border p-5 ${isDark ? "border-white/10 bg-white/5" : "border-border bg-background"}`}>
+                          <p className={`text-sm mb-2 ${isDark ? "text-white/80" : "text-foreground"}`}><span className="font-semibold">{t("servicesPage.problem")}</span> {item.problem}</p>
+                          <p className={`text-sm mb-2 ${isDark ? "text-white/80" : "text-foreground"}`}><span className="font-semibold">{t("servicesPage.approach")}</span> {item.approach}</p>
+                          <p className={`text-sm ${isDark ? "text-white/80" : "text-foreground"}`}><span className="font-semibold">{t("servicesPage.outcome")}</span> {item.outcome}</p>
                         </div>
                       ))}
                     </div>
                   </div>
 
-                  <div className="card-elevated">
-                    <h3 className="text-xl font-bold text-foreground mb-4">{t("servicesPage.faq")}</h3>
+                  <div className={isDark ? "rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm" : "card-elevated"}>
+                    <h3 className={`text-xl font-bold mb-4 ${isDark ? "text-white" : "text-foreground"}`}>{t("servicesPage.faq")}</h3>
                     <div className="space-y-3">
                       {service.faqs.map((faq) => (
-                        <details key={faq.q} className="group rounded-2xl border border-border bg-background px-5 py-4">
-                          <summary className="cursor-pointer list-none font-semibold text-foreground flex items-center justify-between gap-3">
+                        <details key={faq.q} className={`group rounded-2xl border px-5 py-4 ${isDark ? "border-white/10 bg-white/5" : "border-border bg-background"}`}>
+                          <summary className={`cursor-pointer list-none font-semibold flex items-center justify-between gap-3 ${isDark ? "text-white" : "text-foreground"}`}>
                             <span>{faq.q}</span>
                             <ArrowRight className="w-4 h-4 shrink-0 transition-transform group-open:rotate-90" />
                           </summary>
-                          <p className="mt-3 text-sm text-muted-foreground">{faq.a}</p>
+                          <p className={`mt-3 text-sm ${isDark ? "text-white/70" : "text-muted-foreground"}`}>{faq.a}</p>
                         </details>
                       ))}
                     </div>
@@ -388,7 +390,8 @@ const ServicesPage = () => {
               )}
             </div>
           </section>
-        ))}
+          );
+        })}
 
         {/* 🆕 Section 4 — How We Work Timeline */}
         <HowWeWorkTimeline />
