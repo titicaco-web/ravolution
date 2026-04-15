@@ -1,18 +1,21 @@
 import { useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useLocation } from "react-router-dom";
 import { useLanguage, Language } from "@/i18n/LanguageContext";
 
 const validLangs: Language[] = ["en", "sv", "es"];
 
 const LanguageSync = ({ children }: { children: React.ReactNode }) => {
   const { lang } = useParams<{ lang: string }>();
+  const location = useLocation();
   const { language, setLanguage } = useLanguage();
 
   useEffect(() => {
-    if (lang && validLangs.includes(lang as Language) && lang !== language) {
-      setLanguage(lang as Language);
+    // Try :lang param first, then fall back to first path segment
+    const detectedLang = lang || location.pathname.split("/")[1];
+    if (detectedLang && validLangs.includes(detectedLang as Language) && detectedLang !== language) {
+      setLanguage(detectedLang as Language);
     }
-  }, [lang, language, setLanguage]);
+  }, [lang, location.pathname, language, setLanguage]);
 
   return <>{children}</>;
 };
