@@ -43,10 +43,10 @@ const CounterItem = ({ end, suffix = "", label }: CounterItemProps) => {
 
   return (
     <div ref={ref} className="flex flex-col items-center">
-      <span className="text-5xl md:text-6xl font-bold text-primary">
+      <span className="text-5xl md:text-6xl font-bold text-white">
         {count}{suffix}
       </span>
-      <span className="text-sm text-foreground/70 mt-2 font-medium">{label}</span>
+      <span className="text-sm text-white/60 mt-2 font-medium">{label}</span>
     </div>
   );
 };
