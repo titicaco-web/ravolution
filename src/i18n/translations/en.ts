@@ -378,7 +378,7 @@ export const en = {
     service1UC2Approach: "Automated trade platform with compliance workflows.",
     service1UC2Outcome: "3x faster order processing.",
     service1FAQ1Q: "How long does a typical platform build take?",
-    service1FAQ1A: "Discovery sprint takes 2-3 weeks. MVP delivery in 8-12 weeks depending on complexity.",
+    service1FAQ1A: "Discovery sprint takes 2-3 weeks. MVP delivery in 1-8 weeks depending on complexity.",
     service1FAQ2Q: "Do you build on specific frameworks?",
     service1FAQ2A:
       "We select the best stack for each project—React, Node.js, Python, cloud-native—based on requirements.",
@@ -1017,7 +1017,7 @@ export const en = {
     submitBrief: "Submit Your Brief",
     trust1: "48h response guarantee",
     trust2: "NDA on request",
-    trust3: "MVP in 8–12 weeks",
+    trust3: "MVP in 1–8 weeks",
     trust4: "Swedish venture studio",
     whatYouCanBuild: "What you can build with us",
     buildSaas: "SaaS Platforms",
