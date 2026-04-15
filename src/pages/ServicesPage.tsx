@@ -99,6 +99,7 @@ const ServicesPage = () => {
       platformType: "",
       budget: "",
       timeline: "",
+      country: language === "es" ? "Chile" : language === "sv" ? "Sverige" : "",
     },
   });
 
