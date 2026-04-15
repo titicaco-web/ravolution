@@ -432,7 +432,7 @@ const ServicesPage = () => {
                 </Link>
               </Button>
               <Button size="lg" className="bg-white text-primary font-semibold hover:bg-white/90" asChild>
-                <a href="mailto:ivan.daza@ravolution.se" target="_blank" rel="noopener noreferrer">
+                <a href="https://wa.me/46769456600" target="_blank" rel="noopener noreferrer">
                   {t("servicesPage.bottomCtaBook")}
                 </a>
               </Button>
