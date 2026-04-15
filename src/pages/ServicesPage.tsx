@@ -236,12 +236,12 @@ const ServicesPage = () => {
               {[
                 { name: "iApply™", desc: "Transparent recruiting platform", url: "https://iapply.se" },
                 { name: "CommunicaringSchool", desc: "UN-aligned global education", url: "https://communicaringschool.com" },
-                { name: "Rosetta Livingstone™", desc: "AI language learning (34x faster)", url: "https://rosettalivingstone.com" },
                 { name: "xPortMatch", desc: "B2B export-import connector", url: "https://xportmatch.com" },
-                { name: "NewsToast", desc: "Curated news digest platform", url: "https://newstoast.com" },
+                { name: "NewsToast", desc: "News & Language Learning Platform", url: "https://newstoast.com" },
                 { name: "CarbonX", desc: "Carbon offset marketplace", url: "https://carbonx.se" },
                 { name: "Autos Zofri", desc: "Vehicle marketplace & exports", url: "https://autos-zofri.com" },
                 { name: "Titicaco", desc: "Latin American e-commerce", url: "https://titicaco.com" },
+                { name: "Partysta", desc: "Event & party planning platform", url: "https://partysta.com" },
               ].map((project) => (
                 <a
                   key={project.name}
