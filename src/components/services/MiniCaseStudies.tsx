@@ -1,37 +1,40 @@
 import { Clock } from "lucide-react";
 import { ScrollAnimateWrapper } from "@/hooks/use-scroll-animation";
-
-const cases = [
-  {
-    clientType: "Nordic SaaS Startup",
-    challenge: "Fragmented recruitment process with zero IP protection. Competitors could replicate the matching algorithm.",
-    built: "Full multi-role recruitment platform with AI matching engine, admin dashboards, real-time transparency layer — plus 3 provisional patent filings.",
-    result: "Platform live in 10 weeks · 3 patents filed · 40% valuation increase",
-    time: "10 weeks",
-  },
-  {
-    clientType: "International Education Organization",
-    challenge: "Needed to benchmark students across national curricula and align with UN Sustainable Development Goals. No existing platform could handle the complexity.",
-    built: "Cross-national education platform with 9 patented technologies, role-based access for teachers/parents/students, and institutional-grade assessment engine.",
-    result: "9 patents · 116 claims · Multi-country pilot launched",
-    time: "6 months",
-  },
-  {
-    clientType: "B2B Trade Company, Nordics",
-    challenge: "Manual export-import documentation. Sales team spending 60% of time on compliance instead of selling.",
-    built: "AI-powered trade matching platform with automated compliance workflows, partner discovery across 150+ countries, and integrated messaging.",
-    result: "3× faster order processing · 150+ country coverage · Automated compliance",
-    time: "MVP in 8 weeks",
-  },
-];
+import { useLanguage } from "@/i18n/LanguageContext";
 
 const MiniCaseStudies = () => {
+  const { t } = useLanguage();
+
+  const cases = [
+    {
+      clientType: t("caseStudies.client1Type"),
+      challenge: t("caseStudies.client1Challenge"),
+      built: t("caseStudies.client1Built"),
+      result: t("caseStudies.client1Result"),
+      time: t("caseStudies.client1Time"),
+    },
+    {
+      clientType: t("caseStudies.client2Type"),
+      challenge: t("caseStudies.client2Challenge"),
+      built: t("caseStudies.client2Built"),
+      result: t("caseStudies.client2Result"),
+      time: t("caseStudies.client2Time"),
+    },
+    {
+      clientType: t("caseStudies.client3Type"),
+      challenge: t("caseStudies.client3Challenge"),
+      built: t("caseStudies.client3Built"),
+      result: t("caseStudies.client3Result"),
+      time: t("caseStudies.client3Time"),
+    },
+  ];
+
   return (
     <section className="py-20 px-6 bg-secondary">
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">What Our Builds Look Like</h2>
-          <p className="text-white/70 text-lg">Real problems. Real solutions. Measurable outcomes.</p>
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">{t("caseStudies.heading")}</h2>
+          <p className="text-white/70 text-lg">{t("caseStudies.subheading")}</p>
         </div>
         <div className="space-y-6">
           {cases.map((c, i) => (
@@ -40,11 +43,11 @@ const MiniCaseStudies = () => {
                 <span className="inline-block text-xs font-semibold tracking-widest uppercase text-primary mb-4">{c.clientType}</span>
                 <div className="space-y-4">
                   <div>
-                    <h4 className="text-sm font-semibold text-foreground mb-1">Challenge</h4>
+                    <h4 className="text-sm font-semibold text-foreground mb-1">{t("caseStudies.challengeLabel")}</h4>
                     <p className="text-sm text-muted-foreground">{c.challenge}</p>
                   </div>
                   <div>
-                    <h4 className="text-sm font-semibold text-foreground mb-1">What we built</h4>
+                    <h4 className="text-sm font-semibold text-foreground mb-1">{t("caseStudies.builtLabel")}</h4>
                     <p className="text-sm text-muted-foreground">{c.built}</p>
                   </div>
                   <div className="flex flex-wrap items-center justify-between gap-4 pt-2">

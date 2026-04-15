@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 interface CounterItemProps {
   end: number;
@@ -52,12 +53,14 @@ const CounterItem = ({ end, suffix = "", label }: CounterItemProps) => {
 };
 
 const CredentialCounter = () => {
+  const { t } = useLanguage();
+
   const stats = [
-    { end: 27, label: "Patents Filed" },
-    { end: 343, label: "Patent Claims" },
-    { end: 10, suffix: "+", label: "Platforms Built & Live" },
-    { end: 6, label: "Industries Covered" },
-    { end: 150, suffix: "+", label: "Countries Reached" },
+    { end: 27, label: t("credentials.patentsFiled") },
+    { end: 343, label: t("credentials.patentClaims") },
+    { end: 10, suffix: "+", label: t("credentials.platformsBuilt") },
+    { end: 6, label: t("credentials.industriesCovered") },
+    { end: 150, suffix: "+", label: t("credentials.countriesReached") },
   ];
 
   return (
