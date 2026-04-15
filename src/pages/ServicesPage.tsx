@@ -250,14 +250,6 @@ const ServicesPage = () => {
                   rel="noopener noreferrer"
                   className="card-elevated group hover:border-primary/30 transition-all text-center p-4"
                 >
-                  <div className="w-full aspect-video rounded-md mb-3 overflow-hidden bg-muted border border-border">
-                    <img
-                      src={`https://image.thum.io/get/width/400/crop/300/${project.url}`}
-                      alt={`${project.name} preview`}
-                      className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300"
-                      loading="lazy"
-                    />
-                  </div>
                   <h4 className="font-bold text-foreground text-sm mb-1 group-hover:text-primary transition-colors">{project.name}</h4>
                   <p className="text-xs text-muted-foreground mb-2">{project.desc}</p>
                   <ExternalLink className="w-3.5 h-3.5 text-muted-foreground group-hover:text-primary transition-colors mx-auto" />
