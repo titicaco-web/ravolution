@@ -5,7 +5,6 @@ import {
   Brain,
   Briefcase,
   CheckCircle2,
-  ExternalLink,
   Layers,
   Monitor,
   Palette,
@@ -21,18 +20,18 @@ import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { useLangPath } from "@/hooks/use-lang-path";
+import CredentialCounter from "@/components/services/CredentialCounter";
+import PlatformShowcase from "@/components/services/PlatformShowcase";
+import MiniCaseStudies from "@/components/services/MiniCaseStudies";
+import HowWeWorkTimeline from "@/components/services/HowWeWorkTimeline";
+import TechStackStrip from "@/components/services/TechStackStrip";
+import FounderBlock from "@/components/services/FounderBlock";
+import ExpandedFAQ from "@/components/services/ExpandedFAQ";
 
 const ServicesPage = () => {
   const { t } = useLanguage();
   const lp = useLangPath();
   const briefHref = lp("/brief");
-
-  const processSteps = [
-    { icon: Target, title: t("servicesPage.step1"), description: t("servicesPage.step1Desc") },
-    { icon: Zap, title: t("servicesPage.step2"), description: t("servicesPage.step2Desc") },
-    { icon: Users, title: t("servicesPage.step3"), description: t("servicesPage.step3Desc") },
-    { icon: Workflow, title: t("servicesPage.step4"), description: t("servicesPage.step4Desc") },
-  ];
 
   const engagementModels = [
     {
@@ -225,6 +224,7 @@ const ServicesPage = () => {
       <div className="min-h-screen bg-background">
         <Navbar />
 
+        {/* ✅ Hero — untouched */}
         <section className="pt-32 pb-20 px-6 bg-gradient-to-b from-primary to-primary-dark text-primary-foreground">
           <div className="max-w-4xl mx-auto text-center">
             <span className="inline-block text-sm font-semibold tracking-widest uppercase text-accent-light mb-4">
@@ -259,86 +259,16 @@ const ServicesPage = () => {
           </div>
         </section>
 
-        {/* Portfolio */}
-        <section className="py-16 px-6 bg-secondary">
-          <div className="max-w-5xl mx-auto text-center">
-            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">{t("intake.provenTitle")}</h2>
-            <div className="flex flex-wrap justify-center gap-6 text-sm text-muted-foreground mb-10">
-              <span>{t("intake.provenStat1")}</span>
-              <span>{t("intake.provenStat2")}</span>
-              <span>{t("intake.provenStat3")}</span>
-            </div>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-              {[
-                { name: "iApply™", key: "portfolioIapply", url: "https://iapply.se" },
-                { name: "CommunicaringSchool", key: "portfolioCommunicaring", url: "https://communicaringschool.com" },
-                { name: "xPortMatch", key: "portfolioXportmatch", url: "https://xportmatch.com" },
-                { name: "NewsToast", key: "portfolioNewstoast", url: "https://newstoast.com" },
-                { name: "CarbonX", key: "portfolioCarbonx", url: "https://carbonx.se" },
-                { name: "Autos Zofri", key: "portfolioAutoszofri", url: "https://autos-zofri.com" },
-                { name: "Titicaco", key: "portfolioTiticaco", url: "https://titicaco.com" },
-                { name: "Partysta", key: "portfolioPartysta", url: "https://partysta.com" },
-              ].map((project) => (
-                <a
-                  key={project.name}
-                  href={project.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="card-elevated group hover:border-primary/30 transition-all text-center p-4"
-                >
-                  <h4 className="font-bold text-foreground text-sm mb-1 group-hover:text-primary transition-colors">{project.name}</h4>
-                  <p className="text-xs text-muted-foreground mb-2">{t(`intake.${project.key}`)}</p>
-                  <ExternalLink className="w-3.5 h-3.5 text-muted-foreground group-hover:text-primary transition-colors mx-auto" />
-                </a>
-              ))}
-            </div>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link to={lp("/angel-investor")} className="text-sm text-accent hover:text-accent-light font-medium underline underline-offset-2 transition-colors">
-                {t("intake.equityLink")}
-              </Link>
-              <Link to={lp("/configure")} className="text-sm text-primary hover:text-primary/80 font-medium underline underline-offset-2 transition-colors">
-                {t("intake.configureLink")}
-              </Link>
-            </div>
-          </div>
-        </section>
+        {/* 🆕 Section 1 — Credential Counter */}
+        <CredentialCounter />
 
-        <section className="py-16 px-6 bg-background">
-          <div className="max-w-5xl mx-auto">
-            <h2 className="text-2xl md:text-3xl font-bold text-foreground text-center mb-10">
-              {t("servicesPage.howWeWork")}
-            </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {processSteps.map((step, index) => (
-                <div key={step.title} className="relative flex flex-col items-center text-center card-elevated">
-                  <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-4 relative">
-                    <step.icon className="w-6 h-6 text-primary" />
-                    <span className="absolute -top-1 -right-1 w-6 h-6 rounded-full bg-accent text-accent-foreground text-xs font-bold flex items-center justify-center">
-                      {index + 1}
-                    </span>
-                  </div>
-                  <h3 className="font-bold text-foreground mb-2">{step.title}</h3>
-                  <p className="text-sm text-muted-foreground">{step.description}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
+        {/* 🆕 Section 2 — Platform Showcase */}
+        <PlatformShowcase />
 
-        <section className="py-16 px-6 bg-background">
-          <div className="max-w-4xl mx-auto">
-            <div className="card-elevated text-center">
-              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">{t("intake.submitBrief")}</h2>
-              <p className="text-muted-foreground mb-6">{t("intake.briefSubtitle")}</p>
-              <Button size="lg" className="bg-primary hover:bg-primary/90" asChild>
-                <Link to={briefHref}>
-                  {t("intake.submitBrief")} <ArrowRight className="w-5 h-5 ml-2" />
-                </Link>
-              </Button>
-            </div>
-          </div>
-        </section>
+        {/* 🆕 Section 3 — Mini Case Studies */}
+        <MiniCaseStudies />
 
+        {/* ✅ Engagement Models — untouched */}
         <section className="py-16 px-6 bg-secondary">
           <div className="max-w-5xl mx-auto">
             <h2 className="text-2xl md:text-3xl font-bold text-foreground text-center mb-10">
@@ -361,6 +291,7 @@ const ServicesPage = () => {
           </div>
         </section>
 
+        {/* ✅ Service detail sections — untouched */}
         {services.map((service, index) => (
           <section
             key={service.title}
@@ -440,8 +371,34 @@ const ServicesPage = () => {
           </section>
         ))}
 
+        {/* 🆕 Section 4 — How We Work Timeline */}
+        <HowWeWorkTimeline />
 
+        {/* 🆕 Section 5 — Tech Stack Strip */}
+        <TechStackStrip />
 
+        {/* 🆕 Section 6 — Founder Authority */}
+        <FounderBlock />
+
+        {/* ✅ Submit Brief CTA — untouched */}
+        <section className="py-16 px-6 bg-background">
+          <div className="max-w-4xl mx-auto">
+            <div className="card-elevated text-center">
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">{t("intake.submitBrief")}</h2>
+              <p className="text-muted-foreground mb-6">{t("intake.briefSubtitle")}</p>
+              <Button size="lg" className="bg-primary hover:bg-primary/90" asChild>
+                <Link to={briefHref}>
+                  {t("intake.submitBrief")} <ArrowRight className="w-5 h-5 ml-2" />
+                </Link>
+              </Button>
+            </div>
+          </div>
+        </section>
+
+        {/* 🆕 Section 7 — Expanded FAQ */}
+        <ExpandedFAQ />
+
+        {/* ✅ Footer CTA — untouched */}
         <section className="py-20 px-6 bg-primary text-primary-foreground">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">{t("servicesPage.bottomCtaTitle")}</h2>
