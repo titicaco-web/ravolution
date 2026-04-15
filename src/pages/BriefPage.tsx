@@ -308,39 +308,8 @@ ${data.additionalNotes || "—"}`;
       <div className="min-h-screen">
         <Navbar />
 
-        {/* Hero - compact */}
-        <section className="pt-32 pb-8 px-6 bg-gradient-to-b from-primary to-primary-dark text-primary-foreground">
-          <div className="max-w-4xl mx-auto text-center">
-            <span className="inline-block text-sm font-semibold tracking-widest uppercase text-accent-light mb-4">{t("intake.badge")}</span>
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-              {t("intake.heroTitle")}
-            </h1>
-            <p className="text-base md:text-lg text-white/80 max-w-2xl mx-auto">
-              {t("intake.heroSubtitle")}
-            </p>
-          </div>
-        </section>
-
-        {/* What You Can Build */}
-        <section className="py-16 px-6 bg-secondary">
-          <div className="max-w-5xl mx-auto">
-            <h2 className="text-2xl md:text-3xl font-bold text-foreground text-center mb-10">{t("intake.whatYouCanBuild")}</h2>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              {buildTypes.map((item, i) => (
-                <div key={i} className="card-elevated group text-center p-5 hover:border-primary/30 transition-all">
-                  <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mx-auto mb-3 group-hover:bg-primary/20 transition-colors">
-                    <item.icon className="w-5 h-5 text-primary" />
-                  </div>
-                  <h3 className="font-bold text-foreground text-sm mb-1">{item.label}</h3>
-                  <p className="text-xs text-muted-foreground">{item.desc}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
         {/* Intake Form */}
-        <section ref={formRef} className="py-20 px-6 bg-background scroll-mt-8">
+        <section ref={formRef} className="pt-32 pb-20 px-6 bg-background">
           <div className="max-w-3xl mx-auto">
             <div className="text-center mb-10">
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-3">{t("intake.briefTitle")}</h2>
