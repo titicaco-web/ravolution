@@ -431,7 +431,7 @@ const ServicesPage = () => {
                   {t("intake.submitBrief")} <ArrowRight className="w-5 h-5 ml-2" />
                 </Link>
               </Button>
-              <Button size="lg" variant="outline" className="border-white/40 text-white hover:bg-white/10" asChild>
+              <Button size="lg" className="bg-white text-primary font-semibold hover:bg-white/90" asChild>
                 <a href="mailto:ivan.daza@ravolution.se" target="_blank" rel="noopener noreferrer">
                   {t("servicesPage.bottomCtaBook")}
                 </a>
