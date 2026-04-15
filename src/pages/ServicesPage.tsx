@@ -280,13 +280,13 @@ const ServicesPage = () => {
         <MiniCaseStudies />
 
         {/* ✅ Engagement Models — untouched */}
-        <section className="relative py-16 px-6 bg-secondary overflow-hidden">
+        <section className="relative py-16 px-6 overflow-hidden" style={{ backgroundColor: '#F7F5F0' }}>
           {/* Dot Pattern */}
           <div
-            className="absolute inset-0 opacity-[0.15] pointer-events-none"
+            className="absolute inset-0 pointer-events-none"
             style={{
-              backgroundImage: `radial-gradient(circle, hsl(var(--primary) / 0.3) 1px, transparent 1px)`,
-              backgroundSize: "20px 20px",
+              backgroundImage: `radial-gradient(circle, rgba(15,39,71,0.12) 1.2px, transparent 1.2px)`,
+              backgroundSize: "22px 22px",
             }}
           />
           <div className="relative max-w-5xl mx-auto">
@@ -295,7 +295,7 @@ const ServicesPage = () => {
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {engagementModels.map((model) => (
-                <div key={model.title} className="card-elevated text-center">
+                <div key={model.title} className="relative text-center rounded-2xl p-8 backdrop-blur-sm border border-white/40 shadow-lg" style={{ background: 'linear-gradient(135deg, rgba(200,215,235,0.6) 0%, rgba(180,200,225,0.4) 50%, rgba(160,185,215,0.3) 100%)' }}>
                   <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
                     <model.icon className="w-6 h-6 text-primary" />
                   </div>
