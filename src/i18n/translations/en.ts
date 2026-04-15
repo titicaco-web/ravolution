@@ -341,7 +341,7 @@ export const en = {
     fixedScopeTitle: "Fixed-Scope Sprint",
     fixedScopeDesc:
       "Defined deliverables, timeline, and budget. Ideal for MVPs, prototypes, and well-scoped modules.",
-    fixedScopeDuration: "4–12 weeks",
+    fixedScopeDuration: "1–12 weeks",
     buildPhaseTitle: "Build Phase",
     buildPhaseDesc:
       "Full platform development with milestones and iterative delivery. For complex, multi-module projects.",

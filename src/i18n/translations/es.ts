@@ -316,7 +316,7 @@ export const es = {
     seeAlso: "Ver también:",
     fixedScopeTitle: "Sprint de alcance fijo",
     fixedScopeDesc: "Entregables definidos, cronograma y presupuesto. Ideal para MVPs, prototipos y módulos bien delimitados.",
-    fixedScopeDuration: "4–12 semanas",
+    fixedScopeDuration: "1–12 semanas",
     buildPhaseTitle: "Fase de construcción",
     buildPhaseDesc: "Desarrollo completo de plataforma con hitos y entrega iterativa. Para proyectos complejos de múltiples módulos.",
     buildPhaseDuration: "3–9 meses",

@@ -316,7 +316,7 @@ export const sv = {
     seeAlso: "Se även:",
     fixedScopeTitle: "Fast omfattningssprint",
     fixedScopeDesc: "Definierade leverabler, tidslinje och budget. Perfekt för MVP:er, prototyper och avgränsade moduler.",
-    fixedScopeDuration: "4–12 veckor",
+    fixedScopeDuration: "1–12 veckor",
     buildPhaseTitle: "Byggfas",
     buildPhaseDesc: "Fullständig plattformsutveckling med milstolpar och iterativ leverans. För komplexa projekt med flera moduler.",
     buildPhaseDuration: "3–9 månader",
