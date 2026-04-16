@@ -15,6 +15,7 @@ import {
   ChevronDown, ChevronUp, Rocket, Lock
 } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import InvestorRelationsContact from "@/components/InvestorRelationsContact";
 
 const InvestPage = () => {
   const { t } = useLanguage();
@@ -223,6 +224,9 @@ const InvestPage = () => {
             </div>
           </section>
 
+          {/* Investor Relations Contact — Leon Barakat */}
+          <InvestorRelationsContact />
+
           {/* Use of Funds */}
           <section className="section-padding pt-0">
             <div className="max-w-5xl mx-auto">
@@ -313,6 +317,10 @@ const InvestPage = () => {
                       </Button>
                       <p className="text-sm text-muted-foreground">
                         {t("invest.orEmail")}{" "}
+                        <a href="mailto:leon.barakat@ravolution.se" className="text-accent hover:text-accent-light transition-colors">
+                          leon.barakat@ravolution.se
+                        </a>
+                        {" | "}
                         <a href="mailto:ivan.daza@ravolution.se" className="text-accent hover:text-accent-light transition-colors">
                           ivan.daza@ravolution.se
                         </a>
