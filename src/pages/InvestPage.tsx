@@ -317,6 +317,10 @@ const InvestPage = () => {
                       </Button>
                       <p className="text-sm text-muted-foreground">
                         {t("invest.orEmail")}{" "}
+                        <a href="mailto:leon.barakat@ravolution.se" className="text-accent hover:text-accent-light transition-colors">
+                          leon.barakat@ravolution.se
+                        </a>
+                        {" | "}
                         <a href="mailto:ivan.daza@ravolution.se" className="text-accent hover:text-accent-light transition-colors">
                           ivan.daza@ravolution.se
                         </a>
