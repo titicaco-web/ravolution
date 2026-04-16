@@ -674,12 +674,7 @@ ${data.additionalNotes || "—"}`;
               <Button size="lg" className="bg-gold hover:bg-gold-light text-gold-foreground" onClick={scrollToForm}>
                 {t("intake.submitBrief")} <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
-              <Button size="lg" variant="outline" className="border-white/30 text-white hover:bg-white/10" asChild>
-                <Link to={lp("/configure")}>
-                  {t("intake.configurePlatform")} <ArrowRight className="w-5 h-5 ml-2" />
-                </Link>
-              </Button>
-              <Button size="lg" variant="outline" className="border-white/30 text-white hover:bg-white/10" asChild>
+              <Button size="lg" className="bg-white text-primary font-semibold hover:bg-white/90" asChild>
                 <a href="mailto:ivan.daza@ravolution.se" target="_blank" rel="noopener noreferrer">
                   {t("intake.bookCall")}
                 </a>
