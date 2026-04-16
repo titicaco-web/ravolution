@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Languages, Globe, GraduationCap, ChevronDown, ChevronUp, CheckCircle, ExternalLink, FileSearch, Shirt, Newspaper } from "lucide-react";
+import { Languages, GraduationCap, ChevronDown, ChevronUp, CheckCircle, ExternalLink, FileSearch, Shirt, Newspaper, PartyPopper } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/i18n/LanguageContext";
 
@@ -7,7 +7,7 @@ const iconMap = {
   iapply: FileSearch,
   communicaring: GraduationCap,
   rosetta: Languages,
-  xportmatch: Globe,
+  partysta: PartyPopper,
   itsafitt: Shirt,
   newstoast: Newspaper,
 };
@@ -16,7 +16,7 @@ const portfolioMeta = [
   { id: "iapply", patents: 7, claims: 89, color: "primary", featured: true, externalLink: "https://iapply.se", title: "iApply™" },
   { id: "communicaring", patents: 9, claims: 116, color: "primary", featured: true, externalLink: "https://communicaringschool.com", title: "CommunicaringSchool™" },
   { id: "rosetta", patents: 4, claims: 52, color: "accent", externalLink: "https://rosettalivingstone.com", title: "Rosetta Livingstone™" },
-  { id: "xportmatch", patents: 2, claims: 28, color: "primary", externalLink: "https://xportmatch.com", title: "xPortMatch™" },
+  { id: "partysta", patents: 2, claims: 28, color: "primary", externalLink: "https://partysta.com", title: "Partysta™" },
   { id: "itsafitt", patents: 1, claims: 25, color: "accent", externalLink: "https://itsafitt.com", title: "It's a Fitt™" },
   { id: "newstoast", patents: 3, claims: 38, color: "gold", externalLink: "https://newstoast.com", title: "NewsToast™" },
 ];
