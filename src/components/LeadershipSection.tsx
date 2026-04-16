@@ -20,9 +20,9 @@ const LeadershipSection = () => {
           <p className="text-muted-foreground">{t("founder.leadershipSubtitle")}</p>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-6 items-stretch">
-          {/* Ivan — featured (spans 2 cols on desktop) */}
-          <Card className="lg:col-span-2 bg-card border-border hover:border-primary/40 transition-colors">
+        <div className="grid lg:grid-cols-2 gap-6 items-stretch">
+          {/* Ivan */}
+          <Card className="bg-card border-border hover:border-primary/40 transition-colors">
             <CardContent className="p-8">
               <div className="flex flex-col sm:flex-row gap-6 items-start">
                 <div className="shrink-0">
