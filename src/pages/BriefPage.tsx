@@ -631,9 +631,6 @@ ${data.additionalNotes || "—"}`;
               ))}
             </div>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link to={lp("/angel-investor")} className="text-sm text-accent hover:text-accent-light font-medium underline underline-offset-2 transition-colors">
-                {t("intake.equityLink")}
-              </Link>
               <Link to={lp("/configure")} className="text-sm text-primary hover:text-primary/80 font-medium underline underline-offset-2 transition-colors">
                 {t("intake.configureLink")}
               </Link>
