@@ -745,13 +745,13 @@ export const es = {
   invest: {
     metaTitle: "Invierte en Ravolution | Plataformas Deep Tech con IP protegida",
     metaDesc: "Oportunidad de inversión temprana en Ravolution—venture studio que construye plataformas patentadas e impulsadas por IA. Solicita el deck.",
-    heroBadge: "Oportunidad de inversión",
-    heroH1: "Resolviendo desafíos a escala civilizatoria con Deep Tech patentada y plataformas protegidas por IP",
-    heroSubhead: "Ravolution es un venture studio sueco que construye plataformas habilitadas por IA y sistemas patentables diseñados para escala, defensibilidad y adopción real.",
-    ctaDeck: "Solicitar Deck de Inversión",
+    heroBadge: "Pre-seed · Ronda abierta",
+    heroH1: "27 patentes. 10+ plataformas. Un solo studio.",
+    heroSubhead: "Ravolution posee la IP detrás de plataformas que definen categoría en reclutamiento, educación, idiomas y comercio global — sectores que suman más de $2 billones. Estamos levantando pre-seed para llevar dos plataformas protegidas por patentes de concepto validado a ingresos.",
+    ctaDeck: "Solicitar deck — NDA, 48h",
     ctaCall: "Reservar una llamada",
-    trustLine: "Compatible con NDA. Compartimos el deck en 24–48h.",
-    opportunityTitle: "La Oportunidad — Por qué ahora",
+    trustLine: "Deck compartido en 48 horas bajo NDA.",
+    opportunityTitle: "La Tesis — La IA está creando nuevos líderes de categoría, y Ravolution posee la IP para liderar en cuatro verticales",
     opp1: "La IA está transformando el software de 'herramientas' a 'sistemas operativos,' creando nuevos líderes de categoría.",
     opp2: "Los venture studios componen la ejecución reutilizando arquitectura de plataforma, playbooks y patrones go-to-market.",
     opp3: "La IP defendible aumenta la durabilidad en mercados de plataforma—las patentes se integran en decisiones de producto desde el día uno.",
@@ -763,7 +763,7 @@ export const es = {
       language: { title: "Aprendizaje de idiomas (Rosetta Livingstone™)", desc: "Adquisición de idiomas 34x más rápida mediante métodos de aprendizaje ambiental. Tecnología patentada que acelera la integración." },
       trade: { title: "Comercio sin fronteras (xPortMatch™)", desc: "Plataforma de matching B2B export-import impulsada por IA que conecta PYMEs nórdicas con mercados globales." }
     },
-    diffTitle: "Por qué Ravolution puede ganar",
+    diffTitle: "El Modelo — Un studio, infraestructura compartida, velocidad compuesta en cada plataforma que lanzamos",
     pillar: {
       execution: { title: "Ejecución de plataforma", desc: "Modelo de entrega repetible: discovery → build → lanzamiento → iteración. La arquitectura compound reduce riesgo y acelera el time-to-market." },
       ip: { title: "Defensibilidad IP", desc: "Estrategia de patentes integrada en decisiones de producto desde el inicio. 27 patentes y 343 reivindicaciones crean fosos competitivos duraderos." },

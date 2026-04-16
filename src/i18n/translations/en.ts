@@ -811,13 +811,13 @@ export const en = {
   invest: {
     metaTitle: "Invest in Ravolution | IP-Protected Deep Tech Platforms",
     metaDesc: "Early investment opportunity in Ravolution—venture studio building patented, AI-enabled platforms for civilization-scale challenges. Request the deck.",
-    heroBadge: "Investment Opportunity",
-    heroH1: "Solving Civilization-Scale Challenges with Patented Deep Tech & IP‑Protected Platforms",
-    heroSubhead: "Ravolution is a Swedish venture studio building AI-enabled platforms and patentable systems designed for scale, defensibility, and real-world adoption.",
-    ctaDeck: "Request Investor Deck",
+    heroBadge: "Pre-Seed · Open Round",
+    heroH1: "27 patents. 10+ platforms. One studio.",
+    heroSubhead: "Ravolution owns the IP behind category-defining platforms in recruitment, education, language, and global trade — sectors worth $2T+ combined. We're raising pre-seed to take two patent-protected platforms from validated concept to revenue.",
+    ctaDeck: "Request Deck — NDA-friendly, 48h",
     ctaCall: "Book a Call",
-    trustLine: "NDA-friendly. We share the deck within 24–48h.",
-    opportunityTitle: "The Opportunity — Why Now",
+    trustLine: "Deck shared within 48 hours under NDA.",
+    opportunityTitle: "The Thesis — AI is creating new category leaders, and Ravolution owns the IP to lead in four verticals",
     opp1: "AI is shifting software from 'tools' to 'operational systems,' creating new category leaders in every vertical.",
     opp2: "Venture studios compound execution by reusing platform architecture, playbooks, and go-to-market patterns across multiple ventures.",
     opp3: "Defensible IP increases durability in platform markets—patents are integrated into product decisions from day one, not as an afterthought.",
@@ -841,7 +841,7 @@ export const en = {
         desc: "AI-powered B2B export-import matching platform connecting Nordic SMEs with global markets. Operational with a 50-country partner network."
       }
     },
-    diffTitle: "Why Ravolution Can Win",
+    diffTitle: "The Model — One studio, shared infrastructure, compounding speed across every platform we launch",
     pillar: {
       execution: {
         title: "Platform Execution",
