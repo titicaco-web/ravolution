@@ -18,6 +18,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import InvestorRelationsContact from "@/components/InvestorRelationsContact";
 import InvestorTrustSection from "@/components/InvestorTrustSection";
 import InvestorLegalDisclaimer from "@/components/InvestorLegalDisclaimer";
+import InvestorPortfolioMarquee from "@/components/InvestorPortfolioMarquee";
 
 const InvestPage = () => {
   const { t } = useLanguage();
@@ -126,6 +127,9 @@ const InvestPage = () => {
           </div>
         </section>
 
+        {/* Slim rolling portfolio banner */}
+        <InvestorPortfolioMarquee />
+
         <div className="bg-dot-pattern">
 
           {/* The Opportunity */}
@@ -144,32 +148,6 @@ const InvestPage = () => {
                   ))}
                 </ul>
               </ScrollAnimateWrapper>
-            </div>
-          </section>
-
-          {/* Portfolio */}
-          <section className="section-padding pt-0">
-            <div className="max-w-5xl mx-auto">
-              <ScrollAnimateWrapper>
-                <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-10">
-                  {t("invest.portfolioTitle")}
-                </h2>
-              </ScrollAnimateWrapper>
-              <div className="grid md:grid-cols-2 gap-6">
-                {portfolioCards.map((card, i) => (
-                  <ScrollAnimateWrapper key={card.key} delay={i * 0.1}>
-                    <div className="card-elevated p-8 h-full">
-                      <card.icon className="w-8 h-8 text-accent mb-4" />
-                      <h3 className="text-xl font-display font-bold text-foreground mb-3">
-                        {t(`invest.portfolio.${card.key}.title`)}
-                      </h3>
-                      <p className="text-muted-foreground leading-relaxed">
-                        {t(`invest.portfolio.${card.key}.desc`)}
-                      </p>
-                    </div>
-                  </ScrollAnimateWrapper>
-                ))}
-              </div>
             </div>
           </section>
 
