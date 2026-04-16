@@ -79,13 +79,6 @@ const InvestorRelationsContact = () => {
               {t("invest.ir.clarifier")}
             </p>
             <div className="flex flex-col gap-2">
-              <a
-                href="mailto:leon.barakat@ravolution.se"
-                className="inline-flex items-center gap-2 text-sm text-foreground hover:text-accent transition-colors"
-              >
-                <Mail className="w-4 h-4" />
-                leon.barakat@ravolution.se
-              </a>
               {/* Replace with Leon's LinkedIn URL */}
               <a
                 href="#"
