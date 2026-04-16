@@ -831,8 +831,11 @@ export const es = {
       subjectDeck: "Solicitar deck de inversión",
       subjectCall: "Agendar una llamada",
       subjectCoInvest: "Consulta de co-inversión",
+      subjectFamilyOffice: "Introducción de family office",
+      subjectDueDiligence: "Solicitud de due diligence",
       subjectPartnership: "Conversación sobre alianza",
       subjectGeneral: "Pregunta general",
+      directTitle: "¿Prefieres contacto directo?",
       fieldMessage: "Cuéntanos sobre tu interés en Ravolution. Todas las consultas son confidenciales.",
       cta: "Enviar mensaje",
       sending: "Enviando...",
@@ -841,6 +844,58 @@ export const es = {
       sendAnother: "Enviar otro mensaje",
       errorMsg: "Algo salió mal. Escribe a Leon directamente a leon.barakat@ravolution.se",
       footerLine: "Contacta con Leon Barakat, Relaciones con Inversores — o escribe directamente: leon.barakat@ravolution.se | ivan.daza@ravolution.se"
+    },
+    trust: {
+      sectionTitle: "Diseñado para una due diligence institucional",
+      sectionSubtitle: "Ravolution está estructurada para el escrutinio institucional — desde la documentación de PI hasta el gobierno corporativo.",
+      cards: {
+        swedishAB: {
+          title: "AB sueca registrada",
+          desc: "Ravolution AB (Org.nr 556709-7547) es una sociedad limitada sueca plenamente registrada que opera bajo el derecho corporativo sueco, con plena transparencia ante Bolagsverket."
+        },
+        ipPortfolio: {
+          title: "27 patentes, 343 reivindicaciones",
+          desc: "Cartera de patentes completa documentada en 6 industrias, con reivindicaciones presentadas en jurisdicciones prioritarias. Estrategia de PI integrada desde el día uno. Registro disponible bajo NDA."
+        },
+        gdpr: {
+          title: "Arquitectura conforme al RGPD",
+          desc: "Todas las plataformas se construyen sobre infraestructura conforme al RGPD. Acuerdos de tratamiento de datos, políticas de privacidad y marcos de consentimiento estándar en cada producto."
+        },
+        financials: {
+          title: "Cuentas auditables",
+          desc: "Cuentas anuales presentadas ante Bolagsverket. Proyecciones financieras, burn rate y runway disponibles en el deck de inversores bajo NDA. Abierta a due diligence de terceros."
+        },
+        nda: {
+          title: "NDA antes de divulgar",
+          desc: "Firmamos NDAs antes de compartir el deck de inversores, datos financieros o documentación tecnológica propietaria. La confidencialidad es estándar, no una excepción."
+        },
+        multiJurisdiction: {
+          title: "Operaciones en UE y Suiza",
+          desc: "Operaciones activas y alianzas en Suecia, Suiza, Chile, España y MENA. Estructura corporativa diseñada para inversión transfronteriza y escalabilidad internacional."
+        }
+      }
+    },
+    family: {
+      sectionTitle: "Estructurada para family offices y socios institucionales",
+      sectionSubtitle: "Ya representes un single-family office, un multi-family office o un fondo institucional, hablamos tu idioma.",
+      p1: "Ravolution acoge el contacto de family offices, inversores institucionales e inversores cualificados de la UE y Suiza. Nuestras relaciones con inversores son gestionadas por Leon Barakat, con base en Suiza, quien coordina toda la due diligence, el acceso al deck y las conversaciones de alianza.",
+      p2: "Esta página se ofrece con fines informativos conforme a la normativa aplicable. Ravolution no posee licencia de servicios financieros y no ofrece instrumentos financieros según la Ley Suiza de Servicios Financieros (FinSA) ni la MiFID II de la UE. La inversión en Ravolution representa una participación accionarial directa en una AB sueca — sociedad anónima privada — sujeta al derecho corporativo y de valores sueco.",
+      p3Intro: "Los inversores cualificados y family offices que se relacionan con Ravolution reciben:",
+      bullet1: "Deck de inversores con proyecciones financieras, datos de tracción y pipeline de clientes — bajo NDA en 48 horas",
+      bullet2: "Resumen completo de la cartera de patentes con mapas de reivindicaciones por vertical",
+      bullet3: "Documentación de la estructura societaria y registro de accionistas",
+      bullet4: "Cap table y términos propuestos de inversión",
+      bullet5: "Acceso al equipo fundador para due diligence técnica y comercial",
+      bullet6: "Opción de observador del consejo o asiento en advisory board para inversores estratégicos"
+,
+      p4: "Actualmente estamos levantando una ronda pre-seed. Las estructuras habituales incluyen inversión directa en capital, instrumentos convertibles (SAFE o nota convertible) y alianzas estratégicas de co-desarrollo. El ticket mínimo y los términos se discuten directamente con nuestro equipo de relaciones con inversores."
+    },
+    legal: {
+      title: "Aviso importante",
+      p1: "Esta página se proporciona únicamente con fines informativos y no constituye una oferta de venta de valores, una solicitud de oferta de compra de valores ni asesoramiento financiero en ninguna jurisdicción. Ninguna autoridad reguladora ha revisado ni aprobado el contenido de esta página.",
+      p2: "La inversión en empresas en etapa temprana implica un riesgo significativo, incluida la posible pérdida total de la inversión. El desempeño pasado del equipo fundador o entidades afiliadas no garantiza resultados futuros. Los inversores potenciales deben realizar su propia due diligence y buscar asesoramiento legal, financiero y fiscal independiente antes de tomar cualquier decisión de inversión.",
+      p3: "Ravolution AB no presta servicios financieros según la Ley Suiza de Servicios Financieros (FinSA), la Ley Suiza de Instituciones Financieras (FinIA) ni la Directiva 2014/65/UE (MiFID II). Nada en esta página constituye un instrumento financiero, un esquema de inversión colectiva ni una oferta regulada.",
+      p4: "Ravolution AB está registrada en Suecia (Org.nr 556709-7547) y se rige por el derecho corporativo sueco. Cualquier relación de inversión se rige por las leyes de Suecia salvo acuerdo escrito en contrario."
     }
   },
   angel: {
