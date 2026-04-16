@@ -585,7 +585,7 @@ ${data.additionalNotes || "—"}`;
         {/* What Happens Next */}
         <section className="py-16 px-6 bg-secondary">
           <div className="max-w-5xl mx-auto">
-            <h2 className="text-2xl md:text-3xl font-bold text-foreground text-center mb-10">{t("intake.whatsNextTitle")}</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-white text-center mb-10">{t("intake.whatsNextTitle")}</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {[
                 { step: "1", title: t("intake.step1Title"), desc: t("intake.step1Desc") },
@@ -594,11 +594,11 @@ ${data.additionalNotes || "—"}`;
                 { step: "4", title: t("intake.step4Title"), desc: t("intake.step4Desc") },
               ].map((item, i) => (
                 <div key={i} className="relative flex flex-col items-center text-center p-6">
-                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
-                    <span className="text-lg font-bold text-primary">{item.step}</span>
+                  <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center mb-4">
+                    <span className="text-lg font-bold text-white">{item.step}</span>
                   </div>
-                  <h3 className="font-bold text-foreground mb-2">{item.title}</h3>
-                  <p className="text-sm text-muted-foreground">{item.desc}</p>
+                  <h3 className="font-bold text-white mb-2">{item.title}</h3>
+                  <p className="text-sm text-white/70">{item.desc}</p>
                   {i < 3 && <div className="hidden lg:block absolute top-10 -right-3 w-6 border-t-2 border-dashed border-primary/30" />}
                 </div>
               ))}
