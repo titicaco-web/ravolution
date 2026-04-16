@@ -166,6 +166,12 @@ const InvestorRelationsContact = () => {
                     <SelectItem value={t("invest.ir.subjectCoInvest") as string}>
                       {t("invest.ir.subjectCoInvest")}
                     </SelectItem>
+                    <SelectItem value={t("invest.ir.subjectFamilyOffice") as string}>
+                      {t("invest.ir.subjectFamilyOffice")}
+                    </SelectItem>
+                    <SelectItem value={t("invest.ir.subjectDueDiligence") as string}>
+                      {t("invest.ir.subjectDueDiligence")}
+                    </SelectItem>
                     <SelectItem value={t("invest.ir.subjectPartnership") as string}>
                       {t("invest.ir.subjectPartnership")}
                     </SelectItem>
@@ -202,6 +208,25 @@ const InvestorRelationsContact = () => {
               </form>
             )}
           </div>
+        </div>
+
+        {/* Prefer direct contact */}
+        <div className="mt-10 text-center text-sm text-muted-foreground">
+          <p className="font-medium text-foreground mb-1">{t("invest.ir.directTitle")}</p>
+          <p>
+            Leon Barakat —{" "}
+            <a href="mailto:leon.barakat@ravolution.se" className="text-accent hover:text-accent-light transition-colors">
+              leon.barakat@ravolution.se
+            </a>{" "}
+            — Switzerland
+          </p>
+          <p>
+            Ivan Daza —{" "}
+            <a href="mailto:ivan.daza@ravolution.se" className="text-accent hover:text-accent-light transition-colors">
+              ivan.daza@ravolution.se
+            </a>{" "}
+            — Stockholm, Sweden
+          </p>
         </div>
       </div>
     </section>

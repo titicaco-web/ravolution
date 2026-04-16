@@ -945,8 +945,11 @@ export const en = {
       subjectDeck: "Request Investor Deck",
       subjectCall: "Schedule a Call",
       subjectCoInvest: "Co-Investment Inquiry",
+      subjectFamilyOffice: "Family Office Introduction",
+      subjectDueDiligence: "Due Diligence Request",
       subjectPartnership: "Partnership Discussion",
       subjectGeneral: "General Question",
+      directTitle: "Prefer direct contact?",
       fieldMessage: "Tell us about your interest in Ravolution. All inquiries are treated confidentially.",
       cta: "Send Message",
       sending: "Sending...",
@@ -955,6 +958,57 @@ export const en = {
       sendAnother: "Send Another Message",
       errorMsg: "Something went wrong. Please email Leon directly at leon.barakat@ravolution.se",
       footerLine: "Contact Leon Barakat, Investor Relations — or email directly: leon.barakat@ravolution.se | ivan.daza@ravolution.se"
+    },
+    trust: {
+      sectionTitle: "Built for Investor-Grade Due Diligence",
+      sectionSubtitle: "Ravolution is structured for institutional scrutiny — from IP documentation to corporate governance.",
+      cards: {
+        swedishAB: {
+          title: "Registered Swedish AB",
+          desc: "Ravolution AB (Org.nr 556709-7547) is a fully registered Swedish limited company operating under Swedish corporate law, with full transparency in Bolagsverket."
+        },
+        ipPortfolio: {
+          title: "27 Patents, 343 Claims",
+          desc: "Full patent portfolio documented across 6 industries with claims filed in priority jurisdictions. IP strategy integrated from day one. Patent register available under NDA."
+        },
+        gdpr: {
+          title: "GDPR-Compliant Architecture",
+          desc: "All platforms built on GDPR-compliant infrastructure. Data processing agreements, privacy policies, and consent frameworks standard across every product."
+        },
+        financials: {
+          title: "Auditable Financials",
+          desc: "Annual accounts filed with Bolagsverket. Financial projections, burn rate, and runway data available in the investor deck under NDA. Open to third-party due diligence."
+        },
+        nda: {
+          title: "NDA Before Disclosure",
+          desc: "We sign NDAs before sharing the investor deck, financial details, or proprietary technology documentation. Confidentiality is standard, not an exception."
+        },
+        multiJurisdiction: {
+          title: "EU & Swiss Market Operations",
+          desc: "Active operations and partnerships in Sweden, Switzerland, Chile, Spain, and MENA. Corporate structure designed for cross-border investment and international scalability."
+        }
+      }
+    },
+    family: {
+      sectionTitle: "Structured for Family Offices & Institutional Partners",
+      sectionSubtitle: "Whether you represent a single-family office, multi-family office, or institutional fund — we speak your language.",
+      p1: "Ravolution welcomes engagement from family offices, institutional investors, and qualified investors across the EU and Switzerland. Our investor relations are managed through Leon Barakat, based in Switzerland, who coordinates all due diligence, deck access, and partnership discussions.",
+      p2: "This page is provided for informational purposes in accordance with applicable regulations. Ravolution does not hold a financial services licence and does not offer financial instruments as defined under the Swiss Financial Services Act (FinSA) or EU MiFID II. Investment in Ravolution represents a direct equity participation in a Swedish AB — a private company limited by shares — subject to Swedish corporate and securities law.",
+      p3Intro: "Qualified investors and family offices engaging with Ravolution receive:",
+      bullet1: "Investor deck with financial projections, traction data, and customer pipeline — shared under NDA within 48 hours",
+      bullet2: "Full patent portfolio summary with claim maps across all verticals",
+      bullet3: "Corporate structure documentation and shareholder registry",
+      bullet4: "Cap table and proposed investment terms",
+      bullet5: "Access to the founding team for technical and commercial due diligence",
+      bullet6: "Board observer or advisory board seat options for strategic investors",
+      p4: "We are currently raising a pre-seed round. Typical engagement structures include direct equity investment, convertible instruments (SAFE or convertible note), and strategic co-development partnerships. Minimum ticket size and terms are discussed directly with our investor relations team."
+    },
+    legal: {
+      title: "Important Notice",
+      p1: "This page is provided for informational purposes only and does not constitute an offer to sell securities, a solicitation of an offer to purchase securities, or financial advice in any jurisdiction. No regulatory authority has reviewed or approved the contents of this page.",
+      p2: "Investment in early-stage companies involves significant risk, including the possible loss of the entire investment. Past performance of the founding team or affiliated entities is not indicative of future results. Prospective investors should conduct their own due diligence and seek independent legal, financial, and tax advice before making any investment decision.",
+      p3: "Ravolution AB does not provide financial services as defined under the Swiss Financial Services Act (FinSA), the Swiss Financial Institutions Act (FinIA), or EU Directive 2014/65/EU (MiFID II). Nothing on this page constitutes a financial instrument, a collective investment scheme, or a regulated offer.",
+      p4: "Ravolution AB is registered in Sweden (Org.nr 556709-7547) and is subject to Swedish corporate law. Any investment relationship is governed by the laws of Sweden unless otherwise agreed in writing."
     }
   },
   angel: {
