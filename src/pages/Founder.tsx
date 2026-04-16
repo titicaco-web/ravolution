@@ -22,6 +22,7 @@ import {
 } from "lucide-react";
 import ivanPhoto from "@/assets/ivan-daza.jpg";
 import { useLanguage } from "@/i18n/LanguageContext";
+import LeadershipSection from "@/components/LeadershipSection";
 
 const founderSchema = {
   "@context": "https://schema.org",
@@ -353,6 +354,8 @@ const Founder = () => {
           </div>
         </div>
       </section>
+
+      <LeadershipSection />
 
       <Footer />
       </div>

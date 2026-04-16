@@ -15,6 +15,7 @@ import {
   ChevronDown, ChevronUp, Rocket, Lock
 } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import InvestorRelationsContact from "@/components/InvestorRelationsContact";
 
 const InvestPage = () => {
   const { t } = useLanguage();
