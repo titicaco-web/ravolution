@@ -129,7 +129,7 @@ const MarketplaceConcepts = () => {
             <Button className="bg-accent hover:bg-accent-light text-white">
               {t("concepts.exploreAcquisition")}
             </Button>
-            <Button variant="outline" className="border-white/30 hover:bg-white/10 text-primary">
+            <Button variant="outline" className="border-white/40 bg-transparent hover:bg-white/10 text-white hover:text-white">
               {t("concepts.downloadPortfolio")}
             </Button>
           </div>
