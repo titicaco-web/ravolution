@@ -746,7 +746,7 @@ export const es = {
     metaTitle: "Invierte en Ravolution | Plataformas Deep Tech con IP protegida",
     metaDesc: "Oportunidad de inversión temprana en Ravolution—venture studio que construye plataformas patentadas e impulsadas por IA. Solicita el deck.",
     heroBadge: "Pre-seed · Ronda abierta",
-    heroH1: "27 patentes. 10+ plataformas. Un solo studio.",
+    heroH1: "27 patentes. 343 reivindicaciones. 10+ plataformas. Un solo studio.",
     heroSubhead: "Ravolution posee la IP detrás de plataformas que definen categoría en reclutamiento, educación, idiomas y comercio global — sectores que suman más de $2 billones. Estamos levantando pre-seed para llevar dos plataformas protegidas por patentes de concepto validado a ingresos.",
     ctaDeck: "Solicitar deck — NDA, 48h",
     ctaCall: "Reservar una llamada",
