@@ -74,7 +74,10 @@ const InvestorRelationsContact = () => {
               <MapPin className="w-3.5 h-3.5" />
               🇨🇭 {t("invest.ir.location")}
             </div>
-            <p className="text-muted-foreground leading-relaxed mb-5">{t("invest.ir.bio")}</p>
+            <p className="text-muted-foreground leading-relaxed mb-3">{t("invest.ir.bio")}</p>
+            <p className="text-xs text-muted-foreground/70 italic leading-relaxed mb-5 border-l-2 border-border pl-3">
+              {t("invest.ir.clarifier")}
+            </p>
             <div className="flex flex-col gap-2">
               <a
                 href="mailto:leon.barakat@ravolution.se"
@@ -218,14 +221,14 @@ const InvestorRelationsContact = () => {
             <a href="mailto:leon.barakat@ravolution.se" className="text-accent hover:text-accent-light transition-colors">
               leon.barakat@ravolution.se
             </a>{" "}
-            — Switzerland
+            — Switzerland <span className="text-muted-foreground/70">(introductions & logistics)</span>
           </p>
           <p>
             Ivan Daza —{" "}
             <a href="mailto:ivan.daza@ravolution.se" className="text-accent hover:text-accent-light transition-colors">
               ivan.daza@ravolution.se
             </a>{" "}
-            — Stockholm, Sweden
+            — Stockholm, Sweden <span className="text-muted-foreground/70">(terms & commitments)</span>
           </p>
         </div>
       </div>
