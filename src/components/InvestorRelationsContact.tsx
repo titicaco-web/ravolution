@@ -166,6 +166,12 @@ const InvestorRelationsContact = () => {
                     <SelectItem value={t("invest.ir.subjectCoInvest") as string}>
                       {t("invest.ir.subjectCoInvest")}
                     </SelectItem>
+                    <SelectItem value={t("invest.ir.subjectFamilyOffice") as string}>
+                      {t("invest.ir.subjectFamilyOffice")}
+                    </SelectItem>
+                    <SelectItem value={t("invest.ir.subjectDueDiligence") as string}>
+                      {t("invest.ir.subjectDueDiligence")}
+                    </SelectItem>
                     <SelectItem value={t("invest.ir.subjectPartnership") as string}>
                       {t("invest.ir.subjectPartnership")}
                     </SelectItem>
