@@ -64,7 +64,7 @@ const Services = () => {
           <span className="inline-block text-sm font-semibold tracking-widest uppercase text-accent mb-4">
             {t("services.badge")}
           </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
             {t("services.title")} <span className="text-gradient-gold">{t("services.titleHighlight")}</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
