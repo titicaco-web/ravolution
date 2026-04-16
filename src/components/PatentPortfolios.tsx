@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Languages, Globe, GraduationCap, ChevronDown, ChevronUp, CheckCircle, ExternalLink, FileSearch, Shirt, Mic } from "lucide-react";
+import { Languages, Globe, GraduationCap, ChevronDown, ChevronUp, CheckCircle, ExternalLink, FileSearch, Shirt, Newspaper } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/i18n/LanguageContext";
 
@@ -9,7 +9,7 @@ const iconMap = {
   rosetta: Languages,
   xportmatch: Globe,
   itsafitt: Shirt,
-  voiceprotector: Mic,
+  newstoast: Newspaper,
 };
 
 const portfolioMeta = [
@@ -18,7 +18,7 @@ const portfolioMeta = [
   { id: "rosetta", patents: 4, claims: 52, color: "accent", externalLink: "https://rosettalivingstone.com", title: "Rosetta Livingstone™" },
   { id: "xportmatch", patents: 2, claims: 28, color: "primary", externalLink: "https://xportmatch.com", title: "xPortMatch™" },
   { id: "itsafitt", patents: 1, claims: 25, color: "accent", externalLink: "https://itsafitt.com", title: "It's a Fitt™" },
-  { id: "voiceprotector", patents: 3, claims: 38, color: "gold", externalLink: "https://voiceprotector.com", title: "VoiceProtector™" },
+  { id: "newstoast", patents: 3, claims: 38, color: "gold", externalLink: "https://newstoast.com", title: "NewsToast™" },
 ];
 
 const PatentPortfolios = () => {
