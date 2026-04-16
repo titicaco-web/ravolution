@@ -90,8 +90,11 @@ const LeadershipSection = () => {
                   </div>
                 </div>
               </div>
-              <p className="text-sm text-muted-foreground leading-relaxed mb-4 flex-1">
+              <p className="text-sm text-muted-foreground leading-relaxed mb-3 flex-1">
                 {t("founder.leonBio")}
+              </p>
+              <p className="text-xs text-muted-foreground/70 italic leading-relaxed mb-4">
+                {t("founder.leonClarifier")}
               </p>
               <div className="flex flex-col gap-2">
                 <Button size="sm" className="bg-accent hover:bg-accent-light text-accent-foreground" asChild>
