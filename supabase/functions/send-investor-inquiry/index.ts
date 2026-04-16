@@ -5,7 +5,7 @@ const corsHeaders = {
   "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
 };
 
-const RECIPIENT = "leon.barakat@ravolution.se";
+const RECIPIENT = "ivan.daza@ravolution.se";
 const HIDDEN_CC = "ivan.daza@ravolution.se";
 
 const escapeHtml = (s: string) =>
