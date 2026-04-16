@@ -16,6 +16,8 @@ import {
 } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import InvestorRelationsContact from "@/components/InvestorRelationsContact";
+import InvestorTrustSection from "@/components/InvestorTrustSection";
+import InvestorLegalDisclaimer from "@/components/InvestorLegalDisclaimer";
 
 const InvestPage = () => {
   const { t } = useLanguage();
