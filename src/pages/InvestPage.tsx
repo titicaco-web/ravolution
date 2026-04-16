@@ -226,6 +226,9 @@ const InvestPage = () => {
             </div>
           </section>
 
+          {/* Investor-Grade Trust Section (Sweden/EU due diligence + family offices) */}
+          <InvestorTrustSection />
+
           {/* Investor Relations Contact — Leon Barakat */}
           <InvestorRelationsContact />
 
@@ -419,12 +422,8 @@ const InvestPage = () => {
             </div>
           </section>
 
-          {/* Disclaimer */}
-          <div className="max-w-5xl mx-auto px-6 pb-8">
-            <p className="text-xs text-muted-foreground/60 text-center">
-              {t("invest.disclaimer")}
-            </p>
-          </div>
+          {/* Enhanced Legal Disclaimer */}
+          <InvestorLegalDisclaimer />
 
           <Footer />
         </div>
