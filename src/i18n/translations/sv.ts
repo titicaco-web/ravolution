@@ -502,14 +502,14 @@ export const sv = {
       markets: ["Modenäthandlare", "Lyxvarumärkesplattformar", "Social commerce-integrationer", "Marknadsplatsaggregatorer"],
       ownership: "Samägt med egyptiskt utvecklarteam.",
     },
-    voiceprotector: {
-      subtitle: "Företags deepfake-skydd",
-      valueProposition: "Anti-deepfake-detektion för företags- och telekomefterlevnad—skyddar organisationer mot röstbedrägeri och syntetiska mediahot",
-      marketPotential: "€12,9 miljarder global röstsäkerhetsmarknad",
-      patentCoverage: "Röstautentisering, deepfake-detektion, syntetisk mediaanalys, realtidsverifiering",
-      revenueModel: "SaaS-licensiering, per-gateway-prissättning, volymbaserat företag",
-      features: ["Realtids deepfake-detektion", "Röstautentiseringsverifiering", "Telekomefterlevnadsintegration", "Företagssäkerhetsdashboards", "Syntetisk mediaanalys", "Flerkanals skydd"],
-      markets: ["Företagssäkerhetsavdelningar", "Telekomoperatörer", "Finansinstitut", "Statliga myndigheter"],
+    newstoast: {
+      subtitle: "Mobil-först språkinlärning genom dagliga nyheter",
+      valueProposition: "Språkinlärning för invandrare och globala elever genom lokaliserat dagligt nyhetsinnehåll—vardaglig läsning blir uppslukande språkträning",
+      marketPotential: "$54,8 miljarder global språkinlärningsmarknad (16,6% CAGR)",
+      patentCoverage: "Adaptiv nyhetslokalisering, kontextuell ordförrådsextraktion, mobil-först inlärningsloopar",
+      revenueModel: "Freemium-abonnemang, premiumnivåer, B2B-integrationspartnerskap",
+      features: ["Dagligt lokaliserat nyhetsflöde", "Kontextuell ordförrådsinlärning", "Adaptiva svårighetsnivåer", "Mobil-först upplevelse", "Stöd för flera språk", "Invandrarfokuserat innehåll"],
+      markets: ["28M+ invandrare globalt", "Språkstudenter", "Integrationsprogram", "Utbildningsinstitutioner"],
     },
   },
   productItems: {

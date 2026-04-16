@@ -505,14 +505,14 @@ export const es = {
       markets: ["Minoristas de moda e-commerce", "Plataformas de marcas de lujo", "Integraciones de comercio social", "Agregadores de mercados"],
       ownership: "Copropiedad con equipo de desarrollo egipcio.",
     },
-    voiceprotector: {
-      subtitle: "Protección empresarial contra deepfakes",
-      valueProposition: "Detección anti-deepfake para cumplimiento empresarial y telecomunicaciones—protegiendo organizaciones contra fraude de voz y amenazas de medios sintéticos",
-      marketPotential: "€12.9B Mercado global de seguridad de voz",
-      patentCoverage: "Autenticación de voz, detección de deepfake, análisis de medios sintéticos, verificación en tiempo real",
-      revenueModel: "Licencias SaaS, precios por gateway, empresarial por volumen",
-      features: ["Detección de deepfake en tiempo real", "Verificación de autenticación de voz", "Integración de cumplimiento de telecomunicaciones", "Dashboards de seguridad empresarial", "Análisis de medios sintéticos", "Protección multicanal"],
-      markets: ["Departamentos de seguridad empresarial", "Operadores de telecomunicaciones", "Instituciones financieras", "Agencias gubernamentales"],
+    newstoast: {
+      subtitle: "Aprendizaje de idiomas móvil a través de noticias diarias",
+      valueProposition: "Adquisición de idiomas para inmigrantes y estudiantes globales mediante contenido de noticias diarias localizado—convirtiendo la lectura cotidiana en práctica inmersiva del idioma",
+      marketPotential: "$54.8B Mercado global de aprendizaje de idiomas (16.6% CAGR)",
+      patentCoverage: "Localización adaptativa de noticias, extracción contextual de vocabulario, bucles de aprendizaje móvil",
+      revenueModel: "Suscripciones freemium, niveles premium, alianzas de integración B2B",
+      features: ["Feed diario de noticias localizadas", "Aprendizaje contextual de vocabulario", "Niveles de dificultad adaptativos", "Experiencia móvil prioritaria", "Soporte multilingüe", "Contenido enfocado en inmigrantes"],
+      markets: ["28M+ inmigrantes globalmente", "Estudiantes de idiomas", "Programas de integración", "Instituciones educativas"],
     },
   },
   productItems: {
