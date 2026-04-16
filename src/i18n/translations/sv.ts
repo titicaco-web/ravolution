@@ -483,14 +483,14 @@ export const sv = {
       features: ["34 språk stöds", "Ambient inlärningsteknik", "Spektrografisk feedback", "Yrkeskalibrering"],
       markets: ["Statliga utbildningskontrakt", "Företags L&D", "Internationella skolor", "Immigrationsintegrationsprogram"],
     },
-    xportmatch: {
-      subtitle: "B2B export-import-intelligens",
-      valueProposition: "AI-matchning, 150+ länder, 180 500 SME-mål",
-      marketPotential: "€194 miljarder svensk exportmarknad",
-      patentCoverage: "Algoritmisk matchning, verifieringssystem, handelsintelligens",
-      revenueModel: "SaaS-abonnemang, datalicensiering, API-åtkomst",
-      features: ["AI-drivna matchningsalgoritmer", "Verifierad köpar-/leverantörsdatabas", "Realtids marknadsunderrättelser", "Handelsefterlevnadsautomatisering"],
-      markets: ["Svenska SME:er (180 500 mål)", "Internationella handelsbyråer", "Statliga exportprogram", "Handelsfinansieringsleverantörer"],
+    partysta: {
+      subtitle: "Global plattform för privat festplanering",
+      valueProposition: "Enad Canva-liknande festplanerare, leverantörsmarknadsplats, sociala minnen & betalningar—konsumentplattformen för 1,8 miljarder+ privata evenemang varje år",
+      marketPotential: "$6,4 miljarder festplaneringsmarknad 2026 → $22,6 miljarder till 2035 (15,1% CAGR)",
+      patentCoverage: "Integrerad planner-marknadsplats-social arkitektur, AI-match för leverantörer & gäster, beständigt 'Minnen'-lager",
+      revenueModel: "Freemium-abonnemang (PRO/HOST), 5% biljettavgift, 15% leverantörsprovision",
+      features: ["12-sektioners Canva-liknande festplanerare", "24+ leverantörskategorier i marknadsplats", "Flerkanals gästinbjudningar (E-post, SMS, WhatsApp, QR)", "Beständiga 'Minnen' sociala arkiv", "Stripe-driven biljettförsäljning & bidrag", "5-språks lansering (SV, EN, ES, FR, DE)"],
+      markets: ["1,8 miljarder+ privata festarrangörer globalt", "800M+ vuxna på 5 lanseringsspråk", "Lokaler, DJ:s, catering & fotografer", "B2B2C lokalpartnernätverk"],
     },
     itsafitt: {
       subtitle: "AI-video virtuell provningsteknik",

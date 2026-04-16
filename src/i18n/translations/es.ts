@@ -486,14 +486,14 @@ export const es = {
       features: ["34 idiomas soportados", "Tecnología de aprendizaje ambiental", "Retroalimentación espectrográfica", "Calibración vocacional"],
       markets: ["Contratos educativos gubernamentales", "L&D corporativo", "Escuelas internacionales", "Programas de integración de inmigrantes"],
     },
-    xportmatch: {
-      subtitle: "Inteligencia B2B de exportación-importación",
-      valueProposition: "Emparejamiento con IA, 150+ países, 180.500 PYMEs objetivo",
-      marketPotential: "€194B Mercado de exportación sueco",
-      patentCoverage: "Emparejamiento algorítmico, sistemas de verificación, inteligencia comercial",
-      revenueModel: "Suscripción SaaS, licencias de datos, acceso API",
-      features: ["Algoritmos de emparejamiento con IA", "Base de datos verificada de compradores/proveedores", "Inteligencia de mercado en tiempo real", "Automatización de cumplimiento comercial"],
-      markets: ["PYMEs suecas (180.500 objetivos)", "Agencias de comercio internacional", "Programas gubernamentales de exportación", "Proveedores de financiamiento comercial"],
+    partysta: {
+      subtitle: "Plataforma global de planificación de fiestas privadas",
+      valueProposition: "Planificador de fiestas estilo Canva unificado, marketplace de proveedores, memorias sociales y pagos—la plataforma de consumo para los 1.8B+ eventos privados que se celebran cada año",
+      marketPotential: "$6.4B Mercado de planificación de fiestas 2026 → $22.6B en 2035 (15.1% CAGR)",
+      patentCoverage: "Arquitectura integrada planner-marketplace-social, AI-match para proveedores e invitados, capa persistente 'Minnen'",
+      revenueModel: "Suscripciones freemium (PRO/HOST), 5% en venta de entradas, 15% comisión de proveedores",
+      features: ["Planificador de fiestas estilo Canva con 12 secciones", "Marketplace con 24+ categorías de proveedores", "Invitaciones multicanal (Email, SMS, WhatsApp, QR)", "Memorias sociales 'Minnen' persistentes", "Ticketing y contribuciones con Stripe", "Lanzamiento en 5 idiomas (SV, EN, ES, FR, DE)"],
+      markets: ["1.8B+ anfitriones de fiestas privadas globalmente", "800M+ adultos en los 5 idiomas de lanzamiento", "Locales, DJs, catering y fotógrafos", "Redes de partnership de locales B2B2C"],
     },
     itsafitt: {
       subtitle: "Tecnología de prueba virtual con video IA",

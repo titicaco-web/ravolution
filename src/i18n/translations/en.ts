@@ -589,23 +589,27 @@ export const en = {
         "Immigration integration programs",
       ],
     },
-    xportmatch: {
-      subtitle: "B2B Export-Import Intelligence",
-      valueProposition: "AI matching, 150+ countries, 180,500 SME targets",
-      marketPotential: "€194B Swedish export market",
-      patentCoverage: "Algorithmic matching, verification systems, trade intelligence",
-      revenueModel: "SaaS subscription, data licensing, API access",
+    partysta: {
+      subtitle: "Global Private Party Planning Platform",
+      valueProposition:
+        "Unified Canva-style party planner, vendor marketplace, social memories & payments—the consumer platform for the 1.8B+ private events held every year",
+      marketPotential: "$6.4B Party Planning Market 2026 → $22.6B by 2035 (15.1% CAGR)",
+      patentCoverage:
+        "Integrated planner-marketplace-social architecture, AI-match for vendors & guests, persistent 'Minnen' memory layer",
+      revenueModel: "Freemium subscriptions (PRO/HOST), 5% ticketing fee, 15% vendor commission",
       features: [
-        "AI-powered matching algorithms",
-        "Verified buyer/supplier database",
-        "Real-time market intelligence",
-        "Trade compliance automation",
+        "12-section Canva-style party planner",
+        "24+ vendor categories marketplace",
+        "Multi-channel guest invites (Email, SMS, WhatsApp, QR)",
+        "Persistent 'Minnen' social memories",
+        "Stripe-powered ticketing & contributions",
+        "5-language launch (SV, EN, ES, FR, DE)",
       ],
       markets: [
-        "Swedish SMEs (180,500 targets)",
-        "International trade agencies",
-        "Government export programs",
-        "Trade finance providers",
+        "1.8B+ private party hosts globally",
+        "800M+ adults across 5 launch languages",
+        "Venues, DJs, caterers & photographers",
+        "B2B2C venue partnership networks",
       ],
     },
     itsafitt: {
