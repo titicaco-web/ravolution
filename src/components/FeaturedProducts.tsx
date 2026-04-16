@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ExternalLink, TrendingUp, Users, Globe, Zap, BarChart3, FileSearch, Brain, Eye, Star, Languages, Radio, BookOpen, Newspaper, Smartphone, Target } from "lucide-react";
+import { ExternalLink, TrendingUp, Users, Globe, Shield, Zap, BarChart3, FileSearch, Brain, Eye, Star, Languages, Radio, BookOpen, Newspaper, Smartphone, Target } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
 
 const FeaturedProducts = () => {
