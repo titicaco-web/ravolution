@@ -272,7 +272,7 @@ ${data.additionalNotes || "—"}`;
     return (
       <>
         <Navbar />
-        <div className="min-h-screen flex items-center justify-center px-6 bg-background">
+        <div className="pt-32 pb-10 px-6 bg-background">
           <div className="max-w-lg mx-auto text-center">
             <div className="w-20 h-20 rounded-full bg-accent/20 flex items-center justify-center mx-auto mb-6">
               <CheckCircle2 className="w-10 h-10 text-accent" />
@@ -286,11 +286,15 @@ ${data.additionalNotes || "—"}`;
             <p className="text-muted-foreground mb-8">
               {t("intake.successResponse")} <span className="font-semibold text-foreground">{watch("email")}</span>.
             </p>
-            <Link to={lp("/")} className="btn-primary inline-flex items-center gap-2">
-              {t("intake.backToHome")} <ArrowRight className="w-4 h-4" />
-            </Link>
           </div>
         </div>
+        <DeliveryProcess variant="full" />
+        <div className="py-10 px-6 bg-background text-center">
+          <Link to={lp("/")} className="btn-primary inline-flex items-center gap-2">
+            {t("intake.backToHome")} <ArrowRight className="w-4 h-4" />
+          </Link>
+        </div>
+        <Footer />
       </>
     );
   }
