@@ -28,9 +28,9 @@ const MarketplaceConcepts = () => {
       <div className="max-w-7xl mx-auto">
         <div className="section-header">
           <div className="inline-flex items-center gap-2 bg-primary/10 text-primary rounded-full px-4 py-2 mb-4">
-            <span className="text-sm font-semibold">{t("concepts.badge")}</span>
+            <span className="text-sm font-semibold text-accent-light">{t("concepts.badge")}</span>
           </div>
-          <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">
+          <h2 className="text-3xl md:text-4xl font-display font-bold mb-4 text-destructive-foreground">
             {t("concepts.title")}
           </h2>
           <p className="text-lg text-muted-foreground">
@@ -129,7 +129,7 @@ const MarketplaceConcepts = () => {
             <Button className="bg-accent hover:bg-accent-light text-white">
               {t("concepts.exploreAcquisition")}
             </Button>
-            <Button variant="outline" className="border-white/30 text-white hover:bg-white/10">
+            <Button variant="outline" className="border-white/30 hover:bg-white/10 text-primary">
               {t("concepts.downloadPortfolio")}
             </Button>
           </div>

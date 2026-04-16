@@ -42,17 +42,17 @@ const FeaturedProducts = () => {
             <div className="p-6">
               <div className="grid grid-cols-2 gap-3 mb-6">
                 <div className="bg-secondary rounded-lg p-3">
-                  <div className="flex items-center gap-1.5 text-primary mb-1">
-                    <BarChart3 className="w-4 h-4" />
-                    <span className="text-xs font-medium">{t("products.marketTAM")}</span>
+                  <div className="flex items-center gap-1.5 text-accent mb-1">
+                    <BarChart3 className="w-4 h-4 text-accent" />
+                    <span className="text-xs font-medium text-accent">{t("products.marketTAM")}</span>
                   </div>
                   <div className="text-lg font-bold text-white">$924B</div>
                   <div className="text-xs text-white/70">{p("iapplyGlobalRecruiting")}</div>
                 </div>
                 <div className="bg-secondary rounded-lg p-3">
-                  <div className="flex items-center gap-1.5 text-primary mb-1">
-                    <TrendingUp className="w-4 h-4" />
-                    <span className="text-xs font-medium">{t("products.valuation")}</span>
+                  <div className="flex items-center gap-1.5 text-accent mb-1">
+                    <TrendingUp className="w-4 h-4 text-accent" />
+                    <span className="text-xs font-medium text-accent">{t("products.valuation")}</span>
                   </div>
                   <div className="text-lg font-bold text-white">$800M–1.5B</div>
                   <div className="text-xs text-white/70">{p("iapplyPreLaunch")}</div>
