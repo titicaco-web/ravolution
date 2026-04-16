@@ -124,7 +124,7 @@ const InvestorRelationsContact = () => {
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   required
                   maxLength={200}
-                  className="bg-secondary border-border"
+                  className="bg-secondary border-border text-foreground placeholder:text-muted-foreground/80"
                 />
                 <Input
                   type="email"
@@ -133,27 +133,27 @@ const InvestorRelationsContact = () => {
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   required
                   maxLength={320}
-                  className="bg-secondary border-border"
+                  className="bg-secondary border-border text-foreground placeholder:text-muted-foreground/80"
                 />
                 <Input
                   placeholder={t("invest.ir.fieldOrg") as string}
                   value={formData.organization}
                   onChange={(e) => setFormData({ ...formData, organization: e.target.value })}
                   maxLength={200}
-                  className="bg-secondary border-border"
+                  className="bg-secondary border-border text-foreground placeholder:text-muted-foreground/80"
                 />
                 <Input
                   placeholder={t("invest.ir.fieldRole") as string}
                   value={formData.role}
                   onChange={(e) => setFormData({ ...formData, role: e.target.value })}
                   maxLength={200}
-                  className="bg-secondary border-border"
+                  className="bg-secondary border-border text-foreground placeholder:text-muted-foreground/80"
                 />
                 <Select
                   value={formData.subject}
                   onValueChange={(v) => setFormData({ ...formData, subject: v })}
                 >
-                  <SelectTrigger className="bg-secondary border-border">
+                  <SelectTrigger className="bg-secondary border-border text-foreground placeholder:text-muted-foreground/80">
                     <SelectValue placeholder={t("invest.ir.fieldSubject") as string} />
                   </SelectTrigger>
                   <SelectContent>
@@ -187,7 +187,7 @@ const InvestorRelationsContact = () => {
                   rows={5}
                   required
                   maxLength={5000}
-                  className="bg-secondary border-border resize-none"
+                  className="bg-secondary border-border resize-none text-foreground placeholder:text-muted-foreground/80"
                 />
 
                 {hasError && (
