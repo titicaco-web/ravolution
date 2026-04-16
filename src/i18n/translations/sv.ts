@@ -742,13 +742,13 @@ export const sv = {
   invest: {
     metaTitle: "Investera i Ravolution | IP-skyddade Deep Tech-plattformar",
     metaDesc: "Tidig investeringsmöjlighet i Ravolution—venture studio som bygger patenterade, AI-drivna plattformar för civilisationsstora utmaningar. Begär investerardeck.",
-    heroBadge: "Investeringsmöjlighet",
-    heroH1: "Löser civilisationsstora utmaningar med patenterad Deep Tech & IP‑skyddade plattformar",
-    heroSubhead: "Ravolution är en svensk venture studio som bygger AI-drivna plattformar och patenterbara system designade för skalbarhet, försvarsbarhet och verklig adoption.",
-    ctaDeck: "Begär investerardeck",
+    heroBadge: "Pre-seed · Öppen runda",
+    heroH1: "27 patent. 10+ plattformar. En studio.",
+    heroSubhead: "Ravolution äger IP:n bakom kategoridefinierande plattformar inom rekrytering, utbildning, språk och global handel — sektorer värda 2 biljoner USD+ tillsammans. Vi reser pre-seed för att ta två patentskyddade plattformar från validerat koncept till intäkt.",
+    ctaDeck: "Begär deck — NDA-vänligt, 48h",
     ctaCall: "Boka ett samtal",
-    trustLine: "NDA-vänligt. Vi delar decket inom 24–48 timmar.",
-    opportunityTitle: "Möjligheten — Varför nu",
+    trustLine: "Deck delas inom 48 timmar under NDA.",
+    opportunityTitle: "Tesen — AI skapar nya kategoriseledare, och Ravolution äger IP:n för att leda i fyra vertikaler",
     opp1: "AI förändrar mjukvara från 'verktyg' till 'operativa system' och skapar nya kategoriseledare i varje vertikal.",
     opp2: "Venture studios kompounderar genomförande genom att återanvända plattformsarkitektur, handböcker och go-to-market-mönster.",
     opp3: "Försvarbar IP ökar hållbarheten i plattformsmarknader—patent integreras i produktbeslut från dag ett.",
@@ -760,7 +760,7 @@ export const sv = {
       language: { title: "Språkinlärning (Rosetta Livingstone™)", desc: "34x snabbare språkförståelse genom ambienta inlärningsmetoder. Patentskyddad teknik som accelererar integration." },
       trade: { title: "Gränslös handel (xPortMatch™)", desc: "AI-driven B2B export-import-matchningsplattform som kopplar nordiska SMF med globala marknader." }
     },
-    diffTitle: "Varför Ravolution kan vinna",
+    diffTitle: "Modellen — En studio, delad infrastruktur, kompounderad hastighet i varje plattform vi lanserar",
     pillar: {
       execution: { title: "Plattformsexekvering", desc: "Repeterbar leveransmodell: discovery → bygg → lansering → iterering. Venture studio-arkitekturen kompounderar lärande och infrastruktur." },
       ip: { title: "IP-försvarsbarhet", desc: "Patentstrategi integrerad i produktbeslut från start. 27 patent och 343 anspråk skapar hållbara konkurrensvallar." },
