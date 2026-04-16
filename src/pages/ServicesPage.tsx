@@ -27,6 +27,7 @@ import HowWeWorkTimeline from "@/components/services/HowWeWorkTimeline";
 import TechStackStrip from "@/components/services/TechStackStrip";
 import FounderBlock from "@/components/services/FounderBlock";
 import ExpandedFAQ from "@/components/services/ExpandedFAQ";
+import DeliveryProcess from "@/components/services/DeliveryProcess";
 
 const getServiceRouteSlug = (lang: string) => {
   switch (lang) {
@@ -587,6 +588,9 @@ const ServicesPage = () => {
 
         {/* 🆕 Section 5 — Tech Stack Strip */}
         <TechStackStrip />
+
+        {/* 🆕 Section 6 — Delivery Process Teaser */}
+        <DeliveryProcess variant="teaser" />
 
         {/* Cost + Comparison Section */}
         <section className="py-16 px-6 bg-background">
