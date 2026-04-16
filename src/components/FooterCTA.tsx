@@ -60,12 +60,12 @@ const FooterCTA = () => {
                 <h3 className="text-xl font-display font-bold text-foreground mb-6">{t("contact.formTitle")}</h3>
                 <form onSubmit={handleSubmit} className="space-y-5">
                   <div className="grid sm:grid-cols-2 gap-4">
-                    <Input placeholder={t("contact.formName")} value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} required className="bg-secondary border-border" />
-                    <Input type="email" placeholder={t("contact.formEmail")} value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} required className="bg-secondary border-border" />
+                    <Input placeholder={t("contact.formName")} value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} required className="bg-secondary border-white/20 text-white placeholder:text-white/70" />
+                    <Input type="email" placeholder={t("contact.formEmail")} value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} required className="bg-secondary border-white/20 text-white placeholder:text-white/70" />
                   </div>
-                  <Input placeholder={t("contact.formCompany")} value={formData.company} onChange={(e) => setFormData({ ...formData, company: e.target.value })} className="bg-secondary border-border" />
+                  <Input placeholder={t("contact.formCompany")} value={formData.company} onChange={(e) => setFormData({ ...formData, company: e.target.value })} className="bg-secondary border-white/20 text-white placeholder:text-white/70" />
                   <Select value={formData.type} onValueChange={(value) => setFormData({ ...formData, type: value })}>
-                    <SelectTrigger className="bg-secondary border-border"><SelectValue placeholder={t("contact.formType")} /></SelectTrigger>
+                    <SelectTrigger className="bg-secondary border-white/20 text-white [&>span]:text-white data-[placeholder]:text-white/70"><SelectValue placeholder={t("contact.formType")} /></SelectTrigger>
                     <SelectContent>
                       <SelectItem value="licensing">{t("contact.formTypeOptions.licensing")}</SelectItem>
                       <SelectItem value="investment">{t("contact.formTypeOptions.investment")}</SelectItem>
@@ -74,7 +74,7 @@ const FooterCTA = () => {
                       <SelectItem value="other">{t("contact.formTypeOptions.other")}</SelectItem>
                     </SelectContent>
                   </Select>
-                  <Textarea placeholder={t("contact.formMessage")} value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })} rows={4} className="bg-secondary border-border resize-none" />
+                  <Textarea placeholder={t("contact.formMessage")} value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })} rows={4} className="bg-secondary border-white/20 text-white placeholder:text-white/70 resize-none" />
                   <Button type="submit" className="w-full bg-accent hover:bg-accent-light"><Send className="mr-2 w-4 h-4" />{t("contact.formSubmit")}</Button>
                 </form>
               </>
