@@ -34,7 +34,7 @@ const InvestorPortfolioMarquee = () => {
       aria-label="Portfolio projects"
       className="relative border-y border-white/10 bg-primary/95 overflow-hidden"
     >
-      <div className="marquee-track flex gap-8 py-4 whitespace-nowrap">
+      <div className="marquee-track gap-8 py-4 whitespace-nowrap">
         {loop.map((item, i) => {
           const Icon = item.icon;
           const linkProps = item.external
@@ -45,7 +45,7 @@ const InvestorPortfolioMarquee = () => {
               key={`${item.name}-${i}`}
               href={item.href}
               {...linkProps}
-              className="group inline-flex items-center gap-2 text-sm font-medium text-white/85 hover:text-accent-light transition-colors shrink-0"
+              className="group inline-flex items-center gap-2 text-sm font-medium text-white/85 hover:text-accent-light transition-colors shrink-0 pr-8"
             >
               <Icon className="w-4 h-4 text-accent" />
               <span>{item.name}</span>
@@ -61,23 +61,6 @@ const InvestorPortfolioMarquee = () => {
       {/* edge fades */}
       <div className="pointer-events-none absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-primary to-transparent" />
       <div className="pointer-events-none absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-primary to-transparent" />
-
-      <style>{`
-        .marquee-track {
-          animation: marquee-scroll 120s linear infinite;
-          width: max-content;
-        }
-        .marquee-track:hover {
-          animation-play-state: paused;
-        }
-        @keyframes marquee-scroll {
-          from { transform: translateX(0); }
-          to { transform: translateX(-50%); }
-        }
-        @media (prefers-reduced-motion: reduce) {
-          .marquee-track { animation: none; }
-        }
-      `}</style>
     </section>
   );
 };
