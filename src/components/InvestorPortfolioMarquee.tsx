@@ -11,34 +11,54 @@ type Item = {
 
 const InvestorPortfolioMarquee = () => {
   const lp = useLangPath();
-  const scrollRef = useRef<HTMLDivElement>(null);
+  const trackRef = useRef<HTMLDivElement>(null);
+  const firstGroupRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const node = scrollRef.current;
-    if (!node) return;
+    const track = trackRef.current;
+    const firstGroup = firstGroupRef.current;
 
+    if (!track || !firstGroup) return;
+
+    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const speed = mediaQuery.matches ? 8 : 22;
     let frameId = 0;
     let lastTime = 0;
-    const speed = window.matchMedia("(prefers-reduced-motion: reduce)").matches ? 8 : 18;
+    let offset = 0;
+    let groupWidth = firstGroup.getBoundingClientRect().width;
+
+    const resizeObserver = new ResizeObserver(() => {
+      groupWidth = firstGroup.getBoundingClientRect().width;
+    });
+
+    resizeObserver.observe(firstGroup);
 
     const tick = (time: number) => {
+      if (!groupWidth) {
+        frameId = window.requestAnimationFrame(tick);
+        return;
+      }
+
       if (!lastTime) lastTime = time;
       const delta = time - lastTime;
       lastTime = time;
 
-      node.scrollLeft += (speed * delta) / 1000;
-      const loopWidth = node.scrollWidth / 2;
+      offset -= (speed * delta) / 1000;
 
-      if (node.scrollLeft >= loopWidth) {
-        node.scrollLeft -= loopWidth;
+      if (Math.abs(offset) >= groupWidth) {
+        offset += groupWidth;
       }
 
+      track.style.transform = `translate3d(${offset}px, 0, 0)`;
       frameId = window.requestAnimationFrame(tick);
     };
 
     frameId = window.requestAnimationFrame(tick);
 
-    return () => window.cancelAnimationFrame(frameId);
+    return () => {
+      resizeObserver.disconnect();
+      window.cancelAnimationFrame(frameId);
+    };
   }, []);
 
   const items: Item[] = [
@@ -56,37 +76,46 @@ const InvestorPortfolioMarquee = () => {
     { name: "NordicFreelance.se", icon: Briefcase, href: "https://nordicfreelance.se/", external: true },
   ];
 
-  const loop = [...items, ...items];
+  const renderGroup = (groupProps?: { ref?: React.Ref<HTMLDivElement>; ariaHidden?: boolean }) => (
+    <div
+      ref={groupProps?.ref}
+      aria-hidden={groupProps?.ariaHidden}
+      className="flex items-center gap-8 py-4 whitespace-nowrap pr-8"
+    >
+      {items.map((item) => {
+        const Icon = item.icon;
+        const linkProps = item.external
+          ? { target: "_blank", rel: "noopener noreferrer" }
+          : {};
+
+        return (
+          <a
+            key={`${groupProps?.ariaHidden ? "clone" : "main"}-${item.name}`}
+            href={item.href}
+            {...linkProps}
+            className="group inline-flex items-center gap-2 text-sm font-medium text-white/85 hover:text-accent-light transition-colors shrink-0"
+          >
+            <Icon className="w-4 h-4 text-accent" />
+            <span>{item.name}</span>
+            {item.external && (
+              <ExternalLink className="w-3 h-3 text-white/40 group-hover:text-accent-light transition-colors" />
+            )}
+            <span className="text-white/20 ml-6" aria-hidden="true">•</span>
+          </a>
+        );
+      })}
+    </div>
+  );
 
   return (
     <section
       aria-label="Portfolio projects"
       className="relative border-y border-white/10 bg-primary/95 overflow-hidden"
     >
-      <div ref={scrollRef} className="overflow-hidden">
-        <div className="flex w-max items-center gap-8 py-4 whitespace-nowrap">
-          {loop.map((item, i) => {
-            const Icon = item.icon;
-            const linkProps = item.external
-              ? { target: "_blank", rel: "noopener noreferrer" }
-              : {};
-
-            return (
-              <a
-                key={`${item.name}-${i}`}
-                href={item.href}
-                {...linkProps}
-                className="group inline-flex items-center gap-2 text-sm font-medium text-white/85 hover:text-accent-light transition-colors shrink-0 pr-8"
-              >
-                <Icon className="w-4 h-4 text-accent" />
-                <span>{item.name}</span>
-                {item.external && (
-                  <ExternalLink className="w-3 h-3 text-white/40 group-hover:text-accent-light transition-colors" />
-                )}
-                <span className="text-white/20 ml-6" aria-hidden="true">•</span>
-              </a>
-            );
-          })}
+      <div className="overflow-hidden">
+        <div ref={trackRef} className="flex w-max items-center will-change-transform">
+          {renderGroup({ ref: firstGroupRef })}
+          {renderGroup({ ariaHidden: true })}
         </div>
       </div>
 
