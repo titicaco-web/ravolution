@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ExternalLink, TrendingUp, Users, Globe, Shield, Zap, BarChart3, FileSearch, Brain, Eye, Star, Languages, Mic, Radio, BookOpen } from "lucide-react";
+import { ExternalLink, TrendingUp, Users, Globe, Shield, Zap, BarChart3, FileSearch, Brain, Eye, Star, Languages, Radio, BookOpen, Newspaper, Smartphone, Target } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
 
 const FeaturedProducts = () => {
@@ -273,15 +273,15 @@ const FeaturedProducts = () => {
             </div>
           </div>
 
-          {/* VoiceProtector */}
+          {/* NewsToast */}
           <div className="bg-card rounded-2xl border border-border shadow-card overflow-hidden transition-all duration-300 hover:shadow-elevated hover:-translate-y-1 hover:border-gold/40">
             <div className="bg-gradient-to-br from-gold/10 to-gold/5 p-6 flex items-center justify-center">
               <div className="text-center">
                 <div className="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-gold text-gold-foreground mb-4">
-                  <Shield className="w-7 h-7" />
+                  <Newspaper className="w-7 h-7" />
                 </div>
-                <h3 className="text-xl font-display font-bold text-foreground mb-1">VoiceProtector.com</h3>
-                <p className="text-sm text-muted-foreground">{p("voiceprotectorSubtitle")}</p>
+                <h3 className="text-xl font-display font-bold text-foreground mb-1">NewsToast.com</h3>
+                <p className="text-sm text-muted-foreground">{p("newstoastSubtitle")}</p>
               </div>
             </div>
 
@@ -292,61 +292,61 @@ const FeaturedProducts = () => {
                     <BarChart3 className="w-4 h-4" />
                     <span className="text-xs font-medium">{t("products.marketTAM")}</span>
                   </div>
-                  <div className="text-lg font-bold text-white">€12.9B</div>
-                  <div className="text-xs text-white/70">{p("voiceprotectorGlobalSecurity")}</div>
+                  <div className="text-lg font-bold text-white">$54.8B</div>
+                  <div className="text-xs text-white/70">{p("newstoastMarket")}</div>
                 </div>
                 <div className="bg-secondary rounded-lg p-3">
                   <div className="flex items-center gap-1.5 text-gold mb-1">
                     <TrendingUp className="w-4 h-4" />
-                    <span className="text-xs font-medium">{t("products.arrProjection")}</span>
+                    <span className="text-xs font-medium">{t("products.cagr")}</span>
                   </div>
-                  <div className="text-lg font-bold text-white">€323M+</div>
-                  <div className="text-xs text-white/70">{p("voiceprotector5Year")}</div>
+                  <div className="text-lg font-bold text-white">16.6%</div>
+                  <div className="text-xs text-white/70">{p("newstoastGrowth")}</div>
                 </div>
                 <div className="bg-secondary rounded-lg p-3">
                   <div className="flex items-center gap-1.5 text-accent mb-1">
-                    <Zap className="w-4 h-4" />
-                    <span className="text-xs font-medium">{t("products.detectionSpeed")}</span>
+                    <Target className="w-4 h-4" />
+                    <span className="text-xs font-medium">{t("products.targetUsers")}</span>
                   </div>
-                  <div className="text-lg font-bold text-white">&lt;100ms</div>
-                  <div className="text-xs text-white/70">{p("voiceprotectorLatency")}</div>
+                  <div className="text-lg font-bold text-white">28M+</div>
+                  <div className="text-xs text-white/70">{p("newstoastImmigrants")}</div>
                 </div>
                 <div className="bg-secondary rounded-lg p-3">
                   <div className="flex items-center gap-1.5 text-accent mb-1">
-                    <Shield className="w-4 h-4" />
-                    <span className="text-xs font-medium">{t("products.compliance")}</span>
+                    <Smartphone className="w-4 h-4" />
+                    <span className="text-xs font-medium">{t("products.platform")}</span>
                   </div>
-                  <div className="text-lg font-bold text-white">SOC 2</div>
-                  <div className="text-xs text-white/70">{p("voiceprotectorGdpr")}</div>
+                  <div className="text-lg font-bold text-white">{p("newstoastMobileFirst")}</div>
+                  <div className="text-xs text-white/70">{p("newstoastConsumer")}</div>
                 </div>
               </div>
 
               <h4 className="font-semibold text-foreground text-sm mb-2">{t("products.coreCapabilities")}</h4>
               <ul className="space-y-1.5 mb-5 text-muted-foreground text-sm">
                 <li className="flex items-center gap-2">
-                  <Shield className="w-3.5 h-3.5 text-gold" />
-                  {p("voiceprotectorFeature1")}
+                  <Newspaper className="w-3.5 h-3.5 text-gold" />
+                  {p("newstoastFeature1")}
                 </li>
                 <li className="flex items-center gap-2">
-                  <Shield className="w-3.5 h-3.5 text-gold" />
-                  {p("voiceprotectorFeature2")}
+                  <Languages className="w-3.5 h-3.5 text-gold" />
+                  {p("newstoastFeature2")}
                 </li>
                 <li className="flex items-center gap-2">
-                  <Shield className="w-3.5 h-3.5 text-gold" />
-                  {p("voiceprotectorFeature3")}
+                  <Users className="w-3.5 h-3.5 text-gold" />
+                  {p("newstoastFeature3")}
                 </li>
               </ul>
 
               <div className="flex gap-2">
                 <Button size="sm" className="bg-gold hover:bg-gold-light text-gold-foreground" asChild>
-                  <a href="https://voiceprotector.com" target="_blank" rel="noopener noreferrer">
-                    {t("products.visitVoiceProtector")}
+                  <a href="https://newstoast.com" target="_blank" rel="noopener noreferrer">
+                    {t("products.visitNewsToast")}
                     <ExternalLink className="ml-1.5 w-3.5 h-3.5" />
                   </a>
                 </Button>
                 <Button size="sm" variant="outline" asChild>
                   <a href="mailto:ivan.daza@ravolution.se" target="_blank" rel="noopener noreferrer">
-                    {t("products.securityAudit")}
+                    {t("products.investorInquiry")}
                   </a>
                 </Button>
               </div>
