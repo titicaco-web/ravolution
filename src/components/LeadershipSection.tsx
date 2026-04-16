@@ -103,12 +103,6 @@ const LeadershipSection = () => {
                     <ArrowRight className="ml-1 w-4 h-4" />
                   </a>
                 </Button>
-                <Button size="sm" variant="outline" asChild>
-                  <a href="mailto:leon.barakat@ravolution.se">
-                    <Mail className="w-4 h-4 mr-1" />
-                    leon.barakat@ravolution.se
-                  </a>
-                </Button>
               </div>
             </CardContent>
           </Card>
