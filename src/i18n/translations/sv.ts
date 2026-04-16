@@ -290,6 +290,16 @@ export const sv = {
     portfolio2Desc: "Röstbiometri och anti-deepfake-autentiseringsteknik",
     portfolio3Desc: "B2B export/import-anslutningsplattform",
     portfolio4Desc: "Global utbildningsplattform anpassad till FN:s barnkonvention",
+    leadershipTitle: "Ledning",
+    leadershipSubtitle: "Teamet bakom Ravolutions verksamheter.",
+    ivanCardTitle: "Grundare & VD",
+    ivanCardLocation: "Stockholm, Sverige",
+    ivanCardBio: "Serieuppfinnare med 27 patent och 343 anspråk. 30+ års byggande av patenterade plattformar inom utbildning, rekrytering, AI och handel.",
+    leonName: "Leon Barakat",
+    leonTitle: "Investor Relations Manager",
+    leonLocation: "Schweiz",
+    leonBio: "Hanterar relationer med family offices och institutionella investerare i EU och Schweiz. Din direkta kanal till Ravolutions investeringsmöjligheter.",
+    leonCta: "Skicka meddelande",
   },
   servicesPage: {
     // SEO meta

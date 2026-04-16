@@ -290,6 +290,16 @@ export const es = {
     portfolio2Desc: "Biometría de voz y tecnología de autenticación anti-deepfake",
     portfolio3Desc: "Plataforma conectora B2B de exportación/importación",
     portfolio4Desc: "Plataforma educativa global alineada con la Convención de la ONU sobre los Derechos del Niño",
+    leadershipTitle: "Liderazgo",
+    leadershipSubtitle: "El equipo detrás de los emprendimientos de Ravolution.",
+    ivanCardTitle: "Fundador & CEO",
+    ivanCardLocation: "Estocolmo, Suecia",
+    ivanCardBio: "Inventor tecnológico en serie con 27 patentes y 343 reivindicaciones. Más de 30 años construyendo plataformas patentadas en educación, reclutamiento, IA y comercio.",
+    leonName: "Leon Barakat",
+    leonTitle: "Investor Relations Manager",
+    leonLocation: "Suiza",
+    leonBio: "Gestiona relaciones con family offices e inversores institucionales en la UE y Suiza. Tu línea directa con las oportunidades de inversión de Ravolution.",
+    leonCta: "Enviar mensaje",
   },
   servicesPage: {
     // SEO meta
