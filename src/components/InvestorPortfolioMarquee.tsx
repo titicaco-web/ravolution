@@ -64,7 +64,7 @@ const InvestorPortfolioMarquee = () => {
 
       <style>{`
         .marquee-track {
-          animation: marquee-scroll 45s linear infinite;
+          animation: marquee-scroll 120s linear infinite;
           width: max-content;
         }
         .marquee-track:hover {
