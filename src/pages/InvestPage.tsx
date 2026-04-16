@@ -224,6 +224,9 @@ const InvestPage = () => {
             </div>
           </section>
 
+          {/* Investor Relations Contact — Leon Barakat */}
+          <InvestorRelationsContact />
+
           {/* Use of Funds */}
           <section className="section-padding pt-0">
             <div className="max-w-5xl mx-auto">
