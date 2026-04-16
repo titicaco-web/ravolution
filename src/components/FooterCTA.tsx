@@ -24,27 +24,27 @@ const FooterCTA = () => {
       <div className="max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-12">
           <div>
-            <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-6">{t("contact.title")}</h2>
-            <p className="text-lg text-muted-foreground mb-8">{t("contact.description")}</p>
+            <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-6">{t("contact.title")}</h2>
+            <p className="text-lg text-white/80 mb-8">{t("contact.description")}</p>
             <div className="space-y-6 mb-8">
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0"><Mail className="w-5 h-5 text-primary" /></div>
-                <div><h4 className="font-semibold text-foreground">{t("contact.email")}</h4><a href="mailto:ivan.daza@ravolution.se" className="text-muted-foreground hover:text-primary transition-colors">ivan.daza@ravolution.se</a></div>
+                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0"><Mail className="w-5 h-5 text-accent" /></div>
+                <div><h4 className="font-semibold text-white">{t("contact.email")}</h4><a href="mailto:ivan.daza@ravolution.se" className="text-white/75 hover:text-accent-light transition-colors">ivan.daza@ravolution.se</a></div>
               </div>
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center flex-shrink-0"><Phone className="w-5 h-5 text-accent" /></div>
-                <div><h4 className="font-semibold text-foreground">{t("contact.phone")}</h4><a href="tel:+46769456600" className="text-muted-foreground hover:text-accent transition-colors">+46 76 945 66 00</a></div>
+                <div><h4 className="font-semibold text-white">{t("contact.phone")}</h4><a href="tel:+46769456600" className="text-white/75 hover:text-accent-light transition-colors">+46 76 945 66 00</a></div>
               </div>
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center flex-shrink-0"><MapPin className="w-5 h-5 text-gold" /></div>
-                <div><h4 className="font-semibold text-foreground">{t("contact.location")}</h4><p className="text-muted-foreground">Kungsgatan 9, 111 43 Stockholm, Sweden</p></div>
+                <div><h4 className="font-semibold text-white">{t("contact.location")}</h4><p className="text-white/75">Kungsgatan 9, 111 43 Stockholm, Sweden</p></div>
               </div>
             </div>
             <div className="space-y-3">
-              <Button className="w-full sm:w-auto bg-primary hover:bg-primary-light" asChild>
+              <Button className="w-full sm:w-auto bg-accent hover:bg-accent-light text-white" asChild>
                 <a href="mailto:ivan.daza@ravolution.se" target="_blank" rel="noopener noreferrer"><Calendar className="mr-2 w-4 h-4" />{t("contact.scheduleLicensing")}</a>
               </Button>
-              <Button variant="outline" className="w-full sm:w-auto ml-0 sm:ml-3"><FileText className="mr-2 w-4 h-4" />{t("contact.downloadOverview")}</Button>
+              <Button variant="outline" className="w-full sm:w-auto ml-0 sm:ml-3 border-white/30 bg-transparent text-white hover:bg-white/10 hover:text-white"><FileText className="mr-2 w-4 h-4" />{t("contact.downloadOverview")}</Button>
             </div>
           </div>
           <div className="bg-card rounded-2xl border border-border p-8 shadow-card">
