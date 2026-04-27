@@ -488,6 +488,33 @@
   padding-right: clamp(24px, 5vw, 80px);
 }
 
+/* Subtle 4×4px white grid pattern for dark/blue background surfaces.
+   Apply via the .edit-grid utility, or it auto-applies to .edit-section
+   and any element using the --bg / --surface dark tokens. */
+.edit-grid,
+.edit-section {
+  position: relative;
+}
+.edit-grid::before,
+.edit-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 4px 4px;
+  opacity: 0.6;
+  mask-image: linear-gradient(to bottom, rgba(0,0,0,0.9), rgba(0,0,0,0.4));
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0.9), rgba(0,0,0,0.4));
+}
+.edit-section > * {
+  position: relative;
+  z-index: 1;
+}
+
 .edit-container {
   max-width: 1280px;
   margin-inline: auto;
