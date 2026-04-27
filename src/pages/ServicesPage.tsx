@@ -480,32 +480,23 @@ const ServicesPage = () => {
         {/* 🆕 Section 3 — Mini Case Studies */}
         <MiniCaseStudies />
 
-        {/* ✅ Engagement Models — untouched */}
-        <section className="relative py-16 px-6 overflow-hidden" style={{ backgroundColor: '#F7F5F0' }}>
-          {/* Dot Pattern */}
-          <div
-            className="absolute inset-0 pointer-events-none"
-            style={{
-              backgroundImage: `radial-gradient(circle, rgba(15,39,71,0.12) 1.2px, transparent 1.2px)`,
-              backgroundSize: "22px 22px",
-            }}
-          />
-          <div className="relative max-w-5xl mx-auto">
-            <h2 className="text-2xl md:text-3xl font-bold text-foreground text-center mb-10">
-              {t("servicesPage.engagementModels")}
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {engagementModels.map((model) => (
-                <div key={model.title} className="relative text-center rounded-2xl p-8 backdrop-blur-sm border border-white/40 shadow-lg" style={{ background: 'linear-gradient(135deg, rgba(200,215,235,0.6) 0%, rgba(180,200,225,0.4) 50%, rgba(160,185,215,0.3) 100%)' }}>
-                  <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                    <model.icon className="w-6 h-6 text-primary" />
+        {/* 02 — ENGAGEMENT MODELS */}
+        <section className="edit-section border-t border-white/10 bg-[hsl(var(--surface))]">
+          <div className="edit-container">
+            <SectionLabel number="02 — Engagement" title={t("servicesPage.engagementModels") as string} />
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-white/10 border border-white/10">
+              {engagementModels.map((model, i) => (
+                <Reveal key={model.title} delay={i * 0.08}>
+                  <div className="bg-[hsl(var(--surface))] p-8 md:p-10 h-full flex flex-col">
+                    <model.icon className="w-6 h-6 text-[hsl(var(--accent-edit))] mb-6" />
+                    <span className="edit-label text-white/45 mb-3">0{i + 1}</span>
+                    <h3 className="text-xl md:text-2xl font-display font-bold uppercase tracking-tight text-white mb-4">{model.title}</h3>
+                    <p className="edit-body text-white/60 mb-6 flex-1">{model.description}</p>
+                    <span className="edit-label text-[hsl(var(--accent-edit))] border-t border-white/10 pt-4">
+                      {model.duration}
+                    </span>
                   </div>
-                  <h3 className="text-lg font-bold text-foreground mb-3">{model.title}</h3>
-                  <p className="text-muted-foreground mb-4">{model.description}</p>
-                  <span className="inline-flex items-center rounded-full bg-accent/15 text-foreground px-3 py-1 text-sm font-medium">
-                    {model.duration}
-                  </span>
-                </div>
+                </Reveal>
               ))}
             </div>
           </div>
