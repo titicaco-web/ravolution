@@ -416,6 +416,13 @@ const AngelInvestor = () => {
                     <Calendar className="w-4 h-4" />
                     {t("angel.ctaMeeting")}
                   </a>
+                  <div className="border-t border-white/10 pt-6 mt-2">
+                    <div className="edit-label text-white/40 mb-3">— Prefer to upload a deck?</div>
+                    <a href={lp("/brief")} className="edit-link text-[hsl(var(--accent-edit))] inline-flex items-center gap-2">
+                      <FileText className="w-4 h-4" />
+                      Submit on the Brief page ↗
+                    </a>
+                  </div>
                   <p className="text-sm text-white/55 mt-6">
                     {t("angel.orEmail")}{" "}
                     <a href="mailto:ivan.daza@ravolution.se" className="edit-link text-white">
