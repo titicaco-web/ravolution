@@ -251,7 +251,7 @@ export const EditorialNav = () => {
         </nav>
 
         <div className="flex flex-wrap justify-between items-end gap-4 mt-12">
-          <span className="edit-label text-white/55">Stockholm · New York · Barcelona · Shanghai · Santiago</span>
+          <span className="edit-label text-white/55">Stockholm · New York · Barcelona · Shanghai · Santiago · Zürich</span>
           <a href="mailto:ivan.daza@ravolution.se" className="edit-label text-white/55 edit-link">
             ivan.daza@ravolution.se
           </a>
@@ -295,7 +295,7 @@ export const EditorialFooter = () => {
         </div>
 
         <div className="space-y-3">
-          <div className="edit-label text-white/55">Stockholm · New York · Barcelona · Shanghai · Santiago</div>
+          <div className="edit-label text-white/55">Stockholm · New York · Barcelona · Shanghai · Santiago · Zürich</div>
           <a href="mailto:ivan.daza@ravolution.se" className="edit-label text-white edit-link block w-fit">
             ivan.daza@ravolution.se
           </a>

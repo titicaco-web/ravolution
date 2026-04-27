@@ -159,7 +159,7 @@ const InvestPage = () => {
 
           {/* top metadata bar */}
           <div className="relative z-10 flex flex-wrap justify-between items-start gap-4 text-[10px] md:text-xs uppercase tracking-[0.25em] text-white/50 font-mono">
-            <span>Ravolution Capital — Stockholm · New York · Barcelona · Shanghai · Santiago</span>
+            <span>Ravolution Capital — Stockholm · New York · Barcelona · Shanghai · Santiago · Zürich</span>
             <span>59.6099° N · 16.5448° E</span>
             <span className="hidden md:inline">{time}</span>
           </div>
@@ -372,7 +372,7 @@ const InvestPage = () => {
                   <div>
                     <Eyebrow>HQ</Eyebrow>
                     <p className="mt-3 text-lg text-white/80 font-display">
-                      Stockholm · New York · Barcelona · Shanghai · Santiago
+                      Stockholm · New York · Barcelona · Shanghai · Santiago · Zürich
                     </p>
                   </div>
                 </div>

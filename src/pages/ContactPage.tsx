@@ -51,7 +51,7 @@ const ContactPage = () => {
     <>
       <Helmet>
         <title>Contact — Ravolution AB</title>
-        <meta name="description" content="Reach Ravolution AB. Direct contact with the founding team across Stockholm, New York, Barcelona, Shanghai and Santiago." />
+        <meta name="description" content="Reach Ravolution AB. Direct contact with the founding team across Stockholm, New York, Barcelona, Shanghai, Santiago and Zürich." />
         <link rel="canonical" href="https://ravolution.se/en/contact" />
       </Helmet>
       <EditorialShell>
@@ -83,7 +83,7 @@ const ContactPage = () => {
                 <div className="mt-12 space-y-6 border-t border-white/10 pt-8">
                   <div>
                     <span className="edit-label text-white/45">HQ</span>
-                    <p className="text-lg text-white/85 font-display mt-2">Stockholm · New York · Barcelona · Shanghai · Santiago</p>
+                    <p className="text-lg text-white/85 font-display mt-2">Stockholm · New York · Barcelona · Shanghai · Santiago · Zürich</p>
                   </div>
                   <div>
                     <span className="edit-label text-white/45">Coordinates</span>
