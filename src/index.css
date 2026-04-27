@@ -417,9 +417,9 @@
 
 .editorial {
   /* Surface tokens (override of dark theme) */
-  --bg: 213 50% 5%;          /* #0a0e14-ish */
-  --surface: 213 40% 9%;
-  --surface-2: 213 35% 12%;
+  --bg: 215 65% 8%;          /* deep sea navy blue */
+  --surface: 215 55% 12%;
+  --surface-2: 215 50% 16%;
   --text-primary: 0 0% 98%;
   --text-secondary: 0 0% 98%; /* used with /55 alpha utility */
   --accent-edit: 36 60% 58%;  /* warm gold accent (brand) */
