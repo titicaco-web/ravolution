@@ -7,6 +7,7 @@ import { CheckCircle, Mail, MapPin, Send, Linkedin, AlertCircle } from "lucide-r
 import { useLanguage } from "@/i18n/LanguageContext";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
+import leonBarakat from "@/assets/leon-barakat.jpeg";
 
 const InvestorRelationsContact = () => {
   const { t } = useLanguage();
@@ -62,10 +63,12 @@ const InvestorRelationsContact = () => {
         <div className="grid lg:grid-cols-2 gap-8 items-start">
           {/* Leon profile card */}
           <div className="card-elevated p-8">
-            {/* Replace with /images/leon-barakat.jpg when available */}
-            <div className="w-32 h-32 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center text-primary-foreground font-display font-bold text-3xl mb-5 ring-2 ring-accent/30">
-              LB
-            </div>
+            <img
+              src={leonBarakat}
+              alt="Leon Barakat — Investor Relations, Ravolution AB"
+              className="w-32 h-32 rounded-full object-cover mb-5 ring-2 ring-accent/30 grayscale hover:grayscale-0 transition-all duration-500"
+              loading="lazy"
+            />
             <h3 className="text-2xl font-display font-bold text-foreground mb-1">
               {t("invest.ir.name")}
             </h3>
