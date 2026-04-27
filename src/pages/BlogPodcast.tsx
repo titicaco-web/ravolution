@@ -1,9 +1,7 @@
 import { Helmet } from "react-helmet-async";
-import { EditorialShell } from "@/components/editorial/EditorialLayout";
+import { EditorialShell, Reveal, SectionLabel } from "@/components/editorial/EditorialLayout";
 import { useLanguage } from "@/i18n/LanguageContext";
-import { ScrollAnimateWrapper } from "@/hooks/use-scroll-animation";
 import { Headphones, BookOpen, ExternalLink, Mic, Calendar, Clock, ArrowRight, Mail, Phone, User, FileDown, Shield } from "lucide-react";
-import { Button } from "@/components/ui/button";
 
 const BlogPodcast = () => {
   const { t } = useLanguage();
@@ -22,7 +20,6 @@ const BlogPodcast = () => {
     {
       source: "xPortMatch",
       url: "https://xportmatch.com/forum",
-      color: "from-primary to-primary-light",
       icon: "🌍",
       description: t("blogPod.xportmatchDesc"),
       articles: [
@@ -34,7 +31,6 @@ const BlogPodcast = () => {
     {
       source: "iApply",
       url: "https://iapply.se/forum",
-      color: "from-accent to-accent-light",
       icon: "👤",
       description: t("blogPod.iapplyDesc"),
       articles: [
@@ -46,7 +42,6 @@ const BlogPodcast = () => {
     {
       source: "itsaFitt",
       url: "https://itsafitt.com/blog",
-      color: "from-gold to-gold-light",
       icon: "👗",
       description: t("blogPod.itsafittDesc"),
       articles: [
@@ -58,7 +53,6 @@ const BlogPodcast = () => {
     {
       source: "Rosetta Livingstone",
       url: "https://rosettalivingstone.com/blog",
-      color: "from-primary-light to-accent",
       icon: "🗣️",
       description: t("blogPod.rosettaDesc"),
       articles: [
@@ -84,260 +78,206 @@ const BlogPodcast = () => {
             "@type": "Blog",
             "name": "Ravolution Blog & Podcast",
             "description": t("blogPod.metaDesc"),
-            "publisher": {
-              "@type": "Organization",
-              "name": "Ravolution AB",
-            },
+            "publisher": { "@type": "Organization", "name": "Ravolution AB" },
           })}
         </script>
       </Helmet>
 
-              <EditorialShell>
-{/* Hero */}
-        <section className="gradient-hero text-primary-foreground pt-28 pb-20 md:pt-36 md:pb-28">
-          <div className="max-w-5xl mx-auto px-6 text-center">
-            <div className="inline-flex items-center gap-2 bg-accent/20 text-accent-light px-4 py-1.5 rounded-full text-sm font-medium mb-6 animate-fade-in">
-              <Mic className="w-4 h-4" />
-              {t("blogPod.badge")}
-            </div>
-            <h1 className="text-4xl md:text-6xl font-display font-bold mb-6 leading-tight animate-fade-in-up">
-              {t("blogPod.heroTitle")}
-            </h1>
-            <p className="text-lg md:text-xl text-primary-foreground/75 max-w-3xl mx-auto leading-relaxed animate-fade-in-up">
-              {t("blogPod.heroSubtitle")}
-            </p>
+      <EditorialShell>
+        {/* Hero */}
+        <section className="edit-section relative border-b border-white/10 bg-[hsl(var(--bg))]">
+          <div
+            className="absolute inset-0 opacity-[0.05] pointer-events-none"
+            style={{
+              backgroundImage:
+                "linear-gradient(to right, white 1px, transparent 1px), linear-gradient(to bottom, white 1px, transparent 1px)",
+              backgroundSize: "80px 80px",
+            }}
+            aria-hidden
+          />
+          <div className="edit-container relative">
+            <Reveal>
+              <div className="edit-label text-[hsl(var(--accent-edit))] mb-8 flex items-center gap-3">
+                <Mic className="w-4 h-4" /> {t("blogPod.badge")}
+              </div>
+            </Reveal>
+            <Reveal delay={0.1}>
+              <h1 className="edit-display text-white max-w-[14ch] mb-10">
+                {t("blogPod.heroTitle")}
+              </h1>
+            </Reveal>
+            <Reveal delay={0.2}>
+              <p className="edit-body text-white/70 max-w-3xl">
+                {t("blogPod.heroSubtitle")}
+              </p>
+            </Reveal>
           </div>
         </section>
 
-        <div className="bg-dot-pattern">
-          {/* Podcast Section */}
-          <section className="section-padding">
-            <div className="max-w-5xl mx-auto">
-              <ScrollAnimateWrapper>
-                <div className="flex items-center gap-3 mb-10">
-                  <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center">
-                    <Headphones className="w-5 h-5 text-accent" />
-                  </div>
-                  <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground">
-                    {t("blogPod.podcastsHeading")}
-                  </h2>
-                </div>
-              </ScrollAnimateWrapper>
-
-              {podcasts.map((pod, i) => (
-                <ScrollAnimateWrapper key={i} delay={0.1}>
-                  <article className="card-elevated p-0 overflow-hidden mb-8">
-                    {pod.featured && (
-                      <div className="gradient-accent px-6 py-2 flex items-center gap-2">
-                        <span className="text-sm font-semibold text-accent-foreground uppercase tracking-wider">
-                          🚀 {t("blogPod.featured")}
-                        </span>
-                      </div>
-                    )}
-                    <div className="p-8 md:p-10">
-                      <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground mb-4">
-                        <span className="flex items-center gap-1.5">
-                          <Calendar className="w-4 h-4" /> {pod.date}
-                        </span>
-                        <span className="flex items-center gap-1.5">
-                          <Clock className="w-4 h-4" /> {pod.duration}
-                        </span>
-                      </div>
-                      <h3 className="text-2xl md:text-3xl font-display font-bold text-foreground mb-4 leading-snug">
-                        {pod.title}
-                      </h3>
-                      <p className="text-muted-foreground leading-relaxed text-base md:text-lg max-w-none">
-                        {pod.description}
-                      </p>
-                      <div className="mt-6">
-                        <audio
-                          controls
-                          className="w-full"
-                          preload="metadata"
-                        >
-                          <source
-                            src="https://vldyfbfjsyomjsckvftg.supabase.co/storage/v1/object/public/podcast/Turn_Custom_Software_Into_Defensible_Assets.m4a"
-                            type="audio/mp4"
-                          />
-                          Your browser does not support the audio element.
-                        </audio>
-                      </div>
+        {/* Podcast */}
+        <section className="edit-section bg-[hsl(var(--bg))]">
+          <div className="edit-container">
+            <SectionLabel number="01" title={t("blogPod.podcastsHeading")} />
+            {podcasts.map((pod, i) => (
+              <Reveal key={i} delay={0.05}>
+                <article className="border border-white/10 bg-[hsl(var(--surface))]">
+                  {pod.featured && (
+                    <div className="px-8 py-3 border-b border-white/10 bg-[hsl(var(--accent-edit))]/10">
+                      <span className="edit-label text-[hsl(var(--accent-edit))]">
+                        ★ {t("blogPod.featured")}
+                      </span>
                     </div>
-                  </article>
-                </ScrollAnimateWrapper>
+                  )}
+                  <div className="p-8 md:p-12">
+                    <div className="flex flex-wrap items-center gap-6 edit-label text-white/55 mb-6">
+                      <span className="flex items-center gap-2">
+                        <Calendar className="w-4 h-4" /> {pod.date}
+                      </span>
+                      <span className="flex items-center gap-2">
+                        <Clock className="w-4 h-4" /> {pod.duration}
+                      </span>
+                    </div>
+                    <h3 className="edit-h3 text-white mb-6">{pod.title}</h3>
+                    <p className="edit-body text-white/70 mb-8">{pod.description}</p>
+                    <audio controls className="w-full" preload="metadata">
+                      <source
+                        src="https://vldyfbfjsyomjsckvftg.supabase.co/storage/v1/object/public/podcast/Turn_Custom_Software_Into_Defensible_Assets.m4a"
+                        type="audio/mp4"
+                      />
+                    </audio>
+                  </div>
+                </article>
+              </Reveal>
+            ))}
+          </div>
+        </section>
+
+        {/* Whitepaper */}
+        <section className="edit-section bg-[hsl(var(--surface))] border-t border-white/10">
+          <div className="edit-container">
+            <SectionLabel number="02" title={t("blogPod.whitepaperHeading")} />
+            <Reveal>
+              <div className="border border-white/10 bg-[hsl(var(--bg))] p-8 md:p-12 grid md:grid-cols-[1fr_auto] gap-8 md:gap-12 items-center">
+                <div>
+                  <div className="flex items-center gap-3 mb-4">
+                    <Shield className="w-5 h-5 text-[hsl(var(--accent-edit))]" />
+                    <h3 className="edit-h3 text-white">{t("blogPod.whitepaperTitle")}</h3>
+                  </div>
+                  <p className="edit-body text-white/70 mb-6">{t("blogPod.whitepaperDesc")}</p>
+                  <p className="edit-label text-white/55 border-l-2 border-[hsl(var(--accent-edit))] pl-4">
+                    {t("blogPod.whitepaperNote")}
+                  </p>
+                </div>
+                <a
+                  href="/downloads/Defensible_Platform_Engineering_by_RAVOLUTION.pdf"
+                  download
+                  className="edit-btn inline-flex items-center gap-3 px-6 py-4 border border-white/30 text-white hover:bg-white hover:text-[hsl(var(--bg))] transition-colors edit-label whitespace-nowrap"
+                >
+                  <FileDown className="w-4 h-4" />
+                  {t("blogPod.whitepaperDownload")}
+                </a>
+              </div>
+            </Reveal>
+          </div>
+        </section>
+
+        {/* Articles */}
+        <section className="edit-section bg-[hsl(var(--bg))] border-t border-white/10">
+          <div className="edit-container">
+            <SectionLabel number="03" title={t("blogPod.articlesHeading")} />
+            <Reveal>
+              <p className="edit-body text-white/70 max-w-2xl mb-12">
+                {t("blogPod.articlesSubtitle")}
+              </p>
+            </Reveal>
+            <div className="grid md:grid-cols-2 gap-px bg-white/10 border border-white/10">
+              {externalArticles.map((article, i) => (
+                <Reveal key={i} delay={i * 0.05}>
+                  <a
+                    href={article.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group flex flex-col h-full bg-[hsl(var(--surface))] p-8 md:p-10 hover:bg-[hsl(var(--bg))] transition-colors"
+                  >
+                    <div className="flex items-start justify-between mb-6">
+                      <span className="text-3xl">{article.icon}</span>
+                      <ExternalLink className="w-4 h-4 text-white/40 group-hover:text-[hsl(var(--accent-edit))] transition-colors" />
+                    </div>
+                    <h3 className="edit-h3 text-white mb-4">{article.source}</h3>
+                    <p className="edit-body text-white/70 mb-6">{article.description}</p>
+                    <ul className="space-y-3 mb-8 flex-1">
+                      {article.articles.map((title: string, j: number) => (
+                        <li key={j} className="flex items-start gap-3 text-white/75 text-sm">
+                          <ArrowRight className="w-3.5 h-3.5 mt-1 text-[hsl(var(--accent-edit))] shrink-0" />
+                          <span>{title}</span>
+                        </li>
+                      ))}
+                    </ul>
+                    <div className="flex items-center gap-2 edit-label text-[hsl(var(--accent-edit))] group-hover:gap-4 transition-all">
+                      {t("blogPod.readArticles")}
+                      <ArrowRight className="w-4 h-4" />
+                    </div>
+                  </a>
+                </Reveal>
               ))}
             </div>
-          </section>
-
-          {/* Whitepaper Download */}
-          <section className="section-padding pt-0">
-            <div className="max-w-5xl mx-auto">
-              <ScrollAnimateWrapper>
-                <div className="flex items-center gap-3 mb-10">
-                  <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
-                    <Shield className="w-5 h-5 text-primary" />
-                  </div>
-                  <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground">
-                    {t("blogPod.whitepaperHeading")}
-                  </h2>
-                </div>
-              </ScrollAnimateWrapper>
-
-              <ScrollAnimateWrapper delay={0.1}>
-                <div className="card-elevated p-8 md:p-10 flex flex-col md:flex-row md:items-center gap-6">
-                  <div className="flex-1">
-                    <h3 className="text-xl font-display font-bold text-foreground mb-3">
-                      {t("blogPod.whitepaperTitle")}
-                    </h3>
-                    <p className="text-muted-foreground leading-relaxed mb-4">
-                      {t("blogPod.whitepaperDesc")}
-                    </p>
-                    <p className="text-sm text-muted-foreground italic border-l-2 border-primary/30 pl-4">
-                      {t("blogPod.whitepaperNote")}
-                    </p>
-                  </div>
-                  <div className="shrink-0">
-                    <Button className="bg-primary hover:bg-primary/90 text-primary-foreground gap-2" asChild>
-                      <a href="/downloads/Defensible_Platform_Engineering_by_RAVOLUTION.pdf" download>
-                        <FileDown className="w-4 h-4" />
-                        {t("blogPod.whitepaperDownload")}
-                      </a>
-                    </Button>
-                  </div>
-                </div>
-              </ScrollAnimateWrapper>
-            </div>
-          </section>
-
-          {/* Blog Articles from Ravolution Sites */}
-          <section className="section-padding pt-0">
-            <div className="max-w-5xl mx-auto">
-              <ScrollAnimateWrapper>
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
-                    <BookOpen className="w-5 h-5 text-primary" />
-                  </div>
-                  <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground">
-                    {t("blogPod.articlesHeading")}
-                  </h2>
-                </div>
-                <p className="text-muted-foreground mb-10 text-lg max-w-2xl">
-                  {t("blogPod.articlesSubtitle")}
-                </p>
-              </ScrollAnimateWrapper>
-
-              <div className="grid md:grid-cols-2 gap-6">
-                {externalArticles.map((article, i) => (
-                  <ScrollAnimateWrapper key={i} delay={i * 0.1}>
-                    <a
-                      href={article.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="group card-interactive flex flex-col h-full p-0 overflow-hidden"
-                    >
-                      <div className={`bg-gradient-to-r ${article.color} px-6 py-4`}>
-                        <div className="flex items-center justify-between">
-                          <span className="text-2xl">{article.icon}</span>
-                          <ExternalLink className="w-4 h-4 text-primary-foreground/60 group-hover:text-primary-foreground transition-colors" />
-                        </div>
-                        <h3 className="text-xl font-display font-bold text-primary-foreground mt-2">
-                          {article.source}
-                        </h3>
-                      </div>
-                      <div className="p-6 flex-1 flex flex-col">
-                        <p className="text-muted-foreground leading-relaxed mb-4">
-                          {article.description}
-                        </p>
-                        <ul className="space-y-2 mb-4 flex-1">
-                          {article.articles.map((title: string, j: number) => (
-                            <li key={j} className="flex items-start gap-2 text-sm text-foreground/80">
-                              <ArrowRight className="w-3.5 h-3.5 mt-0.5 text-accent shrink-0" />
-                              <span>{title}</span>
-                            </li>
-                          ))}
-                        </ul>
-                        <div className="flex items-center gap-2 text-sm font-medium text-accent group-hover:text-accent-light transition-colors">
-                          {t("blogPod.readArticles")}
-                          <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                        </div>
-                      </div>
-                    </a>
-                  </ScrollAnimateWrapper>
-                ))}
-              </div>
-            </div>
-          </section>
-
-          {/* Press Contact */}
-          <section className="section-padding pt-0">
-            <div className="max-w-5xl mx-auto">
-              <ScrollAnimateWrapper>
-                <div className="flex items-center gap-3 mb-10">
-                  <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center">
-                    <Mail className="w-5 h-5 text-accent" />
-                  </div>
-                  <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground">
-                    {t("blogPod.pressContactHeading")}
-                  </h2>
-                </div>
-              </ScrollAnimateWrapper>
-
-              <ScrollAnimateWrapper delay={0.1}>
-                <div className="card-elevated p-8 md:p-10">
-                  <p className="text-muted-foreground text-lg mb-6">
-                    {t("blogPod.pressContactDesc")}
-                  </p>
-                  <div className="grid sm:grid-cols-2 gap-6 mb-6">
-                    <div className="flex items-center gap-3">
-                      <User className="w-5 h-5 text-accent" />
-                      <div>
-                        <p className="font-semibold text-foreground">{t("blogPod.pressName")}</p>
-                        <p className="text-sm text-muted-foreground">{t("blogPod.pressRole")}</p>
-                      </div>
-                    </div>
-                    <div className="space-y-2">
-                      <a href={`mailto:${t("blogPod.pressEmail")}`} className="flex items-center gap-2 text-accent hover:text-accent-light transition-colors">
-                        <Mail className="w-4 h-4" />
-                        <span>{t("blogPod.pressEmail")}</span>
-                      </a>
-                      <a href={`tel:${t("blogPod.pressPhone")}`} className="flex items-center gap-2 text-accent hover:text-accent-light transition-colors">
-                        <Phone className="w-4 h-4" />
-                        <span>{t("blogPod.pressPhone")}</span>
-                      </a>
-                    </div>
-                  </div>
-                  <p className="text-sm text-muted-foreground italic border-l-2 border-accent/30 pl-4">
-                    {t("blogPod.pressNote")}
-                  </p>
-                </div>
-              </ScrollAnimateWrapper>
-            </div>
-          </section>
-
-          {/* CTA */}
-          <ScrollAnimateWrapper>
-            <section className="section-padding pt-0">
-              <div className="max-w-3xl mx-auto text-center">
-                <div className="card-elevated p-10 md:p-14 bg-gradient-to-br from-card to-secondary">
-                  <h2 className="text-2xl md:text-3xl font-display font-bold text-foreground mb-4">
-                    {t("blogPod.ctaTitle")}
-                  </h2>
-                  <p className="text-muted-foreground mb-8 text-lg">
-                    {t("blogPod.ctaDesc")}
-                  </p>
-                  <Button className="bg-accent hover:bg-accent-light text-accent-foreground" asChild>
-                    <a href="mailto:ivan.daza@ravolution.se" target="_blank" rel="noopener noreferrer">
-                      {t("blogPod.ctaButton")}
-                    </a>
-                  </Button>
-                </div>
-              </div>
-            </section>
-          </ScrollAnimateWrapper>
-
           </div>
+        </section>
 
-          </EditorialShell>
+        {/* Press Contact */}
+        <section className="edit-section bg-[hsl(var(--surface))] border-t border-white/10">
+          <div className="edit-container">
+            <SectionLabel number="04" title={t("blogPod.pressContactHeading")} />
+            <Reveal>
+              <div className="border border-white/10 bg-[hsl(var(--bg))] p-8 md:p-12">
+                <p className="edit-body text-white/70 mb-8">{t("blogPod.pressContactDesc")}</p>
+                <div className="grid sm:grid-cols-2 gap-8 mb-8 pb-8 border-b border-white/10">
+                  <div className="flex items-center gap-4">
+                    <User className="w-5 h-5 text-[hsl(var(--accent-edit))]" />
+                    <div>
+                      <p className="text-white font-medium">{t("blogPod.pressName")}</p>
+                      <p className="edit-label text-white/55">{t("blogPod.pressRole")}</p>
+                    </div>
+                  </div>
+                  <div className="space-y-3">
+                    <a href={`mailto:${t("blogPod.pressEmail")}`} className="flex items-center gap-3 text-white hover:text-[hsl(var(--accent-edit))] transition-colors">
+                      <Mail className="w-4 h-4" />
+                      <span>{t("blogPod.pressEmail")}</span>
+                    </a>
+                    <a href={`tel:${t("blogPod.pressPhone")}`} className="flex items-center gap-3 text-white hover:text-[hsl(var(--accent-edit))] transition-colors">
+                      <Phone className="w-4 h-4" />
+                      <span>{t("blogPod.pressPhone")}</span>
+                    </a>
+                  </div>
+                </div>
+                <p className="edit-label text-white/55 border-l-2 border-[hsl(var(--accent-edit))] pl-4">
+                  {t("blogPod.pressNote")}
+                </p>
+              </div>
+            </Reveal>
+          </div>
+        </section>
+
+        {/* CTA */}
+        <section className="edit-section bg-[hsl(var(--bg))] border-t border-white/10">
+          <div className="edit-container">
+            <Reveal>
+              <div className="border border-white/10 bg-[hsl(var(--surface))] p-12 md:p-20 text-center max-w-4xl mx-auto">
+                <BookOpen className="w-8 h-8 text-[hsl(var(--accent-edit))] mx-auto mb-6" />
+                <h2 className="edit-h2 text-white mb-6">{t("blogPod.ctaTitle")}</h2>
+                <p className="edit-body text-white/70 mb-10 max-w-2xl mx-auto">{t("blogPod.ctaDesc")}</p>
+                <a
+                  href="mailto:ivan.daza@ravolution.se"
+                  className="edit-btn inline-flex items-center gap-3 px-8 py-4 bg-white text-[hsl(var(--bg))] hover:bg-[hsl(var(--accent-edit))] transition-colors edit-label"
+                >
+                  {t("blogPod.ctaButton")}
+                  <ArrowRight className="w-4 h-4" />
+                </a>
+              </div>
+            </Reveal>
+          </div>
+        </section>
+      </EditorialShell>
     </>
   );
 };
