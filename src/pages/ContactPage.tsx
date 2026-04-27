@@ -62,7 +62,7 @@ const ContactPage = () => {
             <Reveal delay={0.1}>
               <a
                 href="mailto:ivan.daza@ravolution.se"
-                className="block mt-6 font-display font-bold text-white uppercase tracking-[-0.04em] leading-[0.9] break-words hover:text-[hsl(var(--accent-edit))] transition-colors"
+                className="block mt-6 font-display font-bold text-white uppercase tracking-[-0.04em] leading-[0.9] break-words hover:text-[hsl(var(--accent-edit))] transition-colors text-7xl"
                 style={{ fontSize: "clamp(2.5rem, 7vw, 6rem)" }}
               >
                 ivan.daza<span className="text-[hsl(var(--accent-edit))]">@</span>ravolution.se
