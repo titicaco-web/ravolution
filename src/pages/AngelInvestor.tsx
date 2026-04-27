@@ -174,6 +174,9 @@ const AngelInvestor = () => {
           </div>
         </section>
 
+        {/* ─── PORTFOLIO MARQUEE ─── */}
+        <InvestorPortfolioMarquee />
+
         {/* ─── 01 INTRO ─── */}
         <section className="edit-section">
           <div className="edit-container">
