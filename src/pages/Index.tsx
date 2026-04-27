@@ -145,7 +145,7 @@ const Index = () => {
 
           {/* bottom indicator */}
           <div className="relative z-10 flex justify-between items-end edit-label text-white/40">
-            <span>Västerås, SWE — 59.6099° N 16.5448° E</span>
+            <span>Stockholm · New York · Barcelona · Shanghai · Santiago</span>
             <span className="flex items-center gap-3" aria-hidden>
               <span className="rotate-90 origin-center inline-block translate-y-[-6px]">Scroll</span>
               <span className="block w-px h-12 bg-white/40 animate-pulse" />
@@ -160,7 +160,7 @@ const Index = () => {
             "Venture Studio",
             "Angel Investor",
             "27 Patents · 343 Claims",
-            "Västerås — Stockholm",
+            "Stockholm · New York · Barcelona · Shanghai · Santiago",
             "Ravolution",
             "Defensible Innovation",
           ]}
