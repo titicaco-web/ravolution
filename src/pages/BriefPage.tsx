@@ -522,6 +522,38 @@ ${data.additionalNotes || "—"}`;
                   <div className="space-y-5 animate-fade-in">
                     <div>
                       <label className="block edit-label text-white/55 mb-3">{t("intake.uploadLabel")}</label>
+
+                      {/* Upload specs — accepted types, size, limits */}
+                      <div className="grid grid-cols-1 sm:grid-cols-3 gap-px bg-white/10 border border-white/10 mb-5">
+                        <div className="bg-[hsl(var(--surface))] p-4">
+                          <p className="edit-label text-[hsl(var(--accent-edit))] mb-1">— Accepted</p>
+                          <p className="text-white text-sm leading-snug">PDF · DOCX · PNG · JPG · WEBP · ZIP</p>
+                        </div>
+                        <div className="bg-[hsl(var(--surface))] p-4">
+                          <p className="edit-label text-[hsl(var(--accent-edit))] mb-1">— Max size</p>
+                          <p className="text-white text-sm leading-snug">10 MB per file</p>
+                        </div>
+                        <div className="bg-[hsl(var(--surface))] p-4">
+                          <p className="edit-label text-[hsl(var(--accent-edit))] mb-1">— Limit</p>
+                          <p className="text-white text-sm leading-snug">Up to 10 files per brief</p>
+                        </div>
+                      </div>
+
+                      {/* What to include — guidance panel */}
+                      <div className="border border-white/10 bg-[hsl(var(--surface))] p-5 mb-5">
+                        <p className="edit-label text-[hsl(var(--accent-edit))] mb-3">— What to include in your deck or pitch</p>
+                        <ul className="text-white/75 text-sm leading-relaxed space-y-1.5">
+                          <li><span className="text-white/45 mr-2">01</span>Problem you solve and who it's for</li>
+                          <li><span className="text-white/45 mr-2">02</span>Solution overview · key product screenshots or mockups</li>
+                          <li><span className="text-white/45 mr-2">03</span>Target market size and traction (if any)</li>
+                          <li><span className="text-white/45 mr-2">04</span>Business model · pricing · revenue plan</li>
+                          <li><span className="text-white/45 mr-2">05</span>Team and relevant background</li>
+                          <li><span className="text-white/45 mr-2">06</span>What you need from us (capital, build, IP, GTM)</li>
+                          <li><span className="text-white/45 mr-2">07</span>Timeline and milestones</li>
+                        </ul>
+                        <p className="text-white/45 text-xs mt-4 italic">No deck yet? Skip the upload and describe your idea in the Additional notes field below — we'll take it from there.</p>
+                      </div>
+
                       <div
                         {...getRootProps()}
                         className={`border border-dashed p-12 text-center cursor-pointer transition-colors ${isDragActive ? "border-[hsl(var(--accent-edit))] bg-[hsl(var(--accent-edit))]/5" : "border-white/20 hover:border-[hsl(var(--accent-edit))]/60"}`}
@@ -531,7 +563,7 @@ ${data.additionalNotes || "—"}`;
                         <p className="text-white edit-label mb-2">
                           {isDragActive ? t("intake.uploadDragActive") : t("intake.uploadDrag")}
                         </p>
-                        <p className="edit-label text-white/45">{t("intake.uploadHint")}</p>
+                        <p className="edit-label text-white/45">PDF, DOCX, PNG, JPG, WEBP, ZIP — up to 10 MB each, max 10 files</p>
                       </div>
                       <div className="edit-label text-white/45 mt-4 space-y-1">
                         <p>{t("intake.uploadTip1")}</p>
