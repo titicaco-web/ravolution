@@ -19,6 +19,8 @@ import AngelInvestor from "./pages/AngelInvestor";
 import BuildForEquity from "./pages/BuildForEquity";
 import PatentStrategyForStartups from "./pages/PatentStrategyForStartups";
 import TechnicalCofounderAlternative from "./pages/TechnicalCofounderAlternative";
+import PortfolioPage from "./pages/PortfolioPage";
+import ContactPage from "./pages/ContactPage";
 import NotFound from "./pages/NotFound";
 import CookieConsent from "./components/CookieConsent";
 import ScrollToTop from "./components/ScrollToTop";
@@ -66,6 +68,8 @@ const App = () => (
           <Route path="/:lang/build-for-equity" element={<LanguageSync><BuildForEquity /></LanguageSync>} />
           <Route path="/:lang/patent-strategy-for-startups" element={<LanguageSync><PatentStrategyForStartups /></LanguageSync>} />
           <Route path="/:lang/technical-cofounder-alternative" element={<LanguageSync><TechnicalCofounderAlternative /></LanguageSync>} />
+          <Route path="/:lang/portfolio" element={<LanguageSync><PortfolioPage /></LanguageSync>} />
+          <Route path="/:lang/contact" element={<LanguageSync><ContactPage /></LanguageSync>} />
           
           {/* Gyrocraft Routes - Password Protected */}
           <Route path="/:lang/gyrocraft" element={<LanguageSync><ProtectedGyrocraftRoute><GyrocraftHome /></ProtectedGyrocraftRoute></LanguageSync>} />
