@@ -11,6 +11,7 @@ import {
   MarqueeStrip,
 } from "@/components/editorial/EditorialLayout";
 import HeroVideoBackground from "@/components/HeroVideoBackground";
+import InvestorPortfolioMarquee from "@/components/InvestorPortfolioMarquee";
 
 const Index = () => {
   const { t } = useLanguage();
@@ -203,6 +204,11 @@ const Index = () => {
             <span>Ravolution AB — Venture Studio</span>
             <span className="hidden md:inline">59.6099° N · 16.5448° E</span>
             <span>{time}</span>
+          </div>
+
+          {/* floating portfolio marquee — transparent under header */}
+          <div className="relative z-10 mt-4">
+            <InvestorPortfolioMarquee transparent />
           </div>
 
           {/* headline block */}
