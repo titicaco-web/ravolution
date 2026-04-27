@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet-async";
+import { EditorialShell } from "@/components/editorial/EditorialLayout";
 import { Link } from "react-router-dom";
 import {
   ArrowRight,
@@ -15,8 +16,6 @@ import {
   Workflow,
   Zap,
 } from "lucide-react";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { useLangPath } from "@/hooks/use-lang-path";
@@ -401,9 +400,8 @@ const ServicesPage = () => {
       </Helmet>
 
       <div className="min-h-screen bg-background">
-        <Navbar />
-
-        {/* ✅ Hero — untouched */}
+        <EditorialShell>
+{/* ✅ Hero — untouched */}
         <section className="relative pt-32 pb-20 px-6 bg-gradient-to-b from-primary to-primary-dark text-primary-foreground overflow-hidden">
           {/* White Grid Pattern */}
           <div
@@ -657,8 +655,8 @@ const ServicesPage = () => {
           </div>
         </section>
 
-        <Footer />
-      </div>
+        </EditorialShell>
+</div>
     </>
   );
 };

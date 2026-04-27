@@ -1,14 +1,13 @@
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
 import { useLanguage } from "@/i18n/LanguageContext";
+import { EditorialShell } from "@/components/editorial/EditorialLayout";
 
 const TermsOfService = () => {
   const { t } = useLanguage();
 
   return (
     <div className="min-h-screen bg-background">
-      <Navbar />
-      <main className="pt-24 pb-16">
+      <EditorialShell>
+<main className="pt-24 pb-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-4xl font-bold text-foreground mb-8">{t("terms.title")}</h1>
           <div className="prose prose-lg max-w-none text-muted-foreground space-y-8">
@@ -28,8 +27,8 @@ const TermsOfService = () => {
           </div>
         </div>
       </main>
-      <Footer />
-    </div>
+      </EditorialShell>
+</div>
   );
 };
 

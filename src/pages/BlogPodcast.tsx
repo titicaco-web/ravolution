@@ -1,6 +1,5 @@
 import { Helmet } from "react-helmet-async";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+import { EditorialShell } from "@/components/editorial/EditorialLayout";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { ScrollAnimateWrapper } from "@/hooks/use-scroll-animation";
 import { Headphones, BookOpen, ExternalLink, Mic, Calendar, Clock, ArrowRight, Mail, Phone, User, FileDown, Shield } from "lucide-react";
@@ -94,9 +93,8 @@ const BlogPodcast = () => {
       </Helmet>
 
       <div className="min-h-screen">
-        <Navbar />
-
-        {/* Hero */}
+        <EditorialShell>
+{/* Hero */}
         <section className="gradient-hero text-primary-foreground pt-28 pb-20 md:pt-36 md:pb-28">
           <div className="max-w-5xl mx-auto px-6 text-center">
             <div className="inline-flex items-center gap-2 bg-accent/20 text-accent-light px-4 py-1.5 rounded-full text-sm font-medium mb-6 animate-fade-in">
@@ -338,8 +336,8 @@ const BlogPodcast = () => {
             </section>
           </ScrollAnimateWrapper>
 
-          <Footer />
-        </div>
+          </EditorialShell>
+</div>
       </div>
     </>
   );

@@ -1,6 +1,5 @@
 import { Helmet } from "react-helmet-async";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+import { EditorialShell } from "@/components/editorial/EditorialLayout";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { useLangPath } from "@/hooks/use-lang-path";
 import { ScrollAnimateWrapper } from "@/hooks/use-scroll-animation";
@@ -55,9 +54,8 @@ const BuildForEquity = () => {
       </Helmet>
 
       <div className="min-h-screen">
-        <Navbar />
-
-        {/* Hero */}
+        <EditorialShell>
+{/* Hero */}
         <section className="relative text-white pt-28 pb-20 md:pt-36 md:pb-28 overflow-hidden" style={{ background: 'linear-gradient(135deg, hsl(210, 62%, 16%) 0%, hsl(210, 62%, 9%) 100%)' }}>
           <div className="absolute inset-0 opacity-[0.08] z-[1] pointer-events-none" style={{ backgroundImage: `radial-gradient(circle, rgba(255,255,255,0.3) 1px, transparent 1px)`, backgroundSize: "24px 24px" }} />
           <div className="relative z-10 max-w-4xl mx-auto px-6">
@@ -170,8 +168,8 @@ const BuildForEquity = () => {
             </div>
           </section>
 
-          <Footer />
-        </div>
+          </EditorialShell>
+</div>
       </div>
     </>
   );

@@ -1,6 +1,5 @@
 import { Helmet } from "react-helmet-async";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+import { EditorialShell } from "@/components/editorial/EditorialLayout";
 import PlatformBuilder from "@/components/PlatformBuilder";
 
 const ConfigurePage = () => {
@@ -11,8 +10,8 @@ const ConfigurePage = () => {
         <meta name="description" content="Pick the components you need and get an instant scope estimate. Submit your spec or jump straight to a discovery call." />
       </Helmet>
       <div className="min-h-screen">
-        <Navbar />
-        <section className="pt-32 pb-20 px-6 bg-gradient-to-b from-primary to-primary-dark text-primary-foreground">
+        <EditorialShell>
+<section className="pt-32 pb-20 px-6 bg-gradient-to-b from-primary to-primary-dark text-primary-foreground">
           <div className="max-w-4xl mx-auto text-center mb-12">
             <span className="inline-block text-sm font-semibold tracking-widest uppercase text-accent-light mb-4">Platform Builder</span>
             <h1 className="text-4xl md:text-5xl font-bold mb-4">Configure Your Platform</h1>
@@ -26,8 +25,8 @@ const ConfigurePage = () => {
             <PlatformBuilder />
           </div>
         </section>
-        <Footer />
-      </div>
+        </EditorialShell>
+</div>
     </>
   );
 };
