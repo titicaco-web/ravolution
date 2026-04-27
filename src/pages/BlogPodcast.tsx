@@ -335,6 +335,8 @@ const BlogPodcast = () => {
             </section>
           </ScrollAnimateWrapper>
 
+          </div>
+
           </EditorialShell>
       </div>
     </>

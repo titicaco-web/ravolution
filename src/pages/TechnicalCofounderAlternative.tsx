@@ -193,6 +193,8 @@ const TechnicalCofounderAlternative = () => {
             </div>
           </section>
 
+          </div>
+
           </EditorialShell>
       </div>
     </>

@@ -467,6 +467,8 @@ const AngelInvestor = () => {
             </div>
           </section>
 
+          </div>
+
           </EditorialShell>
       </div>
     </>

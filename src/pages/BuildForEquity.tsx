@@ -167,6 +167,8 @@ const BuildForEquity = () => {
             </div>
           </section>
 
+          </div>
+
           </EditorialShell>
       </div>
     </>

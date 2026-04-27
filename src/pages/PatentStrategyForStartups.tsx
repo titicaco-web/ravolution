@@ -152,6 +152,8 @@ const PatentStrategyForStartups = () => {
             </div>
           </section>
 
+          </div>
+
           </EditorialShell>
       </div>
     </>
