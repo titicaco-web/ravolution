@@ -15,6 +15,7 @@ import {
   Wrench, Scale, XCircle, Building, UserCheck
 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
+import InvestorPortfolioMarquee from "@/components/InvestorPortfolioMarquee";
 import { useToast } from "@/hooks/use-toast";
 
 const AngelInvestor = () => {
