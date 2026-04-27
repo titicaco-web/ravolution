@@ -9,7 +9,7 @@ type Item = {
   external?: boolean;
 };
 
-const InvestorPortfolioMarquee = () => {
+const InvestorPortfolioMarquee = ({ transparent = false }: { transparent?: boolean } = {}) => {
   const lp = useLangPath();
   const trackRef = useRef<HTMLDivElement>(null);
   const firstGroupRef = useRef<HTMLDivElement>(null);
