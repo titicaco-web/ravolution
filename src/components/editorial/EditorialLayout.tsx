@@ -299,7 +299,7 @@ export const EditorialFooter = () => {
           <a href="mailto:ivan.daza@ravolution.se" className="edit-label text-white edit-link block w-fit">
             ivan.daza@ravolution.se
           </a>
-          <a href="https://www.linkedin.com/in/ivandaza" target="_blank" rel="noopener noreferrer" className="edit-label text-white/70 hover:text-white edit-link block w-fit">
+          <a href="https://www.linkedin.com/in/ivandaza/" target="_blank" rel="noopener noreferrer" className="edit-label text-white/70 hover:text-white edit-link block w-fit">
             LinkedIn ↗
           </a>
         </div>
