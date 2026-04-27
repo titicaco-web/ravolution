@@ -1159,7 +1159,7 @@ export const sv = {
     tag4: "Utbildning", title4: "CommunicaringSchool™ — FN-anpassad global utbildning",
     desc4: "9 patenterade teknologier för internationell studentjämförelse, läroplanslikvärdighet och rättighetsbaserat lärande.",
     stat4: "9 patent · 116 krav",
-    tag5: "Hållbarhet", title5: "Koldioxidhandelsplattform",
+    tag5: "Hållbarhet", title5: "CarbonX™ — Koldioxidhandelsplattform",
     desc5: "Digital marknadsplats för verifierade koldioxidkrediter med Gold Standard- och Verra-efterlevnad inbyggd.",
     stat5: "Efterlevnad-först-arkitektur",
     tag6: "Modeteknologi", title6: "AI Video Virtual Try-On",
