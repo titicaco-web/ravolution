@@ -56,7 +56,7 @@ const Footer = () => {
         <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-white/50">© {currentYear} {t("footer.copyright")}</p>
           <div className="flex items-center gap-4">
-            <a href="#" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors">
+            <a href="https://www.linkedin.com/in/ivandaza/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn — Ivan Daza" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors">
               <Linkedin className="w-5 h-5" />
             </a>
             <a href="#" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors">

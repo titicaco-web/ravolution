@@ -236,7 +236,7 @@ const Founder = () => {
             <Reveal delay={0.2}>
               <div className="flex flex-col sm:flex-row gap-4 justify-center mt-12">
                 <a href="mailto:ivan.daza@ravolution.se" className="edit-btn"><span>{t("founder.ctaContactIvan") || "Contact Ivan"}</span></a>
-                <a href="https://linkedin.com/in/ivandaza" target="_blank" rel="noopener noreferrer" className="edit-btn" style={{ borderColor: "rgba(255,255,255,0.4)" }}><span>LinkedIn ↗</span></a>
+                <a href="https://www.linkedin.com/in/ivandaza/" target="_blank" rel="noopener noreferrer" className="edit-btn" style={{ borderColor: "rgba(255,255,255,0.4)" }}><span>LinkedIn ↗</span></a>
               </div>
             </Reveal>
           </div>
