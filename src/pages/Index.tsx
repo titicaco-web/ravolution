@@ -1,99 +1,304 @@
 import { Helmet } from "react-helmet-async";
-import Navbar from "@/components/Navbar";
-import HeroSection from "@/components/HeroSection";
-import ValueProposition from "@/components/ValueProposition";
-import PatentPortfolios from "@/components/PatentPortfolios";
-import FeaturedProducts from "@/components/FeaturedProducts";
-import MarketplaceConcepts from "@/components/MarketplaceConcepts";
-import WhyRavolution from "@/components/WhyRavolution";
-import Services from "@/components/Services";
-import AngelInvestorTeaser from "@/components/AngelInvestorTeaser";
-import InvestorTeaser from "@/components/InvestorTeaser";
-import FooterCTA from "@/components/FooterCTA";
-import Footer from "@/components/Footer";
-import { ScrollAnimateWrapper } from "@/hooks/use-scroll-animation";
+import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useLanguage } from "@/i18n/LanguageContext";
+import { useLangPath } from "@/hooks/use-lang-path";
+import {
+  EditorialShell,
+  Reveal,
+  CountUp,
+  SectionLabel,
+  MarqueeStrip,
+} from "@/components/editorial/EditorialLayout";
 
 const Index = () => {
+  const { t } = useLanguage();
+  const lp = useLangPath();
+  const [time, setTime] = useState("");
+
+  useEffect(() => {
+    const upd = () => {
+      const d = new Date();
+      setTime(
+        d.toLocaleTimeString("en-GB", {
+          hour: "2-digit", minute: "2-digit", timeZone: "Europe/Stockholm",
+        }) + " CET"
+      );
+    };
+    upd();
+    const id = setInterval(upd, 60000);
+    return () => clearInterval(id);
+  }, []);
+
+  /* Pillars: Build-for-Equity, Angel, Venture Studio Operations */
+  const pillars = [
+    {
+      n: "01",
+      title: "Build-for-Equity",
+      desc: "We build defensible platforms for select founders in exchange for meaningful equity. No invoices, no markup — partnership.",
+      href: lp("/build-for-equity"),
+    },
+    {
+      n: "02",
+      title: "Angel Investment",
+      desc: "Direct early-stage capital paired with patent strategy, technical co-founder support, and operator-level execution.",
+      href: lp("/angel-investor"),
+    },
+    {
+      n: "03",
+      title: "Venture Studio Operations",
+      desc: "Rosetta Livingstone, CommunicaringSchool, xPortMatch, VoiceProtector, iApply — operated, scaled, licensed.",
+      href: lp("/services"),
+    },
+  ];
+
+  /* Stats */
+  const stats = [
+    { value: 27, label: "Patents granted" },
+    { value: 343, label: "Patent claims" },
+    { value: 10, label: "Active platforms", suffix: "+" },
+    { value: 150, label: "Countries reached", suffix: "+" },
+  ];
+
+  /* Portfolio preview */
+  const portfolio = [
+    { name: "Rosetta Livingstone", desc: "AI language acquisition · 24× faster", href: "https://rosettalivingstone.com" },
+    { name: "CommunicaringSchool", desc: "Global K1–K9 education platform", href: "#" },
+    { name: "xPortMatch", desc: "B2B export/import connector · 50 countries", href: "https://xportmatch.com" },
+    { name: "VoiceProtector", desc: "Voice biometrics & deepfake defense", href: "https://voiceprotector.com" },
+    { name: "iApply", desc: "Recruitment AI platform", href: "https://iapply.se" },
+    { name: "NewsToast", desc: "Editorial-grade news platform", href: "https://newstoast.com" },
+  ];
+
   return (
     <>
       <Helmet>
         <title>Ravolution AB | Swedish Venture Studio & Angel Investor | Build‑for‑Equity for Startups</title>
-        <meta name="description" content="27 patents, 343 claims. Swedish venture studio building deep tech unicorns in language learning (24x faster), voice security, AI trade infrastructure & K1-K9 education. Founded by Ivan Daza, inventor of high-value patents foundational to billion-dollar markets." />
-        <meta name="keywords" content="venture studio, deep tech, patent portfolio, Swedish innovation, language learning AI, voice biometrics, education technology, 24x faster learning, K1-K9 education, global trade AI, strategic IP, Ivan Daza, unicorn startups, billion-dollar markets" />
+        <meta name="description" content="27 patents, 343 claims. Swedish venture studio building deep tech unicorns in language learning (24x faster), voice security, AI trade infrastructure & K1-K9 education. Founded by Ivan Daza." />
         <link rel="canonical" href="https://ravolution.se/" />
         <link rel="alternate" hrefLang="en" href="https://ravolution.se/en" />
         <link rel="alternate" hrefLang="sv" href="https://ravolution.se/sv" />
         <link rel="alternate" hrefLang="es" href="https://ravolution.se/es" />
         <link rel="alternate" hrefLang="x-default" href="https://ravolution.se/en" />
         <meta name="google-site-verification" content="fZ5wqD3QL629AjpMRpzKfj4z6mrxJXjraVGIHx1HjwU" />
-        
-        {/* Open Graph */}
-        <meta property="og:title" content="Ravolution AB | Swedish Venture Studio & Angel Investor | Build‑for‑Equity for Startups" />
-        <meta property="og:description" content="27 patents, 343 claims. Building deep tech unicorns in language learning, voice security, AI trade & education. Founded by Ivan Daza, inventor of high-value patents foundational to billion-dollar markets." />
+        <meta property="og:title" content="Ravolution AB | Swedish Venture Studio & Angel Investor" />
+        <meta property="og:description" content="27 patents, 343 claims. Building deep tech unicorns in language learning, voice security, AI trade & education." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://ravolution.se/" />
-        
-        {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Ravolution AB | Swedish Venture Studio & Angel Investor | Build‑for‑Equity for Startups" />
-        <meta name="twitter:description" content="27 patents, 343 claims. Building deep tech unicorns in language learning, voice security, AI trade & education. Founded by Ivan Daza, inventor of high-value patents foundational to billion-dollar markets." />
-
-        {/* Organization structured data */}
-        <script type="application/ld+json">{JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "Organization",
-          "@id": "https://ravolution.se/#organization",
-          "name": "Ravolution AB",
-          "legalName": "Ravolution AB",
-          "url": "https://ravolution.se/",
-          "logo": "https://ravolution.se/favicon.png",
-          "description": "Swedish venture studio and IP innovation company. 27 patents, 343 claims. Building defensible platforms in language learning, voice security, AI trade infrastructure and K1-K9 education.",
-          "address": {
-            "@type": "PostalAddress",
-            "addressCountry": "SE"
-          },
-          "contactPoint": {
-            "@type": "ContactPoint",
-            "email": "ivan.daza@ravolution.se",
-            "contactType": "business inquiries"
-          },
-          "sameAs": []
-        })}</script>
       </Helmet>
-      <div className="min-h-screen">
-        <Navbar />
-        <HeroSection />
-        <div className="bg-dot-pattern">
-          <ScrollAnimateWrapper>
-            <ValueProposition />
-          </ScrollAnimateWrapper>
-          <ScrollAnimateWrapper delay={0.1}>
-            <PatentPortfolios />
-          </ScrollAnimateWrapper>
-          <ScrollAnimateWrapper delay={0.1}>
-            <FeaturedProducts />
-          </ScrollAnimateWrapper>
-          <ScrollAnimateWrapper delay={0.1}>
-            <MarketplaceConcepts />
-          </ScrollAnimateWrapper>
-          <ScrollAnimateWrapper delay={0.1}>
-            <WhyRavolution />
-          </ScrollAnimateWrapper>
-          <ScrollAnimateWrapper delay={0.1}>
-            <Services />
-          </ScrollAnimateWrapper>
-          <ScrollAnimateWrapper delay={0.1}>
-            <AngelInvestorTeaser />
-          </ScrollAnimateWrapper>
-          <ScrollAnimateWrapper delay={0.1}>
-            <InvestorTeaser />
-          </ScrollAnimateWrapper>
-          <ScrollAnimateWrapper delay={0.1}>
-            <FooterCTA />
-          </ScrollAnimateWrapper>
-          <Footer />
-        </div>
-      </div>
+
+      <EditorialShell>
+        {/* ───────── HERO ───────── */}
+        <section className="relative min-h-screen flex flex-col justify-between pt-28 pb-10 px-6 md:px-12 overflow-hidden">
+          {/* subtle grid */}
+          <div
+            className="absolute inset-0 opacity-[0.05] pointer-events-none"
+            style={{
+              backgroundImage: `linear-gradient(to right, rgba(255,255,255,0.5) 1px, transparent 1px),
+                                linear-gradient(to bottom, rgba(255,255,255,0.5) 1px, transparent 1px)`,
+              backgroundSize: "56px 56px",
+            }}
+          />
+          {/* noise */}
+          <div
+            className="absolute inset-0 opacity-[0.04] pointer-events-none mix-blend-overlay"
+            style={{
+              backgroundImage:
+                "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>\")",
+            }}
+          />
+
+          {/* top bar */}
+          <div className="relative z-10 flex flex-wrap justify-between items-start gap-4 edit-label text-white/45 mt-6">
+            <span>Ravolution AB — Venture Studio</span>
+            <span className="hidden md:inline">59.6099° N · 16.5448° E</span>
+            <span>{time}</span>
+          </div>
+
+          {/* headline block */}
+          <div className="relative z-10 max-w-[1400px] w-full mx-auto">
+            <Reveal>
+              <span className="edit-label text-[hsl(var(--accent-edit))]">
+                {t("hero.badge") || "Swedish venture studio"}
+              </span>
+            </Reveal>
+            <Reveal delay={0.1}>
+              <h1 className="edit-display text-white mt-8">
+                {t("hero.headline") || "Solving civilization-scale challenges with"}
+                <br />
+                <span className="text-[hsl(var(--accent-edit))]">
+                  {t("hero.headlineHighlight") || "patented deep tech."}
+                </span>
+              </h1>
+            </Reveal>
+            <Reveal delay={0.25}>
+              <p className="edit-body text-white/65 mt-10 max-w-2xl">
+                {t("hero.subheadline") || "We protect and scale platforms transforming global opportunity:"}{" "}
+                <span className="text-white">iApply™</span>,{" "}
+                <span className="text-white">CommunicaringSchool™</span>,{" "}
+                <span className="text-white">Rosetta Livingstone™</span>,{" "}
+                <span className="text-white">xPortMatch™</span>.
+              </p>
+            </Reveal>
+          </div>
+
+          {/* bottom indicator */}
+          <div className="relative z-10 flex justify-between items-end edit-label text-white/40">
+            <span>Västerås, SWE — 59.6099° N 16.5448° E</span>
+            <span className="flex items-center gap-3" aria-hidden>
+              <span className="rotate-90 origin-center inline-block translate-y-[-6px]">Scroll</span>
+              <span className="block w-px h-12 bg-white/40 animate-pulse" />
+            </span>
+          </div>
+        </section>
+
+        {/* ───────── MARQUEE ───────── */}
+        <MarqueeStrip
+          items={[
+            "Build for Equity",
+            "Venture Studio",
+            "Angel Investor",
+            "27 Patents · 343 Claims",
+            "Västerås — Stockholm",
+            "Ravolution",
+            "Defensible Innovation",
+          ]}
+        />
+
+        {/* ───────── 01 — WHO WE ARE ───────── */}
+        <section className="edit-section">
+          <div className="edit-container">
+            <SectionLabel number="01 — Who We Are" title="A Swedish venture studio built around defensible IP." />
+            <div className="grid md:grid-cols-12 gap-10 md:gap-16">
+              <Reveal className="md:col-span-7">
+                <p className="text-2xl md:text-4xl font-display font-bold text-white leading-[1.1] tracking-[-0.02em]">
+                  Ravolution AB protects, builds, and scales platforms that solve civilization-scale problems —
+                  from language acquisition to voice security to global trade infrastructure.
+                </p>
+              </Reveal>
+              <Reveal className="md:col-span-5" delay={0.15}>
+                <p className="edit-body text-white/65 max-w-md">
+                  Founded by Ivan Daza, recognized as one of 200 entrepreneurs who shaped Sweden's modern
+                  business landscape. We operate as a studio, invest as an angel, and build as partners —
+                  always backed by patented, defensible technology.
+                </p>
+              </Reveal>
+            </div>
+          </div>
+        </section>
+
+        {/* ───────── 02 — WHAT WE DO ───────── */}
+        <section className="edit-section border-t border-white/10">
+          <div className="edit-container">
+            <SectionLabel number="02 — What We Do" title="Three ways we partner." />
+            <ul>
+              {pillars.map((p, i) => (
+                <Reveal key={p.n} delay={i * 0.08}>
+                  <li>
+                    <Link
+                      to={p.href}
+                      className="group block border-t border-white/10 last:border-b py-10 md:py-14 grid md:grid-cols-12 gap-6 md:gap-10 items-baseline transition-colors hover:bg-white/[0.02]"
+                    >
+                      <span className="md:col-span-1 edit-label text-[hsl(var(--accent-edit))]">{p.n}</span>
+                      <h3 className="md:col-span-6 text-3xl md:text-5xl font-display font-bold uppercase tracking-[-0.02em] text-white leading-[0.95] group-hover:translate-x-2 transition-transform">
+                        {p.title}
+                      </h3>
+                      <p className="md:col-span-4 edit-body text-white/60">{p.desc}</p>
+                      <span className="md:col-span-1 edit-label text-white/40 group-hover:text-[hsl(var(--accent-edit))] md:text-right transition-colors">
+                        →
+                      </span>
+                    </Link>
+                  </li>
+                </Reveal>
+              ))}
+            </ul>
+          </div>
+        </section>
+
+        {/* ───────── STATS ───────── */}
+        <section className="edit-section bg-[hsl(var(--surface))] border-y border-white/10">
+          <div className="edit-container">
+            <Reveal>
+              <span className="edit-label text-white/45">By the numbers</span>
+            </Reveal>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-10 md:gap-6 mt-10">
+              {stats.map((s, i) => (
+                <Reveal key={s.label} delay={i * 0.1}>
+                  <div className="border-t border-white/15 pt-6">
+                    <CountUp
+                      end={s.value}
+                      suffix={s.suffix || ""}
+                      className="block edit-stat text-white"
+                    />
+                    <span className="edit-label text-white/55 mt-4 block">{s.label}</span>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ───────── 03 — PORTFOLIO ───────── */}
+        <section className="edit-section">
+          <div className="edit-container">
+            <SectionLabel number="03 — Portfolio" title="Platforms we operate." />
+            <ul>
+              {portfolio.map((c, i) => (
+                <Reveal key={c.name} delay={i * 0.05}>
+                  <li>
+                    <a
+                      href={c.href}
+                      target={c.href.startsWith("http") ? "_blank" : undefined}
+                      rel="noopener noreferrer"
+                      className="group block border-t border-white/10 last:border-b py-8 md:py-10 grid md:grid-cols-12 gap-4 md:gap-10 items-baseline transition-colors hover:border-[hsl(var(--accent-edit))]"
+                    >
+                      <span className="md:col-span-1 edit-label text-white/40">0{i + 1}</span>
+                      <h3 className="md:col-span-5 text-2xl md:text-4xl font-display font-bold text-white uppercase tracking-[-0.02em] group-hover:translate-x-2 group-hover:text-[hsl(var(--accent-edit))] transition-all">
+                        {c.name}
+                      </h3>
+                      <p className="md:col-span-5 edit-body text-white/55">{c.desc}</p>
+                      <span className="md:col-span-1 edit-label text-white/40 md:text-right group-hover:text-[hsl(var(--accent-edit))] transition-colors">
+                        Visit ↗
+                      </span>
+                    </a>
+                  </li>
+                </Reveal>
+              ))}
+            </ul>
+            <div className="flex justify-end mt-10">
+              <Link to={lp("/portfolio")} className="edit-label text-white edit-link">
+                View all portfolio →
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* ───────── CTA ───────── */}
+        <section className="edit-section border-t border-white/10 bg-[hsl(var(--surface))]">
+          <div className="edit-container text-center">
+            <Reveal>
+              <span className="edit-label text-[hsl(var(--accent-edit))]">Build with us</span>
+            </Reveal>
+            <Reveal delay={0.1}>
+              <h2 className="edit-display text-white mt-6">
+                Ready to <br className="md:hidden" />
+                <span className="text-[hsl(var(--accent-edit))]">build?</span>
+              </h2>
+            </Reveal>
+            <Reveal delay={0.2}>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center mt-12">
+                <Link to={lp("/angel-investor")} className="edit-btn">
+                  <span>For Founders</span>
+                </Link>
+                <Link to={lp("/invest")} className="edit-btn" style={{ borderColor: "rgba(255,255,255,0.4)" }}>
+                  <span>For Investors</span>
+                </Link>
+              </div>
+            </Reveal>
+          </div>
+        </section>
+      </EditorialShell>
     </>
   );
 };
