@@ -63,6 +63,7 @@ const InvestorPortfolioMarquee = () => {
 
   const items: Item[] = [
     { name: "NewsToast™", icon: Newspaper, href: lp("/#concepts") },
+    { name: "BizMeet™", icon: Handshake, href: lp("/#concepts") },
     { name: "Partysta™", icon: PartyPopper, href: lp("/#concepts") },
     { name: "iApply.se", icon: Briefcase, href: "https://iapply.se", external: true },
     { name: "CommunicaringSchool™", icon: GraduationCap, href: lp("/#products") },
