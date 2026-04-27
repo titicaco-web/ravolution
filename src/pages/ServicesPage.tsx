@@ -1,5 +1,5 @@
 import { Helmet } from "react-helmet-async";
-import { EditorialShell } from "@/components/editorial/EditorialLayout";
+import { EditorialShell, Reveal, SectionLabel } from "@/components/editorial/EditorialLayout";
 import HeroVideoBackground from "@/components/HeroVideoBackground";
 import { Link } from "react-router-dom";
 import {
@@ -400,62 +400,74 @@ const ServicesPage = () => {
         <script type="application/ld+json">{JSON.stringify(structuredData)}</script>
       </Helmet>
 
-              <EditorialShell>
-{/* ✅ Hero — untouched */}
-        <section className="relative pt-40 md:pt-48 pb-20 px-6 bg-gradient-to-b from-primary to-primary-dark text-primary-foreground overflow-hidden">
+      <EditorialShell>
+        {/* HERO — editorial 60vh */}
+        <section className="relative pt-40 pb-16 px-6 md:px-12 min-h-[70vh] flex flex-col justify-end overflow-hidden">
           <HeroVideoBackground />
-          {/* White Grid Pattern */}
           <div
-            className="absolute inset-0 opacity-[0.08] pointer-events-[none] z-[1]"
+            className="absolute inset-0 opacity-[0.05] pointer-events-none z-[1]"
             style={{
-              backgroundImage: `
-                linear-gradient(to right, rgba(255,255,255,0.5) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(255,255,255,0.5) 1px, transparent 1px)
-              `,
-              backgroundSize: "24px 24px",
+              backgroundImage: `linear-gradient(to right, rgba(255,255,255,0.5) 1px, transparent 1px),
+                                linear-gradient(to bottom, rgba(255,255,255,0.5) 1px, transparent 1px)`,
+              backgroundSize: "56px 56px",
             }}
           />
-          <div className="relative z-10 max-w-4xl mx-auto text-center">
-            {/* SEO H1 — sr-only for search engines */}
+          <div className="edit-container relative z-10">
             <h1 className="sr-only">{t("servicesPage.seoH1")}</h1>
-            <span className="inline-block text-sm font-semibold tracking-widest uppercase text-accent-light mb-4">
-              {t("intake.badge")}
-            </span>
-            <p className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6" role="heading" aria-level={2}>
-              {t("intake.heroTitle")}
-            </p>
-            <p className="hero-description text-lg md:text-xl text-primary-foreground/80 max-w-3xl mx-auto mb-8">
-              {t("intake.heroSubtitle")}
-            </p>
-            <Button size="lg" className="bg-gold hover:bg-gold-light text-gold-foreground" asChild>
-              <Link to={briefHref}>
-                {t("intake.submitBrief")} <ArrowRight className="w-5 h-5 ml-2" />
-              </Link>
-            </Button>
-
-            {/* Trust bar */}
-            <div className="flex flex-wrap justify-center gap-6 mt-10 text-primary-foreground/70 text-sm">
-              {[
-                { icon: Zap, label: t("intake.trust1") },
-                { icon: ShieldCheck, label: t("intake.trust2") },
-                { icon: Workflow, label: t("intake.trust3") },
-                { icon: Target, label: t("intake.trust4") },
-              ].map((item, i) => (
-                <div key={i} className="flex items-center gap-2">
-                  <item.icon className="w-4 h-4 text-accent-light" />
-                  <span>{item.label}</span>
-                </div>
-              ))}
-            </div>
+            <Reveal>
+              <span className="edit-label text-[hsl(var(--accent-edit))]">{t("intake.badge")}</span>
+            </Reveal>
+            <Reveal delay={0.1}>
+              <p className="edit-display text-white mt-6" role="heading" aria-level={2}>
+                {t("intake.heroTitle")}
+              </p>
+            </Reveal>
+            <Reveal delay={0.2}>
+              <p className="edit-body text-white/65 mt-8 max-w-2xl">
+                {t("intake.heroSubtitle")}
+              </p>
+            </Reveal>
+            <Reveal delay={0.3}>
+              <div className="mt-10 flex flex-wrap items-center gap-6">
+                <Link
+                  to={briefHref}
+                  className="edit-label inline-flex items-center gap-3 bg-white text-black px-6 py-4 hover:bg-[hsl(var(--accent-edit))] hover:text-white transition-colors"
+                >
+                  {t("intake.submitBrief")} <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
+            </Reveal>
+            <Reveal delay={0.4}>
+              <div className="flex flex-wrap gap-x-8 gap-y-3 mt-12 border-t border-white/10 pt-6">
+                {[
+                  { icon: Zap, label: t("intake.trust1") },
+                  { icon: ShieldCheck, label: t("intake.trust2") },
+                  { icon: Workflow, label: t("intake.trust3") },
+                  { icon: Target, label: t("intake.trust4") },
+                ].map((item, i) => (
+                  <div key={i} className="flex items-center gap-2 edit-label text-white/55">
+                    <item.icon className="w-4 h-4 text-[hsl(var(--accent-edit))]" />
+                    <span>{item.label}</span>
+                  </div>
+                ))}
+              </div>
+            </Reveal>
           </div>
         </section>
 
-        {/* GEO Intro Paragraph */}
-        <section className="py-12 px-6 bg-background">
-          <div className="max-w-4xl mx-auto">
-            <p className="service-summary text-lg leading-relaxed text-muted-foreground">
-              {t("servicesPage.geoIntro")}
-            </p>
+        {/* 01 — INTRO */}
+        <section className="edit-section border-t border-white/10">
+          <div className="edit-container">
+            <SectionLabel number="01 — Overview" title={t("intake.heroTitle") as string} />
+            <div className="grid md:grid-cols-12 gap-10">
+              <div className="md:col-span-8 md:col-start-3">
+                <Reveal>
+                  <p className="text-xl md:text-2xl font-display text-white/85 leading-snug">
+                    {t("servicesPage.geoIntro")}
+                  </p>
+                </Reveal>
+              </div>
+            </div>
           </div>
         </section>
 
