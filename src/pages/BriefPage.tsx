@@ -309,8 +309,7 @@ ${data.additionalNotes || "—"}`;
         <link rel="canonical" href="https://ravolution.se/services" />
       </Helmet>
 
-      <div className="min-h-screen">
-        <EditorialShell>
+              <EditorialShell>
 {/* Intake Form */}
         <section ref={formRef} className="pt-32 pb-20 px-6 bg-background">
           <div className="max-w-3xl mx-auto">
@@ -679,7 +678,6 @@ ${data.additionalNotes || "—"}`;
         </section>
 
         </EditorialShell>
-</div>
     </>
   );
 };

@@ -5,8 +5,7 @@ const TermsOfService = () => {
   const { t } = useLanguage();
 
   return (
-    <div className="min-h-screen bg-background">
-      <EditorialShell>
+          <EditorialShell>
 <main className="pt-24 pb-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-4xl font-bold text-foreground mb-8">{t("terms.title")}</h1>
@@ -28,7 +27,6 @@ const TermsOfService = () => {
         </div>
       </main>
       </EditorialShell>
-</div>
   );
 };
 
