@@ -135,12 +135,14 @@ const Index = () => {
               </h1>
             </Reveal>
             <Reveal delay={0.25}>
-              <p className="edit-body text-white/65 mt-10 max-w-2xl">
-                {t("hero.subheadline") || "We protect and scale platforms transforming global opportunity:"}{" "}
-                <span className="text-white">iApply™</span>,{" "}
-                <span className="text-white">CommunicaringSchool™</span>,{" "}
-                <span className="text-white">Rosetta Livingstone™</span>,{" "}
-                <span className="text-white">xPortMatch™</span>.
+              <p className="edit-body text-white/65 mt-10 max-w-3xl">
+                We protect and scale the six platforms transforming global opportunity:{" "}
+                <a href="https://iapply.se" target="_blank" rel="noopener noreferrer" className="text-white hover:text-[hsl(var(--accent-edit))] underline-offset-4 hover:underline transition-colors">iApply™</a>,{" "}
+                <a href="https://communicaringschool.com" target="_blank" rel="noopener noreferrer" className="text-white hover:text-[hsl(var(--accent-edit))] underline-offset-4 hover:underline transition-colors">CommunicaringSchool™</a>,{" "}
+                <a href="https://rosettalivingstone.com" target="_blank" rel="noopener noreferrer" className="text-white hover:text-[hsl(var(--accent-edit))] underline-offset-4 hover:underline transition-colors">Rosetta Livingstone™</a>,{" "}
+                <a href="https://xportmatch.com" target="_blank" rel="noopener noreferrer" className="text-white hover:text-[hsl(var(--accent-edit))] underline-offset-4 hover:underline transition-colors">xPortMatch™</a>,{" "}
+                <a href="https://newstoast.com" target="_blank" rel="noopener noreferrer" className="text-white hover:text-[hsl(var(--accent-edit))] underline-offset-4 hover:underline transition-colors">NewsToast™</a>,{" "}
+                <a href="https://bizmeet.com" target="_blank" rel="noopener noreferrer" className="text-white hover:text-[hsl(var(--accent-edit))] underline-offset-4 hover:underline transition-colors">BizMeet™</a>.
               </p>
             </Reveal>
           </div>
