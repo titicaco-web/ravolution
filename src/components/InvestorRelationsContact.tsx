@@ -79,9 +79,10 @@ const InvestorRelationsContact = () => {
               {t("invest.ir.clarifier")}
             </p>
             <div className="flex flex-col gap-2">
-              {/* Replace with Leon's LinkedIn URL */}
               <a
-                href="#"
+                href="https://www.linkedin.com/in/ivandaza/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-sm text-foreground hover:text-accent transition-colors"
               >
                 <Linkedin className="w-4 h-4" />
