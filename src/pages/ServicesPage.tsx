@@ -606,26 +606,34 @@ const ServicesPage = () => {
         {/* 🆕 Section 6 — Delivery Process Teaser */}
         <DeliveryProcess variant="teaser" />
 
-        {/* Cost + Comparison Section */}
-        <section className="py-16 px-6 bg-background">
-          <div className="max-w-4xl mx-auto space-y-10">
-            <div>
-              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">{t("servicesPage.h2Cost")}</h2>
-              <p className="text-muted-foreground leading-relaxed">{t("servicesPage.costP1")}</p>
-            </div>
-            <div className="rounded-2xl border border-border bg-background p-6">
-              <h3 className="text-xl font-bold text-foreground mb-3">{t("servicesPage.comparisonTitle")}</h3>
-              <p className="text-muted-foreground">{t("servicesPage.comparisonText")}</p>
+        {/* 04 — COST */}
+        <section className="edit-section border-t border-white/10 bg-[hsl(var(--surface))]">
+          <div className="edit-container">
+            <SectionLabel number="04 — Cost" title={t("servicesPage.h2Cost") as string} />
+            <div className="grid md:grid-cols-12 gap-10">
+              <Reveal className="md:col-span-7">
+                <p className="edit-body text-white/65">{t("servicesPage.costP1")}</p>
+              </Reveal>
+              <Reveal className="md:col-span-5" delay={0.1}>
+                <div className="border border-white/10 bg-[hsl(var(--bg))] p-6">
+                  <span className="edit-label text-[hsl(var(--accent-edit))] mb-3 block">{t("servicesPage.comparisonTitle")}</span>
+                  <p className="edit-body text-white/65">{t("servicesPage.comparisonText")}</p>
+                </div>
+              </Reveal>
             </div>
           </div>
         </section>
 
         {/* LatAm Presence (Spanish only) */}
         {language === "es" && (
-          <section className="py-12 px-6" style={{ backgroundColor: '#F7F5F0' }}>
-            <div className="max-w-4xl mx-auto">
-              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">{t("servicesPage.latamTitle")}</h2>
-              <p className="text-muted-foreground leading-relaxed">{t("servicesPage.latamText")}</p>
+          <section className="edit-section border-t border-white/10">
+            <div className="edit-container">
+              <SectionLabel number="05 — LatAm" title={t("servicesPage.latamTitle") as string} />
+              <div className="grid md:grid-cols-12 gap-10">
+                <Reveal className="md:col-span-8 md:col-start-3">
+                  <p className="edit-body text-white/65">{t("servicesPage.latamText")}</p>
+                </Reveal>
+              </div>
             </div>
           </section>
         )}
@@ -634,16 +642,21 @@ const ServicesPage = () => {
         <FounderBlock />
 
         {/* Submit Brief CTA */}
-        <section className="py-16 px-6 bg-background">
-          <div className="max-w-4xl mx-auto">
-            <div className="card-elevated text-center">
-              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">{t("servicesPage.h2Brief")}</h2>
-              <p className="text-muted-foreground mb-6">{t("intake.briefSubtitle")}</p>
-              <Button size="lg" className="bg-primary hover:bg-primary/90" asChild>
-                <Link to={briefHref}>
-                  {t("intake.submitBrief")} <ArrowRight className="w-5 h-5 ml-2" />
+        <section className="edit-section border-t border-white/10">
+          <div className="edit-container">
+            <SectionLabel number="06 — Brief" title={t("servicesPage.h2Brief") as string} />
+            <div className="grid md:grid-cols-12 gap-10 items-end">
+              <Reveal className="md:col-span-7">
+                <p className="text-xl md:text-2xl font-display text-white/85 leading-snug">{t("intake.briefSubtitle")}</p>
+              </Reveal>
+              <Reveal className="md:col-span-5 md:text-right" delay={0.1}>
+                <Link
+                  to={briefHref}
+                  className="edit-label inline-flex items-center gap-3 bg-white text-black px-6 py-4 hover:bg-[hsl(var(--accent-edit))] hover:text-white transition-colors"
+                >
+                  {t("intake.submitBrief")} <ArrowRight className="w-4 h-4" />
                 </Link>
-              </Button>
+              </Reveal>
             </div>
           </div>
         </section>
@@ -651,23 +664,36 @@ const ServicesPage = () => {
         {/* Expanded FAQ */}
         <ExpandedFAQ />
 
-        {/* ✅ Footer CTA — untouched */}
-        <section className="py-20 px-6 bg-primary text-primary-foreground">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">{t("servicesPage.bottomCtaTitle")}</h2>
-            <p className="text-primary-foreground/80 text-lg mb-8">{t("servicesPage.bottomCtaDesc")}</p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-gold hover:bg-gold-light text-gold-foreground" asChild>
-                <Link to={briefHref}>
-                  {t("intake.submitBrief")} <ArrowRight className="w-5 h-5 ml-2" />
+        {/* 07 — FOOTER CTA */}
+        <section className="edit-section border-t border-white/10 bg-[hsl(var(--surface))]">
+          <div className="edit-container text-center max-w-3xl mx-auto">
+            <Reveal>
+              <span className="edit-label text-[hsl(var(--accent-edit))]">07 — Start</span>
+            </Reveal>
+            <Reveal delay={0.1}>
+              <h2 className="edit-display text-white mt-6">{t("servicesPage.bottomCtaTitle")}</h2>
+            </Reveal>
+            <Reveal delay={0.2}>
+              <p className="edit-body text-white/65 mt-6">{t("servicesPage.bottomCtaDesc")}</p>
+            </Reveal>
+            <Reveal delay={0.3}>
+              <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+                <Link
+                  to={briefHref}
+                  className="edit-label inline-flex items-center justify-center gap-3 bg-white text-black px-6 py-4 hover:bg-[hsl(var(--accent-edit))] hover:text-white transition-colors"
+                >
+                  {t("intake.submitBrief")} <ArrowRight className="w-4 h-4" />
                 </Link>
-              </Button>
-              <Button size="lg" className="bg-white text-primary font-semibold hover:bg-white/90" asChild>
-                <a href="https://wa.me/46769456600" target="_blank" rel="noopener noreferrer">
+                <a
+                  href="https://wa.me/46769456600"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="edit-label inline-flex items-center justify-center gap-3 border border-white/30 text-white px-6 py-4 hover:bg-white hover:text-black transition-colors"
+                >
                   {t("servicesPage.bottomCtaBook")}
                 </a>
-              </Button>
-            </div>
+              </div>
+            </Reveal>
           </div>
         </section>
 
