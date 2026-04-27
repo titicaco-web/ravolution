@@ -272,30 +272,35 @@ ${data.additionalNotes || "—"}`;
     return (
       <>
         <EditorialShell>
-<div className="pt-32 pb-10 px-6 bg-background">
-          <div className="max-w-lg mx-auto text-center">
-            <div className="w-20 h-20 rounded-full bg-accent/20 flex items-center justify-center mx-auto mb-6">
-              <CheckCircle2 className="w-10 h-10 text-accent" />
+          <section className="edit-section pt-40 bg-[hsl(var(--bg))]">
+            <div className="edit-container">
+              <div className="max-w-2xl mx-auto text-center border border-white/10 bg-[hsl(var(--surface))] p-12 md:p-16">
+                <div className="w-16 h-16 border border-[hsl(var(--accent-edit))] flex items-center justify-center mx-auto mb-8">
+                  <CheckCircle2 className="w-7 h-7 text-[hsl(var(--accent-edit))]" />
+                </div>
+                <span className="edit-label text-[hsl(var(--accent-edit))]">Brief received</span>
+                <h1 className="edit-h2 text-white mt-6 mb-6">{t("intake.successTitle")}</h1>
+                {files.length > 0 && (
+                  <p className="edit-body text-white/70 mb-4">{t("intake.successFilesNote")}</p>
+                )}
+                <p className="edit-body text-white/70">
+                  {t("intake.successResponse")}{" "}
+                  <span className="text-white">{watch("email")}</span>.
+                </p>
+              </div>
             </div>
-            <h1 className="text-3xl font-bold text-foreground mb-4">{t("intake.successTitle")}</h1>
-            {files.length > 0 && (
-              <p className="text-muted-foreground mb-4">
-                {t("intake.successFilesNote")}
-              </p>
-            )}
-            <p className="text-muted-foreground mb-8">
-              {t("intake.successResponse")} <span className="font-semibold text-foreground">{watch("email")}</span>.
-            </p>
-          </div>
-        </div>
-        <DeliveryProcess variant="full" />
-        <div className="py-10 px-6 bg-background text-center">
-          <Link to={lp("/")} className="btn-primary inline-flex items-center gap-2">
-            {t("intake.backToHome")} <ArrowRight className="w-4 h-4" />
-          </Link>
-        </div>
+          </section>
+          <DeliveryProcess variant="full" />
+          <section className="edit-section bg-[hsl(var(--bg))] border-t border-white/10 text-center">
+            <Link
+              to={lp("/")}
+              className="inline-flex items-center gap-3 px-8 py-4 border border-white/30 text-white hover:bg-white hover:text-[hsl(var(--bg))] transition-colors edit-label"
+            >
+              {t("intake.backToHome")} <ArrowRight className="w-4 h-4" />
+            </Link>
+          </section>
         </EditorialShell>
-</>
+      </>
     );
   }
 
