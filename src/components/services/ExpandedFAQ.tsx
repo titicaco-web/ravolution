@@ -1,12 +1,8 @@
 import { Link } from "react-router-dom";
 import { useLangPath } from "@/hooks/use-lang-path";
 import { useLanguage } from "@/i18n/LanguageContext";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
+import { ArrowRight } from "lucide-react";
+import { Reveal, SectionLabel } from "@/components/editorial/EditorialLayout";
 
 const ExpandedFAQ = () => {
   const lp = useLangPath();
@@ -26,31 +22,34 @@ const ExpandedFAQ = () => {
   ];
 
   return (
-    <section className="py-20 px-6 bg-secondary">
-      <div className="max-w-3xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-12">
-          {t("expandedFaq.heading")}
-        </h2>
-        <Accordion type="single" collapsible className="space-y-3">
+    <section className="edit-section border-t border-white/10 bg-[hsl(var(--surface))]">
+      <div className="edit-container">
+        <SectionLabel number="·" title={t("expandedFaq.heading") as string} />
+        <div className="max-w-3xl">
           {faqs.map((faq, i) => (
-            <AccordionItem key={i} value={`faq-${i}`} className="rounded-2xl border border-border bg-card px-5">
-              <AccordionTrigger className="text-foreground text-base font-semibold hover:no-underline">
-                {faq.q}
-              </AccordionTrigger>
-              <AccordionContent className="text-muted-foreground leading-relaxed">
-                {faq.a}
-                {faq.hasLink && (
-                  <>
-                    {" "}
-                    <Link to={lp("/angel-investor")} className="text-primary hover:text-accent font-medium underline underline-offset-2">
-                      {t("expandedFaq.equityLink")} →
-                    </Link>
-                  </>
-                )}
-              </AccordionContent>
-            </AccordionItem>
+            <Reveal key={i} delay={(i % 4) * 0.05}>
+              <details className="group border-t border-white/10 last:border-b py-6">
+                <summary className="cursor-pointer list-none flex items-center justify-between gap-4">
+                  <span className="text-lg md:text-xl font-display font-bold uppercase tracking-tight text-white">
+                    {faq.q}
+                  </span>
+                  <ArrowRight className="w-4 h-4 shrink-0 transition-transform group-open:rotate-90 text-[hsl(var(--accent-edit))]" />
+                </summary>
+                <p className="mt-4 edit-body text-white/65">
+                  {faq.a}
+                  {faq.hasLink && (
+                    <>
+                      {" "}
+                      <Link to={lp("/angel-investor")} className="text-[hsl(var(--accent-edit))] hover:text-white transition-colors edit-link">
+                        {t("expandedFaq.equityLink")} →
+                      </Link>
+                    </>
+                  )}
+                </p>
+              </details>
+            </Reveal>
           ))}
-        </Accordion>
+        </div>
       </div>
     </section>
   );

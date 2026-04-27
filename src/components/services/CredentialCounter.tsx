@@ -43,11 +43,11 @@ const CounterItem = ({ end, suffix = "", label }: CounterItemProps) => {
   }, [started, end]);
 
   return (
-    <div ref={ref} className="flex flex-col items-center">
-      <span className="text-5xl md:text-6xl font-bold text-white">
+    <div ref={ref} className="flex flex-col">
+      <span className="edit-display text-white text-4xl md:text-6xl">
         {count}{suffix}
       </span>
-      <span className="text-sm text-white/60 mt-2 font-medium">{label}</span>
+      <span className="edit-label text-white/45 mt-3">{label}</span>
     </div>
   );
 };
@@ -64,11 +64,13 @@ const CredentialCounter = () => {
   ];
 
   return (
-    <section className="py-12 px-6 bg-secondary border-b border-border">
-      <div className="max-w-6xl mx-auto">
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
+    <section className="edit-section border-t border-white/10 bg-[hsl(var(--surface))]">
+      <div className="edit-container">
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-px bg-white/10 border border-white/10">
           {stats.map((s) => (
-            <CounterItem key={s.label} {...s} />
+            <div key={s.label} className="bg-[hsl(var(--surface))] p-8">
+              <CounterItem {...s} />
+            </div>
           ))}
         </div>
       </div>
