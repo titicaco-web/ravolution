@@ -136,6 +136,26 @@ const Index = () => {
       href: "https://xportmatch.com",
       cta: "Visit xPortMatch.com",
     },
+    {
+      name: "BizMeet™",
+      tagline: "B2B Meeting & Networking Platform",
+      patents: "Trade infrastructure platform",
+      summary: "Curated B2B meeting platform connecting Swedish and international businesses for high-intent commercial conversations, networking events, and partnership formation.",
+      market: "European B2B networking & event tech market — millions of SMEs seeking partners",
+      revenue: "Subscription, event ticketing, premium matchmaking",
+      href: "https://bizmeetbyc.se/",
+      cta: "Visit Website",
+    },
+    {
+      name: "CarbonX™",
+      tagline: "Verified Carbon Credit Trading Platform",
+      patents: "Compliance-first marketplace architecture",
+      summary: "Digital marketplace for verified carbon credits with Gold Standard and Verra compliance baked into every transaction — built for transparent, auditable corporate decarbonization.",
+      market: "$2.4T projected voluntary & compliance carbon markets by 2030",
+      revenue: "Transaction fees, enterprise compliance subscriptions, data licensing",
+      href: "https://carbonx.se/",
+      cta: "Visit Website",
+    },
   ];
 
   return (
