@@ -140,8 +140,9 @@ const InvestPage = () => {
         <meta property="og:type" content="website" />
       </Helmet>
 
-      <div className="min-h-screen bg-[#0a0e14] text-white selection:bg-accent selection:text-black">
-        <Navbar />
+      <EditorialShell>
+      <div className="min-h-screen bg-[hsl(var(--bg))] text-white selection:bg-accent selection:text-black">
+
 
         {/* ──────────────── 00 — HERO ──────────────── */}
         <section className="relative min-h-screen flex flex-col justify-between pt-28 pb-10 px-6 md:px-12 overflow-hidden">
