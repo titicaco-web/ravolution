@@ -119,7 +119,7 @@ const Founder = () => {
                 <div className="mt-6 space-y-2">
                   <span className="edit-label text-white/45 block">Founder · Inventor</span>
                   <span className="edit-mono text-sm text-white/55 block">{t("founder.name")}</span>
-                  <span className="edit-mono text-sm text-white/55 block">Stockholm · New York · Barcelona · Shanghai · Santiago</span>
+                  <span className="edit-mono text-sm text-white/55 block">Stockholm · New York · Barcelona · Shanghai · Santiago · Zürich</span>
                 </div>
               </Reveal>
             </div>
