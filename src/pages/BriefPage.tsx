@@ -590,23 +590,21 @@ ${data.additionalNotes || "—"}`;
         </section>
 
         {/* What Happens Next */}
-        <section className="py-16 px-6 bg-secondary">
-          <div className="max-w-5xl mx-auto">
-            <h2 className="text-2xl md:text-3xl font-bold text-white text-center mb-10">{t("intake.whatsNextTitle")}</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <section className="edit-section bg-[hsl(var(--bg))] border-b border-white/10">
+          <div className="edit-container">
+            <span className="edit-label text-[hsl(var(--accent-edit))]">02 — What happens next</span>
+            <h2 className="edit-h2 text-white mt-6 mb-12 max-w-[20ch]">{t("intake.whatsNextTitle")}</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-white/10 border border-white/10">
               {[
-                { step: "1", title: t("intake.step1Title"), desc: t("intake.step1Desc") },
-                { step: "2", title: t("intake.step2Title"), desc: t("intake.step2Desc") },
-                { step: "3", title: t("intake.step3Title"), desc: t("intake.step3Desc") },
-                { step: "4", title: t("intake.step4Title"), desc: t("intake.step4Desc") },
+                { step: "01", title: t("intake.step1Title"), desc: t("intake.step1Desc") },
+                { step: "02", title: t("intake.step2Title"), desc: t("intake.step2Desc") },
+                { step: "03", title: t("intake.step3Title"), desc: t("intake.step3Desc") },
+                { step: "04", title: t("intake.step4Title"), desc: t("intake.step4Desc") },
               ].map((item, i) => (
-                <div key={i} className="relative flex flex-col items-center text-center p-6">
-                  <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center mb-4">
-                    <span className="text-lg font-bold text-white">{item.step}</span>
-                  </div>
-                  <h3 className="font-bold text-white mb-2">{item.title}</h3>
-                  <p className="text-sm text-white/70">{item.desc}</p>
-                  {i < 3 && <div className="hidden lg:block absolute top-10 -right-3 w-6 border-t-2 border-dashed border-primary/30" />}
+                <div key={i} className="bg-[hsl(var(--surface))] p-8">
+                  <span className="edit-label text-[hsl(var(--accent-edit))] block mb-6">{item.step}</span>
+                  <h3 className="text-white text-lg font-display font-bold mb-3">{item.title}</h3>
+                  <p className="edit-body text-white/65 text-sm">{item.desc}</p>
                 </div>
               ))}
             </div>
@@ -614,42 +612,49 @@ ${data.additionalNotes || "—"}`;
         </section>
 
         {/* Social Proof / Portfolio */}
-        <section className="py-16 px-6 bg-background">
-          <div className="max-w-5xl mx-auto text-center">
-            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">{t("intake.provenTitle")}</h2>
-            <div className="flex flex-wrap justify-center gap-6 text-sm text-muted-foreground mb-10">
+        <section className="edit-section bg-[hsl(var(--surface))] border-b border-white/10">
+          <div className="edit-container">
+            <span className="edit-label text-[hsl(var(--accent-edit))]">03 — Proven track record</span>
+            <h2 className="edit-h2 text-white mt-6 mb-6 max-w-[20ch]">{t("intake.provenTitle")}</h2>
+            <div className="flex flex-wrap gap-x-10 gap-y-3 edit-label text-white/55 mb-12">
               <span>{t("intake.provenStat1")}</span>
               <span>{t("intake.provenStat2")}</span>
               <span>{t("intake.provenStat3")}</span>
             </div>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-white/10 border border-white/10 mb-10">
               {portfolioProjects.map((project) => (
                 <a
                   key={project.name}
                   href={project.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="card-elevated group hover:border-primary/30 transition-all text-center p-4"
+                  className="group bg-[hsl(var(--bg))] hover:bg-[hsl(var(--surface))] transition-colors p-6"
                 >
-                  <h4 className="font-bold text-foreground text-sm mb-1 group-hover:text-primary transition-colors">{project.name}</h4>
-                  <p className="text-xs text-muted-foreground mb-2">{t(`intake.${project.key}`)}</p>
-                  <ExternalLink className="w-3.5 h-3.5 text-muted-foreground group-hover:text-primary transition-colors mx-auto" />
+                  <div className="flex items-start justify-between mb-4">
+                    <h4 className="text-white font-display font-bold text-base group-hover:text-[hsl(var(--accent-edit))] transition-colors">
+                      {project.name}
+                    </h4>
+                    <ExternalLink className="w-3.5 h-3.5 text-white/40 group-hover:text-[hsl(var(--accent-edit))] transition-colors" />
+                  </div>
+                  <p className="edit-label text-white/55">{t(`intake.${project.key}`)}</p>
                 </a>
               ))}
             </div>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link to={lp("/configure")} className="text-sm text-primary hover:text-primary/80 font-medium underline underline-offset-2 transition-colors">
-                {t("intake.configureLink")}
-              </Link>
-            </div>
+            <Link
+              to={lp("/configure")}
+              className="edit-label text-white edit-link inline-flex items-center gap-2"
+            >
+              {t("intake.configureLink")} →
+            </Link>
           </div>
         </section>
 
         {/* FAQ */}
-        <section className="py-16 px-6 bg-secondary">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-2xl md:text-3xl font-bold text-foreground text-center mb-10">{t("intake.faqTitle")}</h2>
-            <div className="space-y-4">
+        <section className="edit-section bg-[hsl(var(--bg))] border-b border-white/10">
+          <div className="edit-container max-w-4xl mx-auto">
+            <span className="edit-label text-[hsl(var(--accent-edit))]">04 — Questions</span>
+            <h2 className="edit-h2 text-white mt-6 mb-12">{t("intake.faqTitle")}</h2>
+            <div className="border-t border-white/10">
               {[
                 { q: t("intake.faq1Q"), a: t("intake.faq1A") },
                 { q: t("intake.faq2Q"), a: t("intake.faq2A") },
@@ -657,12 +662,14 @@ ${data.additionalNotes || "—"}`;
                 { q: t("intake.faq4Q"), a: t("intake.faq4A") },
                 { q: t("intake.faq5Q"), a: t("intake.faq5A") },
               ].map((faq, i) => (
-                <details key={i} className="group card-elevated !p-0 overflow-hidden">
-                  <summary className="cursor-pointer font-semibold text-foreground text-sm flex items-center justify-between px-5 py-4 select-none hover:bg-secondary/50 transition-colors">
-                    <span>{faq.q}</span>
-                    <ArrowRight className="w-4 h-4 transition-transform group-open:rotate-90 flex-shrink-0 ml-2" />
+                <details key={i} className="group border-b border-white/10">
+                  <summary className="cursor-pointer flex items-center justify-between gap-6 py-6 select-none hover:text-[hsl(var(--accent-edit))] transition-colors">
+                    <span className="text-white text-lg font-display group-hover:text-[hsl(var(--accent-edit))] transition-colors">
+                      {faq.q}
+                    </span>
+                    <span className="edit-label text-[hsl(var(--accent-edit))] flex-shrink-0 group-open:rotate-45 transition-transform text-2xl leading-none">+</span>
                   </summary>
-                  <div className="px-5 pb-4 text-sm text-muted-foreground">{faq.a}</div>
+                  <div className="pb-6 edit-body text-white/65 max-w-3xl">{faq.a}</div>
                 </details>
               ))}
             </div>
@@ -670,19 +677,24 @@ ${data.additionalNotes || "—"}`;
         </section>
 
         {/* Bottom CTA */}
-        <section className="py-20 px-6 bg-primary text-primary-foreground">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">{t("intake.bottomTitle")}</h2>
-            <p className="text-white/70 mb-8 text-lg">{t("intake.bottomSubtitle")}</p>
+        <section className="edit-section bg-[hsl(var(--surface))]">
+          <div className="edit-container text-center max-w-3xl mx-auto">
+            <span className="edit-label text-[hsl(var(--accent-edit))]">Build with us</span>
+            <h2 className="edit-display text-white mt-6 mb-8">{t("intake.bottomTitle")}</h2>
+            <p className="edit-body text-white/65 mb-12">{t("intake.bottomSubtitle")}</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-gold hover:bg-gold-light text-gold-foreground" onClick={scrollToForm}>
-                {t("intake.submitBrief")} <ArrowRight className="w-5 h-5 ml-2" />
-              </Button>
-              <Button size="lg" className="bg-white text-primary font-semibold hover:bg-white/90" asChild>
-                <a href="mailto:ivan.daza@ravolution.se" target="_blank" rel="noopener noreferrer">
-                  {t("intake.bookCall")}
-                </a>
-              </Button>
+              <button
+                onClick={scrollToForm}
+                className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-white text-[hsl(var(--bg))] hover:bg-[hsl(var(--accent-edit))] hover:text-white transition-colors edit-label"
+              >
+                {t("intake.submitBrief")} <ArrowRight className="w-4 h-4" />
+              </button>
+              <a
+                href="mailto:ivan.daza@ravolution.se"
+                className="inline-flex items-center justify-center gap-3 px-8 py-4 border border-white/30 text-white hover:bg-white hover:text-[hsl(var(--bg))] transition-colors edit-label"
+              >
+                {t("intake.bookCall")}
+              </a>
             </div>
           </div>
         </section>
