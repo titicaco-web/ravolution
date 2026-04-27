@@ -253,17 +253,17 @@ const AngelInvestor = () => {
           <section className="section-padding pt-0">
             <div className="max-w-5xl mx-auto">
               <ScrollAnimateWrapper>
-                <div className="card-elevated p-8 md:p-10 bg-gradient-to-br from-card to-secondary">
+                <div className="card-elevated p-8 md:p-10 bg-card border border-border">
                   <h2 className="text-2xl md:text-3xl font-display font-bold text-foreground mb-3">
                     {t("angel.equityTitle")}
                   </h2>
-                  <p className="text-muted-foreground mb-8">{t("angel.equityIntro")}</p>
+                  <p className="text-foreground/80 mb-8">{t("angel.equityIntro")}</p>
                   <div className="grid sm:grid-cols-2 gap-6">
                     {equityKeys.map((key) => (
                       <div key={key}>
                         <Scale className="w-5 h-5 text-gold mb-2" />
                         <h4 className="font-semibold text-foreground mb-1">{t(`angel.equity.${key}.title`)}</h4>
-                        <p className="text-muted-foreground text-sm">{t(`angel.equity.${key}.desc`)}</p>
+                        <p className="text-foreground/75 text-sm leading-relaxed">{t(`angel.equity.${key}.desc`)}</p>
                       </div>
                     ))}
                   </div>
