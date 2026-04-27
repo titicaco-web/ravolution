@@ -1163,7 +1163,7 @@ export const es = {
     tag4: "Educación", title4: "CommunicaringSchool™ — Educación global alineada con la ONU",
     desc4: "9 tecnologías patentadas para comparación estudiantil internacional, equivalencia curricular y aprendizaje basado en derechos.",
     stat4: "9 patentes · 116 reivindicaciones",
-    tag5: "Sostenibilidad", title5: "Plataforma de comercio de carbono",
+    tag5: "Sostenibilidad", title5: "CarbonX™ — Plataforma de comercio de carbono",
     desc5: "Marketplace digital para créditos de carbono verificados con cumplimiento Gold Standard y Verra integrado.",
     stat5: "Arquitectura de cumplimiento primero",
     tag6: "Tecnología de moda", title6: "AI Video Virtual Try-On",

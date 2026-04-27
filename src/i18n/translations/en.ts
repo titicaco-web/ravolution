@@ -1293,7 +1293,7 @@ export const en = {
     tag4: "Education", title4: "CommunicaringSchool™ — UN-Aligned Global Education",
     desc4: "9 patented technologies enabling cross-national student benchmarking, curriculum equivalency, and rights-based learning.",
     stat4: "9 patents · 116 claims",
-    tag5: "Sustainability", title5: "Carbon Trading Platform",
+    tag5: "Sustainability", title5: "CarbonX™ — Carbon Trading Platform",
     desc5: "Digital marketplace for verified carbon credits with Gold Standard and Verra compliance baked into every transaction.",
     stat5: "Compliance-first architecture",
     tag6: "Fashion Tech", title6: "AI Video Virtual Try-On",

@@ -123,7 +123,7 @@ const HeroSection = () => {
           </h1>
 
           <p className="text-lg md:text-xl text-white/80 max-w-4xl mx-auto mb-10 leading-relaxed">
-            {t("hero.subheadline")} <span className="text-white">iApply™</span>, <span className="text-white">CommunicaringSchool™</span>, <span className="text-white">Rosetta Livingstone™</span>, <span className="text-white">xPortMatch™</span>.
+            {t("hero.subheadline")} <span className="text-white">iApply™</span>, <span className="text-white">CommunicaringSchool™</span>, <span className="text-white">Rosetta Livingstone™</span>, <span className="text-white">xPortMatch™</span>, <span className="text-white"><a href="https://carbonx.se/" target="_blank" rel="noopener noreferrer" className="hover:text-accent-light transition-colors">CarbonX™</a></span>.
             <span className="block mt-2 text-gold">{t("hero.subheadlineEnd")}</span>
           </p>
 

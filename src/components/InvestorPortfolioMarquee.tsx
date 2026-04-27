@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { Briefcase, GraduationCap, Languages, Globe, Dog, Heart, ShieldAlert, Droplets, Home, Calendar, Gift, ExternalLink, Newspaper, PartyPopper, Handshake } from "lucide-react";
+import { Briefcase, GraduationCap, Languages, Globe, Dog, Heart, ShieldAlert, Droplets, Home, Calendar, Gift, ExternalLink, Newspaper, PartyPopper, Handshake, Leaf } from "lucide-react";
 import { useLangPath } from "@/hooks/use-lang-path";
 
 type Item = {
@@ -66,6 +66,7 @@ const InvestorPortfolioMarquee = () => {
     { name: "BizMeet™", icon: Handshake, href: "https://bizmeetbyc.se/", external: true },
     { name: "Partysta™", icon: PartyPopper, href: lp("/#concepts") },
     { name: "iApply.se", icon: Briefcase, href: "https://iapply.se", external: true },
+    { name: "CarbonX™", icon: Leaf, href: "https://carbonx.se/", external: true },
     { name: "CommunicaringSchool™", icon: GraduationCap, href: lp("/#products") },
     { name: "Rosetta Livingstone™", icon: Languages, href: lp("/#products") },
     { name: "xPortMatch™", icon: Globe, href: lp("/#products") },
