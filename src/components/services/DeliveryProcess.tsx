@@ -1,8 +1,8 @@
 import { BarChart3, FileText, Hammer, Search, Sparkles, Rocket, Wrench, ArrowRight } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
-import { ScrollAnimateWrapper } from "@/hooks/use-scroll-animation";
 import { Link } from "react-router-dom";
 import { useLangPath } from "@/hooks/use-lang-path";
+import { Reveal, SectionLabel } from "@/components/editorial/EditorialLayout";
 
 const steps = [
   { icon: BarChart3, key: "step1" },
@@ -24,30 +24,30 @@ const DeliveryProcess = ({ variant = "full" }: DeliveryProcessProps) => {
 
   if (variant === "teaser") {
     return (
-      <section className="py-16 px-6 bg-secondary">
-        <div className="max-w-4xl mx-auto text-center">
-          <ScrollAnimateWrapper>
-            <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
-              {t("delivery.teaserTitle")}
-            </h2>
-            <p className="text-white/70 mb-8 max-w-2xl mx-auto">
-              {t("delivery.teaserDesc")}
-            </p>
-            <div className="flex flex-wrap justify-center gap-3 mb-8">
+      <section className="edit-section border-t border-white/10">
+        <div className="edit-container">
+          <SectionLabel number="·" title={t("delivery.teaserTitle") as string} />
+          <Reveal>
+            <p className="edit-body text-white/65 max-w-2xl mb-10">{t("delivery.teaserDesc")}</p>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <div className="flex flex-wrap gap-3 mb-12">
               {steps.map((s, i) => (
-                <div key={i} className="flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-4 py-2">
-                  <s.icon className="w-4 h-4 text-accent" />
-                  <span className="text-sm text-white/80">{t(`delivery.${s.key}.title`)}</span>
+                <div key={i} className="flex items-center gap-2 bg-[hsl(var(--surface))] border border-white/10 px-4 py-2">
+                  <s.icon className="w-4 h-4 text-[hsl(var(--accent-edit))]" />
+                  <span className="edit-label text-white/75">{t(`delivery.${s.key}.title`)}</span>
                 </div>
               ))}
             </div>
+          </Reveal>
+          <Reveal delay={0.2}>
             <Link
               to={lp("/brief")}
-              className="inline-flex items-center gap-2 bg-gold text-gold-foreground px-6 py-3 rounded-xl font-semibold hover:bg-gold-light transition-all"
+              className="edit-label inline-flex items-center gap-3 bg-white text-black px-6 py-4 hover:bg-[hsl(var(--accent-edit))] hover:text-white transition-colors"
             >
               {t("delivery.teaserCta")} <ArrowRight className="w-4 h-4" />
             </Link>
-          </ScrollAnimateWrapper>
+          </Reveal>
         </div>
       </section>
     );
@@ -64,101 +64,75 @@ const DeliveryProcess = ({ variant = "full" }: DeliveryProcessProps) => {
   ];
 
   return (
-    <section className="py-20 px-6 bg-secondary">
-      <div className="max-w-[900px] mx-auto">
-        <ScrollAnimateWrapper>
-          <div className="text-center mb-14">
-            <span className="inline-block text-sm font-semibold tracking-widest uppercase text-accent mb-4">
-              {t("delivery.badge")}
-            </span>
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              {t("delivery.title")}
-            </h2>
-            <p className="text-white/70 text-lg max-w-2xl mx-auto">
-              {t("delivery.subtitle")}
-            </p>
-          </div>
-        </ScrollAnimateWrapper>
+    <section className="edit-section border-t border-white/10">
+      <div className="edit-container">
+        <Reveal>
+          <span className="edit-label text-[hsl(var(--accent-edit))]">{t("delivery.badge")}</span>
+        </Reveal>
+        <SectionLabel number="·" title={t("delivery.title") as string} className="mt-6" />
+        <Reveal>
+          <p className="edit-body text-white/65 max-w-2xl mb-16">{t("delivery.subtitle")}</p>
+        </Reveal>
 
         {/* Steps */}
-        <div className="space-y-6 mb-16">
+        <ol className="mb-20">
           {steps.map((s, i) => {
             const deliverables = t(`delivery.${s.key}.deliverables`).split("·").map(d => d.trim()).filter(Boolean);
             const highlight = t(`delivery.${s.key}.highlight`);
             const note = t(`delivery.${s.key}.note`);
 
             return (
-              <ScrollAnimateWrapper key={i} delay={i * 0.1}>
-                <div className="relative bg-white/5 border border-white/10 rounded-2xl p-6 md:p-8">
-                  {/* Number badge */}
-                  <div className="absolute -top-3 -left-3 w-8 h-8 rounded-full bg-accent text-white text-sm font-bold flex items-center justify-center">
-                    {i + 1}
+              <Reveal key={i} delay={i * 0.06}>
+                <li className="border-t border-white/10 last:border-b py-10 grid md:grid-cols-12 gap-6 md:gap-10">
+                  <div className="md:col-span-2 space-y-3">
+                    <span className="edit-label text-[hsl(var(--accent-edit))] block">0{i + 1}</span>
+                    <span className="edit-label text-white/45 block">{t(`delivery.${s.key}.timeline`)}</span>
+                    <s.icon className="w-5 h-5 text-white/55" />
                   </div>
-
-                  {/* Timeline tag */}
-                  <div className="mb-3">
-                    <span className="text-xs font-medium text-white/50 bg-white/5 px-3 py-1 rounded-full">
-                      {t(`delivery.${s.key}.timeline`)}
-                    </span>
-                  </div>
-
-                  <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-xl bg-primary/20 flex items-center justify-center flex-shrink-0 mt-1">
-                      <s.icon className="w-5 h-5 text-primary" />
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <h3 className="text-xl font-bold text-white mb-2">
-                        {t(`delivery.${s.key}.title`)}
-                      </h3>
-                      <p className="text-white/70 leading-relaxed mb-4">
-                        {t(`delivery.${s.key}.desc`)}
-                      </p>
-
-                      {/* Deliverables pills */}
-                      <div className="flex flex-wrap gap-2 mb-3">
-                        {deliverables.map((d, di) => (
-                          <span key={di} className="text-xs bg-white/10 text-white/80 px-3 py-1 rounded-full">
-                            {d}
-                          </span>
-                        ))}
-                      </div>
-
-                      {/* Highlight badge */}
-                      {highlight && highlight !== `delivery.${s.key}.highlight` && (
-                        <span className="inline-block text-xs font-semibold bg-primary text-white px-3 py-1 rounded-full">
-                          {highlight}
+                  <div className="md:col-span-10 space-y-4">
+                    <h3 className="text-2xl md:text-3xl font-display font-bold uppercase tracking-tight text-white leading-tight">
+                      {t(`delivery.${s.key}.title`)}
+                    </h3>
+                    <p className="edit-body text-white/65">{t(`delivery.${s.key}.desc`)}</p>
+                    <div className="flex flex-wrap gap-2 pt-2">
+                      {deliverables.map((d, di) => (
+                        <span key={di} className="edit-label text-white/70 px-3 py-1.5 border border-white/15">
+                          {d}
                         </span>
-                      )}
-
-                      {/* Note */}
-                      {note && note !== `delivery.${s.key}.note` && (
-                        <p className="text-xs text-white/40 mt-2 italic">{note}</p>
-                      )}
+                      ))}
                     </div>
+                    {highlight && highlight !== `delivery.${s.key}.highlight` && (
+                      <span className="edit-label inline-block text-black bg-[hsl(var(--accent-edit))] px-3 py-1.5 mt-2">
+                        {highlight}
+                      </span>
+                    )}
+                    {note && note !== `delivery.${s.key}.note` && (
+                      <p className="edit-label text-white/40 italic mt-2">{note}</p>
+                    )}
                   </div>
-                </div>
-              </ScrollAnimateWrapper>
+                </li>
+              </Reveal>
             );
           })}
-        </div>
+        </ol>
 
         {/* Summary Table */}
-        <ScrollAnimateWrapper>
-          <div className="bg-white/5 border border-white/10 rounded-2xl overflow-hidden mb-10">
+        <Reveal>
+          <div className="border border-white/10 overflow-hidden mb-10">
             <div className="overflow-x-auto">
               <table className="w-full text-sm">
                 <thead>
-                  <tr className="border-b border-white/10">
-                    <th className="text-left p-4 text-white/50 font-medium">{t("delivery.table.colPhase")}</th>
-                    <th className="text-left p-4 text-white/50 font-medium">{t("delivery.table.colHappens")}</th>
-                    <th className="text-left p-4 text-white/50 font-medium">{t("delivery.table.colPay")}</th>
-                    <th className="text-left p-4 text-white/50 font-medium">{t("delivery.table.colGet")}</th>
+                  <tr className="border-b border-white/10 bg-[hsl(var(--surface))]">
+                    <th className="text-left p-4 edit-label text-white/45">{t("delivery.table.colPhase")}</th>
+                    <th className="text-left p-4 edit-label text-white/45">{t("delivery.table.colHappens")}</th>
+                    <th className="text-left p-4 edit-label text-white/45">{t("delivery.table.colPay")}</th>
+                    <th className="text-left p-4 edit-label text-white/45">{t("delivery.table.colGet")}</th>
                   </tr>
                 </thead>
                 <tbody>
                   {summaryRows.map((row, i) => (
-                    <tr key={i} className="border-b border-white/5 last:border-0">
-                      <td className="p-4 text-white font-medium">{row.phase}</td>
+                    <tr key={i} className="border-b border-white/10 last:border-0">
+                      <td className="p-4 text-white font-display uppercase tracking-tight text-sm">{row.phase}</td>
                       <td className="p-4 text-white/70">{row.happens}</td>
                       <td className="p-4 text-white/70">{row.pay}</td>
                       <td className="p-4 text-white/70">{row.get}</td>
@@ -168,20 +142,15 @@ const DeliveryProcess = ({ variant = "full" }: DeliveryProcessProps) => {
               </table>
             </div>
           </div>
-        </ScrollAnimateWrapper>
+        </Reveal>
 
         {/* Transparency Note */}
-        <ScrollAnimateWrapper>
-          <div className="text-center">
-            <p className="text-white/40 text-sm leading-relaxed max-w-2xl mx-auto mb-4">
-              {t("delivery.transparencyNote")}
-            </p>
-            <a href="#" className="text-sm text-accent hover:text-accent/80 transition-colors inline-flex items-center gap-1">
-              {t("delivery.downloadContract")} <ArrowRight className="w-3 h-3" />
-              {/* TODO: add contract PDF link */}
-            </a>
-          </div>
-        </ScrollAnimateWrapper>
+        <Reveal>
+          <p className="edit-body text-white/40 max-w-2xl mb-4">{t("delivery.transparencyNote")}</p>
+          <a href="#" className="edit-label text-[hsl(var(--accent-edit))] hover:text-white transition-colors inline-flex items-center gap-2">
+            {t("delivery.downloadContract")} <ArrowRight className="w-3 h-3" />
+          </a>
+        </Reveal>
       </div>
     </section>
   );
