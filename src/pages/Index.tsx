@@ -223,13 +223,14 @@ const Index = () => {
             </Reveal>
             <Reveal delay={0.25}>
               <p className="edit-body text-white/65 mt-10 max-w-3xl">
-                We protect and scale the six platforms transforming global opportunity:{" "}
+                We protect and scale the seven platforms transforming global opportunity:{" "}
                 <a href="https://iapply.se" target="_blank" rel="noopener noreferrer" className="text-white hover:text-[hsl(var(--accent-edit))] underline-offset-4 hover:underline transition-colors">iApply™</a>,{" "}
                 <a href="https://communicaringschool.com" target="_blank" rel="noopener noreferrer" className="text-white hover:text-[hsl(var(--accent-edit))] underline-offset-4 hover:underline transition-colors">CommunicaringSchool™</a>,{" "}
                 <a href="https://rosettalivingstone.com" target="_blank" rel="noopener noreferrer" className="text-white hover:text-[hsl(var(--accent-edit))] underline-offset-4 hover:underline transition-colors">Rosetta Livingstone™</a>,{" "}
                 <a href="https://xportmatch.com" target="_blank" rel="noopener noreferrer" className="text-white hover:text-[hsl(var(--accent-edit))] underline-offset-4 hover:underline transition-colors">xPortMatch™</a>,{" "}
                 <a href="https://newstoast.com" target="_blank" rel="noopener noreferrer" className="text-white hover:text-[hsl(var(--accent-edit))] underline-offset-4 hover:underline transition-colors">NewsToast™</a>,{" "}
-                <a href="https://bizmeet.com" target="_blank" rel="noopener noreferrer" className="text-white hover:text-[hsl(var(--accent-edit))] underline-offset-4 hover:underline transition-colors">BizMeet™</a>.
+                <a href="https://bizmeetbyc.se/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-[hsl(var(--accent-edit))] underline-offset-4 hover:underline transition-colors">BizMeet™</a>,{" "}
+                <a href="https://carbonx.se/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-[hsl(var(--accent-edit))] underline-offset-4 hover:underline transition-colors">CarbonX™</a>.
               </p>
             </Reveal>
           </div>
