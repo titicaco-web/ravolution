@@ -196,7 +196,6 @@ const TechnicalCofounderAlternative = () => {
           </div>
 
           </EditorialShell>
-      </div>
     </>
   );
 };

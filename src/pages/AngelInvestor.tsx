@@ -470,7 +470,6 @@ const AngelInvestor = () => {
           </div>
 
           </EditorialShell>
-      </div>
     </>
   );
 };

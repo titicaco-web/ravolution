@@ -338,7 +338,6 @@ const BlogPodcast = () => {
           </div>
 
           </EditorialShell>
-      </div>
     </>
   );
 };
