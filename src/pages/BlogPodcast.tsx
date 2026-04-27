@@ -92,8 +92,7 @@ const BlogPodcast = () => {
         </script>
       </Helmet>
 
-      <div className="min-h-screen">
-        <EditorialShell>
+              <EditorialShell>
 {/* Hero */}
         <section className="gradient-hero text-primary-foreground pt-28 pb-20 md:pt-36 md:pb-28">
           <div className="max-w-5xl mx-auto px-6 text-center">
@@ -336,9 +335,9 @@ const BlogPodcast = () => {
             </section>
           </ScrollAnimateWrapper>
 
+          </div>
+
           </EditorialShell>
-</div>
-      </div>
     </>
   );
 };

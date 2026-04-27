@@ -126,8 +126,7 @@ const AngelInvestor = () => {
         <script type="application/ld+json">{JSON.stringify(structuredData)}</script>
       </Helmet>
 
-      <div className="min-h-screen angel-theme">
-        <EditorialShell>
+              <EditorialShell>
 {/* Hero */}
         <section className="relative text-white pt-28 pb-20 md:pt-36 md:pb-28 overflow-hidden" style={{ background: 'linear-gradient(135deg, hsl(210, 62%, 16%) 0%, hsl(210, 62%, 9%) 100%)' }}>
           <div
@@ -468,9 +467,9 @@ const AngelInvestor = () => {
             </div>
           </section>
 
+          </div>
+
           </EditorialShell>
-</div>
-      </div>
     </>
   );
 };

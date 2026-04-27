@@ -9,8 +9,7 @@ const ConfigurePage = () => {
         <title>Configure Your Platform | Ravolution AB</title>
         <meta name="description" content="Pick the components you need and get an instant scope estimate. Submit your spec or jump straight to a discovery call." />
       </Helmet>
-      <div className="min-h-screen">
-        <EditorialShell>
+              <EditorialShell>
 <section className="pt-32 pb-20 px-6 bg-gradient-to-b from-primary to-primary-dark text-primary-foreground">
           <div className="max-w-4xl mx-auto text-center mb-12">
             <span className="inline-block text-sm font-semibold tracking-widest uppercase text-accent-light mb-4">Platform Builder</span>
@@ -26,7 +25,6 @@ const ConfigurePage = () => {
           </div>
         </section>
         </EditorialShell>
-</div>
     </>
   );
 };

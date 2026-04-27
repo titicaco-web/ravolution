@@ -141,7 +141,8 @@ const InvestPage = () => {
       </Helmet>
 
       <EditorialShell>
-      <div className="min-h-screen bg-[hsl(var(--bg))] text-white selection:bg-accent selection:text-black">
+      <div className="bg-[hsl(var(--bg))] text-white selection:bg-accent selection:text-black">
+
 
 
         {/* ──────────────── 00 — HERO ──────────────── */}

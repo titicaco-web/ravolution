@@ -57,8 +57,7 @@ const TechnicalCofounderAlternative = () => {
         <script type="application/ld+json">{JSON.stringify(structuredData)}</script>
       </Helmet>
 
-      <div className="min-h-screen">
-        <EditorialShell>
+              <EditorialShell>
 <section className="relative text-white pt-28 pb-20 md:pt-36 md:pb-28 overflow-hidden" style={{ background: 'linear-gradient(135deg, hsl(210, 62%, 16%) 0%, hsl(210, 62%, 9%) 100%)' }}>
           <div className="absolute inset-0 opacity-[0.08] z-[1] pointer-events-none" style={{ backgroundImage: `radial-gradient(circle, rgba(255,255,255,0.3) 1px, transparent 1px)`, backgroundSize: "24px 24px" }} />
           <div className="relative z-10 max-w-4xl mx-auto px-6">
@@ -194,9 +193,9 @@ const TechnicalCofounderAlternative = () => {
             </div>
           </section>
 
+          </div>
+
           </EditorialShell>
-</div>
-      </div>
     </>
   );
 };

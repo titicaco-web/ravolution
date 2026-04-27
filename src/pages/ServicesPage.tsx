@@ -399,8 +399,7 @@ const ServicesPage = () => {
         <script type="application/ld+json">{JSON.stringify(structuredData)}</script>
       </Helmet>
 
-      <div className="min-h-screen bg-background">
-        <EditorialShell>
+              <EditorialShell>
 {/* ✅ Hero — untouched */}
         <section className="relative pt-32 pb-20 px-6 bg-gradient-to-b from-primary to-primary-dark text-primary-foreground overflow-hidden">
           {/* White Grid Pattern */}
@@ -656,7 +655,6 @@ const ServicesPage = () => {
         </section>
 
         </EditorialShell>
-</div>
     </>
   );
 };
