@@ -3,6 +3,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Linkedin, Mail, MapPin, ArrowRight } from "lucide-react";
 import ivanPhoto from "@/assets/ivan-daza.jpg";
+import leonPhoto from "@/assets/leon-barakat.jpeg";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { useLangPath } from "@/hooks/use-lang-path";
 
@@ -75,9 +76,13 @@ const LeadershipSection = () => {
           <Card className="bg-card border-border hover:border-accent/40 transition-colors">
             <CardContent className="p-6 flex flex-col h-full">
               <div className="flex items-start gap-4 mb-4">
-                {/* Replace with /images/leon-barakat.jpg when available */}
-                <div className="w-20 h-20 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center text-primary-foreground font-display font-bold text-xl shrink-0 ring-2 ring-accent/20">
-                  LB
+                <div className="w-20 h-20 rounded-full overflow-hidden shrink-0 ring-2 ring-accent/20 bg-gradient-to-br from-primary/20 to-accent/20">
+                  <img
+                    src={leonPhoto}
+                    alt="Leon Barakat — Investor Relations Coordinator"
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
                 </div>
                 <div className="flex-1 min-w-0">
                   <h3 className="text-lg font-display font-bold text-foreground leading-tight">
