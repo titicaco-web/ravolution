@@ -367,6 +367,38 @@ const AngelInvestor = () => {
           </div>
         </section>
 
+        {/* ─── 08·5 SUBMIT-ON-BRIEF CTA BAND ─── */}
+        <section className="edit-section pt-0 pb-0">
+          <div className="edit-container">
+            <Reveal>
+              <div className="grid md:grid-cols-12 gap-px bg-white/10 border border-white/10">
+                <div className="bg-[hsl(var(--surface))] p-8 md:p-12 md:col-span-8">
+                  <div className="edit-label text-[hsl(var(--accent-edit))] mb-4">
+                    — Already have a deck?
+                  </div>
+                  <h3 className="font-display font-bold text-white text-2xl md:text-3xl uppercase tracking-tight leading-tight mb-3">
+                    Send your pitch deck or write your brief
+                  </h3>
+                  <p className="edit-body text-white/70 max-w-2xl">
+                    Use the dedicated brief page to upload your deck (PDF) or describe
+                    your idea in detail. Reviewed personally by Ivan within 48 hours.
+                  </p>
+                </div>
+                <div className="bg-[hsl(var(--bg))] p-8 md:p-12 md:col-span-4 flex flex-col justify-center gap-3">
+                  <a href={lp("/brief")} className="edit-btn justify-center">
+                    <FileText className="w-4 h-4" />
+                    Submit on Brief page ↗
+                  </a>
+                  <a href="#brief-form" className="edit-btn justify-center">
+                    <Send className="w-4 h-4" />
+                    Quick form below
+                  </a>
+                </div>
+              </div>
+            </Reveal>
+          </div>
+        </section>
+
         {/* ─── 09 BRIEF FORM ─── */}
         <section id="brief-form" className="edit-section pt-0">
           <div className="edit-container">
