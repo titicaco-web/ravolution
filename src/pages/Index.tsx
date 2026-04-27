@@ -11,6 +11,7 @@ import {
   MarqueeStrip,
 } from "@/components/editorial/EditorialLayout";
 import HeroVideoBackground from "@/components/HeroVideoBackground";
+import InvestorPortfolioMarquee from "@/components/InvestorPortfolioMarquee";
 
 const Index = () => {
   const { t } = useLanguage();
