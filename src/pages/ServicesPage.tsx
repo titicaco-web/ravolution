@@ -502,82 +502,94 @@ const ServicesPage = () => {
           </div>
         </section>
 
-        {/* ✅ Service detail sections — untouched */}
+        {/* 03 — SERVICES */}
+        <section className="edit-section border-t border-white/10">
+          <div className="edit-container">
+            <SectionLabel number="03 — Services" title="What we build" />
+          </div>
+        </section>
         {services.map((service, index) => {
-          const isDark = index % 2 !== 0;
           return (
           <section
             key={service.title}
-            className={`py-20 px-6 ${isDark ? "bg-secondary" : "bg-background"}`}
+            className="edit-section border-t border-white/10"
           >
-            <div className="max-w-6xl mx-auto">
-              <div className="mb-10 max-w-4xl">
-                <div className={`w-14 h-14 rounded-2xl ${isDark ? "bg-white/10" : "bg-primary/10"} flex items-center justify-center mb-5`}>
-                  <service.icon className={`w-7 h-7 ${isDark ? "text-accent-light" : "text-primary"}`} />
+            <div className="edit-container">
+              <Reveal>
+                <div className="mb-12 grid md:grid-cols-12 gap-6 items-baseline border-t border-white/10 pt-6">
+                  <span className="md:col-span-1 edit-label text-[hsl(var(--accent-edit))]">0{index + 1}</span>
+                  <div className="md:col-span-11 space-y-5">
+                    <service.icon className="w-7 h-7 text-[hsl(var(--accent-edit))]" />
+                    <h3 className="text-3xl md:text-5xl font-display font-bold uppercase tracking-[-0.02em] text-white leading-tight">{service.title}</h3>
+                    <p className="edit-label text-[hsl(var(--accent-edit))]">{service.tagline}</p>
+                    <p className="edit-body text-white/65 max-w-3xl">{service.description}</p>
+                  </div>
                 </div>
-                <h2 className={`text-3xl md:text-4xl font-bold mb-3 ${isDark ? "text-white" : "text-foreground"}`}>{service.title}</h2>
-                <p className={`text-lg font-medium mb-4 ${isDark ? "text-accent-light" : "text-primary"}`}>{service.tagline}</p>
-                <p className={`text-base md:text-lg leading-relaxed ${isDark ? "text-white/75" : "text-muted-foreground"}`}>{service.description}</p>
-              </div>
+              </Reveal>
 
-              <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-8 items-start">
-                <div className="space-y-6">
-                  <div className={isDark ? "rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm" : "card-elevated"}>
-                    <h3 className={`text-xl font-bold mb-4 ${isDark ? "text-white" : "text-foreground"}`}>{t("servicesPage.whatsIncluded")}</h3>
+              <div className="grid lg:grid-cols-2 gap-px bg-white/10 border border-white/10">
+                <Reveal>
+                  <div className="bg-[hsl(var(--bg))] p-8 h-full">
+                    <span className="edit-label text-white/45 mb-4 block">{t("servicesPage.whatsIncluded")}</span>
                     <ul className="space-y-3">
                       {service.deliverables.map((item) => (
-                        <li key={item} className={`flex items-start gap-3 ${isDark ? "text-white/70" : "text-muted-foreground"}`}>
-                          <CheckCircle2 className={`w-4 h-4 flex-shrink-0 mt-1 ${isDark ? "text-accent-light" : "text-accent"}`} />
-                          <span>{item}</span>
+                        <li key={item} className="flex items-start gap-3 text-white/70">
+                          <CheckCircle2 className="w-4 h-4 flex-shrink-0 mt-1 text-[hsl(var(--accent-edit))]" />
+                          <span className="edit-body">{item}</span>
                         </li>
                       ))}
                     </ul>
                   </div>
+                </Reveal>
 
-                  <div className={isDark ? "rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm" : "card-elevated"}>
-                    <h3 className={`text-xl font-bold mb-3 ${isDark ? "text-white" : "text-foreground"}`}>{t("servicesPage.whoFor")}</h3>
-                    <p className={isDark ? "text-white/70" : "text-muted-foreground"}>{service.whoFor}</p>
+                <Reveal delay={0.08}>
+                  <div className="bg-[hsl(var(--bg))] p-8 h-full">
+                    <span className="edit-label text-white/45 mb-4 block">{t("servicesPage.whoFor")}</span>
+                    <p className="edit-body text-white/70">{service.whoFor}</p>
                   </div>
-                </div>
+                </Reveal>
 
-                <div className="space-y-6">
-                  <div className={isDark ? "rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm" : "card-elevated"}>
-                    <h3 className={`text-xl font-bold mb-4 ${isDark ? "text-white" : "text-foreground"}`}>{t("servicesPage.useCases")}</h3>
-                    <div className="space-y-4">
+                <Reveal>
+                  <div className="bg-[hsl(var(--bg))] p-8 h-full">
+                    <span className="edit-label text-white/45 mb-4 block">{t("servicesPage.useCases")}</span>
+                    <div className="space-y-5">
                       {service.useCases.map((item, caseIndex) => (
-                        <div key={`${service.title}-${caseIndex}`} className={`rounded-2xl border p-5 ${isDark ? "border-white/10 bg-white/5" : "border-border bg-background"}`}>
-                          <p className={`text-sm mb-2 ${isDark ? "text-white/80" : "text-foreground"}`}><span className="font-semibold">{t("servicesPage.problem")}</span> {item.problem}</p>
-                          <p className={`text-sm mb-2 ${isDark ? "text-white/80" : "text-foreground"}`}><span className="font-semibold">{t("servicesPage.approach")}</span> {item.approach}</p>
-                          <p className={`text-sm ${isDark ? "text-white/80" : "text-foreground"}`}><span className="font-semibold">{t("servicesPage.outcome")}</span> {item.outcome}</p>
+                        <div key={`${service.title}-${caseIndex}`} className="border-t border-white/10 pt-5 first:border-t-0 first:pt-0">
+                          <p className="text-sm text-white/80 mb-2"><span className="edit-label text-[hsl(var(--accent-edit))] mr-2">{t("servicesPage.problem")}</span>{item.problem}</p>
+                          <p className="text-sm text-white/80 mb-2"><span className="edit-label text-[hsl(var(--accent-edit))] mr-2">{t("servicesPage.approach")}</span>{item.approach}</p>
+                          <p className="text-sm text-white/80"><span className="edit-label text-[hsl(var(--accent-edit))] mr-2">{t("servicesPage.outcome")}</span>{item.outcome}</p>
                         </div>
                       ))}
                     </div>
                   </div>
+                </Reveal>
 
-                  <div className={isDark ? "rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm" : "card-elevated"}>
-                    <h3 className={`text-xl font-bold mb-4 ${isDark ? "text-white" : "text-foreground"}`}>{t("servicesPage.faq")}</h3>
-                    <div className="space-y-3">
+                <Reveal delay={0.08}>
+                  <div className="bg-[hsl(var(--bg))] p-8 h-full">
+                    <span className="edit-label text-white/45 mb-4 block">{t("servicesPage.faq")}</span>
+                    <div className="space-y-2">
                       {service.faqs.map((faq) => (
-                        <details key={faq.q} className={`group rounded-2xl border px-5 py-4 ${isDark ? "border-white/10 bg-white/5" : "border-border bg-background"}`}>
-                          <summary className={`cursor-pointer list-none font-semibold flex items-center justify-between gap-3 ${isDark ? "text-white" : "text-foreground"}`}>
+                        <details key={faq.q} className="group border-b border-white/10 py-3">
+                          <summary className="cursor-pointer list-none font-display font-bold uppercase tracking-tight text-white flex items-center justify-between gap-3 text-sm">
                             <span>{faq.q}</span>
-                            <ArrowRight className="w-4 h-4 shrink-0 transition-transform group-open:rotate-90" />
+                            <ArrowRight className="w-4 h-4 shrink-0 transition-transform group-open:rotate-90 text-[hsl(var(--accent-edit))]" />
                           </summary>
-                          <p className={`mt-3 text-sm ${isDark ? "text-white/70" : "text-muted-foreground"}`}>{faq.a}</p>
+                          <p className="mt-3 text-sm text-white/60 leading-relaxed">{faq.a}</p>
                         </details>
                       ))}
                     </div>
                   </div>
-                </div>
+                </Reveal>
               </div>
 
               {(index === 1 || index === 3) && (
-                <div className="mt-10 text-center">
-                  <Button size="lg" className="bg-primary hover:bg-primary/90" asChild>
-                    <Link to={briefHref}>
-                      {t("intake.submitBrief")} <ArrowRight className="w-5 h-5 ml-2" />
-                    </Link>
-                  </Button>
+                <div className="mt-12">
+                  <Link
+                    to={briefHref}
+                    className="edit-label inline-flex items-center gap-3 bg-white text-black px-6 py-4 hover:bg-[hsl(var(--accent-edit))] hover:text-white transition-colors"
+                  >
+                    {t("intake.submitBrief")} <ArrowRight className="w-4 h-4" />
+                  </Link>
                 </div>
               )}
             </div>
