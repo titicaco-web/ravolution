@@ -415,7 +415,7 @@ const ServicesPage = () => {
               backgroundSize: "24px 24px",
             }}
           />
-          <div className="relative max-w-4xl mx-auto text-center">
+          <div className="relative z-10 max-w-4xl mx-auto text-center">
             {/* SEO H1 — sr-only for search engines */}
             <h1 className="sr-only">{t("servicesPage.seoH1")}</h1>
             <span className="inline-block text-sm font-semibold tracking-widest uppercase text-accent-light mb-4">
