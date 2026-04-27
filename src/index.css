@@ -407,3 +407,294 @@
 ::-webkit-scrollbar-thumb:hover {
   @apply bg-primary/50;
 }
+
+/* ──────────────────────────────────────────────────────────────────
+   Editorial design system (RAV24) — global redesign
+   Dark editorial surface, Space Grotesk display, monospace labels.
+   Activate by wrapping a page/root in `editorial` class (or .rav-edit).
+   Tokens preserve brand palette (teal/cyan accent already defined).
+   ────────────────────────────────────────────────────────────────── */
+
+.editorial {
+  /* Surface tokens (override of dark theme) */
+  --bg: 213 50% 5%;          /* #0a0e14-ish */
+  --surface: 213 40% 9%;
+  --surface-2: 213 35% 12%;
+  --text-primary: 0 0% 98%;
+  --text-secondary: 0 0% 98%; /* used with /55 alpha utility */
+  --accent-edit: 36 60% 58%;  /* warm gold accent (brand) */
+  --accent-dim: 36 60% 58%;
+
+  background-color: hsl(var(--bg));
+  color: hsl(var(--text-primary));
+  font-family: "Space Grotesk", "Inter", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.editorial ::selection {
+  background: hsl(var(--accent-edit));
+  color: #000;
+}
+
+/* Display / hero */
+.edit-display {
+  font-family: "Space Grotesk", "Inter", sans-serif;
+  font-weight: 700;
+  font-size: clamp(3.5rem, 10vw, 8.75rem);
+  line-height: 0.88;
+  letter-spacing: -0.035em;
+  text-transform: uppercase;
+}
+
+.edit-h2 {
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 700;
+  font-size: clamp(2rem, 5vw, 4rem);
+  line-height: 0.95;
+  letter-spacing: -0.025em;
+  text-transform: uppercase;
+}
+
+.edit-stat {
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 700;
+  font-size: clamp(5rem, 12vw, 10rem);
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+}
+
+.edit-label {
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.edit-mono {
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+}
+
+.edit-body {
+  font-size: clamp(1rem, 1.1vw, 1.125rem);
+  line-height: 1.65;
+}
+
+/* Section padding */
+.edit-section {
+  padding-top: clamp(80px, 12vw, 140px);
+  padding-bottom: clamp(80px, 12vw, 140px);
+  padding-left: clamp(24px, 5vw, 80px);
+  padding-right: clamp(24px, 5vw, 80px);
+}
+
+.edit-container {
+  max-width: 1280px;
+  margin-inline: auto;
+  width: 100%;
+}
+
+/* Underline link draw-in */
+.edit-link {
+  position: relative;
+  display: inline-block;
+  color: inherit;
+  text-decoration: none;
+}
+.edit-link::after {
+  content: "";
+  position: absolute;
+  left: 0; bottom: -2px;
+  width: 100%;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.35s cubic-bezier(.6,.05,.1,1);
+}
+.edit-link:hover::after { transform: scaleX(1); }
+
+/* Outline button with sliding fill */
+.edit-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 1.75rem;
+  border: 1px solid hsl(var(--accent-edit));
+  color: hsl(var(--text-primary));
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  background: transparent;
+  overflow: hidden;
+  cursor: pointer;
+  transition: color 0.25s ease;
+}
+.edit-btn > * { position: relative; z-index: 1; }
+.edit-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: hsl(var(--accent-edit));
+  transform: translateX(-101%);
+  transition: transform 0.35s cubic-bezier(.6,.05,.1,1);
+  z-index: 0;
+}
+.edit-btn:hover { color: #000; }
+.edit-btn:hover::before { transform: translateX(0); }
+
+/* Marquee */
+@keyframes edit-marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.edit-marquee {
+  display: flex;
+  width: max-content;
+  animation: edit-marquee 40s linear infinite;
+}
+
+/* Scroll reveals (Intersection-Observer toggled) */
+.edit-reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s cubic-bezier(.2,.7,.2,1), transform 0.7s cubic-bezier(.2,.7,.2,1);
+  will-change: transform, opacity;
+}
+.edit-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.edit-reveal-zoom {
+  opacity: 0;
+  transform: scale(1.04);
+  transition: opacity 0.9s ease-out, transform 0.9s ease-out;
+}
+.edit-reveal-zoom.is-visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Custom cursor */
+.edit-cursor-dot,
+.edit-cursor-ring {
+  position: fixed;
+  top: 0; left: 0;
+  pointer-events: none;
+  z-index: 9999;
+  border-radius: 9999px;
+  transform: translate(-50%, -50%);
+  mix-blend-mode: difference;
+}
+.edit-cursor-dot {
+  width: 8px; height: 8px;
+  background: #fff;
+  transition: opacity 0.2s ease, transform 0.08s linear, width 0.25s ease, height 0.25s ease;
+}
+.edit-cursor-ring {
+  width: 36px; height: 36px;
+  border: 1px solid #fff;
+  background: transparent;
+  transition: opacity 0.2s ease, transform 0.18s ease, width 0.25s ease, height 0.25s ease, border-color 0.2s ease;
+}
+.edit-cursor-hover .edit-cursor-dot { width: 0; height: 0; }
+.edit-cursor-hover .edit-cursor-ring { width: 56px; height: 56px; }
+
+@media (hover: none), (pointer: coarse) {
+  .edit-cursor-dot, .edit-cursor-ring { display: none !important; }
+}
+
+/* Preloader */
+.edit-preloader {
+  position: fixed;
+  inset: 0;
+  background: hsl(var(--bg));
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: edit-preloader-out 0.6s ease-in 0.7s forwards;
+}
+.edit-preloader span {
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 700;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  color: #fff;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: edit-preloader-in 0.5s ease-out forwards;
+}
+@keyframes edit-preloader-in {
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes edit-preloader-out {
+  to { opacity: 0; visibility: hidden; transform: translateY(-12px); }
+}
+
+/* Full-screen MENU overlay */
+.edit-menu {
+  position: fixed;
+  inset: 0;
+  background: hsl(var(--bg));
+  z-index: 90;
+  display: flex;
+  flex-direction: column;
+  padding: clamp(24px, 5vw, 80px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s ease;
+}
+.edit-menu.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+.edit-menu a.menu-item {
+  display: flex;
+  align-items: baseline;
+  gap: 1.5rem;
+  padding: 0.5rem 0;
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 700;
+  font-size: clamp(2.5rem, 7vw, 5rem);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  color: #fff;
+  text-decoration: none;
+  transform: translateY(20px);
+  opacity: 0;
+  transition: transform 0.4s ease, opacity 0.4s ease, color 0.25s ease, padding-left 0.25s ease;
+}
+.edit-menu.open a.menu-item {
+  transform: translateY(0);
+  opacity: 1;
+}
+.edit-menu a.menu-item:hover {
+  color: hsl(var(--accent-edit));
+  padding-left: 1rem;
+}
+
+/* Hide native cursor on interactive surfaces when custom cursor active */
+@media (hover: hover) and (pointer: fine) {
+  body.edit-cursor-active,
+  body.edit-cursor-active a,
+  body.edit-cursor-active button {
+    cursor: none;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .edit-reveal, .edit-reveal-zoom,
+  .edit-marquee, .edit-preloader, .edit-preloader span,
+  .edit-cursor-dot, .edit-cursor-ring {
+    animation: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
