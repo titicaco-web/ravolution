@@ -206,6 +206,11 @@ const Index = () => {
             <span>{time}</span>
           </div>
 
+          {/* floating portfolio marquee — transparent under header */}
+          <div className="relative z-10 mt-4">
+            <InvestorPortfolioMarquee transparent />
+          </div>
+
           {/* headline block */}
           <div className="relative z-10 max-w-[1400px] w-full mx-auto">
             <Reveal>
