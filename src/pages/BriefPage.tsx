@@ -1,10 +1,9 @@
 import { useState, useCallback, useRef } from "react";
+import { EditorialShell } from "@/components/editorial/EditorialLayout";
 import { Helmet } from "react-helmet-async";
 import { useForm } from "react-hook-form";
 import { useDropzone } from "react-dropzone";
 import { Link } from "react-router-dom";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
 import DeliveryProcess from "@/components/services/DeliveryProcess";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
@@ -272,8 +271,8 @@ ${data.additionalNotes || "—"}`;
   if (submitted) {
     return (
       <>
-        <Navbar />
-        <div className="pt-32 pb-10 px-6 bg-background">
+        <EditorialShell>
+<div className="pt-32 pb-10 px-6 bg-background">
           <div className="max-w-lg mx-auto text-center">
             <div className="w-20 h-20 rounded-full bg-accent/20 flex items-center justify-center mx-auto mb-6">
               <CheckCircle2 className="w-10 h-10 text-accent" />
@@ -295,8 +294,8 @@ ${data.additionalNotes || "—"}`;
             {t("intake.backToHome")} <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
-        <Footer />
-      </>
+        </EditorialShell>
+</>
     );
   }
 
@@ -311,9 +310,8 @@ ${data.additionalNotes || "—"}`;
       </Helmet>
 
       <div className="min-h-screen">
-        <Navbar />
-
-        {/* Intake Form */}
+        <EditorialShell>
+{/* Intake Form */}
         <section ref={formRef} className="pt-32 pb-20 px-6 bg-background">
           <div className="max-w-3xl mx-auto">
             <div className="text-center mb-10">
@@ -680,8 +678,8 @@ ${data.additionalNotes || "—"}`;
           </div>
         </section>
 
-        <Footer />
-      </div>
+        </EditorialShell>
+</div>
     </>
   );
 };

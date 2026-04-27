@@ -1,7 +1,6 @@
 import { useState } from "react";
+import { EditorialShell } from "@/components/editorial/EditorialLayout";
 import { Helmet } from "react-helmet-async";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { useLangPath } from "@/hooks/use-lang-path";
 import { ScrollAnimateWrapper } from "@/hooks/use-scroll-animation";
@@ -128,9 +127,8 @@ const AngelInvestor = () => {
       </Helmet>
 
       <div className="min-h-screen angel-theme">
-        <Navbar />
-
-        {/* Hero */}
+        <EditorialShell>
+{/* Hero */}
         <section className="relative text-white pt-28 pb-20 md:pt-36 md:pb-28 overflow-hidden" style={{ background: 'linear-gradient(135deg, hsl(210, 62%, 16%) 0%, hsl(210, 62%, 9%) 100%)' }}>
           <div
             className="absolute inset-0 opacity-[0.12] z-[1] pointer-events-none"
@@ -470,8 +468,8 @@ const AngelInvestor = () => {
             </div>
           </section>
 
-          <Footer />
-        </div>
+          </EditorialShell>
+</div>
       </div>
     </>
   );

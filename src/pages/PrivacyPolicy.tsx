@@ -1,14 +1,13 @@
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
 import { useLanguage } from "@/i18n/LanguageContext";
+import { EditorialShell } from "@/components/editorial/EditorialLayout";
 
 const PrivacyPolicy = () => {
   const { t } = useLanguage();
 
   return (
     <div className="min-h-screen">
-      <Navbar />
-      <main className="pt-24 pb-16">
+      <EditorialShell>
+<main className="pt-24 pb-16">
         <div className="max-w-4xl mx-auto px-6">
           <h1 className="text-4xl font-display font-bold text-foreground mb-8">{t("privacy.title")}</h1>
           <p className="text-muted-foreground mb-8">{t("privacy.lastUpdated")} {new Date().toLocaleDateString('en-SE', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
@@ -26,8 +25,8 @@ const PrivacyPolicy = () => {
           </div>
         </div>
       </main>
-      <Footer />
-    </div>
+      </EditorialShell>
+</div>
   );
 };
 
