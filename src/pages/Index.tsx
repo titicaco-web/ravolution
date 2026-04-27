@@ -10,6 +10,7 @@ import {
   SectionLabel,
   MarqueeStrip,
 } from "@/components/editorial/EditorialLayout";
+import HeroVideoBackground from "@/components/HeroVideoBackground";
 
 const Index = () => {
   const { t } = useLanguage();
@@ -91,6 +92,7 @@ const Index = () => {
       <EditorialShell>
         {/* ───────── HERO ───────── */}
         <section className="relative min-h-screen flex flex-col justify-between pt-28 pb-10 px-6 md:px-12 overflow-hidden">
+          <HeroVideoBackground overlayClassName="bg-black/70" />
           {/* subtle grid */}
           <div
             className="absolute inset-0 opacity-[0.05] pointer-events-none"
