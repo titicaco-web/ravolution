@@ -1,9 +1,6 @@
 import { useState, useEffect } from "react";
 import { Helmet } from "react-helmet-async";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
 import { useLanguage } from "@/i18n/LanguageContext";
-import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Send, CheckCircle } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
@@ -11,6 +8,7 @@ import InvestorRelationsContact from "@/components/InvestorRelationsContact";
 import InvestorTrustSection from "@/components/InvestorTrustSection";
 import InvestorLegalDisclaimer from "@/components/InvestorLegalDisclaimer";
 import InvestorPortfolioMarquee from "@/components/InvestorPortfolioMarquee";
+import { EditorialShell } from "@/components/editorial/EditorialLayout";
 
 /* ──────────────────────────────────────────────────────────────────
    Editorial primitives
@@ -473,9 +471,8 @@ const InvestPage = () => {
         <div className="border-t border-white/10">
           <InvestorLegalDisclaimer />
         </div>
-
-        <Footer />
-      </div>
+        </div>
+      </EditorialShell>
     </>
   );
 };
