@@ -161,6 +161,10 @@ const AngelInvestor = () => {
                   <Send className="w-4 h-4" />
                   {t("angel.ctaBrief")}
                 </a>
+                <a href={lp("/brief")} className="edit-btn">
+                  <FileText className="w-4 h-4" />
+                  Submit deck on Brief page ↗
+                </a>
                 <a href="mailto:ivan.daza@ravolution.se" className="edit-btn">
                   <Calendar className="w-4 h-4" />
                   {t("angel.ctaMeeting")}
