@@ -16,6 +16,7 @@ const Index = () => {
   const { t } = useLanguage();
   const lp = useLangPath();
   const [time, setTime] = useState("");
+  const [openCard, setOpenCard] = useState<string | null>(null);
 
   useEffect(() => {
     const upd = () => {
