@@ -403,9 +403,10 @@ const ServicesPage = () => {
               <EditorialShell>
 {/* ✅ Hero — untouched */}
         <section className="relative pt-40 md:pt-48 pb-20 px-6 bg-gradient-to-b from-primary to-primary-dark text-primary-foreground overflow-hidden">
+          <HeroVideoBackground />
           {/* White Grid Pattern */}
           <div
-            className="absolute inset-0 opacity-[0.08] pointer-events-none"
+            className="absolute inset-0 opacity-[0.08] pointer-events-[none] z-[1]"
             style={{
               backgroundImage: `
                 linear-gradient(to right, rgba(255,255,255,0.5) 1px, transparent 1px),
