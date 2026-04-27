@@ -168,21 +168,21 @@ const Founder = () => {
 
         {/* 04 — VISION */}
         <section className="edit-section border-t border-white/10">
-          <div className="edit-container grid md:grid-cols-12 gap-10">
-            <div className="md:col-span-4">
-              <SectionLabel number="04 — Vision" title={t("founder.visionTitle") as string} />
-            </div>
-            <div className="md:col-span-8 space-y-8 md:pt-20">
-              <Reveal>
-                <p className="text-xl md:text-2xl font-display text-white/85 leading-snug">
-                  {t("founder.visionDescription")}
-                </p>
-              </Reveal>
-              <Reveal delay={0.1}>
-                <blockquote className="border-l-2 border-[hsl(var(--accent-edit))] pl-6 italic text-lg text-white/70 leading-relaxed">
-                  {t("founder.visionQuote")}
-                </blockquote>
-              </Reveal>
+          <div className="edit-container">
+            <SectionLabel number="04 — Vision" title={t("founder.visionTitle") as string} />
+            <div className="grid md:grid-cols-12 gap-10">
+              <div className="md:col-span-8 md:col-start-5 space-y-8">
+                <Reveal>
+                  <p className="text-xl md:text-2xl font-display text-white/85 leading-snug">
+                    {t("founder.visionDescription")}
+                  </p>
+                </Reveal>
+                <Reveal delay={0.1}>
+                  <blockquote className="border-l-2 border-[hsl(var(--accent-edit))] pl-6 italic text-lg text-white/70 leading-relaxed">
+                    {t("founder.visionQuote")}
+                  </blockquote>
+                </Reveal>
+              </div>
             </div>
           </div>
         </section>
