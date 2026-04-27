@@ -1,5 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import { EditorialShell } from "@/components/editorial/EditorialLayout";
+import HeroVideoBackground from "@/components/HeroVideoBackground";
 import { Link } from "react-router-dom";
 import {
   ArrowRight,
