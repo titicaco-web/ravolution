@@ -15,6 +15,7 @@ import {
   Wrench, Scale, XCircle, Building, UserCheck
 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
+import InvestorPortfolioMarquee from "@/components/InvestorPortfolioMarquee";
 import { useToast } from "@/hooks/use-toast";
 
 const AngelInvestor = () => {
@@ -173,6 +174,9 @@ const AngelInvestor = () => {
             </Reveal>
           </div>
         </section>
+
+        {/* ─── PORTFOLIO MARQUEE ─── */}
+        <InvestorPortfolioMarquee />
 
         {/* ─── 01 INTRO ─── */}
         <section className="edit-section">

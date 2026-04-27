@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { Briefcase, GraduationCap, Languages, Globe, Dog, Heart, ShieldAlert, Droplets, Home, Calendar, Gift, ExternalLink, Newspaper, PartyPopper } from "lucide-react";
+import { Briefcase, GraduationCap, Languages, Globe, Dog, Heart, ShieldAlert, Droplets, Home, Calendar, Gift, ExternalLink, Newspaper, PartyPopper, Handshake } from "lucide-react";
 import { useLangPath } from "@/hooks/use-lang-path";
 
 type Item = {
@@ -63,6 +63,7 @@ const InvestorPortfolioMarquee = () => {
 
   const items: Item[] = [
     { name: "NewsToast™", icon: Newspaper, href: lp("/#concepts") },
+    { name: "BizMeet™", icon: Handshake, href: lp("/#concepts") },
     { name: "Partysta™", icon: PartyPopper, href: lp("/#concepts") },
     { name: "iApply.se", icon: Briefcase, href: "https://iapply.se", external: true },
     { name: "CommunicaringSchool™", icon: GraduationCap, href: lp("/#products") },
