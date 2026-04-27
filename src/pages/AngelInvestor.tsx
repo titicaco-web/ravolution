@@ -1,9 +1,8 @@
 import { useState } from "react";
-import { EditorialShell } from "@/components/editorial/EditorialLayout";
+import { EditorialShell, Reveal, SectionLabel } from "@/components/editorial/EditorialLayout";
 import { Helmet } from "react-helmet-async";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { useLangPath } from "@/hooks/use-lang-path";
-import { ScrollAnimateWrapper } from "@/hooks/use-scroll-animation";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -12,9 +11,8 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import {
   Send, Calendar, CheckCircle, Briefcase, GraduationCap,
-  Languages, Globe, Shield, Zap, FileText, Target, Rocket,
-  Lock, ArrowRight, Wrench, Scale, ExternalLink, XCircle,
-  Users, Building, UserCheck
+  Languages, Globe, Shield, FileText, Target, Rocket,
+  Wrench, Scale, XCircle, Building, UserCheck
 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
@@ -65,7 +63,6 @@ const AngelInvestor = () => {
   const diffKeys = ["devShop", "vc", "cofounder"];
   const diffIcons = [Building, Scale, UserCheck];
 
-  // Structured data: @graph with Organization reference, Service and FAQPage
   const structuredData = {
     "@context": "https://schema.org",
     "@graph": [
@@ -126,350 +123,336 @@ const AngelInvestor = () => {
         <script type="application/ld+json">{JSON.stringify(structuredData)}</script>
       </Helmet>
 
-              <EditorialShell>
-{/* Hero */}
-        <section className="relative text-white pt-28 pb-20 md:pt-36 md:pb-28 overflow-hidden" style={{ background: 'linear-gradient(135deg, hsl(210, 62%, 16%) 0%, hsl(210, 62%, 9%) 100%)' }}>
+      <EditorialShell>
+        {/* ─── HERO ─── */}
+        <section className="edit-section relative overflow-hidden border-b border-white/10">
           <div
-            className="absolute inset-0 opacity-[0.12] z-[1] pointer-events-none"
+            className="absolute inset-0 opacity-[0.08] pointer-events-none"
             style={{
               backgroundImage: `linear-gradient(to right, rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.5) 1px, transparent 1px)`,
-              backgroundSize: "18px 18px",
+              backgroundSize: "32px 32px",
             }}
           />
-          <div className="relative z-10 max-w-5xl mx-auto px-6">
-            <div className="inline-flex items-center gap-2 bg-white/10 text-white/80 px-4 py-1.5 rounded-full text-sm font-medium mb-6 animate-fade-in border border-white/15">
-              <Rocket className="w-4 h-4" />
-              {t("angel.heroBadge")}
-            </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6 leading-tight animate-fade-in-up">
-              {t("angel.heroH1")}
-            </h1>
-            <p className="text-lg md:text-xl text-white/75 max-w-3xl leading-relaxed mb-4 animate-fade-in-up">
-              {t("angel.heroSubhead")}
-            </p>
-            {/* Trust strip */}
-            <p className="text-sm text-white/40 max-w-3xl mb-8 animate-fade-in-up tracking-wide">
-              {t("angel.trustStrip")}
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 animate-fade-in-up">
-              <Button size="lg" className="bg-white text-primary hover:bg-white/90 font-semibold" asChild>
-                <a href="#brief-form">
-                  <Send className="mr-2 w-5 h-5" />
+          <div className="edit-container relative">
+            <Reveal>
+              <div className="edit-label text-[hsl(var(--accent-edit))] mb-8 flex items-center gap-3">
+                <Rocket className="w-4 h-4" />
+                {t("angel.heroBadge")}
+              </div>
+            </Reveal>
+            <Reveal delay={0.1}>
+              <h1 className="edit-display text-white max-w-[12ch] mb-10">
+                {t("angel.heroH1")}
+              </h1>
+            </Reveal>
+            <Reveal delay={0.2}>
+              <p className="edit-body text-white/70 max-w-2xl mb-6">
+                {t("angel.heroSubhead")}
+              </p>
+            </Reveal>
+            <Reveal delay={0.3}>
+              <p className="edit-label text-white/40 mb-12">
+                {t("angel.trustStrip")}
+              </p>
+            </Reveal>
+            <Reveal delay={0.4}>
+              <div className="flex flex-wrap gap-4">
+                <a href="#brief-form" className="edit-btn">
+                  <Send className="w-4 h-4" />
                   {t("angel.ctaBrief")}
                 </a>
-              </Button>
-              <Button size="lg" variant="outline" className="bg-transparent border-white/30 text-white hover:bg-white/10 hover:border-white/50 hover:text-white" asChild>
-                <a href="mailto:ivan.daza@ravolution.se" target="_blank" rel="noopener noreferrer">
-                  <Calendar className="mr-2 w-5 h-5" />
+                <a href="mailto:ivan.daza@ravolution.se" className="edit-btn">
+                  <Calendar className="w-4 h-4" />
                   {t("angel.ctaMeeting")}
                 </a>
-              </Button>
+              </div>
+            </Reveal>
+          </div>
+        </section>
+
+        {/* ─── 01 INTRO ─── */}
+        <section className="edit-section">
+          <div className="edit-container">
+            <SectionLabel number="01" title={t("angel.introTitle")} />
+            <div className="grid md:grid-cols-12 gap-8">
+              <div className="md:col-span-2 hidden md:block" />
+              <div className="md:col-span-9 space-y-6">
+                <Reveal><p className="edit-body text-white/80">{t("angel.introText1")}</p></Reveal>
+                <Reveal delay={0.1}><p className="edit-body text-white/70">{t("angel.introText2")}</p></Reveal>
+                <Reveal delay={0.2}><p className="edit-body text-white/70">{t("angel.introText3")}</p></Reveal>
+              </div>
             </div>
           </div>
         </section>
 
-        <div className="bg-dot-pattern">
-          {/* Introtext — definition block */}
-          <section className="section-padding">
-            <div className="max-w-4xl mx-auto">
-              <ScrollAnimateWrapper>
-                <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-6">
-                  {t("angel.introTitle")}
-                </h2>
-                <div className="space-y-4 text-muted-foreground leading-relaxed text-base md:text-lg">
-                  <p>{t("angel.introText1")}</p>
-                  <p>{t("angel.introText2")}</p>
-                  <p>{t("angel.introText3")}</p>
+        {/* ─── 02 WHO / NOT FOR ─── */}
+        <section className="edit-section pt-0">
+          <div className="edit-container">
+            <SectionLabel number="02" title={t("angel.whoTitle")} />
+            <div className="grid lg:grid-cols-2 gap-px bg-white/10 border border-white/10">
+              <div className="bg-[hsl(var(--bg))] p-8 md:p-12">
+                <div className="edit-label text-[hsl(var(--accent-edit))] mb-6">— Best fit</div>
+                <div className="space-y-4">
+                  {["preSeed", "complex", "speed"].map((key, i) => (
+                    <Reveal key={key} delay={i * 0.08}>
+                      <div className="flex gap-4 items-start border-t border-white/10 pt-4">
+                        <CheckCircle className="w-5 h-5 text-[hsl(var(--accent-edit))] mt-1 shrink-0" />
+                        <p className="edit-body text-white/80">{t(`angel.who.${key}`)}</p>
+                      </div>
+                    </Reveal>
+                  ))}
                 </div>
-              </ScrollAnimateWrapper>
-            </div>
-          </section>
-
-          {/* Who we invest in + Who we're not for — side by side */}
-          <section className="section-padding pt-0">
-            <div className="max-w-5xl mx-auto">
-              <div className="grid lg:grid-cols-2 gap-10">
-                <ScrollAnimateWrapper>
-                  <h2 className="text-2xl md:text-3xl font-display font-bold text-foreground mb-6">
-                    {t("angel.whoTitle")}
-                  </h2>
-                  <div className="space-y-4">
-                    {["preSeed", "complex", "speed"].map((key) => (
-                      <div key={key} className="card-elevated p-5 flex gap-4 items-start">
-                        <CheckCircle className="w-5 h-5 text-accent mt-0.5 shrink-0" />
-                        <p className="text-muted-foreground text-sm">{t(`angel.who.${key}`)}</p>
+              </div>
+              <div className="bg-[hsl(var(--surface))] p-8 md:p-12">
+                <div className="edit-label text-white/40 mb-6">— {t("angel.notForTitle")}</div>
+                <div className="space-y-4">
+                  {["simple", "noSkin", "justCode"].map((key, i) => (
+                    <Reveal key={key} delay={i * 0.08}>
+                      <div className="flex gap-4 items-start border-t border-white/10 pt-4">
+                        <XCircle className="w-5 h-5 text-white/40 mt-1 shrink-0" />
+                        <p className="edit-body text-white/60">{t(`angel.notFor.${key}`)}</p>
                       </div>
-                    ))}
-                  </div>
-                </ScrollAnimateWrapper>
-
-                <ScrollAnimateWrapper delay={0.1}>
-                  <h2 className="text-2xl md:text-3xl font-display font-bold text-foreground mb-6">
-                    {t("angel.notForTitle")}
-                  </h2>
-                  <div className="space-y-4">
-                    {["simple", "noSkin", "justCode"].map((key) => (
-                      <div key={key} className="card-elevated p-5 flex gap-4 items-start">
-                        <XCircle className="w-5 h-5 text-muted-foreground/50 mt-0.5 shrink-0" />
-                        <p className="text-muted-foreground text-sm">{t(`angel.notFor.${key}`)}</p>
-                      </div>
-                    ))}
-                  </div>
-                </ScrollAnimateWrapper>
+                    </Reveal>
+                  ))}
+                </div>
               </div>
             </div>
-          </section>
+          </div>
+        </section>
 
-          {/* How Ravolution Differs */}
-          <section className="section-padding pt-0">
-            <div className="max-w-5xl mx-auto">
-              <ScrollAnimateWrapper>
-                <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-10">
-                  {t("angel.diffTitle")}
-                </h2>
-              </ScrollAnimateWrapper>
-              <div className="grid md:grid-cols-3 gap-6">
-                {diffKeys.map((key, i) => {
-                  const Icon = diffIcons[i];
-                  return (
-                    <ScrollAnimateWrapper key={key} delay={i * 0.1}>
-                      <div className="card-elevated p-8 h-full">
-                        <Icon className="w-8 h-8 text-accent mb-4" />
-                        <h3 className="text-lg font-display font-bold text-foreground mb-2">
-                          {t(`angel.diff.${key}.title`)}
+        {/* ─── 03 HOW WE DIFFER ─── */}
+        <section className="edit-section pt-0">
+          <div className="edit-container">
+            <SectionLabel number="03" title={t("angel.diffTitle")} />
+            <div className="grid md:grid-cols-3 gap-px bg-white/10 border border-white/10">
+              {diffKeys.map((key, i) => {
+                const Icon = diffIcons[i];
+                return (
+                  <Reveal key={key} delay={i * 0.1}>
+                    <div className="bg-[hsl(var(--bg))] p-8 md:p-10 h-full">
+                      <Icon className="w-8 h-8 text-[hsl(var(--accent-edit))] mb-6" />
+                      <div className="edit-label text-white/40 mb-3">0{i + 1}</div>
+                      <h3 className="font-display font-bold text-white text-xl mb-3 uppercase tracking-tight">
+                        {t(`angel.diff.${key}.title`)}
+                      </h3>
+                      <p className="edit-body text-white/70">
+                        {t(`angel.diff.${key}.desc`)}
+                      </p>
+                    </div>
+                  </Reveal>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
+        {/* ─── 04 EQUITY MODELS ─── */}
+        <section className="edit-section pt-0">
+          <div className="edit-container">
+            <SectionLabel number="04" title={t("angel.equityTitle")} />
+            <Reveal>
+              <p className="edit-body text-white/70 max-w-3xl mb-12">{t("angel.equityIntro")}</p>
+            </Reveal>
+            <div className="grid sm:grid-cols-2 gap-px bg-white/10 border border-white/10">
+              {equityKeys.map((key, i) => (
+                <Reveal key={key} delay={i * 0.08}>
+                  <div className="bg-[hsl(var(--surface))] p-8 md:p-10 h-full">
+                    <Scale className="w-6 h-6 text-[hsl(var(--accent-edit))] mb-4" />
+                    <div className="edit-label text-white/40 mb-2">Model · 0{i + 1}</div>
+                    <h4 className="font-display font-bold text-white text-lg mb-3 uppercase">
+                      {t(`angel.equity.${key}.title`)}
+                    </h4>
+                    <p className="edit-body text-white/70">{t(`angel.equity.${key}.desc`)}</p>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ─── 05 IP & OWNERSHIP ─── */}
+        <section className="edit-section pt-0">
+          <div className="edit-container">
+            <SectionLabel number="05" title={t("angel.ipTitle")} />
+            <div className="grid md:grid-cols-12 gap-8">
+              <div className="md:col-span-2 hidden md:block" />
+              <div className="md:col-span-9 space-y-6">
+                <Reveal><p className="edit-body text-white/80">{t("angel.ipText1")}</p></Reveal>
+                <Reveal delay={0.1}><p className="edit-body text-white/70">{t("angel.ipText2")}</p></Reveal>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ─── 06 DELIVERABLES ─── */}
+        <section className="edit-section pt-0">
+          <div className="edit-container">
+            <SectionLabel number="06" title={t("angel.deliverablesTitle")} />
+            <div className="grid md:grid-cols-2 gap-px bg-white/10 border border-white/10">
+              {deliverables.map((d, i) => (
+                <Reveal key={d.key} delay={i * 0.08}>
+                  <div className="bg-[hsl(var(--bg))] p-8 md:p-12 h-full">
+                    <div className="flex items-start gap-6">
+                      <d.icon className="w-9 h-9 text-[hsl(var(--accent-edit))] shrink-0" />
+                      <div>
+                        <div className="edit-label text-white/40 mb-2">0{i + 1}</div>
+                        <h3 className="font-display font-bold text-white text-xl mb-3 uppercase tracking-tight">
+                          {t(`angel.deliverable.${d.key}.title`)}
                         </h3>
-                        <p className="text-muted-foreground text-sm leading-relaxed">
-                          {t(`angel.diff.${key}.desc`)}
+                        <p className="edit-body text-white/70">
+                          {t(`angel.deliverable.${d.key}.desc`)}
                         </p>
                       </div>
-                    </ScrollAnimateWrapper>
-                  );
-                })}
-              </div>
-            </div>
-          </section>
-
-          {/* Typical Equity Models */}
-          <section className="section-padding pt-0">
-            <div className="max-w-5xl mx-auto">
-              <ScrollAnimateWrapper>
-                <div className="card-elevated p-8 md:p-10 bg-card border border-border">
-                  <h2 className="text-2xl md:text-3xl font-display font-bold text-foreground mb-3">
-                    {t("angel.equityTitle")}
-                  </h2>
-                  <p className="text-foreground/80 mb-8">{t("angel.equityIntro")}</p>
-                  <div className="grid sm:grid-cols-2 gap-6">
-                    {equityKeys.map((key) => (
-                      <div key={key}>
-                        <Scale className="w-5 h-5 text-gold mb-2" />
-                        <h4 className="font-semibold text-foreground mb-1">{t(`angel.equity.${key}.title`)}</h4>
-                        <p className="text-foreground/75 text-sm leading-relaxed">{t(`angel.equity.${key}.desc`)}</p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </ScrollAnimateWrapper>
-            </div>
-          </section>
-
-          {/* IP & Ownership */}
-          <section className="section-padding pt-0">
-            <div className="max-w-4xl mx-auto">
-              <ScrollAnimateWrapper>
-                <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-6">
-                  {t("angel.ipTitle")}
-                </h2>
-                <div className="space-y-4 text-muted-foreground leading-relaxed">
-                  <p>{t("angel.ipText1")}</p>
-                  <p>{t("angel.ipText2")}</p>
-                </div>
-              </ScrollAnimateWrapper>
-            </div>
-          </section>
-
-          {/* What you get */}
-          <section className="section-padding pt-0">
-            <div className="max-w-5xl mx-auto">
-              <ScrollAnimateWrapper>
-                <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-10">
-                  {t("angel.deliverablesTitle")}
-                </h2>
-              </ScrollAnimateWrapper>
-              <div className="grid md:grid-cols-2 gap-6">
-                {deliverables.map((d, i) => (
-                  <ScrollAnimateWrapper key={d.key} delay={i * 0.1}>
-                    <div className="card-elevated p-8 h-full">
-                      <d.icon className="w-8 h-8 text-accent mb-4" />
-                      <h3 className="text-lg font-display font-bold text-foreground mb-2">
-                        {t(`angel.deliverable.${d.key}.title`)}
-                      </h3>
-                      <p className="text-muted-foreground text-sm leading-relaxed">
-                        {t(`angel.deliverable.${d.key}.desc`)}
-                      </p>
-                    </div>
-                  </ScrollAnimateWrapper>
-                ))}
-              </div>
-            </div>
-          </section>
-
-          {/* Case Proof */}
-          <section className="section-padding pt-0">
-            <div className="max-w-5xl mx-auto">
-              <ScrollAnimateWrapper>
-                <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">
-                  {t("angel.caseTitle")}
-                </h2>
-                <p className="text-muted-foreground mb-4">
-                  <a href={lp("/services")} className="text-accent hover:text-accent-light underline font-medium">{t("angel.seeServices")}</a>
-                  {" · "}
-                  <a href={lp("/#products")} className="text-accent hover:text-accent-light underline font-medium">{t("angel.seePortfolio")}</a>
-                  {" · "}
-                  <a href={lp("/#patents")} className="text-accent hover:text-accent-light underline font-medium">{t("angel.seePatents")}</a>
-                </p>
-              </ScrollAnimateWrapper>
-              <div className="grid md:grid-cols-2 gap-6">
-                {caseKeys.map((key, i) => {
-                  const Icon = caseIcons[i];
-                  return (
-                    <ScrollAnimateWrapper key={key} delay={i * 0.1}>
-                      <div className="card-elevated p-6 h-full">
-                        <Icon className="w-7 h-7 text-accent mb-3" />
-                        <h3 className="font-display font-bold text-foreground mb-1">{t(`angel.cases.${key}.name`)}</h3>
-                        <p className="text-xs text-accent font-medium mb-2 uppercase tracking-wide">{t(`angel.cases.${key}.type`)}</p>
-                        <p className="text-muted-foreground text-sm">{t(`angel.cases.${key}.detail`)}</p>
-                      </div>
-                    </ScrollAnimateWrapper>
-                  );
-                })}
-              </div>
-            </div>
-          </section>
-
-          {/* FAQ */}
-          <section className="section-padding pt-0">
-            <div className="max-w-5xl mx-auto">
-              <ScrollAnimateWrapper>
-                <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-8">
-                  {t("angel.faqTitle")}
-                </h2>
-                <Accordion type="single" collapsible className="space-y-3">
-                  {faqKeys.map((key) => (
-                    <AccordionItem key={key} value={key} className="card-elevated border-none px-6">
-                      <AccordionTrigger className="text-foreground font-semibold text-left hover:no-underline">
-                        {t(`angel.faq.${key}.q`)}
-                      </AccordionTrigger>
-                      <AccordionContent className="text-muted-foreground leading-relaxed">
-                        {t(`angel.faq.${key}.a`)}
-                      </AccordionContent>
-                    </AccordionItem>
-                  ))}
-                </Accordion>
-              </ScrollAnimateWrapper>
-            </div>
-          </section>
-
-          {/* Brief Form */}
-          <section id="brief-form" className="section-padding pt-0">
-            <div className="max-w-5xl mx-auto">
-              <ScrollAnimateWrapper>
-                <div className="grid lg:grid-cols-2 gap-10">
-                  <div>
-                    <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">
-                      {t("angel.formHeadline")}
-                    </h2>
-                    <p className="text-muted-foreground text-lg mb-4 leading-relaxed">
-                      {t("angel.formSubhead")}
-                    </p>
-                    <p className="text-muted-foreground text-sm mb-8">
-                      {t("angel.formSupportText")}
-                    </p>
-                    <div className="flex flex-col gap-4">
-                      <Button size="lg" className="bg-primary hover:bg-primary-light text-white w-fit" asChild>
-                        <a href="mailto:ivan.daza@ravolution.se" target="_blank" rel="noopener noreferrer">
-                          <Calendar className="mr-2 w-5 h-5" />
-                          {t("angel.ctaMeeting")}
-                        </a>
-                      </Button>
-                      <p className="text-sm text-muted-foreground">
-                        {t("angel.orEmail")}{" "}
-                        <a href="mailto:ivan.daza@ravolution.se" className="text-accent hover:text-accent-light transition-colors">
-                          ivan.daza@ravolution.se
-                        </a>
-                      </p>
                     </div>
                   </div>
-
-                  <div className="card-elevated p-8">
-                    {isSubmitted ? (
-                      <div className="text-center py-8">
-                        <div className="w-16 h-16 rounded-full bg-accent/10 flex items-center justify-center mx-auto mb-6">
-                          <CheckCircle className="w-8 h-8 text-accent" />
-                        </div>
-                        <h3 className="text-xl font-display font-bold text-foreground mb-2">{t("angel.thankYou")}</h3>
-                        <p className="text-muted-foreground mb-4">{t("angel.thankYouMsg")}</p>
-                        <Button className="bg-primary hover:bg-primary-light text-white" asChild>
-                          <a href="mailto:ivan.daza@ravolution.se" target="_blank" rel="noopener noreferrer">
-                            <Calendar className="mr-2 w-4 h-4" />
-                            {t("angel.ctaMeeting")}
-                          </a>
-                        </Button>
-                      </div>
-                    ) : (
-                      <form onSubmit={handleSubmit} className="space-y-4">
-                        <h3 className="text-lg font-display font-bold text-foreground mb-2">{t("angel.ctaBrief")}</h3>
-                        <div className="grid sm:grid-cols-2 gap-4">
-                          <Input placeholder={t("angel.form.name")} value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} required className="bg-secondary border-border" />
-                          <Input type="email" placeholder={t("angel.form.email")} value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} required className="bg-secondary border-border" />
-                        </div>
-                        <Input placeholder={t("angel.form.company")} value={formData.company} onChange={(e) => setFormData({ ...formData, company: e.target.value })} className="bg-secondary border-border" />
-                        <Select value={formData.industry} onValueChange={(v) => setFormData({ ...formData, industry: v })}>
-                          <SelectTrigger className="bg-secondary border-border"><SelectValue placeholder={t("angel.form.industry")} /></SelectTrigger>
-                          <SelectContent>
-                            {["healthtech", "fintech", "edtech", "ecommerce", "saas", "marketplace", "logistics", "other"].map((v) => (
-                              <SelectItem key={v} value={v}>{t(`angel.form.ind.${v}`)}</SelectItem>
-                            ))}
-                          </SelectContent>
-                        </Select>
-                        <Select value={formData.stage} onValueChange={(v) => setFormData({ ...formData, stage: v })}>
-                          <SelectTrigger className="bg-secondary border-border"><SelectValue placeholder={t("angel.form.stage")} /></SelectTrigger>
-                          <SelectContent>
-                            <SelectItem value="idea">{t("angel.form.stageIdea")}</SelectItem>
-                            <SelectItem value="mvp">{t("angel.form.stageMvp")}</SelectItem>
-                            <SelectItem value="revenue">{t("angel.form.stageRevenue")}</SelectItem>
-                          </SelectContent>
-                        </Select>
-                        <Select value={formData.timeline} onValueChange={(v) => setFormData({ ...formData, timeline: v })}>
-                          <SelectTrigger className="bg-secondary border-border"><SelectValue placeholder={t("angel.form.timeline")} /></SelectTrigger>
-                          <SelectContent>
-                            <SelectItem value="0-4weeks">{t("angel.form.tl1")}</SelectItem>
-                            <SelectItem value="1-3months">{t("angel.form.tl2")}</SelectItem>
-                            <SelectItem value="3-6months">{t("angel.form.tl3")}</SelectItem>
-                          </SelectContent>
-                        </Select>
-                        <Textarea placeholder={t("angel.form.description")} value={formData.description} onChange={(e) => setFormData({ ...formData, description: e.target.value })} className="bg-secondary border-border min-h-[100px]" />
-                        <Input placeholder={t("angel.form.deckUrl")} value={formData.deckUrl} onChange={(e) => setFormData({ ...formData, deckUrl: e.target.value })} className="bg-secondary border-border" />
-                        <div className="flex items-start gap-3">
-                          <Checkbox id="angel-consent" checked={consent} onCheckedChange={(c) => setConsent(c === true)} />
-                          <label htmlFor="angel-consent" className="text-sm text-muted-foreground leading-relaxed cursor-pointer">
-                            {t("angel.form.consent")}
-                          </label>
-                        </div>
-                        <Button type="submit" className="w-full bg-primary hover:bg-primary-light text-primary-foreground" disabled={!consent || isSubmitting}>
-                          <Send className="mr-2 w-4 h-4" />
-                          {isSubmitting ? t("angel.form.sending") : t("angel.ctaBrief")}
-                        </Button>
-                      </form>
-                    )}
-                  </div>
-                </div>
-              </ScrollAnimateWrapper>
+                </Reveal>
+              ))}
             </div>
-          </section>
-
           </div>
+        </section>
 
-          </EditorialShell>
+        {/* ─── 07 CASE PROOF ─── */}
+        <section className="edit-section pt-0">
+          <div className="edit-container">
+            <SectionLabel number="07" title={t("angel.caseTitle")} />
+            <Reveal>
+              <p className="edit-body text-white/60 mb-10">
+                <a href={lp("/services")} className="edit-link text-white hover:text-[hsl(var(--accent-edit))]">{t("angel.seeServices")}</a>
+                <span className="text-white/30 mx-3">·</span>
+                <a href={lp("/portfolio")} className="edit-link text-white hover:text-[hsl(var(--accent-edit))]">{t("angel.seePortfolio")}</a>
+                <span className="text-white/30 mx-3">·</span>
+                <a href={lp("/#patents")} className="edit-link text-white hover:text-[hsl(var(--accent-edit))]">{t("angel.seePatents")}</a>
+              </p>
+            </Reveal>
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-px bg-white/10 border border-white/10">
+              {caseKeys.map((key, i) => {
+                const Icon = caseIcons[i];
+                return (
+                  <Reveal key={key} delay={i * 0.08}>
+                    <div className="bg-[hsl(var(--surface))] p-8 h-full">
+                      <Icon className="w-7 h-7 text-[hsl(var(--accent-edit))] mb-5" />
+                      <div className="edit-label text-[hsl(var(--accent-edit))] mb-2">{t(`angel.cases.${key}.type`)}</div>
+                      <h3 className="font-display font-bold text-white mb-2 uppercase tracking-tight">{t(`angel.cases.${key}.name`)}</h3>
+                      <p className="text-white/65 text-sm leading-relaxed">{t(`angel.cases.${key}.detail`)}</p>
+                    </div>
+                  </Reveal>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
+        {/* ─── 08 FAQ ─── */}
+        <section className="edit-section pt-0">
+          <div className="edit-container">
+            <SectionLabel number="08" title={t("angel.faqTitle")} />
+            <Reveal>
+              <Accordion type="single" collapsible className="border-t border-white/10">
+                {faqKeys.map((key) => (
+                  <AccordionItem key={key} value={key} className="border-b border-white/10">
+                    <AccordionTrigger className="text-white font-display font-bold uppercase tracking-tight text-base md:text-lg text-left hover:no-underline hover:text-[hsl(var(--accent-edit))] py-6 [&>svg]:text-[hsl(var(--accent-edit))]">
+                      {t(`angel.faq.${key}.q`)}
+                    </AccordionTrigger>
+                    <AccordionContent className="text-white/70 leading-relaxed text-base pb-6 max-w-3xl">
+                      {t(`angel.faq.${key}.a`)}
+                    </AccordionContent>
+                  </AccordionItem>
+                ))}
+              </Accordion>
+            </Reveal>
+          </div>
+        </section>
+
+        {/* ─── 09 BRIEF FORM ─── */}
+        <section id="brief-form" className="edit-section pt-0">
+          <div className="edit-container">
+            <SectionLabel number="09" title={t("angel.formHeadline")} />
+            <div className="grid lg:grid-cols-12 gap-px bg-white/10 border border-white/10">
+              <div className="bg-[hsl(var(--bg))] p-8 md:p-12 lg:col-span-5">
+                <Reveal>
+                  <p className="edit-body text-white/80 mb-6">
+                    {t("angel.formSubhead")}
+                  </p>
+                  <p className="text-white/55 text-sm mb-10 leading-relaxed">
+                    {t("angel.formSupportText")}
+                  </p>
+                  <a href="mailto:ivan.daza@ravolution.se" className="edit-btn mb-6">
+                    <Calendar className="w-4 h-4" />
+                    {t("angel.ctaMeeting")}
+                  </a>
+                  <p className="text-sm text-white/55 mt-6">
+                    {t("angel.orEmail")}{" "}
+                    <a href="mailto:ivan.daza@ravolution.se" className="edit-link text-white">
+                      ivan.daza@ravolution.se
+                    </a>
+                  </p>
+                </Reveal>
+              </div>
+
+              <div className="bg-[hsl(var(--surface))] p-8 md:p-12 lg:col-span-7">
+                {isSubmitted ? (
+                  <div className="text-center py-12">
+                    <div className="w-14 h-14 border border-[hsl(var(--accent-edit))] flex items-center justify-center mx-auto mb-6">
+                      <CheckCircle className="w-7 h-7 text-[hsl(var(--accent-edit))]" />
+                    </div>
+                    <h3 className="font-display font-bold text-white text-xl uppercase mb-3">{t("angel.thankYou")}</h3>
+                    <p className="text-white/70 mb-8 max-w-md mx-auto">{t("angel.thankYouMsg")}</p>
+                    <a href="mailto:ivan.daza@ravolution.se" className="edit-btn">
+                      <Calendar className="w-4 h-4" />
+                      {t("angel.ctaMeeting")}
+                    </a>
+                  </div>
+                ) : (
+                  <form onSubmit={handleSubmit} className="space-y-4">
+                    <div className="edit-label text-[hsl(var(--accent-edit))] mb-4">— {t("angel.ctaBrief")}</div>
+                    <div className="grid sm:grid-cols-2 gap-4">
+                      <Input placeholder={t("angel.form.name")} value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} required className="bg-[hsl(var(--bg))] border-white/15 rounded-none text-white placeholder:text-white/40 focus-visible:ring-[hsl(var(--accent-edit))] h-12" />
+                      <Input type="email" placeholder={t("angel.form.email")} value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} required className="bg-[hsl(var(--bg))] border-white/15 rounded-none text-white placeholder:text-white/40 focus-visible:ring-[hsl(var(--accent-edit))] h-12" />
+                    </div>
+                    <Input placeholder={t("angel.form.company")} value={formData.company} onChange={(e) => setFormData({ ...formData, company: e.target.value })} className="bg-[hsl(var(--bg))] border-white/15 rounded-none text-white placeholder:text-white/40 focus-visible:ring-[hsl(var(--accent-edit))] h-12" />
+                    <Select value={formData.industry} onValueChange={(v) => setFormData({ ...formData, industry: v })}>
+                      <SelectTrigger className="bg-[hsl(var(--bg))] border-white/15 rounded-none text-white h-12"><SelectValue placeholder={t("angel.form.industry")} /></SelectTrigger>
+                      <SelectContent>
+                        {["healthtech", "fintech", "edtech", "ecommerce", "saas", "marketplace", "logistics", "other"].map((v) => (
+                          <SelectItem key={v} value={v}>{t(`angel.form.ind.${v}`)}</SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                    <Select value={formData.stage} onValueChange={(v) => setFormData({ ...formData, stage: v })}>
+                      <SelectTrigger className="bg-[hsl(var(--bg))] border-white/15 rounded-none text-white h-12"><SelectValue placeholder={t("angel.form.stage")} /></SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="idea">{t("angel.form.stageIdea")}</SelectItem>
+                        <SelectItem value="mvp">{t("angel.form.stageMvp")}</SelectItem>
+                        <SelectItem value="revenue">{t("angel.form.stageRevenue")}</SelectItem>
+                      </SelectContent>
+                    </Select>
+                    <Select value={formData.timeline} onValueChange={(v) => setFormData({ ...formData, timeline: v })}>
+                      <SelectTrigger className="bg-[hsl(var(--bg))] border-white/15 rounded-none text-white h-12"><SelectValue placeholder={t("angel.form.timeline")} /></SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="0-4weeks">{t("angel.form.tl1")}</SelectItem>
+                        <SelectItem value="1-3months">{t("angel.form.tl2")}</SelectItem>
+                        <SelectItem value="3-6months">{t("angel.form.tl3")}</SelectItem>
+                      </SelectContent>
+                    </Select>
+                    <Textarea placeholder={t("angel.form.description")} value={formData.description} onChange={(e) => setFormData({ ...formData, description: e.target.value })} className="bg-[hsl(var(--bg))] border-white/15 rounded-none text-white placeholder:text-white/40 focus-visible:ring-[hsl(var(--accent-edit))] min-h-[120px]" />
+                    <Input placeholder={t("angel.form.deckUrl")} value={formData.deckUrl} onChange={(e) => setFormData({ ...formData, deckUrl: e.target.value })} className="bg-[hsl(var(--bg))] border-white/15 rounded-none text-white placeholder:text-white/40 focus-visible:ring-[hsl(var(--accent-edit))] h-12" />
+                    <div className="flex items-start gap-3 pt-2">
+                      <Checkbox id="angel-consent" checked={consent} onCheckedChange={(c) => setConsent(c === true)} className="border-white/30 rounded-none data-[state=checked]:bg-[hsl(var(--accent-edit))] data-[state=checked]:border-[hsl(var(--accent-edit))] data-[state=checked]:text-black mt-1" />
+                      <label htmlFor="angel-consent" className="text-sm text-white/65 leading-relaxed cursor-pointer">
+                        {t("angel.form.consent")}
+                      </label>
+                    </div>
+                    <button type="submit" disabled={!consent || isSubmitting} className="edit-btn w-full justify-center mt-4 disabled:opacity-50 disabled:cursor-not-allowed">
+                      <Send className="w-4 h-4" />
+                      {isSubmitting ? t("angel.form.sending") : t("angel.ctaBrief")}
+                    </button>
+                  </form>
+                )}
+              </div>
+            </div>
+          </div>
+        </section>
+      </EditorialShell>
     </>
   );
 };
