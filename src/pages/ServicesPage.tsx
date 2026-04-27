@@ -1,5 +1,5 @@
 import { Helmet } from "react-helmet-async";
-import { EditorialShell } from "@/components/editorial/EditorialLayout";
+import { EditorialShell, Reveal, SectionLabel } from "@/components/editorial/EditorialLayout";
 import HeroVideoBackground from "@/components/HeroVideoBackground";
 import { Link } from "react-router-dom";
 import {
@@ -400,62 +400,74 @@ const ServicesPage = () => {
         <script type="application/ld+json">{JSON.stringify(structuredData)}</script>
       </Helmet>
 
-              <EditorialShell>
-{/* ✅ Hero — untouched */}
-        <section className="relative pt-40 md:pt-48 pb-20 px-6 bg-gradient-to-b from-primary to-primary-dark text-primary-foreground overflow-hidden">
+      <EditorialShell>
+        {/* HERO — editorial 60vh */}
+        <section className="relative pt-40 pb-16 px-6 md:px-12 min-h-[70vh] flex flex-col justify-end overflow-hidden">
           <HeroVideoBackground />
-          {/* White Grid Pattern */}
           <div
-            className="absolute inset-0 opacity-[0.08] pointer-events-[none] z-[1]"
+            className="absolute inset-0 opacity-[0.05] pointer-events-none z-[1]"
             style={{
-              backgroundImage: `
-                linear-gradient(to right, rgba(255,255,255,0.5) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(255,255,255,0.5) 1px, transparent 1px)
-              `,
-              backgroundSize: "24px 24px",
+              backgroundImage: `linear-gradient(to right, rgba(255,255,255,0.5) 1px, transparent 1px),
+                                linear-gradient(to bottom, rgba(255,255,255,0.5) 1px, transparent 1px)`,
+              backgroundSize: "56px 56px",
             }}
           />
-          <div className="relative z-10 max-w-4xl mx-auto text-center">
-            {/* SEO H1 — sr-only for search engines */}
+          <div className="edit-container relative z-10">
             <h1 className="sr-only">{t("servicesPage.seoH1")}</h1>
-            <span className="inline-block text-sm font-semibold tracking-widest uppercase text-accent-light mb-4">
-              {t("intake.badge")}
-            </span>
-            <p className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6" role="heading" aria-level={2}>
-              {t("intake.heroTitle")}
-            </p>
-            <p className="hero-description text-lg md:text-xl text-primary-foreground/80 max-w-3xl mx-auto mb-8">
-              {t("intake.heroSubtitle")}
-            </p>
-            <Button size="lg" className="bg-gold hover:bg-gold-light text-gold-foreground" asChild>
-              <Link to={briefHref}>
-                {t("intake.submitBrief")} <ArrowRight className="w-5 h-5 ml-2" />
-              </Link>
-            </Button>
-
-            {/* Trust bar */}
-            <div className="flex flex-wrap justify-center gap-6 mt-10 text-primary-foreground/70 text-sm">
-              {[
-                { icon: Zap, label: t("intake.trust1") },
-                { icon: ShieldCheck, label: t("intake.trust2") },
-                { icon: Workflow, label: t("intake.trust3") },
-                { icon: Target, label: t("intake.trust4") },
-              ].map((item, i) => (
-                <div key={i} className="flex items-center gap-2">
-                  <item.icon className="w-4 h-4 text-accent-light" />
-                  <span>{item.label}</span>
-                </div>
-              ))}
-            </div>
+            <Reveal>
+              <span className="edit-label text-[hsl(var(--accent-edit))]">{t("intake.badge")}</span>
+            </Reveal>
+            <Reveal delay={0.1}>
+              <p className="edit-display text-white mt-6" role="heading" aria-level={2}>
+                {t("intake.heroTitle")}
+              </p>
+            </Reveal>
+            <Reveal delay={0.2}>
+              <p className="edit-body text-white/65 mt-8 max-w-2xl">
+                {t("intake.heroSubtitle")}
+              </p>
+            </Reveal>
+            <Reveal delay={0.3}>
+              <div className="mt-10 flex flex-wrap items-center gap-6">
+                <Link
+                  to={briefHref}
+                  className="edit-label inline-flex items-center gap-3 bg-white text-black px-6 py-4 hover:bg-[hsl(var(--accent-edit))] hover:text-white transition-colors"
+                >
+                  {t("intake.submitBrief")} <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
+            </Reveal>
+            <Reveal delay={0.4}>
+              <div className="flex flex-wrap gap-x-8 gap-y-3 mt-12 border-t border-white/10 pt-6">
+                {[
+                  { icon: Zap, label: t("intake.trust1") },
+                  { icon: ShieldCheck, label: t("intake.trust2") },
+                  { icon: Workflow, label: t("intake.trust3") },
+                  { icon: Target, label: t("intake.trust4") },
+                ].map((item, i) => (
+                  <div key={i} className="flex items-center gap-2 edit-label text-white/55">
+                    <item.icon className="w-4 h-4 text-[hsl(var(--accent-edit))]" />
+                    <span>{item.label}</span>
+                  </div>
+                ))}
+              </div>
+            </Reveal>
           </div>
         </section>
 
-        {/* GEO Intro Paragraph */}
-        <section className="py-12 px-6 bg-background">
-          <div className="max-w-4xl mx-auto">
-            <p className="service-summary text-lg leading-relaxed text-muted-foreground">
-              {t("servicesPage.geoIntro")}
-            </p>
+        {/* 01 — INTRO */}
+        <section className="edit-section border-t border-white/10">
+          <div className="edit-container">
+            <SectionLabel number="01 — Overview" title={t("intake.heroTitle") as string} />
+            <div className="grid md:grid-cols-12 gap-10">
+              <div className="md:col-span-8 md:col-start-3">
+                <Reveal>
+                  <p className="text-xl md:text-2xl font-display text-white/85 leading-snug">
+                    {t("servicesPage.geoIntro")}
+                  </p>
+                </Reveal>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -468,113 +480,116 @@ const ServicesPage = () => {
         {/* 🆕 Section 3 — Mini Case Studies */}
         <MiniCaseStudies />
 
-        {/* ✅ Engagement Models — untouched */}
-        <section className="relative py-16 px-6 overflow-hidden" style={{ backgroundColor: '#F7F5F0' }}>
-          {/* Dot Pattern */}
-          <div
-            className="absolute inset-0 pointer-events-none"
-            style={{
-              backgroundImage: `radial-gradient(circle, rgba(15,39,71,0.12) 1.2px, transparent 1.2px)`,
-              backgroundSize: "22px 22px",
-            }}
-          />
-          <div className="relative max-w-5xl mx-auto">
-            <h2 className="text-2xl md:text-3xl font-bold text-foreground text-center mb-10">
-              {t("servicesPage.engagementModels")}
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {engagementModels.map((model) => (
-                <div key={model.title} className="relative text-center rounded-2xl p-8 backdrop-blur-sm border border-white/40 shadow-lg" style={{ background: 'linear-gradient(135deg, rgba(200,215,235,0.6) 0%, rgba(180,200,225,0.4) 50%, rgba(160,185,215,0.3) 100%)' }}>
-                  <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                    <model.icon className="w-6 h-6 text-primary" />
+        {/* 02 — ENGAGEMENT MODELS */}
+        <section className="edit-section border-t border-white/10 bg-[hsl(var(--surface))]">
+          <div className="edit-container">
+            <SectionLabel number="02 — Engagement" title={t("servicesPage.engagementModels") as string} />
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-white/10 border border-white/10">
+              {engagementModels.map((model, i) => (
+                <Reveal key={model.title} delay={i * 0.08}>
+                  <div className="bg-[hsl(var(--surface))] p-8 md:p-10 h-full flex flex-col">
+                    <model.icon className="w-6 h-6 text-[hsl(var(--accent-edit))] mb-6" />
+                    <span className="edit-label text-white/45 mb-3">0{i + 1}</span>
+                    <h3 className="text-xl md:text-2xl font-display font-bold uppercase tracking-tight text-white mb-4">{model.title}</h3>
+                    <p className="edit-body text-white/60 mb-6 flex-1">{model.description}</p>
+                    <span className="edit-label text-[hsl(var(--accent-edit))] border-t border-white/10 pt-4">
+                      {model.duration}
+                    </span>
                   </div>
-                  <h3 className="text-lg font-bold text-foreground mb-3">{model.title}</h3>
-                  <p className="text-muted-foreground mb-4">{model.description}</p>
-                  <span className="inline-flex items-center rounded-full bg-accent/15 text-foreground px-3 py-1 text-sm font-medium">
-                    {model.duration}
-                  </span>
-                </div>
+                </Reveal>
               ))}
             </div>
           </div>
         </section>
 
-        {/* ✅ Service detail sections — untouched */}
+        {/* 03 — SERVICES */}
+        <section className="edit-section border-t border-white/10">
+          <div className="edit-container">
+            <SectionLabel number="03 — Services" title="What we build" />
+          </div>
+        </section>
         {services.map((service, index) => {
-          const isDark = index % 2 !== 0;
           return (
           <section
             key={service.title}
-            className={`py-20 px-6 ${isDark ? "bg-secondary" : "bg-background"}`}
+            className="edit-section border-t border-white/10"
           >
-            <div className="max-w-6xl mx-auto">
-              <div className="mb-10 max-w-4xl">
-                <div className={`w-14 h-14 rounded-2xl ${isDark ? "bg-white/10" : "bg-primary/10"} flex items-center justify-center mb-5`}>
-                  <service.icon className={`w-7 h-7 ${isDark ? "text-accent-light" : "text-primary"}`} />
+            <div className="edit-container">
+              <Reveal>
+                <div className="mb-12 grid md:grid-cols-12 gap-6 items-baseline border-t border-white/10 pt-6">
+                  <span className="md:col-span-1 edit-label text-[hsl(var(--accent-edit))]">0{index + 1}</span>
+                  <div className="md:col-span-11 space-y-5">
+                    <service.icon className="w-7 h-7 text-[hsl(var(--accent-edit))]" />
+                    <h3 className="text-3xl md:text-5xl font-display font-bold uppercase tracking-[-0.02em] text-white leading-tight">{service.title}</h3>
+                    <p className="edit-label text-[hsl(var(--accent-edit))]">{service.tagline}</p>
+                    <p className="edit-body text-white/65 max-w-3xl">{service.description}</p>
+                  </div>
                 </div>
-                <h2 className={`text-3xl md:text-4xl font-bold mb-3 ${isDark ? "text-white" : "text-foreground"}`}>{service.title}</h2>
-                <p className={`text-lg font-medium mb-4 ${isDark ? "text-accent-light" : "text-primary"}`}>{service.tagline}</p>
-                <p className={`text-base md:text-lg leading-relaxed ${isDark ? "text-white/75" : "text-muted-foreground"}`}>{service.description}</p>
-              </div>
+              </Reveal>
 
-              <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-8 items-start">
-                <div className="space-y-6">
-                  <div className={isDark ? "rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm" : "card-elevated"}>
-                    <h3 className={`text-xl font-bold mb-4 ${isDark ? "text-white" : "text-foreground"}`}>{t("servicesPage.whatsIncluded")}</h3>
+              <div className="grid lg:grid-cols-2 gap-px bg-white/10 border border-white/10">
+                <Reveal>
+                  <div className="bg-[hsl(var(--bg))] p-8 h-full">
+                    <span className="edit-label text-white/45 mb-4 block">{t("servicesPage.whatsIncluded")}</span>
                     <ul className="space-y-3">
                       {service.deliverables.map((item) => (
-                        <li key={item} className={`flex items-start gap-3 ${isDark ? "text-white/70" : "text-muted-foreground"}`}>
-                          <CheckCircle2 className={`w-4 h-4 flex-shrink-0 mt-1 ${isDark ? "text-accent-light" : "text-accent"}`} />
-                          <span>{item}</span>
+                        <li key={item} className="flex items-start gap-3 text-white/70">
+                          <CheckCircle2 className="w-4 h-4 flex-shrink-0 mt-1 text-[hsl(var(--accent-edit))]" />
+                          <span className="edit-body">{item}</span>
                         </li>
                       ))}
                     </ul>
                   </div>
+                </Reveal>
 
-                  <div className={isDark ? "rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm" : "card-elevated"}>
-                    <h3 className={`text-xl font-bold mb-3 ${isDark ? "text-white" : "text-foreground"}`}>{t("servicesPage.whoFor")}</h3>
-                    <p className={isDark ? "text-white/70" : "text-muted-foreground"}>{service.whoFor}</p>
+                <Reveal delay={0.08}>
+                  <div className="bg-[hsl(var(--bg))] p-8 h-full">
+                    <span className="edit-label text-white/45 mb-4 block">{t("servicesPage.whoFor")}</span>
+                    <p className="edit-body text-white/70">{service.whoFor}</p>
                   </div>
-                </div>
+                </Reveal>
 
-                <div className="space-y-6">
-                  <div className={isDark ? "rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm" : "card-elevated"}>
-                    <h3 className={`text-xl font-bold mb-4 ${isDark ? "text-white" : "text-foreground"}`}>{t("servicesPage.useCases")}</h3>
-                    <div className="space-y-4">
+                <Reveal>
+                  <div className="bg-[hsl(var(--bg))] p-8 h-full">
+                    <span className="edit-label text-white/45 mb-4 block">{t("servicesPage.useCases")}</span>
+                    <div className="space-y-5">
                       {service.useCases.map((item, caseIndex) => (
-                        <div key={`${service.title}-${caseIndex}`} className={`rounded-2xl border p-5 ${isDark ? "border-white/10 bg-white/5" : "border-border bg-background"}`}>
-                          <p className={`text-sm mb-2 ${isDark ? "text-white/80" : "text-foreground"}`}><span className="font-semibold">{t("servicesPage.problem")}</span> {item.problem}</p>
-                          <p className={`text-sm mb-2 ${isDark ? "text-white/80" : "text-foreground"}`}><span className="font-semibold">{t("servicesPage.approach")}</span> {item.approach}</p>
-                          <p className={`text-sm ${isDark ? "text-white/80" : "text-foreground"}`}><span className="font-semibold">{t("servicesPage.outcome")}</span> {item.outcome}</p>
+                        <div key={`${service.title}-${caseIndex}`} className="border-t border-white/10 pt-5 first:border-t-0 first:pt-0">
+                          <p className="text-sm text-white/80 mb-2"><span className="edit-label text-[hsl(var(--accent-edit))] mr-2">{t("servicesPage.problem")}</span>{item.problem}</p>
+                          <p className="text-sm text-white/80 mb-2"><span className="edit-label text-[hsl(var(--accent-edit))] mr-2">{t("servicesPage.approach")}</span>{item.approach}</p>
+                          <p className="text-sm text-white/80"><span className="edit-label text-[hsl(var(--accent-edit))] mr-2">{t("servicesPage.outcome")}</span>{item.outcome}</p>
                         </div>
                       ))}
                     </div>
                   </div>
+                </Reveal>
 
-                  <div className={isDark ? "rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm" : "card-elevated"}>
-                    <h3 className={`text-xl font-bold mb-4 ${isDark ? "text-white" : "text-foreground"}`}>{t("servicesPage.faq")}</h3>
-                    <div className="space-y-3">
+                <Reveal delay={0.08}>
+                  <div className="bg-[hsl(var(--bg))] p-8 h-full">
+                    <span className="edit-label text-white/45 mb-4 block">{t("servicesPage.faq")}</span>
+                    <div className="space-y-2">
                       {service.faqs.map((faq) => (
-                        <details key={faq.q} className={`group rounded-2xl border px-5 py-4 ${isDark ? "border-white/10 bg-white/5" : "border-border bg-background"}`}>
-                          <summary className={`cursor-pointer list-none font-semibold flex items-center justify-between gap-3 ${isDark ? "text-white" : "text-foreground"}`}>
+                        <details key={faq.q} className="group border-b border-white/10 py-3">
+                          <summary className="cursor-pointer list-none font-display font-bold uppercase tracking-tight text-white flex items-center justify-between gap-3 text-sm">
                             <span>{faq.q}</span>
-                            <ArrowRight className="w-4 h-4 shrink-0 transition-transform group-open:rotate-90" />
+                            <ArrowRight className="w-4 h-4 shrink-0 transition-transform group-open:rotate-90 text-[hsl(var(--accent-edit))]" />
                           </summary>
-                          <p className={`mt-3 text-sm ${isDark ? "text-white/70" : "text-muted-foreground"}`}>{faq.a}</p>
+                          <p className="mt-3 text-sm text-white/60 leading-relaxed">{faq.a}</p>
                         </details>
                       ))}
                     </div>
                   </div>
-                </div>
+                </Reveal>
               </div>
 
               {(index === 1 || index === 3) && (
-                <div className="mt-10 text-center">
-                  <Button size="lg" className="bg-primary hover:bg-primary/90" asChild>
-                    <Link to={briefHref}>
-                      {t("intake.submitBrief")} <ArrowRight className="w-5 h-5 ml-2" />
-                    </Link>
-                  </Button>
+                <div className="mt-12">
+                  <Link
+                    to={briefHref}
+                    className="edit-label inline-flex items-center gap-3 bg-white text-black px-6 py-4 hover:bg-[hsl(var(--accent-edit))] hover:text-white transition-colors"
+                  >
+                    {t("intake.submitBrief")} <ArrowRight className="w-4 h-4" />
+                  </Link>
                 </div>
               )}
             </div>
@@ -591,26 +606,34 @@ const ServicesPage = () => {
         {/* 🆕 Section 6 — Delivery Process Teaser */}
         <DeliveryProcess variant="teaser" />
 
-        {/* Cost + Comparison Section */}
-        <section className="py-16 px-6 bg-background">
-          <div className="max-w-4xl mx-auto space-y-10">
-            <div>
-              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">{t("servicesPage.h2Cost")}</h2>
-              <p className="text-muted-foreground leading-relaxed">{t("servicesPage.costP1")}</p>
-            </div>
-            <div className="rounded-2xl border border-border bg-background p-6">
-              <h3 className="text-xl font-bold text-foreground mb-3">{t("servicesPage.comparisonTitle")}</h3>
-              <p className="text-muted-foreground">{t("servicesPage.comparisonText")}</p>
+        {/* 04 — COST */}
+        <section className="edit-section border-t border-white/10 bg-[hsl(var(--surface))]">
+          <div className="edit-container">
+            <SectionLabel number="04 — Cost" title={t("servicesPage.h2Cost") as string} />
+            <div className="grid md:grid-cols-12 gap-10">
+              <Reveal className="md:col-span-7">
+                <p className="edit-body text-white/65">{t("servicesPage.costP1")}</p>
+              </Reveal>
+              <Reveal className="md:col-span-5" delay={0.1}>
+                <div className="border border-white/10 bg-[hsl(var(--bg))] p-6">
+                  <span className="edit-label text-[hsl(var(--accent-edit))] mb-3 block">{t("servicesPage.comparisonTitle")}</span>
+                  <p className="edit-body text-white/65">{t("servicesPage.comparisonText")}</p>
+                </div>
+              </Reveal>
             </div>
           </div>
         </section>
 
         {/* LatAm Presence (Spanish only) */}
         {language === "es" && (
-          <section className="py-12 px-6" style={{ backgroundColor: '#F7F5F0' }}>
-            <div className="max-w-4xl mx-auto">
-              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">{t("servicesPage.latamTitle")}</h2>
-              <p className="text-muted-foreground leading-relaxed">{t("servicesPage.latamText")}</p>
+          <section className="edit-section border-t border-white/10">
+            <div className="edit-container">
+              <SectionLabel number="05 — LatAm" title={t("servicesPage.latamTitle") as string} />
+              <div className="grid md:grid-cols-12 gap-10">
+                <Reveal className="md:col-span-8 md:col-start-3">
+                  <p className="edit-body text-white/65">{t("servicesPage.latamText")}</p>
+                </Reveal>
+              </div>
             </div>
           </section>
         )}
@@ -619,16 +642,21 @@ const ServicesPage = () => {
         <FounderBlock />
 
         {/* Submit Brief CTA */}
-        <section className="py-16 px-6 bg-background">
-          <div className="max-w-4xl mx-auto">
-            <div className="card-elevated text-center">
-              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">{t("servicesPage.h2Brief")}</h2>
-              <p className="text-muted-foreground mb-6">{t("intake.briefSubtitle")}</p>
-              <Button size="lg" className="bg-primary hover:bg-primary/90" asChild>
-                <Link to={briefHref}>
-                  {t("intake.submitBrief")} <ArrowRight className="w-5 h-5 ml-2" />
+        <section className="edit-section border-t border-white/10">
+          <div className="edit-container">
+            <SectionLabel number="06 — Brief" title={t("servicesPage.h2Brief") as string} />
+            <div className="grid md:grid-cols-12 gap-10 items-end">
+              <Reveal className="md:col-span-7">
+                <p className="text-xl md:text-2xl font-display text-white/85 leading-snug">{t("intake.briefSubtitle")}</p>
+              </Reveal>
+              <Reveal className="md:col-span-5 md:text-right" delay={0.1}>
+                <Link
+                  to={briefHref}
+                  className="edit-label inline-flex items-center gap-3 bg-white text-black px-6 py-4 hover:bg-[hsl(var(--accent-edit))] hover:text-white transition-colors"
+                >
+                  {t("intake.submitBrief")} <ArrowRight className="w-4 h-4" />
                 </Link>
-              </Button>
+              </Reveal>
             </div>
           </div>
         </section>
@@ -636,23 +664,36 @@ const ServicesPage = () => {
         {/* Expanded FAQ */}
         <ExpandedFAQ />
 
-        {/* ✅ Footer CTA — untouched */}
-        <section className="py-20 px-6 bg-primary text-primary-foreground">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">{t("servicesPage.bottomCtaTitle")}</h2>
-            <p className="text-primary-foreground/80 text-lg mb-8">{t("servicesPage.bottomCtaDesc")}</p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-gold hover:bg-gold-light text-gold-foreground" asChild>
-                <Link to={briefHref}>
-                  {t("intake.submitBrief")} <ArrowRight className="w-5 h-5 ml-2" />
+        {/* 07 — FOOTER CTA */}
+        <section className="edit-section border-t border-white/10 bg-[hsl(var(--surface))]">
+          <div className="edit-container text-center max-w-3xl mx-auto">
+            <Reveal>
+              <span className="edit-label text-[hsl(var(--accent-edit))]">07 — Start</span>
+            </Reveal>
+            <Reveal delay={0.1}>
+              <h2 className="edit-display text-white mt-6">{t("servicesPage.bottomCtaTitle")}</h2>
+            </Reveal>
+            <Reveal delay={0.2}>
+              <p className="edit-body text-white/65 mt-6">{t("servicesPage.bottomCtaDesc")}</p>
+            </Reveal>
+            <Reveal delay={0.3}>
+              <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+                <Link
+                  to={briefHref}
+                  className="edit-label inline-flex items-center justify-center gap-3 bg-white text-black px-6 py-4 hover:bg-[hsl(var(--accent-edit))] hover:text-white transition-colors"
+                >
+                  {t("intake.submitBrief")} <ArrowRight className="w-4 h-4" />
                 </Link>
-              </Button>
-              <Button size="lg" className="bg-white text-primary font-semibold hover:bg-white/90" asChild>
-                <a href="https://wa.me/46769456600" target="_blank" rel="noopener noreferrer">
+                <a
+                  href="https://wa.me/46769456600"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="edit-label inline-flex items-center justify-center gap-3 border border-white/30 text-white px-6 py-4 hover:bg-white hover:text-black transition-colors"
+                >
                   {t("servicesPage.bottomCtaBook")}
                 </a>
-              </Button>
-            </div>
+              </div>
+            </Reveal>
           </div>
         </section>
 
