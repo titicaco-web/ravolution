@@ -56,8 +56,8 @@ Deno.serve(async (req) => {
     const safeMessage = escapeHtml(message).replace(/\n/g, "<br/>");
 
     const html = `
-<h2>New Investor Inquiry from ${safeName}</h2>
-<p style="color:#666;font-size:13px;">via ravolution.se/en/invest</p>
+<h2>Ravolution Leon Barakat — New Investor Inquiry</h2>
+<p style="color:#666;font-size:13px;">Message intended for Leon Barakat (Investor Relations) · routed to Ivan Daza · via ravolution.se/en/invest</p>
 <table style="border-collapse:collapse;width:100%;max-width:640px;">
   <tr><td style="padding:6px 12px;font-weight:bold;">Name</td><td style="padding:6px 12px;">${safeName}</td></tr>
   <tr><td style="padding:6px 12px;font-weight:bold;">Email</td><td style="padding:6px 12px;">${safeEmail}</td></tr>
@@ -67,7 +67,7 @@ Deno.serve(async (req) => {
 </table>
 <h3 style="margin-top:20px;">Message</h3>
 <div style="padding:12px;background:#f7f5f0;border-left:3px solid #B08D57;">${safeMessage}</div>
-<p style="color:#999;font-size:12px;margin-top:24px;">Sent via ravolution.se/en/invest — Ivan is silently CC'd.</p>
+<p style="color:#999;font-size:12px;margin-top:24px;">Sent via ravolution.se/en/invest — addressed to Leon Barakat, delivered to ivan.daza@ravolution.se.</p>
 `;
 
     const res = await fetch("https://api.resend.com/emails", {
@@ -79,9 +79,8 @@ Deno.serve(async (req) => {
       body: JSON.stringify({
         from: "Ravolution Investor Relations <onboarding@resend.dev>",
         to: [RECIPIENT],
-        bcc: [HIDDEN_CC],
         reply_to: email,
-        subject: `[Ravolution Invest] ${safeSubject} — from ${safeName}${organization ? ` (${escapeHtml(organization)})` : ""}`,
+        subject: `Ravolution Leon Barakat — ${safeSubject} — from ${safeName}${organization ? ` (${escapeHtml(organization)})` : ""}`,
         html,
       }),
     });
