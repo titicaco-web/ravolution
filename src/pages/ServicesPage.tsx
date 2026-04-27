@@ -1,5 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import { EditorialShell } from "@/components/editorial/EditorialLayout";
+import HeroVideoBackground from "@/components/HeroVideoBackground";
 import { Link } from "react-router-dom";
 import {
   ArrowRight,
@@ -402,9 +403,10 @@ const ServicesPage = () => {
               <EditorialShell>
 {/* ✅ Hero — untouched */}
         <section className="relative pt-40 md:pt-48 pb-20 px-6 bg-gradient-to-b from-primary to-primary-dark text-primary-foreground overflow-hidden">
+          <HeroVideoBackground />
           {/* White Grid Pattern */}
           <div
-            className="absolute inset-0 opacity-[0.08] pointer-events-none"
+            className="absolute inset-0 opacity-[0.08] pointer-events-[none] z-[1]"
             style={{
               backgroundImage: `
                 linear-gradient(to right, rgba(255,255,255,0.5) 1px, transparent 1px),
@@ -413,7 +415,7 @@ const ServicesPage = () => {
               backgroundSize: "24px 24px",
             }}
           />
-          <div className="relative max-w-4xl mx-auto text-center">
+          <div className="relative z-10 max-w-4xl mx-auto text-center">
             {/* SEO H1 — sr-only for search engines */}
             <h1 className="sr-only">{t("servicesPage.seoH1")}</h1>
             <span className="inline-block text-sm font-semibold tracking-widest uppercase text-accent-light mb-4">
