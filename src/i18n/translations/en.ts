@@ -15,7 +15,7 @@ export const en = {
     headline: "Solving Civilization-Scale Challenges with",
     headlineHighlight: "Patented Deep Tech.",
     angelBadge: "Angel Investor & Build‑for‑Equity for Startups",
-    subheadline: "We protect and scale the four platforms transforming global opportunity:",
+    subheadline: "We protect and scale the six platforms transforming global opportunity:",
     subheadlineEnd: "Leveling the playing field through defensible innovation.",
     ctaExplore: "Explore Patent Portfolios",
     ctaLicensing: "Licensing Inquiry",

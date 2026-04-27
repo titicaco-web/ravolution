@@ -15,7 +15,7 @@ export const sv = {
     headline: "Löser civilisationsstora utmaningar med",
     headlineHighlight: "Patenterad Deep Tech.",
     angelBadge: "Ängelinvesterare & Bygg‑för‑Ägarandel för Startups",
-    subheadline: "Vi skyddar och skalar de fyra plattformarna som förändrar globala möjligheter:",
+    subheadline: "Vi skyddar och skalar de sex plattformarna som förändrar globala möjligheter:",
     subheadlineEnd: "Vi jämnar ut spelplanen genom försvarsbar innovation.",
     ctaExplore: "Utforska patentportföljer",
     ctaLicensing: "Licensförfrågan",
