@@ -313,32 +313,74 @@ const Index = () => {
         <section className="edit-section">
           <div className="edit-container">
             <SectionLabel number="03 — Portfolio" title="Platforms we operate." />
-            <ul>
-              {portfolio.map((c, i) => (
-                <Reveal key={c.name} delay={i * 0.05}>
-                  <li>
-                    <a
-                      href={c.href}
-                      target={c.href.startsWith("http") ? "_blank" : undefined}
-                      rel="noopener noreferrer"
-                      className="group block border-t border-white/10 last:border-b py-8 md:py-10 grid md:grid-cols-12 gap-4 md:gap-10 items-baseline transition-colors hover:border-[hsl(var(--accent-edit))]"
-                    >
-                      <span className="md:col-span-1 edit-label text-white/40">0{i + 1}</span>
-                      <h3 className="md:col-span-5 text-2xl md:text-4xl font-display font-bold text-white uppercase tracking-[-0.02em] group-hover:translate-x-2 group-hover:text-[hsl(var(--accent-edit))] transition-all">
-                        {c.name}
-                      </h3>
-                      <p className="md:col-span-5 edit-body text-white/55">{c.desc}</p>
-                      <span className="md:col-span-1 edit-label text-white/40 md:text-right group-hover:text-[hsl(var(--accent-edit))] transition-colors">
-                        Visit ↗
-                      </span>
-                    </a>
-                  </li>
-                </Reveal>
-              ))}
-            </ul>
-            <div className="flex justify-end mt-10">
+            <div className="border-t border-white/10">
+              {portfolio.map((c, i) => {
+                const isOpen = openCard === c.name;
+                return (
+                  <Reveal key={c.name} delay={i * 0.04}>
+                    <div className="border-b border-white/10">
+                      <button
+                        type="button"
+                        onClick={() => setOpenCard(isOpen ? null : c.name)}
+                        className="w-full text-left py-8 md:py-10 grid md:grid-cols-12 gap-4 md:gap-10 items-baseline group transition-colors hover:bg-white/[0.02]"
+                        aria-expanded={isOpen}
+                      >
+                        <span className="md:col-span-1 edit-label text-[hsl(var(--accent-edit))]">
+                          {String(i + 1).padStart(2, "0")}
+                        </span>
+                        <div className="md:col-span-5">
+                          {c.flagship && (
+                            <span className="edit-label text-[hsl(var(--accent-edit))] block mb-2">★ Flagship</span>
+                          )}
+                          <h3 className="text-2xl md:text-4xl font-display font-bold text-white uppercase tracking-[-0.02em] group-hover:text-[hsl(var(--accent-edit))] transition-colors">
+                            {c.name}
+                          </h3>
+                          <p className="edit-label text-white/55 mt-3">{c.tagline}</p>
+                        </div>
+                        <p className="md:col-span-5 edit-body text-white/65">{c.summary}</p>
+                        <span className="md:col-span-1 edit-label text-white/40 md:text-right group-hover:text-[hsl(var(--accent-edit))] transition-colors">
+                          {isOpen ? "− Close" : "+ Details"}
+                        </span>
+                      </button>
+                      {isOpen && (
+                        <div className="pb-10 md:pb-12 grid md:grid-cols-12 gap-4 md:gap-10 animate-fade-in">
+                          <div className="md:col-start-2 md:col-span-11 grid md:grid-cols-3 gap-px bg-white/10 border border-white/10">
+                            <div className="bg-[hsl(var(--surface))] p-6">
+                              <span className="edit-label text-[hsl(var(--accent-edit))] block mb-3">Patents</span>
+                              <p className="text-white text-base">{c.patents}</p>
+                            </div>
+                            <div className="bg-[hsl(var(--surface))] p-6">
+                              <span className="edit-label text-[hsl(var(--accent-edit))] block mb-3">Market</span>
+                              <p className="text-white/85 text-sm leading-relaxed">{c.market}</p>
+                            </div>
+                            <div className="bg-[hsl(var(--surface))] p-6">
+                              <span className="edit-label text-[hsl(var(--accent-edit))] block mb-3">Revenue</span>
+                              <p className="text-white/85 text-sm leading-relaxed">{c.revenue}</p>
+                            </div>
+                          </div>
+                          <div className="md:col-start-2 md:col-span-11 mt-6">
+                            <a
+                              href={c.href}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center gap-3 px-6 py-3 border border-white/30 text-white edit-label hover:bg-white hover:text-[hsl(var(--bg))] transition-colors"
+                            >
+                              {c.cta} ↗
+                            </a>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  </Reveal>
+                );
+              })}
+            </div>
+            <div className="flex justify-between items-center mt-10">
+              <span className="edit-label text-white/40">
+                3 additional strategic patent verticals under Emerging Market Opportunities — plus one secret unlocked after investment.
+              </span>
               <Link to={lp("/portfolio")} className="edit-label text-white edit-link">
-                View all portfolio →
+                View full portfolio →
               </Link>
             </div>
           </div>
