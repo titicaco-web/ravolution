@@ -301,14 +301,18 @@ export const EditorialFooter = () => {
           ))}
         </div>
 
-        <div className="space-y-3">
+        <div className="space-y-4">
           <div className="edit-label text-white/55">Stockholm · New York · Barcelona · Shanghai · Santiago · Zürich</div>
-          <a href="mailto:ivan.daza@ravolution.se" className="edit-label text-white edit-link block w-fit">
-            ivan.daza@ravolution.se
-          </a>
-          <a href="https://www.linkedin.com/in/ivandaza/" target="_blank" rel="noopener noreferrer" className="edit-label text-white/70 hover:text-white edit-link block w-fit">
-            LinkedIn ↗
-          </a>
+          <div>
+            <a href="mailto:ivan.daza@ravolution.se" className="edit-label text-white edit-link">
+              ivan.daza@ravolution.se
+            </a>
+          </div>
+          <div>
+            <a href="https://www.linkedin.com/in/ivandaza/" target="_blank" rel="noopener noreferrer" className="edit-label text-white/70 hover:text-white edit-link">
+              LinkedIn ↗
+            </a>
+          </div>
         </div>
       </div>
 
