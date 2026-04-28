@@ -22,6 +22,7 @@ const T = {
     cities: "Stockholm · New York · Barcelona · Shanghai · Santiago · Zürich",
     kpis: [
       { n: 27, suffix: "", l: "Patent" },
+      { n: 343, suffix: "", l: "Patentkrav" },
       { n: 6, suffix: "", l: "Branscher i drift" },
       { n: 40, suffix: "+", l: "Marknader Bizmeet är byggt för" },
     ],
@@ -124,6 +125,7 @@ const T = {
     cities: "Stockholm · New York · Barcelona · Shanghai · Santiago · Zürich",
     kpis: [
       { n: 27, suffix: "", l: "Patents" },
+      { n: 343, suffix: "", l: "Patent claims" },
       { n: 6, suffix: "", l: "Industries in production" },
       { n: 40, suffix: "+", l: "Markets Bizmeet is engineered for" },
     ],
@@ -226,6 +228,7 @@ const T = {
     cities: "Stockholm · New York · Barcelona · Shanghai · Santiago · Zürich",
     kpis: [
       { n: 27, suffix: "", l: "Patentes" },
+      { n: 343, suffix: "", l: "Reivindicaciones de patente" },
       { n: 6, suffix: "", l: "Industrias en producción" },
       { n: 40, suffix: "+", l: "Mercados para los que Bizmeet está diseñado" },
     ],
