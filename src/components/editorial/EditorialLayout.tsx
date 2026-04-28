@@ -168,7 +168,7 @@ export const MarqueeStrip = ({ items }: { items: string[] }) => {
 export const EditorialNav = () => {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const lp = useLangPath();
 
   useEffect(() => {
@@ -183,12 +183,16 @@ export const EditorialNav = () => {
     return () => { document.body.style.overflow = ""; };
   }, [open]);
 
+  const salesPartnerHref = language === "sv" ? "/sv/saljpartner" : language === "es" ? "/es/socio-comercial" : "/en/sales-partner";
+  const salesPartnerLabel = language === "sv" ? "Säljpartner" : language === "es" ? "Socio Comercial" : "Sales Partner";
+
   const links = [
     { label: t("nav.founder") || "About", href: lp("/about") },
     { label: t("nav.angel") || "Angel", href: lp("/angel-investor") },
     { label: t("nav.services") || "Develop", href: lp("/services") },
     { label: "Portfolio", href: lp("/portfolio") },
     { label: t("nav.investors") || "Invest", href: lp("/invest") },
+    { label: salesPartnerLabel, href: salesPartnerHref },
     { label: t("nav.blog") || "Press", href: lp("/blog") },
     { label: "Contact", href: lp("/contact") },
   ];
@@ -235,7 +239,7 @@ export const EditorialNav = () => {
           </button>
         </div>
 
-        <nav className="flex-1 flex flex-col justify-center max-w-[1400px] mx-auto w-full">
+        <nav className="flex-1 min-h-0 flex flex-col justify-start xl:justify-center max-w-[1400px] mx-auto w-full">
           {links.map((l, i) => (
             <Link
               key={l.href}
@@ -264,7 +268,9 @@ export const EditorialNav = () => {
 /* ───────── Minimal editorial footer ───────── */
 export const EditorialFooter = () => {
   const lp = useLangPath();
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+  const salesPartnerHref = language === "sv" ? "/sv/saljpartner" : language === "es" ? "/es/socio-comercial" : "/en/sales-partner";
+  const salesPartnerLabel = language === "sv" ? "Säljpartner" : language === "es" ? "Socio Comercial" : "Sales Partner";
   return (
     <footer className="border-t border-white/10 px-6 md:px-12 pt-20 pb-10 bg-[hsl(var(--bg))] text-white">
       <div className="max-w-[1280px] mx-auto grid md:grid-cols-3 gap-12">
@@ -285,6 +291,7 @@ export const EditorialFooter = () => {
             { l: "Angel", h: lp("/angel-investor") },
             { l: "Develop", h: lp("/services") },
             { l: "Portfolio", h: lp("/portfolio") },
+            { l: salesPartnerLabel, h: salesPartnerHref },
             { l: "Press", h: lp("/blog") },
             { l: "Contact", h: lp("/contact") },
           ].map((x) => (
