@@ -7,8 +7,11 @@ import { useLangPath } from "@/hooks/use-lang-path";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const lp = useLangPath();
+
+  const salesPartnerHref = language === "sv" ? "/sv/saljpartner" : language === "es" ? "/es/socio-comercial" : "/en/sales-partner";
+  const salesPartnerLabel = language === "sv" ? "Säljpartner" : language === "es" ? "Socio Comercial" : "Sales Partner";
 
   const navLinks = [
     { label: t("nav.founder"), href: lp("/about") },
@@ -16,6 +19,7 @@ const Navbar = () => {
     { label: t("nav.services"), href: lp("/services") },
     { label: t("nav.ventures"), href: lp("/#products") },
     { label: t("nav.patents"), href: lp("/#patents") },
+    { label: salesPartnerLabel, href: salesPartnerHref },
     { label: t("nav.blog"), href: lp("/blog") },
     { label: t("nav.investors"), href: lp("/invest") },
   ];

@@ -46,6 +46,14 @@ const Footer = () => {
               <li><Link to={lp("/about")} className="hover:text-white transition-colors">{t("footer.aboutFounder")}</Link></li>
               <li><Link to={lp("/blog")} className="hover:text-white transition-colors">{t("nav.blog")}</Link></li>
               <li><Link to={lp("/invest")} className="hover:text-white transition-colors">{t("footer.investorRelations")}</Link></li>
+              <li>
+                <Link
+                  to={salesPartnerHref}
+                  className="hover:text-white transition-colors"
+                >
+                  {salesPartnerLabel}
+                </Link>
+              </li>
               <li><a href="#contact" className="hover:text-white transition-colors">{t("footer.contact")}</a></li>
               <li><Link to={lp("/privacy-policy")} className="hover:text-white transition-colors">{t("footer.privacyPolicy")}</Link></li>
               <li><Link to={lp("/terms-of-service")} className="hover:text-white transition-colors">{t("footer.termsOfService")}</Link></li>
