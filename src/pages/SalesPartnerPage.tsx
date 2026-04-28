@@ -1,20 +1,12 @@
 import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { useLanguage } from "@/i18n/LanguageContext";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Label } from "@/components/ui/label";
-import { Checkbox } from "@/components/ui/checkbox";
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { EditorialShell, Reveal, SectionLabel, CountUp } from "@/components/editorial/EditorialLayout";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
-import { Check, ArrowRight, MapPin } from "lucide-react";
 
-type Lang = "sv" | "en";
+type Lang = "sv" | "en" | "es";
 
 const T = {
   sv: {
@@ -23,18 +15,17 @@ const T = {
     eyebrow: "Säljpartner-program",
     h1Pre: "Sälj plattformar som ",
     h1Em: "faktiskt finns",
-    h1Post: ". Bygg en återkommande intäkt som speglar din ambition.",
+    h1Post: ".",
     sub: "Ravolution AB bygger och driver svenska SaaS-plattformar i produktion — Bizmeet, xPortMatch, iApply, CommunicaringSchool, Rosetta Livingstone och CarbonX. Vi söker erfarna B2B-säljare som vill bygga en återkommande intäkt med en starkt motiverande ersättningsmodell.",
     ctaPrimary: "Ansök som säljpartner",
     ctaSecondary: "Maila Ivan direkt",
-    presence: "Etablerade i",
     cities: "Stockholm · New York · Barcelona · Shanghai · Santiago · Zürich",
     kpis: [
-      { n: "27", l: "Patent" },
-      { n: "6", l: "Branscher där våra plattformar är i drift" },
-      { n: "40+", l: "Marknader som Bizmeet är konstruerat för" },
+      { n: 27, suffix: "", l: "Patent" },
+      { n: 6, suffix: "", l: "Branscher i drift" },
+      { n: 40, suffix: "+", l: "Marknader Bizmeet är byggt för" },
     ],
-    sellTitle: "Det här säljer du",
+    sellTitle: "Det här säljer du.",
     sellIntro: "Ravolution äger och driver alla plattformar. Du fokuserar på rätt kund och stänger affären — vi levererar och förvaltar.",
     platforms: [
       { name: "Bizmeet™", star: true, what: "B2B-community, AI-matchning, event och leads. White-label.", who: "Exportbyråer, branschorgan, business clubs" },
@@ -45,7 +36,7 @@ const T = {
       { name: "CarbonX™", what: "Verifierad handel av koldioxidkrediter (Gold Standard / Verra).", who: "Industri, fastighetsbolag, finanssektor" },
     ],
     starNote: "★ = Förstaprioritet just nu",
-    bizTitle: "Bizmeet — din snabbaste väg till första provisionen",
+    bizTitle: "Bizmeet — din snabbaste väg till första provisionen.",
     bizSubtitle: "Live i produktion. Demonstrerbar idag.",
     bizBody: "Bizmeet är en white-label community- och matchningsplattform som förvandlar 40+ marknader, hundratals rådgivare och tusentals klientföretag till ett mätbart digitalt ekosystem. Lösningen drivs live på businesssweden.ravolution.se och i en svensk flaggskeppsinstans hos Convendum.",
     bizBullets: [
@@ -55,14 +46,8 @@ const T = {
       "Tydlig revenue share-modell till kundens fördel på paid tiers",
     ],
     bizKitTitle: "Ditt kit för Bizmeet",
-    bizKit: [
-      "Demoinstans på businesssweden.ravolution.se",
-      "Privat sandlåda du bokar med kund",
-      "Fullständig pitch-PDF",
-      "Invändningsbibliotek",
-      "45-min månadssync med Ivan",
-    ],
-    earnTitle: "Så tjänar du pengar",
+    bizKit: ["Demoinstans på businesssweden.ravolution.se", "Privat sandlåda du bokar med kund", "Fullständig pitch-PDF", "Invändningsbibliotek", "45-min månadssync med Ivan"],
+    earnTitle: "Så tjänar du pengar.",
     earnSub: "En starkt motiverande ersättningsmodell",
     earnBody: "Vi har byggt en provisionsmodell som belönar både stängningen och den långsiktiga relationen. Ersättningen sträcker sig över setup, drift, revenue share och tilläggsutveckling — så att en bra första affär växer till en återkommande intäkt över flera år. Exakta nivåer går vi igenom i introsamtalet.",
     earnPillars: [
@@ -71,13 +56,13 @@ const T = {
       { title: "Revenue share", desc: "Andel av kundens betalda nivåer i flera år." },
       { title: "Tilläggsutveckling", desc: "Provision på integrationer och anpassningar." },
     ],
-    whoTitle: "Vem vi söker",
+    whoTitle: "Vem vi söker.",
     personas: [
-      { title: "Den erfarna B2B-säljaren", body: "Du har 5+ år av att stänga SaaS- eller konsulttjänster i 0,5–5 MSEK-segmentet. Du jobbar gärna självständigt med tydliga mål." },
-      { title: "Den nordiska networkern", body: "Du har ett befintligt nätverk inom branschorganisationer, exportbyråer, coworking eller offentlig sektor i Sverige eller Norden." },
+      { title: "Den erfarna B2B-säljaren", body: "5+ år av att stänga SaaS- eller konsulttjänster i 0,5–5 MSEK-segmentet. Du jobbar gärna självständigt med tydliga mål." },
+      { title: "Den nordiska networkern", body: "Befintligt nätverk inom branschorganisationer, exportbyråer, coworking eller offentlig sektor i Sverige eller Norden." },
       { title: "Den specialiserade konsulten", body: "Du jobbar redan på provision eller F-skatt och vill addera en SaaS-portfölj till din befintliga praktik utan exklusivitet." },
     ],
-    getTitle: "Vad du får från oss",
+    getTitle: "Vad du får från oss.",
     getList: [
       "Egen e-post fornamn.efternamn@ravolution.se efter signerat avtal",
       "Demoinstans + privat sandlåda",
@@ -87,17 +72,17 @@ const T = {
       "Månadssync 45 min för coachning och eskaleringar",
       "Tydligt provisionsavtal med juridisk klarhet kring IP, GDPR och uppsägning",
     ],
-    processTitle: "Så här går det till",
+    processTitle: "Så här går det till.",
     steps: [
       { t: "Ansök", d: "Fyll i formuläret nedan" },
       { t: "Introsamtal", d: "30 min med Ivan inom 5 arbetsdagar" },
       { t: "Match-check", d: "Vi går igenom ICP, nätverk och tidigare resultat" },
       { t: "Avtal", d: "Provisionsavtal signeras digitalt" },
       { t: "Onboarding", d: "Demo, säljkit, pipeline, e-post — samma dag" },
-      { t: "Första 90 dagar", d: "Mål: 1 stängd Bizmeet-affär eller 3 kvalificerade demomöten" },
+      { t: "Första 90 dagar", d: "Mål: 1 stängd Bizmeet-affär eller 3 kvalificerade demos" },
       { t: "Skala", d: "Lägg till fler plattformar i din portfölj" },
     ],
-    faqTitle: "Vanliga frågor",
+    faqTitle: "Vanliga frågor.",
     faq: [
       { q: "Är detta en anställning?", a: "Nej. Det är ett provisionsbaserat samarbetsavtal. Du fakturerar Ravolution med F-skatt eller motsvarande. Du behåller din frihet." },
       { q: "Är det exklusivt?", a: "Nej. Du får sälja kompletterande tjänster i andra vertikaler parallellt, så länge du inte säljer direkt konkurrerande plattformar inom samma ICP." },
@@ -105,7 +90,7 @@ const T = {
       { q: "Hur snabbt får jag betalt?", a: "Provision utbetalas månatligen i efterskott senast den 25:e i månaden efter den månad då Ravolution mottagit kundbetalning." },
       { q: "Får jag använda Ravolutions varumärke?", a: "Ja, inom ramarna i provisionsavtalet — säljkit, demoinstanser, e-post och officiella mallar. Egenproducerat marknadsmaterial ska godkännas innan publicering." },
     ],
-    formTitle: "Ansök som säljpartner",
+    formTitle: "Ansök som säljpartner.",
     formSub: "Vi läser varje ansökan personligen och svarar inom 5 arbetsdagar.",
     f: {
       firstName: "Förnamn", lastName: "Efternamn", email: "E-post", phone: "Telefon",
@@ -121,7 +106,6 @@ const T = {
       sending: "Skickar…",
       success: "Tack — vi hör av oss inom 5 arbetsdagar. Ivan läser personligen varje ansökan.",
       error: "Det gick inte att skicka. Maila ivan.daza@ravolution.se direkt.",
-      optional: "valfritt",
     },
     industriesOptions: ["Export & internationalisering", "Branschorganisationer", "Coworking & business clubs", "Universitet & alumni", "Logistik & hamnar", "Utbildning K-12", "Hållbarhet & ESG", "Annat"],
     startOptions: ["Omgående", "Inom 1 månad", "Inom 3 månader", "Bara utforskar"],
@@ -133,18 +117,17 @@ const T = {
     eyebrow: "Sales Partner Program",
     h1Pre: "Sell platforms that ",
     h1Em: "actually exist",
-    h1Post: ". Build recurring income that matches your ambition.",
+    h1Post: ".",
     sub: "Ravolution AB builds and operates production-grade SaaS platforms — Bizmeet, xPortMatch, iApply, CommunicaringSchool, Rosetta Livingstone and CarbonX. We are recruiting experienced B2B salespeople worldwide to build recurring revenue under a strongly motivating compensation model.",
     ctaPrimary: "Apply as sales partner",
     ctaSecondary: "Email Ivan directly",
-    presence: "Established in",
     cities: "Stockholm · New York · Barcelona · Shanghai · Santiago · Zürich",
     kpis: [
-      { n: "27", l: "Patents" },
-      { n: "6", l: "Industries with platforms in production" },
-      { n: "40+", l: "Markets Bizmeet is engineered for" },
+      { n: 27, suffix: "", l: "Patents" },
+      { n: 6, suffix: "", l: "Industries in production" },
+      { n: 40, suffix: "+", l: "Markets Bizmeet is engineered for" },
     ],
-    sellTitle: "What you get to sell",
+    sellTitle: "What you get to sell.",
     sellIntro: "Ravolution owns and operates every platform. You focus on the right customer and close the deal — we deliver and run it.",
     platforms: [
       { name: "Bizmeet™", star: true, what: "B2B community, AI matching, events and leads. White-label.", who: "Export agencies, trade bodies, business clubs" },
@@ -155,7 +138,7 @@ const T = {
       { name: "CarbonX™", what: "Verified carbon credit trading (Gold Standard / Verra).", who: "Industry, real estate, finance sector" },
     ],
     starNote: "★ = Top priority right now",
-    bizTitle: "Bizmeet — your fastest path to a first close",
+    bizTitle: "Bizmeet — your fastest path to a first close.",
     bizSubtitle: "Live in production. Demonstrable today.",
     bizBody: "Bizmeet is a white-label community and matching platform that turns 40+ markets, hundreds of advisors and thousands of client companies into a measurable digital ecosystem. The solution runs live at businesssweden.ravolution.se and at a Swedish flagship instance with Convendum.",
     bizBullets: [
@@ -165,14 +148,8 @@ const T = {
       "Clear revenue share model favoring the customer on paid tiers",
     ],
     bizKitTitle: "Your Bizmeet kit",
-    bizKit: [
-      "Demo instance at businesssweden.ravolution.se",
-      "Private sandbox you book with the customer",
-      "Full pitch PDF",
-      "Objection handling library",
-      "45-min monthly sync with Ivan",
-    ],
-    earnTitle: "How you get paid",
+    bizKit: ["Demo instance at businesssweden.ravolution.se", "Private sandbox you book with the customer", "Full pitch PDF", "Objection handling library", "45-min monthly sync with Ivan"],
+    earnTitle: "How you get paid.",
     earnSub: "A strongly motivating compensation model",
     earnBody: "We have built a commission model that rewards both the close and the long-term relationship. Compensation spans setup, operations, revenue share and add-on development — so a strong first deal grows into recurring income over years. We walk you through exact levels in the intro call.",
     earnPillars: [
@@ -181,13 +158,13 @@ const T = {
       { title: "Revenue share", desc: "Share of the customer's paid tiers across multiple years." },
       { title: "Add-on development", desc: "Commission on integrations and customizations." },
     ],
-    whoTitle: "Who we're looking for",
+    whoTitle: "Who we're looking for.",
     personas: [
-      { title: "The experienced B2B closer", body: "You have 5+ years of closing SaaS or consulting deals in the EUR 50k–500k segment. You work independently with clear targets." },
-      { title: "The connected networker", body: "You have an existing network in trade associations, export agencies, coworking, or public sector — anywhere in your region." },
+      { title: "The experienced B2B closer", body: "5+ years of closing SaaS or consulting deals in the EUR 50k–500k segment. You work independently with clear targets." },
+      { title: "The connected networker", body: "Existing network in trade associations, export agencies, coworking, or public sector — anywhere in your region." },
       { title: "The specialized consultant", body: "You already invoice on commission and want to add a SaaS portfolio to your existing practice without exclusivity." },
     ],
-    getTitle: "What you get from us",
+    getTitle: "What you get from us.",
     getList: [
       "Your own email firstname.lastname@ravolution.se after signature",
       "Demo instance + private sandbox",
@@ -197,7 +174,7 @@ const T = {
       "Monthly 45-min sync for coaching and escalations",
       "Clear commission contract with legal clarity on IP, GDPR and termination",
     ],
-    processTitle: "How it works",
+    processTitle: "How it works.",
     steps: [
       { t: "Apply", d: "Fill in the form below" },
       { t: "Intro call", d: "30 min with Ivan within 5 business days" },
@@ -207,7 +184,7 @@ const T = {
       { t: "First 90 days", d: "Goal: 1 closed Bizmeet deal or 3 qualified demos" },
       { t: "Scale", d: "Add more platforms to your portfolio" },
     ],
-    faqTitle: "Frequently asked questions",
+    faqTitle: "Frequently asked questions.",
     faq: [
       { q: "Is this employment?", a: "No. It's a commission-based partnership. You invoice Ravolution as a self-employed professional or via your company. You keep your independence." },
       { q: "Is it exclusive?", a: "No. You can sell complementary services in other verticals in parallel, as long as you don't sell directly competing platforms in the same ICP." },
@@ -215,7 +192,7 @@ const T = {
       { q: "How fast do I get paid?", a: "Commission is paid monthly in arrears, by the 25th of the month following the month Ravolution received customer payment." },
       { q: "Can I use the Ravolution brand?", a: "Yes, within the limits of the commission contract — sales kit, demo instances, email and official templates. Self-produced marketing materials require approval before publishing." },
     ],
-    formTitle: "Apply as sales partner",
+    formTitle: "Apply as sales partner.",
     formSub: "We read every application personally and respond within 5 business days.",
     f: {
       firstName: "First name", lastName: "Last name", email: "Email", phone: "Phone",
@@ -231,19 +208,137 @@ const T = {
       sending: "Sending…",
       success: "Thank you — we'll be in touch within 5 business days. Ivan reads every application personally.",
       error: "Could not send. Please email ivan.daza@ravolution.se directly.",
-      optional: "optional",
     },
     industriesOptions: ["Export & internationalization", "Trade associations", "Coworking & business clubs", "Universities & alumni", "Logistics & ports", "K-12 Education", "Sustainability & ESG", "Other"],
     startOptions: ["Immediately", "Within 1 month", "Within 3 months", "Just exploring"],
     footerCta: "Not ready to apply yet? Email Ivan directly at ",
   },
+  es: {
+    metaTitle: "Socio Comercial en Ravolution AB — Vende SaaS suecas globalmente",
+    metaDesc: "Asociación basada en comisiones para vendedores B2B experimentados. Vende Bizmeet, xPortMatch, iApply, CarbonX y más — plataformas en producción, instancias demo y kit de ventas completo.",
+    eyebrow: "Programa de Socios Comerciales",
+    h1Pre: "Vende plataformas que ",
+    h1Em: "realmente existen",
+    h1Post: ".",
+    sub: "Ravolution AB construye y opera plataformas SaaS suecas en producción — Bizmeet, xPortMatch, iApply, CommunicaringSchool, Rosetta Livingstone y CarbonX. Buscamos vendedores B2B experimentados a nivel mundial para construir ingresos recurrentes con un modelo de compensación fuertemente motivador.",
+    ctaPrimary: "Postular como socio",
+    ctaSecondary: "Escribir a Ivan",
+    cities: "Stockholm · New York · Barcelona · Shanghai · Santiago · Zürich",
+    kpis: [
+      { n: 27, suffix: "", l: "Patentes" },
+      { n: 6, suffix: "", l: "Industrias en producción" },
+      { n: 40, suffix: "+", l: "Mercados para los que Bizmeet está diseñado" },
+    ],
+    sellTitle: "Esto es lo que vendes.",
+    sellIntro: "Ravolution posee y opera cada plataforma. Tú te enfocas en el cliente correcto y cierras el trato — nosotros entregamos y operamos.",
+    platforms: [
+      { name: "Bizmeet™", star: true, what: "Comunidad B2B, matching con IA, eventos y leads. White-label.", who: "Agencias de exportación, gremios, business clubs" },
+      { name: "xPortMatch™", what: "Matching de puertos y logística.", who: "Puertos, transitarios, regiones exportadoras" },
+      { name: "iApply™", what: "Matching de candidatos con IA.", who: "Universidades, regiones, agencias de empleo" },
+      { name: "Rosetta Livingstone™", what: "Plataforma de idiomas y cultura.", who: "Municipalidades, programas de integración, multinacionales" },
+      { name: "CommunicaringSchool™", what: "Plataforma escolar con comunicación asistida por IA.", who: "Colegios, grupos educativos, municipalidades" },
+      { name: "CarbonX™", what: "Comercio verificado de créditos de carbono (Gold Standard / Verra).", who: "Industria, inmobiliarias, sector financiero" },
+    ],
+    starNote: "★ = Prioridad principal ahora mismo",
+    bizTitle: "Bizmeet — tu camino más rápido al primer cierre.",
+    bizSubtitle: "En producción. Demostrable hoy.",
+    bizBody: "Bizmeet es una plataforma white-label de comunidad y matching que convierte 40+ mercados, cientos de asesores y miles de empresas cliente en un ecosistema digital medible. La solución funciona en vivo en businesssweden.ravolution.se y en una instancia insignia sueca en Convendum.",
+    bizBullets: [
+      "Valor de contrato año 1: segmento Tier 1",
+      "Ciclo de venta: 3–6 meses según decisor",
+      "Entrega: 60–90 días desde firma hasta vivo",
+      "Modelo claro de revenue share favoreciendo al cliente en tiers pagos",
+    ],
+    bizKitTitle: "Tu kit Bizmeet",
+    bizKit: ["Instancia demo en businesssweden.ravolution.se", "Sandbox privado para reservar con el cliente", "PDF de pitch completo", "Biblioteca de manejo de objeciones", "Sync mensual de 45 min con Ivan"],
+    earnTitle: "Cómo te pagan.",
+    earnSub: "Un modelo de compensación fuertemente motivador",
+    earnBody: "Hemos construido un modelo de comisiones que recompensa tanto el cierre como la relación a largo plazo. La compensación cubre setup, operaciones, revenue share y desarrollo adicional — para que un buen primer trato crezca en ingresos recurrentes durante años. Los niveles exactos se revisan en la llamada inicial.",
+    earnPillars: [
+      { title: "Tarifa de setup", desc: "Pago único al firmar el contrato." },
+      { title: "Operaciones y desarrollo", desc: "Cuota recurrente durante toda la vida del cliente." },
+      { title: "Revenue share", desc: "Porcentaje de los tiers pagos del cliente durante años." },
+      { title: "Desarrollo adicional", desc: "Comisión sobre integraciones y personalizaciones." },
+    ],
+    whoTitle: "A quién buscamos.",
+    personas: [
+      { title: "El cerrador B2B experimentado", body: "5+ años cerrando SaaS o consultoría en el segmento EUR 50k–500k. Trabajas de forma independiente con objetivos claros." },
+      { title: "El networker conectado", body: "Red existente en gremios, agencias de exportación, coworking o sector público — en tu región." },
+      { title: "El consultor especializado", body: "Ya facturas por comisión y quieres añadir un portafolio SaaS a tu práctica actual sin exclusividad." },
+    ],
+    getTitle: "Lo que recibes de nosotros.",
+    getList: [
+      "Tu propio email nombre.apellido@ravolution.se tras la firma",
+      "Instancia demo + sandbox privado",
+      "Pipeline (HubSpot o Notion) con transparencia total de comisiones",
+      "Plantilla de NDA y borrador de contrato",
+      "Kit de ventas, biblioteca de objeciones, listas de precios",
+      "Sync mensual de 45 min para coaching y escalaciones",
+      "Contrato claro con claridad legal sobre IP, GDPR y terminación",
+    ],
+    processTitle: "Cómo funciona.",
+    steps: [
+      { t: "Postular", d: "Completa el formulario abajo" },
+      { t: "Llamada intro", d: "30 min con Ivan en 5 días hábiles" },
+      { t: "Match check", d: "Revisamos ICP, red y resultados pasados" },
+      { t: "Contrato", d: "Contrato de comisión firmado digitalmente" },
+      { t: "Onboarding", d: "Demo, kit, pipeline, email — el mismo día" },
+      { t: "Primeros 90 días", d: "Meta: 1 cierre Bizmeet o 3 demos cualificadas" },
+      { t: "Escalar", d: "Añade más plataformas a tu portafolio" },
+    ],
+    faqTitle: "Preguntas frecuentes.",
+    faq: [
+      { q: "¿Es un empleo?", a: "No. Es una asociación basada en comisiones. Facturas a Ravolution como profesional autónomo o vía tu empresa. Mantienes tu independencia." },
+      { q: "¿Es exclusivo?", a: "No. Puedes vender servicios complementarios en otras verticales en paralelo, mientras no vendas plataformas directamente competidoras en el mismo ICP." },
+      { q: "¿Qué pasa si el cliente abandona?", a: "Conservas la comisión de setup. Las comisiones de operaciones y revenue share siguen la vida del cliente." },
+      { q: "¿Qué tan rápido cobro?", a: "La comisión se paga mensualmente en mora, antes del día 25 del mes siguiente al mes en que Ravolution recibió el pago del cliente." },
+      { q: "¿Puedo usar la marca Ravolution?", a: "Sí, dentro de los límites del contrato — kit de ventas, instancias demo, email y plantillas oficiales. Los materiales propios requieren aprobación antes de publicar." },
+    ],
+    formTitle: "Postular como socio comercial.",
+    formSub: "Leemos cada postulación personalmente y respondemos en 5 días hábiles.",
+    f: {
+      firstName: "Nombre", lastName: "Apellido", email: "Email", phone: "Teléfono",
+      city: "Ciudad", linkedin: "Perfil de LinkedIn (URL)", company: "Empresa (si facturas vía empresa)",
+      orgNumber: "RUT / NIF / Tax ID", industries: "Foco de industria (selecciona todas las que apliquen)",
+      primaryPlatform: "Plataforma que más te interesa vender",
+      pastDeal: "Cuéntanos un trato cerrado de EUR 50k+ (mín 200 caracteres)",
+      network: "Red existente relevante para las plataformas de Ravolution (opcional)",
+      startDate: "¿Cuándo puedes empezar?",
+      source: "¿Cómo supiste de Ravolution? (opcional)",
+      consent: "Consiento que Ravolution AB procese mis datos personales según nuestra política de privacidad para evaluar mi postulación.",
+      submit: "Enviar postulación",
+      sending: "Enviando…",
+      success: "Gracias — te contactaremos en 5 días hábiles. Ivan lee personalmente cada postulación.",
+      error: "No se pudo enviar. Escribe directamente a ivan.daza@ravolution.se.",
+    },
+    industriesOptions: ["Exportación e internacionalización", "Gremios y asociaciones", "Coworking y business clubs", "Universidades y alumni", "Logística y puertos", "Educación K-12", "Sostenibilidad y ESG", "Otro"],
+    startOptions: ["Inmediatamente", "En 1 mes", "En 3 meses", "Solo explorando"],
+    footerCta: "¿No estás listo para postular? Escribe a Ivan directamente a ",
+  },
 } as const;
 
 const platformOptions = ["Bizmeet", "xPortMatch", "iApply", "Rosetta Livingstone", "CommunicaringSchool", "CarbonX", "Several"];
 
+/* Editorial-style underlined input */
+const Field = ({
+  label, value, onChange, type = "text", required = false, placeholder,
+}: { label: string; value: string; onChange: (v: string) => void; type?: string; required?: boolean; placeholder?: string }) => (
+  <label className="block">
+    <span className="block edit-label text-white/45 mb-3">{label}</span>
+    <input
+      type={type}
+      value={value}
+      onChange={(e) => onChange(e.target.value)}
+      required={required}
+      placeholder={placeholder}
+      className="w-full bg-transparent border-0 border-b border-white/20 px-0 py-3 text-white text-base md:text-lg focus:outline-none focus:border-[hsl(var(--accent-edit))] transition-colors"
+    />
+  </label>
+);
+
 const SalesPartnerPage = () => {
   const { language } = useLanguage();
-  const lang: Lang = language === "sv" ? "sv" : "en";
+  const lang: Lang = language === "sv" ? "sv" : language === "es" ? "es" : "en";
   const t = T[lang];
 
   const [form, setForm] = useState({
@@ -270,15 +365,15 @@ const SalesPartnerPage = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!form.consent) {
-      toast.error(lang === "sv" ? "Samtycke krävs." : "Consent required.");
+      toast.error(lang === "sv" ? "Samtycke krävs." : lang === "es" ? "Consentimiento requerido." : "Consent required.");
       return;
     }
     if (form.pastDeal.length < 200) {
-      toast.error(lang === "sv" ? "Skriv minst 200 tecken om en tidigare deal." : "Please write at least 200 characters about a past deal.");
+      toast.error(lang === "sv" ? "Skriv minst 200 tecken om en tidigare deal." : lang === "es" ? "Escribe al menos 200 caracteres sobre un trato pasado." : "Please write at least 200 characters about a past deal.");
       return;
     }
     if (form.industries.length === 0) {
-      toast.error(lang === "sv" ? "Välj minst ett branschfokus." : "Select at least one industry.");
+      toast.error(lang === "sv" ? "Välj minst ett branschfokus." : lang === "es" ? "Selecciona al menos una industria." : "Select at least one industry.");
       return;
     }
     setLoading(true);
@@ -297,7 +392,10 @@ const SalesPartnerPage = () => {
     }
   };
 
-  const canonical = lang === "sv" ? "https://ravolution.se/sv/saljpartner" : "https://ravolution.se/en/sales-partner";
+  const canonical =
+    lang === "sv" ? "https://ravolution.se/sv/saljpartner"
+    : lang === "es" ? "https://ravolution.se/es/socio-comercial"
+    : "https://ravolution.se/en/sales-partner";
 
   return (
     <>
@@ -307,331 +405,382 @@ const SalesPartnerPage = () => {
         <link rel="canonical" href={canonical} />
         <link rel="alternate" hrefLang="sv-SE" href="https://ravolution.se/sv/saljpartner" />
         <link rel="alternate" hrefLang="en" href="https://ravolution.se/en/sales-partner" />
+        <link rel="alternate" hrefLang="es" href="https://ravolution.se/es/socio-comercial" />
         <meta property="og:title" content={t.metaTitle} />
         <meta property="og:description" content={t.metaDesc} />
         <meta property="og:type" content="website" />
       </Helmet>
 
-      <div className="min-h-screen bg-background">
-        <Navbar />
-
+      <EditorialShell>
         {/* HERO */}
-        <section className="relative pt-32 md:pt-40 pb-20 md:pb-28 px-6 overflow-hidden bg-gradient-to-b from-[#0D0D0E] via-[#111118] to-primary">
-          <div className="absolute top-24 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/60 to-transparent" />
-          <div className="max-w-5xl mx-auto relative">
-            <span className="inline-block text-xs font-medium tracking-[0.3em] uppercase text-gold mb-6">
-              {t.eyebrow}
-            </span>
-            <h1 className="font-display font-bold text-white leading-[1.05] tracking-tight text-4xl md:text-6xl lg:text-7xl">
-              {t.h1Pre}
-              <em className="not-italic text-gold">{t.h1Em}</em>
-              {t.h1Post}
-            </h1>
-            <p className="mt-8 text-lg md:text-xl text-white/75 max-w-3xl leading-relaxed">{t.sub}</p>
-
-            <div className="mt-10 flex flex-wrap gap-4">
-              <Button asChild size="lg" className="bg-accent hover:bg-accent-light text-white">
-                <a href="#apply">{t.ctaPrimary} <ArrowRight className="w-4 h-4 ml-1" /></a>
-              </Button>
-              <Button asChild size="lg" variant="outline" className="border-white/30 text-white hover:bg-white/10 bg-transparent">
-                <a href="mailto:ivan.daza@ravolution.se">{t.ctaSecondary}</a>
-              </Button>
-            </div>
-
-            <div className="mt-12 flex items-center gap-3 text-white/60 text-sm">
-              <MapPin className="w-4 h-4 text-gold" />
-              <span className="uppercase tracking-widest text-xs">{t.presence}:</span>
-              <span className="font-medium text-white/80">{t.cities}</span>
-            </div>
+        <section className="pt-40 pb-20 px-6 md:px-12">
+          <div className="edit-container">
+            <Reveal>
+              <span className="edit-label text-[hsl(var(--accent-edit))]">{t.eyebrow}</span>
+            </Reveal>
+            <Reveal delay={0.1}>
+              <h1
+                className="mt-8 font-display font-bold text-white uppercase tracking-[-0.04em] leading-[0.95]"
+                style={{ fontSize: "clamp(2.75rem, 7vw, 6.5rem)" }}
+              >
+                {t.h1Pre}
+                <em className="not-italic text-[hsl(var(--accent-edit))]">{t.h1Em}</em>
+                {t.h1Post}
+              </h1>
+            </Reveal>
+            <Reveal delay={0.2}>
+              <p className="mt-10 text-lg md:text-2xl text-white/75 max-w-3xl font-display leading-snug">
+                {t.sub}
+              </p>
+            </Reveal>
+            <Reveal delay={0.3}>
+              <div className="mt-12 flex flex-wrap gap-6 items-center">
+                <a href="#apply" className="edit-btn">
+                  <span>{t.ctaPrimary}</span>
+                </a>
+                <a
+                  href="mailto:ivan.daza@ravolution.se"
+                  className="edit-label text-white/80 hover:text-white edit-link"
+                >
+                  {t.ctaSecondary} →
+                </a>
+              </div>
+            </Reveal>
+            <Reveal delay={0.4}>
+              <div className="mt-16 pt-6 border-t border-white/10">
+                <span className="edit-label text-white/55">{t.cities}</span>
+              </div>
+            </Reveal>
           </div>
         </section>
 
         {/* KPI ROW */}
-        <section className="bg-primary border-y border-white/10">
-          <div className="max-w-7xl mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-3 gap-10">
-            {t.kpis.map((k) => (
-              <div key={k.l} className="text-center md:text-left">
-                <div className="font-display text-6xl md:text-7xl font-bold text-gold leading-none">{k.n}</div>
-                <div className="mt-3 text-white/70 text-sm md:text-base">{k.l}</div>
-              </div>
-            ))}
+        <section className="edit-section border-t border-white/10">
+          <div className="edit-container">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+              {t.kpis.map((k, i) => (
+                <Reveal key={k.l} delay={i * 0.1}>
+                  <CountUp end={k.n} suffix={k.suffix} className="font-display text-7xl md:text-8xl font-bold text-white tracking-tighter leading-none" />
+                  <div className="mt-4 edit-label text-white/55">{k.l}</div>
+                </Reveal>
+              ))}
+            </div>
           </div>
         </section>
 
         {/* WHAT YOU SELL */}
-        <section className="bg-[#0D0D0E] py-20 md:py-28 px-6">
-          <div className="max-w-7xl mx-auto">
-            <h2 className="font-display text-3xl md:text-5xl font-bold text-white">{t.sellTitle}</h2>
-            <p className="mt-5 text-white/70 max-w-3xl text-lg">{t.sellIntro}</p>
-
-            <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-              {t.platforms.map((p) => (
-                <div key={p.name} className="bg-[#111118] border border-white/10 hover:border-gold/40 transition-colors p-7 rounded-sm">
+        <section className="edit-section border-t border-white/10">
+          <div className="edit-container">
+            <SectionLabel number="01 — Portfolio" title={t.sellTitle} />
+            <Reveal>
+              <p className="text-xl md:text-2xl text-white/80 font-display max-w-3xl leading-snug">{t.sellIntro}</p>
+            </Reveal>
+            <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-white/10 border border-white/10">
+              {t.platforms.map((p, i) => (
+                <Reveal key={p.name} delay={i * 0.05} className="bg-[hsl(var(--bg))] p-8 hover:bg-white/[0.03] transition-colors">
                   <div className="flex items-baseline gap-2">
-                    <h3 className="font-display text-xl font-bold text-gold">{p.name}</h3>
-                    {("star" in p && p.star) && <span className="text-gold text-sm">★</span>}
+                    <h3 className="font-display text-2xl font-bold text-white">{p.name}</h3>
+                    {("star" in p && p.star) && <span className="text-[hsl(var(--accent-edit))] text-sm">★</span>}
                   </div>
-                  <p className="mt-3 text-white/85 text-sm leading-relaxed">{p.what}</p>
-                  <p className="mt-4 text-white/55 text-xs uppercase tracking-wider">{p.who}</p>
-                </div>
+                  <p className="mt-4 text-white/75 leading-relaxed">{p.what}</p>
+                  <p className="mt-6 edit-label text-white/45">{p.who}</p>
+                </Reveal>
               ))}
             </div>
-            <p className="mt-6 text-white/50 text-sm">{t.starNote}</p>
+            <p className="mt-8 edit-label text-white/45">{t.starNote}</p>
           </div>
         </section>
 
         {/* BIZMEET FOCUS */}
-        <section className="bg-primary py-20 md:py-28 px-6">
-          <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 lg:gap-20">
-            <div>
-              <span className="text-gold text-xs uppercase tracking-[0.3em] font-medium">Bizmeet</span>
-              <h2 className="mt-4 font-display text-3xl md:text-5xl font-bold text-white leading-tight">{t.bizTitle}</h2>
-              <p className="mt-6 text-xl text-white/80 font-display">{t.bizSubtitle}</p>
-              <p className="mt-6 text-white/75 leading-relaxed">{t.bizBody}</p>
-              <ul className="mt-8 space-y-3">
-                {t.bizBullets.map((b) => (
-                  <li key={b} className="flex gap-3 text-white/85">
-                    <Check className="w-5 h-5 text-gold flex-shrink-0 mt-0.5" />
-                    <span>{b}</span>
-                  </li>
-                ))}
-              </ul>
-              <a href="https://businesssweden.ravolution.se" target="_blank" rel="noopener noreferrer" className="mt-8 inline-flex items-center gap-2 text-gold hover:text-gold/80 font-medium">
-                businesssweden.ravolution.se <ArrowRight className="w-4 h-4" />
-              </a>
-            </div>
+        <section className="edit-section border-t border-white/10">
+          <div className="edit-container">
+            <SectionLabel number="02 — Flagship" title={t.bizTitle} />
+            <div className="grid md:grid-cols-12 gap-12 md:gap-16">
+              <Reveal className="md:col-span-7">
+                <p className="text-2xl text-white/85 font-display leading-snug">{t.bizSubtitle}</p>
+                <p className="mt-8 text-white/70 leading-relaxed text-lg">{t.bizBody}</p>
+                <ul className="mt-10 space-y-4 border-t border-white/10 pt-8">
+                  {t.bizBullets.map((b) => (
+                    <li key={b} className="flex gap-4 text-white/85">
+                      <span className="edit-label text-[hsl(var(--accent-edit))] mt-1">→</span>
+                      <span>{b}</span>
+                    </li>
+                  ))}
+                </ul>
+                <a
+                  href="https://businesssweden.ravolution.se"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-10 inline-block edit-label text-[hsl(var(--accent-edit))] edit-link"
+                >
+                  businesssweden.ravolution.se ↗
+                </a>
+              </Reveal>
 
-            <div className="bg-white/[0.03] border border-white/15 p-8 md:p-10 rounded-sm h-fit">
-              <h3 className="font-display text-xl font-bold text-white">{t.bizKitTitle}</h3>
-              <ul className="mt-6 space-y-4">
-                {t.bizKit.map((k) => (
-                  <li key={k} className="flex gap-3 text-white/80 text-sm">
-                    <div className="w-1.5 h-1.5 bg-gold rounded-full flex-shrink-0 mt-2" />
-                    <span>{k}</span>
-                  </li>
-                ))}
-              </ul>
+              <Reveal className="md:col-span-5" delay={0.15}>
+                <div className="border border-white/10 p-8 md:p-10">
+                  <span className="edit-label text-white/45">Kit</span>
+                  <h3 className="mt-4 font-display text-2xl font-bold text-white">{t.bizKitTitle}</h3>
+                  <ul className="mt-8 space-y-5">
+                    {t.bizKit.map((k) => (
+                      <li key={k} className="flex gap-3 text-white/80 text-sm border-b border-white/10 pb-4 last:border-0">
+                        <span className="edit-label text-[hsl(var(--accent-edit))]">·</span>
+                        <span>{k}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </Reveal>
             </div>
           </div>
         </section>
 
-        {/* HOW YOU GET PAID — no specific levels */}
-        <section className="bg-[#0D0D0E] py-20 md:py-28 px-6">
-          <div className="max-w-6xl mx-auto">
-            <span className="text-gold text-xs uppercase tracking-[0.3em] font-medium">{t.earnSub}</span>
-            <h2 className="mt-4 font-display text-3xl md:text-5xl font-bold text-white">{t.earnTitle}</h2>
-            <p className="mt-6 text-white/75 text-lg max-w-3xl leading-relaxed">{t.earnBody}</p>
-
-            <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+        {/* HOW YOU GET PAID */}
+        <section className="edit-section border-t border-white/10">
+          <div className="edit-container">
+            <SectionLabel number="03 — Compensation" title={t.earnTitle} />
+            <Reveal>
+              <span className="edit-label text-[hsl(var(--accent-edit))]">{t.earnSub}</span>
+              <p className="mt-6 text-white/75 text-lg max-w-3xl leading-relaxed">{t.earnBody}</p>
+            </Reveal>
+            <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-white/10 border border-white/10">
               {t.earnPillars.map((p, i) => (
-                <div key={p.title} className="bg-[#111118] border-l-2 border-gold p-7 rounded-sm">
-                  <div className="text-gold/60 text-xs font-mono mb-3">0{i + 1}</div>
-                  <h3 className="font-display text-lg font-bold text-white">{p.title}</h3>
-                  <p className="mt-3 text-white/65 text-sm leading-relaxed">{p.desc}</p>
-                </div>
+                <Reveal key={p.title} delay={i * 0.08} className="bg-[hsl(var(--bg))] p-8">
+                  <div className="edit-label text-white/40">0{i + 1}</div>
+                  <h3 className="mt-6 font-display text-xl font-bold text-white">{p.title}</h3>
+                  <p className="mt-4 text-white/65 text-sm leading-relaxed">{p.desc}</p>
+                </Reveal>
               ))}
             </div>
           </div>
         </section>
 
         {/* WHO WE SEEK */}
-        <section className="bg-primary py-20 md:py-28 px-6">
-          <div className="max-w-7xl mx-auto">
-            <h2 className="font-display text-3xl md:text-5xl font-bold text-white">{t.whoTitle}</h2>
-            <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
-              {t.personas.map((p) => (
-                <div key={p.title} className="bg-white/[0.03] border border-white/10 p-7 rounded-sm">
-                  <div className="w-10 h-px bg-gold mb-5" />
-                  <h3 className="font-display text-xl font-bold text-white">{p.title}</h3>
+        <section className="edit-section border-t border-white/10">
+          <div className="edit-container">
+            <SectionLabel number="04 — Profile" title={t.whoTitle} />
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-white/10 border border-white/10">
+              {t.personas.map((p, i) => (
+                <Reveal key={p.title} delay={i * 0.08} className="bg-[hsl(var(--bg))] p-8">
+                  <div className="w-10 h-px bg-[hsl(var(--accent-edit))]" />
+                  <h3 className="mt-6 font-display text-xl font-bold text-white">{p.title}</h3>
                   <p className="mt-4 text-white/70 leading-relaxed text-sm">{p.body}</p>
-                </div>
+                </Reveal>
               ))}
             </div>
           </div>
         </section>
 
         {/* WHAT YOU GET */}
-        <section className="bg-[#0D0D0E] py-20 md:py-28 px-6">
-          <div className="max-w-6xl mx-auto">
-            <h2 className="font-display text-3xl md:text-5xl font-bold text-white">{t.getTitle}</h2>
-            <ul className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-5">
-              {t.getList.map((g) => (
-                <li key={g} className="flex gap-3 text-white/85">
-                  <Check className="w-5 h-5 text-gold flex-shrink-0 mt-0.5" />
+        <section className="edit-section border-t border-white/10">
+          <div className="edit-container">
+            <SectionLabel number="05 — Toolkit" title={t.getTitle} />
+            <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-2">
+              {t.getList.map((g, i) => (
+                <Reveal key={g} delay={i * 0.04} as="li" className="flex gap-4 text-white/85 border-b border-white/10 py-5">
+                  <span className="edit-label text-[hsl(var(--accent-edit))] shrink-0">0{i + 1}</span>
                   <span>{g}</span>
-                </li>
+                </Reveal>
               ))}
             </ul>
           </div>
         </section>
 
         {/* PROCESS */}
-        <section className="bg-primary py-20 md:py-28 px-6">
-          <div className="max-w-7xl mx-auto">
-            <h2 className="font-display text-3xl md:text-5xl font-bold text-white">{t.processTitle}</h2>
-            <ol className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+        <section className="edit-section border-t border-white/10">
+          <div className="edit-container">
+            <SectionLabel number="06 — Process" title={t.processTitle} />
+            <ol className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-white/10 border border-white/10">
               {t.steps.map((s, i) => (
-                <li key={s.t} className="bg-white/[0.03] border border-white/10 p-6 rounded-sm">
-                  <div className="font-display text-3xl font-bold text-gold">{String(i + 1).padStart(2, "0")}</div>
-                  <h3 className="mt-3 font-display text-lg font-bold text-white">{s.t}</h3>
-                  <p className="mt-2 text-white/65 text-sm">{s.d}</p>
-                </li>
+                <Reveal key={s.t} delay={i * 0.05} as="li" className="bg-[hsl(var(--bg))] p-7">
+                  <div className="font-display text-4xl font-bold text-[hsl(var(--accent-edit))] tracking-tighter">{String(i + 1).padStart(2, "0")}</div>
+                  <h3 className="mt-4 font-display text-lg font-bold text-white">{s.t}</h3>
+                  <p className="mt-2 text-white/65 text-sm leading-relaxed">{s.d}</p>
+                </Reveal>
               ))}
             </ol>
           </div>
         </section>
 
         {/* FAQ */}
-        <section className="bg-[#0D0D0E] py-20 md:py-28 px-6">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="font-display text-3xl md:text-5xl font-bold text-white">{t.faqTitle}</h2>
-            <Accordion type="single" collapsible className="mt-10">
-              {t.faq.map((f, i) => (
-                <AccordionItem key={i} value={`item-${i}`} className="border-white/10">
-                  <AccordionTrigger className="text-white text-left hover:text-gold hover:no-underline">{f.q}</AccordionTrigger>
-                  <AccordionContent className="text-white/70 leading-relaxed">{f.a}</AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
+        <section className="edit-section border-t border-white/10">
+          <div className="edit-container max-w-3xl">
+            <SectionLabel number="07 — FAQ" title={t.faqTitle} />
+            <Reveal>
+              <Accordion type="single" collapsible>
+                {t.faq.map((f, i) => (
+                  <AccordionItem key={i} value={`item-${i}`} className="border-white/10">
+                    <AccordionTrigger className="text-white text-left font-display text-lg hover:text-[hsl(var(--accent-edit))] hover:no-underline">
+                      {f.q}
+                    </AccordionTrigger>
+                    <AccordionContent className="text-white/70 leading-relaxed text-base">{f.a}</AccordionContent>
+                  </AccordionItem>
+                ))}
+              </Accordion>
+            </Reveal>
           </div>
         </section>
 
         {/* APPLICATION FORM */}
-        <section id="apply" className="bg-primary py-20 md:py-28 px-6">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="font-display text-3xl md:text-5xl font-bold text-white">{t.formTitle}</h2>
-            <p className="mt-5 text-white/70 text-lg">{t.formSub}</p>
+        <section id="apply" className="edit-section border-t border-white/10">
+          <div className="edit-container">
+            <SectionLabel number="08 — Apply" title={t.formTitle} />
+            <div className="grid md:grid-cols-12 gap-12 md:gap-16">
+              <Reveal className="md:col-span-5">
+                <p className="text-xl md:text-2xl text-white/80 font-display leading-snug">{t.formSub}</p>
+                <div className="mt-12 space-y-6 border-t border-white/10 pt-8">
+                  <div>
+                    <span className="edit-label text-white/45">Direct line</span>
+                    <a href="mailto:ivan.daza@ravolution.se" className="block mt-2 text-lg text-white/85 font-display edit-link">
+                      ivan.daza@ravolution.se
+                    </a>
+                  </div>
+                  <div>
+                    <span className="edit-label text-white/45">Established in</span>
+                    <p className="text-sm text-white/70 mt-2">{t.cities}</p>
+                  </div>
+                </div>
+              </Reveal>
 
-            {sent ? (
-              <div className="mt-12 bg-gold/10 border-l-4 border-gold p-8 rounded-sm">
-                <p className="text-white text-lg">{t.f.success}</p>
+              <div className="md:col-span-7">
+                {sent ? (
+                  <Reveal>
+                    <div className="border border-white/10 p-12">
+                      <span className="edit-label text-[hsl(var(--accent-edit))]">✓ Sent</span>
+                      <h3 className="edit-h2 text-white mt-4">Application received.</h3>
+                      <p className="text-white/70 mt-4 leading-relaxed">{t.f.success}</p>
+                    </div>
+                  </Reveal>
+                ) : (
+                  <form onSubmit={handleSubmit} className="space-y-10">
+                    <div className="grid md:grid-cols-2 gap-8">
+                      <Field label={`01 / ${t.f.firstName}`} value={form.firstName} onChange={(v) => update("firstName", v)} required />
+                      <Field label={`02 / ${t.f.lastName}`} value={form.lastName} onChange={(v) => update("lastName", v)} required />
+                      <Field label={`03 / ${t.f.email}`} type="email" value={form.email} onChange={(v) => update("email", v)} required />
+                      <Field label={`04 / ${t.f.phone}`} type="tel" value={form.phone} onChange={(v) => update("phone", v)} required />
+                      <Field label={`05 / ${t.f.city}`} value={form.city} onChange={(v) => update("city", v)} required />
+                      <Field label={`06 / ${t.f.linkedin}`} type="url" value={form.linkedin} onChange={(v) => update("linkedin", v)} required placeholder="https://linkedin.com/in/…" />
+                      <Field label={`07 / ${t.f.company}`} value={form.company} onChange={(v) => update("company", v)} />
+                      <Field label={`08 / ${t.f.orgNumber}`} value={form.orgNumber} onChange={(v) => update("orgNumber", v)} />
+                    </div>
+
+                    <div>
+                      <span className="block edit-label text-white/45 mb-4">09 / {t.f.industries}</span>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        {t.industriesOptions.map((opt) => {
+                          const active = form.industries.includes(opt);
+                          return (
+                            <button
+                              type="button"
+                              key={opt}
+                              onClick={() => toggleIndustry(opt)}
+                              className={`text-left border px-4 py-3 text-sm transition-colors ${
+                                active
+                                  ? "bg-white text-black border-white"
+                                  : "border-white/20 text-white/75 hover:border-white/50"
+                              }`}
+                            >
+                              {opt}
+                            </button>
+                          );
+                        })}
+                      </div>
+                    </div>
+
+                    <div>
+                      <span className="block edit-label text-white/45 mb-4">10 / {t.f.primaryPlatform}</span>
+                      <div className="flex flex-wrap gap-3">
+                        {platformOptions.map((p) => {
+                          const active = form.primaryPlatform === p;
+                          return (
+                            <button
+                              type="button"
+                              key={p}
+                              onClick={() => update("primaryPlatform", p)}
+                              className={`border px-4 py-2 text-sm transition-colors ${
+                                active
+                                  ? "bg-[hsl(var(--accent-edit))] text-black border-[hsl(var(--accent-edit))]"
+                                  : "border-white/20 text-white/75 hover:border-white/50"
+                              }`}
+                            >
+                              {p}
+                            </button>
+                          );
+                        })}
+                      </div>
+                    </div>
+
+                    <label className="block">
+                      <span className="block edit-label text-white/45 mb-3">11 / {t.f.pastDeal}</span>
+                      <textarea
+                        rows={5}
+                        required
+                        minLength={200}
+                        value={form.pastDeal}
+                        onChange={(e) => update("pastDeal", e.target.value)}
+                        className="w-full bg-transparent border-0 border-b border-white/20 px-0 py-3 text-white text-base md:text-lg focus:outline-none focus:border-[hsl(var(--accent-edit))] transition-colors resize-none"
+                      />
+                      <p className="mt-2 edit-label text-white/40">{form.pastDeal.length} / 200+</p>
+                    </label>
+
+                    <label className="block">
+                      <span className="block edit-label text-white/45 mb-3">12 / {t.f.network}</span>
+                      <textarea
+                        rows={3}
+                        maxLength={1000}
+                        value={form.network}
+                        onChange={(e) => update("network", e.target.value)}
+                        className="w-full bg-transparent border-0 border-b border-white/20 px-0 py-3 text-white text-base md:text-lg focus:outline-none focus:border-[hsl(var(--accent-edit))] transition-colors resize-none"
+                      />
+                    </label>
+
+                    <div className="grid md:grid-cols-2 gap-8">
+                      <label className="block">
+                        <span className="block edit-label text-white/45 mb-3">13 / {t.f.startDate}</span>
+                        <select
+                          required
+                          value={form.startDate}
+                          onChange={(e) => update("startDate", e.target.value)}
+                          className="w-full bg-transparent border-0 border-b border-white/20 px-0 py-3 text-white text-base md:text-lg focus:outline-none focus:border-[hsl(var(--accent-edit))] transition-colors"
+                        >
+                          {t.startOptions.map((o) => <option key={o} value={o} className="bg-[hsl(var(--bg))] text-white">{o}</option>)}
+                        </select>
+                      </label>
+                      <Field label={`14 / ${t.f.source}`} value={form.source} onChange={(v) => update("source", v)} />
+                    </div>
+
+                    <label className="flex items-start gap-3 text-white/70 text-sm cursor-pointer pt-4 border-t border-white/10">
+                      <input
+                        type="checkbox"
+                        checked={form.consent}
+                        onChange={(e) => update("consent", e.target.checked)}
+                        className="mt-1 accent-[hsl(var(--accent-edit))]"
+                      />
+                      <span>{t.f.consent}</span>
+                    </label>
+
+                    <button type="submit" disabled={loading} className="edit-btn" aria-busy={loading}>
+                      <span>{loading ? t.f.sending : t.f.submit}</span>
+                    </button>
+                  </form>
+                )}
               </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="mt-12 space-y-6 bg-white/[0.03] border border-white/10 p-6 md:p-10 rounded-sm">
-                <div className="grid md:grid-cols-2 gap-5">
-                  <div>
-                    <Label htmlFor="firstName" className="text-white/80">{t.f.firstName} *</Label>
-                    <Input id="firstName" required value={form.firstName} onChange={(e) => update("firstName", e.target.value)} className="mt-2 bg-white/5 border-white/20 text-white" />
-                  </div>
-                  <div>
-                    <Label htmlFor="lastName" className="text-white/80">{t.f.lastName} *</Label>
-                    <Input id="lastName" required value={form.lastName} onChange={(e) => update("lastName", e.target.value)} className="mt-2 bg-white/5 border-white/20 text-white" />
-                  </div>
-                  <div>
-                    <Label htmlFor="email" className="text-white/80">{t.f.email} *</Label>
-                    <Input id="email" type="email" required value={form.email} onChange={(e) => update("email", e.target.value)} className="mt-2 bg-white/5 border-white/20 text-white" />
-                  </div>
-                  <div>
-                    <Label htmlFor="phone" className="text-white/80">{t.f.phone} *</Label>
-                    <Input id="phone" type="tel" required value={form.phone} onChange={(e) => update("phone", e.target.value)} className="mt-2 bg-white/5 border-white/20 text-white" />
-                  </div>
-                  <div>
-                    <Label htmlFor="city" className="text-white/80">{t.f.city} *</Label>
-                    <Input id="city" required value={form.city} onChange={(e) => update("city", e.target.value)} className="mt-2 bg-white/5 border-white/20 text-white" />
-                  </div>
-                  <div>
-                    <Label htmlFor="linkedin" className="text-white/80">{t.f.linkedin} *</Label>
-                    <Input id="linkedin" type="url" required placeholder="https://linkedin.com/in/…" value={form.linkedin} onChange={(e) => update("linkedin", e.target.value)} className="mt-2 bg-white/5 border-white/20 text-white" />
-                  </div>
-                  <div>
-                    <Label htmlFor="company" className="text-white/80">{t.f.company}</Label>
-                    <Input id="company" value={form.company} onChange={(e) => update("company", e.target.value)} className="mt-2 bg-white/5 border-white/20 text-white" />
-                  </div>
-                  <div>
-                    <Label htmlFor="orgNumber" className="text-white/80">{t.f.orgNumber}</Label>
-                    <Input id="orgNumber" value={form.orgNumber} onChange={(e) => update("orgNumber", e.target.value)} className="mt-2 bg-white/5 border-white/20 text-white" />
-                  </div>
-                </div>
-
-                <div>
-                  <Label className="text-white/80">{t.f.industries} *</Label>
-                  <div className="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-3">
-                    {t.industriesOptions.map((opt) => (
-                      <label key={opt} className="flex items-center gap-3 text-white/85 text-sm cursor-pointer">
-                        <Checkbox
-                          checked={form.industries.includes(opt)}
-                          onCheckedChange={() => toggleIndustry(opt)}
-                          className="border-white/40 data-[state=checked]:bg-gold data-[state=checked]:border-gold data-[state=checked]:text-primary"
-                        />
-                        <span>{opt}</span>
-                      </label>
-                    ))}
-                  </div>
-                </div>
-
-                <div>
-                  <Label className="text-white/80">{t.f.primaryPlatform} *</Label>
-                  <RadioGroup value={form.primaryPlatform} onValueChange={(v) => update("primaryPlatform", v)} className="mt-3 grid grid-cols-2 sm:grid-cols-3 gap-3">
-                    {platformOptions.map((p) => (
-                      <label key={p} className="flex items-center gap-2 text-white/85 text-sm cursor-pointer">
-                        <RadioGroupItem value={p} className="border-white/40 text-gold" />
-                        <span>{p}</span>
-                      </label>
-                    ))}
-                  </RadioGroup>
-                </div>
-
-                <div>
-                  <Label htmlFor="pastDeal" className="text-white/80">{t.f.pastDeal} *</Label>
-                  <Textarea id="pastDeal" required minLength={200} rows={5} value={form.pastDeal} onChange={(e) => update("pastDeal", e.target.value)} className="mt-2 bg-white/5 border-white/20 text-white" />
-                  <p className="mt-1 text-white/50 text-xs">{form.pastDeal.length} / 200+</p>
-                </div>
-
-                <div>
-                  <Label htmlFor="network" className="text-white/80">{t.f.network}</Label>
-                  <Textarea id="network" rows={3} maxLength={1000} value={form.network} onChange={(e) => update("network", e.target.value)} className="mt-2 bg-white/5 border-white/20 text-white" />
-                </div>
-
-                <div className="grid md:grid-cols-2 gap-5">
-                  <div>
-                    <Label htmlFor="startDate" className="text-white/80">{t.f.startDate} *</Label>
-                    <select
-                      id="startDate"
-                      required
-                      value={form.startDate}
-                      onChange={(e) => update("startDate", e.target.value)}
-                      className="mt-2 w-full h-10 rounded-md bg-white/5 border border-white/20 text-white px-3 focus:outline-none focus:border-gold"
-                    >
-                      {t.startOptions.map((o) => <option key={o} value={o} className="bg-primary">{o}</option>)}
-                    </select>
-                  </div>
-                  <div>
-                    <Label htmlFor="source" className="text-white/80">{t.f.source}</Label>
-                    <Input id="source" value={form.source} onChange={(e) => update("source", e.target.value)} className="mt-2 bg-white/5 border-white/20 text-white" />
-                  </div>
-                </div>
-
-                <label className="flex items-start gap-3 text-white/80 text-sm cursor-pointer">
-                  <Checkbox
-                    checked={form.consent}
-                    onCheckedChange={(c) => update("consent", !!c)}
-                    className="mt-0.5 border-white/40 data-[state=checked]:bg-gold data-[state=checked]:border-gold data-[state=checked]:text-primary"
-                  />
-                  <span>{t.f.consent} *</span>
-                </label>
-
-                <Button type="submit" disabled={loading} size="lg" className="bg-accent hover:bg-accent-light text-white w-full md:w-auto" aria-busy={loading}>
-                  {loading ? t.f.sending : t.f.submit} <ArrowRight className="w-4 h-4 ml-1" />
-                </Button>
-              </form>
-            )}
+            </div>
           </div>
         </section>
 
         {/* FOOTER CTA */}
-        <section className="bg-[#0D0D0E] border-t border-white/10 py-12 px-6">
-          <div className="max-w-4xl mx-auto text-center">
-            <p className="text-white/80 text-lg">
+        <section className="edit-section border-t border-white/10">
+          <div className="edit-container text-center">
+            <p className="text-white/75 text-lg">
               {t.footerCta}
-              <a href="mailto:ivan.daza@ravolution.se" className="text-gold hover:text-gold/80 font-medium underline-offset-4 hover:underline">
+              <a href="mailto:ivan.daza@ravolution.se" className="text-[hsl(var(--accent-edit))] edit-link">
                 ivan.daza@ravolution.se
               </a>
             </p>
           </div>
         </section>
-
-        <Footer />
-      </div>
+      </EditorialShell>
     </>
   );
 };
