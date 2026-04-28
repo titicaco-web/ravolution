@@ -21,6 +21,7 @@ import PatentStrategyForStartups from "./pages/PatentStrategyForStartups";
 import TechnicalCofounderAlternative from "./pages/TechnicalCofounderAlternative";
 import PortfolioPage from "./pages/PortfolioPage";
 import ContactPage from "./pages/ContactPage";
+import SalesPartnerPage from "./pages/SalesPartnerPage";
 import NotFound from "./pages/NotFound";
 import CookieConsent from "./components/CookieConsent";
 import ScrollToTop from "./components/ScrollToTop";
@@ -70,6 +71,9 @@ const App = () => (
           <Route path="/:lang/technical-cofounder-alternative" element={<LanguageSync><TechnicalCofounderAlternative /></LanguageSync>} />
           <Route path="/:lang/portfolio" element={<LanguageSync><PortfolioPage /></LanguageSync>} />
           <Route path="/:lang/contact" element={<LanguageSync><ContactPage /></LanguageSync>} />
+          <Route path="/:lang/sales-partner" element={<LanguageSync><SalesPartnerPage /></LanguageSync>} />
+          <Route path="/sv/saljpartner" element={<LanguageSync><SalesPartnerPage /></LanguageSync>} />
+          <Route path="/es/socio-comercial" element={<LanguageSync><SalesPartnerPage /></LanguageSync>} />
           
           {/* Gyrocraft Routes - Password Protected */}
           <Route path="/:lang/gyrocraft" element={<LanguageSync><ProtectedGyrocraftRoute><GyrocraftHome /></ProtectedGyrocraftRoute></LanguageSync>} />
