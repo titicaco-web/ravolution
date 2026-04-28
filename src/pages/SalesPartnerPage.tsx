@@ -460,7 +460,7 @@ const SalesPartnerPage = () => {
         {/* KPI ROW */}
         <section className="edit-section border-t border-white/10">
           <div className="edit-container">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-10 md:gap-12">
               {t.kpis.map((k, i) => (
                 <Reveal key={k.l} delay={i * 0.1}>
                   <CountUp end={k.n} suffix={k.suffix} className="font-display text-7xl md:text-8xl font-bold text-white tracking-tighter leading-none" />
