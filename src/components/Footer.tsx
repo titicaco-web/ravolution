@@ -5,8 +5,10 @@ import { useLangPath } from "@/hooks/use-lang-path";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const lp = useLangPath();
+  const salesPartnerHref = language === "sv" ? "/sv/saljpartner" : language === "es" ? "/es/socio-comercial" : "/en/sales-partner";
+  const salesPartnerLabel = language === "sv" ? "Säljpartner" : language === "es" ? "Socio Comercial" : "Sales Partner";
 
   return (
     <footer className="bg-primary text-white py-12">
