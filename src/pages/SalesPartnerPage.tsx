@@ -491,6 +491,11 @@ const SalesPartnerPage = () => {
               ))}
             </div>
             <p className="mt-8 edit-label text-white/45">{t.starNote}</p>
+            <Reveal className="mt-12">
+              <a href="#apply" className="edit-btn">
+                <span>{t.ctaPrimary}</span>
+              </a>
+            </Reveal>
           </div>
         </section>
 
@@ -555,6 +560,11 @@ const SalesPartnerPage = () => {
                 </Reveal>
               ))}
             </div>
+            <Reveal className="mt-12">
+              <a href="#apply" className="edit-btn">
+                <span>{t.ctaPrimary}</span>
+              </a>
+            </Reveal>
           </div>
         </section>
 
