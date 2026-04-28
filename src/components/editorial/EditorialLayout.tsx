@@ -239,7 +239,7 @@ export const EditorialNav = () => {
           </button>
         </div>
 
-        <nav className="flex-1 min-h-0 flex flex-col justify-start xl:justify-center max-w-[1400px] mx-auto w-full">
+        <nav className="flex flex-col justify-start max-w-[1400px] mx-auto w-full">
           {links.map((l, i) => (
             <Link
               key={l.href}
@@ -254,7 +254,7 @@ export const EditorialNav = () => {
           ))}
         </nav>
 
-        <div className="flex flex-wrap justify-between items-end gap-4 mt-12">
+        <div className="flex flex-wrap justify-between items-end gap-4 mt-auto pt-12">
           <span className="edit-label text-white/55">Stockholm · New York · Barcelona · Shanghai · Santiago · Zürich</span>
           <a href="mailto:ivan.daza@ravolution.se" className="edit-label text-white/55 edit-link">
             ivan.daza@ravolution.se
