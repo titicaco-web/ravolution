@@ -101,14 +101,16 @@ const ParticleMesh = () => {
         if (n.y < 0 || n.y > height) n.vy *= -1;
       }
 
-      const accent = getComputedStyle(document.documentElement).getPropertyValue("--accent").trim() || "36 38% 40%";
+      const rootStyles = getComputedStyle(document.documentElement);
+      const accent = rootStyles.getPropertyValue("--accent").trim() || "36 38% 40%";
+      const accentLight = rootStyles.getPropertyValue("--accent-light").trim() || accent;
       ctx.save();
       ctx.globalCompositeOperation = "lighter";
-      ctx.shadowColor = `hsl(${accent} / 0.5)`;
-      ctx.shadowBlur = 5;
+      ctx.shadowColor = `hsl(${accentLight} / 0.7)`;
+      ctx.shadowBlur = 8;
 
       // lines
-      ctx.lineWidth = 1.15;
+      ctx.lineWidth = 1.05;
       for (let i = 0; i < nodes.length; i++) {
         for (let j = i + 1; j < nodes.length; j++) {
           const a = nodes[i];
@@ -117,8 +119,8 @@ const ParticleMesh = () => {
           const dy = a.y - b.y;
           const d = Math.hypot(dx, dy);
           if (d < MAX_DIST) {
-            const alpha = 0.92 * (1 - d / MAX_DIST);
-            ctx.strokeStyle = `hsl(${accent} / ${alpha})`;
+            const alpha = 0.24 + 0.62 * (1 - d / MAX_DIST);
+            ctx.strokeStyle = `hsl(${accentLight} / ${alpha})`;
             ctx.beginPath();
             ctx.moveTo(a.x, a.y);
             ctx.lineTo(b.x, b.y);
