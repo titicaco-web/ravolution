@@ -737,6 +737,18 @@
   0%   { transform: translate(0, 0); }
   100% { transform: translate(48px, 48px); }
 }
+.particle-mesh-fallback {
+  opacity: 0.9;
+  mix-blend-mode: screen;
+  filter: drop-shadow(0 0 7px hsl(var(--accent) / 0.45));
+}
+.particle-mesh-drift {
+  animation: particleMeshFallbackDrift 18s ease-in-out infinite alternate;
+}
+@keyframes particleMeshFallbackDrift {
+  from { transform: translate3d(-10px, -6px, 0); }
+  to { transform: translate3d(12px, 8px, 0); }
+}
 .iso-grid-rect {
   animation: gridDrift 55s linear infinite;
   transform-origin: 0 0;
@@ -806,6 +818,7 @@
 
 @media (prefers-reduced-motion: reduce) {
   .iso-grid-rect,
+  .particle-mesh-drift,
   .radial-pulse-blob,
   .tw-cursor {
     animation: none !important;
