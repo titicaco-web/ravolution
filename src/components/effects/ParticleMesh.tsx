@@ -159,7 +159,7 @@ const ParticleMesh = () => {
       ref={containerRef}
       aria-hidden
       className="absolute inset-0 pointer-events-none hidden md:block"
-      style={{ zIndex: 0 }}
+      style={{ zIndex: 1 }}
     >
       <canvas ref={canvasRef} className="block w-full h-full" />
     </div>
