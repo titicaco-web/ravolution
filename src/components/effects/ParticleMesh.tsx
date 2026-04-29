@@ -25,8 +25,8 @@ const ParticleMesh = () => {
     let width = 0;
     let height = 0;
 
-    const NODE_COUNT = 55;
-    const MAX_DIST = 90;
+    const NODE_COUNT = 82;
+    const MAX_DIST = 128;
     const nodes: { x: number; y: number; vx: number; vy: number }[] = [];
 
     const mouse = { x: -9999, y: -9999, active: false };
@@ -101,8 +101,10 @@ const ParticleMesh = () => {
         if (n.y < 0 || n.y > height) n.vy *= -1;
       }
 
+      const accent = getComputedStyle(document.documentElement).getPropertyValue("--accent").trim() || "36 38% 40%";
+
       // lines
-      ctx.lineWidth = 0.7;
+      ctx.lineWidth = 0.9;
       for (let i = 0; i < nodes.length; i++) {
         for (let j = i + 1; j < nodes.length; j++) {
           const a = nodes[i];
@@ -111,8 +113,8 @@ const ParticleMesh = () => {
           const dy = a.y - b.y;
           const d = Math.hypot(dx, dy);
           if (d < MAX_DIST) {
-            const alpha = 0.55 * (1 - d / MAX_DIST);
-            ctx.strokeStyle = `rgba(176, 141, 87, ${alpha})`;
+            const alpha = 0.72 * (1 - d / MAX_DIST);
+            ctx.strokeStyle = `hsl(${accent} / ${alpha})`;
             ctx.beginPath();
             ctx.moveTo(a.x, a.y);
             ctx.lineTo(b.x, b.y);
@@ -122,10 +124,10 @@ const ParticleMesh = () => {
       }
 
       // dots
-      ctx.fillStyle = "rgba(176, 141, 87, 0.85)";
+      ctx.fillStyle = `hsl(${accent} / 0.95)`;
       for (const n of nodes) {
         ctx.beginPath();
-        ctx.arc(n.x, n.y, 1.8, 0, Math.PI * 2);
+        ctx.arc(n.x, n.y, 2.15, 0, Math.PI * 2);
         ctx.fill();
       }
 
