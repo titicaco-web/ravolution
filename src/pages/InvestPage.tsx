@@ -9,6 +9,7 @@ import InvestorTrustSection from "@/components/InvestorTrustSection";
 import InvestorLegalDisclaimer from "@/components/InvestorLegalDisclaimer";
 import InvestorPortfolioMarquee from "@/components/InvestorPortfolioMarquee";
 import { EditorialShell } from "@/components/editorial/EditorialLayout";
+import ParticleMesh from "@/components/effects/ParticleMesh";
 
 /* ──────────────────────────────────────────────────────────────────
    Editorial primitives
@@ -147,6 +148,8 @@ const InvestPage = () => {
 
         {/* ──────────────── 00 — HERO ──────────────── */}
         <section className="relative min-h-screen flex flex-col justify-between pt-28 pb-10 px-6 md:px-12 overflow-hidden">
+          {/* particle mesh background */}
+          <ParticleMesh />
           {/* grid */}
           <div
             className="absolute inset-0 opacity-[0.06] pointer-events-none"
@@ -154,6 +157,7 @@ const InvestPage = () => {
               backgroundImage: `linear-gradient(to right, rgba(255,255,255,0.5) 1px, transparent 1px),
                                 linear-gradient(to bottom, rgba(255,255,255,0.5) 1px, transparent 1px)`,
               backgroundSize: "48px 48px",
+              zIndex: 0,
             }}
           />
 
