@@ -12,6 +12,10 @@ import {
 } from "@/components/editorial/EditorialLayout";
 import HeroVideoBackground from "@/components/HeroVideoBackground";
 import InvestorPortfolioMarquee from "@/components/InvestorPortfolioMarquee";
+import IsometricGrid from "@/components/effects/IsometricGrid";
+import RadialPulseBlob from "@/components/effects/RadialPulseBlob";
+import TypewriterCycle from "@/components/effects/TypewriterCycle";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 const Index = () => {
   const { t } = useLanguage();
