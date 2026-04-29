@@ -445,6 +445,15 @@ const Index = () => {
             <Reveal>
               <span className="edit-label text-[hsl(var(--accent-edit))]">Build with us</span>
             </Reveal>
+            <Reveal delay={0.05}>
+              <p className="mt-6 text-lg md:text-2xl font-display text-white/80">
+                We build{" "}
+                <TypewriterCycle
+                  words={["fintech", "healthtech", "proptech", "SaaS", "your idea"]}
+                  className="text-[hsl(var(--accent-edit))] font-bold"
+                />
+              </p>
+            </Reveal>
             <Reveal delay={0.1}>
               <h2 className="edit-display text-white mt-6">
                 Ready to <br className="md:hidden" />
