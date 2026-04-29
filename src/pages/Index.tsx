@@ -362,15 +362,16 @@ const Index = () => {
         </section>
 
         {/* ───────── 03 — PORTFOLIO ───────── */}
-        <section className="edit-section">
-          <div className="edit-container">
+        <section className="edit-section relative overflow-hidden">
+          <RadialPulseBlob />
+          <div className="edit-container relative" style={{ zIndex: 1 }}>
             <SectionLabel number="03 — Portfolio" title="Platforms we operate." />
             <div className="border-t border-white/10">
               {portfolio.map((c, i) => {
                 const isOpen = openCard === c.name;
                 return (
                   <Reveal key={c.name} delay={i * 0.04}>
-                    <div className="border-b border-white/10">
+                    <div className="frosted-card border-b border-white/10 mb-2">
                       <button
                         type="button"
                         onClick={() => setOpenCard(isOpen ? null : c.name)}
