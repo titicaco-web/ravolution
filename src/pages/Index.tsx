@@ -12,12 +12,17 @@ import {
 } from "@/components/editorial/EditorialLayout";
 import HeroVideoBackground from "@/components/HeroVideoBackground";
 import InvestorPortfolioMarquee from "@/components/InvestorPortfolioMarquee";
+import IsometricGrid from "@/components/effects/IsometricGrid";
+import RadialPulseBlob from "@/components/effects/RadialPulseBlob";
+import TypewriterCycle from "@/components/effects/TypewriterCycle";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 const Index = () => {
   const { t } = useLanguage();
   const lp = useLangPath();
   const [time, setTime] = useState("");
   const [openCard, setOpenCard] = useState<string | null>(null);
+  const processAnim = useScrollAnimation<HTMLUListElement>(0.25);
 
   useEffect(() => {
     const upd = () => {
@@ -265,8 +270,9 @@ const Index = () => {
         />
 
         {/* ───────── 01 — WHO WE ARE ───────── */}
-        <section className="edit-section">
-          <div className="edit-container">
+        <section className="edit-section relative overflow-hidden">
+          <IsometricGrid stroke="rgba(255,255,255,0.08)" />
+          <div className="edit-container relative" style={{ zIndex: 1 }}>
             <SectionLabel number="01 — Who We Are" title="A Swedish venture studio built around defensible IP." />
             <div className="grid md:grid-cols-12 gap-10 md:gap-16">
               <Reveal className="md:col-span-7">
@@ -290,29 +296,47 @@ const Index = () => {
         <section className="edit-section border-t border-white/10">
           <div className="edit-container">
             <SectionLabel number="02 — What We Do" title="Three ways we partner." />
-            <ul>
+            <ul
+              ref={processAnim.ref}
+              className={`process-reveal ${processAnim.isVisible ? "revealed" : ""}`}
+            >
               {pillars.map((p, i) => (
-                <Reveal key={p.n} delay={i * 0.08}>
-                  <li>
-                    <Link
-                      to={p.href}
-                      className="group block border-t border-white/10 last:border-b py-10 md:py-14 grid md:grid-cols-12 gap-6 md:gap-10 items-baseline transition-colors hover:bg-white/[0.02]"
+                <li key={p.n} className="process-step">
+                  <Link
+                    to={p.href}
+                    className="group block border-t border-white/10 last:border-b py-10 md:py-14 grid md:grid-cols-12 gap-6 md:gap-10 items-baseline transition-colors hover:bg-white/[0.02]"
+                  >
+                    <span className="md:col-span-1 edit-label text-[hsl(var(--accent-edit))]">{p.n}</span>
+                    <h3 className="md:col-span-6 text-3xl md:text-5xl font-display font-bold uppercase tracking-[-0.02em] text-white leading-[0.95] group-hover:translate-x-2 transition-transform">
+                      {p.title}
+                    </h3>
+                    <p className="md:col-span-4 edit-body text-white/60">{p.desc}</p>
+                    <span className="md:col-span-1 edit-label text-white/40 group-hover:text-[hsl(var(--accent-edit))] md:text-right transition-colors">
+                      →
+                    </span>
+                  </Link>
+                  {i < pillars.length - 1 && (
+                    <svg
+                      className="process-connector"
+                      viewBox="0 0 100 2"
+                      preserveAspectRatio="none"
+                      aria-hidden
                     >
-                      <span className="md:col-span-1 edit-label text-[hsl(var(--accent-edit))]">{p.n}</span>
-                      <h3 className="md:col-span-6 text-3xl md:text-5xl font-display font-bold uppercase tracking-[-0.02em] text-white leading-[0.95] group-hover:translate-x-2 transition-transform">
-                        {p.title}
-                      </h3>
-                      <p className="md:col-span-4 edit-body text-white/60">{p.desc}</p>
-                      <span className="md:col-span-1 edit-label text-white/40 group-hover:text-[hsl(var(--accent-edit))] md:text-right transition-colors">
-                        →
-                      </span>
-                    </Link>
-                  </li>
-                </Reveal>
+                      <line
+                        x1="0" y1="1" x2="100" y2="1"
+                        stroke="rgba(255,255,255,0.12)"
+                        strokeWidth="0.5"
+                        pathLength={100}
+                        strokeDasharray="100"
+                      />
+                    </svg>
+                  )}
+                </li>
               ))}
             </ul>
           </div>
         </section>
+
 
         {/* ───────── STATS ───────── */}
         <section className="edit-section bg-[hsl(var(--surface))] border-y border-white/10">
@@ -338,15 +362,16 @@ const Index = () => {
         </section>
 
         {/* ───────── 03 — PORTFOLIO ───────── */}
-        <section className="edit-section">
-          <div className="edit-container">
+        <section className="edit-section relative overflow-hidden">
+          <RadialPulseBlob />
+          <div className="edit-container relative" style={{ zIndex: 1 }}>
             <SectionLabel number="03 — Portfolio" title="Platforms we operate." />
             <div className="border-t border-white/10">
               {portfolio.map((c, i) => {
                 const isOpen = openCard === c.name;
                 return (
                   <Reveal key={c.name} delay={i * 0.04}>
-                    <div className="border-b border-white/10">
+                    <div className="frosted-card border-b border-white/10 mb-2">
                       <button
                         type="button"
                         onClick={() => setOpenCard(isOpen ? null : c.name)}
@@ -419,6 +444,15 @@ const Index = () => {
           <div className="edit-container text-center">
             <Reveal>
               <span className="edit-label text-[hsl(var(--accent-edit))]">Build with us</span>
+            </Reveal>
+            <Reveal delay={0.05}>
+              <p className="mt-6 text-lg md:text-2xl font-display text-white/80">
+                We build{" "}
+                <TypewriterCycle
+                  words={["fintech", "healthtech", "proptech", "SaaS", "your idea"]}
+                  className="text-[hsl(var(--accent-edit))] font-bold"
+                />
+              </p>
             </Reveal>
             <Reveal delay={0.1}>
               <h2 className="edit-display text-white mt-6">
