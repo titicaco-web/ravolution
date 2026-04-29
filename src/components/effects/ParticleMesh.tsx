@@ -25,8 +25,8 @@ const ParticleMesh = () => {
     let width = 0;
     let height = 0;
 
-    const NODE_COUNT = 82;
-    const MAX_DIST = 128;
+    const NODE_COUNT = 115;
+    const MAX_DIST = 170;
     const nodes: { x: number; y: number; vx: number; vy: number }[] = [];
 
     const mouse = { x: -9999, y: -9999, active: false };
@@ -48,8 +48,8 @@ const ParticleMesh = () => {
         nodes.push({
           x: Math.random() * width,
           y: Math.random() * height,
-          vx: (Math.random() - 0.5) * 0.5,
-          vy: (Math.random() - 0.5) * 0.5,
+          vx: (Math.random() - 0.5) * 0.42,
+          vy: (Math.random() - 0.5) * 0.42,
         });
       }
     };
@@ -102,9 +102,13 @@ const ParticleMesh = () => {
       }
 
       const accent = getComputedStyle(document.documentElement).getPropertyValue("--accent").trim() || "36 38% 40%";
+      ctx.save();
+      ctx.globalCompositeOperation = "lighter";
+      ctx.shadowColor = `hsl(${accent} / 0.5)`;
+      ctx.shadowBlur = 5;
 
       // lines
-      ctx.lineWidth = 0.9;
+      ctx.lineWidth = 1.15;
       for (let i = 0; i < nodes.length; i++) {
         for (let j = i + 1; j < nodes.length; j++) {
           const a = nodes[i];
@@ -113,7 +117,7 @@ const ParticleMesh = () => {
           const dy = a.y - b.y;
           const d = Math.hypot(dx, dy);
           if (d < MAX_DIST) {
-            const alpha = 0.72 * (1 - d / MAX_DIST);
+            const alpha = 0.92 * (1 - d / MAX_DIST);
             ctx.strokeStyle = `hsl(${accent} / ${alpha})`;
             ctx.beginPath();
             ctx.moveTo(a.x, a.y);
@@ -124,12 +128,13 @@ const ParticleMesh = () => {
       }
 
       // dots
-      ctx.fillStyle = `hsl(${accent} / 0.95)`;
+      ctx.fillStyle = `hsl(${accent} / 1)`;
       for (const n of nodes) {
         ctx.beginPath();
-        ctx.arc(n.x, n.y, 2.15, 0, Math.PI * 2);
+        ctx.arc(n.x, n.y, 2.6, 0, Math.PI * 2);
         ctx.fill();
       }
+      ctx.restore();
 
       raf = requestAnimationFrame(tick);
     };
@@ -163,7 +168,13 @@ const ParticleMesh = () => {
       className="absolute inset-0 pointer-events-none hidden md:block"
       style={{ zIndex: 1 }}
     >
-      <canvas ref={canvasRef} className="block w-full h-full" />
+      <div
+        className="absolute inset-0"
+        style={{
+          background: `radial-gradient(circle at 72% 58%, hsl(var(--accent) / 0.22), transparent 34%), radial-gradient(circle at 18% 28%, hsl(var(--accent) / 0.12), transparent 26%)`,
+        }}
+      />
+      <canvas ref={canvasRef} className="relative block w-full h-full" />
     </div>
   );
 };
