@@ -22,6 +22,7 @@ const Index = () => {
   const lp = useLangPath();
   const [time, setTime] = useState("");
   const [openCard, setOpenCard] = useState<string | null>(null);
+  const processAnim = useScrollAnimation<HTMLUListElement>(0.25);
 
   useEffect(() => {
     const upd = () => {
