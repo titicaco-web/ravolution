@@ -174,25 +174,6 @@ const ParticleMesh = () => {
           background: `radial-gradient(circle at 72% 58%, hsl(var(--accent) / 0.22), transparent 34%), radial-gradient(circle at 18% 28%, hsl(var(--accent) / 0.12), transparent 26%)`,
         }}
       />
-      <svg
-        className="particle-mesh-fallback absolute inset-0 h-full w-full"
-        viewBox="0 0 1460 853"
-        preserveAspectRatio="none"
-        focusable="false"
-      >
-        <g className="particle-mesh-drift" fill="none" stroke="hsl(var(--accent) / 0.5)" strokeWidth="1.1">
-          <path d="M0 438L40 294L128 365L210 496L360 498L460 425L555 653L665 542L855 692L1005 433L1198 340L1344 552L1460 458" />
-          <path d="M40 214L147 277L350 81L503 73L657 36L762 40L907 77L1002 133L1102 98L1227 19" />
-          <path d="M504 425L629 498L675 572L862 502L1054 394L1173 557L1278 639L1345 773L1460 803" />
-          <path d="M446 57L567 188L656 36L719 82L824 49L900 171L1030 219L1126 345L1308 293L1382 377L1514 351" />
-          <path d="M31 687L107 685L210 640L379 823L553 654L665 542L904 502L980 434L1216 774L1427 685" />
-        </g>
-        <g fill="hsl(var(--accent-light) / 0.95)">
-          {[40, 128, 210, 360, 460, 555, 665, 855, 1005, 1198, 1344, 350, 446, 503, 657, 762, 907, 1002, 1102, 1227, 1382].map((x, i) => (
-            <circle key={`${x}-${i}`} cx={x} cy={[294, 365, 496, 498, 425, 653, 542, 692, 433, 340, 552, 81, 57, 73, 36, 40, 77, 133, 98, 19, 377][i]} r="3.2" />
-          ))}
-        </g>
-      </svg>
       <canvas ref={canvasRef} className="relative block w-full h-full" />
     </div>
   );
