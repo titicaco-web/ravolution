@@ -25,6 +25,7 @@ import SalesPartnerPage from "./pages/SalesPartnerPage";
 import NotFound from "./pages/NotFound";
 import CookieConsent from "./components/CookieConsent";
 import ScrollToTop from "./components/ScrollToTop";
+import MotionRoot from "./components/motion/MotionRoot";
 
 // Gyrocraft Pages
 import GyrocraftHome from "./pages/gyrocraft/GyrocraftHome";
@@ -49,6 +50,7 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <ScrollToTop />
+        <MotionRoot />
         <Routes>
           {/* Root redirects to /:lang */}
           <Route path="/" element={<LanguageRedirect />} />
