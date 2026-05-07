@@ -271,7 +271,7 @@ const Index = () => {
 
         {/* ───────── 01 — WHO WE ARE ───────── */}
         <section className="edit-section relative overflow-hidden">
-          <IsometricGrid stroke="rgba(255,255,255,0.08)" />
+          <IsometricGrid stroke="rgba(220,70,70,0.08)" />
           <div className="edit-container relative" style={{ zIndex: 1 }}>
             <SectionLabel number="01 — Who We Are" title="A Swedish venture studio built around defensible IP." />
             <div className="grid md:grid-cols-12 gap-10 md:gap-16">

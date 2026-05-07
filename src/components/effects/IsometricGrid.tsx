@@ -3,7 +3,7 @@
  * Absolutely positioned SVG, pointer-events: none, z-index 0.
  * Parent must be position: relative; overflow: hidden.
  */
-const IsometricGrid = ({ stroke = "rgba(255,255,255,0.12)" }: { stroke?: string }) => {
+const IsometricGrid = ({ stroke = "rgba(220,70,70,0.12)" }: { stroke?: string }) => {
   return (
     <div
       aria-hidden
