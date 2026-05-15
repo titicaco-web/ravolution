@@ -1,15 +1,12 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Linkedin, Mail, MapPin, ArrowRight } from "lucide-react";
+import { Linkedin, Mail, MapPin } from "lucide-react";
 import ivanPhoto from "@/assets/ivan-daza.jpg";
-import leonPhoto from "@/assets/leon-barakat.jpeg";
 import { useLanguage } from "@/i18n/LanguageContext";
-import { useLangPath } from "@/hooks/use-lang-path";
 
 const LeadershipSection = () => {
   const { t } = useLanguage();
-  const lp = useLangPath();
 
   return (
     <section className="py-20 bg-background">
@@ -68,46 +65,6 @@ const LeadershipSection = () => {
                     </Button>
                   </div>
                 </div>
-              </div>
-            </CardContent>
-          </Card>
-
-          {/* Leon — secondary IR card */}
-          <Card className="bg-card border-border hover:border-accent/40 transition-colors">
-            <CardContent className="p-6 flex flex-col h-full">
-              <div className="flex items-start gap-4 mb-4">
-                <div className="w-20 h-20 rounded-full overflow-hidden shrink-0 ring-2 ring-accent/20 bg-gradient-to-br from-primary/20 to-accent/20">
-                  <img
-                    src={leonPhoto}
-                    alt="Leon Barakat — Investor Relations Coordinator"
-                    className="w-full h-full object-cover"
-                    loading="lazy"
-                  />
-                </div>
-                <div className="flex-1 min-w-0">
-                  <h3 className="text-lg font-display font-bold text-foreground leading-tight">
-                    {t("founder.leonName")}
-                  </h3>
-                  <p className="text-sm text-accent font-medium">{t("founder.leonTitle")}</p>
-                  <div className="inline-flex items-center gap-1 text-xs text-muted-foreground mt-1">
-                    <MapPin className="w-3 h-3" />
-                    {t("founder.leonLocation")}
-                  </div>
-                </div>
-              </div>
-              <p className="text-sm text-muted-foreground leading-relaxed mb-3 flex-1">
-                {t("founder.leonBio")}
-              </p>
-              <p className="text-xs text-muted-foreground/70 italic leading-relaxed mb-4">
-                {t("founder.leonClarifier")}
-              </p>
-              <div className="flex flex-col gap-2">
-                <Button size="sm" className="bg-accent hover:bg-accent-light text-accent-foreground" asChild>
-                  <a href={`${lp("/invest")}#ir-contact-form`}>
-                    {t("founder.leonCta")}
-                    <ArrowRight className="ml-1 w-4 h-4" />
-                  </a>
-                </Button>
               </div>
             </CardContent>
           </Card>
