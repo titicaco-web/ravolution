@@ -7,7 +7,7 @@ import { CheckCircle, Mail, MapPin, Send, Linkedin, AlertCircle } from "lucide-r
 import { useLanguage } from "@/i18n/LanguageContext";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
-import leonBarakat from "@/assets/leon-barakat.jpeg";
+import ivanPhoto from "@/assets/ivan-daza.jpg";
 
 const InvestorRelationsContact = () => {
   const { t } = useLanguage();
@@ -61,11 +61,11 @@ const InvestorRelationsContact = () => {
         </h2>
 
         <div className="grid lg:grid-cols-2 gap-8 items-start">
-          {/* Leon profile card */}
+          {/* Ivan profile card */}
           <div className="card-elevated p-8">
             <img
-              src={leonBarakat}
-              alt="Leon Barakat — Investor Relations, Ravolution AB"
+              src={ivanPhoto}
+              alt="Ivan Daza — CEO & Founder, Ravolution AB"
               className="w-32 h-32 rounded-full object-cover mb-5 ring-2 ring-accent/30 grayscale hover:grayscale-0 transition-all duration-500"
               loading="lazy"
             />
@@ -75,7 +75,7 @@ const InvestorRelationsContact = () => {
             <p className="text-accent font-medium mb-3">{t("invest.ir.title")}</p>
             <div className="inline-flex items-center gap-1.5 text-sm text-muted-foreground bg-muted/50 px-3 py-1 rounded-full mb-4">
               <MapPin className="w-3.5 h-3.5" />
-              🇨🇭 {t("invest.ir.location")}
+              {t("invest.ir.location")}
             </div>
             <p className="text-muted-foreground leading-relaxed mb-3">{t("invest.ir.bio")}</p>
             <p className="text-xs text-muted-foreground/70 italic leading-relaxed mb-5 border-l-2 border-border pl-3">
@@ -90,6 +90,13 @@ const InvestorRelationsContact = () => {
               >
                 <Linkedin className="w-4 h-4" />
                 LinkedIn
+              </a>
+              <a
+                href="mailto:ivan.daza@ravolution.se"
+                className="inline-flex items-center gap-2 text-sm text-foreground hover:text-accent transition-colors"
+              >
+                <Mail className="w-4 h-4" />
+                ivan.daza@ravolution.se
               </a>
             </div>
           </div>

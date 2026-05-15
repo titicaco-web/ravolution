@@ -3,7 +3,6 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Linkedin, Mail, MapPin, ArrowRight } from "lucide-react";
 import ivanPhoto from "@/assets/ivan-daza.jpg";
-import leonPhoto from "@/assets/leon-barakat.jpeg";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { useLangPath } from "@/hooks/use-lang-path";
 
