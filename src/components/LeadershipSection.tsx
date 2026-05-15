@@ -1,14 +1,12 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Linkedin, Mail, MapPin, ArrowRight } from "lucide-react";
+import { Linkedin, Mail, MapPin } from "lucide-react";
 import ivanPhoto from "@/assets/ivan-daza.jpg";
 import { useLanguage } from "@/i18n/LanguageContext";
-import { useLangPath } from "@/hooks/use-lang-path";
 
 const LeadershipSection = () => {
   const { t } = useLanguage();
-  const lp = useLangPath();
 
   return (
     <section className="py-20 bg-background">
