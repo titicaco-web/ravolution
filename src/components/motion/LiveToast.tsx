@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 
 const TOASTS = [
-  { icon: "🇸🇪", text: "New application received from Stockholm", sub: "2 min ago" },
-  { icon: "🚀", text: "Portfolio company raised seed round", sub: "8 min ago" },
-  { icon: "🤝", text: "Partnership inquiry from Berlin", sub: "14 min ago" },
-  { icon: "📈", text: "Ravolution portfolio grew 3x this year", sub: "1 hr ago" },
-  { icon: "✅", text: "Due diligence completed — new deal signed", sub: "3 hr ago" },
+  { icon: "🔍", text: "iApply™ — AI-powered recruiting engine with 7 patents protecting the $924B global hiring market.", sub: "Patent Portfolio" },
+  { icon: "🌐", text: "xPortMatch.com — B2B connector for 180,500+ Swedish SMEs across 150+ countries.", sub: "Export/Import Platform" },
+  { icon: "📰", text: "NewsToast.com — AI news curation for 28M+ immigrants and expats across 8 languages.", sub: "Media Intelligence" },
+  { icon: "🎓", text: "CommunicaringSchool™ — Global education platform aligned with the UN Convention on the Rights of the Child.", sub: "EdTech Flagship" },
+  { icon: "🐕", text: "Hundelser.se — Pet services marketplace connecting Swedish dog owners with verified walkers and groomers.", sub: "Live Platform" },
+  { icon: "💧", text: "EndOfThirst.com — Clean water access platform bridging donors with verified filtration projects worldwide.", sub: "Impact Venture" },
 ];
 
 export default function LiveToast() {
