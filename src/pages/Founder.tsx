@@ -114,7 +114,7 @@ const Founder = () => {
               </div>
               <Reveal className="md:col-span-5" zoom>
                 <div className="aspect-[3/4] max-w-sm mx-auto overflow-hidden grayscale hover:grayscale-0 transition-all duration-700">
-                  <img src={ivanPhoto} alt="Ivan Daza, Founder & CEO of Ravolution AB" className="w-full h-full object-cover object-top" loading="lazy" />
+                  <video src={ivanAnimation.url} autoPlay muted loop playsInline className="w-full h-full object-cover object-top" />
                 </div>
                 <div className="mt-6 space-y-2">
                   <span className="edit-label text-white/45 block">Founder · Inventor</span>
