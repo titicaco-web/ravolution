@@ -14,7 +14,7 @@ export const en = {
     badge: "Swedish Venture Studio & IP Innovation Company",
     headline: "Solving Civilization-Scale Challenges with",
     headlineHighlight: "Patented Deep Tech.",
-    angelBadge: "Angel Investor & Build‑for‑Equity for Startups",
+    angelBadge: "ANGEL INVESTOR & BUILD FOR EQUITY FOR COMPLEX STARTUPS",
     subheadline: "We protect and scale the seven platforms transforming global opportunity:",
     subheadlineEnd: "Leveling the playing field through defensible innovation.",
     ctaExplore: "Explore Patent Portfolios",
