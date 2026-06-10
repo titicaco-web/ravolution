@@ -1019,7 +1019,7 @@ export const en = {
     ogTitle: "Angel Investor & Build-for-Equity for Complex Startups | Ravolution",
     ogDesc: "Build faster with a Swedish venture studio that invests product, engineering and patent strategy for equity. Ideal for pre-seed to seed founders building complex platforms.",
     heroBadge: "Build-for-Equity Venture Studio",
-    heroH1: "Angel Investor & Build‑for‑Equity for Complex Startups",
+    heroH1: "ANGEL INVESTOR & BUILD FOR EQUITY FOR TECH STARTUPS",
     heroSubhead: "We invest senior product, engineering, IP protection and patent strategy in exchange for equity—so founders launch faster, reduce execution risk and build defensible platforms from day one.",
     trustStrip: "Swedish venture studio · End-to-end platform build · IP protection · Patent strategy · Equity-based collaboration",
     ctaBrief: "Send Your Brief",

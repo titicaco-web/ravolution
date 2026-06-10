@@ -906,7 +906,7 @@ export const es = {
     ogTitle: "Inversor Ángel & Construir-por-Participación para Startups Complejas | Ravolution",
     ogDesc: "Construye más rápido con un venture studio sueco que invierte producto, ingeniería y estrategia de patentes por participación. Ideal para fundadores pre-seed a seed construyendo plataformas complejas.",
     heroBadge: "Venture Studio Construir-por-Participación",
-    heroH1: "Inversor Ángel & Construir‑por‑Participación para Startups Complejas",
+    heroH1: "INVERSOR ÁNGEL & CONSTRUIR POR PARTICIPACIÓN PARA TECH STARTUPS",
     heroSubhead: "Invertimos producto sénior, ingeniería, protección de PI y estrategia de patentes a cambio de participación—para que los fundadores lancen más rápido, reduzcan el riesgo de ejecución y construyan plataformas defendibles desde el día uno.",
     trustStrip: "Venture studio sueco · Construcción integral de plataformas · Protección de PI · Estrategia de patentes · Colaboración basada en participación",
     ctaBrief: "Envía tu brief",
