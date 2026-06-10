@@ -1,5 +1,5 @@
 import { Helmet } from "react-helmet-async";
-import ivanPhoto from "@/assets/ivan-daza.jpg";
+import ivanAnimation from "@/assets/ivan-animation.mp4.asset.json";
 import { useLanguage } from "@/i18n/LanguageContext";
 import LeadershipSection from "@/components/LeadershipSection";
 import {
