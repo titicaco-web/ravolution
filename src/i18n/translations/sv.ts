@@ -902,7 +902,7 @@ export const sv = {
     ogTitle: "Ängelinvesterare & bygg-för-andelar för komplexa startups | Ravolution",
     ogDesc: "Bygg snabbare med en svensk venture studio som investerar produkt, teknik och patentstrategi för andelar. Idealiskt för pre-seed till seed-grundare som bygger komplexa plattformar.",
     heroBadge: "Bygg-för-andelar venture studio",
-    heroH1: "Ängelinvesterare & bygg‑för‑andelar för komplexa startups",
+    heroH1: "ÄNGELINVESTERARE & BYGG FÖR ANDELAR FÖR TECH STARTUPS",
     heroSubhead: "Vi investerar senior produkt-, teknik-, IP-skydd och patentstrategi i utbyte mot andelar—så grundare lanserar snabbare, minskar exekveringsrisk och bygger försvarbara plattformar från dag ett.",
     trustStrip: "Svensk venture studio · Helhetsbygge av plattformar · IP-skydd · Patentstrategi · Andelsbaserat samarbete",
     ctaBrief: "Skicka ditt underlag",
