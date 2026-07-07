@@ -1,4 +1,5 @@
 import { useMemo, useState } from "react";
+import { trackEvent } from "@/lib/analytics";
 
 /**
  * Metadata Creation Machine
