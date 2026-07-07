@@ -1,6 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import MetadataMachine from "@/components/MetadataMachine";
+import MetadataLeadForm from "@/components/MetadataLeadForm";
 import { useLangPath } from "@/hooks/use-lang-path";
 import {
   EditorialShell,
