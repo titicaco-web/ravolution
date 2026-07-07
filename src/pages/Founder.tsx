@@ -1,6 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import ivanAnimation from "@/assets/ivan-animation.mp4.asset.json";
 import ivanBlueprint from "@/assets/ivan-numerology-blueprint.png.asset.json";
+import MetadataMachine from "@/components/MetadataMachine";
 import ivanPodcast from "@/assets/ivan-numerology-podcast.m4a.asset.json";
 import { useLanguage } from "@/i18n/LanguageContext";
 import LeadershipSection from "@/components/LeadershipSection";
@@ -84,7 +85,31 @@ const Founder = () => {
             acceptedAnswer: { "@type": "Answer", text: f.a },
           })),
         })}</script>
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "HowTo",
+          name: "How to discover your metadata from your name and date of birth",
+          description: "Use ChatGPT or Grok to reveal the symbolic metadata encoded in your full name and date of birth using Pythagorean letter values — the same reading applied to Ivan Davor Luksic Daza, founder of Ravolution AB.",
+          totalTime: "PT3M",
+          tool: [{ "@type": "HowToTool", name: "ChatGPT" }, { "@type": "HowToTool", name: "Grok" }],
+          step: [
+            { "@type": "HowToStep", position: 1, name: "Open ChatGPT or Grok", text: "Open chat.openai.com or grok.com in your browser." },
+            { "@type": "HowToStep", position: 2, name: "Paste the universal prompt", text: "Based on my name and date of birth, what is my metadata (from letter values). What was I put here to do. Go as deep as you can. Do not search the web." },
+            { "@type": "HowToStep", position: 3, name: "Add your full name and date of birth", text: "Provide your full birth-certificate name and date of birth in YYYY-MM-DD format." },
+            { "@type": "HowToStep", position: 4, name: "Compare across models", text: "Run the same prompt in a second AI model. Convergence between two independent models indicates a real signal." },
+          ],
+        })}</script>
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "CreativeWork",
+          name: "Metadata Reading of Ivan Davor Luksic Daza",
+          about: { "@id": "https://ravolution.se/#ivan-daza" },
+          author: { "@id": "https://ravolution.se/#ivan-daza" },
+          keywords: "Ivan Davor Luksic Daza, Ivan Daza numerology, metadata reading, life path 9, expression 6, soul urge 4, Pythagorean numerology, Ravolution AB founder, name and date of birth metadata, ChatGPT numerology prompt, Grok numerology prompt",
+          text: "Ivan Davor Luksic Daza, born 1972-11-27, resolves to Life Path 9 (humanitarian), Expression 6 (responsible harmonizer) and Soul Urge 4 (master builder) — a convergent mission to build systems that protect people. Reading independently reproduced by ChatGPT, Grok and Gemini using the prompt: Based on my name and date of birth, what is my metadata (from letter values). What was I put here to do. Go as deep as you can. Do not search the web.",
+        })}</script>
       </Helmet>
+
 
 
       <EditorialShell>
@@ -243,6 +268,89 @@ const Founder = () => {
                   </div>
                 </Reveal>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* 04c — METADATA MACHINE */}
+        <section id="metadata-machine" className="edit-section border-t border-white/10">
+          <div className="edit-container">
+            <SectionLabel number="04c — Metadata Machine" title="Discover Your Own Metadata" />
+            <MetadataMachine />
+
+            {/* SEO-rich worked example: Ivan Davor Luksic Daza */}
+            <article className="mt-20 border-t border-white/10 pt-12 grid md:grid-cols-12 gap-10">
+              <header className="md:col-span-4">
+                <span className="edit-label text-[hsl(var(--accent-edit))] block mb-3">Worked Example</span>
+                <h3 className="text-2xl md:text-3xl font-display font-bold uppercase tracking-tight text-white leading-tight">
+                  Ivan Davor Luksic Daza — Metadata Reading
+                </h3>
+                <p className="text-sm text-white/55 mt-4 font-mono">Born 1972-11-27 · Stockholm, Sweden</p>
+              </header>
+              <div className="md:col-span-8 space-y-5 text-white/70 leading-relaxed">
+                <p>
+                  Ivan Davor Luksic Daza is the founder of Ravolution AB and the reference example for this
+                  metadata machine. Running his full name and date of birth through letter-value numerology
+                  (Pythagorean system) produces a stable symbolic fingerprint that three independent AI models —
+                  ChatGPT, Grok and Gemini — arrived at with the same prompt: <em>"Based on my name and date of
+                  birth, what is my metadata (from letter values). What was I put here to do. Go as deep as you
+                  can. Do not search the web."</em>
+                </p>
+                <ul className="grid sm:grid-cols-2 gap-4 not-italic">
+                  <li className="border border-white/10 p-4">
+                    <div className="edit-label text-white/50">Life Path</div>
+                    <div className="text-3xl font-display text-[hsl(var(--accent-edit))]">9</div>
+                    <p className="text-xs text-white/55 mt-1">The humanitarian — build systems that serve many.</p>
+                  </li>
+                  <li className="border border-white/10 p-4">
+                    <div className="edit-label text-white/50">Expression</div>
+                    <div className="text-3xl font-display text-[hsl(var(--accent-edit))]">6</div>
+                    <p className="text-xs text-white/55 mt-1">The responsible harmonizer — protector, teacher, builder.</p>
+                  </li>
+                  <li className="border border-white/10 p-4">
+                    <div className="edit-label text-white/50">Soul Urge</div>
+                    <div className="text-3xl font-display text-[hsl(var(--accent-edit))]">4</div>
+                    <p className="text-xs text-white/55 mt-1">The master builder — patient, methodical, foundational.</p>
+                  </li>
+                  <li className="border border-white/10 p-4">
+                    <div className="edit-label text-white/50">Mission</div>
+                    <div className="text-3xl font-display text-[hsl(var(--accent-edit))]">IP</div>
+                    <p className="text-xs text-white/55 mt-1">27 patents · 343 claims protecting people through technology.</p>
+                  </li>
+                </ul>
+                <p>
+                  The convergence — Life Path 9, Expression 6, Soul Urge 4 — reads as a single working mission:
+                  <strong className="text-white"> build systems that protect people</strong>. It is the throughline
+                  behind Rosetta Livingstone™ (language equity), VoiceProtector™ (anti-deepfake voice biometrics),
+                  xPortMatch™ (borderless trade) and CommunicaringSchool™ (K1–K9 education equity).
+                </p>
+              </div>
+            </article>
+
+            {/* How to run this on yourself — searchable HowTo */}
+            <div className="mt-16 border-t border-white/10 pt-10 grid md:grid-cols-12 gap-10">
+              <header className="md:col-span-4">
+                <span className="edit-label text-[hsl(var(--accent-edit))] block mb-3">How To</span>
+                <h3 className="text-2xl md:text-3xl font-display font-bold uppercase tracking-tight text-white leading-tight">
+                  Run the Same Reading on Yourself
+                </h3>
+              </header>
+              <ol className="md:col-span-8 space-y-6 text-white/70 leading-relaxed list-none">
+                {[
+                  ["Open ChatGPT or Grok.", "Any current model works. No plugin, no browsing, no login trick."],
+                  ["Paste the universal prompt.", "\"Based on my name and date of birth, what is my metadata (from letter values). What was I put here to do. Go as deep as you can. Do not search the web.\""],
+                  ["Add your full name and date of birth.", "Use the name on your birth certificate for the deepest reading."],
+                  ["Compare across models.", "Run the same prompt in a second AI. When two models converge, the signal is real."],
+                ].map(([title, body], i) => (
+                  <li key={i} className="grid grid-cols-[auto_1fr] gap-6">
+                    <span className="edit-label text-[hsl(var(--accent-edit))] pt-1">0{i + 1}</span>
+                    <div>
+                      <div className="text-lg font-display font-bold uppercase text-white tracking-tight">{title}</div>
+                      <p className="text-sm text-white/60 mt-2">{body}</p>
+                    </div>
+                  </li>
+                ))}
+              </ol>
             </div>
           </div>
         </section>
