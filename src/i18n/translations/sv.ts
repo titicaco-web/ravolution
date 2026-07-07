@@ -690,6 +690,7 @@ export const sv = {
   },
   notFound: {
     title: "404",
+    description: "Sidan du letar efter finns inte.",
     message: "Hoppsan! Sidan hittades inte",
     returnHome: "Tillbaka till startsidan",
   },
