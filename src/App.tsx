@@ -22,6 +22,7 @@ import TechnicalCofounderAlternative from "./pages/TechnicalCofounderAlternative
 import PortfolioPage from "./pages/PortfolioPage";
 import ContactPage from "./pages/ContactPage";
 import SalesPartnerPage from "./pages/SalesPartnerPage";
+import MetadataMachinePage from "./pages/MetadataMachinePage";
 import NotFound from "./pages/NotFound";
 import CookieConsent from "./components/CookieConsent";
 import ScrollToTop from "./components/ScrollToTop";
@@ -54,6 +55,10 @@ const App = () => (
         <Routes>
           {/* Root redirects to /:lang */}
           <Route path="/" element={<LanguageRedirect />} />
+
+          {/* Standalone tool — no language prefix (SEO-shareable single URL) */}
+          <Route path="/metadatamachine" element={<LanguageSync><MetadataMachinePage /></LanguageSync>} />
+          <Route path="/:lang/metadatamachine" element={<LanguageSync><MetadataMachinePage /></LanguageSync>} />
 
           {/* Language-prefixed routes */}
           <Route path="/:lang" element={<LanguageSync><Index /></LanguageSync>} />
