@@ -1,5 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import ivanAnimation from "@/assets/ivan-animation.mp4.asset.json";
+import ivanBlueprint from "@/assets/ivan-numerology-blueprint.png.asset.json";
+import ivanPodcast from "@/assets/ivan-numerology-podcast.m4a.asset.json";
 import { useLanguage } from "@/i18n/LanguageContext";
 import LeadershipSection from "@/components/LeadershipSection";
 import {
@@ -186,6 +188,50 @@ const Founder = () => {
             </div>
           </div>
         </section>
+        {/* 04b — SYMBOLIC BLUEPRINT */}
+        <section className="edit-section border-t border-white/10">
+          <div className="edit-container">
+            <SectionLabel number="04b — Blueprint" title="The Symbolic Blueprint" />
+            <div className="grid md:grid-cols-12 gap-10 md:gap-16 items-start">
+              <Reveal className="md:col-span-7" zoom>
+                <div className="overflow-hidden border border-white/10 bg-white">
+                  <img
+                    src={ivanBlueprint.url}
+                    alt="Numerological Profile of Ivan Davor Luksic Daza — Life Path 9, Expression 6, Soul Urge 4"
+                    className="w-full h-auto"
+                    loading="lazy"
+                  />
+                </div>
+              </Reveal>
+              <div className="md:col-span-5 space-y-6">
+                <Reveal>
+                  <p className="text-xl md:text-2xl font-display text-white leading-snug">
+                    Perseverance has a pattern. This is Ivan's — mapped through a symbolic reading of name and birth date.
+                  </p>
+                </Reveal>
+                <Reveal delay={0.1}>
+                  <p className="edit-body text-white/65">
+                    A Life Path 9 (the humanitarian), an Expression 6 (the responsible harmonizer), and a Soul Urge 4
+                    (the master builder) converge into a single working mission: <em>build systems that protect people</em>.
+                    It's the throughline behind 27 patents and every platform on this page.
+                  </p>
+                </Reveal>
+                <Reveal delay={0.15}>
+                  <div className="border-t border-white/10 pt-6">
+                    <span className="edit-label text-[hsl(var(--accent-edit))] block mb-3">Listen — AI Models Map</span>
+                    <p className="text-sm text-white/55 mb-4 leading-relaxed">
+                      A short audio walkthrough exploring how three AI models independently arrived at the same profile.
+                    </p>
+                    <audio controls preload="none" src={ivanPodcast.url} className="w-full">
+                      Your browser does not support the audio element.
+                    </audio>
+                  </div>
+                </Reveal>
+              </div>
+            </div>
+          </div>
+        </section>
+
 
         {/* 05 — PORTFOLIO */}
         <section className="edit-section border-t border-white/10">
