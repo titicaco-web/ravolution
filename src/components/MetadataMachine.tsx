@@ -201,8 +201,8 @@ const MetadataMachine = () => {
                 We'll open ChatGPT or Grok pre-filled with the canonical prompt and your details.
               </p>
               <div className="flex flex-col sm:flex-row gap-3">
-                <a href={chatgptUrl} target="_blank" rel="noopener noreferrer" className="edit-btn"><span>Ask ChatGPT ↗</span></a>
-                <a href={grokUrl} target="_blank" rel="noopener noreferrer" className="edit-btn"><span>Ask Grok ↗</span></a>
+               <a href={chatgptUrl} target="_blank" rel="noopener noreferrer" onClick={() => trackLaunch("chatgpt")} className="edit-btn"><span>Ask ChatGPT ↗</span></a>
+               <a href={grokUrl} target="_blank" rel="noopener noreferrer" onClick={() => trackLaunch("grok")} className="edit-btn"><span>Ask Grok ↗</span></a>
               </div>
             </div>
           </div>
