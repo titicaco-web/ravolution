@@ -71,17 +71,6 @@ const Index = () => {
   /* Operated platforms — full briefs */
   const portfolio = [
     {
-      name: "iApply™",
-      tagline: "Candidate-Centric Transparent Recruitment Platform",
-      flagship: true,
-      patents: "7 Patents · 89 Claims",
-      summary: "Category-creating innovation: real-time recruiter transparency, AI-powered autonomous references, blockchain credentials & pre-screening with candidate coaching.",
-      market: "$924B Global Recruiting Market by 2030",
-      revenue: "Freemium SaaS, enterprise licensing, data insights partnerships",
-      href: "https://iapply.se",
-      cta: "Visit iApply.se",
-    },
-    {
       name: "CommunicaringSchool™",
       tagline: "UN-Compliant Global Education Platform",
       flagship: true,
@@ -91,6 +80,47 @@ const Index = () => {
       revenue: "Government licensing, UN agency partnerships, international school subscriptions",
       href: "https://communicaringschool.com",
       cta: "Visit Website",
+    },
+    {
+      name: "BizMeet™",
+      tagline: "B2B Meeting & Networking Platform",
+      patents: "Trade infrastructure platform",
+      summary: "Curated B2B meeting platform connecting Swedish and international businesses for high-intent commercial conversations, networking events, and partnership formation.",
+      market: "European B2B networking & event tech market — millions of SMEs seeking partners",
+      revenue: "Subscription, event ticketing, premium matchmaking",
+      href: "https://mlops.ravolution.se/",
+      cta: "Visit Website",
+    },
+    {
+      name: "TOXINSIDE™",
+      tagline: "Product Safety & Transparency Scanner",
+      patents: "Patent-pending safety scoring methodology",
+      summary: "Scan any product — regulator-cited safety score and a better alternative. Prevention-economy play, EU-first, methodology-public.",
+      market: "Consumer product safety & transparency market — EU-first expansion",
+      revenue: "Freemium app, affiliate alternative marketplace, B2B compliance data licensing",
+      href: "https://toxinside.com",
+      cta: "Visit Website",
+    },
+    {
+      name: "CarbonX™",
+      tagline: "Verified Carbon Credit Trading Platform",
+      patents: "Compliance-first marketplace architecture",
+      summary: "Digital marketplace for verified carbon credits with Gold Standard and Verra compliance baked into every transaction — built for transparent, auditable corporate decarbonization.",
+      market: "$2.4T projected voluntary & compliance carbon markets by 2030",
+      revenue: "Transaction fees, enterprise compliance subscriptions, data licensing",
+      href: "https://carbonx.se/",
+      cta: "Visit Website",
+    },
+    {
+      name: "iApply™",
+      tagline: "Candidate-Centric Transparent Recruitment Platform",
+      flagship: true,
+      patents: "7 Patents · 89 Claims",
+      summary: "Category-creating innovation: real-time recruiter transparency, AI-powered autonomous references, blockchain credentials & pre-screening with candidate coaching.",
+      market: "$924B Global Recruiting Market by 2030",
+      revenue: "Freemium SaaS, enterprise licensing, data insights partnerships",
+      href: "https://iapply.se",
+      cta: "Visit iApply.se",
     },
     {
       name: "Rosetta Livingstone™",
@@ -123,16 +153,6 @@ const Index = () => {
       cta: "Visit Website",
     },
     {
-      name: "TOXINSIDE™",
-      tagline: "Product Safety & Transparency Scanner",
-      patents: "Patent-pending safety scoring methodology",
-      summary: "Scan any product — regulator-cited safety score and a better alternative. Prevention-economy play, EU-first, methodology-public.",
-      market: "Consumer product safety & transparency market — EU-first expansion",
-      revenue: "Freemium app, affiliate alternative marketplace, B2B compliance data licensing",
-      href: "https://toxinside.com",
-      cta: "Visit Website",
-    },
-    {
       name: "NewsToast™",
       tagline: "Mobile-First Language Learning Through Daily News",
       patents: "3 Patents · 38 Claims",
@@ -151,26 +171,6 @@ const Index = () => {
       revenue: "SaaS €2,490–8,990/year per SME, premium events, API & compliance certifications",
       href: "https://xportmatch.com",
       cta: "Visit xPortMatch.com",
-    },
-    {
-      name: "BizMeet™",
-      tagline: "B2B Meeting & Networking Platform",
-      patents: "Trade infrastructure platform",
-      summary: "Curated B2B meeting platform connecting Swedish and international businesses for high-intent commercial conversations, networking events, and partnership formation.",
-      market: "European B2B networking & event tech market — millions of SMEs seeking partners",
-      revenue: "Subscription, event ticketing, premium matchmaking",
-      href: "https://bizmeetbyc.se/",
-      cta: "Visit Website",
-    },
-    {
-      name: "CarbonX™",
-      tagline: "Verified Carbon Credit Trading Platform",
-      patents: "Compliance-first marketplace architecture",
-      summary: "Digital marketplace for verified carbon credits with Gold Standard and Verra compliance baked into every transaction — built for transparent, auditable corporate decarbonization.",
-      market: "$2.4T projected voluntary & compliance carbon markets by 2030",
-      revenue: "Transaction fees, enterprise compliance subscriptions, data licensing",
-      href: "https://carbonx.se/",
-      cta: "Visit Website",
     },
   ];
 
@@ -272,7 +272,8 @@ const Index = () => {
                 <a href="https://rosettalivingstone.com" target="_blank" rel="noopener noreferrer" className="text-white hover:text-[hsl(var(--accent-edit))] underline-offset-4 hover:underline transition-colors">Rosetta Livingstone™</a>,{" "}
                 <a href="https://xportmatch.com" target="_blank" rel="noopener noreferrer" className="text-white hover:text-[hsl(var(--accent-edit))] underline-offset-4 hover:underline transition-colors">xPortMatch™</a>,{" "}
                 <a href="https://newstoast.com" target="_blank" rel="noopener noreferrer" className="text-white hover:text-[hsl(var(--accent-edit))] underline-offset-4 hover:underline transition-colors">NewsToast™</a>,{" "}
-                <a href="https://bizmeetbyc.se/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-[hsl(var(--accent-edit))] underline-offset-4 hover:underline transition-colors">BizMeet™</a>,{" "}
+                <a href="https://mlops.ravolution.se/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-[hsl(var(--accent-edit))] underline-offset-4 hover:underline transition-colors">BizMeet™</a>,{" "}
+                <a href="https://toxinside.com" target="_blank" rel="noopener noreferrer" className="text-white hover:text-[hsl(var(--accent-edit))] underline-offset-4 hover:underline transition-colors">TOXINSIDE</a>,{" "}
                 <a href="https://carbonx.se/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-[hsl(var(--accent-edit))] underline-offset-4 hover:underline transition-colors">CarbonX™</a>.
               </p>
             </Reveal>
