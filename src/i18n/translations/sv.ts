@@ -146,7 +146,7 @@ export const sv = {
     maintenanceD3: "Skalbarhetplanering & infrastruktur",
     maintenanceIdeal: "Företag med live-plattformar som behöver kontinuerlig utveckling.",
     idealFor: "Idealisk för:",
-    learnMore: "Läs mer",
+    learnMore: "Utforska denna tjänst",
     howWeWork: "Så arbetar vi",
     step1: "Upptäcktssprint",
     step1Desc: "Kartlägg din utmaning, definiera omfattning & framgångskriterier.",
