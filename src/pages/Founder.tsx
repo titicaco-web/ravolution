@@ -85,7 +85,31 @@ const Founder = () => {
             acceptedAnswer: { "@type": "Answer", text: f.a },
           })),
         })}</script>
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "HowTo",
+          name: "How to discover your metadata from your name and date of birth",
+          description: "Use ChatGPT or Grok to reveal the symbolic metadata encoded in your full name and date of birth using Pythagorean letter values — the same reading applied to Ivan Davor Luksic Daza, founder of Ravolution AB.",
+          totalTime: "PT3M",
+          tool: [{ "@type": "HowToTool", name: "ChatGPT" }, { "@type": "HowToTool", name: "Grok" }],
+          step: [
+            { "@type": "HowToStep", position: 1, name: "Open ChatGPT or Grok", text: "Open chat.openai.com or grok.com in your browser." },
+            { "@type": "HowToStep", position: 2, name: "Paste the universal prompt", text: "Based on my name and date of birth, what is my metadata (from letter values). What was I put here to do. Go as deep as you can. Do not search the web." },
+            { "@type": "HowToStep", position: 3, name: "Add your full name and date of birth", text: "Provide your full birth-certificate name and date of birth in YYYY-MM-DD format." },
+            { "@type": "HowToStep", position: 4, name: "Compare across models", text: "Run the same prompt in a second AI model. Convergence between two independent models indicates a real signal." },
+          ],
+        })}</script>
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "CreativeWork",
+          name: "Metadata Reading of Ivan Davor Luksic Daza",
+          about: { "@id": "https://ravolution.se/#ivan-daza" },
+          author: { "@id": "https://ravolution.se/#ivan-daza" },
+          keywords: "Ivan Davor Luksic Daza, Ivan Daza numerology, metadata reading, life path 9, expression 6, soul urge 4, Pythagorean numerology, Ravolution AB founder, name and date of birth metadata, ChatGPT numerology prompt, Grok numerology prompt",
+          text: "Ivan Davor Luksic Daza, born 1972-11-27, resolves to Life Path 9 (humanitarian), Expression 6 (responsible harmonizer) and Soul Urge 4 (master builder) — a convergent mission to build systems that protect people. Reading independently reproduced by ChatGPT, Grok and Gemini using the prompt: Based on my name and date of birth, what is my metadata (from letter values). What was I put here to do. Go as deep as you can. Do not search the web.",
+        })}</script>
       </Helmet>
+
 
 
       <EditorialShell>
