@@ -101,4 +101,49 @@
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
+  <url>
+    <loc>https://ravolution.se/en/configure</loc>
+    <lastmod>2026-07-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ravolution.se/en/portfolio</loc>
+    <lastmod>2026-07-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ravolution.se/en/contact</loc>
+    <lastmod>2026-07-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ravolution.se/en/sales-partner</loc>
+    <lastmod>2026-07-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ravolution.se/en/sales-partner" />
+    <xhtml:link rel="alternate" hreflang="sv" href="https://ravolution.se/sv/saljpartner" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://ravolution.se/es/socio-comercial" />
+  </url>
+  <url>
+    <loc>https://ravolution.se/sv/saljpartner</loc>
+    <lastmod>2026-07-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ravolution.se/en/sales-partner" />
+    <xhtml:link rel="alternate" hreflang="sv" href="https://ravolution.se/sv/saljpartner" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://ravolution.se/es/socio-comercial" />
+  </url>
+  <url>
+    <loc>https://ravolution.se/es/socio-comercial</loc>
+    <lastmod>2026-07-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ravolution.se/en/sales-partner" />
+    <xhtml:link rel="alternate" hreflang="sv" href="https://ravolution.se/sv/saljpartner" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://ravolution.se/es/socio-comercial" />
+  </url>
 </urlset>
