@@ -123,6 +123,16 @@ const Index = () => {
       cta: "Visit Website",
     },
     {
+      name: "TOXINSIDE™",
+      tagline: "Product Safety & Transparency Scanner",
+      patents: "Patent-pending safety scoring methodology",
+      summary: "Scan any product — regulator-cited safety score and a better alternative. Prevention-economy play, EU-first, methodology-public.",
+      market: "Consumer product safety & transparency market — EU-first expansion",
+      revenue: "Freemium app, affiliate alternative marketplace, B2B compliance data licensing",
+      href: "https://toxinside.com",
+      cta: "Visit Website",
+    },
+    {
       name: "NewsToast™",
       tagline: "Mobile-First Language Learning Through Daily News",
       patents: "3 Patents · 38 Claims",
@@ -174,7 +184,7 @@ const Index = () => {
         <link rel="alternate" hrefLang="sv" href="https://ravolution.se/sv" />
         <link rel="alternate" hrefLang="es" href="https://ravolution.se/es" />
         <link rel="alternate" hrefLang="x-default" href="https://ravolution.se/en" />
-        <meta name="google-site-verification" content="fZ5wqD3QL629AjpMRpzKfj4z6mrxJXjraVGIHx1HjwU" />
+        <meta name="google-site-verification" content="BeeUnb4Up6ljydW2DT6VNZuFv5RX0quHioFQwyl3v_Q" />
         <meta property="og:title" content="Ravolution AB | Swedish Venture Studio & Angel Investor" />
         <meta property="og:description" content="Swedish venture studio building deep tech unicorns. 27 patents across language, voice security, AI trade & education." />
         <meta property="og:type" content="website" />
