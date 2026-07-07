@@ -17,6 +17,11 @@ const LanguageSync = ({ children }: { children: React.ReactNode }) => {
     }
   }, [lang, location.pathname, language, setLanguage]);
 
+  useEffect(() => {
+    // Keep <html lang> in sync so screen readers and crawlers see the right locale
+    document.documentElement.lang = language;
+  }, [language]);
+
   return <>{children}</>;
 };
 
