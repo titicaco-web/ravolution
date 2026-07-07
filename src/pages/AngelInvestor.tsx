@@ -117,7 +117,7 @@ const AngelInvestor = () => {
         <meta property="og:description" content={t("angel.ogDesc")} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://ravolution.se/en/angel-investor" />
-        <meta property="og:image" content="https://ravolution.se/og-image.png" />
+        <meta property="og:image" content="https://ravolution.se/og-image.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={t("angel.ogTitle")} />
         <meta name="twitter:description" content={t("angel.ogDesc")} />
