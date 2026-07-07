@@ -167,8 +167,8 @@ const Index = () => {
   return (
     <>
       <Helmet>
-        <title>Ravolution AB | Swedish Venture Studio & Angel Investor | Build‑for‑Equity for Startups</title>
-        <meta name="description" content="27 patents, 343 claims. Swedish venture studio building deep tech unicorns in language learning (24x faster), voice security, AI trade infrastructure & K1-K9 education. Founded by Ivan Daza." />
+        <title>Ravolution AB | Swedish Venture Studio & Angel Investor</title>
+        <meta name="description" content="Swedish venture studio building deep tech unicorns. 27 patents across language learning, voice security, AI trade & K-9 education. Founded by Ivan Daza." />
         <link rel="canonical" href="https://ravolution.se/" />
         <link rel="alternate" hrefLang="en" href="https://ravolution.se/en" />
         <link rel="alternate" hrefLang="sv" href="https://ravolution.se/sv" />
@@ -176,10 +176,32 @@ const Index = () => {
         <link rel="alternate" hrefLang="x-default" href="https://ravolution.se/en" />
         <meta name="google-site-verification" content="fZ5wqD3QL629AjpMRpzKfj4z6mrxJXjraVGIHx1HjwU" />
         <meta property="og:title" content="Ravolution AB | Swedish Venture Studio & Angel Investor" />
-        <meta property="og:description" content="27 patents, 343 claims. Building deep tech unicorns in language learning, voice security, AI trade & education." />
+        <meta property="og:description" content="Swedish venture studio building deep tech unicorns. 27 patents across language, voice security, AI trade & education." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://ravolution.se/" />
         <meta name="twitter:card" content="summary_large_image" />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "@id": "https://ravolution.se/#organization",
+          name: "Ravolution AB",
+          url: "https://ravolution.se/",
+          logo: "https://ravolution.se/favicon.png",
+          founder: { "@type": "Person", name: "Ivan Daza", url: "https://ravolution.se/en/about" },
+          sameAs: [
+            "https://www.linkedin.com/company/ravolution-ab/",
+            "https://www.linkedin.com/in/ivandaza/",
+          ],
+        })}</script>
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          "@id": "https://ravolution.se/#website",
+          name: "Ravolution AB",
+          url: "https://ravolution.se/",
+          publisher: { "@id": "https://ravolution.se/#organization" },
+          inLanguage: ["en", "sv", "es"],
+        })}</script>
       </Helmet>
 
       <EditorialShell>
