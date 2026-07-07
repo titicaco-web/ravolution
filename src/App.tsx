@@ -22,6 +22,7 @@ import TechnicalCofounderAlternative from "./pages/TechnicalCofounderAlternative
 import PortfolioPage from "./pages/PortfolioPage";
 import ContactPage from "./pages/ContactPage";
 import SalesPartnerPage from "./pages/SalesPartnerPage";
+import MetadataMachinePage from "./pages/MetadataMachinePage";
 import NotFound from "./pages/NotFound";
 import CookieConsent from "./components/CookieConsent";
 import ScrollToTop from "./components/ScrollToTop";
