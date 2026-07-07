@@ -56,6 +56,7 @@ const Footer = () => {
                   {salesPartnerLabel}
                 </Link>
               </li>
+              <li><Link to="/metadatamachine" className="hover:text-white transition-colors">Metadata Machine</Link></li>
               <li><a href="#contact" className="hover:text-white transition-colors">{t("footer.contact")}</a></li>
               <li><Link to={lp("/privacy-policy")} className="hover:text-white transition-colors">{t("footer.privacyPolicy")}</Link></li>
               <li><Link to={lp("/terms-of-service")} className="hover:text-white transition-colors">{t("footer.termsOfService")}</Link></li>
