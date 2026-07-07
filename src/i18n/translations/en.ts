@@ -94,7 +94,7 @@ export const en = {
     livePlatform: "Live Platform",
     revenue: "Revenue:",
     visitPlatform: "Visit Platform",
-    learnMore: "Learn More",
+    learnMore: "Explore this concept",
     summaryTitle: "Portfolio of Growth Assets",
     summaryDescription: "Combined addressable market of €15–30B across 5 validated concepts. Each ready for partnership, co-development, or acquisition.",
     exploreAcquisition: "Explore Acquisition Opportunities",
