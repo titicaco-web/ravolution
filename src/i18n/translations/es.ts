@@ -146,7 +146,7 @@ export const es = {
     maintenanceD3: "Planificación de escalabilidad e infraestructura",
     maintenanceIdeal: "Empresas con plataformas activas que necesitan evolución continua.",
     idealFor: "Ideal para:",
-    learnMore: "Más información",
+    learnMore: "Explorar este servicio",
     howWeWork: "Cómo trabajamos",
     step1: "Sprint de descubrimiento",
     step1Desc: "Mapea tu desafío, define alcance y criterios de éxito.",
