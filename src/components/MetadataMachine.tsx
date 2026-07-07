@@ -1,4 +1,5 @@
 import { useMemo, useState } from "react";
+import { trackEvent } from "@/lib/analytics";
 
 /**
  * Metadata Creation Machine
@@ -94,10 +95,26 @@ const MetadataMachine = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitted(true);
+    if (result) {
+      trackEvent("metadata_generate", {
+        life_path: result.lifePath,
+        expression: result.expression,
+        soul_urge: result.soulUrge,
+        has_name: Boolean(name),
+        has_dob: Boolean(dob),
+      });
+    }
   };
 
   const copyPrompt = async () => {
-    try { await navigator.clipboard.writeText(fullPrompt); } catch { /* noop */ }
+    try {
+      await navigator.clipboard.writeText(fullPrompt);
+      trackEvent("metadata_copy_prompt");
+    } catch { /* noop */ }
+  };
+
+  const trackLaunch = (target: "chatgpt" | "grok") => {
+    trackEvent("metadata_ai_launch", { target, life_path: result?.lifePath ?? null });
   };
 
   return (
@@ -184,8 +201,8 @@ const MetadataMachine = () => {
                 We'll open ChatGPT or Grok pre-filled with the canonical prompt and your details.
               </p>
               <div className="flex flex-col sm:flex-row gap-3">
-                <a href={chatgptUrl} target="_blank" rel="noopener noreferrer" className="edit-btn"><span>Ask ChatGPT ↗</span></a>
-                <a href={grokUrl} target="_blank" rel="noopener noreferrer" className="edit-btn"><span>Ask Grok ↗</span></a>
+               <a href={chatgptUrl} target="_blank" rel="noopener noreferrer" onClick={() => trackLaunch("chatgpt")} className="edit-btn"><span>Ask ChatGPT ↗</span></a>
+               <a href={grokUrl} target="_blank" rel="noopener noreferrer" onClick={() => trackLaunch("grok")} className="edit-btn"><span>Ask Grok ↗</span></a>
               </div>
             </div>
           </div>
