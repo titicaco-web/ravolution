@@ -183,24 +183,22 @@ const BriefPage = () => {
 
   const uploadFiles = async (): Promise<string[]> => {
     if (files.length === 0) return [];
-    const folder = `brief-${Date.now()}`;
     const urls: string[] = [];
     for (const file of files) {
-      const path = `${folder}/${file.name}`;
-      const { error } = await supabase.storage
-        .from("project-briefs")
-        .upload(path, file);
-      if (error) {
+      const fd = new FormData();
+      fd.append("file", file);
+      const { data, error } = await supabase.functions.invoke("upload-brief-file", {
+        body: fd,
+      });
+      if (error || !data?.url) {
         console.error("Upload error:", error);
         continue;
       }
-      const { data: urlData } = supabase.storage
-        .from("project-briefs")
-        .getPublicUrl(path);
-      urls.push(`${file.name}: ${urlData.publicUrl}`);
+      urls.push(`${file.name}: ${data.url}`);
     }
     return urls;
   };
+
 
   const onSubmit = async (data: FormData) => {
     setUploading(true);
