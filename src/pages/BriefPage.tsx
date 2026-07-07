@@ -311,7 +311,14 @@ ${data.additionalNotes || "—"}`;
       <Helmet>
         <title>{t("intake.metaTitle")}</title>
         <meta name="description" content={t("intake.metaDesc")} />
-        <link rel="canonical" href="https://ravolution.se/services" />
+        <link rel="canonical" href="https://ravolution.se/en/brief" />
+        <meta property="og:title" content={t("intake.metaTitle")} />
+        <meta property="og:description" content={t("intake.metaDesc")} />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://ravolution.se/en/brief" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={t("intake.metaTitle")} />
+        <meta name="twitter:description" content={t("intake.metaDesc")} />
       </Helmet>
 
       <EditorialShell>
