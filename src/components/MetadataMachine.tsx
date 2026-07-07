@@ -95,10 +95,26 @@ const MetadataMachine = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitted(true);
+    if (result) {
+      trackEvent("metadata_generate", {
+        life_path: result.lifePath,
+        expression: result.expression,
+        soul_urge: result.soulUrge,
+        has_name: Boolean(name),
+        has_dob: Boolean(dob),
+      });
+    }
   };
 
   const copyPrompt = async () => {
-    try { await navigator.clipboard.writeText(fullPrompt); } catch { /* noop */ }
+    try {
+      await navigator.clipboard.writeText(fullPrompt);
+      trackEvent("metadata_copy_prompt");
+    } catch { /* noop */ }
+  };
+
+  const trackLaunch = (target: "chatgpt" | "grok") => {
+    trackEvent("metadata_ai_launch", { target, life_path: result?.lifePath ?? null });
   };
 
   return (
