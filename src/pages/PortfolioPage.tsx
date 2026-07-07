@@ -4,6 +4,7 @@ import { EditorialShell, Reveal, SectionLabel } from "@/components/editorial/Edi
 const companies = [
   { name: "Rosetta Livingstone", sector: "EdTech · AI", status: "ACTIVE", desc: "AI language acquisition — 24× faster than conventional methods.", href: "https://rosettalivingstone.com" },
   { name: "CommunicaringSchool", sector: "Education", status: "ACTIVE", desc: "Global K1–K9 platform aligned with the UN Convention on the Rights of the Child.", href: "#" },
+  { name: "TOXINSIDE", sector: "Consumer · HealthTech", status: "LAUNCHING 2026", desc: "Scan any product — regulator-cited safety score and a better alternative. Prevention-economy play, EU-first, methodology-public.", href: "https://toxinside.com" },
   { name: "xPortMatch", sector: "B2B Trade", status: "ACTIVE", desc: "Export/import connector — 50-country partner network, 180K+ Nordic SMEs.", href: "https://xportmatch.com" },
   { name: "VoiceProtector", sector: "Cybersecurity", status: "ACTIVE", desc: "Voice biometrics & deepfake authentication — billion-dollar fraud market.", href: "https://voiceprotector.com" },
   { name: "iApply", sector: "Recruitment AI", status: "ACTIVE", desc: "AI-driven recruitment & qualification — patented matching infrastructure.", href: "https://iapply.se" },
