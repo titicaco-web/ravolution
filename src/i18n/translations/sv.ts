@@ -94,7 +94,7 @@ export const sv = {
     livePlatform: "Live-plattform",
     revenue: "Intäkter:",
     visitPlatform: "Besök plattform",
-    learnMore: "Läs mer",
+    learnMore: "Utforska detta koncept",
     summaryTitle: "Portfölj av tillväxttillgångar",
     summaryDescription: "Kombinerad adresserbar marknad på €15–30Mdr över 5 validerade koncept. Varje redo för partnerskap, samutveckling eller förvärv.",
     exploreAcquisition: "Utforska förvärvsmöjligheter",
