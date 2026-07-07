@@ -1,0 +1,26 @@
+# Ravolution AB
+
+> Swedish venture studio and angel investor building deep tech platforms in language learning, voice security, AI trade infrastructure, and K1–K9 education. Founded by inventor Ivan Daza (27 patents, 343 claims).
+
+Ravolution AB operates a Build-for-Equity model, invests directly as an angel, and runs a portfolio of patented platforms — iApply, CommunicaringSchool, Rosetta Livingstone, xPortMatch, VoiceProtector, NewsToast, BizMeet, CarbonX, Partysta, It's a Fitt.
+
+## Pages
+
+- [Home](/en): Overview of the venture studio, portfolio, and three engagement pillars.
+- [About Ivan Daza](/en/about): Founder biography, expertise, track record, and vision.
+- [Services](/en/services): Platform development, product & design, AI systems, and IP/patent strategy.
+- [Build for Equity](/en/build-for-equity): Partnership model — we build defensible platforms in exchange for equity.
+- [Angel Investor](/en/angel-investor): Direct early-stage capital with patent strategy and technical co-founder support.
+- [Invest](/en/invest): Investor landing page for qualified leads.
+- [Portfolio](/en/portfolio): Operated and licensed platforms across 6+ industries.
+- [Patent Strategy for Startups](/en/patent-strategy-for-startups): Guide to strategic IP for founders.
+- [Technical Cofounder Alternative](/en/technical-cofounder-alternative): How we replace a missing technical co-founder.
+- [Brief](/en/brief): Intake form to submit a platform concept.
+- [Contact](/en/contact): Direct email and inquiry channels.
+- [Blog & Podcast](/en/blog): Long-form thinking on IP, venture building, and deep tech.
+
+## Optional
+
+- [Privacy Policy](/en/privacy-policy)
+- [Terms of Service](/en/terms-of-service)
+- [Sales Partner](/en/sales-partner): Program for sales partners in Sweden and LATAM.

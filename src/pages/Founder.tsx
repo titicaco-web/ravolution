@@ -62,15 +62,30 @@ const Founder = () => {
     <>
       <Helmet>
         <title>Ivan Daza | Founder & Inventor | Ravolution AB</title>
-        <meta name="description" content="Ivan Daza — Swedish tech inventor & founder of Ravolution AB. 27 patents, 343 claims. Pioneer in language acquisition, voice security, AI trade and K1–K9 education." />
+        <meta name="description" content="Ivan Daza — Swedish tech inventor & founder of Ravolution AB. 27 patents across language learning, voice security, AI trade & K1–K9 education." />
         <link rel="canonical" href="https://ravolution.se/en/about" />
         <link rel="alternate" hrefLang="en" href="https://ravolution.se/en/about" />
         <link rel="alternate" hrefLang="sv" href="https://ravolution.se/sv/about" />
         <link rel="alternate" hrefLang="es" href="https://ravolution.se/es/about" />
-        <meta property="og:title" content="Ivan Daza | Founder & Inventor | Ravolution AB" />
+        <meta property="og:title" content="Ivan Daza — Founder & Tech Inventor, Ravolution AB" />
+        <meta property="og:description" content="Swedish tech inventor with 27 patents. Founder of Ravolution AB — building deep tech platforms in language, voice security, AI trade and education." />
         <meta property="og:type" content="profile" />
+        <meta property="og:url" content="https://ravolution.se/en/about" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Ivan Daza — Founder & Tech Inventor, Ravolution AB" />
+        <meta name="twitter:description" content="Swedish tech inventor with 27 patents. Founder of Ravolution AB." />
         <script type="application/ld+json">{JSON.stringify(founderSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: faqs.map((f) => ({
+            "@type": "Question",
+            name: f.q,
+            acceptedAnswer: { "@type": "Answer", text: f.a },
+          })),
+        })}</script>
       </Helmet>
+
 
       <EditorialShell>
         {/* HERO — 60vh */}
@@ -88,7 +103,7 @@ const Founder = () => {
               <span className="edit-label text-[hsl(var(--accent-edit))]">{t("founder.badge") || "Founder & CEO"}</span>
             </Reveal>
             <Reveal delay={0.1}>
-              <h1 className="edit-display text-white mt-6">About</h1>
+              <h1 className="edit-display text-white mt-6">About Ivan Daza</h1>
             </Reveal>
             <Reveal delay={0.2}>
               <p className="edit-body text-white/65 mt-8 max-w-2xl">
