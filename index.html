@@ -39,6 +39,46 @@
     <!-- Structured Data -->
     <meta name="google-site-verification" content="BeeUnb4Up6ljydW2DT6VNZuFv5RX0quHioFQwyl3v_Q" />
 
+    <!-- Organization JSON-LD (brand identity for AI/search crawlers) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Ravolution AB",
+      "legalName": "Ravolution AB",
+      "url": "https://ravolution.se",
+      "logo": "https://ravolution.se/favicon.png",
+      "image": "https://ravolution.se/og-image.jpg",
+      "description": "Swedish venture studio and angel investor building deep tech platforms in language learning, voice security, AI trade infrastructure, and K1–K9 education. 27 patents, 343 claims. Founded by inventor Ivan Daza.",
+      "foundingDate": "2020",
+      "founder": {
+        "@type": "Person",
+        "name": "Ivan Daza",
+        "jobTitle": "Founder & Tech Inventor",
+        "sameAs": "https://linkedin.com/in/ivandaza"
+      },
+      "address": { "@type": "PostalAddress", "addressCountry": "SE" },
+      "email": "ivan.daza@ravolution.se",
+      "sameAs": ["https://linkedin.com/company/ravolution"],
+      "brand": {
+        "@type": "Brand",
+        "name": "Ravolution",
+        "logo": "https://ravolution.se/favicon.png",
+        "slogan": "Deep tech venture studio building patent-protected platforms."
+      },
+      "knowsAbout": ["Venture Studio","Patent Strategy","Voice Biometrics","AI Language Learning","EdTech","Cybersecurity","B2B Trade Infrastructure"]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Ravolution AB",
+      "url": "https://ravolution.se",
+      "inLanguage": ["en","sv","es"]
+    }
+    </script>
+
     <!-- Google tag (gtag.js) — loads once for the whole SPA; page_view events are sent on every route change via GtagPageView.tsx -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-H69GJNT0BV"></script>
     <script>
@@ -52,6 +92,18 @@
 
   <body>
     <div id="root"></div>
+    <noscript>
+      <div>
+        <h1>Ravolution AB — Swedish Venture Studio &amp; Angel Investor</h1>
+        <p>Ravolution AB is a Swedish venture studio and angel investor building deep tech platforms in language learning, voice security, AI trade infrastructure, and K1–K9 education. Founded by inventor Ivan Daza, holder of 27 patents and 343 claims.</p>
+        <p><strong>Brand palette:</strong> Ivory #F7F5F0, Deep Navy #0F2747, Antique Gold #B08D57.</p>
+        <p><strong>Typography:</strong> IBM Plex Sans (headings), Inter (body).</p>
+        <p><strong>Portfolio:</strong> iApply, CommunicaringSchool, Rosetta Livingstone, xPortMatch, VoiceProtector, NewsToast, BizMeet, CarbonX, TOXINSIDE, Partysta, It's a Fitt.</p>
+        <p><strong>Contact:</strong> ivan.daza@ravolution.se</p>
+        <p><a href="/en">English</a> · <a href="/sv">Svenska</a> · <a href="/es">Español</a></p>
+      </div>
+    </noscript>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
+

@@ -61,3 +61,18 @@ Ravolution targets high-growth, billion-dollar markets including:
 - High-value IP portfolio with strategic assets targeting billion-dollar sectors
 - Swedish innovation company with global market scalability
 - Building deep tech unicorns through defensible intellectual property
+
+## Brand Identity (canonical)
+- **Legal name**: Ravolution AB
+- **Website**: https://ravolution.se
+- **Logo (favicon/mark)**: https://ravolution.se/favicon.png
+- **Social share image**: https://ravolution.se/og-image.jpg
+- **Brand palette** (70/20/10 ratio):
+  - Ivory background: #F7F5F0
+  - Deep Navy primary: #0F2747
+  - Antique Gold accent: #B08D57
+- **Typography**:
+  - Headings: IBM Plex Sans
+  - Body / UI: Inter
+- **Voice**: Editorial, high-contrast, international advisory firm aesthetic. No white text on light backgrounds.
+- **Languages**: English (/en), Swedish (/sv), Spanish (/es)
