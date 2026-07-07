@@ -39,14 +39,14 @@
     <!-- Structured Data -->
     <meta name="google-site-verification" content="fZ5wqD3QL629AjpMRpzKfj4z6mrxJXjraVGIHx1HjwU" />
 
-    <!-- Google tag (gtag.js) -->
+    <!-- Google tag (gtag.js) — loads once for the whole SPA; page_view events are sent on every route change via GtagPageView.tsx -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-H69GJNT0BV"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       window.gtag = gtag;
       gtag('js', new Date());
-      gtag('config', 'G-H69GJNT0BV');
+      gtag('config', 'G-H69GJNT0BV', { send_page_view: false });
     </script>
 </head>
 
