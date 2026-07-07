@@ -94,7 +94,7 @@ export const es = {
     livePlatform: "Plataforma activa",
     revenue: "Ingresos:",
     visitPlatform: "Visitar plataforma",
-    learnMore: "Más información",
+    learnMore: "Explorar este concepto",
     summaryTitle: "Portafolio de activos de crecimiento",
     summaryDescription: "Mercado direccionable combinado de €15–30B en 5 conceptos validados. Cada uno listo para asociación, codesarrollo o adquisición.",
     exploreAcquisition: "Explorar oportunidades de adquisición",
