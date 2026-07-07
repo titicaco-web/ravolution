@@ -220,7 +220,7 @@ export const es = {
   },
   cookie: {
     message: "Usamos cookies para mejorar su experiencia. Al continuar visitando este sitio, acepta nuestro uso de cookies.",
-    learnMore: "Más información",
+    learnMore: "Leer nuestra política de cookies",
     decline: "Rechazar",
     accept: "Aceptar",
   },
