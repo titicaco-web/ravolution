@@ -1,5 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import ivanAnimation from "@/assets/ivan-animation.mp4.asset.json";
+import ivanBlueprint from "@/assets/ivan-numerology-blueprint.png.asset.json";
+import ivanPodcast from "@/assets/ivan-numerology-podcast.m4a.asset.json";
 import { useLanguage } from "@/i18n/LanguageContext";
 import LeadershipSection from "@/components/LeadershipSection";
 import {
