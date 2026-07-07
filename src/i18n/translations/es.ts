@@ -693,6 +693,7 @@ export const es = {
   },
   notFound: {
     title: "404",
+    description: "La página que buscas no existe.",
     message: "¡Ups! Página no encontrada",
     returnHome: "Volver al inicio",
   },
