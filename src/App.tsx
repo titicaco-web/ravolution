@@ -27,6 +27,7 @@ import NotFound from "./pages/NotFound";
 import CookieConsent from "./components/CookieConsent";
 import ScrollToTop from "./components/ScrollToTop";
 import MotionRoot from "./components/motion/MotionRoot";
+import { GtagPageView } from "./components/GtagPageView";
 
 // Gyrocraft Pages
 import GyrocraftHome from "./pages/gyrocraft/GyrocraftHome";
@@ -50,6 +51,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <GtagPageView />
         <ScrollToTop />
         <MotionRoot />
         <Routes>
