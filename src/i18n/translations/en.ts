@@ -146,7 +146,7 @@ export const en = {
     maintenanceD3: "Scalability planning & infrastructure",
     maintenanceIdeal: "Companies with live platforms needing continuous development.",
     idealFor: "Ideal for:",
-    learnMore: "Learn More",
+    learnMore: "Explore this service",
     howWeWork: "How We Work",
     step1: "Discovery Sprint",
     step1Desc: "Map your challenge, define scope & success criteria.",
