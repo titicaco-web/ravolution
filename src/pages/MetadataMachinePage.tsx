@@ -98,10 +98,22 @@ const MetadataMachinePage = () => {
           </div>
         </section>
 
+        {/* LEAD GENERATOR */}
+        <section id="work-with-ivan" className="edit-section border-t border-white/10">
+          <div className="edit-container">
+            <SectionLabel number="02 — Work With Ivan" title="Get Personal Help" />
+            <p className="edit-body text-white/65 max-w-3xl mb-10">
+              Building something and want Ivan's eyes on it? Drop a link or a short description of what you need
+              help with. Reply lands in your inbox — or open a WhatsApp thread with him directly.
+            </p>
+            <MetadataLeadForm />
+          </div>
+        </section>
+
         {/* FOOTER: explore Ravolution */}
         <section className="edit-section border-t border-white/10 bg-[hsl(var(--surface))]">
           <div className="edit-container">
-            <SectionLabel number="02 — Ravolution" title="Explore the Rest of Ravolution" />
+            <SectionLabel number="03 — Ravolution" title="Explore the Rest of Ravolution" />
             <p className="edit-body text-white/65 max-w-3xl mb-12">
               Ravolution AB is a Swedish venture studio and IP innovation company. We hold 27 patents with 343
               claims and build deep tech platforms across language learning, voice security, AI-driven trade and
