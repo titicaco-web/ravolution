@@ -56,6 +56,10 @@ const App = () => (
           {/* Root redirects to /:lang */}
           <Route path="/" element={<LanguageRedirect />} />
 
+          {/* Standalone tool — no language prefix (SEO-shareable single URL) */}
+          <Route path="/metadatamachine" element={<LanguageSync><MetadataMachinePage /></LanguageSync>} />
+          <Route path="/:lang/metadatamachine" element={<LanguageSync><MetadataMachinePage /></LanguageSync>} />
+
           {/* Language-prefixed routes */}
           <Route path="/:lang" element={<LanguageSync><Index /></LanguageSync>} />
           <Route path="/:lang/privacy-policy" element={<LanguageSync><PrivacyPolicy /></LanguageSync>} />
