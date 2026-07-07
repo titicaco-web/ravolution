@@ -62,12 +62,12 @@ const InvestorPortfolioMarquee = ({ transparent = false }: { transparent?: boole
   }, []);
 
   const items: Item[] = [
+    { name: "BizMeet™", icon: Handshake, href: "https://mlops.ravolution.se/", external: true },
     { name: "TOXINSIDE", icon: ScanLine, href: "https://toxinside.com", external: true },
+    { name: "CarbonX™", icon: Leaf, href: "https://carbonx.se/", external: true },
     { name: "NewsToast™", icon: Newspaper, href: lp("/#concepts") },
-    { name: "BizMeet™", icon: Handshake, href: "https://bizmeetbyc.se/", external: true },
     { name: "Partysta™", icon: PartyPopper, href: lp("/#concepts") },
     { name: "iApply.se", icon: Briefcase, href: "https://iapply.se", external: true },
-    { name: "CarbonX™", icon: Leaf, href: "https://carbonx.se/", external: true },
     { name: "CommunicaringSchool™", icon: GraduationCap, href: lp("/#products") },
     { name: "Rosetta Livingstone™", icon: Languages, href: lp("/#products") },
     { name: "xPortMatch™", icon: Globe, href: lp("/#products") },
