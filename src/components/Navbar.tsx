@@ -12,6 +12,8 @@ const Navbar = () => {
 
   const salesPartnerHref = language === "sv" ? "/sv/saljpartner" : language === "es" ? "/es/socio-comercial" : "/en/sales-partner";
   const salesPartnerLabel = language === "sv" ? "Säljpartner" : language === "es" ? "Socio Comercial" : "Sales Partner";
+  const applyHref = language === "sv" ? "/sv/ansok" : lp("/apply");
+  const applyLabel = language === "sv" ? "Ansök" : language === "es" ? "Aplicar" : "Apply";
 
   const navLinks = [
     { label: t("nav.founder"), href: lp("/about") },
@@ -22,7 +24,10 @@ const Navbar = () => {
     { label: salesPartnerLabel, href: salesPartnerHref },
     { label: t("nav.blog"), href: lp("/blog") },
     { label: t("nav.investors"), href: lp("/invest") },
+    { label: applyLabel, href: applyHref },
   ];
+
+  const isApply = (href: string) => href === applyHref;
 
   const isSalesPartner = (href: string) => href === salesPartnerHref;
 
