@@ -192,8 +192,10 @@ const ApplyPage = () => {
             <div className="mb-8">
               <Link
                 to="/en"
-                className={`${mono} inline-flex items-center gap-2 transition-colors hover:text-[#B08D57]`}
+                className={`${mono} inline-flex items-center gap-2 transition-colors`}
                 style={{ color: `${NAVY}99` }}
+                onMouseEnter={(e) => (e.currentTarget.style.color = GOLD)}
+                onMouseLeave={(e) => (e.currentTarget.style.color = `${NAVY}99`)}
               >
                 ← Back to Ravolution
               </Link>
