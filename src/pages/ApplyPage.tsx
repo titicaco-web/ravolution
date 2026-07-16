@@ -177,16 +177,14 @@ const ApplyPage = () => {
           content="Build-for-equity for pre-seed and seed startups. Response within 10 working days."
         />
         <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600&display=swap"
-          rel="stylesheet"
-        />
         <script type="application/ld+json">{JSON.stringify(orgSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(webPageSchema)}</script>
       </Helmet>
 
+      <EditorialShell>
       <main style={{ background: BONE, color: NAVY }} className={body}>
+
         {/* HERO */}
         <section className="pt-32 pb-20 px-6 md:px-12">
           <div className="max-w-6xl mx-auto">
