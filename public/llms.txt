@@ -6,6 +6,7 @@ Ravolution AB operates a Build-for-Equity model, invests directly as an angel, a
 
 ## Pages
 
+- [Apply for Tech Investment](/en/apply): Application page for early-stage startups seeking build-for-equity investment (engineering, product, and angel capital in exchange for equity). Response within 10 working days.
 - [Home](/en): Overview of the venture studio, portfolio, and three engagement pillars.
 - [About Ivan Daza](/en/about): Founder biography, expertise, track record, and vision.
 - [Services](/en/services): Platform development, product & design, AI systems, and IP/patent strategy.
