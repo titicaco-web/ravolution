@@ -185,6 +185,8 @@ export const EditorialNav = () => {
 
   const salesPartnerHref = language === "sv" ? "/sv/saljpartner" : language === "es" ? "/es/socio-comercial" : "/en/sales-partner";
   const salesPartnerLabel = language === "sv" ? "Säljpartner" : language === "es" ? "Socio Comercial" : "Sales Partner";
+  const applyHref = language === "sv" ? "/sv/ansok" : lp("/apply");
+  const applyLabel = language === "sv" ? "Ansök" : language === "es" ? "Aplicar" : "Apply";
 
   const links = [
     { label: t("nav.founder") || "About", href: lp("/about") },
@@ -194,6 +196,7 @@ export const EditorialNav = () => {
     { label: t("nav.investors") || "Invest", href: lp("/invest") },
     { label: salesPartnerLabel, href: salesPartnerHref },
     { label: t("nav.blog") || "Press", href: lp("/blog") },
+    { label: applyLabel, href: applyHref, accent: true },
     { label: "Contact", href: lp("/contact") },
   ];
 
