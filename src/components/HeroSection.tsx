@@ -140,6 +140,12 @@ const HeroSection = () => {
                 {t("hero.ctaLicensing")}
               </a>
             </Button>
+            <Button className="btn-outline-light group text-lg px-8 py-6" asChild>
+              <Link to={lp("/apply")}>
+                Apply for tech investment
+                <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+              </Link>
+            </Button>
           </div>
 
           <div className="card-glass p-6 md:p-8 max-w-4xl mx-auto">
