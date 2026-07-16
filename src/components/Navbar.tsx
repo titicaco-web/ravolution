@@ -12,6 +12,8 @@ const Navbar = () => {
 
   const salesPartnerHref = language === "sv" ? "/sv/saljpartner" : language === "es" ? "/es/socio-comercial" : "/en/sales-partner";
   const salesPartnerLabel = language === "sv" ? "Säljpartner" : language === "es" ? "Socio Comercial" : "Sales Partner";
+  const applyHref = language === "sv" ? "/sv/ansok" : lp("/apply");
+  const applyLabel = language === "sv" ? "Ansök" : language === "es" ? "Aplicar" : "Apply";
 
   const navLinks = [
     { label: t("nav.founder"), href: lp("/about") },
@@ -22,7 +24,10 @@ const Navbar = () => {
     { label: salesPartnerLabel, href: salesPartnerHref },
     { label: t("nav.blog"), href: lp("/blog") },
     { label: t("nav.investors"), href: lp("/invest") },
+    { label: applyLabel, href: applyHref },
   ];
+
+  const isApply = (href: string) => href === applyHref;
 
   const isSalesPartner = (href: string) => href === salesPartnerHref;
 
@@ -44,7 +49,7 @@ const Navbar = () => {
                 key={link.href}
                 href={link.href}
                 className={`font-medium transition-colors whitespace-nowrap ${
-                  isSalesPartner(link.href)
+                  isSalesPartner(link.href) || isApply(link.href)
                     ? "text-gold hover:text-gold/80"
                     : "text-white/80 hover:text-white"
                 }`}
@@ -92,7 +97,7 @@ const Navbar = () => {
                   key={link.href}
                   href={link.href}
                   className={`font-medium py-2 ${
-                    isSalesPartner(link.href)
+                    isSalesPartner(link.href) || isApply(link.href)
                       ? "text-gold hover:text-gold/80"
                       : "text-white/80 hover:text-white"
                   }`}
