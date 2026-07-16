@@ -479,6 +479,7 @@ const ApplyPage = () => {
           </Link>
         </div>
       </main>
+      </EditorialShell>
     </>
   );
 };
