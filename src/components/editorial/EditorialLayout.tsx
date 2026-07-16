@@ -196,7 +196,7 @@ export const EditorialNav = () => {
     { label: t("nav.investors") || "Invest", href: lp("/invest") },
     { label: salesPartnerLabel, href: salesPartnerHref },
     { label: t("nav.blog") || "Press", href: lp("/blog") },
-    { label: applyLabel, href: applyHref, accent: true },
+    { label: applyLabel, href: applyHref },
     { label: "Contact", href: lp("/contact") },
   ];
 
@@ -248,7 +248,7 @@ export const EditorialNav = () => {
               key={l.href}
               to={l.href}
               onClick={() => setOpen(false)}
-              className={`menu-item border-b border-white/10 ${l.accent ? "menu-item-accent" : ""}`}
+              className="menu-item border-b border-white/10"
               style={{ transitionDelay: open ? `${0.05 + i * 0.05}s` : "0s" }}
             >
               <span className="edit-label text-white/40 text-sm">0{i + 1}</span>
@@ -298,11 +298,11 @@ export const EditorialFooter = () => {
             { l: "Portfolio", h: lp("/portfolio") },
             { l: salesPartnerLabel, h: salesPartnerHref },
             { l: "Press", h: lp("/blog") },
-            { l: applyLabel, h: applyHref, accent: true },
+            { l: applyLabel, h: applyHref },
             { l: "Metadata Machine", h: lp("/metadatamachine") },
             { l: "Contact", h: lp("/contact") },
           ].map((x) => (
-            <Link key={x.h} to={x.h} className={`edit-label hover:text-white edit-link w-fit ${x.accent ? "text-[hsl(var(--accent-edit))]" : "text-white/70"}`}>
+            <Link key={x.h} to={x.h} className="edit-label text-white/70 hover:text-white edit-link w-fit">
               {x.l}
             </Link>
           ))}
