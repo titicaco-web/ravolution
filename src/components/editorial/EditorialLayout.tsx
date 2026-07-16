@@ -274,6 +274,8 @@ export const EditorialFooter = () => {
   const { t, language } = useLanguage();
   const salesPartnerHref = language === "sv" ? "/sv/saljpartner" : language === "es" ? "/es/socio-comercial" : "/en/sales-partner";
   const salesPartnerLabel = language === "sv" ? "Säljpartner" : language === "es" ? "Socio Comercial" : "Sales Partner";
+  const applyHref = language === "sv" ? "/sv/ansok" : lp("/apply");
+  const applyLabel = language === "sv" ? "Ansök" : language === "es" ? "Aplicar" : "Apply";
   return (
     <footer className="border-t border-white/10 px-6 md:px-12 pt-20 pb-10 bg-[hsl(var(--bg))] text-white">
       <div className="max-w-[1280px] mx-auto grid md:grid-cols-3 gap-12">
