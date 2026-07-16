@@ -248,7 +248,7 @@ export const EditorialNav = () => {
               key={l.href}
               to={l.href}
               onClick={() => setOpen(false)}
-              className={`menu-item border-b border-white/10 ${l.accent ? "menu-item-accent" : ""}`}
+              className="menu-item border-b border-white/10"
               style={{ transitionDelay: open ? `${0.05 + i * 0.05}s` : "0s" }}
             >
               <span className="edit-label text-white/40 text-sm">0{i + 1}</span>
