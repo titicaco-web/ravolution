@@ -706,6 +706,12 @@
   color: hsl(var(--accent-edit));
   padding-left: 1rem;
 }
+.edit-menu a.menu-item-accent,
+.edit-menu a.menu-item-accent:hover,
+.edit-menu a.menu-item-accent .edit-label {
+  color: hsl(var(--accent-edit));
+}
+
 
 /* Hide native cursor on interactive surfaces when custom cursor active */
 @media (hover: hover) and (pointer: fine) {
