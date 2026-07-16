@@ -49,7 +49,7 @@ const Navbar = () => {
                 key={link.href}
                 href={link.href}
                 className={`font-medium transition-colors whitespace-nowrap ${
-                  isSalesPartner(link.href)
+                  isSalesPartner(link.href) || isApply(link.href)
                     ? "text-gold hover:text-gold/80"
                     : "text-white/80 hover:text-white"
                 }`}
@@ -97,7 +97,7 @@ const Navbar = () => {
                   key={link.href}
                   href={link.href}
                   className={`font-medium py-2 ${
-                    isSalesPartner(link.href)
+                    isSalesPartner(link.href) || isApply(link.href)
                       ? "text-gold hover:text-gold/80"
                       : "text-white/80 hover:text-white"
                   }`}
