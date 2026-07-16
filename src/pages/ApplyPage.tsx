@@ -101,6 +101,11 @@ const ApplyPage = () => {
         .from("startup_applications")
         .insert(payload);
       if (error) throw error;
+      // Notify Ivan by email (non-blocking on failure)
+      const { error: fnErr } = await supabase.functions.invoke("send-startup-application", {
+        body: payload,
+      });
+      if (fnErr) console.error("Notification email failed:", fnErr);
       setSent(new Date().toISOString());
     } catch (err) {
       console.error(err);
