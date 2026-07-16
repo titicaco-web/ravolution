@@ -196,7 +196,7 @@ export const EditorialNav = () => {
     { label: t("nav.investors") || "Invest", href: lp("/invest") },
     { label: salesPartnerLabel, href: salesPartnerHref },
     { label: t("nav.blog") || "Press", href: lp("/blog") },
-    { label: applyLabel, href: applyHref, accent: true },
+    { label: applyLabel, href: applyHref },
     { label: "Contact", href: lp("/contact") },
   ];
 
