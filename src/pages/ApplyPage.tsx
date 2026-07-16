@@ -189,6 +189,15 @@ const ApplyPage = () => {
         {/* HERO */}
         <section className="pt-32 pb-20 px-6 md:px-12">
           <div className="max-w-6xl mx-auto">
+            <div className="mb-8">
+              <Link
+                to="/en"
+                className={`${mono} inline-flex items-center gap-2 transition-colors hover:text-[#B08D57]`}
+                style={{ color: `${NAVY}99` }}
+              >
+                ← Back to Ravolution
+              </Link>
+            </div>
             <p className={`${mono} mb-8`} style={{ color: `${NAVY}99` }}>
               FOR EARLY-STAGE FOUNDERS
             </p>
