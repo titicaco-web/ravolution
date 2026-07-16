@@ -54,7 +54,7 @@ const faqs = [
 ];
 
 const mono = "font-mono text-[11px] uppercase tracking-[0.18em]";
-const display = "font-['Fraunces',_serif]";
+const display = "font-['IBM_Plex_Sans',_sans-serif] font-[600] tracking-[-0.01em]";
 const body = "font-['Inter',_sans-serif]";
 
 const ApplyPage = () => {
