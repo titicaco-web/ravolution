@@ -4,9 +4,10 @@ import { Link } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 import { z } from "zod";
+import { EditorialShell } from "@/components/editorial/EditorialLayout";
 
-// Brand tokens for this page — Fraunces display, Inter body, JetBrains Mono labels.
-// Colors: bone #F7F5F0, navy #0F2747, gold #B08D57.
+// Brand tokens — IBM Plex Sans display, Inter body, JetBrains Mono labels.
+// Colors: bone #F7F5F0, navy #0F2747, gold #B08D57 (70/20/10 ratio).
 
 const NAVY = "#0F2747";
 const BONE = "#F7F5F0";
