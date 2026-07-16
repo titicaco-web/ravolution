@@ -4,9 +4,10 @@ import { Link } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 import { z } from "zod";
+import { EditorialShell } from "@/components/editorial/EditorialLayout";
 
-// Brand tokens for this page — Fraunces display, Inter body, JetBrains Mono labels.
-// Colors: bone #F7F5F0, navy #0F2747, gold #B08D57.
+// Brand tokens — IBM Plex Sans display, Inter body, JetBrains Mono labels.
+// Colors: bone #F7F5F0, navy #0F2747, gold #B08D57 (70/20/10 ratio).
 
 const NAVY = "#0F2747";
 const BONE = "#F7F5F0";
@@ -53,7 +54,7 @@ const faqs = [
 ];
 
 const mono = "font-mono text-[11px] uppercase tracking-[0.18em]";
-const display = "font-['Fraunces',_serif]";
+const display = "font-['IBM_Plex_Sans',_sans-serif] font-[600] tracking-[-0.01em]";
 const body = "font-['Inter',_sans-serif]";
 
 const ApplyPage = () => {
@@ -176,16 +177,14 @@ const ApplyPage = () => {
           content="Build-for-equity for pre-seed and seed startups. Response within 10 working days."
         />
         <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600&display=swap"
-          rel="stylesheet"
-        />
         <script type="application/ld+json">{JSON.stringify(orgSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(webPageSchema)}</script>
       </Helmet>
 
+      <EditorialShell>
       <main style={{ background: BONE, color: NAVY }} className={body}>
+
         {/* HERO */}
         <section className="pt-32 pb-20 px-6 md:px-12">
           <div className="max-w-6xl mx-auto">
@@ -480,6 +479,7 @@ const ApplyPage = () => {
           </Link>
         </div>
       </main>
+      </EditorialShell>
     </>
   );
 };
