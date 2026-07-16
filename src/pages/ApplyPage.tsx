@@ -85,9 +85,21 @@ const ApplyPage = () => {
     }
     setLoading(true);
     try {
+      const payload = {
+        founder_name: parsed.data.founder_name,
+        email: parsed.data.email,
+        company_name: parsed.data.company_name,
+        country: parsed.data.country,
+        stage: parsed.data.stage,
+        building: parsed.data.building,
+        why_partner: parsed.data.why_partner,
+        website: parsed.data.website || null,
+        traction: parsed.data.traction || null,
+        source: parsed.data.source || null,
+      };
       const { error } = await supabase
         .from("startup_applications")
-        .insert([parsed.data]);
+        .insert(payload);
       if (error) throw error;
       setSent(new Date().toISOString());
     } catch (err) {
