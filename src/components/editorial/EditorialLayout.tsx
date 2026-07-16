@@ -302,7 +302,7 @@ export const EditorialFooter = () => {
             { l: "Metadata Machine", h: lp("/metadatamachine") },
             { l: "Contact", h: lp("/contact") },
           ].map((x) => (
-            <Link key={x.h} to={x.h} className="edit-label text-white/70 hover:text-white edit-link w-fit">
+            <Link key={x.h} to={x.h} className={`edit-label hover:text-white edit-link w-fit ${x.accent ? "text-[hsl(var(--accent-edit))]" : "text-white/70"}`}>
               {x.l}
             </Link>
           ))}
