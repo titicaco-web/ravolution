@@ -1,20 +1,24 @@
 import { Helmet } from "react-helmet-async";
 import { EditorialShell } from "@/components/editorial/EditorialLayout";
 import { useLangPath } from "@/hooks/use-lang-path";
+import { useLanguage } from "@/i18n/LanguageContext";
 import { ScrollAnimateWrapper } from "@/hooks/use-scroll-animation";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Send, Users, Building, UserCheck, CheckCircle, XCircle } from "lucide-react";
 
 const TechnicalCofounderAlternative = () => {
   const lp = useLangPath();
+  const { language } = useLanguage();
+  const canonicalUrl = `https://ravolution.se/${language}/technical-cofounder-alternative`;
 
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "@id": "https://ravolution.se/en/technical-cofounder-alternative#webpage",
+    "@id": `${canonicalUrl}#webpage`,
     name: "Technical Co-Founder Alternative | Venture Studio Team for Equity | Ravolution",
     description: "Why a venture studio team can be a better alternative to a technical co-founder. Ravolution invests product, engineering and IP strategy for equity—structured, accountable and scalable.",
-    url: "https://ravolution.se/en/technical-cofounder-alternative",
+    url: canonicalUrl,
+    inLanguage: language,
     isPartOf: { "@id": "https://ravolution.se/#organization" },
   };
 
@@ -46,10 +50,10 @@ const TechnicalCofounderAlternative = () => {
       <Helmet>
         <title>Technical Co-Founder Alternative | Venture Studio Team for Equity | Ravolution</title>
         <meta name="description" content="Why a venture studio team can be a better alternative to a technical co-founder. Ravolution invests product, engineering and IP strategy for equity—structured, accountable and scalable." />
-        <link rel="canonical" href="https://ravolution.se/en/technical-cofounder-alternative" />
+        <link rel="canonical" href={canonicalUrl} />
         <meta property="og:title" content="Technical Co-Founder Alternative | Ravolution" />
         <meta property="og:description" content="Get a full venture studio team instead of searching for a technical co-founder. Product, engineering, IP and patent strategy—for equity." />
-        <meta property="og:url" content="https://ravolution.se/en/technical-cofounder-alternative" />
+        <meta property="og:url" content={canonicalUrl} />
         <link rel="alternate" hrefLang="en" href="https://ravolution.se/en/technical-cofounder-alternative" />
         <link rel="alternate" hrefLang="sv" href="https://ravolution.se/sv/technical-cofounder-alternative" />
         <link rel="alternate" hrefLang="es" href="https://ravolution.se/es/technical-cofounder-alternative" />
