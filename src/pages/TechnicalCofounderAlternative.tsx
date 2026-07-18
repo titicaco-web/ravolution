@@ -50,10 +50,10 @@ const TechnicalCofounderAlternative = () => {
       <Helmet>
         <title>Technical Co-Founder Alternative | Venture Studio Team for Equity | Ravolution</title>
         <meta name="description" content="Why a venture studio team can be a better alternative to a technical co-founder. Ravolution invests product, engineering and IP strategy for equity—structured, accountable and scalable." />
-        <link rel="canonical" href="https://ravolution.se/en/technical-cofounder-alternative" />
+        <link rel="canonical" href={canonicalUrl} />
         <meta property="og:title" content="Technical Co-Founder Alternative | Ravolution" />
         <meta property="og:description" content="Get a full venture studio team instead of searching for a technical co-founder. Product, engineering, IP and patent strategy—for equity." />
-        <meta property="og:url" content="https://ravolution.se/en/technical-cofounder-alternative" />
+        <meta property="og:url" content={canonicalUrl} />
         <link rel="alternate" hrefLang="en" href="https://ravolution.se/en/technical-cofounder-alternative" />
         <link rel="alternate" hrefLang="sv" href="https://ravolution.se/sv/technical-cofounder-alternative" />
         <link rel="alternate" hrefLang="es" href="https://ravolution.se/es/technical-cofounder-alternative" />
