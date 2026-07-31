@@ -617,6 +617,12 @@ const Index = () => {
                           {c.flagship && (
                             <span className="edit-label text-[hsl(var(--accent-edit))] block mb-2">★ Flagship</span>
                           )}
+                          {c.status && (
+                            <span className="edit-label text-[hsl(var(--accent-edit))] border border-[hsl(var(--accent-edit))]/50 px-3 py-1 inline-block mb-2 uppercase">
+                              {c.status}
+                            </span>
+                          )}
+
                           <h3 className="text-2xl md:text-4xl font-display font-bold text-white uppercase tracking-[-0.02em] group-hover:text-[hsl(var(--accent-edit))] transition-colors">
                             {c.name}
                           </h3>
