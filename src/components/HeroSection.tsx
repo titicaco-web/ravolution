@@ -10,8 +10,12 @@ const HeroSection = () => {
   const [videos, setVideos] = useState<string[]>([]);
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const [headlineIndex, setHeadlineIndex] = useState(0);
+  const [isHeadlineFading, setIsHeadlineFading] = useState(false);
   const { t } = useLanguage();
   const lp = useLangPath();
+
+  const headlines = (t("hero.headlines") as string[]) || [t("hero.headline")];
 
   useEffect(() => {
     const fetchVideos = async () => {
@@ -53,6 +57,20 @@ const HeroSection = () => {
 
     return () => clearInterval(interval);
   }, [videos.length]);
+
+  useEffect(() => {
+    if (headlines.length <= 1) return;
+
+    const interval = setInterval(() => {
+      setIsHeadlineFading(true);
+      setTimeout(() => {
+        setHeadlineIndex((prev) => (prev + 1) % headlines.length);
+        setIsHeadlineFading(false);
+      }, 500);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [headlines.length]);
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
@@ -117,14 +135,16 @@ const HeroSection = () => {
             </Link>
           </div>
 
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold text-white leading-tight mb-6">
-            {t("hero.headline")}
-            <span className="block text-gradient-gold">{t("hero.headlineHighlight")}</span>
+          <h1
+            className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold text-white leading-tight mb-6 transition-opacity duration-500 ${
+              isHeadlineFading ? "opacity-0" : "opacity-100"
+            }`}
+          >
+            {headlines[headlineIndex]}
           </h1>
 
           <p className="text-lg md:text-xl text-white/80 max-w-4xl mx-auto mb-10 leading-relaxed">
-            {t("hero.subheadline")} <span className="text-white">iApply™</span>, <span className="text-white">CommunicaringSchool™</span>, <span className="text-white">Rosetta Livingstone™</span>, <span className="text-white">xPortMatch™</span>, <span className="text-white">NewsToast™</span>, <span className="text-white"><a href="https://mlops.ravolution.se/" target="_blank" rel="noopener noreferrer" className="hover:text-accent-light transition-colors">BizMeet™</a></span>, <span className="text-white"><a href="https://toxinside.com" target="_blank" rel="noopener noreferrer" className="hover:text-accent-light transition-colors">TOXINSIDE</a></span>, <span className="text-white"><a href="https://carbonx.se/" target="_blank" rel="noopener noreferrer" className="hover:text-accent-light transition-colors">CarbonX™</a></span>.
-            <span className="block mt-2 text-gold">{t("hero.subheadlineEnd")}</span>
+            {t("hero.subheadline")}
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
@@ -135,15 +155,9 @@ const HeroSection = () => {
               </a>
             </Button>
             <Button className="btn-outline-light group text-lg px-8 py-6" asChild>
-              <a href="#contact">
+              <Link to={lp("/apply")}>
                 <FileText className="mr-2 h-5 w-5" />
                 {t("hero.ctaLicensing")}
-              </a>
-            </Button>
-            <Button className="btn-outline-light group text-lg px-8 py-6" asChild>
-              <Link to={lp("/apply")}>
-                Apply for tech investment
-                <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
               </Link>
             </Button>
           </div>
