@@ -346,7 +346,21 @@ const Index = () => {
       status: "Available for acquisition",
       internal: true,
     },
+    {
+      name: "Hundelser.se",
+      tagline: "Social Platform for Dog Owners",
+      patents: "Domain, brand and existing platform",
+      summary:
+        "A Swedish digital community connecting dog owners through profiles, shared content, friendships, activities, challenges and dog-related marketplace opportunities.",
+      market: "Swedish pet economy — dog owners, breeders, trainers, clinics, groomers, pet brands and clubs",
+      revenue: "Potential paths: premium memberships, business profiles, marketplace listings, booking commissions, sponsorships",
+      href: lp("/hundelser"),
+      cta: "Explore the Opportunity",
+      status: "Available for acquisition",
+      internal: true,
+    },
   ];
+
 
 
   return (
