@@ -78,6 +78,9 @@ const App = () => (
             <Route path="/:lang/metadatamachine" element={<LanguageSync><MetadataMachinePage /></LanguageSync>} />
             <Route path="/beredskapad" element={<LanguageSync><BeredskapadPage /></LanguageSync>} />
             <Route path="/:lang/beredskapad" element={<LanguageSync><BeredskapadPage /></LanguageSync>} />
+            <Route path="/hundelser" element={<LanguageSync><HundelserPage /></LanguageSync>} />
+            <Route path="/:lang/hundelser" element={<LanguageSync><HundelserPage /></LanguageSync>} />
+
 
 
             {/* Language-prefixed routes */}
