@@ -27,7 +27,8 @@ Strategic patent verticals targeting billion-dollar markets:
 3. **xPortMatch™** - AI-driven borderless trade infrastructure (Global B2B Trade)
 4. **CommunicaringSchool™** - K1-K9 education equity platform (Global Education)
 5. **iApply™** - Transparent recruiting with blockchain verification (HR Tech)
-6. **It's a Fitt™** - Fitness & wellness marketplace (Co-owned with Egyptian developer team)
+6. **AIMagnifica™** - Enterprise AI governance & compliance layer: prompt/document screening, Allow-Review-Stop decisions, EU AI Act and ISO/IEC 42001 support, audit-ready logging (available for sale)
+7. **It's a Fitt™** - Fitness & wellness marketplace (Co-owned with Egyptian developer team)
 
 ### Track Record
 - Founded Blatteförmedlingen (2006): Sweden's largest long-term unemployment program, 20% employment conversion rate, Gasell Company 2012
