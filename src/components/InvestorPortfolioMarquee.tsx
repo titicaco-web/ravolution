@@ -69,7 +69,7 @@ const InvestorPortfolioMarquee = ({ transparent = false }: { transparent?: boole
     { name: "TOXINSIDE", icon: ScanLine, href: "https://toxinside.com", external: true },
     { name: "CarbonX™", icon: Leaf, href: "https://carbonx.se/", external: true },
     { name: "NewsToast™", icon: Newspaper, href: "https://newstoast.com", external: true },
-    { name: "Partysta™", icon: PartyPopper, href: "https://partysta.com", external: true },
+    { name: "Partysta™", icon: PartyPopper, href: lp("/partysta"), external: false },
     { name: "iApply.se", icon: Briefcase, href: "https://iapply.se", external: true },
     { name: "Rosetta Livingstone™", icon: Languages, href: "https://rosettalivingstone.com", external: true },
     { name: "xPortMatch™", icon: Globe, href: "https://xportmatch.com", external: true },
