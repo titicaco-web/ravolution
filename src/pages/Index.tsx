@@ -339,16 +339,6 @@ const Index = () => {
       cta: "Visit Rosetta Livingstone",
     },
     {
-      name: "Partysta™",
-      tagline: "Global Private Party Planning Platform",
-      patents: "2 Patents · 28 Claims",
-      summary: "Unified Canva-style party planner, vendor marketplace, social memories & payments — the consumer platform for the 1.8B+ private events held every year.",
-      market: "$6.4B Party Planning Market 2026 → $22.6B by 2035 (15.1% CAGR)",
-      revenue: "Freemium subscriptions (PRO/HOST), 5% ticketing fee, 15% vendor commission",
-      href: "https://partysta.com",
-      cta: "Visit Website",
-    },
-    {
       name: "It's a Fitt™",
       tagline: "AI Video Virtual Try-On Technology",
       patents: "1 Patent · 25 Claims",
