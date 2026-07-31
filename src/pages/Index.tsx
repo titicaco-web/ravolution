@@ -434,6 +434,10 @@ const Index = () => {
           "@type": "Organization",
           "@id": "https://ravolution.se/#organization",
           name: "Ravolution AB",
+          legalName: "Ravolution AB",
+          alternateName: "Ravolution",
+          description: "Swedish venture studio creating patented AI and deep-tech platforms.",
+          email: "ivan.daza@ravolution.se",
           url: "https://ravolution.se/",
           logo: "https://ravolution.se/favicon.png",
           founder: { "@type": "Person", name: "Ivan Daza", url: "https://ravolution.se/en/about" },
@@ -446,11 +450,12 @@ const Index = () => {
           "@context": "https://schema.org",
           "@type": "WebSite",
           "@id": "https://ravolution.se/#website",
-          name: "Ravolution AB",
+          name: "Ravolution",
           url: "https://ravolution.se/",
           publisher: { "@id": "https://ravolution.se/#organization" },
           inLanguage: ["en", "sv", "es"],
         })}</script>
+
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "SoftwareApplication",
