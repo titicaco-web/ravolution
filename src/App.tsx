@@ -81,6 +81,9 @@ const App = () => (
             <Route path="/:lang/beredskapad" element={<LanguageSync><BeredskapadPage /></LanguageSync>} />
             <Route path="/hundelser" element={<LanguageSync><HundelserPage /></LanguageSync>} />
             <Route path="/:lang/hundelser" element={<LanguageSync><HundelserPage /></LanguageSync>} />
+            <Route path="/partysta" element={<LanguageSync><PartystaPage /></LanguageSync>} />
+            <Route path="/:lang/partysta" element={<LanguageSync><PartystaPage /></LanguageSync>} />
+
 
 
 
