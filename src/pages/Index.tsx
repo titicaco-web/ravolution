@@ -24,6 +24,23 @@ const Index = () => {
   const [openCard, setOpenCard] = useState<string | null>(null);
   const processAnim = useScrollAnimation<HTMLUListElement>(0.25);
 
+  const heroHeadlines = [
+    t("hero.headline"),
+    ...Array.from({ length: 7 }, (_, i) => t(`hero.headlines.${i}`)).filter(
+      (h) => h && !h.startsWith("hero.headlines")
+    ),
+  ];
+  const [headlineIndex, setHeadlineIndex] = useState(0);
+
+  useEffect(() => {
+    const id = setInterval(
+      () => setHeadlineIndex((i) => (i + 1) % heroHeadlines.length),
+      5000
+    );
+    return () => clearInterval(id);
+  }, [heroHeadlines.length]);
+
+
   useEffect(() => {
     const upd = () => {
       const d = new Date();
