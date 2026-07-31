@@ -411,18 +411,23 @@ const Index = () => {
   return (
     <>
       <Helmet>
-        <title>Ravolution AB | Swedish Venture Studio & Angel Investor</title>
-        <meta name="description" content="Swedish venture studio building deep tech unicorns. 27 patents across language learning, voice security, AI trade & K-9 education. Founded by Ivan Daza." />
-        <link rel="canonical" href="https://ravolution.se/" />
+        <title>{seo.title}</title>
+        <meta name="description" content={seo.description} />
+        <link rel="canonical" href={canonicalUrl} />
         <link rel="alternate" hrefLang="en" href="https://ravolution.se/en" />
         <link rel="alternate" hrefLang="sv" href="https://ravolution.se/sv" />
         <link rel="alternate" hrefLang="es" href="https://ravolution.se/es" />
         <link rel="alternate" hrefLang="x-default" href="https://ravolution.se/en" />
         <meta name="google-site-verification" content="BeeUnb4Up6ljydW2DT6VNZuFv5RX0quHioFQwyl3v_Q" />
-        <meta property="og:title" content="Ravolution AB | Swedish Venture Studio & Angel Investor" />
-        <meta property="og:description" content="Swedish venture studio building deep tech unicorns. 27 patents across language, voice security, AI trade & education." />
+        <meta property="og:site_name" content="Ravolution" />
+        <meta property="og:locale" content={language === "sv" ? "sv_SE" : language === "es" ? "es_ES" : "en_US"} />
+        <meta property="og:title" content={seo.ogTitle} />
+        <meta property="og:description" content={seo.ogDescription} />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://ravolution.se/" />
+        <meta property="og:url" content={canonicalUrl} />
+        <meta name="twitter:title" content={seo.title} />
+        <meta name="twitter:description" content={seo.description} />
+
         <meta name="twitter:card" content="summary_large_image" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
