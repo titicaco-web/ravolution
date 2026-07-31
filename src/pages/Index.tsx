@@ -212,7 +212,10 @@ const Index = () => {
     revenue: string;
     href: string;
     cta: string;
+    status?: string;
+    internal?: boolean;
     details?: typeof aimagnifica;
+
   }> = [
 
     {
