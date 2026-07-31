@@ -212,7 +212,10 @@ const Index = () => {
     revenue: string;
     href: string;
     cta: string;
+    status?: string;
+    internal?: boolean;
     details?: typeof aimagnifica;
+
   }> = [
 
     {
@@ -330,7 +333,21 @@ const Index = () => {
       href: "https://xportmatch.com",
       cta: "Visit xPortMatch.com",
     },
+    {
+      name: "Beredskapad.se",
+      tagline: "Digital Crisis Preparedness Platform",
+      patents: "Domain, brand and platform concept",
+      summary:
+        "A Swedish-language platform that helps individuals, companies and organisations improve their crisis preparedness through practical education, checklists, readiness assessments and step-by-step guidance.",
+      market: "Swedish and Nordic preparedness education — households, employers, municipalities and insurers",
+      revenue: "Potential paths: consumer subscriptions, organisational licences, white-label portals, training packages",
+      href: lp("/beredskapad"),
+      cta: "Explore the Opportunity",
+      status: "Available for acquisition",
+      internal: true,
+    },
   ];
+
 
   return (
     <>
@@ -600,6 +617,12 @@ const Index = () => {
                           {c.flagship && (
                             <span className="edit-label text-[hsl(var(--accent-edit))] block mb-2">★ Flagship</span>
                           )}
+                          {c.status && (
+                            <span className="edit-label text-[hsl(var(--accent-edit))] border border-[hsl(var(--accent-edit))]/50 px-3 py-1 inline-block mb-2 uppercase">
+                              {c.status}
+                            </span>
+                          )}
+
                           <h3 className="text-2xl md:text-4xl font-display font-bold text-white uppercase tracking-[-0.02em] group-hover:text-[hsl(var(--accent-edit))] transition-colors">
                             {c.name}
                           </h3>
@@ -668,14 +691,24 @@ const Index = () => {
                           )}
                           <div className="md:col-start-2 md:col-span-11 mt-6">
 
-                            <a
-                              href={c.href}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="inline-flex items-center gap-3 px-6 py-3 border border-white/30 text-white edit-label hover:bg-white hover:text-[hsl(var(--bg))] transition-colors"
-                            >
-                              {c.cta} ↗
-                            </a>
+                            {c.internal ? (
+                              <Link
+                                to={c.href}
+                                className="inline-flex items-center gap-3 px-6 py-3 border border-white/30 text-white edit-label hover:bg-white hover:text-[hsl(var(--bg))] transition-colors"
+                              >
+                                {c.cta} →
+                              </Link>
+                            ) : (
+                              <a
+                                href={c.href}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-3 px-6 py-3 border border-white/30 text-white edit-label hover:bg-white hover:text-[hsl(var(--bg))] transition-colors"
+                              >
+                                {c.cta} ↗
+                              </a>
+                            )}
+
                           </div>
                         </div>
                       )}

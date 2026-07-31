@@ -32,6 +32,8 @@ const ContactPage = lazy(() => import("./pages/ContactPage"));
 const ApplyPage = lazy(() => import("./pages/ApplyPage"));
 const SalesPartnerPage = lazy(() => import("./pages/SalesPartnerPage"));
 const MetadataMachinePage = lazy(() => import("./pages/MetadataMachinePage"));
+const BeredskapadPage = lazy(() => import("./pages/BeredskapadPage"));
+
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 // Gyrocraft Pages
@@ -73,6 +75,9 @@ const App = () => (
             {/* Standalone tool — no language prefix (SEO-shareable single URL) */}
             <Route path="/metadatamachine" element={<LanguageSync><MetadataMachinePage /></LanguageSync>} />
             <Route path="/:lang/metadatamachine" element={<LanguageSync><MetadataMachinePage /></LanguageSync>} />
+            <Route path="/beredskapad" element={<LanguageSync><BeredskapadPage /></LanguageSync>} />
+            <Route path="/:lang/beredskapad" element={<LanguageSync><BeredskapadPage /></LanguageSync>} />
+
 
             {/* Language-prefixed routes */}
             <Route path="/:lang" element={<LanguageSync><Index /></LanguageSync>} />
