@@ -25,6 +25,50 @@ const Index = () => {
   const [openCard, setOpenCard] = useState<string | null>(null);
   const processAnim = useScrollAnimation<HTMLUListElement>(0.25);
 
+  const seoByLang = {
+    en: {
+      title: "Ravolution | Patented AI & Deep Tech Venture Studio",
+      description:
+        "Swedish venture studio creating patented AI and deep-tech platforms for education, language learning, voice security, global trade, climate and health.",
+      ogTitle: "Ravolution — Patented Deep Tech for Civilization-Scale Challenges",
+      ogDescription:
+        "Explore Ravolution's portfolio of patented AI and deep-tech platforms across education, language learning, voice security, global trade, climate and health.",
+      h1: "Solving Civilization-Scale Challenges with Patented Deep Tech",
+      intro1:
+        "Ravolution is a Swedish venture studio that invents, builds and commercialises patented AI and deep-tech platforms across education, language learning, voice security, global trade, climate innovation and human health.",
+      intro2:
+        "Founded by inventor Ivan Daza, Ravolution's portfolio combines proprietary intellectual property, scalable digital platforms and business models designed to address large global challenges.",
+    },
+    sv: {
+      title: "Ravolution | Patenterad AI och deep tech från Sverige",
+      description:
+        "Svensk venture studio som utvecklar patenterade AI- och deep tech-plattformar inom utbildning, språk, röstsäkerhet, global handel, klimat och hälsa.",
+      ogTitle: "Ravolution — Patenterad deep tech för globala utmaningar",
+      ogDescription:
+        "Utforska Ravolutions portfölj av patenterade AI- och deep tech-plattformar inom utbildning, språkinlärning, röstsäkerhet, global handel, klimat och hälsa.",
+      h1: "Vi löser globala utmaningar med patenterad deep tech",
+      intro1:
+        "Ravolution är en svensk venture studio som uppfinner, bygger och kommersialiserar patenterade AI- och deep tech-plattformar inom utbildning, språkinlärning, röstsäkerhet, global handel, klimatinnovation och människors hälsa.",
+      intro2:
+        "Grundat av uppfinnaren Ivan Daza kombinerar Ravolutions portfölj egen immateriell tillgång, skalbara digitala plattformar och affärsmodeller utformade för stora globala utmaningar.",
+    },
+    es: {
+      title: "Ravolution | Estudio de IA y tecnología profunda patentada",
+      description:
+        "Estudio sueco que desarrolla plataformas patentadas de IA y deep tech para educación, idiomas, seguridad de voz, comercio global, clima y salud.",
+      ogTitle: "Ravolution — Tecnología profunda patentada para desafíos globales",
+      ogDescription:
+        "Explora el portafolio de Ravolution de plataformas patentadas de IA y deep tech en educación, idiomas, seguridad de voz, comercio global, clima y salud.",
+      h1: "Resolvemos desafíos globales con tecnología profunda patentada",
+      intro1:
+        "Ravolution es un estudio sueco que inventa, construye y comercializa plataformas patentadas de IA y deep tech en educación, aprendizaje de idiomas, seguridad de voz, comercio global, innovación climática y salud humana.",
+      intro2:
+        "Fundado por el inventor Ivan Daza, el portafolio de Ravolution combina propiedad intelectual propia, plataformas digitales escalables y modelos de negocio diseñados para grandes desafíos globales.",
+    },
+  } as const;
+  const seo = seoByLang[(language as "en" | "sv" | "es")] ?? seoByLang.en;
+  const canonicalUrl = `https://ravolution.se/${language}`;
+
   const heroHeadlines = [
     t("hero.headline"),
     ...Array.from({ length: 7 }, (_, i) => t(`hero.headlines.${i}`)).filter(
@@ -32,6 +76,7 @@ const Index = () => {
     ),
   ];
   const [headlineIndex, setHeadlineIndex] = useState(0);
+
 
   useEffect(() => {
     const id = setInterval(
