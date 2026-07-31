@@ -459,15 +459,16 @@ const Index = () => {
               </span>
             </Reveal>
             <Reveal delay={0.1}>
-              <h1 className="edit-display text-white mt-8 min-h-[1.2em]">
-                <span
-                  key={headlineIndex}
-                  className="inline-block animate-fade-in"
-                >
+              <h1 className="edit-display text-white mt-8">{seo.h1}</h1>
+            </Reveal>
+            <Reveal delay={0.18}>
+              <p className="edit-body text-white/80 mt-6 max-w-3xl min-h-[1.6em]">
+                <span key={headlineIndex} className="inline-block animate-fade-in">
                   {heroHeadlines[headlineIndex]}
                 </span>
-              </h1>
+              </p>
             </Reveal>
+
             <Reveal delay={0.25}>
               <p className="edit-body text-white/70 mt-10 max-w-3xl">
                 {t("hero.subheadline")}
