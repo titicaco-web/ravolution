@@ -73,6 +73,9 @@ const App = () => (
             {/* Standalone tool — no language prefix (SEO-shareable single URL) */}
             <Route path="/metadatamachine" element={<LanguageSync><MetadataMachinePage /></LanguageSync>} />
             <Route path="/:lang/metadatamachine" element={<LanguageSync><MetadataMachinePage /></LanguageSync>} />
+            <Route path="/beredskapad" element={<LanguageSync><BeredskapadPage /></LanguageSync>} />
+            <Route path="/:lang/beredskapad" element={<LanguageSync><BeredskapadPage /></LanguageSync>} />
+
 
             {/* Language-prefixed routes */}
             <Route path="/:lang" element={<LanguageSync><Index /></LanguageSync>} />
