@@ -612,7 +612,48 @@ const Index = () => {
                               <p className="text-white/85 text-sm leading-relaxed">{c.revenue}</p>
                             </div>
                           </div>
+                          {c.details && (
+                            <div className="md:col-start-2 md:col-span-11 mt-8 space-y-8">
+                              <div>
+                                <h4 className="text-xl md:text-2xl font-display font-bold text-white">{c.details.heading}</h4>
+                                <p className="edit-body text-white/70 mt-4 max-w-3xl">{c.details.intro}</p>
+                              </div>
+                              <div className="grid md:grid-cols-3 gap-px bg-white/10 border border-white/10">
+                                {c.details.decisions.map((d) => (
+                                  <div key={d.l} className="bg-[hsl(var(--surface))] p-6">
+                                    <span className="edit-label text-[hsl(var(--accent-edit))] block mb-3">{d.l}</span>
+                                    <p className="text-white/85 text-sm leading-relaxed">{d.d}</p>
+                                  </div>
+                                ))}
+                              </div>
+                              <div>
+                                <span className="edit-label text-white/40 block mb-4">{c.details.offeringsLabel}</span>
+                                <div className="grid md:grid-cols-3 gap-px bg-white/10 border border-white/10">
+                                  {c.details.offerings.map((o) => (
+                                    <div key={o.l} className="bg-[hsl(var(--surface))] p-6">
+                                      <span className="edit-label text-[hsl(var(--accent-edit))] block mb-3">{o.l}</span>
+                                      <p className="text-white/85 text-sm leading-relaxed">{o.d}</p>
+                                    </div>
+                                  ))}
+                                </div>
+                              </div>
+                              <div>
+                                <span className="edit-label text-white/40 block mb-4">{c.details.capabilitiesLabel}</span>
+                                <ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-2">
+                                  {c.details.capabilities.map((cap) => (
+                                    <li key={cap} className="text-white/70 text-sm leading-relaxed flex gap-2">
+                                      <span className="text-[hsl(var(--accent-edit))]">—</span>
+                                      <span>{cap}</span>
+                                    </li>
+                                  ))}
+                                </ul>
+                              </div>
+                              <p className="edit-body text-white/70 max-w-3xl">{c.details.closing}</p>
+                              <p className="edit-label text-[hsl(var(--accent-edit))]">{c.details.forSale}</p>
+                            </div>
+                          )}
                           <div className="md:col-start-2 md:col-span-11 mt-6">
+
                             <a
                               href={c.href}
                               target="_blank"
