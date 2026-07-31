@@ -58,6 +58,20 @@ const HeroSection = () => {
     return () => clearInterval(interval);
   }, [videos.length]);
 
+  useEffect(() => {
+    if (headlines.length <= 1) return;
+
+    const interval = setInterval(() => {
+      setIsHeadlineFading(true);
+      setTimeout(() => {
+        setHeadlineIndex((prev) => (prev + 1) % headlines.length);
+        setIsHeadlineFading(false);
+      }, 500);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [headlines.length]);
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
       {/* Video Background */}
