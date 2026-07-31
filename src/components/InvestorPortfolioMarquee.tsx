@@ -75,7 +75,7 @@ const InvestorPortfolioMarquee = ({ transparent = false }: { transparent?: boole
     { name: "xPortMatch™", icon: Globe, href: "https://xportmatch.com", external: true },
     { name: "Eventor™", icon: Calendar, href: lp("/#concepts"), external: true },
     { name: "Givin™", icon: Gift, href: lp("/#concepts"), external: true },
-    { name: "Hundelser.se", icon: Dog, href: "https://hundelser.se/", external: true },
+    { name: "Hundelser.se", icon: Dog, href: lp("/hundelser"), external: false },
     { name: "NäraVän.se", icon: Heart, href: "https://xn--nravn-grad.se/", external: true },
     { name: "Beredskapad.se", icon: ShieldAlert, href: "https://beredskapad.se/", external: true },
     { name: "EndOfThirst.com", icon: Droplets, href: "https://endofthirst.com/", external: true },

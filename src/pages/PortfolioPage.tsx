@@ -14,6 +14,7 @@ const companies = [
   { name: "Partysta", sector: "Marketplace", status: "ACTIVE", desc: "Event & experience marketplace concept.", href: "#" },
   { name: "Gyrocraft", sector: "Deep Tech", status: "RESEARCH", desc: "Stealth-stage deep tech initiative.", href: "#" },
   { name: "Beredskapad.se", sector: "Preparedness · EdTech", status: "AVAILABLE FOR ACQUISITION", desc: "Swedish digital crisis preparedness platform — education, checklists, readiness assessments and practical guidance for households and organisations.", href: "/en/beredskapad" },
+  { name: "Hundelser.se", sector: "Pet Tech · Community", status: "AVAILABLE FOR ACQUISITION", desc: "Swedish social platform for dog owners — dog profiles, community content, friendships, activities, challenges and dog-related marketplace opportunities.", href: "/en/hundelser" },
 ];
 
 
