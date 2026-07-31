@@ -14,6 +14,8 @@ Ravolution AB operates a Build-for-Equity model, invests directly as an angel, a
 - [Angel Investor](/en/angel-investor): Direct early-stage capital with patent strategy and technical co-founder support.
 - [Invest](/en/invest): Investor landing page for qualified leads.
 - [Portfolio](/en/portfolio): Operated and licensed platforms across 6+ industries.
+- [Beredskapad.se](/en/beredskapad): Swedish digital crisis preparedness platform concept — education, assessments, checklists and guidance. Available for acquisition.
+
 - [Patent Strategy for Startups](/en/patent-strategy-for-startups): Guide to strategic IP for founders.
 - [Technical Cofounder Alternative](/en/technical-cofounder-alternative): How we replace a missing technical co-founder.
 - [Brief](/en/brief): Intake form to submit a platform concept.
