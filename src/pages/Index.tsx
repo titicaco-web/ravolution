@@ -82,9 +82,124 @@ const Index = () => {
   const stats = [
     { value: 27, label: "Patents granted" },
     { value: 343, label: "Patent claims" },
-    { value: 10, label: "Active platforms", suffix: "+" },
+    { value: 11, label: "Active platforms", suffix: "+" },
     { value: 150, label: "Countries reached", suffix: "+" },
   ];
+
+  /* AIMagnifica — localized copy */
+  const aimagnifica = {
+    en: {
+      tagline: "AI Governance & Compliance Layer",
+      summary:
+        "Screens prompts and documents before they reach any connected LLM, applying organisational policy, EU AI Act controls and ISO/IEC 42001 through Allow, Review or Stop decisions with audit-ready logging.",
+      cta: "Visit AIMagnifica",
+      heading: "The compliance layer above your AI stack",
+      intro:
+        "AIMagnifica is an enterprise AI-governance platform that sits between an organisation's users and the AI models they use. Every prompt and uploaded document can be inspected before it reaches OpenAI, Anthropic Claude, Google Gemini, Mistral or a locally deployed model. The platform checks the request against the organisation's own policies together with relevant AI-governance and regulatory controls.",
+      decisions: [
+        { l: "Allow", d: "The request is approved, routed to the selected AI provider and recorded in the audit log." },
+        { l: "Review", d: "Sensitive, ambiguous or high-impact requests are referred to an authorised manager, legal officer or compliance reviewer." },
+        { l: "Stop", d: "Requests that violate policy can be blocked, redacted or redirected to a sovereign or locally hosted AI environment." },
+      ],
+      offeringsLabel: "Three connected offerings",
+      offerings: [
+        { l: "Audit", d: "A structured assessment of the organisation's AI systems, use cases, providers, risks and governance maturity." },
+        { l: "Gateway", d: "Continuous screening, routing, policy enforcement and audit logging across the organisation's AI usage." },
+        { l: "Advisory", d: "Access to specialists in AI governance, regulation, ethics, ISO/IEC 42001 and sovereign AI deployment." },
+      ],
+      capabilitiesLabel: "Key capabilities",
+      capabilities: [
+        "Prompt and document screening",
+        "Detection of personal and confidential information",
+        "Organisation-specific AI policies",
+        "Allow, Review and Stop decisions",
+        "Human approval workflows",
+        "Redaction of sensitive information",
+        "Routing between external and local AI models",
+        "Audit-ready event logging",
+        "Support for EU AI Act governance",
+        "Support for ISO/IEC 42001 management processes",
+        "Sovereign and on-premise deployment options",
+      ],
+      closing:
+        "AIMagnifica helps organisations adopt powerful AI systems without surrendering governance, accountability or human oversight.",
+      forSale: "AIMagnifica is available for sale — enquiries welcome.",
+    },
+    sv: {
+      tagline: "Styrning och regelefterlevnad för AI",
+      summary:
+        "Granskar promptar och dokument innan de når en ansluten AI-modell och tillämpar organisationens policy, EU:s AI-förordning och ISO/IEC 42001 genom besluten Tillåt, Granska eller Stoppa samt revisionsklar loggning.",
+      cta: "Besök AIMagnifica",
+      heading: "Efterlevnadslagret ovanpå organisationens AI-infrastruktur",
+      intro:
+        "AIMagnifica är en plattform för AI-styrning som placeras mellan organisationens användare och de AI-modeller de använder. Promptar och dokument kan granskas innan information skickas till en extern eller lokalt installerad AI-modell.",
+      decisions: [
+        { l: "Tillåt", d: "Förfrågan godkänns, skickas till vald AI-leverantör och registreras i revisionsloggen." },
+        { l: "Granska", d: "Känsliga, otydliga eller verksamhetskritiska förfrågningar hänvisas till behörig chef, jurist eller efterlevnadsansvarig." },
+        { l: "Stoppa", d: "Förfrågningar som bryter mot policy kan blockeras, maskeras eller omdirigeras till en suverän eller lokalt driftsatt AI-miljö." },
+      ],
+      offeringsLabel: "Tre sammankopplade erbjudanden",
+      offerings: [
+        { l: "Audit", d: "En strukturerad genomlysning av organisationens AI-system, användningsfall, leverantörer, risker och styrningsmognad." },
+        { l: "Gateway", d: "Löpande granskning, routing, policytillämpning och revisionsloggning över organisationens AI-användning." },
+        { l: "Advisory", d: "Tillgång till specialister inom AI-styrning, regelverk, etik, ISO/IEC 42001 och suverän AI-drift." },
+      ],
+      capabilitiesLabel: "Viktiga funktioner",
+      capabilities: [
+        "Granskning av promptar och dokument",
+        "Upptäckt av personuppgifter och konfidentiell information",
+        "Organisationsspecifika AI-policyer",
+        "Besluten Tillåt, Granska och Stoppa",
+        "Arbetsflöden för mänskligt godkännande",
+        "Maskering av känslig information",
+        "Routing mellan externa och lokala AI-modeller",
+        "Revisionsklar händelseloggning",
+        "Stöd för styrning enligt EU:s AI-förordning",
+        "Stöd för ledningsprocesser enligt ISO/IEC 42001",
+        "Alternativ för suverän och lokal driftsättning",
+      ],
+      closing:
+        "AIMagnifica hjälper organisationer att införa kraftfulla AI-system utan att ge upp styrning, ansvar eller mänsklig kontroll.",
+      forSale: "AIMagnifica är till salu — förfrågningar välkomnas.",
+    },
+    es: {
+      tagline: "Gobernanza y cumplimiento normativo de IA",
+      summary:
+        "Analiza instrucciones y documentos antes de que lleguen a cualquier modelo de IA conectado, aplicando las políticas de la organización, los controles de la Ley de IA de la UE e ISO/IEC 42001 mediante decisiones de Permitir, Revisar o Detener y registros preparados para auditoría.",
+      cta: "Visitar AIMagnifica",
+      heading: "La capa de cumplimiento situada sobre la infraestructura de IA",
+      intro:
+        "AIMagnifica es una plataforma empresarial de gobernanza de IA que se sitúa entre los usuarios de una organización y los modelos de inteligencia artificial que utilizan. Las instrucciones y los documentos pueden revisarse antes de enviar información a un modelo externo o instalado localmente.",
+      decisions: [
+        { l: "Permitir", d: "La solicitud se aprueba, se dirige al proveedor de IA seleccionado y se registra en el registro de auditoría." },
+        { l: "Revisar", d: "Las solicitudes sensibles, ambiguas o de alto impacto se remiten a un responsable autorizado, jurídico o de cumplimiento." },
+        { l: "Detener", d: "Las solicitudes que infringen la política pueden bloquearse, redactarse o redirigirse a un entorno de IA soberano o local." },
+      ],
+      offeringsLabel: "Tres servicios conectados",
+      offerings: [
+        { l: "Audit", d: "Evaluación estructurada de los sistemas de IA, casos de uso, proveedores, riesgos y madurez de gobernanza de la organización." },
+        { l: "Gateway", d: "Análisis continuo, enrutamiento, aplicación de políticas y registro de auditoría en todo el uso de IA de la organización." },
+        { l: "Advisory", d: "Acceso a especialistas en gobernanza de IA, regulación, ética, ISO/IEC 42001 y despliegue de IA soberana." },
+      ],
+      capabilitiesLabel: "Capacidades clave",
+      capabilities: [
+        "Análisis de instrucciones y documentos",
+        "Detección de información personal y confidencial",
+        "Políticas de IA específicas de la organización",
+        "Decisiones de Permitir, Revisar y Detener",
+        "Flujos de aprobación humana",
+        "Redacción de información sensible",
+        "Enrutamiento entre modelos de IA externos y locales",
+        "Registro de eventos preparado para auditoría",
+        "Apoyo a la gobernanza según la Ley de IA de la UE",
+        "Apoyo a los procesos de gestión ISO/IEC 42001",
+        "Opciones de despliegue soberano y local",
+      ],
+      closing:
+        "AIMagnifica ayuda a las organizaciones a adoptar sistemas de IA potentes sin renunciar a la gobernanza, la responsabilidad ni la supervisión humana.",
+      forSale: "AIMagnifica está a la venta — se aceptan consultas.",
+    },
+  }[language];
 
   /* Operated platforms — full briefs */
   const portfolio = [
@@ -99,6 +214,19 @@ const Index = () => {
       href: "https://communicaringschool.com",
       cta: "Visit Website",
     },
+    {
+      name: "AIMagnifica™",
+      tagline: aimagnifica.tagline,
+      flagship: true,
+      patents: "AI governance & compliance architecture",
+      summary: aimagnifica.summary,
+      market: "Enterprise AI governance — EU AI Act & ISO/IEC 42001 driven demand",
+      revenue: "Audit engagements, gateway subscriptions, advisory retainers",
+      href: "https://aimagnifica.com/",
+      cta: aimagnifica.cta,
+      details: aimagnifica,
+    },
+
     {
       name: "BizMeet™",
       tagline: "B2B Meeting & Networking Platform",
