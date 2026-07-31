@@ -370,6 +370,20 @@ const Index = () => {
           publisher: { "@id": "https://ravolution.se/#organization" },
           inLanguage: ["en", "sv", "es"],
         })}</script>
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "SoftwareApplication",
+          name: "AIMagnifica",
+          alternateName: "AIMagnifica™",
+          url: "https://aimagnifica.com/",
+          applicationCategory: "BusinessApplication",
+          description:
+            "AIMagnifica is Ravolution's enterprise AI-governance layer for prompt screening, policy enforcement, human review, secure model routing and audit-ready AI usage.",
+          keywords:
+            "AIMagnifica, AI governance, AI compliance, EU AI Act, ISO 42001, AI gateway, prompt screening, AI audit logs, sovereign AI, enterprise AI security",
+          publisher: { "@id": "https://ravolution.se/#organization" },
+        })}</script>
+
       </Helmet>
 
       <EditorialShell>
