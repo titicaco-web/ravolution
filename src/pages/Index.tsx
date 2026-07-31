@@ -18,8 +18,9 @@ import TypewriterCycle from "@/components/effects/TypewriterCycle";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 const Index = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const lp = useLangPath();
+
   const [time, setTime] = useState("");
   const [openCard, setOpenCard] = useState<string | null>(null);
   const processAnim = useScrollAnimation<HTMLUListElement>(0.25);
