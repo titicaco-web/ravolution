@@ -25,6 +25,50 @@ const Index = () => {
   const [openCard, setOpenCard] = useState<string | null>(null);
   const processAnim = useScrollAnimation<HTMLUListElement>(0.25);
 
+  const seoByLang = {
+    en: {
+      title: "Ravolution | Patented AI & Deep Tech Venture Studio",
+      description:
+        "Swedish venture studio creating patented AI and deep-tech platforms for education, language learning, voice security, global trade, climate and health.",
+      ogTitle: "Ravolution — Patented Deep Tech for Civilization-Scale Challenges",
+      ogDescription:
+        "Explore Ravolution's portfolio of patented AI and deep-tech platforms across education, language learning, voice security, global trade, climate and health.",
+      h1: "Solving Civilization-Scale Challenges with Patented Deep Tech",
+      intro1:
+        "Ravolution is a Swedish venture studio that invents, builds and commercialises patented AI and deep-tech platforms across education, language learning, voice security, global trade, climate innovation and human health.",
+      intro2:
+        "Founded by inventor Ivan Daza, Ravolution's portfolio combines proprietary intellectual property, scalable digital platforms and business models designed to address large global challenges.",
+    },
+    sv: {
+      title: "Ravolution | Patenterad AI och deep tech från Sverige",
+      description:
+        "Svensk venture studio som utvecklar patenterade AI- och deep tech-plattformar inom utbildning, språk, röstsäkerhet, global handel, klimat och hälsa.",
+      ogTitle: "Ravolution — Patenterad deep tech för globala utmaningar",
+      ogDescription:
+        "Utforska Ravolutions portfölj av patenterade AI- och deep tech-plattformar inom utbildning, språkinlärning, röstsäkerhet, global handel, klimat och hälsa.",
+      h1: "Vi löser globala utmaningar med patenterad deep tech",
+      intro1:
+        "Ravolution är en svensk venture studio som uppfinner, bygger och kommersialiserar patenterade AI- och deep tech-plattformar inom utbildning, språkinlärning, röstsäkerhet, global handel, klimatinnovation och människors hälsa.",
+      intro2:
+        "Grundat av uppfinnaren Ivan Daza kombinerar Ravolutions portfölj egen immateriell tillgång, skalbara digitala plattformar och affärsmodeller utformade för stora globala utmaningar.",
+    },
+    es: {
+      title: "Ravolution | Estudio de IA y tecnología profunda patentada",
+      description:
+        "Estudio sueco que desarrolla plataformas patentadas de IA y deep tech para educación, idiomas, seguridad de voz, comercio global, clima y salud.",
+      ogTitle: "Ravolution — Tecnología profunda patentada para desafíos globales",
+      ogDescription:
+        "Explora el portafolio de Ravolution de plataformas patentadas de IA y deep tech en educación, idiomas, seguridad de voz, comercio global, clima y salud.",
+      h1: "Resolvemos desafíos globales con tecnología profunda patentada",
+      intro1:
+        "Ravolution es un estudio sueco que inventa, construye y comercializa plataformas patentadas de IA y deep tech en educación, aprendizaje de idiomas, seguridad de voz, comercio global, innovación climática y salud humana.",
+      intro2:
+        "Fundado por el inventor Ivan Daza, el portafolio de Ravolution combina propiedad intelectual propia, plataformas digitales escalables y modelos de negocio diseñados para grandes desafíos globales.",
+    },
+  } as const;
+  const seo = seoByLang[(language as "en" | "sv" | "es")] ?? seoByLang.en;
+  const canonicalUrl = `https://ravolution.se/${language}`;
+
   const heroHeadlines = [
     t("hero.headline"),
     ...Array.from({ length: 7 }, (_, i) => t(`hero.headlines.${i}`)).filter(
@@ -32,6 +76,7 @@ const Index = () => {
     ),
   ];
   const [headlineIndex, setHeadlineIndex] = useState(0);
+
 
   useEffect(() => {
     const id = setInterval(
@@ -366,24 +411,33 @@ const Index = () => {
   return (
     <>
       <Helmet>
-        <title>Ravolution AB | Swedish Venture Studio & Angel Investor</title>
-        <meta name="description" content="Swedish venture studio building deep tech unicorns. 27 patents across language learning, voice security, AI trade & K-9 education. Founded by Ivan Daza." />
-        <link rel="canonical" href="https://ravolution.se/" />
+        <title>{seo.title}</title>
+        <meta name="description" content={seo.description} />
+        <link rel="canonical" href={canonicalUrl} />
         <link rel="alternate" hrefLang="en" href="https://ravolution.se/en" />
         <link rel="alternate" hrefLang="sv" href="https://ravolution.se/sv" />
         <link rel="alternate" hrefLang="es" href="https://ravolution.se/es" />
         <link rel="alternate" hrefLang="x-default" href="https://ravolution.se/en" />
         <meta name="google-site-verification" content="BeeUnb4Up6ljydW2DT6VNZuFv5RX0quHioFQwyl3v_Q" />
-        <meta property="og:title" content="Ravolution AB | Swedish Venture Studio & Angel Investor" />
-        <meta property="og:description" content="Swedish venture studio building deep tech unicorns. 27 patents across language, voice security, AI trade & education." />
+        <meta property="og:site_name" content="Ravolution" />
+        <meta property="og:locale" content={language === "sv" ? "sv_SE" : language === "es" ? "es_ES" : "en_US"} />
+        <meta property="og:title" content={seo.ogTitle} />
+        <meta property="og:description" content={seo.ogDescription} />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://ravolution.se/" />
+        <meta property="og:url" content={canonicalUrl} />
+        <meta name="twitter:title" content={seo.title} />
+        <meta name="twitter:description" content={seo.description} />
+
         <meta name="twitter:card" content="summary_large_image" />
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Organization",
           "@id": "https://ravolution.se/#organization",
           name: "Ravolution AB",
+          legalName: "Ravolution AB",
+          alternateName: "Ravolution",
+          description: "Swedish venture studio creating patented AI and deep-tech platforms.",
+          email: "ivan.daza@ravolution.se",
           url: "https://ravolution.se/",
           logo: "https://ravolution.se/favicon.png",
           founder: { "@type": "Person", name: "Ivan Daza", url: "https://ravolution.se/en/about" },
@@ -396,11 +450,12 @@ const Index = () => {
           "@context": "https://schema.org",
           "@type": "WebSite",
           "@id": "https://ravolution.se/#website",
-          name: "Ravolution AB",
+          name: "Ravolution",
           url: "https://ravolution.se/",
           publisher: { "@id": "https://ravolution.se/#organization" },
           inLanguage: ["en", "sv", "es"],
         })}</script>
+
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "SoftwareApplication",
@@ -459,15 +514,16 @@ const Index = () => {
               </span>
             </Reveal>
             <Reveal delay={0.1}>
-              <h1 className="edit-display text-white mt-8 min-h-[1.2em]">
-                <span
-                  key={headlineIndex}
-                  className="inline-block animate-fade-in"
-                >
+              <h1 className="edit-display text-white mt-8">{seo.h1}</h1>
+            </Reveal>
+            <Reveal delay={0.18}>
+              <p className="edit-body text-white/80 mt-6 max-w-3xl min-h-[1.6em]">
+                <span key={headlineIndex} className="inline-block animate-fade-in">
                   {heroHeadlines[headlineIndex]}
                 </span>
-              </h1>
+              </p>
             </Reveal>
+
             <Reveal delay={0.25}>
               <p className="edit-body text-white/70 mt-10 max-w-3xl">
                 {t("hero.subheadline")}
@@ -501,6 +557,16 @@ const Index = () => {
             </span>
           </div>
         </section>
+
+        {/* ───────── INTRO (static, crawlable) ───────── */}
+        <section className="px-6 md:px-12 py-16 md:py-20 border-t border-white/10">
+          <div className="edit-container max-w-4xl">
+            <p className="edit-body text-white/85">{seo.intro1}</p>
+            <p className="edit-body text-white/65 mt-6">{seo.intro2}</p>
+          </div>
+        </section>
+
+
 
         {/* ───────── MARQUEE ───────── */}
         <MarqueeStrip

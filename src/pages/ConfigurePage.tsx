@@ -7,8 +7,14 @@ const ConfigurePage = () => {
   return (
     <>
       <Helmet>
-        <title>Configure Your Platform | Ravolution AB</title>
-        <meta name="description" content="Pick the components you need and get an instant scope estimate. Submit your spec or jump straight to a discovery call." />
+        <title>Platform Builder | Scope &amp; Cost Your Product — Ravolution</title>
+        <meta name="description" content="Configure the modules your platform needs — AI, payments, dashboards, apps — and get an instant scope estimate from Ravolution's venture studio team." />
+        <link rel="canonical" href="https://ravolution.se/en/configure" />
+        <meta property="og:title" content="Platform Builder | Scope &amp; Cost Your Product — Ravolution" />
+        <meta property="og:description" content="Pick your modules, get an instant scope estimate, and submit your spec to Ravolution's build team." />
+        <meta property="og:url" content="https://ravolution.se/en/configure" />
+        <meta property="og:type" content="website" />
+
       </Helmet>
       <EditorialShell>
         <section className="relative pt-40 md:pt-48 pb-20 px-6 bg-gradient-to-b from-primary to-primary-dark text-primary-foreground overflow-hidden">
