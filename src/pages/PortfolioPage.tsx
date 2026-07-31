@@ -19,9 +19,27 @@ const PortfolioPage = () => (
   <>
     <Helmet>
       <title>Portfolio — Ravolution AB</title>
-      <meta name="description" content="Active platforms operated, built and scaled by Ravolution AB across education, voice security, AI trade, and recruitment." />
+      <meta name="description" content="Active platforms operated, built and scaled by Ravolution AB across education, AI governance, voice security, AI trade, and recruitment." />
       <link rel="canonical" href="https://ravolution.se/en/portfolio" />
+      <meta name="keywords" content="AIMagnifica, AI governance, AI compliance, EU AI Act, ISO 42001, AI gateway, prompt screening, AI audit logs, sovereign AI, enterprise AI security" />
+      <script type="application/ld+json">{JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        name: "Ravolution AB Portfolio",
+        itemListElement: companies.map((c, i) => ({
+          "@type": "ListItem",
+          position: i + 1,
+          item: {
+            "@type": "SoftwareApplication",
+            name: c.name,
+            applicationCategory: c.sector,
+            description: c.desc,
+            ...(c.href.startsWith("http") ? { url: c.href } : {}),
+          },
+        })),
+      })}</script>
     </Helmet>
+
     <EditorialShell>
       {/* Hero */}
       <section className="relative pt-40 pb-24 px-6 md:px-12 min-h-[55vh] flex flex-col justify-end overflow-hidden">
