@@ -4,6 +4,8 @@ import { EditorialShell, Reveal, SectionLabel } from "@/components/editorial/Edi
 const companies = [
   { name: "Rosetta Livingstone", sector: "EdTech · AI", status: "ACTIVE", desc: "AI language acquisition — 24× faster than conventional methods.", href: "https://rosettalivingstone.com" },
   { name: "CommunicaringSchool", sector: "Education", status: "ACTIVE", desc: "Global K1–K9 platform aligned with the UN Convention on the Rights of the Child.", href: "#" },
+  { name: "AIMagnifica", sector: "AI Governance", status: "FOR SALE", desc: "AI governance & compliance layer — screens prompts and documents before they reach any connected LLM, with Allow, Review or Stop decisions and audit-ready logging.", href: "https://aimagnifica.com/" },
+
   { name: "TOXINSIDE", sector: "Consumer · HealthTech", status: "LAUNCHING 2026", desc: "Scan any product — regulator-cited safety score and a better alternative. Prevention-economy play, EU-first, methodology-public.", href: "https://toxinside.com" },
   { name: "xPortMatch", sector: "B2B Trade", status: "ACTIVE", desc: "Export/import connector — 50-country partner network, 180K+ Nordic SMEs.", href: "https://xportmatch.com" },
   { name: "VoiceProtector", sector: "Cybersecurity", status: "ACTIVE", desc: "Voice biometrics & deepfake authentication — billion-dollar fraud market.", href: "https://voiceprotector.com" },
@@ -17,9 +19,27 @@ const PortfolioPage = () => (
   <>
     <Helmet>
       <title>Portfolio — Ravolution AB</title>
-      <meta name="description" content="Active platforms operated, built and scaled by Ravolution AB across education, voice security, AI trade, and recruitment." />
+      <meta name="description" content="Active platforms operated, built and scaled by Ravolution AB across education, AI governance, voice security, AI trade, and recruitment." />
       <link rel="canonical" href="https://ravolution.se/en/portfolio" />
+      <meta name="keywords" content="AIMagnifica, AI governance, AI compliance, EU AI Act, ISO 42001, AI gateway, prompt screening, AI audit logs, sovereign AI, enterprise AI security" />
+      <script type="application/ld+json">{JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        name: "Ravolution AB Portfolio",
+        itemListElement: companies.map((c, i) => ({
+          "@type": "ListItem",
+          position: i + 1,
+          item: {
+            "@type": "SoftwareApplication",
+            name: c.name,
+            applicationCategory: c.sector,
+            description: c.desc,
+            ...(c.href.startsWith("http") ? { url: c.href } : {}),
+          },
+        })),
+      })}</script>
     </Helmet>
+
     <EditorialShell>
       {/* Hero */}
       <section className="relative pt-40 pb-24 px-6 md:px-12 min-h-[55vh] flex flex-col justify-end overflow-hidden">
