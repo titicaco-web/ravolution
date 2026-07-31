@@ -333,7 +333,21 @@ const Index = () => {
       href: "https://xportmatch.com",
       cta: "Visit xPortMatch.com",
     },
+    {
+      name: "Beredskapad.se",
+      tagline: "Digital Crisis Preparedness Platform",
+      patents: "Domain, brand and platform concept",
+      summary:
+        "A Swedish-language platform that helps individuals, companies and organisations improve their crisis preparedness through practical education, checklists, readiness assessments and step-by-step guidance.",
+      market: "Swedish and Nordic preparedness education — households, employers, municipalities and insurers",
+      revenue: "Potential paths: consumer subscriptions, organisational licences, white-label portals, training packages",
+      href: lp("/beredskapad"),
+      cta: "Explore the Opportunity",
+      status: "Available for acquisition",
+      internal: true,
+    },
   ];
+
 
   return (
     <>
