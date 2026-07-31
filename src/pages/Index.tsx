@@ -691,14 +691,24 @@ const Index = () => {
                           )}
                           <div className="md:col-start-2 md:col-span-11 mt-6">
 
-                            <a
-                              href={c.href}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="inline-flex items-center gap-3 px-6 py-3 border border-white/30 text-white edit-label hover:bg-white hover:text-[hsl(var(--bg))] transition-colors"
-                            >
-                              {c.cta} ↗
-                            </a>
+                            {c.internal ? (
+                              <Link
+                                to={c.href}
+                                className="inline-flex items-center gap-3 px-6 py-3 border border-white/30 text-white edit-label hover:bg-white hover:text-[hsl(var(--bg))] transition-colors"
+                              >
+                                {c.cta} →
+                              </Link>
+                            ) : (
+                              <a
+                                href={c.href}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-3 px-6 py-3 border border-white/30 text-white edit-label hover:bg-white hover:text-[hsl(var(--bg))] transition-colors"
+                              >
+                                {c.cta} ↗
+                              </a>
+                            )}
+
                           </div>
                         </div>
                       )}
