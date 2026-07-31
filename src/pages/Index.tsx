@@ -517,14 +517,11 @@ const Index = () => {
               </span>
             </Reveal>
             <Reveal delay={0.1}>
-              <h1 className="edit-display text-white mt-8">{seo.h1}</h1>
-            </Reveal>
-            <Reveal delay={0.18}>
-              <p className="edit-body text-white/80 mt-6 max-w-3xl min-h-[1.6em]">
+              <h1 className="edit-display text-white mt-8 min-h-[1.1em]">
                 <span key={headlineIndex} className="inline-block animate-fade-in">
                   {heroHeadlines[headlineIndex]}
                 </span>
-              </p>
+              </h1>
             </Reveal>
 
             <Reveal delay={0.25}>
