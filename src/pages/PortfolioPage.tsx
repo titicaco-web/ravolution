@@ -11,7 +11,7 @@ const companies = [
   { name: "VoiceProtector", sector: "Cybersecurity", status: "ACTIVE", desc: "Voice biometrics & deepfake authentication — billion-dollar fraud market.", href: "https://voiceprotector.com" },
   { name: "iApply", sector: "Recruitment AI", status: "ACTIVE", desc: "AI-driven recruitment & qualification — patented matching infrastructure.", href: "https://iapply.se" },
   { name: "NewsToast", sector: "Media", status: "ACTIVE", desc: "Editorial-grade curated news platform.", href: "https://newstoast.com" },
-  { name: "Partysta", sector: "Marketplace", status: "ACTIVE", desc: "Event & experience marketplace concept.", href: "#" },
+  { name: "Partysta.com", sector: "Event Tech · Social Platform", status: "AVAILABLE FOR ACQUISITION", desc: "Party planning and memory-sharing platform — invitations, guest coordination, budgets, shared responsibilities and event memories in one space.", href: "/en/partysta" },
   { name: "Gyrocraft", sector: "Deep Tech", status: "RESEARCH", desc: "Stealth-stage deep tech initiative.", href: "#" },
   { name: "Beredskapad.se", sector: "Preparedness · EdTech", status: "AVAILABLE FOR ACQUISITION", desc: "Swedish digital crisis preparedness platform — education, checklists, readiness assessments and practical guidance for households and organisations.", href: "/en/beredskapad" },
   { name: "Hundelser.se", sector: "Pet Tech · Community", status: "AVAILABLE FOR ACQUISITION", desc: "Swedish social platform for dog owners — dog profiles, community content, friendships, activities, challenges and dog-related marketplace opportunities.", href: "/en/hundelser" },

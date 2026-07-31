@@ -404,6 +404,19 @@ const Index = () => {
       status: "Available for acquisition",
       internal: true,
     },
+    {
+      name: "Partysta.com",
+      tagline: "Party Planning & Memory-Sharing Platform",
+      patents: "Domain, brand and existing platform",
+      summary:
+        "A social event platform that helps hosts and guests plan celebrations, coordinate practical details and collect shared memories in one place.",
+      market: "Private and social celebrations — birthdays, weddings, graduations, dinners, reunions and company gatherings",
+      revenue: "Potential paths: premium event packages, host subscriptions, planner and venue accounts, marketplace and booking commissions",
+      href: lp("/partysta"),
+      cta: "Explore the Opportunity",
+      status: "Available for acquisition",
+      internal: true,
+    },
   ];
 
 
