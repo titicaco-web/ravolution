@@ -50,9 +50,14 @@ const ContactPage = () => {
   return (
     <>
       <Helmet>
-        <title>Contact — Ravolution AB</title>
-        <meta name="description" content="Reach Ravolution AB. Direct contact with the founding team across Stockholm, New York, Barcelona, Shanghai, Santiago and Zürich." />
+        <title>Contact Ravolution | Talk to the Venture Studio Team</title>
+        <meta name="description" content="Contact Ravolution AB about platform partnerships, licensing, acquisitions or investment. Direct line to founder Ivan Daza and the venture studio team." />
         <link rel="canonical" href="https://ravolution.se/en/contact" />
+        <meta property="og:title" content="Contact Ravolution | Talk to the Venture Studio Team" />
+        <meta property="og:description" content="Contact Ravolution AB about platform partnerships, licensing, acquisitions or investment." />
+        <meta property="og:url" content="https://ravolution.se/en/contact" />
+        <meta property="og:type" content="website" />
+
       </Helmet>
       <EditorialShell>
         {/* Giant email hero */}
