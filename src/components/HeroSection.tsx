@@ -10,8 +10,12 @@ const HeroSection = () => {
   const [videos, setVideos] = useState<string[]>([]);
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const [headlineIndex, setHeadlineIndex] = useState(0);
+  const [isHeadlineFading, setIsHeadlineFading] = useState(false);
   const { t } = useLanguage();
   const lp = useLangPath();
+
+  const headlines = (t("hero.headlines") as string[]) || [t("hero.headline")];
 
   useEffect(() => {
     const fetchVideos = async () => {
