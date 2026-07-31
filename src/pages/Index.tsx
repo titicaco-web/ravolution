@@ -70,7 +70,7 @@ const Index = () => {
   const canonicalUrl = `https://ravolution.se/${language}`;
 
   const heroHeadlines = [
-    t("hero.headline"),
+    seo.h1,
     ...Array.from({ length: 7 }, (_, i) => t(`hero.headlines.${i}`)).filter(
       (h) => h && !h.startsWith("hero.headlines")
     ),
