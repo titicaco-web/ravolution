@@ -202,7 +202,19 @@ const Index = () => {
   }[language];
 
   /* Operated platforms — full briefs */
-  const portfolio = [
+  const portfolio: Array<{
+    name: string;
+    tagline: string;
+    flagship?: boolean;
+    patents: string;
+    summary: string;
+    market: string;
+    revenue: string;
+    href: string;
+    cta: string;
+    details?: typeof aimagnifica;
+  }> = [
+
     {
       name: "CommunicaringSchool™",
       tagline: "UN-Compliant Global Education Platform",
