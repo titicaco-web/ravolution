@@ -21,10 +21,16 @@ const companies = [
 const PortfolioPage = () => (
   <>
     <Helmet>
-      <title>Portfolio — Ravolution AB</title>
-      <meta name="description" content="Active platforms operated, built and scaled by Ravolution AB across education, AI governance, voice security, AI trade, and recruitment." />
+      <title>Portfolio | Patented AI &amp; Deep Tech Platforms — Ravolution</title>
+      <meta name="description" content="The platforms Ravolution invents, builds and operates — AI governance, K–9 education, language learning, voice security, export matchmaking, health and preparedness ventures." />
       <link rel="canonical" href="https://ravolution.se/en/portfolio" />
+      <meta property="og:title" content="Portfolio | Patented AI &amp; Deep Tech Platforms — Ravolution" />
+      <meta property="og:description" content="AI governance, K–9 education, language learning, voice security, export matchmaking, health and preparedness platforms built by Ravolution." />
+      <meta property="og:type" content="website" />
+      <meta property="og:url" content="https://ravolution.se/en/portfolio" />
+      <meta name="twitter:card" content="summary_large_image" />
       <meta name="keywords" content="AIMagnifica, AI governance, AI compliance, EU AI Act, ISO 42001, AI gateway, prompt screening, AI audit logs, sovereign AI, enterprise AI security" />
+
       <script type="application/ld+json">{JSON.stringify({
         "@context": "https://schema.org",
         "@type": "ItemList",
