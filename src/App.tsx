@@ -32,6 +32,8 @@ const ContactPage = lazy(() => import("./pages/ContactPage"));
 const ApplyPage = lazy(() => import("./pages/ApplyPage"));
 const SalesPartnerPage = lazy(() => import("./pages/SalesPartnerPage"));
 const MetadataMachinePage = lazy(() => import("./pages/MetadataMachinePage"));
+const BeredskapadPage = lazy(() => import("./pages/BeredskapadPage"));
+
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 // Gyrocraft Pages
