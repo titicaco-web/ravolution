@@ -34,6 +34,7 @@ const SalesPartnerPage = lazy(() => import("./pages/SalesPartnerPage"));
 const MetadataMachinePage = lazy(() => import("./pages/MetadataMachinePage"));
 const BeredskapadPage = lazy(() => import("./pages/BeredskapadPage"));
 const HundelserPage = lazy(() => import("./pages/HundelserPage"));
+const PartystaPage = lazy(() => import("./pages/PartystaPage"));
 
 const NotFound = lazy(() => import("./pages/NotFound"));
 
