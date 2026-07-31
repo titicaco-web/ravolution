@@ -558,6 +558,16 @@ const Index = () => {
           </div>
         </section>
 
+        {/* ───────── INTRO (static, crawlable) ───────── */}
+        <section className="px-6 md:px-12 py-16 md:py-20 border-t border-white/10">
+          <div className="edit-container max-w-4xl">
+            <p className="edit-body text-white/85">{seo.intro1}</p>
+            <p className="edit-body text-white/65 mt-6">{seo.intro2}</p>
+          </div>
+        </section>
+
+
+
         {/* ───────── MARQUEE ───────── */}
         <MarqueeStrip
           items={[
