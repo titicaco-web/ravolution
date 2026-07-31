@@ -256,27 +256,37 @@ const Index = () => {
               </span>
             </Reveal>
             <Reveal delay={0.1}>
-              <h1 className="edit-display text-white mt-8">
-                {t("hero.headline") || "Solving civilization-scale challenges with"}
-                <br />
-                <span className="text-[hsl(var(--accent-edit))]">
-                  {t("hero.headlineHighlight") || "patented deep tech."}
+              <h1 className="edit-display text-white mt-8 min-h-[1.2em]">
+                <span
+                  key={headlineIndex}
+                  className="inline-block animate-fade-in"
+                >
+                  {heroHeadlines[headlineIndex]}
                 </span>
               </h1>
             </Reveal>
             <Reveal delay={0.25}>
-              <p className="edit-body text-white/65 mt-10 max-w-3xl">
-                We protect and scale the seven platforms transforming global opportunity:{" "}
-                <a href="https://iapply.se" target="_blank" rel="noopener noreferrer" className="text-white hover:text-[hsl(var(--accent-edit))] underline-offset-4 hover:underline transition-colors">iApply™</a>,{" "}
-                <a href="https://communicaringschool.com" target="_blank" rel="noopener noreferrer" className="text-white hover:text-[hsl(var(--accent-edit))] underline-offset-4 hover:underline transition-colors">CommunicaringSchool™</a>,{" "}
-                <a href="https://rosettalivingstone.com" target="_blank" rel="noopener noreferrer" className="text-white hover:text-[hsl(var(--accent-edit))] underline-offset-4 hover:underline transition-colors">Rosetta Livingstone™</a>,{" "}
-                <a href="https://xportmatch.com" target="_blank" rel="noopener noreferrer" className="text-white hover:text-[hsl(var(--accent-edit))] underline-offset-4 hover:underline transition-colors">xPortMatch™</a>,{" "}
-                <a href="https://newstoast.com" target="_blank" rel="noopener noreferrer" className="text-white hover:text-[hsl(var(--accent-edit))] underline-offset-4 hover:underline transition-colors">NewsToast™</a>,{" "}
-                <a href="https://mlops.ravolution.se/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-[hsl(var(--accent-edit))] underline-offset-4 hover:underline transition-colors">BizMeet™</a>,{" "}
-                <a href="https://toxinside.com" target="_blank" rel="noopener noreferrer" className="text-white hover:text-[hsl(var(--accent-edit))] underline-offset-4 hover:underline transition-colors">TOXINSIDE</a>,{" "}
-                <a href="https://carbonx.se/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-[hsl(var(--accent-edit))] underline-offset-4 hover:underline transition-colors">CarbonX™</a>.
+              <p className="edit-body text-white/70 mt-10 max-w-3xl">
+                {t("hero.subheadline")}
               </p>
             </Reveal>
+            <Reveal delay={0.35}>
+              <div className="mt-10 flex flex-wrap gap-4">
+                <Link
+                  to={lp("/portfolio")}
+                  className="px-8 py-4 bg-[hsl(var(--accent-edit))] text-[#0F2747] font-semibold tracking-tight hover:opacity-90 transition-opacity"
+                >
+                  {t("hero.ctaExplore")}
+                </Link>
+                <Link
+                  to={lp("/apply")}
+                  className="px-8 py-4 border border-white/40 text-white font-semibold tracking-tight hover:border-[hsl(var(--accent-edit))] hover:text-[hsl(var(--accent-edit))] transition-colors"
+                >
+                  {t("hero.ctaLicensing")}
+                </Link>
+              </div>
+            </Reveal>
+
           </div>
 
           {/* bottom indicator */}
