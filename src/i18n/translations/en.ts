@@ -544,7 +544,7 @@ export const en = {
     iapply: {
       subtitle: "Candidate-Centric Transparent Recruitment Platform",
       valueProposition:
-        "Category-creating innovation: Real-time recruiter transparency, AI-powered autonomous references, blockchain credentials & pre-screening with candidate coaching",
+        "Category-creating innovation: Real-time recruiter transparency, AI-powered autonomous references, verified credentials & pre-screening with candidate coaching",
       marketPotential: "$924B Global Recruiting Market by 2030",
       patentCoverage:
         "Recruiter action transparency, AI reference interviews, credential verification, pre-screening systems",

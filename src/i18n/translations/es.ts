@@ -480,12 +480,12 @@ export const es = {
   patentItems: {
     iapply: {
       subtitle: "Plataforma de reclutamiento transparente centrada en el candidato",
-      valueProposition: "Innovación que crea categoría: Transparencia del reclutador en tiempo real, referencias autónomas con IA, credenciales blockchain y preselección con coaching de candidatos",
+      valueProposition: "Innovación que crea categoría: Transparencia del reclutador en tiempo real, referencias autónomas con IA, credenciales verificadas y preselección con coaching de candidatos",
       marketPotential: "$924B Mercado global de reclutamiento para 2030",
       patentCoverage: "Transparencia del reclutador, entrevistas de referencia con IA, verificación de credenciales, sistemas de preselección",
       revenueModel: "SaaS freemium, licencias empresariales, asociaciones de datos",
       valuationRange: "$800M–1.5B pre-lanzamiento",
-      features: ["Visibilidad de acciones del reclutador en tiempo real", "Entrevistas de referencia autónomas con IA", "Verificación de credenciales blockchain", "Calificaciones de transparencia empresarial", "Preselección con IA y bucles de retroalimentación", "Coaching y desarrollo de candidatos"],
+      features: ["Visibilidad de acciones del reclutador en tiempo real", "Entrevistas de referencia autónomas con IA", "Verificación de credenciales", "Calificaciones de transparencia empresarial", "Preselección con IA y bucles de retroalimentación", "Coaching y desarrollo de candidatos"],
       markets: ["Buscadores de empleo globales (2B+ anuales)", "Departamentos de RRHH empresariales", "Agencias de reclutamiento", "Proveedores de verificación de antecedentes"],
     },
     communicaring: {
@@ -543,7 +543,7 @@ export const es = {
     iapplyPatentValue: "$1–2.3B valor",
     iapplyFeature1: "Transparencia de acciones del reclutador en tiempo real",
     iapplyFeature2: "Entrevistas de referencia autónomas con IA",
-    iapplyFeature3: "Verificación de credenciales blockchain",
+    iapplyFeature3: "Verificación de credenciales",
     rosettaSubtitle: "Revolución en aprendizaje de idiomas ambiental",
     rosettaLanguageLearning: "Aprendizaje de idiomas 2035",
     rosettaConsolidated: "Proyección consolidada",
