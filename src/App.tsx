@@ -35,6 +35,7 @@ const MetadataMachinePage = lazy(() => import("./pages/MetadataMachinePage"));
 const BeredskapadPage = lazy(() => import("./pages/BeredskapadPage"));
 const HundelserPage = lazy(() => import("./pages/HundelserPage"));
 const PartystaPage = lazy(() => import("./pages/PartystaPage"));
+const XportMatchPage = lazy(() => import("./pages/XportMatchPage"));
 
 const NotFound = lazy(() => import("./pages/NotFound"));
 
@@ -83,6 +84,9 @@ const App = () => (
             <Route path="/:lang/hundelser" element={<LanguageSync><HundelserPage /></LanguageSync>} />
             <Route path="/partysta" element={<LanguageSync><PartystaPage /></LanguageSync>} />
             <Route path="/:lang/partysta" element={<LanguageSync><PartystaPage /></LanguageSync>} />
+            <Route path="/xportmatch" element={<LanguageSync><XportMatchPage /></LanguageSync>} />
+            <Route path="/:lang/xportmatch" element={<LanguageSync><XportMatchPage /></LanguageSync>} />
+
 
 
 
