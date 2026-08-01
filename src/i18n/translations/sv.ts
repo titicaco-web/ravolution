@@ -477,12 +477,12 @@ export const sv = {
   patentItems: {
     iapply: {
       subtitle: "Kandidatcentrerad transparent rekryteringsplattform",
-      valueProposition: "Kategoriskapande innovation: Realtidsinsyn i rekryterares åtgärder, AI-drivna autonoma referensintervjuer, blockchain-verifierade meriter & förhandsscreening med kandidatcoaching",
+      valueProposition: "Kategoriskapande innovation: Realtidsinsyn i rekryterares åtgärder, AI-drivna autonoma referensintervjuer, verifierade meriter & förhandsscreening med kandidatcoaching",
       marketPotential: "$924 miljarder global rekryteringsmarknad till 2030",
       patentCoverage: "Rekryterares transparens, AI-referensintervjuer, meritverifiering, förhandsscreeningsystem",
       revenueModel: "Freemium SaaS, företagslicensiering, datainsiktspartnerskap",
       valuationRange: "$800M–1,5Mdr före lansering",
-      features: ["Realtidsinsyn i rekryterares åtgärder", "AI-drivna autonoma referensintervjuer", "Blockchain-meritverifiering", "Företagstransparensbetyg", "AI-förhandsscreening med feedbackloopar", "Kandidatcoaching & utveckling"],
+      features: ["Realtidsinsyn i rekryterares åtgärder", "AI-drivna autonoma referensintervjuer", "Meritverifiering", "Företagstransparensbetyg", "AI-förhandsscreening med feedbackloopar", "Kandidatcoaching & utveckling"],
       markets: ["Globala jobbsökare (2Mdr+ årligen)", "Företags HR-avdelningar", "Rekryteringsbyråer", "Bakgrundskontrollleverantörer"],
     },
     communicaring: {
