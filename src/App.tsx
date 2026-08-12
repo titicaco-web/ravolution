@@ -36,6 +36,7 @@ const BeredskapadPage = lazy(() => import("./pages/BeredskapadPage"));
 const HundelserPage = lazy(() => import("./pages/HundelserPage"));
 const PartystaPage = lazy(() => import("./pages/PartystaPage"));
 const XportMatchPage = lazy(() => import("./pages/XportMatchPage"));
+const BizMeetPage = lazy(() => import("./pages/BizMeetPage"));
 
 const NotFound = lazy(() => import("./pages/NotFound"));
 
