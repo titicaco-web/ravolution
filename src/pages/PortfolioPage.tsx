@@ -2,6 +2,7 @@ import { Helmet } from "react-helmet-async";
 import { EditorialShell, Reveal, SectionLabel } from "@/components/editorial/EditorialLayout";
 
 const companies = [
+  { name: "BizMeet", sector: "Community OS · SaaS", status: "ACTIVE", desc: "White-label community operating system for organisations running 2,000–20,000 members. Replaces Meetup, Eventbrite, Mailchimp, Slack and Stripe with one branded platform.", href: "/en/bizmeet" },
   { name: "Rosetta Livingstone", sector: "EdTech · AI", status: "ACTIVE", desc: "AI language acquisition — 24× faster than conventional methods.", href: "https://rosettalivingstone.com" },
   { name: "CommunicaringSchool", sector: "Education", status: "ACTIVE", desc: "Global K1–K9 platform aligned with the UN Convention on the Rights of the Child.", href: "#" },
   { name: "AIMagnifica", sector: "AI Governance", status: "FOR SALE", desc: "AI governance & compliance layer — screens prompts and documents before they reach any connected LLM, with Allow, Review or Stop decisions and audit-ready logging.", href: "https://aimagnifica.com/" },

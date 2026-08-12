@@ -17,6 +17,7 @@ Ravolution AB operates a Build-for-Equity model, invests directly as an angel, a
 - [Beredskapad.se](/en/beredskapad): Swedish digital crisis preparedness platform concept — education, assessments, checklists and guidance. Available for acquisition.
 - [Hundelser.se](/en/hundelser): Swedish social platform for dog owners — dog profiles, community content, friendships, activities, challenges and marketplace opportunities. Available for acquisition.
 - [Partysta.com](/en/partysta): Party planning and memory-sharing platform — invitations, guest coordination, budgets, shared responsibilities and event memories. Available for acquisition.
+- [BizMeet™](/en/bizmeet): White-label community operating system for organisations running 2,000–20,000 members. Replaces Meetup, Eventbrite, Mailchimp, Slack and Stripe with one branded platform.
 
 - [Patent Strategy for Startups](/en/patent-strategy-for-startups): Guide to strategic IP for founders.
 - [Technical Cofounder Alternative](/en/technical-cofounder-alternative): How we replace a missing technical co-founder.
