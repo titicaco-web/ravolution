@@ -306,12 +306,12 @@ const Index = () => {
     },
     {
       name: "BizMeet™",
-      tagline: "B2B Meeting & Networking Platform",
-      patents: "Trade infrastructure platform",
-      summary: "Curated B2B meeting platform connecting Swedish and international businesses for high-intent commercial conversations, networking events, and partnership formation.",
-      market: "European B2B networking & event tech market — millions of SMEs seeking partners",
-      revenue: "Subscription, event ticketing, premium matchmaking",
-      href: "https://mlops.ravolution.se/",
+      tagline: "WHITE-LABEL COMMUNITY OS",
+      patents: "White-label community platform",
+      summary: "The community operating system for organisations running 2,000–20,000 members. Replaces the stack of five tools (Meetup, Eventbrite, Mailchimp, Slack, Stripe) with one platform under the customer's own brand.",
+      market: "Community operators, industry publishers, verticalized panel series (5k+ members)",
+      revenue: "Two-tier SaaS — €500/mo + 30% or €1,500/mo + 10% revenue share",
+      href: "https://mlops.ravolution.se/platform",
       cta: "Visit Website",
     },
     {
