@@ -277,16 +277,6 @@ const Index = () => {
       cta: "Visit Website",
     },
     {
-      name: "CarbonX™",
-      tagline: "Verified Carbon Credit Trading Platform",
-      patents: "Compliance-first marketplace architecture",
-      summary: "Digital marketplace for verified carbon credits with Gold Standard and Verra compliance baked into every transaction — built for transparent, auditable corporate decarbonization.",
-      market: "$2.4T projected voluntary & compliance carbon markets by 2030",
-      revenue: "Transaction fees, enterprise compliance subscriptions, data licensing",
-      href: "https://carbonx.se/",
-      cta: "Visit Website",
-    },
-    {
       name: "Rosetta Livingstone™",
       tagline: "Language Learning Revolution",
       patents: "4 Patents · 52 Claims",
@@ -297,6 +287,36 @@ const Index = () => {
       cta: "Visit Rosetta Livingstone",
     },
     {
+      name: "SINGUISTIC™",
+      tagline: "LANGUAGE LEARNING · MUSIC-NATIVE · GLOBAL",
+      flagship: true,
+      patents: "Patent filed on the underlying learning system (Rosetta Livingstone); continuation in preparation on prosodic alignment of translated lyrics to sung timing",
+      summary:
+        "Turn listening into learning. Synced dual-language lyrics for whatever's playing — tap a word, keep it, master it through spaced repetition. Built on the Spotify Web API, backed by peer-reviewed research, live in 26 languages. The learning layer for the world's most-loved habit.",
+      market: "Language learning and music-native education — a $1B+ digital category",
+      revenue: "Freemium consumer subscriptions ($1.99–2.99/mo), education seat licences, and sponsored collections with cultural institutes",
+      cells: [
+        {
+          l: "Moat",
+          d: "Learner-outcome data no one else has — songs ranked by what people actually master, not plays. Patent filed on the underlying learning system (Rosetta Livingstone); continuation in preparation on prosodic alignment of translated lyrics to sung timing.",
+        },
+        {
+          l: "Market",
+          d: "Language learning is a proven $1B+ digital category (Duolingo: 12M+ paying learners) — and 67% of adults say they want to learn a language. Music is the motivation engine every incumbent lacks.",
+        },
+        {
+          l: "Vertical · Integration",
+          d: "Sweden-first education wedge: SFI and municipal language programs, with teacher dashboards and CEFR-anchored student reports built from authentic material. Learning as a bridge into a new country — culturally and linguistically.",
+        },
+        {
+          l: "Model",
+          d: "Freemium consumer subscriptions ($1.99–2.99/mo), education seat licences, and sponsored collections with cultural institutes. No ads. No listening data sold.",
+        },
+      ],
+      href: "https://singuistic.com",
+      cta: "Visit Website",
+    },
+    {
       name: "NewsToast™",
       tagline: "Mobile-First Language Learning Through Daily News",
       patents: "3 Patents · 38 Claims",
@@ -305,6 +325,16 @@ const Index = () => {
       revenue: "Freemium subscriptions, premium tiers, B2B integration partnerships",
       href: "https://newstoast.com",
       cta: "Visit NewsToast.com",
+    },
+    {
+      name: "CarbonX™",
+      tagline: "Verified Carbon Credit Trading Platform",
+      patents: "Compliance-first marketplace architecture",
+      summary: "Digital marketplace for verified carbon credits with Gold Standard and Verra compliance baked into every transaction — built for transparent, auditable corporate decarbonization.",
+      market: "$2.4T projected voluntary & compliance carbon markets by 2030",
+      revenue: "Transaction fees, enterprise compliance subscriptions, data licensing",
+      href: "https://carbonx.se/",
+      cta: "Visit Website",
     },
     {
       name: "BizMeet™",
@@ -442,37 +472,8 @@ const Index = () => {
       cta: "Explore the Opportunity",
       status: "Available for acquisition",
       internal: true,
-    },
-    {
-      name: "SINGUISTIC™",
-      tagline: "LANGUAGE LEARNING · MUSIC-NATIVE · GLOBAL",
-      flagship: true,
-      patents: "Patent filed on the underlying learning system (Rosetta Livingstone); continuation in preparation on prosodic alignment of translated lyrics to sung timing",
-      summary:
-        "Turn listening into learning. Synced dual-language lyrics for whatever's playing — tap a word, keep it, master it through spaced repetition. Built on the Spotify Web API, backed by peer-reviewed research, live in 26 languages. The learning layer for the world's most-loved habit.",
-      market: "Language learning and music-native education — a $1B+ digital category",
-      revenue: "Freemium consumer subscriptions ($1.99–2.99/mo), education seat licences, and sponsored collections with cultural institutes",
-      cells: [
-        {
-          l: "Moat",
-          d: "Learner-outcome data no one else has — songs ranked by what people actually master, not plays. Patent filed on the underlying learning system (Rosetta Livingstone); continuation in preparation on prosodic alignment of translated lyrics to sung timing.",
-        },
-        {
-          l: "Market",
-          d: "Language learning is a proven $1B+ digital category (Duolingo: 12M+ paying learners) — and 67% of adults say they want to learn a language. Music is the motivation engine every incumbent lacks.",
-        },
-        {
-          l: "Vertical · Integration",
-          d: "Sweden-first education wedge: SFI and municipal language programs, with teacher dashboards and CEFR-anchored student reports built from authentic material. Learning as a bridge into a new country — culturally and linguistically.",
-        },
-        {
-          l: "Model",
-          d: "Freemium consumer subscriptions ($1.99–2.99/mo), education seat licences, and sponsored collections with cultural institutes. No ads. No listening data sold.",
-        },
-      ],
-      href: "https://singuistic.com",
-      cta: "Visit Website",
-    },
+    }
+
   ];
 
 
