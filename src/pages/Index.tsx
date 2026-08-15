@@ -359,6 +359,18 @@ const Index = () => {
       details: aimagnifica,
     },
     {
+      name: "AlarmSole™",
+      tagline: "CONNECTED FOOTWEAR · PERSONAL SAFETY · PATENT PENDING",
+      flagship: true,
+      patents: "Patent pending — PRV 2630522-7 · 26 claims",
+      summary:
+        "A discreet connected safety sole activated through the foot — sending SOS, live location and app-based emergency workflows without requiring the user to reach for a phone. Built as both a standalone trim-to-fit product and an embedded technology platform for global footwear brands.",
+      market: "Personal safety, connected wearables, family location, smart footwear, lone-worker protection and digital health",
+      revenue: "Standalone sales, AlarmSole Connect subscriptions, OEM integration, platform licensing",
+      href: "https://alarmsole.com",
+      cta: "Visit Website",
+    },
+    {
       name: "iApply™",
       tagline: "Candidate-Centric Transparent Recruitment Platform",
       flagship: true,
