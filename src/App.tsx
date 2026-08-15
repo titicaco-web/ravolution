@@ -90,6 +90,8 @@ const App = () => (
             <Route path="/:lang/bizmeet" element={<LanguageSync><BizMeetPage /></LanguageSync>} />
             <Route path="/xportmatch" element={<LanguageSync><XportMatchPage /></LanguageSync>} />
             <Route path="/:lang/xportmatch" element={<LanguageSync><XportMatchPage /></LanguageSync>} />
+            <Route path="/alarmsole" element={<LanguageSync><AlarmSolePage /></LanguageSync>} />
+            <Route path="/:lang/alarmsole" element={<LanguageSync><AlarmSolePage /></LanguageSync>} />
 
 
 
