@@ -11,6 +11,7 @@ const companies = [
   { name: "XportMatch.com", sector: "Export Tech · B2B SaaS", status: "AVAILABLE FOR ACQUISITION", desc: "AI-native export matchmaking — market intelligence, international buyer discovery and export opportunity management for export-ready companies.", href: "/en/xportmatch" },
   { name: "VoiceProtector", sector: "Cybersecurity", status: "ACTIVE", desc: "Voice biometrics & deepfake authentication — billion-dollar fraud market.", href: "https://voiceprotector.com" },
   { name: "iApply", sector: "Recruitment AI", status: "ACTIVE", desc: "AI-driven recruitment & qualification — patented matching infrastructure.", href: "https://iapply.se" },
+  { name: "AlarmSole", sector: "Connected Wearables · Safety", status: "PATENT PENDING", desc: "Discreet connected safety sole activated through the foot — sending SOS, live location and app-based emergency workflows. Built as a standalone trim-to-fit product and an embedded technology platform for global footwear brands.", href: "https://alarmsole.com" },
   { name: "NewsToast", sector: "Media", status: "ACTIVE", desc: "Editorial-grade curated news platform.", href: "https://newstoast.com" },
   { name: "Partysta.com", sector: "Event Tech · Social Platform", status: "AVAILABLE FOR ACQUISITION", desc: "Party planning and memory-sharing platform — invitations, guest coordination, budgets, shared responsibilities and event memories in one space.", href: "/en/partysta" },
   { name: "Gyrocraft", sector: "Deep Tech", status: "RESEARCH", desc: "Stealth-stage deep tech initiative.", href: "#" },
