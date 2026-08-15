@@ -7,7 +7,7 @@ const companies = [
   { name: "CommunicaringSchool", sector: "Education", status: "ACTIVE", desc: "Global K1–K9 platform aligned with the UN Convention on the Rights of the Child.", href: "#" },
   { name: "AIMagnifica", sector: "AI Governance", status: "FOR SALE", desc: "AI governance & compliance layer — screens prompts and documents before they reach any connected LLM, with Allow, Review or Stop decisions and audit-ready logging.", href: "https://aimagnifica.com/" },
 
-  { name: "TOXINSIDE", sector: "Consumer · HealthTech", status: "LAUNCHING 2026", desc: "Scan any product — regulator-cited safety score and a better alternative. Prevention-economy play, EU-first, methodology-public.", href: "https://toxinside.com" },
+  { name: "TOXINSIDE", sector: "Consumer · HealthTech", status: "LAUNCHING 2026", desc: "Scan any product for a regulator-cited safety score and a better alternative. Methodology-public, EU-first, with a native halal ingredient vertical. A prevention-economy platform built for a strategic outcome.", href: "https://toxinside.com" },
   { name: "XportMatch.com", sector: "Export Tech · B2B SaaS", status: "AVAILABLE FOR ACQUISITION", desc: "AI-native export matchmaking — market intelligence, international buyer discovery and export opportunity management for export-ready companies.", href: "/en/xportmatch" },
   { name: "VoiceProtector", sector: "Cybersecurity", status: "ACTIVE", desc: "Voice biometrics & deepfake authentication — billion-dollar fraud market.", href: "https://voiceprotector.com" },
   { name: "iApply", sector: "Recruitment AI", status: "ACTIVE", desc: "AI-driven recruitment & qualification — patented matching infrastructure.", href: "https://iapply.se" },

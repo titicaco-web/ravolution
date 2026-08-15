@@ -259,7 +259,9 @@ const Index = () => {
     cta: string;
     status?: string;
     internal?: boolean;
+    cells?: { l: string; d: string }[];
     details?: typeof aimagnifica;
+
 
   }> = [
 
@@ -316,14 +318,34 @@ const Index = () => {
     },
     {
       name: "TOXINSIDE™",
-      tagline: "Product Safety & Transparency Scanner",
-      patents: "Patent-pending safety scoring methodology",
-      summary: "Scan any product — regulator-cited safety score and a better alternative. Prevention-economy play, EU-first, methodology-public.",
-      market: "Consumer product safety & transparency market — EU-first expansion",
-      revenue: "Freemium app, affiliate alternative marketplace, B2B compliance data licensing",
+      tagline: "Product Safety & Ingredient Transparency · EU-First",
+      patents: "Filed patent — safety-scoring methodology",
+      summary:
+        "Scan any product for a regulator-cited safety score and a better alternative. Methodology-public, EU-first, with a native halal ingredient vertical opening the world's fastest-growing consumer market. A prevention-economy platform built for a strategic outcome.",
+      market: "Consumer ingredient-transparency category — EU-first expansion",
+      revenue: "Freemium subscriptions, B2B brand-verification portal, anonymized data licensing",
+      cells: [
+        {
+          l: "Moat",
+          d: "Filed patent on the safety-scoring methodology, plus a published, regulator-cited method competitors cannot copy without abandoning their own commercial model.",
+        },
+        {
+          l: "Market",
+          d: "Consumer ingredient-transparency category — created by Yuka, validated at 90M+ users across the EU and US. TOXINSIDE is the methodology-public successor.",
+        },
+        {
+          l: "Vertical · Halal",
+          d: "A native halal / haram ingredient check — flags, never certifies — addressing the daily needs of the world's ~2 billion Muslims. Extends the addressable market and the acquirer pool into MENA.",
+        },
+        {
+          l: "Model",
+          d: "Freemium consumer subscriptions, a B2B brand-verification portal, and anonymized data licensing. No ads. No user data sold.",
+        },
+      ],
       href: "https://toxinside.com",
       cta: "Visit Website",
     },
+
     {
       name: "AIMagnifica™",
       tagline: aimagnifica.tagline,
@@ -717,6 +739,16 @@ const Index = () => {
                       </button>
                       {isOpen && (
                         <div className="pb-10 md:pb-12 grid md:grid-cols-12 gap-4 md:gap-10 animate-fade-in">
+                          {c.cells ? (
+                            <div className="md:col-start-2 md:col-span-11 grid sm:grid-cols-2 gap-px bg-white/10 border border-white/10">
+                              {c.cells.map((cell) => (
+                                <div key={cell.l} className="bg-[hsl(var(--surface))] p-6">
+                                  <span className="edit-label text-[hsl(var(--accent-edit))] block mb-3 uppercase">{cell.l}</span>
+                                  <p className="text-white/85 text-sm leading-relaxed">{cell.d}</p>
+                                </div>
+                              ))}
+                            </div>
+                          ) : (
                           <div className="md:col-start-2 md:col-span-11 grid md:grid-cols-3 gap-px bg-white/10 border border-white/10">
                             <div className="bg-[hsl(var(--surface))] p-6">
                               <span className="edit-label text-[hsl(var(--accent-edit))] block mb-3">Patents</span>
@@ -731,6 +763,8 @@ const Index = () => {
                               <p className="text-white/85 text-sm leading-relaxed">{c.revenue}</p>
                             </div>
                           </div>
+                          )}
+
                           {c.details && (
                             <div className="md:col-start-2 md:col-span-11 mt-8 space-y-8">
                               <div>
