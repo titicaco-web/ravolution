@@ -2,7 +2,7 @@
 
 > Swedish venture studio and angel investor building deep tech platforms in language learning, voice security, AI trade infrastructure, and K1–K9 education. Founded by inventor Ivan Daza (27 patents, 343 claims).
 
-Ravolution AB operates a Build-for-Equity model, invests directly as an angel, and runs a portfolio of patented platforms — iApply, CommunicaringSchool, AIMagnifica (enterprise AI governance & compliance layer, available for sale), Rosetta Livingstone, xPortMatch, VoiceProtector, NewsToast, BizMeet, CarbonX, Partysta, It's a Fitt, AlarmSole (connected footwear safety platform, patent pending).
+Ravolution AB operates a Build-for-Equity model, invests directly as an angel, and runs a portfolio of patented platforms — iApply, CommunicaringSchool, AIMagnifica (enterprise AI governance & compliance layer, available for sale), Rosetta Livingstone, SINGUISTIC (music-native language learning, live in 26 languages), xPortMatch, VoiceProtector, NewsToast, BizMeet, CarbonX, Partysta, It's a Fitt, AlarmSole (connected footwear safety platform, patent pending).
 
 ## Pages
 
@@ -14,12 +14,12 @@ Ravolution AB operates a Build-for-Equity model, invests directly as an angel, a
 - [Angel Investor](/en/angel-investor): Direct early-stage capital with patent strategy and technical co-founder support.
 - [Invest](/en/invest): Investor landing page for qualified leads.
 - [Portfolio](/en/portfolio): Operated and licensed platforms across 6+ industries.
+- [SINGUISTIC™](https://singuistic.com): Music-native language learning platform — synced dual-language lyrics, tap-to-save vocabulary, spaced repetition and CEFR-anchored student reports. Live in 26 languages.
 - [Beredskapad.se](/en/beredskapad): Swedish digital crisis preparedness platform concept — education, assessments, checklists and guidance. Available for acquisition.
 - [Hundelser.se](/en/hundelser): Swedish social platform for dog owners — dog profiles, community content, friendships, activities, challenges and marketplace opportunities. Available for acquisition.
 - [Partysta.com](/en/partysta): Party planning and memory-sharing platform — invitations, guest coordination, budgets, shared responsibilities and event memories. Available for acquisition.
 - [BizMeet™](/en/bizmeet): White-label community operating system for organisations running 2,000–20,000 members. Replaces Meetup, Eventbrite, Mailchimp, Slack and Stripe with one branded platform.
 - [AlarmSole™](/en/alarmsole): Connected footwear safety platform — a discreet smart sole activated through the foot to send SOS, live location and emergency workflows. Patent pending PRV 2630522-7. Open to investment, OEM, licensing and strategic partnerships.
-
 - [Patent Strategy for Startups](/en/patent-strategy-for-startups): Guide to strategic IP for founders.
 - [Technical Cofounder Alternative](/en/technical-cofounder-alternative): How we replace a missing technical co-founder.
 - [Brief](/en/brief): Intake form to submit a platform concept.
