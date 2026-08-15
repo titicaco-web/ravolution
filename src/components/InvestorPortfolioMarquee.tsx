@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { Briefcase, GraduationCap, Languages, Globe, Dog, Heart, ShieldAlert, ShieldCheck, Droplets, Home, Calendar, Gift, ExternalLink, Newspaper, PartyPopper, Handshake, Leaf, ScanLine } from "lucide-react";
+import { Briefcase, GraduationCap, Languages, Globe, Dog, Heart, ShieldAlert, ShieldCheck, Droplets, Home, Calendar, Gift, ExternalLink, Newspaper, PartyPopper, Handshake, Leaf, ScanLine, Footprints } from "lucide-react";
 import { useLangPath } from "@/hooks/use-lang-path";
 
 type Item = {
@@ -71,6 +71,7 @@ const InvestorPortfolioMarquee = ({ transparent = false }: { transparent?: boole
     { name: "CarbonX™", icon: Leaf, href: "https://carbonx.se/", external: true },
     { name: "Partysta™", icon: PartyPopper, href: lp("/partysta"), external: false },
     { name: "iApply.se", icon: Briefcase, href: "https://iapply.se", external: true },
+    { name: "AlarmSole™", icon: Footprints, href: "https://alarmsole.com", external: true },
     { name: "XportMatch.com", icon: Globe, href: lp("/xportmatch"), external: false },
     { name: "Eventor™", icon: Calendar, href: lp("/#concepts"), external: true },
     { name: "Givin™", icon: Gift, href: lp("/#concepts"), external: true },
