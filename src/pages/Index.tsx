@@ -739,6 +739,16 @@ const Index = () => {
                       </button>
                       {isOpen && (
                         <div className="pb-10 md:pb-12 grid md:grid-cols-12 gap-4 md:gap-10 animate-fade-in">
+                          {c.cells ? (
+                            <div className="md:col-start-2 md:col-span-11 grid sm:grid-cols-2 gap-px bg-white/10 border border-white/10">
+                              {c.cells.map((cell) => (
+                                <div key={cell.l} className="bg-[hsl(var(--surface))] p-6">
+                                  <span className="edit-label text-[hsl(var(--accent-edit))] block mb-3 uppercase">{cell.l}</span>
+                                  <p className="text-white/85 text-sm leading-relaxed">{cell.d}</p>
+                                </div>
+                              ))}
+                            </div>
+                          ) : (
                           <div className="md:col-start-2 md:col-span-11 grid md:grid-cols-3 gap-px bg-white/10 border border-white/10">
                             <div className="bg-[hsl(var(--surface))] p-6">
                               <span className="edit-label text-[hsl(var(--accent-edit))] block mb-3">Patents</span>
@@ -753,6 +763,8 @@ const Index = () => {
                               <p className="text-white/85 text-sm leading-relaxed">{c.revenue}</p>
                             </div>
                           </div>
+                          )}
+
                           {c.details && (
                             <div className="md:col-start-2 md:col-span-11 mt-8 space-y-8">
                               <div>
