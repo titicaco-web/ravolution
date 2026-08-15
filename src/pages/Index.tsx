@@ -259,7 +259,9 @@ const Index = () => {
     cta: string;
     status?: string;
     internal?: boolean;
+    cells?: { l: string; d: string }[];
     details?: typeof aimagnifica;
+
 
   }> = [
 
