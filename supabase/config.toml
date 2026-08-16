@@ -5,3 +5,6 @@ verify_jwt = false
 
 [functions.upload-brief-file]
 verify_jwt = false
+
+[functions.send-investor-inquiry]
+verify_jwt = false
