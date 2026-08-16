@@ -16,6 +16,7 @@ import IsometricGrid from "@/components/effects/IsometricGrid";
 import RadialPulseBlob from "@/components/effects/RadialPulseBlob";
 import TypewriterCycle from "@/components/effects/TypewriterCycle";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
+import PortfolioAccessGate, { isGateUnlocked } from "@/components/PortfolioAccessGate";
 
 const Index = () => {
   const { t, language } = useLanguage();
@@ -259,6 +260,7 @@ const Index = () => {
     cta: string;
     status?: string;
     internal?: boolean;
+    gated?: boolean;
     cells?: { l: string; d: string }[];
     details?: typeof aimagnifica;
 
