@@ -126,9 +126,9 @@ const Index = () => {
   /* Stats */
   const stats = [
     { value: 27, label: "Patents granted" },
-    { value: 343, label: "Patent claims" },
-    { value: 11, label: "Active platforms", suffix: "+" },
-    { value: 150, label: "Countries reached", suffix: "+" },
+    { value: 369, label: "Patent claims" },
+    { value: 12, label: "Active platforms", suffix: "+" },
+    { value: 80, label: "Countries reached", suffix: "+" },
   ];
 
   /* AIMagnifica — localized copy */
