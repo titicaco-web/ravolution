@@ -24,6 +24,7 @@ const Index = () => {
 
   const [time, setTime] = useState("");
   const [openCard, setOpenCard] = useState<string | null>(null);
+  const [unlocked, setUnlocked] = useState<string[]>([]);
   const processAnim = useScrollAnimation<HTMLUListElement>(0.25);
 
   const seoByLang = {
@@ -292,6 +293,7 @@ const Index = () => {
       name: "SINGUISTIC™",
       tagline: "LANGUAGE LEARNING · MUSIC-NATIVE · GLOBAL",
       flagship: true,
+      gated: true,
       patents: "Patent filed on the underlying learning system (Rosetta Livingstone); continuation in preparation on prosodic alignment of translated lyrics to sung timing",
       summary:
         "Turn listening into learning. Synced dual-language lyrics for whatever's playing — tap a word, keep it, master it through spaced repetition. Built on the Spotify Web API, backed by peer-reviewed research, live in 26 languages. The learning layer for the world's most-loved habit.",
@@ -394,6 +396,7 @@ const Index = () => {
       name: "AlarmSole™",
       tagline: "CONNECTED FOOTWEAR · PERSONAL SAFETY · PATENT PENDING",
       flagship: true,
+      gated: true,
       patents: "Patent pending — PRV 2630522-7 · 26 claims",
       summary:
         "A discreet connected safety sole activated through the foot — sending SOS, live location and app-based emergency workflows without requiring the user to reach for a phone. Built as both a standalone trim-to-fit product and an embedded technology platform for global footwear brands.",
@@ -750,6 +753,8 @@ const Index = () => {
             <div className="border-t border-white/10">
               {portfolio.map((c, i) => {
                 const isOpen = openCard === c.name;
+                const isLocked =
+                  !!c.gated && !unlocked.includes(c.name) && !isGateUnlocked(c.name);
                 return (
                   <Reveal key={c.name} delay={i * 0.04}>
                     <div className="frosted-card border-b border-white/10 mb-2">
