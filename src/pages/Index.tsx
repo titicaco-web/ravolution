@@ -784,10 +784,18 @@ const Index = () => {
                         </div>
                         <p className="md:col-span-5 edit-body text-white/65">{c.summary}</p>
                         <span className="md:col-span-1 edit-label text-white/40 md:text-right group-hover:text-[hsl(var(--accent-edit))] transition-colors">
-                          {isOpen ? "− Close" : "+ Details"}
+                          {isOpen ? "− Close" : isLocked ? "🔒 Details" : "+ Details"}
                         </span>
                       </button>
-                      {isOpen && (
+                      {isOpen && isLocked && (
+                        <div className="pb-10 md:pb-12 grid md:grid-cols-12 gap-4 md:gap-10 animate-fade-in">
+                          <PortfolioAccessGate
+                            project={c.name}
+                            onUnlock={() => setUnlocked((u) => [...u, c.name])}
+                          />
+                        </div>
+                      )}
+                      {isOpen && !isLocked && (
                         <div className="pb-10 md:pb-12 grid md:grid-cols-12 gap-4 md:gap-10 animate-fade-in">
                           {c.cells ? (
                             <div className="md:col-start-2 md:col-span-11 grid sm:grid-cols-2 gap-px bg-white/10 border border-white/10">
