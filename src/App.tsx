@@ -22,6 +22,8 @@ const ServicesPage = lazy(() => import("./pages/ServicesPage"));
 const BriefPage = lazy(() => import("./pages/BriefPage"));
 const ConfigurePage = lazy(() => import("./pages/ConfigurePage"));
 const BlogPodcast = lazy(() => import("./pages/BlogPodcast"));
+const JournalPage = lazy(() => import("./pages/JournalPage"));
+const JournalArticlePage = lazy(() => import("./pages/JournalArticlePage"));
 const InvestPage = lazy(() => import("./pages/InvestPage"));
 const AngelInvestor = lazy(() => import("./pages/AngelInvestor"));
 const BuildForEquity = lazy(() => import("./pages/BuildForEquity"));
