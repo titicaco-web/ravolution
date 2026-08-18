@@ -22,6 +22,8 @@ const ServicesPage = lazy(() => import("./pages/ServicesPage"));
 const BriefPage = lazy(() => import("./pages/BriefPage"));
 const ConfigurePage = lazy(() => import("./pages/ConfigurePage"));
 const BlogPodcast = lazy(() => import("./pages/BlogPodcast"));
+const JournalPage = lazy(() => import("./pages/JournalPage"));
+const JournalArticlePage = lazy(() => import("./pages/JournalArticlePage"));
 const InvestPage = lazy(() => import("./pages/InvestPage"));
 const AngelInvestor = lazy(() => import("./pages/AngelInvestor"));
 const BuildForEquity = lazy(() => import("./pages/BuildForEquity"));
@@ -108,6 +110,8 @@ const App = () => (
             <Route path="/:lang/brief" element={<LanguageSync><BriefPage /></LanguageSync>} />
             <Route path="/:lang/configure" element={<LanguageSync><ConfigurePage /></LanguageSync>} />
             <Route path="/:lang/blog" element={<LanguageSync><BlogPodcast /></LanguageSync>} />
+            <Route path="/:lang/journal" element={<LanguageSync><JournalPage /></LanguageSync>} />
+            <Route path="/:lang/journal/:slug" element={<LanguageSync><JournalArticlePage /></LanguageSync>} />
             <Route path="/:lang/invest" element={<LanguageSync><InvestPage /></LanguageSync>} />
             <Route path="/:lang/angel-investor" element={<LanguageSync><AngelInvestor /></LanguageSync>} />
             <Route path="/:lang/build-for-equity" element={<LanguageSync><BuildForEquity /></LanguageSync>} />

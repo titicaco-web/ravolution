@@ -298,6 +298,7 @@ export const EditorialFooter = () => {
             { l: "Portfolio", h: lp("/portfolio") },
             { l: salesPartnerLabel, h: salesPartnerHref },
             { l: "Press", h: lp("/blog") },
+            { l: "Journal", h: lp("/journal") },
             { l: applyLabel, h: applyHref },
             { l: "Metadata Machine", h: lp("/metadatamachine") },
             { l: "Contact", h: lp("/contact") },

@@ -115,6 +115,18 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://ravolution.se/en/journal</loc>
+    <lastmod>2026-08-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ravolution.se/en/journal/bizmeet-natverkande-fore-under-efter</loc>
+    <lastmod>2026-08-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://ravolution.se/en/patent-strategy-for-startups</loc>
     <lastmod>2026-04-15</lastmod>
     <changefreq>monthly</changefreq>
