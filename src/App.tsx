@@ -110,6 +110,8 @@ const App = () => (
             <Route path="/:lang/brief" element={<LanguageSync><BriefPage /></LanguageSync>} />
             <Route path="/:lang/configure" element={<LanguageSync><ConfigurePage /></LanguageSync>} />
             <Route path="/:lang/blog" element={<LanguageSync><BlogPodcast /></LanguageSync>} />
+            <Route path="/:lang/journal" element={<LanguageSync><JournalPage /></LanguageSync>} />
+            <Route path="/:lang/journal/:slug" element={<LanguageSync><JournalArticlePage /></LanguageSync>} />
             <Route path="/:lang/invest" element={<LanguageSync><InvestPage /></LanguageSync>} />
             <Route path="/:lang/angel-investor" element={<LanguageSync><AngelInvestor /></LanguageSync>} />
             <Route path="/:lang/build-for-equity" element={<LanguageSync><BuildForEquity /></LanguageSync>} />
