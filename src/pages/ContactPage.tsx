@@ -1,8 +1,10 @@
 import { Helmet } from "react-helmet-async";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 import { EditorialShell, Reveal, SectionLabel } from "@/components/editorial/EditorialLayout";
+
 
 const Field = ({
   label, value, onChange, type = "text", required = false,
@@ -20,9 +22,21 @@ const Field = ({
 );
 
 const ContactPage = () => {
+  const [searchParams] = useSearchParams();
+  const project = searchParams.get("project");
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [sent, setSent] = useState(false);
   const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    if (project) {
+      setForm((f) => ({
+        ...f,
+        message: `Project: ${project.charAt(0).toUpperCase() + project.slice(1)}\n\n`,
+      }));
+    }
+  }, [project]);
+
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
