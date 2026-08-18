@@ -47,6 +47,7 @@ const Footer = () => {
             <ul className="space-y-2 text-sm text-white/70">
               <li><Link to={lp("/about")} className="hover:text-white transition-colors">{t("footer.aboutFounder")}</Link></li>
               <li><Link to={lp("/blog")} className="hover:text-white transition-colors">{t("nav.blog")}</Link></li>
+              <li><Link to={lp("/journal")} className="hover:text-white transition-colors">Journal</Link></li>
               <li><Link to={lp("/invest")} className="hover:text-white transition-colors">{t("footer.investorRelations")}</Link></li>
               <li>
                 <Link
