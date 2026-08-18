@@ -1,8 +1,10 @@
 import { Helmet } from "react-helmet-async";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 import { EditorialShell, Reveal, SectionLabel } from "@/components/editorial/EditorialLayout";
+
 
 const Field = ({
   label, value, onChange, type = "text", required = false,
