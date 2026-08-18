@@ -342,14 +342,35 @@ const Index = () => {
     },
     {
       name: "BizMeet™",
-      tagline: "WHITE-LABEL COMMUNITY OS",
-      patents: "White-label community platform",
-      summary: "The community operating system for organisations running 2,000–20,000 members. Replaces the stack of five tools (Meetup, Eventbrite, Mailchimp, Slack, Stripe) with one platform under the customer's own brand.",
-      market: "Community operators, industry publishers, verticalized panel series (5k+ members)",
+      tagline: "WHITE-LABEL EVENT & COMMUNITY PLATFORM",
+      patents: "White-label event & community platform",
+      summary:
+        "Turn every event into the beginning of a business relationship. One branded platform for matchmaking, meetings, engagement and measurable outcomes — replacing Meetup, Eventbrite, Mailchimp, Slack and Stripe with a single system under your own brand.",
+      market: "Community operators, industry publishers, associations and organisers running 2,000–20,000 members",
       revenue: "Two-tier SaaS — €500/mo + 30% or €1,500/mo + 10% revenue share",
-      href: "https://mlops.ravolution.se/platform",
-      cta: "Visit Website",
+      cells: [
+        {
+          l: "Ideal For",
+          d: "Associations, industry publishers, business networks, conference organisers and verticalized panel series that need their own branded community — not a marketplace they rent.",
+        },
+        {
+          l: "What You Get",
+          d: "AI matchmaking, meeting scheduling, ticketing and payments, member CRM, communications and engagement analytics — fully white-labelled on your domain.",
+        },
+        {
+          l: "Business Value",
+          d: "Higher attendee satisfaction, sponsor-provable ROI, recurring membership revenue and full ownership of the member data your current tool stack keeps.",
+        },
+        {
+          l: "Match · Meet · Engage · Measure",
+          d: "Match the right people, make the meeting happen, keep the community alive between events, and prove the value with data.",
+        },
+      ],
+      href: "/bizmeet",
+      internal: true,
+      cta: "Explore BizMeet",
     },
+
     {
       name: "TOXINSIDE™",
       tagline: "Product Safety & Ingredient Transparency · EU-First",
