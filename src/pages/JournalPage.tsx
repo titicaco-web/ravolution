@@ -42,7 +42,7 @@ const JournalPage = () => {
       <EditorialShell>
         <section className="px-6 md:px-12 pt-32 pb-20 bg-[hsl(var(--bg))] text-white">
           <div className="max-w-[1280px] mx-auto">
-            <SectionLabel>Journal</SectionLabel>
+            <SectionLabel number="01" title="Journal" />
             <Reveal>
               <h1 className="font-display font-bold text-4xl md:text-6xl leading-[1.05] max-w-3xl mt-6">
                 Notes from inside the studio.
