@@ -366,7 +366,7 @@ const Index = () => {
           d: "Match the right people, make the meeting happen, keep the community alive between events, and prove the value with data.",
         },
       ],
-      href: "/bizmeet",
+      href: lp("/bizmeet"),
       internal: true,
       cta: "Explore BizMeet",
     },
