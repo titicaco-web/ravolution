@@ -6,6 +6,7 @@ import { z } from "zod";
 import { supabase } from "@/integrations/supabase/client";
 import { EditorialShell, Reveal, SectionLabel } from "@/components/editorial/EditorialLayout";
 import { useLangPath } from "@/hooks/use-lang-path";
+import PortfolioAccessGate, { isGateUnlocked } from "@/components/PortfolioAccessGate";
 import { MapPin, ExternalLink, ArrowRight, Users, TrendingUp, Award, Wallet } from "lucide-react";
 
 const CONTACT_EMAIL = "ivan.daza@ravolution.se";
