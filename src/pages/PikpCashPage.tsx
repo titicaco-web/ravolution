@@ -171,6 +171,7 @@ const PikpCashPage = () => {
           name="description"
           content="PikpCash turns selling into a game and every address into a point of sale. A direct-sales platform concept by Ravolution AB, documented since 2017."
         />
+        <meta name="robots" content="noindex, nofollow" />
         <link rel="canonical" href="https://ravolution.se/en/pikpcash" />
         <meta property="og:title" content="PikpCash® — Direct Sales Gamification Platform" />
         <meta
