@@ -70,6 +70,7 @@ const PikpCashDataRoomPage = () => {
     if (hash === DATAROOM_HASH) {
       try {
         sessionStorage.setItem(STORAGE_KEY, "1");
+        sessionStorage.setItem(SHARED_GATE_KEY, "1");
       } catch {
         /* ignore */
       }
