@@ -494,6 +494,35 @@ const PikpCashPage = () => {
           </div>
         </section>
 
+        {/* The Player */}
+        <section className="edit-section border-t border-white/10">
+          <div className="edit-container">
+            <SectionLabel number="01i — The Player" title="Every seller is measured, coached and paid by the same twelve dials." />
+            <div className="grid md:grid-cols-2 gap-12 items-start">
+              <Reveal>
+                <PhoneFrame src={playerAsset.url} alt="PikpCash player profile showing twelve performance dials: ranking, orders, level, rewards, closing rate, order value, growth speed, field, days per week, goals, reached products and services" />
+              </Reveal>
+              <Reveal delay={0.1}>
+                <p className="edit-body text-white/70 mb-8">
+                  The profile is the player's whole career in one screen — cash points earned, distance to the next goal,
+                  and twelve live dials that decide commission, level and access. Nothing is hidden: the seller sees exactly
+                  what to improve next, and the system coaches against it.
+                </p>
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-px bg-white/10 border border-white/10">
+                  {playerStats.map((s) => (
+                    <div key={s.l} className="bg-[hsl(var(--bg))] p-4">
+                      <span className="block font-mono text-lg text-[hsl(var(--accent-edit))]">{s.v}</span>
+                      <span className="edit-label block mt-1 text-white/85">{s.l}</span>
+                      <p className="text-white/55 text-xs leading-relaxed mt-2">{s.d}</p>
+                    </div>
+                  ))}
+                </div>
+              </Reveal>
+            </div>
+          </div>
+        </section>
+
+
         {/* Incentive engine */}
         <section className="edit-section border-t border-white/10 bg-[hsl(var(--surface))]">
           <div className="edit-container">
