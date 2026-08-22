@@ -109,8 +109,8 @@ const PikpCashDataRoomPage = () => {
                 </span>
                 <h1 className="edit-h2 text-white">PikpCash® — Data room</h1>
                 <p className="text-white/65 text-sm leading-relaxed mt-4">
-                  A separate data-room code is required — the presentation code does not open this page.
-                  Request access at{" "}
+                  Use the same access code as the PikpCash® presentation. If you already unlocked the
+                  presentation, the data room is open. Request access at{" "}
                   <a href={`mailto:${CONTACT_EMAIL}`} className="text-white edit-link">
                     {CONTACT_EMAIL}
                   </a>
