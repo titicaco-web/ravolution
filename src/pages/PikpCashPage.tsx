@@ -327,6 +327,175 @@ const PikpCashPage = () => {
           </div>
         </section>
 
+        {/* Origin — the notebook */}
+        <section className="edit-section border-t border-white/10 bg-[hsl(var(--surface))]">
+          <div className="edit-container">
+            <SectionLabel number="01b — Origin" title="Before a single pixel, a notebook." />
+            <div className="grid md:grid-cols-2 gap-10 items-start">
+              <Reveal>
+                <figure>
+                  <img
+                    src={notebookAsset.url}
+                    alt="Original 2017 handmade working drawing of the PikpCash app screens"
+                    loading="lazy"
+                    decoding="async"
+                    className="w-full h-auto border border-[hsl(var(--accent-edit))]/50"
+                  />
+                  <figcaption className="edit-label text-white/45 mt-4">
+                    Original working drawing — “End of youth unemployment”
+                  </figcaption>
+                </figure>
+              </Reveal>
+              <Reveal delay={0.1}>
+                <p className="edit-body text-white/70">
+                  Forty-plus screens drawn by hand — map with area limits and unlocks, score, team goals, deal blocking,
+                  tasks, confirm-and-rate, recruiting, levels 1–5, stars 1–5, badges, the breakdown of a goal into a
+                  to-do list, new products every six months.
+                </p>
+                <p className="edit-body text-white/70 mt-6">
+                  Everything that follows on this page exists in this drawing, dated 7 April 2017, Stockholm.
+                </p>
+                <div className="mt-8">
+                  <PhoneFrame src={splashAsset.url} alt="PikpCash app splash screen — everyone is a customer" glow />
+                </div>
+              </Reveal>
+            </div>
+          </div>
+        </section>
+
+        {/* The map */}
+        <section className="edit-section border-t border-white/10">
+          <div className="edit-container">
+            <SectionLabel number="01c — The map" title="The market, rendered as a map." />
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <Reveal>
+                <PhoneFrame src={mapAsset.url} alt="PikpCash map view with deal pins, tasks and live stats" />
+              </Reveal>
+              <Reveal delay={0.1}>
+                <ol className="space-y-5">
+                  {mapCallouts.map((c, i) => (
+                    <li key={c} className="flex gap-4">
+                      <span className="font-mono text-xs text-[hsl(var(--accent-edit))] pt-1">
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                      <p className="text-white/80 text-sm leading-relaxed">{c}</p>
+                    </li>
+                  ))}
+                </ol>
+                <p className="edit-label text-white/45 mt-8">
+                  Players can suggest new places — the map grows with its salesforce.
+                </p>
+              </Reveal>
+            </div>
+          </div>
+        </section>
+
+        {/* Check in & close */}
+        <section className="edit-section border-t border-white/10 bg-[hsl(var(--surface))]">
+          <div className="edit-container">
+            <SectionLabel number="01d — Check in" title="Check in at the door, close on the spot." />
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <Reveal>
+                <PhoneFrame src={doorAsset.url} alt="PikpCash check-in card at a venue showing a 2 500 sek deal" />
+              </Reveal>
+              <Reveal delay={0.1}>
+                <ul className="space-y-5">
+                  {checkInPoints.map((p) => (
+                    <li key={p} className="border-l border-[hsl(var(--accent-edit))]/50 pl-5 text-white/80 text-sm leading-relaxed">
+                      {p}
+                    </li>
+                  ))}
+                </ul>
+              </Reveal>
+            </div>
+          </div>
+        </section>
+
+        {/* Products & swipe */}
+        <section className="edit-section border-t border-white/10">
+          <div className="edit-container">
+            <SectionLabel number="01e — Products" title="Anyone can start selling — today." />
+            <div className="grid md:grid-cols-2 gap-12">
+              <Reveal>
+                <PhoneFrame src={productsAsset.url} alt="PikpCash product categories: insurance, smart home, home delivery, streaming, appliances" />
+                <p className="text-white/70 text-sm leading-relaxed mt-8">
+                  A zero-entrance level of magazines and simple services, great demos and must-have products above it,
+                  more commission on the next level, vertical level advancement — and a guarantee that each product and
+                  service is represented by sellers qualified for it.
+                </p>
+              </Reveal>
+              <Reveal delay={0.1}>
+                <PhoneFrame src={productAsset.url} alt="PikpCash swipe-based product screen with reject and accept actions" />
+                <p className="text-white/70 text-sm leading-relaxed mt-8">
+                  Swipe shopping for the customer: every product carries seller education and sales tips inside the app,
+                  and ordering is one tap. Payment stays in the loop — Swish, Klarna, BankID, card and SMS.
+                </p>
+              </Reveal>
+            </div>
+          </div>
+        </section>
+
+        {/* Rate the seller */}
+        <section className="edit-section border-t border-white/10 bg-[hsl(var(--surface))]">
+          <div className="edit-container">
+            <SectionLabel number="01f — Reputation" title="The customer sets the commission." />
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <Reveal>
+                <PhoneFrame src={receiptAsset.url} alt="PikpCash order confirmation email with a one-click seller rating widget" />
+              </Reveal>
+              <Reveal delay={0.1}>
+                <p className="edit-body text-white/70">
+                  The order confirmation thanks the buyer with the seller's own video, then asks for a one-click rating.
+                  Five stars prompts a short “write why”.
+                </p>
+                <p className="edit-body text-white/70 mt-6">
+                  Ratings feed a live curriculum — and move the seller's commission up or down directly.
+                </p>
+              </Reveal>
+            </div>
+          </div>
+        </section>
+
+        {/* Teams */}
+        <section className="edit-section border-t border-white/10">
+          <div className="edit-container">
+            <SectionLabel number="01g — Teams" title="Clubs, classes and teams sell together." />
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <Reveal>
+                <PhoneFrame src={teamAsset.url} alt="PikpCash team goal screen showing 70 percent of an 80 000 sek target and member ranking" />
+              </Reveal>
+              <Reveal delay={0.1}>
+                <p className="edit-body text-white/70">
+                  Easy to invite and activate whole teams — football clubs, riding clubs, school classes — around a shared
+                  goal: “Berlin, 80 000 sek, 70 % reached, six orders per person to go.”
+                </p>
+                <p className="edit-body text-white/70 mt-6">
+                  My team, top teams and top sellers keep the competition continuous, with constant coaching and constant
+                  education, and the best coaches, players and teams celebrated in public.
+                </p>
+              </Reveal>
+            </div>
+          </div>
+        </section>
+
+        {/* Incentive engine */}
+        <section className="edit-section border-t border-white/10 bg-[hsl(var(--surface))]">
+          <div className="edit-container">
+            <SectionLabel number="01h — Incentives" title="Why players sell more, sell better, and never stop." />
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-white/10 border border-white/10">
+              {incentives.map((c, i) => (
+                <Reveal key={c.t} delay={(i % 3) * 0.04}>
+                  <div className="bg-[hsl(var(--bg))] p-7 h-full">
+                    <span className="edit-label text-[hsl(var(--accent-edit))] block mb-3">{c.t}</span>
+                    <p className="text-white/75 text-sm leading-relaxed">{c.d}</p>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </section>
+
+
         {/* Mechanics */}
         <section className="edit-section border-t border-white/10 bg-[hsl(var(--surface))]">
           <div className="edit-container">
