@@ -2,7 +2,7 @@ import { useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 
-const ACCESS_CODE = "gyrocraft";
+const DEFAULT_ACCESS_CODE = "gyrocraft";
 
 export const isGateUnlocked = (project: string) =>
   typeof window !== "undefined" &&
@@ -11,10 +11,11 @@ export const isGateUnlocked = (project: string) =>
 interface Props {
   project: string;
   onUnlock: () => void;
+  code?: string;
 }
 
 /** Access-code gate + investor relations request form for restricted portfolio cards. */
-const PortfolioAccessGate = ({ project, onUnlock }: Props) => {
+const PortfolioAccessGate = ({ project, onUnlock, code: accessCode = DEFAULT_ACCESS_CODE }: Props) => {
   const [code, setCode] = useState("");
   const [form, setForm] = useState({ name: "", company: "", email: "", phone: "", message: "" });
   const [sending, setSending] = useState(false);
@@ -22,7 +23,7 @@ const PortfolioAccessGate = ({ project, onUnlock }: Props) => {
 
   const submitCode = (e: React.FormEvent) => {
     e.preventDefault();
-    if (code.trim().toLowerCase() === ACCESS_CODE) {
+    if (code.trim().toLowerCase() === accessCode.toLowerCase()) {
       window.sessionStorage.setItem(`rav-gate-${project}`, "1");
       onUnlock();
     } else {

@@ -6,6 +6,7 @@ import { z } from "zod";
 import { supabase } from "@/integrations/supabase/client";
 import { EditorialShell, Reveal, SectionLabel } from "@/components/editorial/EditorialLayout";
 import { useLangPath } from "@/hooks/use-lang-path";
+import PortfolioAccessGate, { isGateUnlocked } from "@/components/PortfolioAccessGate";
 import { MapPin, ExternalLink, ArrowRight, Users, TrendingUp, Award, Wallet } from "lucide-react";
 
 const CONTACT_EMAIL = "ivan.daza@ravolution.se";
@@ -77,8 +78,11 @@ const schema = z.object({
 const inputClass =
   "w-full bg-transparent border border-white/20 px-4 py-3 text-white placeholder:text-white/35 text-sm focus:outline-none focus:border-[hsl(var(--accent-edit))] transition-colors";
 
+const GATE_PROJECT = "PikpCash®";
+
 const PikpCashPage = () => {
   const lp = useLangPath();
+  const [unlocked, setUnlocked] = useState(() => isGateUnlocked(GATE_PROJECT));
   const [sending, setSending] = useState(false);
   const [form, setForm] = useState({
     name: "",
@@ -171,6 +175,27 @@ const PikpCashPage = () => {
       </Helmet>
 
       <EditorialShell>
+        {!unlocked ? (
+          <section className="pt-40 pb-32 px-6 md:px-12 min-h-[80vh]">
+            <div className="edit-container">
+              <Link to={lp("/portfolio")} className="edit-label text-white/50 edit-link">
+                ← Portfolio
+              </Link>
+              <h1 className="edit-display text-[hsl(var(--accent-edit))] mt-8">PikpCash®</h1>
+              <p className="edit-label text-white/70 mt-4 mb-10">
+                Direct Sales Gamification Platform — restricted brief
+              </p>
+              <div className="grid md:grid-cols-12">
+                <PortfolioAccessGate
+                  project={GATE_PROJECT}
+                  code="gyrocraft2017"
+                  onUnlock={() => setUnlocked(true)}
+                />
+              </div>
+            </div>
+          </section>
+        ) : (
+        <>
         {/* Hero */}
         <section className="relative pt-40 pb-24 px-6 md:px-12 min-h-[80vh] flex flex-col justify-end overflow-hidden">
           <div
@@ -404,6 +429,8 @@ const PikpCashPage = () => {
             </div>
           </div>
         </section>
+        </>
+        )}
       </EditorialShell>
     </>
   );
