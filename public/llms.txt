@@ -2,7 +2,7 @@
 
 > Swedish venture studio and angel investor building deep tech platforms in language learning, voice security, AI trade infrastructure, and K1–K9 education. Founded by inventor Ivan Daza (27 patents, 343 claims).
 
-Ravolution AB operates a Build-for-Equity model, invests directly as an angel, and runs a portfolio of patented platforms — iApply, CommunicaringSchool, AIMagnifica (enterprise AI governance & compliance layer, available for sale), Rosetta Livingstone, SINGUISTIC (music-native language learning, live in 26 languages), xPortMatch, VoiceProtector, NewsToast, BizMeet, CarbonX, Partysta, It's a Fitt, AlarmSole (connected footwear safety platform, patent pending).
+Ravolution AB operates a Build-for-Equity model, invests directly as an angel, and runs a portfolio of patented platforms — iApply, CommunicaringSchool, AIMagnifica (enterprise AI governance & compliance layer, available for sale), Rosetta Livingstone, SINGUISTIC (music-native language learning, live in 26 languages), xPortMatch, VoiceProtector, NewsToast, BizMeet, CarbonX, Partysta, It's a Fitt, AlarmSole (connected footwear safety platform, patent pending), PikpCash (direct sales gamification platform, concept documented 2017).
 
 ## Pages
 
