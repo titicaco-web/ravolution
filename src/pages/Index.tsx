@@ -331,6 +331,37 @@ const Index = () => {
       cta: "Visit NewsToast.com",
     },
     {
+      name: "PikpCash®",
+      tagline: "Direct Sales Gamification Platform",
+      flagship: true,
+      patents: "Concept documented since 2017 · platform architecture",
+      summary:
+        "Turns selling into a game and every address into a point of sale. Zero barriers to start earning — teams, levels, live coaching and Nordic-grade payments built in. Everyone is a customer.",
+      market: "Youth employment, direct sales and the gig economy — a zero-unemployment platform concept",
+      revenue: "Commission margin split, partner subscriptions, white-label licensing",
+      cells: [
+        {
+          l: "Concept",
+          d: "The map is the market. Sellers check in at any address and open a deal on the spot. No CV, no interview, no stock to buy — training is built into the app.",
+        },
+        {
+          l: "Mechanics",
+          d: "Live deal status per address, customer ratings, learn-to-earn video courses, and Cash Points that convert to real goals. Urgency and quality are designed into the map.",
+        },
+        {
+          l: "Levels",
+          d: "A nine-rung ladder from simple home products to high-ticket items. Higher levels unlock better products, higher commission and retailer-preferred seller status.",
+        },
+        {
+          l: "Model",
+          d: "Partners release a retail margin on each order. Players earn a growing commission; PikpCash keeps the remainder. Also offered as a white-label direct-sales system for brands and retail chains.",
+        },
+      ],
+      href: lp("/pikpcash"),
+      internal: true,
+      cta: "Explore PikpCash",
+    },
+    {
       name: "CarbonX™",
       tagline: "Verified Carbon Credit Trading Platform",
       patents: "Compliance-first marketplace architecture",
