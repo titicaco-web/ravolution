@@ -17,6 +17,22 @@ import productAsset from "@/assets/pikpcash/product.png.asset.json";
 import receiptAsset from "@/assets/pikpcash/receipt.png.asset.json";
 import teamAsset from "@/assets/pikpcash/team.png.asset.json";
 import notebookAsset from "@/assets/pikpcash/notebook.png.asset.json";
+import playerAsset from "@/assets/pikpcash/player.png.asset.json";
+
+const playerStats = [
+  { v: "4,2", l: "Ranking", d: "Buyer-set score that drives the commission ladder." },
+  { v: "157", l: "Orders", d: "Closed orders, lifetime." },
+  { v: "4,5", l: "Level", d: "Unlocks products, territory and higher margins." },
+  { v: "14", l: "Rewards", d: "Bonuses, perks and prizes collected." },
+  { v: "2,3", l: "Closing rate", d: "Deals closed per ten conversations." },
+  { v: "212", l: "Order value", d: "Average basket in sek." },
+  { v: "3,2", l: "Growth speed", d: "How fast the player is levelling up." },
+  { v: "156", l: "Field", d: "Locations worked on the map." },
+  { v: "3,2", l: "Days/Week", d: "Activity rhythm — the honest effort metric." },
+  { v: "4,2", l: "Goals", d: "Personal targets hit versus set." },
+  { v: "57 %", l: "Reached products", d: "Share of the catalogue the player can actually sell." },
+  { v: "70 %", l: "Services", d: "Share of services mastered and certified." },
+];
 
 const CONTACT_EMAIL = "ivan.daza@ravolution.se";
 
@@ -477,6 +493,35 @@ const PikpCashPage = () => {
             </div>
           </div>
         </section>
+
+        {/* The Player */}
+        <section className="edit-section border-t border-white/10">
+          <div className="edit-container">
+            <SectionLabel number="01i — The Player" title="Every seller is measured, coached and paid by the same twelve dials." />
+            <div className="grid md:grid-cols-2 gap-12 items-start">
+              <Reveal>
+                <PhoneFrame src={playerAsset.url} alt="PikpCash player profile showing twelve performance dials: ranking, orders, level, rewards, closing rate, order value, growth speed, field, days per week, goals, reached products and services" />
+              </Reveal>
+              <Reveal delay={0.1}>
+                <p className="edit-body text-white/70 mb-8">
+                  The profile is the player's whole career in one screen — cash points earned, distance to the next goal,
+                  and twelve live dials that decide commission, level and access. Nothing is hidden: the seller sees exactly
+                  what to improve next, and the system coaches against it.
+                </p>
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-px bg-white/10 border border-white/10">
+                  {playerStats.map((s) => (
+                    <div key={s.l} className="bg-[hsl(var(--bg))] p-4">
+                      <span className="block font-mono text-lg text-[hsl(var(--accent-edit))]">{s.v}</span>
+                      <span className="edit-label block mt-1 text-white/85">{s.l}</span>
+                      <p className="text-white/55 text-xs leading-relaxed mt-2">{s.d}</p>
+                    </div>
+                  ))}
+                </div>
+              </Reveal>
+            </div>
+          </div>
+        </section>
+
 
         {/* Incentive engine */}
         <section className="edit-section border-t border-white/10 bg-[hsl(var(--surface))]">
