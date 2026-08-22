@@ -8,8 +8,50 @@ import { EditorialShell, Reveal, SectionLabel } from "@/components/editorial/Edi
 import { useLangPath } from "@/hooks/use-lang-path";
 import PortfolioAccessGate, { isGateUnlocked } from "@/components/PortfolioAccessGate";
 import { MapPin, ExternalLink, ArrowRight, Users, TrendingUp, Award, Wallet } from "lucide-react";
+import PhoneFrame from "@/components/pikpcash/PhoneFrame";
+import splashAsset from "@/assets/pikpcash/splash.jpg.asset.json";
+import mapAsset from "@/assets/pikpcash/map.png.asset.json";
+import doorAsset from "@/assets/pikpcash/door.png.asset.json";
+import productsAsset from "@/assets/pikpcash/products.jpg.asset.json";
+import productAsset from "@/assets/pikpcash/product.png.asset.json";
+import receiptAsset from "@/assets/pikpcash/receipt.png.asset.json";
+import teamAsset from "@/assets/pikpcash/team.png.asset.json";
+import notebookAsset from "@/assets/pikpcash/notebook.png.asset.json";
 
 const CONTACT_EMAIL = "ivan.daza@ravolution.se";
+
+const mapCallouts = [
+  "Deal pins — PikpCash available at this location; coins = open money, handshake = deal in progress, bell = task.",
+  "Task — do it and be rewarded, don't and be punished.",
+  "Close a deal — or lose it to a competitor.",
+  "Average rating (4,31) — affects commission level on all deals and on each deal.",
+  "PT (2 487 pt) — your level and the points until the next level.",
+  "Earned (4 543 sek) — Cash Points turned into cash or the stuff you want; 5 457 kr to goal.",
+];
+
+const checkInPoints = [
+  "Sales status on each address: you can go in · you must go in · if blocked to another player, don't go in.",
+  "Re-sell when you reach a new level, re-sell when products and services shift — or lose the customer.",
+  "Friends and competitors are alerted when an order is placed.",
+  "Personal goal engine: “You have earned 4 500 kr this month. Your goal is 12 400 kr for an iPad and Camera — close 40 more deals.” Goals are broken down into daily to-dos.",
+];
+
+const incentives = [
+  { t: "Commission ladder", d: "30 % → 60 % player commission, driven by orders, order value, customer rating, closing rate, pitches and hours on the field." },
+  { t: "Hours pay", d: "More hours per week means a higher commission bracket." },
+  { t: "Rating pays", d: "Average rating raises or lowers commission on every deal — one bad streak is felt immediately." },
+  { t: "Level unlocks", d: "Each level opens better product categories and a bigger cut. Level 1 books and magazines → Level 7 a Tesla or a trip to Mars." },
+  { t: "Reward & punish", d: "Every action creates results; every non-action is punished. Tasks carry both carrot and stick." },
+  { t: "Deal urgency", d: "An open deal can be lost to a competitor; blocked deals belong to another player." },
+  { t: "Area limits & unlocks", d: "Territory itself is a reward — perform to unlock more of the map." },
+  { t: "Surprise rewards", d: "Unexpected bonuses at unexpected moments keep the loop unpredictable." },
+  { t: "Quality gate", d: "Retailers can demand four-star sellers; reputation becomes market access." },
+  { t: "Goals made tangible", d: "Cash Points convert to cash or the exact thing the player wants — and the app breaks the goal into a daily to-do list." },
+  { t: "Recruiter bonus", d: "5 % on a recruit's first month: the salesforce grows itself." },
+  { t: "Learn to earn", d: "Video courses per product raise commission; a live player curriculum, test levels and cancelling rate keep quality honest." },
+  { t: "Social proof", d: "Badges, top-seller lists and public team progress make status visible." },
+  { t: "Re-sell triggers", d: "New level, shifted product lines, or the risk of losing the customer: the map never goes quiet." },
+];
 
 const conceptCells = [
   {
@@ -129,6 +171,7 @@ const PikpCashPage = () => {
           name="description"
           content="PikpCash turns selling into a game and every address into a point of sale. A direct-sales platform concept by Ravolution AB, documented since 2017."
         />
+        <meta name="robots" content="noindex, nofollow" />
         <link rel="canonical" href="https://ravolution.se/en/pikpcash" />
         <meta property="og:title" content="PikpCash® — Direct Sales Gamification Platform" />
         <meta
@@ -284,6 +327,175 @@ const PikpCashPage = () => {
           </div>
         </section>
 
+        {/* Origin — the notebook */}
+        <section className="edit-section border-t border-white/10 bg-[hsl(var(--surface))]">
+          <div className="edit-container">
+            <SectionLabel number="01b — Origin" title="Before a single pixel, a notebook." />
+            <div className="grid md:grid-cols-2 gap-10 items-start">
+              <Reveal>
+                <figure>
+                  <img
+                    src={notebookAsset.url}
+                    alt="Original 2017 handmade working drawing of the PikpCash app screens"
+                    loading="lazy"
+                    decoding="async"
+                    className="w-full h-auto border border-[hsl(var(--accent-edit))]/50"
+                  />
+                  <figcaption className="edit-label text-white/45 mt-4">
+                    Original working drawing — “End of youth unemployment”
+                  </figcaption>
+                </figure>
+              </Reveal>
+              <Reveal delay={0.1}>
+                <p className="edit-body text-white/70">
+                  Forty-plus screens drawn by hand — map with area limits and unlocks, score, team goals, deal blocking,
+                  tasks, confirm-and-rate, recruiting, levels 1–5, stars 1–5, badges, the breakdown of a goal into a
+                  to-do list, new products every six months.
+                </p>
+                <p className="edit-body text-white/70 mt-6">
+                  Everything that follows on this page exists in this drawing, dated 7 April 2017, Stockholm.
+                </p>
+                <div className="mt-8">
+                  <PhoneFrame src={splashAsset.url} alt="PikpCash app splash screen — everyone is a customer" glow />
+                </div>
+              </Reveal>
+            </div>
+          </div>
+        </section>
+
+        {/* The map */}
+        <section className="edit-section border-t border-white/10">
+          <div className="edit-container">
+            <SectionLabel number="01c — The map" title="The market, rendered as a map." />
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <Reveal>
+                <PhoneFrame src={mapAsset.url} alt="PikpCash map view with deal pins, tasks and live stats" />
+              </Reveal>
+              <Reveal delay={0.1}>
+                <ol className="space-y-5">
+                  {mapCallouts.map((c, i) => (
+                    <li key={c} className="flex gap-4">
+                      <span className="font-mono text-xs text-[hsl(var(--accent-edit))] pt-1">
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                      <p className="text-white/80 text-sm leading-relaxed">{c}</p>
+                    </li>
+                  ))}
+                </ol>
+                <p className="edit-label text-white/45 mt-8">
+                  Players can suggest new places — the map grows with its salesforce.
+                </p>
+              </Reveal>
+            </div>
+          </div>
+        </section>
+
+        {/* Check in & close */}
+        <section className="edit-section border-t border-white/10 bg-[hsl(var(--surface))]">
+          <div className="edit-container">
+            <SectionLabel number="01d — Check in" title="Check in at the door, close on the spot." />
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <Reveal>
+                <PhoneFrame src={doorAsset.url} alt="PikpCash check-in card at a venue showing a 2 500 sek deal" />
+              </Reveal>
+              <Reveal delay={0.1}>
+                <ul className="space-y-5">
+                  {checkInPoints.map((p) => (
+                    <li key={p} className="border-l border-[hsl(var(--accent-edit))]/50 pl-5 text-white/80 text-sm leading-relaxed">
+                      {p}
+                    </li>
+                  ))}
+                </ul>
+              </Reveal>
+            </div>
+          </div>
+        </section>
+
+        {/* Products & swipe */}
+        <section className="edit-section border-t border-white/10">
+          <div className="edit-container">
+            <SectionLabel number="01e — Products" title="Anyone can start selling — today." />
+            <div className="grid md:grid-cols-2 gap-12">
+              <Reveal>
+                <PhoneFrame src={productsAsset.url} alt="PikpCash product categories: insurance, smart home, home delivery, streaming, appliances" />
+                <p className="text-white/70 text-sm leading-relaxed mt-8">
+                  A zero-entrance level of magazines and simple services, great demos and must-have products above it,
+                  more commission on the next level, vertical level advancement — and a guarantee that each product and
+                  service is represented by sellers qualified for it.
+                </p>
+              </Reveal>
+              <Reveal delay={0.1}>
+                <PhoneFrame src={productAsset.url} alt="PikpCash swipe-based product screen with reject and accept actions" />
+                <p className="text-white/70 text-sm leading-relaxed mt-8">
+                  Swipe shopping for the customer: every product carries seller education and sales tips inside the app,
+                  and ordering is one tap. Payment stays in the loop — Swish, Klarna, BankID, card and SMS.
+                </p>
+              </Reveal>
+            </div>
+          </div>
+        </section>
+
+        {/* Rate the seller */}
+        <section className="edit-section border-t border-white/10 bg-[hsl(var(--surface))]">
+          <div className="edit-container">
+            <SectionLabel number="01f — Reputation" title="The customer sets the commission." />
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <Reveal>
+                <PhoneFrame src={receiptAsset.url} alt="PikpCash order confirmation email with a one-click seller rating widget" />
+              </Reveal>
+              <Reveal delay={0.1}>
+                <p className="edit-body text-white/70">
+                  The order confirmation thanks the buyer with the seller's own video, then asks for a one-click rating.
+                  Five stars prompts a short “write why”.
+                </p>
+                <p className="edit-body text-white/70 mt-6">
+                  Ratings feed a live curriculum — and move the seller's commission up or down directly.
+                </p>
+              </Reveal>
+            </div>
+          </div>
+        </section>
+
+        {/* Teams */}
+        <section className="edit-section border-t border-white/10">
+          <div className="edit-container">
+            <SectionLabel number="01g — Teams" title="Clubs, classes and teams sell together." />
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <Reveal>
+                <PhoneFrame src={teamAsset.url} alt="PikpCash team goal screen showing 70 percent of an 80 000 sek target and member ranking" />
+              </Reveal>
+              <Reveal delay={0.1}>
+                <p className="edit-body text-white/70">
+                  Easy to invite and activate whole teams — football clubs, riding clubs, school classes — around a shared
+                  goal: “Berlin, 80 000 sek, 70 % reached, six orders per person to go.”
+                </p>
+                <p className="edit-body text-white/70 mt-6">
+                  My team, top teams and top sellers keep the competition continuous, with constant coaching and constant
+                  education, and the best coaches, players and teams celebrated in public.
+                </p>
+              </Reveal>
+            </div>
+          </div>
+        </section>
+
+        {/* Incentive engine */}
+        <section className="edit-section border-t border-white/10 bg-[hsl(var(--surface))]">
+          <div className="edit-container">
+            <SectionLabel number="01h — Incentives" title="Why players sell more, sell better, and never stop." />
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-white/10 border border-white/10">
+              {incentives.map((c, i) => (
+                <Reveal key={c.t} delay={(i % 3) * 0.04}>
+                  <div className="bg-[hsl(var(--bg))] p-7 h-full">
+                    <span className="edit-label text-[hsl(var(--accent-edit))] block mb-3">{c.t}</span>
+                    <p className="text-white/75 text-sm leading-relaxed">{c.d}</p>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </section>
+
+
         {/* Mechanics */}
         <section className="edit-section border-t border-white/10 bg-[hsl(var(--surface))]">
           <div className="edit-container">
@@ -365,6 +577,19 @@ const PikpCashPage = () => {
                   PikpCash makes youth compete to close deals on <span className="text-[hsl(var(--accent-edit))]">every address</span> on the planet.
                 </p>
                 <p className="edit-label text-white/50 mt-8">Founding thesis · Stockholm, 2017</p>
+                <div className="mt-10 border border-[hsl(var(--accent-edit))]/50 p-6 md:p-8">
+                  <span className="edit-label text-[hsl(var(--accent-edit))] block mb-3">Data room</span>
+                  <p className="text-white/70 text-sm leading-relaxed mb-6">
+                    The 2017 deck, revenue model, provenance record and white-label outline sit behind a separate
+                    data-room code — the presentation code does not open it.
+                  </p>
+                  <Link
+                    to={lp("/pikpcash/dataroom")}
+                    className="inline-flex items-center gap-3 px-6 py-3 border border-[hsl(var(--accent-edit))] text-[hsl(var(--accent-edit))] edit-label hover:bg-[hsl(var(--accent-edit))] hover:text-[hsl(var(--bg))] transition-colors"
+                  >
+                    Open the data room <ArrowRight className="w-4 h-4" />
+                  </Link>
+                </div>
               </div>
             </Reveal>
           </div>
