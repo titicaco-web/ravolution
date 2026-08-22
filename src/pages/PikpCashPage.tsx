@@ -17,6 +17,22 @@ import productAsset from "@/assets/pikpcash/product.png.asset.json";
 import receiptAsset from "@/assets/pikpcash/receipt.png.asset.json";
 import teamAsset from "@/assets/pikpcash/team.png.asset.json";
 import notebookAsset from "@/assets/pikpcash/notebook.png.asset.json";
+import playerAsset from "@/assets/pikpcash/player.png.asset.json";
+
+const playerStats = [
+  { v: "4,2", l: "Ranking", d: "Buyer-set score that drives the commission ladder." },
+  { v: "157", l: "Orders", d: "Closed orders, lifetime." },
+  { v: "4,5", l: "Level", d: "Unlocks products, territory and higher margins." },
+  { v: "14", l: "Rewards", d: "Bonuses, perks and prizes collected." },
+  { v: "2,3", l: "Closing rate", d: "Deals closed per ten conversations." },
+  { v: "212", l: "Order value", d: "Average basket in sek." },
+  { v: "3,2", l: "Growth speed", d: "How fast the player is levelling up." },
+  { v: "156", l: "Field", d: "Locations worked on the map." },
+  { v: "3,2", l: "Days/Week", d: "Activity rhythm — the honest effort metric." },
+  { v: "4,2", l: "Goals", d: "Personal targets hit versus set." },
+  { v: "57 %", l: "Reached products", d: "Share of the catalogue the player can actually sell." },
+  { v: "70 %", l: "Services", d: "Share of services mastered and certified." },
+];
 
 const CONTACT_EMAIL = "ivan.daza@ravolution.se";
 
