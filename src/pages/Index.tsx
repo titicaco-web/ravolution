@@ -262,6 +262,7 @@ const Index = () => {
     status?: string;
     internal?: boolean;
     gated?: boolean;
+    gateCode?: string;
     cells?: { l: string; d: string }[];
     details?: typeof aimagnifica;
 
@@ -334,6 +335,8 @@ const Index = () => {
       name: "PikpCash®",
       tagline: "Direct Sales Gamification Platform",
       flagship: true,
+      gated: true,
+      gateCode: "gyrocraft2017",
       patents: "Concept documented since 2017 · platform architecture",
       summary:
         "Turns selling into a game and every address into a point of sale. Zero barriers to start earning — teams, levels, live coaching and Nordic-grade payments built in. Everyone is a customer.",
@@ -843,6 +846,7 @@ const Index = () => {
                         <div className="pb-10 md:pb-12 grid md:grid-cols-12 gap-4 md:gap-10 animate-fade-in">
                           <PortfolioAccessGate
                             project={c.name}
+                            code={c.gateCode}
                             onUnlock={() => setUnlocked((u) => [...u, c.name])}
                           />
                         </div>
