@@ -8,8 +8,50 @@ import { EditorialShell, Reveal, SectionLabel } from "@/components/editorial/Edi
 import { useLangPath } from "@/hooks/use-lang-path";
 import PortfolioAccessGate, { isGateUnlocked } from "@/components/PortfolioAccessGate";
 import { MapPin, ExternalLink, ArrowRight, Users, TrendingUp, Award, Wallet } from "lucide-react";
+import PhoneFrame from "@/components/pikpcash/PhoneFrame";
+import splashAsset from "@/assets/pikpcash/splash.jpg.asset.json";
+import mapAsset from "@/assets/pikpcash/map.png.asset.json";
+import doorAsset from "@/assets/pikpcash/door.png.asset.json";
+import productsAsset from "@/assets/pikpcash/products.jpg.asset.json";
+import productAsset from "@/assets/pikpcash/product.png.asset.json";
+import receiptAsset from "@/assets/pikpcash/receipt.png.asset.json";
+import teamAsset from "@/assets/pikpcash/team.png.asset.json";
+import notebookAsset from "@/assets/pikpcash/notebook.png.asset.json";
 
 const CONTACT_EMAIL = "ivan.daza@ravolution.se";
+
+const mapCallouts = [
+  "Deal pins — PikpCash available at this location; coins = open money, handshake = deal in progress, bell = task.",
+  "Task — do it and be rewarded, don't and be punished.",
+  "Close a deal — or lose it to a competitor.",
+  "Average rating (4,31) — affects commission level on all deals and on each deal.",
+  "PT (2 487 pt) — your level and the points until the next level.",
+  "Earned (4 543 sek) — Cash Points turned into cash or the stuff you want; 5 457 kr to goal.",
+];
+
+const checkInPoints = [
+  "Sales status on each address: you can go in · you must go in · if blocked to another player, don't go in.",
+  "Re-sell when you reach a new level, re-sell when products and services shift — or lose the customer.",
+  "Friends and competitors are alerted when an order is placed.",
+  "Personal goal engine: “You have earned 4 500 kr this month. Your goal is 12 400 kr for an iPad and Camera — close 40 more deals.” Goals are broken down into daily to-dos.",
+];
+
+const incentives = [
+  { t: "Commission ladder", d: "30 % → 60 % player commission, driven by orders, order value, customer rating, closing rate, pitches and hours on the field." },
+  { t: "Hours pay", d: "More hours per week means a higher commission bracket." },
+  { t: "Rating pays", d: "Average rating raises or lowers commission on every deal — one bad streak is felt immediately." },
+  { t: "Level unlocks", d: "Each level opens better product categories and a bigger cut. Level 1 books and magazines → Level 7 a Tesla or a trip to Mars." },
+  { t: "Reward & punish", d: "Every action creates results; every non-action is punished. Tasks carry both carrot and stick." },
+  { t: "Deal urgency", d: "An open deal can be lost to a competitor; blocked deals belong to another player." },
+  { t: "Area limits & unlocks", d: "Territory itself is a reward — perform to unlock more of the map." },
+  { t: "Surprise rewards", d: "Unexpected bonuses at unexpected moments keep the loop unpredictable." },
+  { t: "Quality gate", d: "Retailers can demand four-star sellers; reputation becomes market access." },
+  { t: "Goals made tangible", d: "Cash Points convert to cash or the exact thing the player wants — and the app breaks the goal into a daily to-do list." },
+  { t: "Recruiter bonus", d: "5 % on a recruit's first month: the salesforce grows itself." },
+  { t: "Learn to earn", d: "Video courses per product raise commission; a live player curriculum, test levels and cancelling rate keep quality honest." },
+  { t: "Social proof", d: "Badges, top-seller lists and public team progress make status visible." },
+  { t: "Re-sell triggers", d: "New level, shifted product lines, or the risk of losing the customer: the map never goes quiet." },
+];
 
 const conceptCells = [
   {
