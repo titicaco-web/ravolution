@@ -41,6 +41,7 @@ const XportMatchPage = lazy(() => import("./pages/XportMatchPage"));
 const BizMeetPage = lazy(() => import("./pages/BizMeetPage"));
 const AlarmSolePage = lazy(() => import("./pages/AlarmSolePage"));
 const PikpCashPage = lazy(() => import("./pages/PikpCashPage"));
+const PikpCashDataRoomPage = lazy(() => import("./pages/PikpCashDataRoomPage"));
 
 const NotFound = lazy(() => import("./pages/NotFound"));
 
@@ -97,6 +98,8 @@ const App = () => (
             <Route path="/:lang/alarmsole" element={<LanguageSync><AlarmSolePage /></LanguageSync>} />
             <Route path="/pikpcash" element={<LanguageSync><PikpCashPage /></LanguageSync>} />
             <Route path="/:lang/pikpcash" element={<LanguageSync><PikpCashPage /></LanguageSync>} />
+            <Route path="/pikpcash/dataroom" element={<LanguageSync><PikpCashDataRoomPage /></LanguageSync>} />
+            <Route path="/:lang/pikpcash/dataroom" element={<LanguageSync><PikpCashDataRoomPage /></LanguageSync>} />
 
 
 
