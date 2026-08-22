@@ -577,6 +577,19 @@ const PikpCashPage = () => {
                   PikpCash makes youth compete to close deals on <span className="text-[hsl(var(--accent-edit))]">every address</span> on the planet.
                 </p>
                 <p className="edit-label text-white/50 mt-8">Founding thesis · Stockholm, 2017</p>
+                <div className="mt-10 border border-[hsl(var(--accent-edit))]/50 p-6 md:p-8">
+                  <span className="edit-label text-[hsl(var(--accent-edit))] block mb-3">Data room</span>
+                  <p className="text-white/70 text-sm leading-relaxed mb-6">
+                    The 2017 deck, revenue model, provenance record and white-label outline sit behind a separate
+                    data-room code — the presentation code does not open it.
+                  </p>
+                  <Link
+                    to={lp("/pikpcash/dataroom")}
+                    className="inline-flex items-center gap-3 px-6 py-3 border border-[hsl(var(--accent-edit))] text-[hsl(var(--accent-edit))] edit-label hover:bg-[hsl(var(--accent-edit))] hover:text-[hsl(var(--bg))] transition-colors"
+                  >
+                    Open the data room <ArrowRight className="w-4 h-4" />
+                  </Link>
+                </div>
               </div>
             </Reveal>
           </div>
