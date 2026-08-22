@@ -580,8 +580,8 @@ const PikpCashPage = () => {
                 <div className="mt-10 border border-[hsl(var(--accent-edit))]/50 p-6 md:p-8">
                   <span className="edit-label text-[hsl(var(--accent-edit))] block mb-3">Data room</span>
                   <p className="text-white/70 text-sm leading-relaxed mb-6">
-                    The 2017 deck, revenue model, provenance record and white-label outline sit behind a separate
-                    data-room code — the presentation code does not open it.
+                    The 2017 deck, revenue model, provenance record and white-label outline sit in the data room.
+                    Use the same access code as this presentation.
                   </p>
                   <Link
                     to={lp("/pikpcash/dataroom")}

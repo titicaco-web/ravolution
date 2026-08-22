@@ -4,13 +4,17 @@ import { Link } from "react-router-dom";
 import { EditorialShell, Reveal, SectionLabel } from "@/components/editorial/EditorialLayout";
 import { useLangPath } from "@/hooks/use-lang-path";
 
-const DATAROOM_HASH = "a1d1435ef10fd94946b053c83a5a4ef82c2c9bca3d86d5599de80d6f9d3f7819";
+const DATAROOM_HASH = "7646640253b1b5a09dcce42dbdd03bc0f8583648f8542afefb01b78ea2418e26";
 const STORAGE_KEY = "rav-gate-pikpcash-dataroom";
+const SHARED_GATE_KEY = "rav-gate-pikpcash";
 const CONTACT_EMAIL = "invest@ravolution.se";
 
 const readUnlocked = () => {
   try {
-    return sessionStorage.getItem(STORAGE_KEY) === "1";
+    return (
+      sessionStorage.getItem(STORAGE_KEY) === "1" ||
+      sessionStorage.getItem(SHARED_GATE_KEY) === "1"
+    );
   } catch {
     return false;
   }
@@ -66,6 +70,7 @@ const PikpCashDataRoomPage = () => {
     if (hash === DATAROOM_HASH) {
       try {
         sessionStorage.setItem(STORAGE_KEY, "1");
+        sessionStorage.setItem(SHARED_GATE_KEY, "1");
       } catch {
         /* ignore */
       }
@@ -104,8 +109,8 @@ const PikpCashDataRoomPage = () => {
                 </span>
                 <h1 className="edit-h2 text-white">PikpCash® — Data room</h1>
                 <p className="text-white/65 text-sm leading-relaxed mt-4">
-                  A separate data-room code is required — the presentation code does not open this page.
-                  Request access at{" "}
+                  Use the same access code as the PikpCash® presentation. If you already unlocked the
+                  presentation, the data room is open. Request access at{" "}
                   <a href={`mailto:${CONTACT_EMAIL}`} className="text-white edit-link">
                     {CONTACT_EMAIL}
                   </a>
