@@ -365,6 +365,38 @@ const Index = () => {
       cta: "Explore PikpCash",
     },
     {
+      name: "Pratis",
+      tagline: "AI COMPANION · SWEDISH-SPEAKING · SEEKING INVESTORS",
+      flagship: true,
+      patents: "Software platform · co-owned venture",
+      summary:
+        "A calm, Swedish-speaking AI companion for lonely older adults — a voice that remembers you and is simply there to talk. Companionship, not care: Pratis strengthens real human contact instead of replacing it. A Ravolution venture co-owned with Susanne Örtegren.",
+      market: "European ageing population — ~28M Europeans aged 80+, ~650,000 in Sweden today",
+      revenue: "Family-paid subscriptions (325–4,790 kr/mo) today, public-healthcare reimbursement track tomorrow",
+      cells: [
+        {
+          l: "Venture",
+          d: "A warm, patient voice — and optionally a face that is always clearly an AI. It greets the person by name, remembers the stories they choose to keep, and nudges them to call their daughter or take the walk.",
+        },
+        {
+          l: "Why now",
+          d: "Roughly one in four older adults are socially isolated (WHO), and isolation independently raises dementia risk by 26–32% (Lancet Commission, 2024). A non-cyclical, expanding market.",
+        },
+        {
+          l: "Trust",
+          d: "Private by design — health, religion, politics and orientation are never stored. Honest about being an AI. A soft alarm can reach a relative. An optional life book keeps a life in the person's own words.",
+        },
+        {
+          l: "Model",
+          d: "Subscription tiers billed per conversation time with a hard cost cap: Lätt 325 kr/mo, Daglig 2,190 kr/mo, Fri 4,790 kr/mo. Families today; public healthcare via social prescribing tomorrow.",
+        },
+      ],
+      href: lp("/pratis"),
+      internal: true,
+      cta: "Explore Pratis",
+      status: "Seeking investors",
+    },
+    {
       name: "CarbonX™",
       tagline: "Verified Carbon Credit Trading Platform",
       patents: "Compliance-first marketplace architecture",
