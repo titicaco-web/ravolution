@@ -86,7 +86,7 @@ Deno.serve(async (req) => {
       },
       body: JSON.stringify({
         from: "Ravolution <onboarding@resend.dev>",
-        to: [RECIPIENT],
+        to: RECIPIENTS,
         reply_to: email,
         subject: `Pratis — ${safeInterest} — from ${safeName}${safeCompany ? ` (${safeCompany})` : ""}`,
         html,
