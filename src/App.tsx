@@ -42,6 +42,7 @@ const BizMeetPage = lazy(() => import("./pages/BizMeetPage"));
 const AlarmSolePage = lazy(() => import("./pages/AlarmSolePage"));
 const PikpCashPage = lazy(() => import("./pages/PikpCashPage"));
 const PikpCashDataRoomPage = lazy(() => import("./pages/PikpCashDataRoomPage"));
+const PratisPage = lazy(() => import("./pages/PratisPage"));
 
 const NotFound = lazy(() => import("./pages/NotFound"));
 
@@ -100,6 +101,9 @@ const App = () => (
             <Route path="/:lang/pikpcash" element={<LanguageSync><PikpCashPage /></LanguageSync>} />
             <Route path="/pikpcash/dataroom" element={<LanguageSync><PikpCashDataRoomPage /></LanguageSync>} />
             <Route path="/:lang/pikpcash/dataroom" element={<LanguageSync><PikpCashDataRoomPage /></LanguageSync>} />
+            <Route path="/pratis" element={<LanguageSync><PratisPage /></LanguageSync>} />
+            <Route path="/:lang/pratis" element={<LanguageSync><PratisPage /></LanguageSync>} />
+            <Route path="/:lang/ventures/pratis" element={<LanguageSync><PratisPage /></LanguageSync>} />
 
 
 

@@ -67,6 +67,7 @@ const InvestorPortfolioMarquee = ({ transparent = false }: { transparent?: boole
     { name: "SINGUISTIC™", icon: Music, href: "https://singuistic.com", external: true },
     { name: "NewsToast™", icon: Newspaper, href: "https://newstoast.com", external: true },
     { name: "PikpCash®", icon: MapPin, href: lp("/pikpcash"), external: false },
+    { name: "Pratis", icon: Heart, href: lp("/pratis"), external: false },
     { name: "CarbonX™", icon: Leaf, href: "https://carbonx.se/", external: true },
     { name: "BizMeet™", icon: Handshake, href: lp("/bizmeet"), external: false },
     { name: "TOXINSIDE", icon: ScanLine, href: "https://toxinside.com", external: true },
