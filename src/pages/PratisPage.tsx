@@ -412,9 +412,14 @@ const PratisPage = () => {
                   </p>
                 </Reveal>
                 <Reveal delay={0.25}>
-                  <a href="mailto:ivan.daza@ravolution.se" className="edit-label text-white/60 edit-link block mt-8">
-                    ivan.daza@ravolution.se
-                  </a>
+                  <div className="mt-8 space-y-2">
+                    <a href="mailto:ivan.daza@ravolution.se" className="edit-label text-white/60 edit-link block">
+                      ivan.daza@ravolution.se
+                    </a>
+                    <a href="mailto:susanne@pratis.se" className="edit-label text-white/60 edit-link block">
+                      susanne@pratis.se
+                    </a>
+                  </div>
                 </Reveal>
               </div>
 
