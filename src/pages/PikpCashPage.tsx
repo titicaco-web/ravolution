@@ -613,6 +613,38 @@ const PikpCashPage = () => {
           </div>
         </section>
 
+        {/* Patent pending technology */}
+        <section className="edit-section border-t border-white/10">
+          <div className="edit-container">
+            <SectionLabel number="05 — Patents" title="PikpCash® — Patent Pending Technology" />
+            <Reveal>
+              <p className="edit-body text-white/70 max-w-4xl mb-10">
+                Ravolution has filed 26 patent claims covering PikpCash’s core technology for secure and intelligent field sales.
+                Together they form a technical framework for managing verified field operations from first contact to completed transaction.
+              </p>
+            </Reveal>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-white/10 border border-white/10">
+              {[
+                { label: "Privacy-preserving proof of presence", body: "Verifiable check-ins without exposing raw location data." },
+                { label: "Geo-based opportunity allocation", body: "Territory, deals and leads are assigned and contested by location rules." },
+                { label: "Offline transaction verification", body: "Sales close and validate even when connectivity drops." },
+                { label: "Automated conflict resolution", body: "Disputes over customers, areas and commissions resolve by policy." },
+                { label: "Policy-controlled sales processes", body: "Every product, level and seller follows programmable rules." },
+                { label: "Secure customer–seller verification", body: "Mutual trust between buyer and seller is built into the protocol." },
+                { label: "Trusted transaction sessions", body: "Each sale runs inside a signed, auditable session." },
+                { label: "Human-controlled AI sales agents", body: "AI assists the seller while the human remains in control and accountable." },
+              ].map((cell, i) => (
+                <Reveal key={cell.label} delay={i * 0.04}>
+                  <div className="bg-[hsl(var(--bg))] p-7 h-full">
+                    <span className="edit-label text-[hsl(var(--accent-edit))] block mb-3">{cell.label}</span>
+                    <p className="text-white/75 text-sm leading-relaxed">{cell.body}</p>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* Quote */}
         <section className="edit-section border-t border-white/10">
           <div className="edit-container">
