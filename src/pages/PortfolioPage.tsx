@@ -17,6 +17,8 @@ const missionSystems: Company[] = [
   { name: "VoiceProtector", sector: "Mission 03 · Trust", status: "ACTIVE", desc: "Voice biometrics and deepfake authentication for a world where voice itself can be generated.", href: "https://voiceprotector.com" },
   { name: "TOXINSIDE", sector: "Mission 05 · Prevention", status: "LAUNCHING 2026", desc: "Regulator-cited product safety scoring at the moment of purchase, with a public methodology and a native halal ingredient vertical.", href: "https://toxinside.com" },
   { name: "AlarmSole", sector: "Mission 03 · Human safety", status: "PATENT PENDING", desc: "Discreet connected safety sole activated through the foot — SOS, live location and emergency workflows, as a product and as an embedded platform.", href: "/en/alarmsole" },
+  { name: "PikpCash", sector: "Mission 04 · Opportunity", status: "FIRST-JOB INFRASTRUCTURE", desc: "Paid first work, a curriculum that lives inside the job, verified skills and nine-level progression — with 26 filed patent claims behind the field-sales engine.", href: "/en/pikpcash" },
+
 ];
 
 const activeVentures: Company[] = [
