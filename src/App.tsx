@@ -30,6 +30,7 @@ const BuildForEquity = lazy(() => import("./pages/BuildForEquity"));
 const PatentStrategyForStartups = lazy(() => import("./pages/PatentStrategyForStartups"));
 const TechnicalCofounderAlternative = lazy(() => import("./pages/TechnicalCofounderAlternative"));
 const PortfolioPage = lazy(() => import("./pages/PortfolioPage"));
+const EvidencePage = lazy(() => import("./pages/EvidencePage"));
 const ContactPage = lazy(() => import("./pages/ContactPage"));
 const ApplyPage = lazy(() => import("./pages/ApplyPage"));
 const SalesPartnerPage = lazy(() => import("./pages/SalesPartnerPage"));
@@ -128,6 +129,8 @@ const App = () => (
             <Route path="/:lang/patent-strategy-for-startups" element={<LanguageSync><PatentStrategyForStartups /></LanguageSync>} />
             <Route path="/:lang/technical-cofounder-alternative" element={<LanguageSync><TechnicalCofounderAlternative /></LanguageSync>} />
             <Route path="/:lang/portfolio" element={<LanguageSync><PortfolioPage /></LanguageSync>} />
+            <Route path="/:lang/evidence" element={<LanguageSync><EvidencePage /></LanguageSync>} />
+            <Route path="/evidence" element={<LanguageSync><EvidencePage /></LanguageSync>} />
             <Route path="/:lang/contact" element={<LanguageSync><ContactPage /></LanguageSync>} />
             <Route path="/:lang/apply" element={<LanguageSync><ApplyPage /></LanguageSync>} />
             <Route path="/:lang/apply-for-investment" element={<LanguageSync><ApplyPage /></LanguageSync>} />

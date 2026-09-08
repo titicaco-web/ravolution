@@ -28,7 +28,7 @@ export const sv = {
     subheadlineEnd: "",
     ctaExplore: "Utforska våra plattformar",
     ctaLicensing: "Bygg med Ravolution",
-    statPatents: "27 Patent | 343 Krav",
+    statPatents: "27 Patent | 369 Krav",
     statARR: "€354M+",
     statARRLabel: "Kombinerad ARR-potential",
     statCountries: "150+",
@@ -303,7 +303,7 @@ export const sv = {
     leadershipSubtitle: "Teamet bakom Ravolutions verksamheter.",
     ivanCardTitle: "Grundare & VD",
     ivanCardLocation: "Stockholm, Sverige",
-    ivanCardBio: "Serieuppfinnare med 27 patent och 343 anspråk. 30+ års byggande av patenterade plattformar inom utbildning, rekrytering, AI och handel.",
+    ivanCardBio: "Serieuppfinnare med 27 patent och 369 anspråk. 30+ års byggande av patenterade plattformar inom utbildning, rekrytering, AI och handel.",
     leonName: "Ivan Daza",
     leonTitle: "Grundare & VD",
     leonLocation: "Stockholm, Sverige",
@@ -433,7 +433,7 @@ export const sv = {
     service3FAQ3A: "Vi designar system med integritet-först-arkitektur och kan driftsätta on-premise vid behov.",
     service4Title: "IP- & patentstrategi för försvarsbar innovation",
     service4Tagline: "Skydda dina metoder och system—omvandla innovation till varaktig konkurrensfördel.",
-    service4Desc: "Vi hjälper grundare och tekniska ledare att identifiera patenterbara uppfinningar, utveckla ansökningsstrategier och bygga IP-portföljer som skapar verkligt affärsvärde. Med 27 patent och 343 krav har vi förståelse för vad som gör IP kommersiellt kraftfullt.",
+    service4Desc: "Vi hjälper grundare och tekniska ledare att identifiera patenterbara uppfinningar, utveckla ansökningsstrategier och bygga IP-portföljer som skapar verkligt affärsvärde. Med 27 patent och 369 krav har vi förståelse för vad som gör IP kommersiellt kraftfullt.",
     service4WhoFor: "Grundare, CTO:er och innovationsteam med nya metoder eller system värda att skydda.",
     service4D1: "Patentlandsskap & frihet-att-använda-analys",
     service4D2: "Uppfinningsbeskrivning & kravsformulering",
@@ -754,7 +754,7 @@ export const sv = {
     metaTitle: "Investera i Ravolution | IP-skyddade Deep Tech-plattformar",
     metaDesc: "Tidig investeringsmöjlighet i Ravolution—venture studio som bygger patenterade, AI-drivna plattformar för civilisationsstora utmaningar. Begär investerardeck.",
     heroBadge: "Pre-seed · Öppen runda",
-    heroH1: "27 patent. 343 anspråk. 10+ plattformar. En studio.",
+    heroH1: "27 patent. 369 anspråk. 12+ system. Ett uppfinningsbolag.",
     heroSubhead: "Ravolution äger IP:n bakom kategoridefinierande plattformar inom rekrytering, utbildning, språk och global handel — sektorer värda 2 biljoner USD+ tillsammans. Vi reser pre-seed för att ta två patentskyddade plattformar från validerat koncept till intäkt.",
     ctaDeck: "Begär deck — NDA-vänligt, 48h",
     ctaCall: "Boka ett samtal",
@@ -774,7 +774,7 @@ export const sv = {
     diffTitle: "Modellen — En studio, delad infrastruktur, kompounderad hastighet i varje plattform vi lanserar",
     pillar: {
       execution: { title: "Plattformsexekvering", desc: "Repeterbar leveransmodell: discovery → bygg → lansering → iterering. Venture studio-arkitekturen kompounderar lärande och infrastruktur." },
-      ip: { title: "IP-försvarsbarhet", desc: "Patentstrategi integrerad i produktbeslut från start. 27 patent och 343 anspråk skapar hållbara konkurrensvallar." },
+      ip: { title: "IP-försvarsbarhet", desc: "Patentstrategi integrerad i produktbeslut från start. 27 patent och 369 anspråk skapar hållbara konkurrensvallar." },
       ai: { title: "AI där det lönar sig", desc: "Tillämpad AI i arbetsflöden som spelar roll: kandidatkvalificering, språkförståelse, handelsmatchning och beslutsstöd." }
     },
     focusTitle: "Vi söker",
@@ -798,7 +798,7 @@ export const sv = {
     faqTitle: "Vanliga frågor",
     faq: {
       whatBuild: { q: "Vad bygger Ravolution?", a: "Ravolution är en svensk venture studio som bygger AI-drivna plattformar och patenterbara system för civilisationsstora utmaningar inom rekrytering, utbildning, språkinlärning och handel." },
-      defensibility: { q: "Hur skapar ni försvarsbarhet?", a: "Patentstrategi är inbäddad i vår produktutvecklingsprocess. Vi har 27 patent med 343 anspråk som skapar hållbara konkurrensvallar." },
+      defensibility: { q: "Hur skapar ni försvarsbarhet?", a: "Patentstrategi är inbäddad i vår produktutvecklingsprocess. Vi har 27 patent med 369 anspråk som skapar hållbara konkurrensvallar." },
       studioModel: { q: "Vad är er venture studio-modell?", a: "Vi bygger flera plattformar med delad arkitektur, handböcker och GTM-mönster. Denna modell minskar risk per venture och accelererar time-to-market." },
       patentsInSoftware: { q: "Hur använder ni patent i mjukvaruplattformar?", a: "Våra patent skyddar grundläggande metoder, inte bara funktioner. Patent genererar också återkommande licensintäkter oberoende av direkta produktförsäljningar." },
       investorNext: { q: "Vad får en investerare och vilka är nästa steg?", a: "Efter inskickad förfrågan delar vi investerardecket under NDA inom 24–48 timmar. Decket inkluderar finansiella prognoser, marknadsanalys och patentportföljdetaljer." }
@@ -863,7 +863,7 @@ export const sv = {
           desc: "Ravolution AB (Org.nr 556709-7547) är ett fullt registrerat svenskt aktiebolag som verkar under svensk bolagsrätt, med full transparens hos Bolagsverket."
         },
         ipPortfolio: {
-          title: "27 patent, 343 patentkrav",
+          title: "27 patent, 369 patentkrav",
           desc: "Komplett patentportfölj dokumenterad i 6 branscher med krav inlämnade i prioriterade jurisdiktioner. IP-strategi integrerad från dag ett. Patentregister tillgängligt under NDA."
         },
         gdpr: {
@@ -912,7 +912,7 @@ export const sv = {
     ogTitle: "Ängelinvesterare & bygg-för-andelar för komplexa startups | Ravolution",
     ogDesc: "Bygg snabbare med en svensk venture studio som investerar produkt, teknik och patentstrategi för andelar. Idealiskt för pre-seed till seed-grundare som bygger komplexa plattformar.",
     heroBadge: "Bygg-för-andelar venture studio",
-    heroH1: "ÄNGELINVESTERARE VI BYGGER FÖR ANDELAR I TECH STARTUPS",
+    heroH1: "VI INVESTERAR GENOMFÖRANDE, INTE BARA KAPITAL",
     heroSubhead: "Vi investerar senior produkt-, teknik-, IP-skydd och patentstrategi i utbyte mot andelar—så grundare lanserar snabbare, minskar exekveringsrisk och bygger försvarbara plattformar från dag ett.",
     trustStrip: "Svensk venture studio · Helhetsbygge av plattformar · IP-skydd · Patentstrategi · Andelsbaserat samarbete",
     ctaBrief: "Skicka ditt underlag",
@@ -1005,8 +1005,8 @@ export const sv = {
   intake: {
     metaTitle: "Starta ditt plattformsprojekt | Ravolution AB",
     metaDesc: "Skicka din brief på 5 minuter. Inom 48 timmar skickar vi tillbaka en kostnadsuppskattning, plattformsbeskrivning — eller i vissa fall en live-mockup.",
-    badge: "Venture Studio",
-    heroTitle: "Starta ditt plattformsprojekt",
+    badge: "Ravolution Studio",
+    heroTitle: "BYGG NÅGOT FÖRSVARBART",
     heroSubtitle: "Skicka din brief på 5 minuter. Inom 48 timmar skickar vi tillbaka en kostnadsuppskattning, plattformsbeskrivning — eller i vissa fall en live-mockup.",
     submitBrief: "Skicka din brief",
     trust1: "48h svarsgaranti",
@@ -1221,8 +1221,8 @@ export const sv = {
   founderBlock: {
     heading: "Vem du arbetar med",
     role: "Grundare & VD — Teknikuppfinnare & patentstrateg",
-    bio: "30+ års entreprenöriell innovation. Erkänd som en av 200 entreprenörer som format Sveriges affärslandskap. 27 patent inlämnade, 343 krav inom 6 branscher. Ivan leder personligen varje uppdrag.",
-    stat1: "27 Patent", stat2: "343 Krav", stat3: "10+ Plattformar", stat4: "6 Branscher",
+    bio: "30+ års entreprenöriell innovation. Erkänd som en av 200 entreprenörer som format Sveriges affärslandskap. 27 patent inlämnade, 369 krav inom 6 branscher. Ivan leder personligen varje uppdrag.",
+    stat1: "27 Patent", stat2: "369 Krav", stat3: "10+ Plattformar", stat4: "6 Branscher",
   },
   expandedFaq: {
     heading: "Vanliga frågor",

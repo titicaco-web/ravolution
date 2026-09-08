@@ -57,7 +57,7 @@ const CredentialCounter = () => {
 
   const stats = [
     { end: 27, label: t("credentials.patentsFiled") },
-    { end: 343, label: t("credentials.patentClaims") },
+    { end: 369, label: t("credentials.patentClaims") },
     { end: 10, suffix: "+", label: t("credentials.platformsBuilt") },
     { end: 6, label: t("credentials.industriesCovered") },
     { end: 150, suffix: "+", label: t("credentials.countriesReached") },

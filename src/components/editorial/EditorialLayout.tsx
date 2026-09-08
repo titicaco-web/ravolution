@@ -183,22 +183,21 @@ export const EditorialNav = () => {
     return () => { document.body.style.overflow = ""; };
   }, [open]);
 
-  const salesPartnerHref = language === "sv" ? "/sv/saljpartner" : language === "es" ? "/es/socio-comercial" : "/en/sales-partner";
-  const salesPartnerLabel = language === "sv" ? "Säljpartner" : language === "es" ? "Socio Comercial" : "Sales Partner";
-  const applyHref = language === "sv" ? "/sv/ansok" : lp("/apply");
-  const applyLabel = language === "sv" ? "Ansök" : language === "es" ? "Aplicar" : "Apply";
-
   const links = [
-    { label: t("nav.founder") || "About", href: lp("/about") },
-    { label: t("nav.angel") || "Angel", href: lp("/angel-investor") },
-    { label: t("nav.services") || "Develop", href: lp("/services") },
-    { label: "Portfolio", href: lp("/portfolio") },
-    { label: t("nav.investors") || "Invest", href: lp("/invest") },
-    { label: salesPartnerLabel, href: salesPartnerHref },
-    { label: t("nav.blog") || "Press", href: lp("/blog") },
-    { label: applyLabel, href: applyHref },
-    { label: "Contact", href: lp("/contact") },
+    { label: "Missions", href: lp("/#missions") },
+    { label: "Inventions", href: lp("/portfolio") },
+    { label: "IP & Evidence", href: lp("/evidence") },
+    { label: "About", href: lp("/about") },
+    { label: "Partner", href: lp("/#partner") },
   ];
+
+  const gateways = [
+    { label: "For founders → Build-for-equity", href: lp("/build-for-equity") },
+    { label: "Studio → Paid development", href: lp("/services") },
+    { label: "Invest → Qualified access", href: lp("/invest") },
+    { label: "Private briefing → Stealth portfolio", href: "mailto:ivan.daza@ravolution.se" },
+  ];
+
 
   return (
     <>
@@ -257,12 +256,32 @@ export const EditorialNav = () => {
           ))}
         </nav>
 
+        <div className="grid sm:grid-cols-2 gap-3 mt-10 pt-8 border-t border-white/10">
+          {gateways.map((g) =>
+            g.href.startsWith("mailto:") ? (
+              <a key={g.href} href={g.href} className="edit-label text-white/70 hover:text-white edit-link w-fit">
+                {g.label}
+              </a>
+            ) : (
+              <Link
+                key={g.href}
+                to={g.href}
+                onClick={() => setOpen(false)}
+                className="edit-label text-white/70 hover:text-white edit-link w-fit"
+              >
+                {g.label}
+              </Link>
+            )
+          )}
+        </div>
+
         <div className="flex flex-wrap justify-between items-end gap-4 mt-auto pt-12">
           <span className="edit-label text-white/55">Stockholm · New York · Barcelona · Shanghai · Santiago · Zürich</span>
           <a href="mailto:ivan.daza@ravolution.se" className="edit-label text-white/55 edit-link">
             ivan.daza@ravolution.se
           </a>
         </div>
+
       </div>
     </>
   );
@@ -284,23 +303,24 @@ export const EditorialFooter = () => {
             Ravolution
           </div>
           <p className="text-white/55 text-sm leading-relaxed max-w-xs">
-            {t("footer.tagline") || "Swedish venture studio & IP innovation company."}
+            Swedish invention company. We invent the systems the world is missing.
           </p>
         </div>
 
         <div className="grid grid-cols-2 gap-y-2">
           {[
-            { l: "Home", h: lp("/") },
+            { l: "Missions", h: lp("/#missions") },
+            { l: "Inventions", h: lp("/portfolio") },
+            { l: "IP & Evidence", h: lp("/evidence") },
             { l: "About", h: lp("/about") },
+            { l: "Studio", h: lp("/services") },
+            { l: "For founders", h: lp("/build-for-equity") },
             { l: "Invest", h: lp("/invest") },
-            { l: "Angel", h: lp("/angel-investor") },
-            { l: "Develop", h: lp("/services") },
-            { l: "Portfolio", h: lp("/portfolio") },
-            { l: salesPartnerLabel, h: salesPartnerHref },
-            { l: "Press", h: lp("/blog") },
-            { l: "Journal", h: lp("/journal") },
             { l: applyLabel, h: applyHref },
-            { l: "Metadata Machine", h: lp("/metadatamachine") },
+            { l: salesPartnerLabel, h: salesPartnerHref },
+            { l: "Journal", h: lp("/journal") },
+            { l: "Press", h: lp("/blog") },
+            { l: "Experiments", h: lp("/metadatamachine") },
             { l: "Contact", h: lp("/contact") },
           ].map((x) => (
             <Link key={x.h} to={x.h} className="edit-label text-white/70 hover:text-white edit-link w-fit">

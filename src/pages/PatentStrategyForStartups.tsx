@@ -104,7 +104,7 @@ const PatentStrategyForStartups = () => {
                 </h2>
                 <div className="space-y-4 text-muted-foreground leading-relaxed text-base md:text-lg">
                   <p>
-                    Ravolution currently holds <strong className="text-foreground">27 patents with 343 claims</strong> across four strategic verticals: language learning, K1–K9 education, transparent recruitment and voice security. These patents protect foundational methods—not surface-level features—creating durable competitive moats.
+                    Ravolution currently holds <strong className="text-foreground">27 patents with 369 claims</strong> across four strategic verticals: language learning, K1–K9 education, transparent recruitment and voice security. These patents protect foundational methods—not surface-level features—creating durable competitive moats.
                   </p>
                   <p>
                     This same methodology is applied to every build-for-equity engagement. When we invest in a startup, patent strategy is part of the product process, not an afterthought.

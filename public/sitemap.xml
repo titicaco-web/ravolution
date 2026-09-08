@@ -163,6 +163,16 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://ravolution.se/en/evidence</loc>
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ravolution.se/en/evidence" />
+    <xhtml:link rel="alternate" hreflang="sv" href="https://ravolution.se/sv/evidence" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://ravolution.se/es/evidence" />
+  </url>
+
+  <url>
     <loc>https://ravolution.se/en/contact</loc>
     <lastmod>2026-07-07</lastmod>
     <changefreq>monthly</changefreq>
