@@ -315,7 +315,7 @@ const Founder = () => {
                   <li className="border border-white/10 p-4">
                     <div className="edit-label text-white/50">Mission</div>
                     <div className="text-3xl font-display text-[hsl(var(--accent-edit))]">IP</div>
-                    <p className="text-xs text-white/55 mt-1">27 patents · 343 claims protecting people through technology.</p>
+                    <p className="text-xs text-white/55 mt-1">27 patents · 369 claims protecting people through technology.</p>
                   </li>
                 </ul>
                 <p>

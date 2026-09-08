@@ -73,7 +73,7 @@ const PortfolioPage = () => (
           <Reveal delay={0.2}>
             <p className="edit-body text-white/65 mt-8 max-w-2xl">
               Ten-plus platforms across deep tech, education, security and trade — all anchored
-              by 27 patents and 343 claims.
+              by 27 patents and 369 claims.
             </p>
           </Reveal>
         </div>

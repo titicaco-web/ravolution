@@ -33,7 +33,7 @@ const MetadataMachinePage = () => {
 
   const links: Array<{ to: string; title: string; desc: string }> = [
     { to: lp("/"), title: "Home", desc: "Ravolution AB — Swedish venture studio & IP innovation company building deep tech unicorns." },
-    { to: lp("/about"), title: "About Ivan Daza", desc: "Founder, tech inventor. 27 patents · 343 claims across language, voice security, AI trade & education." },
+    { to: lp("/about"), title: "About Ivan Daza", desc: "Founder, tech inventor. 27 patents · 369 claims across language, voice security, AI trade & education." },
     { to: lp("/services"), title: "Services", desc: "Build-for-equity, patent strategy and technical co-founder alternatives for ambitious startups." },
     { to: lp("/portfolio"), title: "Portfolio", desc: "Rosetta Livingstone™, VoiceProtector™, xPortMatch™, CommunicaringSchool™ and more." },
     { to: lp("/invest"), title: "Invest", desc: "Qualified investors — access to our patent-backed venture pipeline." },
@@ -115,7 +115,7 @@ const MetadataMachinePage = () => {
           <div className="edit-container">
             <SectionLabel number="03 — Ravolution" title="Explore the Rest of Ravolution" />
             <p className="edit-body text-white/65 max-w-3xl mb-12">
-              Ravolution AB is a Swedish venture studio and IP innovation company. We hold 27 patents with 343
+              Ravolution AB is a Swedish venture studio and IP innovation company. We hold 27 patents with 369
               claims and build deep tech platforms across language learning, voice security, AI-driven trade and
               K1–K9 education. The Metadata Machine is a small public gift from our founder, Ivan Daza.
             </p>

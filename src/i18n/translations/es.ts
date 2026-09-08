@@ -28,7 +28,7 @@ export const es = {
     subheadlineEnd: "",
     ctaExplore: "Explora nuestras plataformas",
     ctaLicensing: "Construye con Ravolution",
-    statPatents: "27 Patentes | 343 Reivindicaciones",
+    statPatents: "27 Patentes | 369 Reivindicaciones",
     statARR: "€354M+",
     statARRLabel: "Potencial ARR combinado",
     statCountries: "150+",
@@ -303,7 +303,7 @@ export const es = {
     leadershipSubtitle: "El equipo detrás de los emprendimientos de Ravolution.",
     ivanCardTitle: "Fundador & CEO",
     ivanCardLocation: "Estocolmo, Suecia",
-    ivanCardBio: "Inventor tecnológico en serie con 27 patentes y 343 reivindicaciones. Más de 30 años construyendo plataformas patentadas en educación, reclutamiento, IA y comercio.",
+    ivanCardBio: "Inventor tecnológico en serie con 27 patentes y 369 reivindicaciones. Más de 30 años construyendo plataformas patentadas en educación, reclutamiento, IA y comercio.",
     leonName: "Ivan Daza",
     leonTitle: "Fundador & CEO",
     leonLocation: "Estocolmo, Suecia",
@@ -436,7 +436,7 @@ export const es = {
     service3FAQ3A: "Diseñamos sistemas con arquitectura de privacidad primero y podemos desplegar on-premise si es necesario.",
     service4Title: "Estrategia IP y patentes para innovación defendible",
     service4Tagline: "Protege tus métodos y sistemas—convierte la innovación en ventaja competitiva duradera.",
-    service4Desc: "Ayudamos a fundadores y líderes técnicos a identificar invenciones patentables, desarrollar estrategias de solicitud y construir portafolios de IP que crean valor de negocio real. Con 27 patentes y 343 reivindicaciones propias, entendemos lo que hace poderoso al IP comercialmente.",
+    service4Desc: "Ayudamos a fundadores y líderes técnicos a identificar invenciones patentables, desarrollar estrategias de solicitud y construir portafolios de IP que crean valor de negocio real. Con 27 patentes y 369 reivindicaciones propias, entendemos lo que hace poderoso al IP comercialmente.",
     service4WhoFor: "Fundadores, CTOs y equipos de innovación con métodos o sistemas novedosos dignos de protección.",
     service4D1: "Análisis del panorama de patentes y libertad de operación",
     service4D2: "Divulgación de invenciones y redacción de reivindicaciones",
@@ -757,7 +757,7 @@ export const es = {
     metaTitle: "Invierte en Ravolution | Plataformas Deep Tech con IP protegida",
     metaDesc: "Oportunidad de inversión temprana en Ravolution—venture studio que construye plataformas patentadas e impulsadas por IA. Solicita el deck.",
     heroBadge: "Pre-seed · Ronda abierta",
-    heroH1: "27 patentes. 343 reivindicaciones. 10+ plataformas. Un solo studio.",
+    heroH1: "27 patentes. 369 reivindicaciones. 10+ plataformas. Un solo studio.",
     heroSubhead: "Ravolution posee la IP detrás de plataformas que definen categoría en reclutamiento, educación, idiomas y comercio global — sectores que suman más de $2 billones. Estamos levantando pre-seed para llevar dos plataformas protegidas por patentes de concepto validado a ingresos.",
     ctaDeck: "Solicitar deck — NDA, 48h",
     ctaCall: "Reservar una llamada",
@@ -777,7 +777,7 @@ export const es = {
     diffTitle: "El Modelo — Un studio, infraestructura compartida, velocidad compuesta en cada plataforma que lanzamos",
     pillar: {
       execution: { title: "Ejecución de plataforma", desc: "Modelo de entrega repetible: discovery → build → lanzamiento → iteración. La arquitectura compound reduce riesgo y acelera el time-to-market." },
-      ip: { title: "Defensibilidad IP", desc: "Estrategia de patentes integrada en decisiones de producto desde el inicio. 27 patentes y 343 reivindicaciones crean fosos competitivos duraderos." },
+      ip: { title: "Defensibilidad IP", desc: "Estrategia de patentes integrada en decisiones de producto desde el inicio. 27 patentes y 369 reivindicaciones crean fosos competitivos duraderos." },
       ai: { title: "IA donde importa", desc: "IA aplicada en flujos de trabajo: cualificación de candidatos, adquisición de idiomas, matching comercial y soporte de decisiones." }
     },
     focusTitle: "Buscamos",
@@ -801,7 +801,7 @@ export const es = {
     faqTitle: "Preguntas frecuentes",
     faq: {
       whatBuild: { q: "¿Qué construye Ravolution?", a: "Ravolution es un venture studio sueco que construye plataformas habilitadas por IA y sistemas patentables para desafíos a escala civilizatoria en reclutamiento, educación, idiomas y comercio." },
-      defensibility: { q: "¿Cómo crean defensibilidad?", a: "La estrategia de patentes está integrada en nuestro proceso de desarrollo. Tenemos 27 patentes con 343 reivindicaciones que crean fosos competitivos duraderos." },
+      defensibility: { q: "¿Cómo crean defensibilidad?", a: "La estrategia de patentes está integrada en nuestro proceso de desarrollo. Tenemos 27 patentes con 369 reivindicaciones que crean fosos competitivos duraderos." },
       studioModel: { q: "¿Cuál es su modelo de venture studio?", a: "Construimos múltiples plataformas con arquitectura compartida, playbooks y patrones GTM. Este modelo reduce el riesgo por venture y acelera el time-to-market." },
       patentsInSoftware: { q: "¿Cómo usan patentes en plataformas de software?", a: "Nuestras patentes protegen métodos fundamentales, no solo características. Las patentes también generan ingresos recurrentes por licencias independientes de ventas directas." },
       investorNext: { q: "¿Qué recibe un inversor y cuáles son los próximos pasos?", a: "Tras enviar una solicitud, compartimos el deck bajo NDA en 24–48 horas. Incluye proyecciones financieras, análisis de mercado y detalles del portafolio de patentes." }
@@ -866,7 +866,7 @@ export const es = {
           desc: "Ravolution AB (Org.nr 556709-7547) es una sociedad limitada sueca plenamente registrada que opera bajo el derecho corporativo sueco, con plena transparencia ante Bolagsverket."
         },
         ipPortfolio: {
-          title: "27 patentes, 343 reivindicaciones",
+          title: "27 patentes, 369 reivindicaciones",
           desc: "Cartera de patentes completa documentada en 6 industrias, con reivindicaciones presentadas en jurisdicciones prioritarias. Estrategia de PI integrada desde el día uno. Registro disponible bajo NDA."
         },
         gdpr: {
@@ -1225,8 +1225,8 @@ export const es = {
   founderBlock: {
     heading: "Con quién trabajarás",
     role: "Fundador y CEO — Inventor tecnológico y estratega de patentes",
-    bio: "30+ años de innovación empresarial. Reconocido como uno de los 200 empresarios que dieron forma al panorama empresarial de Suecia. 27 patentes registradas, 343 reivindicaciones en 6 industrias. Ivan lidera personalmente cada proyecto.",
-    stat1: "27 Patentes", stat2: "343 Reivindicaciones", stat3: "10+ Plataformas", stat4: "6 Industrias",
+    bio: "30+ años de innovación empresarial. Reconocido como uno de los 200 empresarios que dieron forma al panorama empresarial de Suecia. 27 patentes registradas, 369 reivindicaciones en 6 industrias. Ivan lidera personalmente cada proyecto.",
+    stat1: "27 Patentes", stat2: "369 Reivindicaciones", stat3: "10+ Plataformas", stat4: "6 Industrias",
   },
   expandedFaq: {
     heading: "Preguntas frecuentes",

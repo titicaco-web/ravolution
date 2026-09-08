@@ -37,7 +37,7 @@ const FounderBlock = () => {
             </Reveal>
             <Reveal delay={0.2}>
               <div className="flex flex-wrap gap-3 border-t border-white/10 pt-6">
-                {["27 Patents", "343 Claims", "10+ Platforms", "6 Industries"].map((s) => (
+                {["27 Patents", "369 Claims", "10+ Platforms", "6 Industries"].map((s) => (
                   <span key={s} className="edit-label text-white/70 px-4 py-2 border border-white/15">
                     {s}
                   </span>
