@@ -25,7 +25,7 @@ const activeVentures: Company[] = [
   { name: "NewsToast", sector: "Media", status: "ACTIVE", desc: "Editorial-grade curated news platform.", href: "https://newstoast.com" },
   { name: "CarbonX", sector: "Climate · Marketplace", status: "ACTIVE", desc: "Carbon and climate infrastructure connected to the prevention-economy mission.", href: "#" },
   { name: "Pratis", sector: "AI Companion · HealthTech", status: "SEEKING INVESTORS", desc: "A calm, Swedish-speaking AI companion for lonely older adults. Companionship, not care. Co-owned with Susanne Örtegren.", href: "/en/pratis" },
-  { name: "PikpCash", sector: "Direct Sales · Gamification", status: "CONCEPT · 2017 · RESTRICTED", desc: "Field-sales gamification with 26 filed patent claims covering proof of presence, geo allocation and verified transactions.", href: "/en/pikpcash" },
+  { name: "Pratis", sector: "AI Companion · HealthTech", status: "SEEKING INVESTORS", desc: "A calm, Swedish-speaking AI companion for lonely older adults. Companionship, not care. Co-owned with Susanne Örtegren.", href: "/en/pratis" },
 ];
 
 const studioAssets: Company[] = [
