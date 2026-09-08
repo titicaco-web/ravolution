@@ -128,7 +128,7 @@ const Founder = () => {
               <span className="edit-label text-[hsl(var(--accent-edit))]">{t("founder.badge") || "Founder & CEO"}</span>
             </Reveal>
             <Reveal delay={0.1}>
-              <h1 className="edit-display text-white mt-6">About Ivan Daza</h1>
+              <h1 className="edit-display text-white mt-6">ONE THESIS.<br />MANY SYSTEMS.</h1>
             </Reveal>
             <Reveal delay={0.2}>
               <p className="edit-body text-white/65 mt-8 max-w-2xl">
