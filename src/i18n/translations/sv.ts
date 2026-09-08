@@ -1005,7 +1005,7 @@ export const sv = {
   intake: {
     metaTitle: "Starta ditt plattformsprojekt | Ravolution AB",
     metaDesc: "Skicka din brief på 5 minuter. Inom 48 timmar skickar vi tillbaka en kostnadsuppskattning, plattformsbeskrivning — eller i vissa fall en live-mockup.",
-    badge: "Venture Studio",
+    badge: "Ravolution Studio",
     heroTitle: "BYGG NÅGOT FÖRSVARBART",
     heroSubtitle: "Skicka din brief på 5 minuter. Inom 48 timmar skickar vi tillbaka en kostnadsuppskattning, plattformsbeskrivning — eller i vissa fall en live-mockup.",
     submitBrief: "Skicka din brief",

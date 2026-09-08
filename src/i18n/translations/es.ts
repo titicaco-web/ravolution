@@ -1009,7 +1009,7 @@ export const es = {
   intake: {
     metaTitle: "Inicia tu proyecto de plataforma | Ravolution AB",
     metaDesc: "Envíanos tu brief en 5 minutos. En 48 horas te enviamos un presupuesto, descripción de plataforma — o en algunos casos un prototipo funcional.",
-    badge: "Venture Studio",
+    badge: "Ravolution Studio",
     heroTitle: "CONSTRUYE ALGO DEFENDIBLE",
     heroSubtitle: "Envíanos tu brief en 5 minutos. En 48 horas te enviamos un presupuesto, descripción de plataforma — o en algunos casos un prototipo funcional.",
     submitBrief: "Enviar tu brief",
