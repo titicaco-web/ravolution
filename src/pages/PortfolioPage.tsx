@@ -25,7 +25,6 @@ const activeVentures: Company[] = [
   { name: "NewsToast", sector: "Media", status: "ACTIVE", desc: "Editorial-grade curated news platform.", href: "https://newstoast.com" },
   { name: "CarbonX", sector: "Climate · Marketplace", status: "ACTIVE", desc: "Carbon and climate infrastructure connected to the prevention-economy mission.", href: "#" },
   { name: "Pratis", sector: "AI Companion · HealthTech", status: "SEEKING INVESTORS", desc: "A calm, Swedish-speaking AI companion for lonely older adults. Companionship, not care. Co-owned with Susanne Örtegren.", href: "/en/pratis" },
-  { name: "Pratis", sector: "AI Companion · HealthTech", status: "SEEKING INVESTORS", desc: "A calm, Swedish-speaking AI companion for lonely older adults. Companionship, not care. Co-owned with Susanne Örtegren.", href: "/en/pratis" },
 ];
 
 const studioAssets: Company[] = [
