@@ -256,12 +256,32 @@ export const EditorialNav = () => {
           ))}
         </nav>
 
+        <div className="grid sm:grid-cols-2 gap-3 mt-10 pt-8 border-t border-white/10">
+          {gateways.map((g) =>
+            g.href.startsWith("mailto:") ? (
+              <a key={g.href} href={g.href} className="edit-label text-white/70 hover:text-white edit-link w-fit">
+                {g.label}
+              </a>
+            ) : (
+              <Link
+                key={g.href}
+                to={g.href}
+                onClick={() => setOpen(false)}
+                className="edit-label text-white/70 hover:text-white edit-link w-fit"
+              >
+                {g.label}
+              </Link>
+            )
+          )}
+        </div>
+
         <div className="flex flex-wrap justify-between items-end gap-4 mt-auto pt-12">
           <span className="edit-label text-white/55">Stockholm · New York · Barcelona · Shanghai · Santiago · Zürich</span>
           <a href="mailto:ivan.daza@ravolution.se" className="edit-label text-white/55 edit-link">
             ivan.daza@ravolution.se
           </a>
         </div>
+
       </div>
     </>
   );
