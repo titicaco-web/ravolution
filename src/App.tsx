@@ -98,10 +98,13 @@ const App = () => (
             <Route path="/:lang/xportmatch" element={<LanguageSync><XportMatchPage /></LanguageSync>} />
             <Route path="/alarmsole" element={<LanguageSync><AlarmSolePage /></LanguageSync>} />
             <Route path="/:lang/alarmsole" element={<LanguageSync><AlarmSolePage /></LanguageSync>} />
-            <Route path="/pikpcash" element={<LanguageSync><PikpCashPage /></LanguageSync>} />
-            <Route path="/:lang/pikpcash" element={<LanguageSync><PikpCashPage /></LanguageSync>} />
+            <Route path="/pikpcash" element={<LanguageSync><PikpCashFlagshipPage /></LanguageSync>} />
+            <Route path="/:lang/pikpcash" element={<LanguageSync><PikpCashFlagshipPage /></LanguageSync>} />
+            <Route path="/pikpcash/system" element={<LanguageSync><PikpCashPage /></LanguageSync>} />
+            <Route path="/:lang/pikpcash/system" element={<LanguageSync><PikpCashPage /></LanguageSync>} />
             <Route path="/pikpcash/dataroom" element={<LanguageSync><PikpCashDataRoomPage /></LanguageSync>} />
             <Route path="/:lang/pikpcash/dataroom" element={<LanguageSync><PikpCashDataRoomPage /></LanguageSync>} />
+
             <Route path="/pratis" element={<LanguageSync><PratisPage /></LanguageSync>} />
             <Route path="/:lang/pratis" element={<LanguageSync><PratisPage /></LanguageSync>} />
             <Route path="/:lang/ventures/pratis" element={<LanguageSync><PratisPage /></LanguageSync>} />
