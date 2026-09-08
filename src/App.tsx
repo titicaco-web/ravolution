@@ -42,6 +42,8 @@ const XportMatchPage = lazy(() => import("./pages/XportMatchPage"));
 const BizMeetPage = lazy(() => import("./pages/BizMeetPage"));
 const AlarmSolePage = lazy(() => import("./pages/AlarmSolePage"));
 const PikpCashPage = lazy(() => import("./pages/PikpCashPage"));
+const PikpCashFlagshipPage = lazy(() => import("./pages/PikpCashFlagshipPage"));
+
 const PikpCashDataRoomPage = lazy(() => import("./pages/PikpCashDataRoomPage"));
 const PratisPage = lazy(() => import("./pages/PratisPage"));
 
