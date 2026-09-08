@@ -11,25 +11,23 @@ const Navbar = () => {
   const lp = useLangPath();
 
   const salesPartnerHref = language === "sv" ? "/sv/saljpartner" : language === "es" ? "/es/socio-comercial" : "/en/sales-partner";
-  const salesPartnerLabel = language === "sv" ? "Säljpartner" : language === "es" ? "Socio Comercial" : "Sales Partner";
   const applyHref = language === "sv" ? "/sv/ansok" : lp("/apply");
   const applyLabel = language === "sv" ? "Ansök" : language === "es" ? "Aplicar" : "Apply";
 
   const navLinks = [
-    { label: t("nav.founder"), href: lp("/about") },
-    { label: t("nav.angel"), href: lp("/angel-investor") },
-    { label: t("nav.services"), href: lp("/services") },
-    { label: t("nav.ventures"), href: lp("/#products") },
-    { label: t("nav.patents"), href: lp("/#patents") },
-    { label: salesPartnerLabel, href: salesPartnerHref },
-    { label: t("nav.blog"), href: lp("/blog") },
-    { label: t("nav.investors"), href: lp("/invest") },
+    { label: "Missions", href: lp("/#missions") },
+    { label: "Inventions", href: lp("/portfolio") },
+    { label: "IP & Evidence", href: lp("/evidence") },
+    { label: t("nav.founder") || "About", href: lp("/about") },
+    { label: "Studio", href: lp("/services") },
+    { label: t("nav.investors") || "Invest", href: lp("/invest") },
     { label: applyLabel, href: applyHref },
   ];
 
   const isApply = (href: string) => href === applyHref;
 
   const isSalesPartner = (href: string) => href === salesPartnerHref;
+
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-primary/95 backdrop-blur-md border-b border-white/10">
