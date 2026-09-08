@@ -183,22 +183,21 @@ export const EditorialNav = () => {
     return () => { document.body.style.overflow = ""; };
   }, [open]);
 
-  const salesPartnerHref = language === "sv" ? "/sv/saljpartner" : language === "es" ? "/es/socio-comercial" : "/en/sales-partner";
-  const salesPartnerLabel = language === "sv" ? "Säljpartner" : language === "es" ? "Socio Comercial" : "Sales Partner";
-  const applyHref = language === "sv" ? "/sv/ansok" : lp("/apply");
-  const applyLabel = language === "sv" ? "Ansök" : language === "es" ? "Aplicar" : "Apply";
-
   const links = [
-    { label: t("nav.founder") || "About", href: lp("/about") },
-    { label: t("nav.angel") || "Angel", href: lp("/angel-investor") },
-    { label: t("nav.services") || "Develop", href: lp("/services") },
-    { label: "Portfolio", href: lp("/portfolio") },
-    { label: t("nav.investors") || "Invest", href: lp("/invest") },
-    { label: salesPartnerLabel, href: salesPartnerHref },
-    { label: t("nav.blog") || "Press", href: lp("/blog") },
-    { label: applyLabel, href: applyHref },
-    { label: "Contact", href: lp("/contact") },
+    { label: "Missions", href: lp("/#missions") },
+    { label: "Inventions", href: lp("/portfolio") },
+    { label: "IP & Evidence", href: lp("/evidence") },
+    { label: "About", href: lp("/about") },
+    { label: "Partner", href: lp("/#partner") },
   ];
+
+  const gateways = [
+    { label: "For founders → Build-for-equity", href: lp("/build-for-equity") },
+    { label: "Studio → Paid development", href: lp("/services") },
+    { label: "Invest → Qualified access", href: lp("/invest") },
+    { label: "Private briefing → Stealth portfolio", href: "mailto:ivan.daza@ravolution.se" },
+  ];
+
 
   return (
     <>
