@@ -303,23 +303,26 @@ export const EditorialFooter = () => {
             Ravolution
           </div>
           <p className="text-white/55 text-sm leading-relaxed max-w-xs">
-            {t("footer.tagline") || "Swedish venture studio & IP innovation company."}
+            Swedish invention company. We invent the systems the world is missing.
           </p>
         </div>
 
         <div className="grid grid-cols-2 gap-y-2">
           {[
-            { l: "Home", h: lp("/") },
+            { l: "Missions", h: lp("/#missions") },
+            { l: "Inventions", h: lp("/portfolio") },
+            { l: "IP & Evidence", h: lp("/evidence") },
             { l: "About", h: lp("/about") },
+            { l: "Studio", h: lp("/services") },
+            { l: "For founders", h: lp("/build-for-equity") },
             { l: "Invest", h: lp("/invest") },
-            { l: "Angel", h: lp("/angel-investor") },
-            { l: "Develop", h: lp("/services") },
-            { l: "Portfolio", h: lp("/portfolio") },
-            { l: salesPartnerLabel, h: salesPartnerHref },
-            { l: "Press", h: lp("/blog") },
-            { l: "Journal", h: lp("/journal") },
             { l: applyLabel, h: applyHref },
-            { l: "Metadata Machine", h: lp("/metadatamachine") },
+            { l: salesPartnerLabel, h: salesPartnerHref },
+            { l: "Journal", h: lp("/journal") },
+            { l: "Press", h: lp("/blog") },
+            { l: "Experiments", h: lp("/metadatamachine") },
+            { l: "Contact", h: lp("/contact") },
+
             { l: "Contact", h: lp("/contact") },
           ].map((x) => (
             <Link key={x.h} to={x.h} className="edit-label text-white/70 hover:text-white edit-link w-fit">
