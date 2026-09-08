@@ -42,6 +42,8 @@ const XportMatchPage = lazy(() => import("./pages/XportMatchPage"));
 const BizMeetPage = lazy(() => import("./pages/BizMeetPage"));
 const AlarmSolePage = lazy(() => import("./pages/AlarmSolePage"));
 const PikpCashPage = lazy(() => import("./pages/PikpCashPage"));
+const PikpCashFlagshipPage = lazy(() => import("./pages/PikpCashFlagshipPage"));
+
 const PikpCashDataRoomPage = lazy(() => import("./pages/PikpCashDataRoomPage"));
 const PratisPage = lazy(() => import("./pages/PratisPage"));
 
@@ -98,10 +100,13 @@ const App = () => (
             <Route path="/:lang/xportmatch" element={<LanguageSync><XportMatchPage /></LanguageSync>} />
             <Route path="/alarmsole" element={<LanguageSync><AlarmSolePage /></LanguageSync>} />
             <Route path="/:lang/alarmsole" element={<LanguageSync><AlarmSolePage /></LanguageSync>} />
-            <Route path="/pikpcash" element={<LanguageSync><PikpCashPage /></LanguageSync>} />
-            <Route path="/:lang/pikpcash" element={<LanguageSync><PikpCashPage /></LanguageSync>} />
+            <Route path="/pikpcash" element={<LanguageSync><PikpCashFlagshipPage /></LanguageSync>} />
+            <Route path="/:lang/pikpcash" element={<LanguageSync><PikpCashFlagshipPage /></LanguageSync>} />
+            <Route path="/pikpcash/system" element={<LanguageSync><PikpCashPage /></LanguageSync>} />
+            <Route path="/:lang/pikpcash/system" element={<LanguageSync><PikpCashPage /></LanguageSync>} />
             <Route path="/pikpcash/dataroom" element={<LanguageSync><PikpCashDataRoomPage /></LanguageSync>} />
             <Route path="/:lang/pikpcash/dataroom" element={<LanguageSync><PikpCashDataRoomPage /></LanguageSync>} />
+
             <Route path="/pratis" element={<LanguageSync><PratisPage /></LanguageSync>} />
             <Route path="/:lang/pratis" element={<LanguageSync><PratisPage /></LanguageSync>} />
             <Route path="/:lang/ventures/pratis" element={<LanguageSync><PratisPage /></LanguageSync>} />

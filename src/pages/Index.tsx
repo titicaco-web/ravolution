@@ -92,9 +92,10 @@ const Index = () => {
     {
       num: "04",
       name: "OPPORTUNITY",
-      question: "What if geography mattered less to who you can sell to, hire, meet or become?",
-      body: "Infrastructure for export discovery, recruiting, professional communities and matching — turning fragmented opportunity into structured, explainable connections.",
-      systems: ["XportMatch", "iApply", "BizMeet"],
+      question: "What if a first chance, a fair match, a relationship or a market were never blocked by where you started?",
+      body: "PikpCash removes the experience barrier, iApply removes the recruitment-information barrier, BizMeet removes the relationship barrier and XportMatch removes the geography barrier.",
+      systems: ["PikpCash", "iApply", "BizMeet", "XportMatch"],
+
     },
     {
       num: "05",
@@ -116,7 +117,7 @@ const Index = () => {
     { title: "Education", systems: "CommunicaringSchool · NewsToast", pos: "left-[3%] top-[8%]" },
     { title: "Language", systems: "Rosetta Livingstone · SINGUISTIC", pos: "right-[3%] top-[8%]" },
     { title: "Trust & Safety", systems: "VoiceProtector · AIMagnifica · AlarmSole", pos: "left-[3%] bottom-[8%]" },
-    { title: "Trade & Work", systems: "XportMatch · iApply · BizMeet", pos: "right-[3%] bottom-[8%]" },
+    { title: "Opportunity", systems: "PikpCash · iApply · BizMeet · XportMatch", pos: "right-[3%] bottom-[8%]" },
     { title: "Health & Planet", systems: "TOXINSIDE · CarbonX", pos: "left-1/2 -translate-x-1/2 top-[1%]" },
     { title: "Frontier / Stealth", systems: "Gyrocraft · unreleased systems", pos: "left-1/2 -translate-x-1/2 bottom-[1%]" },
   ];

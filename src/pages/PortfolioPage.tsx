@@ -17,6 +17,8 @@ const missionSystems: Company[] = [
   { name: "VoiceProtector", sector: "Mission 03 · Trust", status: "ACTIVE", desc: "Voice biometrics and deepfake authentication for a world where voice itself can be generated.", href: "https://voiceprotector.com" },
   { name: "TOXINSIDE", sector: "Mission 05 · Prevention", status: "LAUNCHING 2026", desc: "Regulator-cited product safety scoring at the moment of purchase, with a public methodology and a native halal ingredient vertical.", href: "https://toxinside.com" },
   { name: "AlarmSole", sector: "Mission 03 · Human safety", status: "PATENT PENDING", desc: "Discreet connected safety sole activated through the foot — SOS, live location and emergency workflows, as a product and as an embedded platform.", href: "/en/alarmsole" },
+  { name: "PikpCash", sector: "Mission 04 · Opportunity", status: "FIRST-JOB INFRASTRUCTURE", desc: "Paid first work, a curriculum that lives inside the job, verified skills and nine-level progression — with 26 filed patent claims behind the field-sales engine.", href: "/en/pikpcash" },
+
 ];
 
 const activeVentures: Company[] = [
@@ -25,7 +27,6 @@ const activeVentures: Company[] = [
   { name: "NewsToast", sector: "Media", status: "ACTIVE", desc: "Editorial-grade curated news platform.", href: "https://newstoast.com" },
   { name: "CarbonX", sector: "Climate · Marketplace", status: "ACTIVE", desc: "Carbon and climate infrastructure connected to the prevention-economy mission.", href: "#" },
   { name: "Pratis", sector: "AI Companion · HealthTech", status: "SEEKING INVESTORS", desc: "A calm, Swedish-speaking AI companion for lonely older adults. Companionship, not care. Co-owned with Susanne Örtegren.", href: "/en/pratis" },
-  { name: "PikpCash", sector: "Direct Sales · Gamification", status: "CONCEPT · 2017 · RESTRICTED", desc: "Field-sales gamification with 26 filed patent claims covering proof of presence, geo allocation and verified transactions.", href: "/en/pikpcash" },
 ];
 
 const studioAssets: Company[] = [
