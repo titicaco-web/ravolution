@@ -322,8 +322,6 @@ export const EditorialFooter = () => {
             { l: "Press", h: lp("/blog") },
             { l: "Experiments", h: lp("/metadatamachine") },
             { l: "Contact", h: lp("/contact") },
-
-            { l: "Contact", h: lp("/contact") },
           ].map((x) => (
             <Link key={x.h} to={x.h} className="edit-label text-white/70 hover:text-white edit-link w-fit">
               {x.l}
