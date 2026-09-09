@@ -149,7 +149,7 @@ export type Mission = {
 
 export const MissionPanel = ({ mission, delay = 0 }: { mission: Mission; delay?: number }) => (
   <Reveal delay={delay}>
-    <article className="group relative h-full border border-white/10 p-7 md:p-9 flex flex-col min-h-[360px] transition-colors hover:border-[hsl(var(--accent-edit))]">
+    <article className="group relative h-full border border-white/10 p-7 md:p-9 flex flex-col min-h-[360px] transition-colors hover:bg-[hsl(213,50%,22%)] hover:border-[hsl(var(--accent-edit))]">
       <span className="edit-label text-white/40">
         MISSION {mission.num} · {mission.name}
       </span>
