@@ -377,10 +377,14 @@ const Index = () => {
           </div>
         </section>
 
-        {/* ───── Selected inventions ───── */}
-        <section id="inventions" className="edit-section px-6 md:px-12 border-t border-white/10 bg-[hsl(var(--surface))]">
+        {/* ───── Selected inventions (light editorial surface) ───── */}
+        <section
+          id="inventions"
+          className="edit-section px-6 md:px-12 bg-[#f7f5f0] text-[#081426]"
+        >
           <div className="edit-container">
             <SectionHead
+              tone="light"
               kicker="03 / Selected inventions"
               title={
                 <>
@@ -389,39 +393,68 @@ const Index = () => {
                   THAT DEFINE THE WHOLE.
                 </>
               }
-              intro="These six explain Ravolution's ambition. Active ventures, studio assets and acquisition opportunities live in the full portfolio."
+              intro="The homepage features only the ventures that explain Ravolution's global ambition. Everything else belongs in the full portfolio or acquisition catalogue."
             />
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {inventions.map((c, i) => (
-                <Reveal key={c.name} delay={i * 0.05}>
+            <div className="grid grid-cols-1 md:grid-cols-12 border-t border-[#081426]/15">
+              {inventions.map((c, i) => {
+                const feature = i === 0;
+                return (
                   <a
+                    key={c.name}
                     href={c.href}
                     target={c.href.startsWith("http") ? "_blank" : undefined}
                     rel="noopener noreferrer"
-                    className="group flex flex-col h-full min-h-[320px] border border-white/10 p-7 md:p-9 transition-colors hover:border-[hsl(var(--accent-edit))]"
+                    className={`group relative flex flex-col min-h-[330px] p-7 md:p-9 border-b border-[#081426]/15 md:border-r transition-colors ${
+                      feature
+                        ? "md:col-span-8 bg-[hsl(var(--bg))] text-white md:border-r-0"
+                        : "md:col-span-4 hover:bg-[#efece4]"
+                    }`}
                   >
-                    <span className="edit-label text-white/40">{c.status}</span>
-                    <h3 className="text-2xl md:text-3xl font-display text-white mt-6 group-hover:text-[hsl(var(--accent-edit))] transition-colors">
+                    <span
+                      className={`edit-label ${
+                        feature ? "text-[hsl(var(--accent-edit))]" : "text-[hsl(var(--accent-dim))]"
+                      }`}
+                    >
+                      {c.status}
+                    </span>
+                    <h3
+                      className={`font-display mt-12 md:mt-14 tracking-tight ${
+                        feature
+                          ? "text-4xl md:text-6xl text-white"
+                          : "text-2xl md:text-3xl text-[#081426]"
+                      }`}
+                    >
                       {c.name}
                     </h3>
-                    <p className="text-sm text-white/55 leading-relaxed mt-4">{c.desc}</p>
-                    <span className="edit-label text-[hsl(var(--accent-edit))] mt-auto pt-8 text-[10px]">
+                    <p
+                      className={`edit-body mt-4 max-w-[34rem] ${
+                        feature ? "text-white/70 text-base md:text-lg" : "text-[#536078] text-sm"
+                      }`}
+                    >
+                      {c.desc}
+                    </p>
+                    <span
+                      className={`edit-label mt-auto pt-8 text-[10px] ${
+                        feature ? "text-white/70" : "text-[#192b44]/70"
+                      }`}
+                    >
                       {c.outcome}
                     </span>
                   </a>
-                </Reveal>
-              ))}
+                );
+              })}
             </div>
             <Reveal className="mt-12">
               <Link
                 to={lp("/portfolio")}
-                className="edit-label border border-white/30 px-6 py-4 text-white hover:bg-white hover:text-black transition-colors inline-block"
+                className="edit-label border border-[#081426]/40 px-6 py-4 text-[#081426] hover:bg-[#081426] hover:text-[#f7f5f0] transition-colors inline-block"
               >
                 See the full portfolio in four layers →
               </Link>
             </Reveal>
           </div>
         </section>
+
 
         <InvestorPortfolioMarquee />
 
