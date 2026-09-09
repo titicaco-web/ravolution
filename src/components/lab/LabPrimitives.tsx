@@ -29,8 +29,8 @@ export const NetworkCanvas = ({ className = "" }: { className?: string }) => {
       nodes = Array.from({ length: n }, (_, i) => ({
         x: Math.random() * W,
         y: Math.random() * H,
-        vx: (Math.random() - 0.5) * 0.22,
-        vy: (Math.random() - 0.5) * 0.22,
+        vx: (Math.random() - 0.5) * 0.7 || 0.35,
+        vy: (Math.random() - 0.5) * 0.7 || 0.35,
         r: Math.random() * 1.7 + 0.7,
         label: i < labels.length ? labels[i] : null,
       }));
@@ -78,8 +78,11 @@ export const NetworkCanvas = ({ className = "" }: { className?: string }) => {
     resize();
     draw();
     window.addEventListener("resize", resize);
+    const ro = new ResizeObserver(() => resize());
+    ro.observe(canvas);
     return () => {
       cancelAnimationFrame(raf);
+      ro.disconnect();
       window.removeEventListener("resize", resize);
     };
   }, []);
