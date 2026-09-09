@@ -241,8 +241,8 @@ export const StealthPanel = ({
       </div>
       <div className="p-8 md:p-12">
         <span className="edit-label text-[hsl(var(--accent-edit))]">R / S</span>
-        <h3 className="edit-h3 text-white mt-4 text-2xl md:text-3xl font-display">{title}</h3>
-        <p className="text-white/60 text-sm leading-relaxed mt-4 max-w-md">{body}</p>
+        <h3 className="font-display font-bold text-white mt-4 text-3xl md:text-5xl leading-tight tracking-tight">{title}</h3>
+        <p className="text-white/60 text-base leading-relaxed mt-6 max-w-md">{body}</p>
         <a
           href={ctaHref}
           className="inline-block mt-8 edit-label border border-white/30 px-5 py-3 text-white hover:bg-white hover:text-black transition-colors"
