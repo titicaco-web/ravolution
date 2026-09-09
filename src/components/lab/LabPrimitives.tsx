@@ -20,8 +20,11 @@ export const NetworkCanvas = ({ className = "" }: { className?: string }) => {
     let nodes: { x: number; y: number; vx: number; vy: number; r: number; label: string | null }[] = [];
 
     const resize = () => {
-      W = canvas.clientWidth;
-      H = canvas.clientHeight;
+      const nw = canvas.clientWidth || canvas.parentElement?.clientWidth || window.innerWidth;
+      const nh = canvas.clientHeight || canvas.parentElement?.clientHeight || 480;
+      if (nw === W && nh === H) return;
+      W = nw;
+      H = nh;
       canvas.width = W * dpr;
       canvas.height = H * dpr;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
