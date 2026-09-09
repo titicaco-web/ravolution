@@ -235,18 +235,20 @@ const Index = () => {
           <TechGrid />
           <div className="edit-container relative z-10">
             <Reveal>
-              <span className="edit-label text-[hsl(var(--accent-edit))]">{seo.eyebrow}</span>
+              <span className="edit-label edit-eyebrow">{seo.eyebrow}</span>
             </Reveal>
             <Reveal delay={0.08}>
-              <h1 className="edit-display text-white mt-8 max-w-6xl">
+              <h1 className="edit-display text-white mt-5 max-w-6xl">
                 {seo.h1a}
-                <span className="text-[hsl(var(--accent-edit))]">{seo.h1b}</span>
+                <span className="edit-outline">{seo.h1b}</span>
                 {seo.h1c}
               </h1>
             </Reveal>
-            <div className="grid md:grid-cols-12 gap-10 mt-14">
+            <div className="grid md:grid-cols-12 gap-10 mt-11">
               <Reveal delay={0.16} className="md:col-span-7">
-                <p className="edit-body text-white/70 max-w-2xl">{seo.lede}</p>
+                <p className="edit-lede max-w-3xl">
+                  {seo.lede}
+                </p>
                 <div className="flex flex-wrap gap-4 mt-8">
                   <a
                     href="#missions"
