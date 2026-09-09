@@ -514,7 +514,7 @@ const Index = () => {
               {method.map((s) => (
                 <div key={s.n} className="border-r border-b border-white/10 p-6 md:p-8">
                   <span className="edit-label text-[hsl(var(--accent-edit))]">{s.n}</span>
-                  <h4 className="font-display text-white text-lg mt-4">{s.h}</h4>
+                  <h4 className="font-display font-bold text-white text-xl md:text-2xl mt-4">{s.h}</h4>
                   <p className="text-sm text-white/55 leading-relaxed mt-3">{s.p}</p>
                 </div>
               ))}
