@@ -409,25 +409,25 @@
 }
 
 /* ──────────────────────────────────────────────────────────────────
-   Editorial design system (RAV24) — global redesign
-   Dark editorial surface, Space Grotesk display, monospace labels.
-   Activate by wrapping a page/root in `editorial` class (or .rav-edit).
-   Tokens preserve brand palette (teal/cyan accent already defined).
+   THE INVENTION GRID — Ravolution brand system 2026 (Brand Bible 3.0)
+   Ravolution Ink #081426 / System Navy #0F2747 / Human Ivory #F7F5F0
+   Signal Gold #B08D57 (dark variant #7C633D) / System Grey #9AA6B4
+   Inter Tight for statements, IBM Plex Mono for all technical metadata.
    ────────────────────────────────────────────────────────────────── */
 
 .editorial {
   /* Surface tokens (override of dark theme) */
-  --bg: 215 65% 8%;          /* deep sea navy blue */
-  --surface: 215 55% 12%;
-  --surface-2: 215 50% 16%;
-  --text-primary: 0 0% 98%;
-  --text-secondary: 0 0% 98%; /* used with /55 alpha utility */
-  --accent-edit: 36 60% 58%;  /* warm gold accent (brand) */
-  --accent-dim: 36 60% 58%;
+  --bg: 212 65% 9%;           /* Ravolution Ink #081426 */
+  --surface: 213 65% 17%;     /* System Navy #0F2747 */
+  --surface-2: 213 50% 22%;
+  --text-primary: 40 30% 96%; /* Human Ivory #F7F5F0 */
+  --text-secondary: 210 15% 66%; /* System Grey #9AA6B4 */
+  --accent-edit: 34 35% 52%;  /* Signal Gold #B08D57 */
+  --accent-dim: 34 35% 36%;   /* Dark Gold #7C633D (light backgrounds) */
 
   background-color: hsl(var(--bg));
   color: hsl(var(--text-primary));
-  font-family: "Space Grotesk", "Inter", system-ui, sans-serif;
+  font-family: "Inter Tight", "Inter", system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -438,33 +438,33 @@
 
 /* Display / hero */
 .edit-display {
-  font-family: "Space Grotesk", "Inter", sans-serif;
+  font-family: "Inter Tight", "Inter", sans-serif;
   font-weight: 700;
   font-size: clamp(3.5rem, 10vw, 8.75rem);
   line-height: 0.88;
-  letter-spacing: -0.035em;
+  letter-spacing: -0.055em;
   text-transform: uppercase;
 }
 
 .edit-h2 {
-  font-family: "Space Grotesk", sans-serif;
+  font-family: "Inter Tight", "Inter", sans-serif;
   font-weight: 700;
   font-size: clamp(2rem, 5vw, 4rem);
-  line-height: 0.95;
-  letter-spacing: -0.025em;
+  line-height: 0.92;
+  letter-spacing: -0.045em;
   text-transform: uppercase;
 }
 
 .edit-stat {
-  font-family: "Space Grotesk", sans-serif;
+  font-family: "Inter Tight", "Inter", sans-serif;
   font-weight: 700;
   font-size: clamp(5rem, 12vw, 10rem);
   line-height: 0.9;
-  letter-spacing: -0.04em;
+  letter-spacing: -0.05em;
 }
 
 .edit-label {
-  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
   font-size: 11px;
   font-weight: 500;
   letter-spacing: 0.22em;
@@ -472,7 +472,7 @@
 }
 
 .edit-mono {
-  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
 }
 
 .edit-body {
@@ -550,7 +550,7 @@
   padding: 1rem 1.75rem;
   border: 1px solid hsl(var(--accent-edit));
   color: hsl(var(--text-primary));
-  font-family: "JetBrains Mono", monospace;
+  font-family: "IBM Plex Mono", monospace;
   font-size: 12px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
@@ -645,7 +645,7 @@
   animation: edit-preloader-out 0.6s ease-in 0.7s forwards;
 }
 .edit-preloader span {
-  font-family: "Space Grotesk", sans-serif;
+  font-family: "Inter Tight", sans-serif;
   font-weight: 700;
   font-size: clamp(2rem, 5vw, 3.5rem);
   text-transform: uppercase;
@@ -686,7 +686,7 @@
   align-items: baseline;
   gap: 1.5rem;
   padding: 0.5rem 0;
-  font-family: "Space Grotesk", sans-serif;
+  font-family: "Inter Tight", sans-serif;
   font-weight: 700;
   font-size: clamp(1.75rem, 5vw, 4.5rem);
   line-height: 1;
