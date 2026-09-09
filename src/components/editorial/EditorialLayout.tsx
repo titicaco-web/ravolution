@@ -317,7 +317,7 @@ export const EditorialFooter = () => {
         <div className="grid grid-cols-2 gap-y-2">
           {[
             { l: "Missions", h: lp("/#missions") },
-            { l: "Inventions", h: lp("/portfolio") },
+            { l: "Systems", h: lp("/portfolio") },
             { l: "IP & Evidence", h: lp("/evidence") },
             { l: "About", h: lp("/about") },
             { l: "Studio", h: lp("/services") },

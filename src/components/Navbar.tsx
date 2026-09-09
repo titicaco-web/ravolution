@@ -16,7 +16,7 @@ const Navbar = () => {
 
   const navLinks = [
     { label: "Missions", href: lp("/#missions") },
-    { label: "Inventions", href: lp("/portfolio") },
+    { label: "Systems", href: lp("/portfolio") },
     { label: "IP & Evidence", href: lp("/evidence") },
     { label: t("nav.founder") || "About", href: lp("/about") },
     { label: "Studio", href: lp("/services") },
