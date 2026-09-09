@@ -185,17 +185,17 @@ export const EditorialNav = () => {
 
   const links = [
     { label: "Missions", href: lp("/#missions") },
-    { label: "Inventions", href: lp("/portfolio") },
+    { label: "Systems", href: lp("/portfolio") },
     { label: "IP & Evidence", href: lp("/evidence") },
     { label: "About", href: lp("/about") },
     { label: "Partner", href: lp("/#partner") },
   ];
 
   const gateways = [
-    { label: "For founders → Build-for-equity", href: lp("/build-for-equity") },
-    { label: "Studio → Paid development", href: lp("/services") },
+    { label: "For founders → Build with Ravolution", href: lp("/build-for-equity") },
+    { label: "Studio → Send a project brief", href: lp("/services") },
     { label: "Invest → Qualified access", href: lp("/invest") },
-    { label: "Private briefing → Stealth portfolio", href: "mailto:ivan.daza@ravolution.se" },
+    { label: "Private briefing → Request access", href: "mailto:ivan.daza@ravolution.se" },
   ];
 
 
@@ -207,13 +207,20 @@ export const EditorialNav = () => {
         }`}
       >
         <div className="flex items-center justify-between px-6 md:px-12 h-16 md:h-20">
-          <Link to={lp("/")} className="edit-link">
+          <Link to={lp("/")} className="edit-link flex items-baseline gap-2">
             <span className="font-display font-bold uppercase tracking-[0.22em] text-white text-base md:text-lg">
               Ravolution
             </span>
+            <span className="edit-label text-[hsl(var(--accent-edit))] hidden sm:inline">/ Lab</span>
           </Link>
           <div className="flex items-center gap-4">
             <div className="hidden md:block"><LanguageSwitcher /></div>
+            <a
+              href="mailto:ivan.daza@ravolution.se?subject=Private%20briefing%20request"
+              className="edit-label hidden lg:inline-flex text-[hsl(var(--accent-edit))] border border-[hsl(var(--accent-edit))] px-4 py-2 hover:bg-[hsl(var(--accent-edit))] hover:text-black transition-colors"
+            >
+              Private briefing →
+            </a>
             <button
               onClick={() => setOpen(true)}
               className="edit-label text-white border border-white/30 px-4 py-2 hover:bg-white hover:text-black transition-colors"
