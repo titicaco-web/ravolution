@@ -521,6 +521,78 @@
   width: 100%;
 }
 
+/* Hero: outlined word inside the display headline */
+.edit-outline {
+  -webkit-text-stroke: 1px hsl(var(--text-primary) / 0.42);
+  color: transparent;
+}
+
+/* Hero eyebrow with leading rule */
+.edit-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: hsl(var(--accent-edit));
+}
+.edit-eyebrow::before {
+  content: "";
+  width: 26px;
+  height: 1px;
+  background: hsl(var(--accent-edit));
+}
+
+/* Hero lede */
+.edit-lede {
+  font-size: clamp(18px, 2vw, 30px);
+  line-height: 1.22;
+  letter-spacing: -0.02em;
+  color: #e7e5df;
+}
+.edit-lede strong {
+  color: hsl(var(--accent-edit));
+  font-weight: 500;
+}
+
+/* Light (Human Ivory) surface — black type on ivory */
+.edit-light {
+  background: #f7f5f0;
+  color: #081426;
+}
+.edit-light .edit-h2,
+.edit-light .edit-quote {
+  color: #081426;
+}
+.edit-light .edit-intro,
+.edit-light .edit-body {
+  color: #344258;
+}
+.edit-light::before {
+  background-image:
+    linear-gradient(to right, rgba(8, 20, 38, 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(8, 20, 38, 0.06) 1px, transparent 1px);
+}
+.edit-light .edit-link::after { background: #081426; }
+
+/* Manifesto quote */
+.edit-quote {
+  font-family: "Inter Tight", "Inter", sans-serif;
+  font-size: clamp(29px, 4.3vw, 70px);
+  line-height: 1.02;
+  letter-spacing: -0.045em;
+  font-weight: 650;
+}
+.edit-quote strong {
+  color: #7c633d;
+  font-weight: 600;
+}
+
+/* Section intro paragraph */
+.edit-intro {
+  font-size: clamp(18px, 1.8vw, 27px);
+  line-height: 1.32;
+  letter-spacing: -0.01em;
+}
+
 /* Underline link draw-in */
 .edit-link {
   position: relative;
