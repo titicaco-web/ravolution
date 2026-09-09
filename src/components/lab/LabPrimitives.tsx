@@ -20,19 +20,22 @@ export const NetworkCanvas = ({ className = "" }: { className?: string }) => {
     let nodes: { x: number; y: number; vx: number; vy: number; r: number; label: string | null }[] = [];
 
     const resize = () => {
-      W = canvas.clientWidth;
-      H = canvas.clientHeight;
+      const nw = canvas.clientWidth || canvas.parentElement?.clientWidth || window.innerWidth;
+      const nh = canvas.clientHeight || canvas.parentElement?.clientHeight || 480;
+      if (nw === W && nh === H) return;
+      W = nw;
+      H = nh;
       canvas.width = W * dpr;
       canvas.height = H * dpr;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      const n = Math.max(28, Math.floor(W / 45));
+      const n = Math.max(46, Math.min(120, Math.floor((W * H) / 14000)));
       nodes = Array.from({ length: n }, (_, i) => ({
         x: Math.random() * W,
         y: Math.random() * H,
         vx: (Math.random() - 0.5) * 0.7 || 0.35,
         vy: (Math.random() - 0.5) * 0.7 || 0.35,
         r: Math.random() * 1.7 + 0.7,
-        label: i < labels.length ? labels[i] : null,
+        label: i % 7 === 0 && i / 7 < labels.length ? labels[Math.floor(i / 7)] : null,
       }));
     };
 
@@ -52,7 +55,7 @@ export const NetworkCanvas = ({ className = "" }: { className?: string }) => {
           const b = nodes[j];
           const d = Math.hypot(a.x - b.x, a.y - b.y);
           if (d < 170) {
-            ctx.strokeStyle = `rgba(176,141,87,${(1 - d / 170) * 0.16})`;
+            ctx.strokeStyle = `rgba(176,141,87,${(1 - d / 170) * 0.26})`;
             ctx.lineWidth = 0.7;
             ctx.beginPath();
             ctx.moveTo(a.x, a.y);
@@ -62,13 +65,13 @@ export const NetworkCanvas = ({ className = "" }: { className?: string }) => {
         }
       }
       for (const n of nodes) {
-        ctx.fillStyle = n.label ? "rgba(176,141,87,.9)" : "rgba(247,245,240,.34)";
+        ctx.fillStyle = n.label ? "rgba(176,141,87,.9)" : "rgba(247,245,240,.55)";
         ctx.beginPath();
         ctx.arc(n.x, n.y, n.r + (n.label ? 1.4 : 0), 0, Math.PI * 2);
         ctx.fill();
         if (n.label) {
           ctx.font = "9px monospace";
-          ctx.fillStyle = "rgba(247,245,240,.5)";
+          ctx.fillStyle = "rgba(247,245,240,.72)";
           ctx.fillText(n.label, n.x + 9, n.y + 3);
         }
       }
