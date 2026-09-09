@@ -11,7 +11,6 @@ export const NetworkCanvas = ({ className = "" }: { className?: string }) => {
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
-    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const dpr = Math.min(window.devicePixelRatio || 1, 2);
     const labels = ["LEARN", "LANGUAGE", "TRUST", "TRADE", "HEALTH", "SAFETY", "WORK", "FRONTIER"];
     let W = 0;
@@ -20,32 +19,27 @@ export const NetworkCanvas = ({ className = "" }: { className?: string }) => {
     let nodes: { x: number; y: number; vx: number; vy: number; r: number; label: string | null }[] = [];
 
     const resize = () => {
-      const nw = canvas.clientWidth || canvas.parentElement?.clientWidth || window.innerWidth;
-      const nh = canvas.clientHeight || canvas.parentElement?.clientHeight || 480;
-      if (nw === W && nh === H) return;
-      W = nw;
-      H = nh;
+      W = canvas.clientWidth;
+      H = canvas.clientHeight;
       canvas.width = W * dpr;
       canvas.height = H * dpr;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      const n = Math.max(46, Math.min(120, Math.floor((W * H) / 14000)));
+      const n = Math.max(28, Math.floor(W / 45));
       nodes = Array.from({ length: n }, (_, i) => ({
         x: Math.random() * W,
         y: Math.random() * H,
-        vx: (Math.random() - 0.5) * 0.7 || 0.35,
-        vy: (Math.random() - 0.5) * 0.7 || 0.35,
-        r: Math.random() * 1.7 + 0.7,
-        label: i % 7 === 0 && i / 7 < labels.length ? labels[Math.floor(i / 7)] : null,
+        vx: (Math.random() - 0.5) * 0.22,
+        vy: (Math.random() - 0.5) * 0.22,
+        r: Math.random() * 1.8 + 0.7,
+        label: i < labels.length ? labels[i] : null,
       }));
     };
 
     const draw = () => {
       ctx.clearRect(0, 0, W, H);
       for (const n of nodes) {
-        if (!reduced) {
-          n.x += n.vx;
-          n.y += n.vy;
-        }
+        n.x += n.vx;
+        n.y += n.vy;
         if (n.x < 0 || n.x > W) n.vx *= -1;
         if (n.y < 0 || n.y > H) n.vy *= -1;
       }
@@ -54,8 +48,8 @@ export const NetworkCanvas = ({ className = "" }: { className?: string }) => {
           const a = nodes[i];
           const b = nodes[j];
           const d = Math.hypot(a.x - b.x, a.y - b.y);
-          if (d < 170) {
-            ctx.strokeStyle = `rgba(176,141,87,${(1 - d / 170) * 0.26})`;
+          if (d < 160) {
+            ctx.strokeStyle = `rgba(176,141,87,${(1 - d / 160) * 0.15})`;
             ctx.lineWidth = 0.7;
             ctx.beginPath();
             ctx.moveTo(a.x, a.y);
@@ -65,32 +59,29 @@ export const NetworkCanvas = ({ className = "" }: { className?: string }) => {
         }
       }
       for (const n of nodes) {
-        ctx.fillStyle = n.label ? "rgba(176,141,87,.9)" : "rgba(247,245,240,.55)";
+        ctx.fillStyle = n.label ? "rgba(176,141,87,.92)" : "rgba(247,245,240,.38)";
         ctx.beginPath();
         ctx.arc(n.x, n.y, n.r + (n.label ? 1.4 : 0), 0, Math.PI * 2);
         ctx.fill();
         if (n.label) {
           ctx.font = "9px monospace";
-          ctx.fillStyle = "rgba(247,245,240,.72)";
+          ctx.fillStyle = "rgba(247,245,240,.55)";
           ctx.fillText(n.label, n.x + 9, n.y + 3);
         }
       }
-      if (!reduced) raf = requestAnimationFrame(draw);
+      raf = requestAnimationFrame(draw);
     };
 
     resize();
     draw();
     window.addEventListener("resize", resize);
-    const ro = new ResizeObserver(() => resize());
-    ro.observe(canvas);
     return () => {
       cancelAnimationFrame(raf);
-      ro.disconnect();
       window.removeEventListener("resize", resize);
     };
   }, []);
 
-  return <canvas ref={ref} aria-hidden className={`absolute inset-0 w-full h-full ${className}`} />;
+  return <canvas ref={ref} aria-hidden className={`absolute inset-0 h-full w-full pointer-events-none opacity-[0.93] ${className}`} />;
 };
 
 /* ───────── Fine technical grid overlay ───────── */
