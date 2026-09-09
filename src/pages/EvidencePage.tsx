@@ -148,7 +148,7 @@ const EvidencePage = () => {
           <div className="edit-container flex flex-wrap gap-4">
             <a
               href="mailto:ivan.daza@ravolution.se"
-              className="edit-label px-6 py-4 bg-[hsl(var(--accent-edit))] text-black hover:opacity-90 transition-opacity"
+              className="edit-label px-6 py-4 bg-[hsl(var(--accent-edit-btn))] text-[#081426] hover:opacity-90 transition-opacity"
             >
               Request the full patent schedule →
             </a>
