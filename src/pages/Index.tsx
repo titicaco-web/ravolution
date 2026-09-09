@@ -265,7 +265,7 @@ const Index = () => {
                 </div>
               </Reveal>
               <Reveal delay={0.24} className="md:col-span-5 md:border-l border-white/10 md:pl-10">
-                <div className="font-display text-4xl md:text-5xl text-white">27 / 369</div>
+                <div className="font-display font-bold text-4xl md:text-5xl text-white">27 / 369</div>
                 <p className="edit-label text-white/50 mt-3 leading-relaxed">
                   Patent assets / claims
                   <br />
@@ -418,7 +418,7 @@ const Index = () => {
                       {c.status}
                     </span>
                     <h3
-                      className={`font-display mt-12 md:mt-14 tracking-tight ${
+                      className={`font-display font-bold mt-12 md:mt-14 tracking-tight ${
                         feature
                           ? "text-4xl md:text-6xl text-white"
                           : "text-2xl md:text-3xl text-[#081426]"
@@ -480,7 +480,7 @@ const Index = () => {
                 { v: 12, s: "+", l: "Built / active systems" },
               ].map((x) => (
                 <div key={x.l} className="border-r border-b border-white/10 p-6 md:p-9">
-                  <CountUp end={x.v} suffix={x.s} className="font-display text-4xl md:text-5xl text-white" />
+                  <CountUp end={x.v} suffix={x.s} className="font-display font-bold text-4xl md:text-5xl text-white" />
                   <div className="edit-label text-white/50 mt-3">{x.l}</div>
                 </div>
               ))}
