@@ -550,7 +550,7 @@
   padding: 1rem 1.75rem;
   border: 1px solid hsl(var(--accent-edit));
   color: hsl(var(--text-primary));
-  font-family: "JetBrains Mono", monospace;
+  font-family: "IBM Plex Mono", monospace;
   font-size: 12px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
@@ -645,7 +645,7 @@
   animation: edit-preloader-out 0.6s ease-in 0.7s forwards;
 }
 .edit-preloader span {
-  font-family: "Space Grotesk", sans-serif;
+  font-family: "Inter Tight", sans-serif;
   font-weight: 700;
   font-size: clamp(2rem, 5vw, 3.5rem);
   text-transform: uppercase;
@@ -686,7 +686,7 @@
   align-items: baseline;
   gap: 1.5rem;
   padding: 0.5rem 0;
-  font-family: "Space Grotesk", sans-serif;
+  font-family: "Inter Tight", sans-serif;
   font-weight: 700;
   font-size: clamp(1.75rem, 5vw, 4.5rem);
   line-height: 1;
