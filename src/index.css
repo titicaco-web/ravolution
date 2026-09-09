@@ -424,6 +424,7 @@
   --text-secondary: 210 15% 66%; /* System Grey #9AA6B4 */
   --accent-edit: 34 35% 52%;  /* Signal Gold #B08D57 */
   --accent-dim: 34 35% 36%;   /* Dark Gold #7C633D (light backgrounds) */
+  --accent-edit-btn: 43 72% 46%; /* Richer yellow-gold for CTA buttons */
 
   background-color: hsl(var(--bg));
   color: hsl(var(--text-primary));
