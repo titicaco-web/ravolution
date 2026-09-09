@@ -106,19 +106,40 @@ export const SectionHead = ({
   kicker,
   title,
   intro,
+  tone = "dark",
 }: {
   kicker: string;
   title: ReactNode;
   intro?: string;
-}) => (
-  <Reveal className="mb-12 md:mb-20 grid md:grid-cols-12 gap-6 border-t border-white/10 pt-6">
-    <span className="edit-label text-[hsl(var(--accent-edit))] md:col-span-3">{kicker}</span>
-    <div className="md:col-span-9">
-      <h2 className="edit-h2 text-white">{title}</h2>
-      {intro && <p className="edit-body text-white/60 mt-6 max-w-3xl">{intro}</p>}
-    </div>
-  </Reveal>
-);
+  /** "dark" = light text on navy, "light" = dark text on ivory */
+  tone?: "dark" | "light";
+}) => {
+  const light = tone === "light";
+  return (
+    <Reveal
+      className={`mb-12 md:mb-20 grid md:grid-cols-12 gap-6 border-t pt-6 ${
+        light ? "border-[#081426]/15" : "border-white/10"
+      }`}
+    >
+      <span
+        className={`edit-label md:col-span-3 ${
+          light ? "text-[hsl(var(--accent-dim))]" : "text-[hsl(var(--accent-edit))]"
+        }`}
+      >
+        {kicker}
+      </span>
+      <div className="md:col-span-9">
+        <h2 className={`edit-h2 ${light ? "text-[#081426]" : "text-white"}`}>{title}</h2>
+        {intro && (
+          <p className={`edit-body mt-6 max-w-3xl ${light ? "text-[#344258]" : "text-white/60"}`}>
+            {intro}
+          </p>
+        )}
+      </div>
+    </Reveal>
+  );
+};
+
 
 /* ───────── Mission panel ───────── */
 export type Mission = {
