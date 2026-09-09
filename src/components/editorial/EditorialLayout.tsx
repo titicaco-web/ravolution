@@ -207,12 +207,16 @@ export const EditorialNav = () => {
         }`}
       >
         <div className="flex items-center justify-between px-6 md:px-12 h-16 md:h-20">
-          <Link to={lp("/")} className="edit-link flex items-baseline gap-2">
+          <Link to={lp("/")} className="edit-link flex items-center gap-3">
+            <span className="edit-mark" aria-hidden>
+              <span>R</span>
+            </span>
             <span className="font-display font-bold uppercase tracking-[0.22em] text-white text-base md:text-lg">
               Ravolution
             </span>
             <span className="edit-label text-[hsl(var(--accent-edit))] hidden sm:inline">/ Lab</span>
           </Link>
+
           <div className="flex items-center gap-4">
             <div className="hidden md:block"><LanguageSwitcher /></div>
             <a
