@@ -440,7 +440,7 @@
 /* Display / hero */
 .edit-display {
   font-family: "Inter Tight", "Inter", sans-serif;
-  font-weight: 700;
+  font-weight: 750;
   font-size: clamp(3.5rem, 10vw, 8.75rem);
   line-height: 0.88;
   letter-spacing: -0.055em;
@@ -449,7 +449,7 @@
 
 .edit-h2 {
   font-family: "Inter Tight", "Inter", sans-serif;
-  font-weight: 700;
+  font-weight: 750;
   font-size: clamp(2rem, 5vw, 4rem);
   line-height: 0.92;
   letter-spacing: -0.045em;
@@ -458,7 +458,7 @@
 
 .edit-stat {
   font-family: "Inter Tight", "Inter", sans-serif;
-  font-weight: 700;
+  font-weight: 750;
   font-size: clamp(5rem, 12vw, 10rem);
   line-height: 0.9;
   letter-spacing: -0.05em;
@@ -580,11 +580,11 @@
   font-size: clamp(29px, 4.3vw, 70px);
   line-height: 1.02;
   letter-spacing: -0.045em;
-  font-weight: 650;
+  font-weight: 700;
 }
 .edit-quote strong {
   color: #7c633d;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 /* Section intro paragraph */
