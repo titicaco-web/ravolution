@@ -25,7 +25,7 @@ export const NetworkCanvas = ({ className = "" }: { className?: string }) => {
       canvas.width = W * dpr;
       canvas.height = H * dpr;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      const n = Math.max(22, Math.floor(W / 52));
+      const n = Math.max(28, Math.floor(W / 45));
       nodes = Array.from({ length: n }, (_, i) => ({
         x: Math.random() * W,
         y: Math.random() * H,

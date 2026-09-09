@@ -424,7 +424,7 @@
   --text-secondary: 210 15% 66%; /* System Grey #9AA6B4 */
   --accent-edit: 34 35% 52%;  /* Signal Gold #B08D57 */
   --accent-dim: 34 35% 36%;   /* Dark Gold #7C633D (light backgrounds) */
-  --accent-edit-btn: 43 72% 46%; /* Richer yellow-gold for CTA buttons */
+  --accent-edit-btn: 34 35% 52%; /* Signal Gold #B08D57 — brand CTA gold */
 
   background-color: hsl(var(--bg));
   color: hsl(var(--text-primary));
@@ -1038,3 +1038,34 @@
 .rav-page-transition.is-active { opacity: .6; pointer-events: auto; }
 
 @keyframes shake { 0%,100% { transform: translateX(0);} 20% { transform: translateX(-6px);} 40% { transform: translateX(6px);} 60% { transform: translateX(-4px);} 80% { transform: translateX(4px);} }
+
+/* Brand mark (concept logo: bordered square with gold cross strokes) */
+.edit-mark {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(247, 245, 240, 0.35);
+  overflow: hidden;
+  flex: none;
+}
+.edit-mark::before,
+.edit-mark::after {
+  content: "";
+  position: absolute;
+  background: hsl(var(--accent-edit));
+}
+.edit-mark::before { width: 2px; height: 32px; transform: rotate(42deg); }
+.edit-mark::after { height: 2px; width: 32px; transform: rotate(-42deg); }
+.edit-mark > span {
+  position: relative;
+  z-index: 2;
+  font-family: "Inter Tight", sans-serif;
+  font-weight: 700;
+  font-size: 10px;
+  line-height: 1;
+  padding: 2px;
+  background: #081426;
+  color: #f7f5f0;
+}
