@@ -78,8 +78,11 @@ export const NetworkCanvas = ({ className = "" }: { className?: string }) => {
     resize();
     draw();
     window.addEventListener("resize", resize);
+    const ro = new ResizeObserver(() => resize());
+    ro.observe(canvas);
     return () => {
       cancelAnimationFrame(raf);
+      ro.disconnect();
       window.removeEventListener("resize", resize);
     };
   }, []);
