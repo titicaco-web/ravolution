@@ -569,8 +569,8 @@ const Index = () => {
               {entryPoints.map((c) => (
                 <div key={c.title} className="border-r border-b border-white/10 p-8 md:p-10 flex flex-col">
                   <span className="edit-label text-[hsl(var(--accent-edit))]">{c.kicker}</span>
-                  <h3 className="font-display text-white text-2xl mt-5">{c.title}</h3>
-                  <p className="text-sm text-white/55 leading-relaxed mt-4">{c.body}</p>
+                  <h3 className="font-display font-bold text-white text-3xl md:text-4xl mt-5 tracking-tight">{c.title}</h3>
+                  <p className="text-base text-white/60 leading-relaxed mt-4">{c.body}</p>
                   {c.href.startsWith("mailto:") ? (
                     <a href={c.href} className="edit-label text-white mt-auto pt-8 edit-link">
                       {c.label}
