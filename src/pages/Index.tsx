@@ -295,43 +295,47 @@ const Index = () => {
           ]}
         />
 
-        {/* ───── Thesis ───── */}
-        <section className="edit-section px-6 md:px-12">
+        {/* ───── Thesis (Human Ivory surface) ───── */}
+        <section className="edit-section edit-light px-6 md:px-12">
           <div className="edit-container">
-            <SectionHead
-              kicker="00 / Thesis"
-              title={
-                <>
+            <Reveal className="mb-12 md:mb-16 grid md:grid-cols-12 gap-6">
+              <span className="edit-label text-[#7c633d] md:col-span-3 pt-2">00 / Thesis</span>
+              <div className="md:col-span-9">
+                <h2 className="edit-h2">
                   NOT MORE APPS.
                   <br />
                   BETTER SYSTEMS.
-                </>
-              }
-              intro="The most important technologies do more than optimise a task. They change the underlying conditions in which millions of people learn, work, communicate, trade, decide and stay safe."
-            />
-            <div className="grid md:grid-cols-12 gap-10">
-              <Reveal className="md:col-span-7">
-                <p className="text-2xl md:text-3xl font-display text-white leading-snug">
+                </h2>
+                <p className="edit-intro mt-6 max-w-3xl">
+                  The most important technologies do more than optimise a task. They change the
+                  underlying conditions in which millions of people learn, work, communicate, trade,
+                  decide and stay safe.
+                </p>
+              </div>
+            </Reveal>
+
+            <div className="grid md:grid-cols-12 border-t border-[#081426]/14">
+              <Reveal className="md:col-span-7 py-10 md:pr-[7vw]">
+                <p className="edit-quote">
                   Ravolution should be measured by one question:{" "}
-                  <span className="text-[hsl(var(--accent-edit))]">
-                    what becomes possible at scale if this system works?
-                  </span>
+                  <strong>what becomes possible at scale if this system works?</strong>
                 </p>
               </Reveal>
-              <Reveal delay={0.1} className="md:col-span-5 border border-white/10 p-8">
-                <span className="edit-label text-white/45">The Ravolution thesis</span>
-                <p className="text-white/65 text-sm leading-relaxed mt-4">
+              <Reveal delay={0.1} className="md:col-span-5 py-10 md:pl-[6vw] md:border-l border-[#081426]/14">
+                <span className="edit-label text-[#7c633d]">The Ravolution thesis</span>
+                <p className="text-[#405066] text-lg leading-relaxed mt-6 max-w-lg">
                   Find structural friction that blocks human progress. Invent the missing
                   infrastructure. Protect the core mechanism. Build it into a usable platform. Then
                   scale through institutions, partners, licensing and ventures.
                 </p>
-                <a href="#method" className="edit-label text-[hsl(var(--accent-edit))] mt-6 inline-block edit-link">
+                <a href="#method" className="edit-label text-[#7c633d] mt-8 inline-block edit-link">
                   See the method →
                 </a>
               </Reveal>
             </div>
           </div>
         </section>
+
 
         {/* ───── Missions ───── */}
         <section id="missions" className="edit-section px-6 md:px-12 border-t border-white/10">
