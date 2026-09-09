@@ -252,7 +252,7 @@ const Index = () => {
                 <div className="flex flex-wrap gap-4 mt-8">
                   <a
                     href="#missions"
-                    className="edit-label px-6 py-4 bg-[hsl(var(--accent-edit))] text-black hover:opacity-90 transition-opacity"
+                    className="edit-label px-6 py-4 bg-[hsl(var(--accent-edit-btn))] text-[#081426] hover:opacity-90 transition-opacity"
                   >
                     {seo.ctaPrimary}
                   </a>
