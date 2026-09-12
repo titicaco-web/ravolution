@@ -140,11 +140,11 @@ export const CountUp = ({
 
 /* ───────── Section label "01 — TITLE" ───────── */
 export const SectionLabel = ({
-  number, title, className = "",
-}: { number: string; title: string; className?: string }) => (
-  <Reveal className={`mb-12 md:mb-20 flex items-baseline gap-6 border-t border-white/10 pt-6 ${className}`}>
-    <span className="edit-label text-white/45 shrink-0">{number}</span>
-    <h2 className="edit-h2 text-white">{title}</h2>
+  number, title, className = "", light = false,
+}: { number: string; title: string; className?: string; light?: boolean }) => (
+  <Reveal className={`mb-12 md:mb-20 flex items-baseline gap-6 border-t ${light ? "border-[#081426]/15" : "border-white/10"} pt-6 ${className}`}>
+    <span className={`edit-label shrink-0 ${light ? "text-[#081426]/45" : "text-white/45"}`}>{number}</span>
+    <h2 className={`edit-h2 ${light ? "text-[#081426]" : "text-white"}`}>{title}</h2>
   </Reveal>
 );
 
