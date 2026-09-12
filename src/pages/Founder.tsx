@@ -139,19 +139,19 @@ const Founder = () => {
         </section>
 
         {/* 01 — THE STORY */}
-        <section className="edit-section border-t border-white/10">
+        <section className="edit-section edit-light border-t border-[#081426]/15">
           <div className="edit-container">
-            <SectionLabel number="01 — The Story" title={t("founder.aboutTitle") as string} />
+            <SectionLabel number="01 — The Story" title={t("founder.aboutTitle") as string} light />
             <div className="grid md:grid-cols-12 gap-10 md:gap-16">
               <div className="md:col-span-7 space-y-8">
                 <Reveal>
-                  <p className="text-xl md:text-2xl font-display text-white leading-snug" dangerouslySetInnerHTML={{ __html: t("founder.aboutP1") as string }} />
+                  <p className="text-xl md:text-2xl font-display text-[#081426] leading-snug" dangerouslySetInnerHTML={{ __html: t("founder.aboutP1") as string }} />
                 </Reveal>
                 <Reveal delay={0.1}>
-                  <p className="edit-body text-white/65" dangerouslySetInnerHTML={{ __html: t("founder.aboutP2") as string }} />
+                  <p className="edit-body text-[#344258]" dangerouslySetInnerHTML={{ __html: t("founder.aboutP2") as string }} />
                 </Reveal>
                 <Reveal delay={0.2}>
-                  <p className="edit-body text-white/65" dangerouslySetInnerHTML={{ __html: t("founder.aboutP3") as string }} />
+                  <p className="edit-body text-[#344258]" dangerouslySetInnerHTML={{ __html: t("founder.aboutP3") as string }} />
                 </Reveal>
               </div>
               <Reveal className="md:col-span-5" zoom>
@@ -159,9 +159,9 @@ const Founder = () => {
                   <video src={ivanAnimation.url} autoPlay muted loop playsInline className="w-full h-full object-cover object-top" />
                 </div>
                 <div className="mt-6 space-y-2">
-                  <span className="edit-label text-white/45 block">Founder · Inventor</span>
-                  <span className="edit-mono text-sm text-white/55 block">{t("founder.name")}</span>
-                  <span className="edit-mono text-sm text-white/55 block">Stockholm · New York · Barcelona · Shanghai · Santiago · Zürich</span>
+                  <span className="edit-label text-[#081426]/45 block">Founder · Inventor</span>
+                  <span className="edit-mono text-sm text-[#536078] block">{t("founder.name")}</span>
+                  <span className="edit-mono text-sm text-[#536078] block">Stockholm · New York · Barcelona · Shanghai · Santiago · Zürich</span>
                 </div>
               </Reveal>
             </div>
@@ -169,18 +169,18 @@ const Founder = () => {
         </section>
 
         {/* 02 — EXPERTISE — numbered list */}
-        <section className="edit-section border-t border-white/10">
+        <section className="edit-section edit-light border-t border-[#081426]/15">
           <div className="edit-container">
-            <SectionLabel number="02 — Expertise" title={t("founder.expertiseTitle") as string} />
+            <SectionLabel number="02 — Expertise" title={t("founder.expertiseTitle") as string} light />
             <ul>
               {expertise.map((e, i) => (
                 <Reveal key={i} delay={i * 0.06}>
-                  <li className="border-t border-white/10 last:border-b py-10 md:py-12 grid md:grid-cols-12 gap-6 md:gap-10 items-baseline">
-                    <span className="md:col-span-1 edit-label text-[hsl(var(--accent-edit))]">0{i + 1}</span>
-                    <h3 className="md:col-span-6 text-2xl md:text-4xl font-display font-bold uppercase tracking-[-0.02em] text-white leading-tight">
+                  <li className="border-t border-[#081426]/15 last:border-b py-10 md:py-12 grid md:grid-cols-12 gap-6 md:gap-10 items-baseline">
+                    <span className="md:col-span-1 edit-label text-[#7C633D]">0{i + 1}</span>
+                    <h3 className="md:col-span-6 text-2xl md:text-4xl font-display font-bold uppercase tracking-[-0.02em] text-[#081426] leading-tight">
                       {e.title as string}
                     </h3>
-                    <p className="md:col-span-5 edit-body text-white/60">{e.desc as string}</p>
+                    <p className="md:col-span-5 edit-body text-[#344258]">{e.desc as string}</p>
                   </li>
                 </Reveal>
               ))}
@@ -189,17 +189,17 @@ const Founder = () => {
         </section>
 
         {/* 03 — TRACK RECORD */}
-        <section className="edit-section border-t border-white/10 bg-[hsl(var(--surface))]">
+        <section className="edit-section edit-light border-t border-[#081426]/15 bg-[#efece4]">
           <div className="edit-container">
-            <SectionLabel number="03 — Track Record" title={t("founder.trackRecordTitle") as string} />
+            <SectionLabel number="03 — Track Record" title={t("founder.trackRecordTitle") as string} light />
             <div className="grid md:grid-cols-2 gap-x-12 gap-y-2">
               {achievements.map((a, i) => (
                 <Reveal key={i} delay={(i % 2) * 0.08}>
-                  <div className="border-t border-white/10 py-8 grid grid-cols-[auto_1fr] gap-6">
-                    <span className="edit-label text-white/45 pt-1">{a.y as string}</span>
+                  <div className="border-t border-[#081426]/15 py-8 grid grid-cols-[auto_1fr] gap-6">
+                    <span className="edit-label text-[#081426]/45 pt-1">{a.y as string}</span>
                     <div>
-                      <h4 className="text-xl font-display font-bold uppercase tracking-tight text-white mb-2">{a.title as string}</h4>
-                      <p className="text-sm text-white/55 leading-relaxed">{a.desc as string}</p>
+                      <h4 className="text-xl font-display font-bold uppercase tracking-tight text-[#081426] mb-2">{a.title as string}</h4>
+                      <p className="text-sm text-[#536078] leading-relaxed">{a.desc as string}</p>
                     </div>
                   </div>
                 </Reveal>
@@ -209,18 +209,18 @@ const Founder = () => {
         </section>
 
         {/* 04 — VISION */}
-        <section className="edit-section border-t border-white/10">
+        <section className="edit-section edit-light border-t border-[#081426]/15">
           <div className="edit-container">
-            <SectionLabel number="04 — Vision" title={t("founder.visionTitle") as string} />
+            <SectionLabel number="04 — Vision" title={t("founder.visionTitle") as string} light />
             <div className="grid md:grid-cols-12 gap-10">
               <div className="md:col-span-8 md:col-start-5 space-y-8">
                 <Reveal>
-                  <p className="text-xl md:text-2xl font-display text-white/85 leading-snug">
+                  <p className="text-xl md:text-2xl font-display text-[#081426] leading-snug">
                     {t("founder.visionDescription")}
                   </p>
                 </Reveal>
                 <Reveal delay={0.1}>
-                  <blockquote className="border-l-2 border-[hsl(var(--accent-edit))] pl-6 italic text-lg text-white/70 leading-relaxed">
+                  <blockquote className="border-l-2 border-[#7C633D] pl-6 italic text-lg text-[#344258] leading-relaxed">
                     {t("founder.visionQuote")}
                   </blockquote>
                 </Reveal>
@@ -229,12 +229,12 @@ const Founder = () => {
           </div>
         </section>
         {/* 04b — SYMBOLIC BLUEPRINT */}
-        <section className="edit-section border-t border-white/10">
+        <section className="edit-section edit-light border-t border-[#081426]/15">
           <div className="edit-container">
-            <SectionLabel number="04b — Blueprint" title="The Symbolic Blueprint" />
+            <SectionLabel number="04b — Blueprint" title="The Symbolic Blueprint" light />
             <div className="grid md:grid-cols-12 gap-10 md:gap-16 items-start">
               <Reveal className="md:col-span-7" zoom>
-                <div className="overflow-hidden border border-white/10 bg-white">
+                <div className="overflow-hidden border border-[#081426]/15 bg-white">
                   <img
                     src={ivanBlueprint.url}
                     alt="Numerological Profile of Ivan Davor Luksic Daza — Life Path 9, Expression 6, Soul Urge 4"
@@ -245,21 +245,21 @@ const Founder = () => {
               </Reveal>
               <div className="md:col-span-5 space-y-6">
                 <Reveal>
-                  <p className="text-xl md:text-2xl font-display text-white leading-snug">
+                  <p className="text-xl md:text-2xl font-display text-[#081426] leading-snug">
                     Perseverance has a pattern. This is Ivan's — mapped through a symbolic reading of name and birth date.
                   </p>
                 </Reveal>
                 <Reveal delay={0.1}>
-                  <p className="edit-body text-white/65">
+                  <p className="edit-body text-[#344258]">
                     A Life Path 9 (the humanitarian), an Expression 6 (the responsible harmonizer), and a Soul Urge 4
                     (the master builder) converge into a single working mission: <em>build systems that protect people</em>.
                     It's the throughline behind 27 patents and every platform on this page.
                   </p>
                 </Reveal>
                 <Reveal delay={0.15}>
-                  <div className="border-t border-white/10 pt-6">
-                    <span className="edit-label text-[hsl(var(--accent-edit))] block mb-3">Listen — AI Models Map</span>
-                    <p className="text-sm text-white/55 mb-4 leading-relaxed">
+                  <div className="border-t border-[#081426]/15 pt-6">
+                    <span className="edit-label text-[#7C633D] block mb-3">Listen — AI Models Map</span>
+                    <p className="text-sm text-[#536078] mb-4 leading-relaxed">
                       A short audio walkthrough exploring how three AI models independently arrived at the same profile.
                     </p>
                     <audio controls preload="none" src={ivanPodcast.url} className="w-full">
@@ -273,21 +273,21 @@ const Founder = () => {
         </section>
 
         {/* 04c — METADATA MACHINE */}
-        <section id="metadata-machine" className="edit-section border-t border-white/10">
+        <section id="metadata-machine" className="edit-section edit-light border-t border-[#081426]/15">
           <div className="edit-container">
-            <SectionLabel number="04c — Metadata Machine" title="Discover Your Own Metadata" />
-            <MetadataMachine />
+            <SectionLabel number="04c — Metadata Machine" title="Discover Your Own Metadata" light />
+            <MetadataMachine light />
 
             {/* SEO-rich worked example: Ivan Davor Luksic Daza */}
-            <article className="mt-20 border-t border-white/10 pt-12 grid md:grid-cols-12 gap-10">
+            <article className="mt-20 border-t border-[#081426]/15 pt-12 grid md:grid-cols-12 gap-10">
               <header className="md:col-span-4">
-                <span className="edit-label text-[hsl(var(--accent-edit))] block mb-3">Worked Example</span>
-                <h3 className="text-2xl md:text-3xl font-display font-bold uppercase tracking-tight text-white leading-tight">
+                <span className="edit-label text-[#7C633D] block mb-3">Worked Example</span>
+                <h3 className="text-2xl md:text-3xl font-display font-bold uppercase tracking-tight text-[#081426] leading-tight">
                   Ivan Davor Luksic Daza — Metadata Reading
                 </h3>
-                <p className="text-sm text-white/55 mt-4 font-mono">Born 1972-11-27 · Stockholm, Sweden</p>
+                <p className="text-sm text-[#536078] mt-4 font-mono">Born 1972-11-27 · Stockholm, Sweden</p>
               </header>
-              <div className="md:col-span-8 space-y-5 text-white/70 leading-relaxed">
+              <div className="md:col-span-8 space-y-5 text-[#344258] leading-relaxed">
                 <p>
                   Ivan Davor Luksic Daza is the founder of Ravolution AB and the reference example for this
                   metadata machine. Running his full name and date of birth through letter-value numerology
@@ -297,30 +297,30 @@ const Founder = () => {
                   can. Do not search the web."</em>
                 </p>
                 <ul className="grid sm:grid-cols-2 gap-4 not-italic">
-                  <li className="border border-white/10 p-4">
-                    <div className="edit-label text-white/50">Life Path</div>
-                    <div className="text-3xl font-display text-[hsl(var(--accent-edit))]">9</div>
-                    <p className="text-xs text-white/55 mt-1">The humanitarian — build systems that serve many.</p>
+                  <li className="border border-[#081426]/15 p-4">
+                    <div className="edit-label text-[#081426]/50">Life Path</div>
+                    <div className="text-3xl font-display text-[#7C633D]">9</div>
+                    <p className="text-xs text-[#536078] mt-1">The humanitarian — build systems that serve many.</p>
                   </li>
-                  <li className="border border-white/10 p-4">
-                    <div className="edit-label text-white/50">Expression</div>
-                    <div className="text-3xl font-display text-[hsl(var(--accent-edit))]">6</div>
-                    <p className="text-xs text-white/55 mt-1">The responsible harmonizer — protector, teacher, builder.</p>
+                  <li className="border border-[#081426]/15 p-4">
+                    <div className="edit-label text-[#081426]/50">Expression</div>
+                    <div className="text-3xl font-display text-[#7C633D]">6</div>
+                    <p className="text-xs text-[#536078] mt-1">The responsible harmonizer — protector, teacher, builder.</p>
                   </li>
-                  <li className="border border-white/10 p-4">
-                    <div className="edit-label text-white/50">Soul Urge</div>
-                    <div className="text-3xl font-display text-[hsl(var(--accent-edit))]">4</div>
-                    <p className="text-xs text-white/55 mt-1">The master builder — patient, methodical, foundational.</p>
+                  <li className="border border-[#081426]/15 p-4">
+                    <div className="edit-label text-[#081426]/50">Soul Urge</div>
+                    <div className="text-3xl font-display text-[#7C633D]">4</div>
+                    <p className="text-xs text-[#536078] mt-1">The master builder — patient, methodical, foundational.</p>
                   </li>
-                  <li className="border border-white/10 p-4">
-                    <div className="edit-label text-white/50">Mission</div>
-                    <div className="text-3xl font-display text-[hsl(var(--accent-edit))]">IP</div>
-                    <p className="text-xs text-white/55 mt-1">27 patents · 369 claims protecting people through technology.</p>
+                  <li className="border border-[#081426]/15 p-4">
+                    <div className="edit-label text-[#081426]/50">Mission</div>
+                    <div className="text-3xl font-display text-[#7C633D]">IP</div>
+                    <p className="text-xs text-[#536078] mt-1">27 patents · 369 claims protecting people through technology.</p>
                   </li>
                 </ul>
                 <p>
                   The convergence — Life Path 9, Expression 6, Soul Urge 4 — reads as a single working mission:
-                  <strong className="text-white"> build systems that protect people</strong>. It is the throughline
+                  <strong className="text-[#081426]"> build systems that protect people</strong>. It is the throughline
                   behind Rosetta Livingstone™ (language equity), VoiceProtector™ (anti-deepfake voice biometrics),
                   xPortMatch™ (borderless trade) and CommunicaringSchool™ (K1–K9 education equity).
                 </p>
@@ -328,14 +328,14 @@ const Founder = () => {
             </article>
 
             {/* How to run this on yourself — searchable HowTo */}
-            <div className="mt-16 border-t border-white/10 pt-10 grid md:grid-cols-12 gap-10">
+            <div className="mt-16 border-t border-[#081426]/15 pt-10 grid md:grid-cols-12 gap-10">
               <header className="md:col-span-4">
-                <span className="edit-label text-[hsl(var(--accent-edit))] block mb-3">How To</span>
-                <h3 className="text-2xl md:text-3xl font-display font-bold uppercase tracking-tight text-white leading-tight">
+                <span className="edit-label text-[#7C633D] block mb-3">How To</span>
+                <h3 className="text-2xl md:text-3xl font-display font-bold uppercase tracking-tight text-[#081426] leading-tight">
                   Run the Same Reading on Yourself
                 </h3>
               </header>
-              <ol className="md:col-span-8 space-y-6 text-white/70 leading-relaxed list-none">
+              <ol className="md:col-span-8 space-y-6 text-[#344258] leading-relaxed list-none">
                 {[
                   ["Open ChatGPT or Grok.", "Any current model works. No plugin, no browsing, no login trick."],
                   ["Paste the universal prompt.", "\"Based on my name and date of birth, what is my metadata (from letter values). What was I put here to do. Go as deep as you can. Do not search the web.\""],
@@ -343,10 +343,10 @@ const Founder = () => {
                   ["Compare across models.", "Run the same prompt in a second AI. When two models converge, the signal is real."],
                 ].map(([title, body], i) => (
                   <li key={i} className="grid grid-cols-[auto_1fr] gap-6">
-                    <span className="edit-label text-[hsl(var(--accent-edit))] pt-1">0{i + 1}</span>
+                    <span className="edit-label text-[#7C633D] pt-1">0{i + 1}</span>
                     <div>
-                      <div className="text-lg font-display font-bold uppercase text-white tracking-tight">{title}</div>
-                      <p className="text-sm text-white/60 mt-2">{body}</p>
+                      <div className="text-lg font-display font-bold uppercase text-[#081426] tracking-tight">{title}</div>
+                      <p className="text-sm text-[#536078] mt-2">{body}</p>
                     </div>
                   </li>
                 ))}
@@ -357,17 +357,17 @@ const Founder = () => {
 
 
         {/* 05 — PORTFOLIO */}
-        <section className="edit-section border-t border-white/10">
+        <section className="edit-section edit-light border-t border-[#081426]/15">
           <div className="edit-container">
-            <SectionLabel number="05 — Portfolio" title={t("founder.portfolioTitle") as string} />
+            <SectionLabel number="05 — Portfolio" title={t("founder.portfolioTitle") as string} light />
             <ul>
               {portfolio.map((p, i) => (
                 <Reveal key={p.name} delay={i * 0.05}>
-                  <li className="border-t border-white/10 last:border-b py-8 grid md:grid-cols-12 gap-4 md:gap-10 items-baseline">
-                    <span className="md:col-span-1 edit-label text-white/40">0{i + 1}</span>
-                    <h4 className="md:col-span-5 text-xl md:text-3xl font-display font-bold uppercase tracking-[-0.02em] text-white">{p.name}</h4>
-                    <p className="md:col-span-4 text-sm text-white/55 leading-relaxed">{p.desc as string}</p>
-                    <span className="md:col-span-2 edit-label text-white/45 md:text-right">{p.status as string}</span>
+                  <li className="border-t border-[#081426]/15 last:border-b py-8 grid md:grid-cols-12 gap-4 md:gap-10 items-baseline">
+                    <span className="md:col-span-1 edit-label text-[#081426]/40">0{i + 1}</span>
+                    <h4 className="md:col-span-5 text-xl md:text-3xl font-display font-bold uppercase tracking-[-0.02em] text-[#081426]">{p.name}</h4>
+                    <p className="md:col-span-4 text-sm text-[#536078] leading-relaxed">{p.desc as string}</p>
+                    <span className="md:col-span-2 edit-label text-[#081426]/45 md:text-right">{p.status as string}</span>
                   </li>
                 </Reveal>
               ))}
@@ -376,16 +376,16 @@ const Founder = () => {
         </section>
 
         {/* FAQ */}
-        <section className="edit-section border-t border-white/10 bg-[hsl(var(--surface))]">
+        <section className="edit-section edit-light border-t border-[#081426]/15 bg-[#efece4]">
           <div className="edit-container">
-            <SectionLabel number="06 — FAQ" title={t("founder.faqTitle") as string} />
+            <SectionLabel number="06 — FAQ" title={t("founder.faqTitle") as string} light />
             <div>
               {faqs.map((f, i) => (
                 <Reveal key={i} delay={i * 0.06}>
-                  <div className="border-t border-white/10 last:border-b py-8 grid md:grid-cols-12 gap-4 md:gap-10">
-                    <span className="md:col-span-1 edit-label text-[hsl(var(--accent-edit))]">0{i + 1}</span>
-                    <h4 className="md:col-span-5 text-lg md:text-2xl font-display font-bold uppercase tracking-tight text-white leading-snug">{f.q as string}</h4>
-                    <p className="md:col-span-6 text-white/65 leading-relaxed">{f.a as string}</p>
+                  <div className="border-t border-[#081426]/15 last:border-b py-8 grid md:grid-cols-12 gap-4 md:gap-10">
+                    <span className="md:col-span-1 edit-label text-[#7C633D]">0{i + 1}</span>
+                    <h4 className="md:col-span-5 text-lg md:text-2xl font-display font-bold uppercase tracking-tight text-[#081426] leading-snug">{f.q as string}</h4>
+                    <p className="md:col-span-6 text-[#344258] leading-relaxed">{f.a as string}</p>
                   </div>
                 </Reveal>
               ))}
@@ -394,24 +394,24 @@ const Founder = () => {
         </section>
 
         {/* CTA */}
-        <section className="edit-section border-t border-white/10">
+        <section className="edit-section edit-light border-t border-[#081426]/15">
           <div className="edit-container text-center">
             <Reveal>
-              <h2 className="edit-h2 text-white">{t("founder.ctaTitle")}</h2>
+              <h2 className="edit-h2 text-[#081426]">{t("founder.ctaTitle")}</h2>
             </Reveal>
             <Reveal delay={0.1}>
-              <p className="edit-body text-white/60 max-w-xl mx-auto mt-6">{t("founder.ctaDescription")}</p>
+              <p className="edit-body text-[#344258] max-w-xl mx-auto mt-6">{t("founder.ctaDescription")}</p>
             </Reveal>
             <Reveal delay={0.2}>
               <div className="flex flex-col sm:flex-row gap-4 justify-center mt-12">
-                <a href="mailto:ivan.daza@ravolution.se" className="edit-btn"><span>{t("founder.ctaContactIvan") || "Contact Ivan"}</span></a>
-                <a href="https://www.linkedin.com/in/ivandaza/" target="_blank" rel="noopener noreferrer" className="edit-btn" style={{ borderColor: "rgba(255,255,255,0.4)" }}><span>LinkedIn ↗</span></a>
+                <a href="mailto:ivan.daza@ravolution.se" className="edit-btn edit-btn-light"><span>{t("founder.ctaContactIvan") || "Contact Ivan"}</span></a>
+                <a href="https://www.linkedin.com/in/ivandaza/" target="_blank" rel="noopener noreferrer" className="edit-btn edit-btn-light" style={{ borderColor: "rgba(8,20,38,0.4)" }}><span>LinkedIn ↗</span></a>
               </div>
             </Reveal>
           </div>
         </section>
 
-        <div className="border-t border-white/10">
+        <div className="border-t border-[#081426]/15">
           <LeadershipSection />
         </div>
       </EditorialShell>
