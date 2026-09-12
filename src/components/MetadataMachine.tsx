@@ -125,7 +125,7 @@ const MetadataMachine = ({ light = false }: { light?: boolean }) => {
   const border = light ? "border-[#081426]/15" : "border-white/10";
   const inputBorder = light ? "border-[#081426]/25 focus:border-[#7C633D]" : "border-white/20 focus:border-[hsl(var(--accent-edit))]";
   const resultBg = light ? "bg-[#efece4] border-[#081426]/15" : "bg-black/40 border-white/10";
-  const placeholder = light ? "placeholder:text-[#9AA6B4]" : "placeholder:text-white/40";
+  const placeholder = light ? "placeholder:text-[#536078]" : "placeholder:text-white/40";
 
   return (
     <div className="grid md:grid-cols-12 gap-10 md:gap-16">
