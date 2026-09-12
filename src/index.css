@@ -645,6 +645,14 @@
 .edit-btn:hover { color: #081426; }
 .edit-btn:hover::before { transform: translateX(0); }
 
+/* Light-surface variant of the editorial button (dark ink on ivory) */
+.edit-btn-light {
+  border-color: #081426;
+  color: #081426;
+}
+.edit-btn-light::before { background: #081426; }
+.edit-btn-light:hover { color: #f7f5f0; }
+
 /* Marquee */
 @keyframes edit-marquee {
   from { transform: translateX(0); }
