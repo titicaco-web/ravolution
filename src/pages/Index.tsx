@@ -173,10 +173,10 @@ const Index = () => {
       href: lp("/bizmeet/demo"),
     },
     {
-      status: "SPATIAL INTELLIGENCE",
-      name: "SINGUISTIC",
-      desc: "Sensing and spatial-intelligence architecture that lets machines and environments understand human presence and movement.",
-      outcome: "OUTCOME → environments that respond to people",
+      status: "LANGUAGE OS",
+      name: "Singuistic",
+      desc: "Music-native language learning that syncs original lyrics and live translation to Spotify, one line at a time.",
+      outcome: "OUTCOME → every song becomes a lesson",
       href: "https://singuistic.com",
     },
   ];
