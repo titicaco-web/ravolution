@@ -6,6 +6,41 @@ import { useLangPath } from "@/hooks/use-lang-path";
 
 const DEMO_URL = "https://convendum-bizmeet.lovable.app";
 
+const DEMOS = [
+  {
+    label: "convendum-bizmeet.lovable.app",
+    src: DEMO_URL,
+    eyebrow: "Live Demo — Convendum",
+    title: "BizMeet™ running as a live community platform.",
+    description:
+      "Events, member profiles, matchmaking and meeting booking exactly as your members would experience them.",
+  },
+  {
+    label: "mlops.ravolution.se",
+    src: "https://mlops.ravolution.se/",
+    eyebrow: "Live System — MLOps",
+    title: "The MLOps layer behind our platforms.",
+    description:
+      "The operational environment where models, pipelines and monitoring are managed across our platform portfolio.",
+  },
+  {
+    label: "ravolution.se/studioroom",
+    src: "/studioroom-landing.html",
+    eyebrow: "Demo — Studioroom Network",
+    title: "Studioroom Network — meetings that lead somewhere.",
+    description:
+      "A demo concept for a curated meeting network, presented in its own editorial identity.",
+  },
+  {
+    label: "ravolution.se/eaktiebok-draknaste",
+    src: "/draknaste-mockup.html",
+    eyebrow: "Demo — eAktiebok · Draknäste",
+    title: "eAktiebok — Draknäste.",
+    description:
+      "A non-functional mockup of a digital share register and investor matching concept.",
+  },
+];
+
 const BizMeetDemoPage = () => {
   const lp = useLangPath();
 
@@ -70,32 +105,43 @@ const BizMeetDemoPage = () => {
           </div>
         </section>
 
-        <section className="pb-24 px-6 md:px-12">
-          <div className="edit-container">
-            <div className="border border-white/15 bg-[hsl(var(--surface))]">
-              <div className="flex items-center justify-between border-b border-white/10 px-4 py-3">
-                <span className="edit-label text-white/40">convendum-bizmeet.lovable.app</span>
-                <a
-                  href={DEMO_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="edit-label text-[hsl(var(--accent-edit))] edit-link"
-                >
-                  Full screen ↗
-                </a>
+        {DEMOS.map((demo, i) => (
+          <section key={demo.src} className={i === DEMOS.length - 1 ? "pb-24 px-6 md:px-12" : "pb-16 px-6 md:px-12"}>
+            <div className="edit-container">
+              {i > 0 && (
+                <Reveal>
+                  <div className="mb-8">
+                    <span className="edit-label text-white/40 block">{demo.eyebrow}</span>
+                    <h2 className="edit-h2 text-white font-bold mt-3 max-w-[26ch]">{demo.title}</h2>
+                    <p className="edit-body text-white/70 mt-4 max-w-[62ch]">{demo.description}</p>
+                  </div>
+                </Reveal>
+              )}
+              <div className="border border-white/15 bg-[hsl(var(--surface))]">
+                <div className="flex items-center justify-between border-b border-white/10 px-4 py-3">
+                  <span className="edit-label text-white/40">{demo.label}</span>
+                  <a
+                    href={demo.src}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="edit-label text-[hsl(var(--accent-edit))] edit-link"
+                  >
+                    Full screen ↗
+                  </a>
+                </div>
+                <iframe
+                  src={demo.src}
+                  title={demo.title}
+                  loading="lazy"
+                  className="w-full h-[80vh] min-h-[560px] border-0 bg-white"
+                />
               </div>
-              <iframe
-                src={DEMO_URL}
-                title="BizMeet live demo"
-                loading="lazy"
-                className="w-full h-[80vh] min-h-[560px] border-0 bg-white"
-              />
+              <p className="edit-label text-white/35 mt-4">
+                If the demo does not load inside this frame, open it in a new tab.
+              </p>
             </div>
-            <p className="edit-label text-white/35 mt-4">
-              If the demo does not load inside this frame, open it in a new tab.
-            </p>
-          </div>
-        </section>
+          </section>
+        ))}
       </EditorialShell>
     </>
   );
