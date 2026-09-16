@@ -98,6 +98,8 @@ const App = () => (
             <Route path="/:lang/partysta" element={<LanguageSync><PartystaPage /></LanguageSync>} />
             <Route path="/bizmeet" element={<LanguageSync><BizMeetPage /></LanguageSync>} />
             <Route path="/:lang/bizmeet" element={<LanguageSync><BizMeetPage /></LanguageSync>} />
+            <Route path="/bizmeet/demo" element={<LanguageSync><BizMeetDemoPage /></LanguageSync>} />
+            <Route path="/:lang/bizmeet/demo" element={<LanguageSync><BizMeetDemoPage /></LanguageSync>} />
             <Route path="/xportmatch" element={<LanguageSync><XportMatchPage /></LanguageSync>} />
             <Route path="/:lang/xportmatch" element={<LanguageSync><XportMatchPage /></LanguageSync>} />
             <Route path="/alarmsole" element={<LanguageSync><AlarmSolePage /></LanguageSync>} />
