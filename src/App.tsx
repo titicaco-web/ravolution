@@ -46,6 +46,7 @@ const PikpCashFlagshipPage = lazy(() => import("./pages/PikpCashFlagshipPage"));
 
 const PikpCashDataRoomPage = lazy(() => import("./pages/PikpCashDataRoomPage"));
 const PratisPage = lazy(() => import("./pages/PratisPage"));
+const DraknastePage = lazy(() => import("./pages/DraknastePage"));
 
 const NotFound = lazy(() => import("./pages/NotFound"));
 
