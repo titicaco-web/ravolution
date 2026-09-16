@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Draknäste — pitcha inför drakarna, på eAktiebok</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0C1611;        /* draknästets mörker */
+    --ink-2:#132420;      /* upphöjd yta i mörkret */
+    --paper:#F3EFE7;      /* aktiebokens papper */
+    --paper-2:#EAE4D6;    /* ruta på papper */
+    --gold:#C79A3A;       /* kapitalet, affären */
+    --gold-deep:#A67E28;
+    --sage:#3E6152;       /* intresse, positivt */
+    --ember:#A83A2C;      /* ute, live */
+    --stone:#6B6459;      /* dämpad text på papper */
+    --stone-l:#A9A092;
+    --line:#D8D0BF;       /* hårlinje på papper */
+    --line-d:#26382F;     /* hårlinje i mörker */
+    --paper-on-ink:#EDE7D8;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:"Public Sans",system-ui,sans-serif;
+    background:var(--paper);color:var(--ink);
+    line-height:1.6;-webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4{font-family:"Spectral",Georgia,serif;font-weight:600;line-height:1.1;letter-spacing:-.01em}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 28px}
+  section{padding:96px 0}
+  :focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:2px}
+
+  /* NAV */
+  .nav{position:sticky;top:0;z-index:50;background:rgba(12,22,17,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line-d)}
+  .nav .wrap{display:flex;align-items:center;justify-content:space-between;height:68px}
+  .brand{display:flex;align-items:baseline;gap:10px;color:var(--paper-on-ink)}
+  .brand b{font-family:"Spectral",serif;font-size:22px;font-weight:700;letter-spacing:.01em}
+  .brand span{font-size:12.5px;color:var(--stone-l)}
+  .navlinks{display:flex;gap:28px;align-items:center}
+  .navlinks a{color:var(--paper-on-ink);font-size:14.5px;opacity:.82}
+  .navlinks a:hover{opacity:1}
+  .btn{display:inline-block;font-weight:600;font-size:14.5px;padding:11px 20px;border-radius:3px;cursor:pointer;border:1px solid transparent;transition:background .15s,color .15s}
+  .btn-gold{background:var(--gold);color:#20170a}
+  .btn-gold:hover{background:var(--gold-deep)}
+  .btn-line{border-color:var(--gold);color:var(--gold);background:transparent}
+  .btn-line:hover{background:rgba(199,154,58,.12)}
+  @media(max-width:820px){.navlinks a:not(.btn){display:none}}
+
+  /* HERO */
+  .hero{background:var(--ink);color:var(--paper-on-ink);padding:110px 0 96px;position:relative;overflow:hidden}
+  .hero:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 78% 18%,rgba(199,154,58,.16),transparent 46%);pointer-events:none}
+  .hero .wrap{position:relative;display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center}
+  .kicker{color:var(--gold);font-size:14px;font-weight:600;letter-spacing:.02em;margin-bottom:22px;display:flex;align-items:center;gap:10px}
+  .kicker .dot{width:7px;height:7px;border-radius:50%;background:var(--ember);box-shadow:0 0 0 0 rgba(168,58,44,.6);animation:pulse 2.4s infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(168,58,44,.55)}70%{box-shadow:0 0 0 9px rgba(168,58,44,0)}100%{box-shadow:0 0 0 0 rgba(168,58,44,0)}}
+  @media(prefers-reduced-motion:reduce){.kicker .dot{animation:none}}
+  .hero h1{font-size:58px;color:#fff;margin-bottom:22px}
+  .hero p.lead{font-size:19px;color:#C9C2B2;max-width:30ch;margin-bottom:34px}
+  .hero .cta{display:flex;gap:14px;flex-wrap:wrap}
+  @media(max-width:900px){.hero .wrap{grid-template-columns:1fr;gap:40px}.hero h1{font-size:42px}}
+
+  /* ASK-KORT (signaturen) */
+  .ask{background:var(--ink-2);border:1px solid var(--line-d);border-radius:8px;padding:30px 30px 26px;box-shadow:0 30px 60px -30px rgba(0,0,0,.7)}
+  .ask .co{display:flex;align-items:center;gap:12px;margin-bottom:22px}
+  .ask .avatar{width:44px;height:44px;border-radius:6px;background:linear-gradient(135deg,var(--gold),var(--gold-deep));color:#20170a;display:flex;align-items:center;justify-content:center;font-family:"Spectral",serif;font-weight:700;font-size:19px}
+  .ask .co b{display:block;color:#fff;font-size:15.5px}
+  .ask .co span{color:var(--stone-l);font-size:13px}
+  .ask .live{margin-left:auto;font-size:11.5px;color:var(--ember);border:1px solid rgba(168,58,44,.5);padding:3px 9px;border-radius:20px;font-weight:600}
+  .ask-row{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line-d);border-radius:6px;overflow:hidden;margin-bottom:14px}
+  .ask-cell{background:var(--ink);padding:16px 18px}
+  .ask-cell .l{font-size:12px;color:var(--stone-l);margin-bottom:5px}
+  .ask-cell .v{font-family:"Spectral",serif;font-size:26px;color:var(--gold);font-weight:600}
+  .ask-val{text-align:center;padding:13px;background:var(--ink);border:1px dashed var(--line-d);border-radius:6px;font-size:13.5px;color:#C9C2B2}
+  .ask-val b{color:#fff;font-family:"Spectral",serif}
+
+  /* STAT-remsa */
+  .stats{background:var(--ink);border-top:1px solid var(--line-d);color:var(--paper-on-ink);padding:0}
+  .stats .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+  .stat{padding:34px 20px;text-align:center;border-right:1px solid var(--line-d)}
+  .stat:last-child{border-right:none}
+  .stat .n{font-family:"Spectral",serif;font-size:34px;color:var(--gold);font-weight:600}
+  .stat .l{font-size:13px;color:var(--stone-l);margin-top:4px}
+  @media(max-width:700px){.stats .wrap{grid-template-columns:1fr 1fr}.stat:nth-child(2){border-right:none}}
+
+  /* SEKTIONSRUBRIK */
+  .head{max-width:60ch;margin-bottom:52px}
+  .head .ey{color:var(--gold-deep);font-weight:600;font-size:14px;margin-bottom:14px}
+  .head h2{font-size:38px;margin-bottom:16px}
+  .head p{color:var(--stone);font-size:17px}
+  @media(max-width:900px){.head h2{font-size:30px}}
+
+  /* FLÖDE (sekvens) */
+  .flow{display:grid;grid-template-columns:repeat(5,1fr);gap:0;border-top:1px solid var(--line)}
+  .step{padding:28px 22px 30px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .step:last-child{border-right:none}
+  .step .num{font-family:"Spectral",serif;font-size:15px;color:var(--gold-deep);font-weight:700;margin-bottom:14px}
+  .step h4{font-size:18px;margin-bottom:8px}
+  .step p{font-size:14px;color:var(--stone)}
+  @media(max-width:900px){.flow{grid-template-columns:1fr 1fr}.step{border-right:1px solid var(--line)}.step:nth-child(2n){border-right:none}}
+  @media(max-width:560px){.flow{grid-template-columns:1fr}.step{border-right:none}}
+
+  /* DRAKAR */
+  .drakar{background:var(--ink);color:var(--paper-on-ink)}
+  .drakar .head h2{color:#fff}.drakar .head .ey{color:var(--gold)}.drakar .head p{color:#B7B0A0}
+  .dgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .drake{background:var(--ink-2);border:1px solid var(--line-d);border-radius:8px;padding:26px}
+  .drake .top{display:flex;align-items:center;gap:14px;margin-bottom:18px}
+  .drake .ph{width:56px;height:56px;border-radius:8px;background:#20332b;color:var(--gold);display:flex;align-items:center;justify-content:center;font-family:"Spectral",serif;font-size:22px;font-weight:700;border:1px solid var(--line-d)}
+  .drake .top b{display:block;color:#fff;font-size:17px;font-family:"Spectral",serif}
+  .drake .top span{color:var(--stone-l);font-size:13px}
+  .drake p{font-size:14px;color:#B7B0A0;margin-bottom:16px}
+  .tags{display:flex;flex-wrap:wrap;gap:7px}
+  .tag{font-size:12px;color:var(--gold);border:1px solid var(--line-d);padding:3px 10px;border-radius:20px}
+  .drake .port{margin-top:16px;padding-top:14px;border-top:1px solid var(--line-d);font-size:13px;color:var(--stone-l)}
+  .drake .port b{color:var(--paper-on-ink);font-family:"Public Sans"}
+  @media(max-width:900px){.dgrid{grid-template-columns:1fr}}
+
+  /* PITCH-RUMMET */
+  .room{display:grid;grid-template-columns:1.3fr .7fr;gap:28px;align-items:start}
+  .stage{background:var(--ink);border-radius:10px;overflow:hidden;border:1px solid var(--line-d)}
+  .screen{aspect-ratio:16/9;background:linear-gradient(160deg,#132420,#0C1611);display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--paper-on-ink);position:relative}
+  .screen .lv{position:absolute;top:14px;left:14px;font-size:11.5px;color:#fff;background:var(--ember);padding:3px 10px;border-radius:20px;font-weight:600}
+  .screen .play{width:64px;height:64px;border-radius:50%;background:rgba(199,154,58,.16);border:1px solid var(--gold);display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:22px;margin-bottom:14px}
+  .screen b{font-family:"Spectral",serif;font-size:20px;color:#fff}
+  .screen span{font-size:13px;color:var(--stone-l);margin-top:4px}
+  .stagebar{display:flex;align-items:center;gap:18px;padding:16px 20px;background:var(--ink-2);border-top:1px solid var(--line-d);color:var(--paper-on-ink);flex-wrap:wrap}
+  .stagebar .pa{font-family:"Spectral",serif;color:var(--gold);font-size:15px;font-weight:600}
+  .stagebar .sep{color:var(--line-d)}
+  .stagebar .meta{font-size:13.5px;color:#B7B0A0}
+  .panel{background:var(--paper);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+  .panel h4{padding:16px 18px;border-bottom:1px solid var(--line);font-size:15px}
+  .cmt{padding:14px 18px;border-bottom:1px solid var(--line);font-size:14px}
+  .cmt b{font-size:13.5px}.cmt.q b{color:var(--gold-deep)}
+  .cmt p{color:var(--stone);margin-top:3px;font-size:13.5px}
+  .cmt .role{font-size:11.5px;color:var(--stone-l)}
+  .intbar{padding:16px 18px;background:var(--paper-2)}
+  .intbar .il{font-size:12.5px;color:var(--stone);margin-bottom:10px}
+  .levels{display:flex;flex-direction:column;gap:8px}
+  .lvl{display:flex;align-items:center;justify-content:space-between;background:var(--paper);border:1px solid var(--line);border-radius:5px;padding:10px 13px;font-size:13.5px;cursor:pointer}
+  .lvl:hover{border-color:var(--sage)}
+  .lvl.hot{border-color:var(--sage);background:rgba(62,97,82,.08)}
+  .lvl .k{font-weight:600}
+  .lvl .c{font-size:12px;color:var(--sage);font-weight:600}
+  @media(max-width:900px){.room{grid-template-columns:1fr}}
+
+  /* BRYGGAN till aktiebok */
+  .bridge{background:var(--paper-2)}
+  .bwrap{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+  .chain{display:flex;flex-direction:column;gap:0}
+  .link{display:flex;gap:16px;padding:18px 0;border-bottom:1px solid var(--line)}
+  .link:last-child{border-bottom:none}
+  .link .i{width:34px;height:34px;flex:none;border-radius:6px;background:var(--ink);color:var(--gold);display:flex;align-items:center;justify-content:center;font-family:"Spectral",serif;font-weight:700;font-size:15px}
+  .link b{font-size:15.5px}.link p{font-size:14px;color:var(--stone)}
+  @media(max-width:820px){.bwrap{grid-template-columns:1fr;gap:28px}}
+
+  /* FUNKTIONER */
+  .feat{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+  .fc{background:var(--paper);padding:24px 22px}
+  .fc h4{font-size:16.5px;margin-bottom:7px}
+  .fc p{font-size:13.5px;color:var(--stone)}
+  .fc .tagn{font-size:11.5px;color:var(--gold-deep);font-weight:600;margin-bottom:12px}
+  @media(max-width:820px){.feat{grid-template-columns:1fr 1fr}}
+  @media(max-width:520px){.feat{grid-template-columns:1fr}}
+
+  /* CTA */
+  .cta-band{background:var(--ink);color:var(--paper-on-ink);text-align:center}
+  .cta-band h2{font-size:40px;color:#fff;margin-bottom:16px}
+  .cta-band p{color:#B7B0A0;font-size:17px;max-width:52ch;margin:0 auto 30px}
+  .cta-band .cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+  @media(max-width:900px){.cta-band h2{font-size:30px}}
+
+  /* FOOTER */
+  footer{background:#081009;color:var(--stone-l);padding:44px 0}
+  footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;font-size:13.5px}
+  footer .brand b{color:var(--paper-on-ink)}
+  .demo{background:var(--gold);color:#20170a;text-align:center;font-size:13px;font-weight:600;padding:8px}
+</style>
+</head>
+<body>
+
+<div class="demo">Demo · Draknäste på BizMeet för eAktiebok · exempeldata</div>
+
+<nav class="nav">
+  <div class="wrap">
+    <div class="brand"><b>Draknäste</b><span>på eAktiebok</span></div>
+    <div class="navlinks">
+      <a href="#flode">Så funkar det</a>
+      <a href="#drakar">Drakarna</a>
+      <a href="#rum">Pitch-rummet</a>
+      <a href="#aktiebok">Från pitch till aktiebok</a>
+      <a href="#anmal" class="btn btn-gold">Anmäl din pitch</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div>
+      <div class="kicker"><span class="dot"></span> Nästa draknäste · 3 december, live</div>
+      <h1>Pitcha inför drakarna. Res kapitalet. För in det i aktieboken.</h1>
+      <p class="lead">Entreprenörer möter investerare i öppen ring — och det som börjar med ett handslag slutar som en post i aktieboken.</p>
+      <div class="cta">
+        <a href="#anmal" class="btn btn-gold">Anmäl din pitch</a>
+        <a href="#drakar" class="btn btn-line">Möt drakarna</a>
+      </div>
+    </div>
+    <div class="ask" aria-label="Exempel på en pitch">
+      <div class="co">
+        <div class="avatar">N</div>
+        <div><b>Nordwind Hydrogen AB</b><span>Ren energi · Göteborg</span></div>
+        <span class="live">Live nu</span>
+      </div>
+      <div class="ask-row">
+        <div class="ask-cell"><div class="l">Söker</div><div class="v">1 500 000 kr</div></div>
+        <div class="ask-cell"><div class="l">Erbjuder</div><div class="v">12 %</div></div>
+      </div>
+      <div class="ask-val">Implicerad värdering före&nbsp;pengar: <b>11 000 000 kr</b></div>
+    </div>
+  </div>
+</header>
+
+<div class="stats">
+  <div class="wrap">
+    <div class="stat"><div class="n">17 000+</div><div class="l">investerare i nätverket</div></div>
+    <div class="stat"><div class="n">1 350+</div><div class="l">bolag på eAktiebok</div></div>
+    <div class="stat"><div class="n">8</div><div class="l">drakar i panelen</div></div>
+    <div class="stat"><div class="n">1 klick</div><div class="l">från intresse till aktiebok</div></div>
+  </div>
+</div>
+
+<section id="flode">
+  <div class="wrap">
+    <div class="head">
+      <div class="ey">Så fungerar Draknäste</div>
+      <h2>Från ansökan till ägande, i ett spår</h2>
+      <p>Fem steg, samma plattform. Ingen tappad tråd mellan pitchen och aktieboken.</p>
+    </div>
+    <div class="flow">
+      <div class="step"><div class="num">Steg 1</div><h4>Anmäl din pitch</h4><p>Bolag, ask och material. Granskas och schemaläggs till ett tillfälle.</p></div>
+      <div class="step"><div class="num">Steg 2</div><h4>Pitcha i ringen</h4><p>Live eller inspelat, med asken synlig. Drakarna synar siffrorna.</p></div>
+      <div class="step"><div class="num">Steg 3</div><h4>Publiken lyssnar</h4><p>Deltagare följer pitchen, ställer frågor och diskuterar i rummet.</p></div>
+      <div class="step"><div class="num">Steg 4</div><h4>Intresse och bud</h4><p>Drakar lägger bud, publiken anmäler investeringsintresse på nivå.</p></div>
+      <div class="step"><div class="num">Steg 5</div><h4>Till aktieboken</h4><p>Accepterad affär förs vidare mot emission och en post i aktieboken.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="drakar" class="drakar">
+  <div class="wrap">
+    <div class="head">
+      <div class="ey">Panelen</div>
+      <h2>Drakarna</h2>
+      <p>Åtta investerare med kapital, kontaktnät och ärr efter egna resor. De synar, budar och avstår — öppet.</p>
+    </div>
+    <div class="dgrid">
+      <div class="drake">
+        <div class="top"><div class="ph">EL</div><div><b>Elsa Lindqvist</b><span>Ängelinvesterare</span></div></div>
+        <p>Byggde och sålde två SaaS-bolag. Investerar i tidiga team med teknisk kärna.</p>
+        <div class="tags"><span class="tag">SaaS</span><span class="tag">B2B</span><span class="tag">Pre-seed</span></div>
+        <div class="port"><b>34</b> investeringar · snittcheck <b>800 tkr</b></div>
+      </div>
+      <div class="drake">
+        <div class="top"><div class="ph">MK</div><div><b>Marcus Krantz</b><span>Family office</span></div></div>
+        <p>Förvaltar familjekapital mot industri och energiomställning. Tålmodig, tar styrelseplats.</p>
+        <div class="tags"><span class="tag">Industri</span><span class="tag">Energi</span><span class="tag">Seed–A</span></div>
+        <div class="port"><b>19</b> investeringar · snittcheck <b>3 mkr</b></div>
+      </div>
+      <div class="drake">
+        <div class="top"><div class="ph">PA</div><div><b>Priya Anand</b><span>Partner, riskkapital</span></div></div>
+        <p>Tidigare operativ grundare, nu partner på en Malmöfond. Vass på go-to-market.</p>
+        <div class="tags"><span class="tag">Consumer</span><span class="tag">Marknad</span><span class="tag">Seed</span></div>
+        <div class="port"><b>27</b> investeringar · snittcheck <b>1,5 mkr</b></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="rum">
+  <div class="wrap">
+    <div class="head">
+      <div class="ey">Pitch-rummet</div>
+      <h2>Lyssna, fråga, anmäl intresse</h2>
+      <p>Rummet där en pitch blir ett samtal. Asken är alltid synlig, och intresse anmäls på riktig nivå — inte en gilla-knapp.</p>
+    </div>
+    <div class="room">
+      <div class="stage">
+        <div class="screen">
+          <span class="lv">● Live</span>
+          <div class="play">▶</div>
+          <b>Nordwind Hydrogen pitchar</b>
+          <span>Ström via plattformen · 214 tittare</span>
+        </div>
+        <div class="stagebar">
+          <span class="pa">1 500 000 kr · 12 %</span>
+          <span class="sep">|</span>
+          <span class="meta">Värdering före pengar 11 mkr</span>
+          <span class="sep">|</span>
+          <span class="meta">Ren energi · Seed</span>
+        </div>
+      </div>
+      <div class="panel">
+        <h4>Rummet</h4>
+        <div class="cmt q">
+          <b>Marcus Krantz</b> <span class="role">· Drake</span>
+          <p>Vad är er marginal per enhet vid 10 000 sålda?</p>
+        </div>
+        <div class="cmt">
+          <b>Johan, deltagare</b> <span class="role">· Investerare</span>
+          <p>Stark teknikhöjd. Vill se pipeline innan jag går in.</p>
+        </div>
+        <div class="cmt">
+          <b>Elsa Lindqvist</b> <span class="role">· Drake</span>
+          <p>Jag är ute — utanför mitt område, men imponerad.</p>
+        </div>
+        <div class="intbar">
+          <div class="il">Anmäl ditt investeringsintresse</div>
+          <div class="levels">
+            <div class="lvl"><span class="k">Bevakar</span><span>följ bolaget</span></div>
+            <div class="lvl"><span class="k">Vill veta mer</span><span>få datarum</span></div>
+            <div class="lvl hot"><span class="k">Redo att investera</span><span class="c">ange belopp →</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="aktiebok" class="bridge">
+  <div class="wrap">
+    <div class="head">
+      <div class="ey">Det som skiljer Draknäste från en scen</div>
+      <h2>Från pitch till aktiebok</h2>
+      <p>En vanlig pitchkväll tar slut när applåderna gör det. Här fortsätter spåret rakt in i eAktieboks kärna.</p>
+    </div>
+    <div class="bwrap">
+      <div class="chain">
+        <div class="link"><div class="i">1</div><div><b>Intresse anmäls</b><p>Deltagaren anger belopp och nivå. Tydligt märkt som intresse, inte ett bindande åtagande.</p></div></div>
+        <div class="link"><div class="i">2</div><div><b>Datarum öppnas</b><p>Kvalificerade investerare får bolagets underlag för granskning, i eAktieboks anda av due diligence.</p></div></div>
+        <div class="link"><div class="i">3</div><div><b>Bud accepteras</b><p>Entreprenören förhandlar och antar. Villkoren dokumenteras.</p></div></div>
+        <div class="link"><div class="i">4</div><div><b>Emission och aktiebok</b><p>Affären förs vidare mot en emission via eInvest och en post i den digitala aktieboken.</p></div></div>
+      </div>
+      <div class="ask" style="background:var(--ink)">
+        <div class="co">
+          <div class="avatar">✓</div>
+          <div><b>Affär klar</b><span>Nordwind Hydrogen × Marcus Krantz</span></div>
+        </div>
+        <div class="ask-row">
+          <div class="ask-cell"><div class="l">Investering</div><div class="v">1 500 000 kr</div></div>
+          <div class="ask-cell"><div class="l">Ny ägarandel</div><div class="v">12 %</div></div>
+        </div>
+        <div class="ask-val">Nästa steg: <b>emission registreras i aktieboken</b></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="head">
+      <div class="ey">Allt från plattformen ingår</div>
+      <h2>Draknäste är byggt på hela BizMeet</h2>
+      <p>Pitch-formatet ligger ovanpå samma community-, event- och medlemsmotor som driver plattformens övriga instanser.</p>
+    </div>
+    <div class="feat">
+      <div class="fc"><div class="tagn">Community</div><h4>Profiler och katalog</h4><p>Sökbara medlemmar med roll, bransch och skede.</p></div>
+      <div class="fc"><div class="tagn">Community</div><h4>Matchmaking</h4><p>Bolag och investerare kopplas med ömsesidigt samtycke.</p></div>
+      <div class="fc"><div class="tagn">Event</div><h4>Biljetter och incheckning</h4><p>Nivåer, kapacitet och QR-incheckning på plats.</p></div>
+      <div class="fc"><div class="tagn">Live</div><h4>Sändning och replay</h4><p>Betald privat ström, publika smakprov och replay.</p></div>
+      <div class="fc"><div class="tagn">Intäkt</div><h4>Medlemskap och betalning</h4><p>Abonnemang, moms och avräkning via Stripe.</p></div>
+      <div class="fc"><div class="tagn">Dialog</div><h4>Salong och arbetsgrupper</h4><p>Trådar och grupper som lever mellan tillfällena.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="anmal" class="cta-band">
+  <div class="wrap">
+    <h2>Har du ett bolag som söker kapital?</h2>
+    <p>Anmäl din pitch till nästa draknäste. Läs pitchar och drakprofiler utan konto — logga in när du vill anmäla dig eller anmäla intresse.</p>
+    <div class="cta">
+      <a href="#" class="btn btn-gold">Anmäl din pitch</a>
+      <a href="#" class="btn btn-line">Ansök som drake</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="brand"><b>Draknäste</b> &nbsp;·&nbsp; på eAktiebok, byggt på BizMeet</div>
+    <div>Demo för kund · exempeldata · inte ett skarpt erbjudande om värdepapper</div>
+  </div>
+</footer>
+
+</body>
+</html>
