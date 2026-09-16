@@ -172,6 +172,13 @@ const Index = () => {
       outcome: "OUTCOME → communities that run themselves",
       href: lp("/bizmeet/demo"),
     },
+    {
+      status: "SPATIAL INTELLIGENCE",
+      name: "SINGUISTIC",
+      desc: "Sensing and spatial-intelligence architecture that lets machines and environments understand human presence and movement.",
+      outcome: "OUTCOME → environments that respond to people",
+      href: "https://singuistic.com",
+    },
   ];
 
   const method = [
