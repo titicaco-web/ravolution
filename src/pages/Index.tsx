@@ -530,9 +530,13 @@ const Index = () => {
         </section>
 
         {/* ───── Stealth ───── */}
-        <section id="stealth" className="edit-section px-6 md:px-12 border-t border-white/10 bg-[hsl(var(--surface))]">
+        <section
+          id="stealth"
+          className="edit-light edit-section px-6 md:px-12 border-t border-[#081426]/10 bg-[#F7F5F0] text-[#081426]"
+        >
           <div className="edit-container">
             <SectionHead
+              tone="light"
               kicker="06 / Frontier work"
               title={
                 <>
@@ -544,6 +548,7 @@ const Index = () => {
               intro="Ravolution keeps a frontier layer of unreleased systems, with controlled access for qualified investors, institutions and strategic partners."
             />
             <StealthPanel
+              tone="light"
               title="Selected work remains in stealth."
               body="Qualified conversations can unlock the deeper patent map, unreleased systems and partnership opportunities."
               ctaLabel="Request private briefing →"
