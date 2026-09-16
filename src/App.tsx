@@ -48,6 +48,7 @@ const PikpCashFlagshipPage = lazy(() => import("./pages/PikpCashFlagshipPage"));
 const PikpCashDataRoomPage = lazy(() => import("./pages/PikpCashDataRoomPage"));
 const PratisPage = lazy(() => import("./pages/PratisPage"));
 const DraknastePage = lazy(() => import("./pages/DraknastePage"));
+const StudioroomPage = lazy(() => import("./pages/StudioroomPage"));
 
 const NotFound = lazy(() => import("./pages/NotFound"));
 
@@ -118,6 +119,8 @@ const App = () => (
             {/* eAktiebok — Draknäste mockup (not in main menu) */}
             <Route path="/eaktiebok-draknaste" element={<DraknastePage />} />
             <Route path="/:lang/eaktiebok-draknaste" element={<DraknastePage />} />
+            <Route path="/studioroom" element={<StudioroomPage />} />
+            <Route path="/:lang/studioroom" element={<StudioroomPage />} />
 
 
 
