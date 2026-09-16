@@ -165,6 +165,13 @@ const Index = () => {
       outcome: "OUTCOME → safety without reaching for a phone",
       href: lp("/alarmsole"),
     },
+    {
+      status: "COMMUNITY OS",
+      name: "BizMeet",
+      desc: "White-label community operating system for verified member networks, events and professional matchmaking.",
+      outcome: "OUTCOME → communities that run themselves",
+      href: lp("/bizmeet/demo"),
+    },
   ];
 
   const method = [
