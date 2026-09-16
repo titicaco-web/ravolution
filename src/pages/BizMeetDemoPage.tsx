@@ -16,6 +16,14 @@ const DEMOS = [
       "Events, member profiles, matchmaking and meeting booking exactly as your members would experience them.",
   },
   {
+    label: "businesssweden.ravolution.se",
+    src: "https://businesssweden.ravolution.se/",
+    eyebrow: "Live System — Business Sweden",
+    title: "BizMeet™ deployed for Business Sweden.",
+    description:
+      "A dedicated BizMeet environment running under its own identity — the same community OS, deployed for another organization.",
+  },
+  {
     label: "mlops.ravolution.se",
     src: "https://mlops.ravolution.se/",
     eyebrow: "Live System — MLOps",
