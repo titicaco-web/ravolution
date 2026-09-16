@@ -70,32 +70,43 @@ const BizMeetDemoPage = () => {
           </div>
         </section>
 
-        <section className="pb-24 px-6 md:px-12">
-          <div className="edit-container">
-            <div className="border border-white/15 bg-[hsl(var(--surface))]">
-              <div className="flex items-center justify-between border-b border-white/10 px-4 py-3">
-                <span className="edit-label text-white/40">convendum-bizmeet.lovable.app</span>
-                <a
-                  href={DEMO_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="edit-label text-[hsl(var(--accent-edit))] edit-link"
-                >
-                  Full screen ↗
-                </a>
+        {DEMOS.map((demo, i) => (
+          <section key={demo.src} className={i === DEMOS.length - 1 ? "pb-24 px-6 md:px-12" : "pb-16 px-6 md:px-12"}>
+            <div className="edit-container">
+              {i > 0 && (
+                <Reveal>
+                  <div className="mb-8">
+                    <span className="edit-label text-white/40 block">{demo.eyebrow}</span>
+                    <h2 className="edit-h2 text-white font-bold mt-3 max-w-[26ch]">{demo.title}</h2>
+                    <p className="edit-body text-white/70 mt-4 max-w-[62ch]">{demo.description}</p>
+                  </div>
+                </Reveal>
+              )}
+              <div className="border border-white/15 bg-[hsl(var(--surface))]">
+                <div className="flex items-center justify-between border-b border-white/10 px-4 py-3">
+                  <span className="edit-label text-white/40">{demo.label}</span>
+                  <a
+                    href={demo.src}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="edit-label text-[hsl(var(--accent-edit))] edit-link"
+                  >
+                    Full screen ↗
+                  </a>
+                </div>
+                <iframe
+                  src={demo.src}
+                  title={demo.title}
+                  loading="lazy"
+                  className="w-full h-[80vh] min-h-[560px] border-0 bg-white"
+                />
               </div>
-              <iframe
-                src={DEMO_URL}
-                title="BizMeet live demo"
-                loading="lazy"
-                className="w-full h-[80vh] min-h-[560px] border-0 bg-white"
-              />
+              <p className="edit-label text-white/35 mt-4">
+                If the demo does not load inside this frame, open it in a new tab.
+              </p>
             </div>
-            <p className="edit-label text-white/35 mt-4">
-              If the demo does not load inside this frame, open it in a new tab.
-            </p>
-          </div>
-        </section>
+          </section>
+        ))}
       </EditorialShell>
     </>
   );
