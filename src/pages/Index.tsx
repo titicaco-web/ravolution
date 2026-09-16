@@ -548,6 +548,7 @@ const Index = () => {
               intro="Ravolution keeps a frontier layer of unreleased systems, with controlled access for qualified investors, institutions and strategic partners."
             />
             <StealthPanel
+              tone="light"
               title="Selected work remains in stealth."
               body="Qualified conversations can unlock the deeper patent map, unreleased systems and partnership opportunities."
               ctaLabel="Request private briefing →"
