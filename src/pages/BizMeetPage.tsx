@@ -197,13 +197,17 @@ const BizMeetPage = () => {
                   <span>Book a Bizmeet Demo</span>
                   <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                 </Link>
+                <Link to={lp("/bizmeet/demo")} className="edit-btn inline-flex items-center gap-3">
+                  <span>See Bizmeet Live Demo</span>
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
                 <a
                   href={SITE}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="edit-btn inline-flex items-center gap-3"
                 >
-                  <span>See Bizmeet Live</span>
+                  <span>Platform Site</span>
                   <ExternalLink className="w-4 h-4" />
                 </a>
               </div>
@@ -311,13 +315,17 @@ const BizMeetPage = () => {
                   <span>Book a Bizmeet Demo</span>
                   <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                 </Link>
+                <Link to={lp("/bizmeet/demo")} className="edit-btn inline-flex items-center justify-center gap-3">
+                  <span>See Bizmeet Live Demo</span>
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
                 <a
                   href={SITE}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="edit-btn inline-flex items-center justify-center gap-3"
                 >
-                  <span>See Bizmeet Live</span>
+                  <span>Platform Site</span>
                   <ExternalLink className="w-4 h-4" />
                 </a>
               </div>

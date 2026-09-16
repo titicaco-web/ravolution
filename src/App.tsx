@@ -40,6 +40,7 @@ const HundelserPage = lazy(() => import("./pages/HundelserPage"));
 const PartystaPage = lazy(() => import("./pages/PartystaPage"));
 const XportMatchPage = lazy(() => import("./pages/XportMatchPage"));
 const BizMeetPage = lazy(() => import("./pages/BizMeetPage"));
+const BizMeetDemoPage = lazy(() => import("./pages/BizMeetDemoPage"));
 const AlarmSolePage = lazy(() => import("./pages/AlarmSolePage"));
 const PikpCashPage = lazy(() => import("./pages/PikpCashPage"));
 const PikpCashFlagshipPage = lazy(() => import("./pages/PikpCashFlagshipPage"));
@@ -97,6 +98,8 @@ const App = () => (
             <Route path="/:lang/partysta" element={<LanguageSync><PartystaPage /></LanguageSync>} />
             <Route path="/bizmeet" element={<LanguageSync><BizMeetPage /></LanguageSync>} />
             <Route path="/:lang/bizmeet" element={<LanguageSync><BizMeetPage /></LanguageSync>} />
+            <Route path="/bizmeet/demo" element={<LanguageSync><BizMeetDemoPage /></LanguageSync>} />
+            <Route path="/:lang/bizmeet/demo" element={<LanguageSync><BizMeetDemoPage /></LanguageSync>} />
             <Route path="/xportmatch" element={<LanguageSync><XportMatchPage /></LanguageSync>} />
             <Route path="/:lang/xportmatch" element={<LanguageSync><XportMatchPage /></LanguageSync>} />
             <Route path="/alarmsole" element={<LanguageSync><AlarmSolePage /></LanguageSync>} />
