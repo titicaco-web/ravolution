@@ -530,9 +530,13 @@ const Index = () => {
         </section>
 
         {/* ───── Stealth ───── */}
-        <section id="stealth" className="edit-section px-6 md:px-12 border-t border-white/10 bg-[hsl(var(--surface))]">
+        <section
+          id="stealth"
+          className="edit-light edit-section px-6 md:px-12 border-t border-[#081426]/10 bg-[#F7F5F0] text-[#081426]"
+        >
           <div className="edit-container">
             <SectionHead
+              tone="light"
               kicker="06 / Frontier work"
               title={
                 <>

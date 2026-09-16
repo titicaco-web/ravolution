@@ -219,34 +219,71 @@ export const StealthPanel = ({
   ctaLabel,
   ctaHref,
   redacted,
+  tone = "dark",
 }: {
   title: string;
   body: string;
   ctaLabel: string;
   ctaHref: string;
   redacted: string[];
-}) => (
-  <Reveal className="relative border border-white/10 overflow-hidden">
-    <TechGrid opacity={0.06} />
-    <div className="relative grid md:grid-cols-2">
-      <div className="p-8 md:p-12 space-y-4 border-b md:border-b-0 md:border-r border-white/10">
-        {redacted.map((r) => (
-          <div key={r} className="edit-label text-white/35 text-[11px]">
-            {r}
-          </div>
-        ))}
-      </div>
-      <div className="p-8 md:p-12">
-        <span className="edit-label text-[hsl(var(--accent-edit))]">R / S</span>
-        <h3 className="font-display font-bold text-white mt-4 text-3xl md:text-5xl leading-tight tracking-tight">{title}</h3>
-        <p className="text-white/60 text-base leading-relaxed mt-6 max-w-md">{body}</p>
-        <a
-          href={ctaHref}
-          className="inline-block mt-8 edit-label border border-white/30 px-5 py-3 text-white hover:bg-white hover:text-black transition-colors"
+  /** "dark" = light text on navy, "light" = dark text on ivory */
+  tone?: "dark" | "light";
+}) => {
+  const light = tone === "light";
+  return (
+    <Reveal
+      className={`relative border overflow-hidden ${light ? "border-[#081426]/15" : "border-white/10"}`}
+    >
+      {!light && <TechGrid opacity={0.06} />}
+      <div className="relative grid md:grid-cols-2">
+        <div
+          className={`p-8 md:p-12 space-y-4 border-b md:border-b-0 md:border-r ${
+            light ? "border-[#081426]/15" : "border-white/10"
+          }`}
         >
-          {ctaLabel}
-        </a>
+          {redacted.map((r) => (
+            <div
+              key={r}
+              className={`edit-label text-[11px] ${light ? "text-[#081426]/45" : "text-white/35"}`}
+            >
+              {r}
+            </div>
+          ))}
+        </div>
+        <div className="p-8 md:p-12">
+          <span
+            className={`edit-label ${
+              light ? "text-[hsl(var(--accent-dim))]" : "text-[hsl(var(--accent-edit))]"
+            }`}
+          >
+            R / S
+          </span>
+          <h3
+            className={`font-display font-bold mt-4 text-3xl md:text-5xl leading-tight tracking-tight ${
+              light ? "text-[#081426]" : "text-white"
+            }`}
+          >
+            {title}
+          </h3>
+          <p
+            className={`text-base leading-relaxed mt-6 max-w-md ${
+              light ? "text-[#081426]/75" : "text-white/60"
+            }`}
+          >
+            {body}
+          </p>
+          <a
+            href={ctaHref}
+            className={
+              light
+                ? "edit-btn-light inline-block mt-8 edit-label border border-[#081426]/30 px-5 py-3"
+                : "inline-block mt-8 edit-label border border-white/30 px-5 py-3 text-white hover:bg-white hover:text-black transition-colors"
+            }
+          >
+            {ctaLabel}
+          </a>
+        </div>
       </div>
-    </div>
-  </Reveal>
-);
+    </Reveal>
+  );
+};
