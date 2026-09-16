@@ -119,6 +119,8 @@ const App = () => (
             {/* eAktiebok — Draknäste mockup (not in main menu) */}
             <Route path="/eaktiebok-draknaste" element={<DraknastePage />} />
             <Route path="/:lang/eaktiebok-draknaste" element={<DraknastePage />} />
+            <Route path="/studioroom" element={<StudioroomPage />} />
+            <Route path="/:lang/studioroom" element={<StudioroomPage />} />
 
 
 
