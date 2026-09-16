@@ -112,6 +112,10 @@ const App = () => (
             <Route path="/:lang/pratis" element={<LanguageSync><PratisPage /></LanguageSync>} />
             <Route path="/:lang/ventures/pratis" element={<LanguageSync><PratisPage /></LanguageSync>} />
 
+            {/* eAktiebok — Draknäste mockup (not in main menu) */}
+            <Route path="/eaktiebok-draknaste" element={<DraknastePage />} />
+            <Route path="/:lang/eaktiebok-draknaste" element={<DraknastePage />} />
+
 
 
 
