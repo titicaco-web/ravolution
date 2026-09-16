@@ -58,7 +58,7 @@ const Footer = () => {
                 </Link>
               </li>
               <li><Link to="/metadatamachine" className="hover:text-white transition-colors">Metadata Machine</Link></li>
-              <li><Link to="/eaktiebok-draknaste" className="hover:text-white transition-colors">eAktiebok — Draknäste</Link></li>
+              
               <li><Link to="/studioroom" className="hover:text-white transition-colors">Studioroom Network</Link></li>
               <li><Link to={lp("/bizmeet/demo")} className="hover:text-white transition-colors">BizMeet Demos</Link></li>
               <li><a href="#contact" className="hover:text-white transition-colors">{t("footer.contact")}</a></li>
