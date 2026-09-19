@@ -34,6 +34,7 @@ const EvidencePage = lazy(() => import("./pages/EvidencePage"));
 const ContactPage = lazy(() => import("./pages/ContactPage"));
 const ApplyPage = lazy(() => import("./pages/ApplyPage"));
 const SalesPartnerPage = lazy(() => import("./pages/SalesPartnerPage"));
+const PartnerPage = lazy(() => import("./pages/PartnerPage"));
 const MetadataMachinePage = lazy(() => import("./pages/MetadataMachinePage"));
 const BeredskapadPage = lazy(() => import("./pages/BeredskapadPage"));
 const HundelserPage = lazy(() => import("./pages/HundelserPage"));
@@ -151,6 +152,8 @@ const App = () => (
             <Route path="/:lang/apply" element={<LanguageSync><ApplyPage /></LanguageSync>} />
             <Route path="/:lang/apply-for-investment" element={<LanguageSync><ApplyPage /></LanguageSync>} />
             <Route path="/sv/ansok" element={<LanguageSync><ApplyPage /></LanguageSync>} />
+            <Route path="/:lang/partner" element={<LanguageSync><PartnerPage /></LanguageSync>} />
+            <Route path="/partner" element={<LanguageSync><PartnerPage /></LanguageSync>} />
             <Route path="/:lang/sales-partner" element={<LanguageSync><SalesPartnerPage /></LanguageSync>} />
             <Route path="/sv/saljpartner" element={<LanguageSync><SalesPartnerPage /></LanguageSync>} />
             <Route path="/es/socio-comercial" element={<LanguageSync><SalesPartnerPage /></LanguageSync>} />

@@ -24,7 +24,27 @@ const applySchema = z.object({
   why_partner: z.string().trim().min(1, "Required").max(600),
   traction: z.string().trim().max(1000).optional().or(z.literal("")),
   source: z.string().max(100).optional().or(z.literal("")),
+  sector: z.string().max(100).optional().or(z.literal("")),
+  blocker: z.string().trim().max(1000).optional().or(z.literal("")),
 });
+
+const SECTORS = [
+  "Language & education",
+  "Voice & security",
+  "Trade & export",
+  "Climate & materials",
+  "Health & prevention",
+  "Other",
+];
+
+const LOOKING_FOR = [
+  "Tech build",
+  "Brand & identity",
+  "Sales & go-to-market",
+  "Concept refinement",
+  "Capital",
+  "All of the above",
+];
 
 const faqs = [
   {
@@ -69,12 +89,17 @@ const ApplyPage = () => {
     why_partner: "",
     traction: "",
     source: "",
+    sector: "",
+    blocker: "",
     website_url: "", // honeypot
   });
+  const [lookingFor, setLookingFor] = useState<string[]>([]);
   const [loading, setLoading] = useState(false);
   const [sent, setSent] = useState<string | null>(null);
 
   const upd = (k: string, v: string) => setForm((f) => ({ ...f, [k]: v }));
+  const toggleLooking = (v: string) =>
+    setLookingFor((l) => (l.includes(v) ? l.filter((x) => x !== v) : [...l, v]));
 
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -97,6 +122,9 @@ const ApplyPage = () => {
         website: parsed.data.website || null,
         traction: parsed.data.traction || null,
         source: parsed.data.source || null,
+        sector: parsed.data.sector || null,
+        blocker: parsed.data.blocker || null,
+        looking_for: lookingFor.length ? lookingFor.join(", ") : null,
       };
       const { error } = await supabase
         .from("startup_applications")
@@ -366,9 +394,25 @@ const ApplyPage = () => {
             <h2 className={`${display} text-3xl md:text-5xl mb-4`} style={{ color: BONE }}>
               Apply for investment
             </h2>
-            <p className="text-lg mb-12" style={{ color: `${BONE}CC` }}>
-              10 minutes. No pitch deck required. Every application is read by a partner.
+            <p className="text-lg mb-10" style={{ color: `${BONE}CC` }}>
+              Tell us what you're building. If there's a fit, Ivan will come back with honest
+              feedback and a concrete way to work together. Even if it's a no, you'll get a useful
+              read on your company.
             </p>
+
+            <div className="grid md:grid-cols-3 gap-8 mb-12">
+              {[
+                { n: "01", d: "Ivan personally reviews every submission." },
+                { n: "02", d: "If there's a fit, you get a call and a proposed way to work together." },
+                { n: "03", d: "If it's not a fit, you still get honest, specific feedback." },
+              ].map((s) => (
+                <div key={s.n} className="border-t pt-4" style={{ borderColor: GOLD }}>
+                  <p className={mono} style={{ color: GOLD }}>{s.n}</p>
+                  <p className="text-sm mt-2 leading-relaxed" style={{ color: `${BONE}CC` }}>{s.d}</p>
+                </div>
+              ))}
+            </div>
+
 
             {sent ? (
               <div className="p-10" style={{ background: BONE, color: NAVY }}>
@@ -430,6 +474,47 @@ const ApplyPage = () => {
                   label="What traction or validation do you have?"
                   value={form.traction}
                   onChange={(v) => upd("traction", v)}
+                  max={1000}
+                />
+
+                <FormSelect
+                  label="Sector"
+                  value={form.sector}
+                  onChange={(v) => upd("sector", v)}
+                  options={SECTORS}
+                />
+
+                <fieldset className="block mb-6">
+                  <legend className={labelCls} style={{ color: `${NAVY}88` }}>
+                    What are you looking for from Ravolution?
+                  </legend>
+                  <div className="flex flex-wrap gap-3 mt-2">
+                    {LOOKING_FOR.map((o) => {
+                      const on = lookingFor.includes(o);
+                      return (
+                        <button
+                          key={o}
+                          type="button"
+                          onClick={() => toggleLooking(o)}
+                          className="px-4 py-2 text-sm border transition-colors"
+                          style={{
+                            borderColor: on ? GOLD : `${NAVY}33`,
+                            background: on ? GOLD : "transparent",
+                            color: on ? BONE : NAVY,
+                          }}
+                          aria-pressed={on}
+                        >
+                          {o}
+                        </button>
+                      );
+                    })}
+                  </div>
+                </fieldset>
+
+                <FormTextarea
+                  label="Biggest blocker right now"
+                  value={form.blocker}
+                  onChange={(v) => upd("blocker", v)}
                   max={1000}
                 />
 
