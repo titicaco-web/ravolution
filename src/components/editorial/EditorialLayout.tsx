@@ -189,6 +189,7 @@ export const EditorialNav = () => {
     { label: "IP & Evidence", href: lp("/evidence") },
     { label: "About", href: lp("/about") },
     { label: "Partner", href: lp("/partner") },
+    { label: "Apply", href: lp("/apply") },
   ];
 
   const gateways = [
