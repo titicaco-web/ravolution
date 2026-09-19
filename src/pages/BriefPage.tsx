@@ -1,5 +1,6 @@
 import { useState, useCallback, useRef } from "react";
 import { EditorialShell } from "@/components/editorial/EditorialLayout";
+import { uploadBriefFile } from "@/lib/submit-form";
 import { Helmet } from "@/lib/helmet-compat";
 import { useForm } from "react-hook-form";
 import { useDropzone } from "react-dropzone";

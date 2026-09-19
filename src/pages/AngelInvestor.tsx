@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { EditorialShell, Reveal, SectionLabel } from "@/components/editorial/EditorialLayout";
+import { submitForm } from "@/lib/submit-form";
 import { Helmet } from "@/lib/helmet-compat";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { useLangPath } from "@/hooks/use-lang-path";

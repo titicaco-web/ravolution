@@ -1,5 +1,6 @@
 import { Helmet } from "@/lib/helmet-compat";
 import { useState } from "react";
+import { submitForm } from "@/lib/submit-form";
 import { Link } from "@/lib/router-compat";
 import { toast } from "sonner";
 import { z } from "zod";
