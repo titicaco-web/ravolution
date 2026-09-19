@@ -462,6 +462,47 @@ const ApplyPage = () => {
                 />
 
                 <FormSelect
+                  label="Sector"
+                  value={form.sector}
+                  onChange={(v) => upd("sector", v)}
+                  options={SECTORS}
+                />
+
+                <fieldset className="block mb-6">
+                  <legend className={labelCls} style={{ color: `${NAVY}88` }}>
+                    What are you looking for from Ravolution?
+                  </legend>
+                  <div className="flex flex-wrap gap-3 mt-2">
+                    {LOOKING_FOR.map((o) => {
+                      const on = lookingFor.includes(o);
+                      return (
+                        <button
+                          key={o}
+                          type="button"
+                          onClick={() => toggleLooking(o)}
+                          className="px-4 py-2 text-sm border transition-colors"
+                          style={{
+                            borderColor: on ? GOLD : `${NAVY}33`,
+                            background: on ? GOLD : "transparent",
+                            color: on ? BONE : NAVY,
+                          }}
+                          aria-pressed={on}
+                        >
+                          {o}
+                        </button>
+                      );
+                    })}
+                  </div>
+                </fieldset>
+
+                <FormTextarea
+                  label="Biggest blocker right now"
+                  value={form.blocker}
+                  onChange={(v) => upd("blocker", v)}
+                  max={1000}
+                />
+
+                <FormSelect
                   label="How did you hear about us?"
                   value={form.source}
                   onChange={(v) => upd("source", v)}
