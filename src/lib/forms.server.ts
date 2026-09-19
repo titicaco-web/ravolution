@@ -264,6 +264,27 @@ export const FORM_CONFIG: Record<string, FormConfig> = {
   },
 };
 
+/**
+ * Until a sending domain is verified, the email provider only accepts the
+ * account owner's inbox as a recipient. Everything is routed there (with the
+ * intended recipients noted in the body) so no submission is ever lost.
+ * Once `FORM_SENDER_ADDRESS` is set to an address on a verified domain, mail
+ * goes straight to the real recipients.
+ */
+const OWNER_INBOX = "titicaco@gmail.com";
+
+function delivery(intended: string[], from: string) {
+  const sender = process.env["FORM_SENDER_ADDRESS"];
+  if (sender) return { to: intended, from: `Ravolution AB <${sender}>`, note: "" };
+  return {
+    to: [OWNER_INBOX],
+    from,
+    note: `<p style="margin:0 0 16px;padding:10px;background:#0F2747;color:#F7F5F0;font-family:Arial,sans-serif;font-size:13px;">Intended recipient(s): ${intended
+      .map((r) => escapeHtml(r))
+      .join(", ")} — verify a sending domain to deliver there directly.</p>`,
+  };
+}
+
 export async function deliverForm(form: string, fields: FormFields): Promise<void> {
   const config = FORM_CONFIG[form];
   if (!config) throw new Error("Unknown form.");
@@ -273,19 +294,21 @@ export async function deliverForm(form: string, fields: FormFields): Promise<voi
   }
 
   const replyTo = s(fields, "email");
+  const route = delivery(config.to(fields), config.from);
   await sendResendEmail({
-    from: config.from,
-    to: config.to(fields),
+    from: route.from,
+    to: route.to,
     subject: config.subject(fields),
-    html: renderFormEmail(config.title(fields), fields),
+    html: route.note + renderFormEmail(config.title(fields), fields),
     ...(replyTo ? { reply_to: replyTo } : {}),
   });
 
   const confirm = config.confirmation?.(fields);
   if (confirm) {
+    const confirmRoute = delivery([s(fields, "email")], confirm.from);
     try {
       await sendResendEmail({
-        from: confirm.from,
+        from: confirmRoute.from,
         to: [s(fields, "email")],
         subject: confirm.subject,
         html: confirm.html,
