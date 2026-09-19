@@ -42,8 +42,7 @@ const ContactPage = () => {
     e.preventDefault();
     setLoading(true);
     try {
-      const { error } = await supabase.functions.invoke("send-investor-inquiry", {
-        body: {
+      const { error } = await submitForm("send-investor-inquiry", {
           name: form.name,
           email: form.email,
           message: form.message,

@@ -221,8 +221,7 @@ const PartystaPage = () => {
     }
     setSending(true);
     try {
-      const { error } = await supabase.functions.invoke("send-partysta-inquiry", {
-        body: parsed.data,
+      const { error } = await submitForm("send-partysta-inquiry", parsed.data,
       });
       if (error) throw error;
       toast.success("Thank you — your enquiry has been sent. We will be in touch.");

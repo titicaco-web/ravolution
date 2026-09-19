@@ -333,8 +333,7 @@ const XportMatchPage = () => {
     }
     setSending(true);
     try {
-      const { error } = await supabase.functions.invoke("send-xportmatch-inquiry", {
-        body: parsed.data,
+      const { error } = await submitForm("send-xportmatch-inquiry", parsed.data,
       });
       if (error) throw error;
       toast.success("Thank you — your enquiry has been sent. We will be in touch.");

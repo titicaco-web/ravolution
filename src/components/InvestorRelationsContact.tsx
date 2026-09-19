@@ -30,8 +30,7 @@ const InvestorRelationsContact = () => {
     setIsSubmitting(true);
     setHasError(false);
     try {
-      const { error } = await supabase.functions.invoke("send-investor-inquiry", {
-        body: formData,
+      const { error } = await submitForm("send-investor-inquiry", formData,
       });
       if (error) throw error;
       setIsSubmitted(true);

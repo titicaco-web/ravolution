@@ -43,8 +43,7 @@ const MetadataLeadForm = () => {
     }
     setSending(true);
     try {
-      const { error } = await supabase.functions.invoke("send-metadata-lead", {
-        body: { name, email, whatsapp, link, description },
+      const { error } = await submitForm("send-metadata-lead", { name, email, whatsapp, link, description },
       });
       if (error) throw error;
       trackEvent("metadata_lead_email", { has_email: Boolean(email), has_whatsapp: Boolean(whatsapp) });

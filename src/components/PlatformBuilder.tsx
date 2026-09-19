@@ -316,8 +316,7 @@ const PlatformBuilder = () => {
         functions: Array.from(fns),
       }));
 
-      const { error } = await supabase.functions.invoke("send-platform-spec", {
-        body: {
+      const { error } = await submitForm("send-platform-spec", {
           name,
           email,
           company,
