@@ -331,7 +331,6 @@ const PlatformBuilder = () => {
             ...Object.values(selections).flatMap((s) => Array.from(s)),
             ...Array.from(addonSelections),
           ],
-        },
       });
       if (error) throw error;
       toast({ title: "Spec sent!", description: "We'll review your configuration and get back within 48 hours." });
