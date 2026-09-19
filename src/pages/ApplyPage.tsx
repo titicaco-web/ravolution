@@ -89,12 +89,17 @@ const ApplyPage = () => {
     why_partner: "",
     traction: "",
     source: "",
+    sector: "",
+    blocker: "",
     website_url: "", // honeypot
   });
+  const [lookingFor, setLookingFor] = useState<string[]>([]);
   const [loading, setLoading] = useState(false);
   const [sent, setSent] = useState<string | null>(null);
 
   const upd = (k: string, v: string) => setForm((f) => ({ ...f, [k]: v }));
+  const toggleLooking = (v: string) =>
+    setLookingFor((l) => (l.includes(v) ? l.filter((x) => x !== v) : [...l, v]));
 
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
