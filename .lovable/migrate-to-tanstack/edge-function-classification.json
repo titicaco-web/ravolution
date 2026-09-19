@@ -1,0 +1,16 @@
+{"functions": [
+  {"name": "send-alarmsole-inquiry", "classification": "internal-only", "signal": "1 src/ call site; RESEND_API_KEY bound to Supabase runtime; jsr: import", "outcome": "left"},
+  {"name": "send-angel-brief", "classification": "internal-only", "signal": "1 src/ call site; RESEND_API_KEY bound to Supabase runtime; jsr: import", "outcome": "left"},
+  {"name": "send-beredskapad-inquiry", "classification": "internal-only", "signal": "1 src/ call site; RESEND_API_KEY bound to Supabase runtime; jsr: import", "outcome": "left"},
+  {"name": "send-hundelser-inquiry", "classification": "internal-only", "signal": "1 src/ call site; RESEND_API_KEY bound to Supabase runtime; jsr: import", "outcome": "left"},
+  {"name": "send-investor-inquiry", "classification": "internal-only", "signal": "3 src/ call sites; RESEND_API_KEY bound to Supabase runtime; jsr: import", "outcome": "left"},
+  {"name": "send-metadata-lead", "classification": "internal-only", "signal": "1 src/ call site; RESEND_API_KEY bound to Supabase runtime; jsr: import", "outcome": "left"},
+  {"name": "send-partysta-inquiry", "classification": "internal-only", "signal": "1 src/ call site; RESEND_API_KEY bound to Supabase runtime; jsr: import", "outcome": "left"},
+  {"name": "send-pikpcash-inquiry", "classification": "internal-only", "signal": "1 src/ call site; RESEND_API_KEY bound to Supabase runtime; jsr: import", "outcome": "left"},
+  {"name": "send-platform-spec", "classification": "internal-only", "signal": "1 src/ call site; RESEND_API_KEY bound to Supabase runtime; jsr: import", "outcome": "left"},
+  {"name": "send-pratis-inquiry", "classification": "internal-only", "signal": "1 src/ call site; RESEND_API_KEY bound to Supabase runtime; jsr: import", "outcome": "left"},
+  {"name": "send-sales-partner-application", "classification": "internal-only", "signal": "1 src/ call site; RESEND_API_KEY bound to Supabase runtime; jsr: import", "outcome": "left"},
+  {"name": "send-startup-application", "classification": "internal-only", "signal": "1 src/ call site; RESEND_API_KEY bound to Supabase runtime; jsr: import", "outcome": "left"},
+  {"name": "send-xportmatch-inquiry", "classification": "internal-only", "signal": "1 src/ call site; RESEND_API_KEY bound to Supabase runtime; jsr: import", "outcome": "left"},
+  {"name": "upload-brief-file", "classification": "internal-only", "signal": "1 src/ call site; SUPABASE_SERVICE_ROLE_KEY available only in Supabase runtime", "outcome": "left"}
+]}
