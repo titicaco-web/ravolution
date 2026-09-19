@@ -2,7 +2,6 @@ import { Helmet } from "@/lib/helmet-compat";
 import { useState, useEffect } from "react";
 import { submitForm } from "@/lib/submit-form";
 import { useSearchParams } from "@/lib/router-compat";
-import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 import { EditorialShell, Reveal, SectionLabel } from "@/components/editorial/EditorialLayout";
 

@@ -4,7 +4,6 @@ import { submitForm } from "@/lib/submit-form";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { EditorialShell, Reveal, SectionLabel, CountUp } from "@/components/editorial/EditorialLayout";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 
 type Lang = "sv" | "en" | "es";

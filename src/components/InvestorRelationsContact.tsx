@@ -6,7 +6,6 @@ import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { CheckCircle, Mail, MapPin, Send, Linkedin, AlertCircle } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
-import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 import ivanPhoto from "@/assets/ivan-daza.jpg";
 

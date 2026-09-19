@@ -4,7 +4,6 @@ import { submitForm } from "@/lib/submit-form";
 import { Link } from "@/lib/router-compat";
 import { toast } from "sonner";
 import { z } from "zod";
-import { supabase } from "@/integrations/supabase/client";
 import { EditorialShell, Reveal, SectionLabel } from "@/components/editorial/EditorialLayout";
 import { useLangPath } from "@/hooks/use-lang-path";
 import { Heart, MoveRight, ShieldCheck, BookOpen, BellRing, PhoneCall, Lock } from "lucide-react";

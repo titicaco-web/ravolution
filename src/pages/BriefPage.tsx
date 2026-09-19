@@ -6,7 +6,6 @@ import { useForm } from "react-hook-form";
 import { useDropzone } from "react-dropzone";
 import { Link } from "@/lib/router-compat";
 import DeliveryProcess from "@/components/services/DeliveryProcess";
-import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 import { useLangPath } from "@/hooks/use-lang-path";
 import { useLanguage } from "@/i18n/LanguageContext";
