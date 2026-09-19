@@ -573,7 +573,7 @@ const ApplyPage = () => {
 
 const labelCls = "block font-mono text-[11px] uppercase tracking-[0.18em] mb-2";
 const inputCls =
-  "w-full bg-transparent border-0 border-b border-[#0F274733] px-0 py-3 text-base focus:outline-none focus:border-[#B08D57] transition-colors";
+  "w-full bg-transparent border-0 border-b border-[#0F274733] px-0 py-3 text-base focus:outline-hidden focus:border-[#B08D57] transition-colors";
 
 const FormField = ({
   label, value, onChange, type = "text", required,

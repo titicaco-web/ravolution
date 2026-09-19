@@ -334,7 +334,7 @@ const Field = ({
       onChange={(e) => onChange(e.target.value)}
       required={required}
       placeholder={placeholder}
-      className="w-full bg-transparent border-0 border-b border-white/20 px-0 py-3 text-white text-base md:text-lg focus:outline-none focus:border-[hsl(var(--accent-edit))] transition-colors"
+      className="w-full bg-transparent border-0 border-b border-white/20 px-0 py-3 text-white text-base md:text-lg focus:outline-hidden focus:border-[hsl(var(--accent-edit))] transition-colors"
     />
   </label>
 );
@@ -731,7 +731,7 @@ const SalesPartnerPage = () => {
                         minLength={200}
                         value={form.pastDeal}
                         onChange={(e) => update("pastDeal", e.target.value)}
-                        className="w-full bg-transparent border-0 border-b border-white/20 px-0 py-3 text-white text-base md:text-lg focus:outline-none focus:border-[hsl(var(--accent-edit))] transition-colors resize-none"
+                        className="w-full bg-transparent border-0 border-b border-white/20 px-0 py-3 text-white text-base md:text-lg focus:outline-hidden focus:border-[hsl(var(--accent-edit))] transition-colors resize-none"
                       />
                       <p className="mt-2 edit-label text-white/40">{form.pastDeal.length} / 200+</p>
                     </label>
@@ -743,7 +743,7 @@ const SalesPartnerPage = () => {
                         maxLength={1000}
                         value={form.network}
                         onChange={(e) => update("network", e.target.value)}
-                        className="w-full bg-transparent border-0 border-b border-white/20 px-0 py-3 text-white text-base md:text-lg focus:outline-none focus:border-[hsl(var(--accent-edit))] transition-colors resize-none"
+                        className="w-full bg-transparent border-0 border-b border-white/20 px-0 py-3 text-white text-base md:text-lg focus:outline-hidden focus:border-[hsl(var(--accent-edit))] transition-colors resize-none"
                       />
                     </label>
 
@@ -754,7 +754,7 @@ const SalesPartnerPage = () => {
                           required
                           value={form.startDate}
                           onChange={(e) => update("startDate", e.target.value)}
-                          className="w-full bg-transparent border-0 border-b border-white/20 px-0 py-3 text-white text-base md:text-lg focus:outline-none focus:border-[hsl(var(--accent-edit))] transition-colors"
+                          className="w-full bg-transparent border-0 border-b border-white/20 px-0 py-3 text-white text-base md:text-lg focus:outline-hidden focus:border-[hsl(var(--accent-edit))] transition-colors"
                         >
                           {t.startOptions.map((o) => <option key={o} value={o} className="bg-[hsl(var(--bg))] text-white">{o}</option>)}
                         </select>

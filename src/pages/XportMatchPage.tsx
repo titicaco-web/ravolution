@@ -304,7 +304,7 @@ const schema = z.object({
 });
 
 const inputClass =
-  "w-full bg-transparent border border-white/20 px-4 py-3 text-white placeholder:text-white/35 text-sm focus:outline-none focus:border-[hsl(var(--accent-edit))] transition-colors";
+  "w-full bg-transparent border border-white/20 px-4 py-3 text-white placeholder:text-white/35 text-sm focus:outline-hidden focus:border-[hsl(var(--accent-edit))] transition-colors";
 
 const XportMatchPage = () => {
   const lp = useLangPath();

@@ -76,7 +76,7 @@ const MetadataLeadForm = () => {
           value={name}
           onChange={(e) => setName(e.target.value)}
           maxLength={120}
-          className="w-full bg-transparent border border-white/20 focus:border-[hsl(var(--accent-edit))] outline-none text-white px-4 py-3 font-mono text-sm"
+          className="w-full bg-transparent border border-white/20 focus:border-[hsl(var(--accent-edit))] outline-hidden text-white px-4 py-3 font-mono text-sm"
         />
       </label>
       <label className="block">
@@ -87,7 +87,7 @@ const MetadataLeadForm = () => {
           onChange={(e) => setLink(e.target.value)}
           placeholder="https://…"
           maxLength={500}
-          className="w-full bg-transparent border border-white/20 focus:border-[hsl(var(--accent-edit))] outline-none text-white px-4 py-3 font-mono text-sm"
+          className="w-full bg-transparent border border-white/20 focus:border-[hsl(var(--accent-edit))] outline-hidden text-white px-4 py-3 font-mono text-sm"
         />
       </label>
       <label className="block md:col-span-2">
@@ -98,7 +98,7 @@ const MetadataLeadForm = () => {
           rows={4}
           maxLength={2000}
           placeholder="A sentence or two is enough."
-          className="w-full bg-transparent border border-white/20 focus:border-[hsl(var(--accent-edit))] outline-none text-white px-4 py-3 font-mono text-sm resize-y"
+          className="w-full bg-transparent border border-white/20 focus:border-[hsl(var(--accent-edit))] outline-hidden text-white px-4 py-3 font-mono text-sm resize-y"
         />
       </label>
       <label className="block">
@@ -109,7 +109,7 @@ const MetadataLeadForm = () => {
           onChange={(e) => setEmail(e.target.value)}
           maxLength={200}
           placeholder="you@company.com"
-          className="w-full bg-transparent border border-white/20 focus:border-[hsl(var(--accent-edit))] outline-none text-white px-4 py-3 font-mono text-sm"
+          className="w-full bg-transparent border border-white/20 focus:border-[hsl(var(--accent-edit))] outline-hidden text-white px-4 py-3 font-mono text-sm"
         />
       </label>
       <label className="block">
@@ -120,7 +120,7 @@ const MetadataLeadForm = () => {
           onChange={(e) => setWhatsapp(e.target.value)}
           maxLength={40}
           placeholder="+46 …"
-          className="w-full bg-transparent border border-white/20 focus:border-[hsl(var(--accent-edit))] outline-none text-white px-4 py-3 font-mono text-sm"
+          className="w-full bg-transparent border border-white/20 focus:border-[hsl(var(--accent-edit))] outline-hidden text-white px-4 py-3 font-mono text-sm"
         />
       </label>
 

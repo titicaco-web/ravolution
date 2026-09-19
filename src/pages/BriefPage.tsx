@@ -355,7 +355,7 @@ ${data.additionalNotes || "—"}`;
                       <label className="block edit-label text-white/55 mb-3">{t("intake.fullName")} *</label>
                       <input
                         {...register("fullName", { required: t("intake.fullNameRequired") })}
-                        className="w-full bg-transparent border-0 border-b border-white/20 px-0 py-3 text-white placeholder:text-white/30 focus:outline-none focus:border-[hsl(var(--accent-edit))] transition-colors"
+                        className="w-full bg-transparent border-0 border-b border-white/20 px-0 py-3 text-white placeholder:text-white/30 focus:outline-hidden focus:border-[hsl(var(--accent-edit))] transition-colors"
                         placeholder={t("intake.fullNamePlaceholder")}
                       />
                       {errors.fullName && <p className="edit-label text-[hsl(var(--accent-edit))] mt-2">{errors.fullName.message}</p>}
@@ -365,7 +365,7 @@ ${data.additionalNotes || "—"}`;
                       <input
                         type="email"
                         {...register("email", { required: t("intake.emailRequired") })}
-                        className="w-full bg-transparent border-0 border-b border-white/20 px-0 py-3 text-white placeholder:text-white/30 focus:outline-none focus:border-[hsl(var(--accent-edit))] transition-colors"
+                        className="w-full bg-transparent border-0 border-b border-white/20 px-0 py-3 text-white placeholder:text-white/30 focus:outline-hidden focus:border-[hsl(var(--accent-edit))] transition-colors"
                         placeholder={t("intake.emailPlaceholder")}
                       />
                       {errors.email && <p className="edit-label text-[hsl(var(--accent-edit))] mt-2">{errors.email.message}</p>}
@@ -374,7 +374,7 @@ ${data.additionalNotes || "—"}`;
                       <label className="block edit-label text-white/55 mb-3">{t("intake.company")}</label>
                       <input
                         {...register("company")}
-                        className="w-full bg-transparent border-0 border-b border-white/20 px-0 py-3 text-white placeholder:text-white/30 focus:outline-none focus:border-[hsl(var(--accent-edit))] transition-colors"
+                        className="w-full bg-transparent border-0 border-b border-white/20 px-0 py-3 text-white placeholder:text-white/30 focus:outline-hidden focus:border-[hsl(var(--accent-edit))] transition-colors"
                         placeholder={t("intake.companyPlaceholder")}
                       />
                     </div>
@@ -382,7 +382,7 @@ ${data.additionalNotes || "—"}`;
                       <label className="block edit-label text-white/55 mb-3">{t("intake.website")}</label>
                       <input
                         {...register("website")}
-                        className="w-full bg-transparent border-0 border-b border-white/20 px-0 py-3 text-white placeholder:text-white/30 focus:outline-none focus:border-[hsl(var(--accent-edit))] transition-colors"
+                        className="w-full bg-transparent border-0 border-b border-white/20 px-0 py-3 text-white placeholder:text-white/30 focus:outline-hidden focus:border-[hsl(var(--accent-edit))] transition-colors"
                         placeholder={t("intake.websitePlaceholder")}
                       />
                     </div>
@@ -390,7 +390,7 @@ ${data.additionalNotes || "—"}`;
                       <label className="block edit-label text-white/55 mb-3">{t("intake.country")}</label>
                       <select
                         {...register("country")}
-                        className="w-full bg-transparent border-0 border-b border-white/20 px-0 py-3 text-white placeholder:text-white/30 focus:outline-none focus:border-[hsl(var(--accent-edit))] transition-colors"
+                        className="w-full bg-transparent border-0 border-b border-white/20 px-0 py-3 text-white placeholder:text-white/30 focus:outline-hidden focus:border-[hsl(var(--accent-edit))] transition-colors"
                         
                       >
                         <option value="" disabled>{t("intake.countryPlaceholder")}</option>
@@ -431,7 +431,7 @@ ${data.additionalNotes || "—"}`;
                       <textarea
                         {...register("description", { required: t("intake.projectDescRequired") })}
                         rows={5}
-                        className="w-full bg-transparent border-0 border-b border-white/20 px-0 py-3 text-white placeholder:text-white/30 focus:outline-none focus:border-[hsl(var(--accent-edit))] transition-colors resize-none"
+                        className="w-full bg-transparent border-0 border-b border-white/20 px-0 py-3 text-white placeholder:text-white/30 focus:outline-hidden focus:border-[hsl(var(--accent-edit))] transition-colors resize-none"
                         placeholder={t("intake.projectDescPlaceholder")}
                       />
                       {errors.description && <p className="edit-label text-[hsl(var(--accent-edit))] mt-2">{errors.description.message}</p>}
@@ -440,7 +440,7 @@ ${data.additionalNotes || "—"}`;
                       <label className="block edit-label text-white/55 mb-3">{t("intake.targetAudience")}</label>
                       <input
                         {...register("targetAudience")}
-                        className="w-full bg-transparent border-0 border-b border-white/20 px-0 py-3 text-white placeholder:text-white/30 focus:outline-none focus:border-[hsl(var(--accent-edit))] transition-colors"
+                        className="w-full bg-transparent border-0 border-b border-white/20 px-0 py-3 text-white placeholder:text-white/30 focus:outline-hidden focus:border-[hsl(var(--accent-edit))] transition-colors"
                         placeholder={t("intake.targetAudiencePlaceholder")}
                       />
                     </div>
@@ -449,7 +449,7 @@ ${data.additionalNotes || "—"}`;
                       <textarea
                         {...register("keyFeatures")}
                         rows={3}
-                        className="w-full bg-transparent border-0 border-b border-white/20 px-0 py-3 text-white placeholder:text-white/30 focus:outline-none focus:border-[hsl(var(--accent-edit))] transition-colors resize-none"
+                        className="w-full bg-transparent border-0 border-b border-white/20 px-0 py-3 text-white placeholder:text-white/30 focus:outline-hidden focus:border-[hsl(var(--accent-edit))] transition-colors resize-none"
                         placeholder={t("intake.keyFeaturesPlaceholder")}
                       />
                     </div>
@@ -491,7 +491,7 @@ ${data.additionalNotes || "—"}`;
                       <label className="block edit-label text-white/55 mb-3">{t("intake.budget")}</label>
                       <select
                         {...register("budget")}
-                        className="w-full bg-[hsl(var(--surface))] border border-white/20 px-4 py-3 text-white focus:outline-none focus:border-[hsl(var(--accent-edit))] transition-colors"
+                        className="w-full bg-[hsl(var(--surface))] border border-white/20 px-4 py-3 text-white focus:outline-hidden focus:border-[hsl(var(--accent-edit))] transition-colors"
                       >
                         <option value="">{t("intake.budgetSelect")}</option>
                         {budgetRanges.map((b) => (
@@ -503,7 +503,7 @@ ${data.additionalNotes || "—"}`;
                       <label className="block edit-label text-white/55 mb-3">{t("intake.timeline")}</label>
                       <select
                         {...register("timeline")}
-                        className="w-full bg-[hsl(var(--surface))] border border-white/20 px-4 py-3 text-white focus:outline-none focus:border-[hsl(var(--accent-edit))] transition-colors"
+                        className="w-full bg-[hsl(var(--surface))] border border-white/20 px-4 py-3 text-white focus:outline-hidden focus:border-[hsl(var(--accent-edit))] transition-colors"
                       >
                         <option value="">{t("intake.timelineSelect")}</option>
                         {timelines.map((tl) => (
@@ -597,7 +597,7 @@ ${data.additionalNotes || "—"}`;
                       <textarea
                         {...register("additionalNotes")}
                         rows={3}
-                        className="w-full bg-transparent border-0 border-b border-white/20 px-0 py-3 text-white placeholder:text-white/30 focus:outline-none focus:border-[hsl(var(--accent-edit))] transition-colors resize-none"
+                        className="w-full bg-transparent border-0 border-b border-white/20 px-0 py-3 text-white placeholder:text-white/30 focus:outline-hidden focus:border-[hsl(var(--accent-edit))] transition-colors resize-none"
                         placeholder={t("intake.additionalNotesPlaceholder")}
                       />
                     </div>

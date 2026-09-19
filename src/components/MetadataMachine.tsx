@@ -144,7 +144,7 @@ const MetadataMachine = ({ light = false }: { light?: boolean }) => {
               placeholder="e.g. Ivan Davor Luksic Daza"
               required
               maxLength={120}
-              className={`w-full bg-transparent border ${inputBorder} outline-none px-4 py-3 font-mono text-sm ${ink} ${placeholder}`}
+              className={`w-full bg-transparent border ${inputBorder} outline-hidden px-4 py-3 font-mono text-sm ${ink} ${placeholder}`}
             />
           </label>
           <label className="block">
@@ -154,7 +154,7 @@ const MetadataMachine = ({ light = false }: { light?: boolean }) => {
               value={dob}
               onChange={(e) => setDob(e.target.value)}
               required
-              className={`w-full bg-transparent border ${inputBorder} outline-none px-4 py-3 font-mono text-sm ${ink} ${placeholder}`}
+              className={`w-full bg-transparent border ${inputBorder} outline-hidden px-4 py-3 font-mono text-sm ${ink} ${placeholder}`}
             />
           </label>
           <button type="submit" className={btnClass}><span>Generate metadata</span></button>

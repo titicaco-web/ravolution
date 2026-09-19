@@ -42,7 +42,7 @@ const EditorialInput = ({
     </span>
     <input
       {...props}
-      className="w-full bg-transparent border-0 border-b border-white/20 px-0 py-3 text-white text-base md:text-lg placeholder:text-white/30 focus:outline-none focus:border-accent transition-colors"
+      className="w-full bg-transparent border-0 border-b border-white/20 px-0 py-3 text-white text-base md:text-lg placeholder:text-white/30 focus:outline-hidden focus:border-accent transition-colors"
     />
   </label>
 );
@@ -57,7 +57,7 @@ const EditorialTextarea = ({
     </span>
     <textarea
       {...props}
-      className="w-full bg-transparent border-0 border-b border-white/20 px-0 py-3 text-white text-base md:text-lg placeholder:text-white/30 focus:outline-none focus:border-accent transition-colors resize-none"
+      className="w-full bg-transparent border-0 border-b border-white/20 px-0 py-3 text-white text-base md:text-lg placeholder:text-white/30 focus:outline-hidden focus:border-accent transition-colors resize-none"
     />
   </label>
 );
@@ -80,7 +80,7 @@ const EditorialSelect = ({
     <select
       value={value}
       onChange={(e) => onChange(e.target.value)}
-      className="w-full bg-transparent border-0 border-b border-white/20 px-0 py-3 text-white text-base md:text-lg focus:outline-none focus:border-accent transition-colors appearance-none cursor-pointer"
+      className="w-full bg-transparent border-0 border-b border-white/20 px-0 py-3 text-white text-base md:text-lg focus:outline-hidden focus:border-accent transition-colors appearance-none cursor-pointer"
     >
       <option value="" className="bg-[#0a0e14] text-white/40">—</option>
       {options.map((o) => (

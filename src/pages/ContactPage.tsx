@@ -16,7 +16,7 @@ const Field = ({
       value={value}
       onChange={(e) => onChange(e.target.value)}
       required={required}
-      className="w-full bg-transparent border-0 border-b border-white/20 px-0 py-3 text-white text-base md:text-lg focus:outline-none focus:border-[hsl(var(--accent-edit))] transition-colors"
+      className="w-full bg-transparent border-0 border-b border-white/20 px-0 py-3 text-white text-base md:text-lg focus:outline-hidden focus:border-[hsl(var(--accent-edit))] transition-colors"
     />
   </label>
 );
@@ -131,7 +131,7 @@ const ContactPage = () => {
                         required
                         value={form.message}
                         onChange={(e) => setForm({ ...form, message: e.target.value })}
-                        className="w-full bg-transparent border-0 border-b border-white/20 px-0 py-3 text-white text-base md:text-lg focus:outline-none focus:border-[hsl(var(--accent-edit))] transition-colors resize-none"
+                        className="w-full bg-transparent border-0 border-b border-white/20 px-0 py-3 text-white text-base md:text-lg focus:outline-hidden focus:border-[hsl(var(--accent-edit))] transition-colors resize-none"
                       />
                     </label>
                     <button type="submit" disabled={loading} className="edit-btn">
