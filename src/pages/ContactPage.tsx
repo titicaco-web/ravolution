@@ -48,7 +48,6 @@ const ContactPage = () => {
           message: form.message,
           investorType: "contact-page",
           ticketRange: "n/a",
-        },
       });
       if (error) throw error;
       setSent(true);
