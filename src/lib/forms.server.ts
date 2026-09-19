@@ -309,10 +309,10 @@ export async function deliverForm(form: string, fields: FormFields): Promise<voi
     try {
       await sendResendEmail({
         from: confirmRoute.from,
-        to: [s(fields, "email")],
+        to: confirmRoute.to,
         subject: confirm.subject,
-        html: confirm.html,
-        ...(confirm.bcc ? { bcc: confirm.bcc } : {}),
+        html: confirmRoute.note + confirm.html,
+        ...(confirm.bcc && process.env["FORM_SENDER_ADDRESS"] ? { bcc: confirm.bcc } : {}),
       });
     } catch (err) {
       console.error("Confirmation email failed:", err);
