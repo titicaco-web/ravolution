@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Lock, ArrowRight } from "lucide-react";
@@ -12,11 +12,16 @@ interface GyrocraftPasswordGateProps {
 }
 
 const GyrocraftPasswordGate = ({ children }: GyrocraftPasswordGateProps) => {
-  const [isAuthenticated, setIsAuthenticated] = useState(() => {
-    return sessionStorage.getItem(STORAGE_KEY) === "true";
-  });
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    if (window.sessionStorage.getItem(STORAGE_KEY) === "true") {
+      setIsAuthenticated(true);
+    }
+  }, []);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
