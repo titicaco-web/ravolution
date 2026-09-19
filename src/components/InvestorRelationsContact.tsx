@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { submitForm } from "@/lib/submit-form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { CheckCircle, Mail, MapPin, Send, Linkedin, AlertCircle } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
-import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 import ivanPhoto from "@/assets/ivan-daza.jpg";
 
@@ -30,9 +30,7 @@ const InvestorRelationsContact = () => {
     setIsSubmitting(true);
     setHasError(false);
     try {
-      const { error } = await supabase.functions.invoke("send-investor-inquiry", {
-        body: formData,
-      });
+      const { error } = await submitForm("send-investor-inquiry", formData);
       if (error) throw error;
       setIsSubmitted(true);
     } catch (err) {

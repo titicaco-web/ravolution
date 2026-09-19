@@ -1,11 +1,11 @@
 import { useState, useCallback, useRef } from "react";
 import { EditorialShell } from "@/components/editorial/EditorialLayout";
+import { uploadBriefFile } from "@/lib/submit-form";
 import { Helmet } from "@/lib/helmet-compat";
 import { useForm } from "react-hook-form";
 import { useDropzone } from "react-dropzone";
 import { Link } from "@/lib/router-compat";
 import DeliveryProcess from "@/components/services/DeliveryProcess";
-import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 import { useLangPath } from "@/hooks/use-lang-path";
 import { useLanguage } from "@/i18n/LanguageContext";
@@ -185,11 +185,7 @@ const BriefPage = () => {
     if (files.length === 0) return [];
     const urls: string[] = [];
     for (const file of files) {
-      const fd = new FormData();
-      fd.append("file", file);
-      const { data, error } = await supabase.functions.invoke("upload-brief-file", {
-        body: fd,
-      });
+      const { data, error } = await uploadBriefFile(file);
       if (error || !data?.url) {
         console.error("Upload error:", error);
         continue;

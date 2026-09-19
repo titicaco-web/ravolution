@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { supabase } from "@/integrations/supabase/client";
+import { submitForm } from "@/lib/submit-form";
 import { toast } from "sonner";
 
 const DEFAULT_ACCESS_CODE = "gyrocraft";
@@ -39,9 +39,7 @@ const PortfolioAccessGate = ({ project, onUnlock, code: accessCode = DEFAULT_ACC
     }
     setSending(true);
     try {
-      const { error } = await supabase.functions.invoke("send-investor-inquiry", {
-        body: { project, ...form },
-      });
+      const { error } = await submitForm("send-investor-inquiry", { project, ...form });
       if (error) throw error;
       setSent(true);
       toast.success("Request sent — we'll be in touch.");

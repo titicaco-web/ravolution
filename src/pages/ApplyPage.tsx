@@ -1,7 +1,8 @@
 import { Helmet } from "@/lib/helmet-compat";
 import { useState } from "react";
-import { Link } from "@/lib/router-compat";
+import { submitForm } from "@/lib/submit-form";
 import { supabase } from "@/integrations/supabase/client";
+import { Link } from "@/lib/router-compat";
 import { toast } from "sonner";
 import { z } from "zod";
 import { EditorialShell } from "@/components/editorial/EditorialLayout";
@@ -131,9 +132,7 @@ const ApplyPage = () => {
         .insert(payload);
       if (error) throw error;
       // Notify Ivan by email (non-blocking on failure)
-      const { error: fnErr } = await supabase.functions.invoke("send-startup-application", {
-        body: payload,
-      });
+      const { error: fnErr } = await submitForm("send-startup-application", payload);
       if (fnErr) console.error("Notification email failed:", fnErr);
       setSent(new Date().toISOString());
     } catch (err) {

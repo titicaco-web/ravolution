@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { supabase } from "@/integrations/supabase/client";
+import { submitForm } from "@/lib/submit-form";
 import { toast } from "@/hooks/use-toast";
 import { trackEvent } from "@/lib/analytics";
 
@@ -43,9 +43,7 @@ const MetadataLeadForm = () => {
     }
     setSending(true);
     try {
-      const { error } = await supabase.functions.invoke("send-metadata-lead", {
-        body: { name, email, whatsapp, link, description },
-      });
+      const { error } = await submitForm("send-metadata-lead", { name, email, whatsapp, link, description });
       if (error) throw error;
       trackEvent("metadata_lead_email", { has_email: Boolean(email), has_whatsapp: Boolean(whatsapp) });
       setSent(true);

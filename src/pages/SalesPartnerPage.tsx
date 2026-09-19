@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { Helmet } from "@/lib/helmet-compat";
+import { submitForm } from "@/lib/submit-form";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { EditorialShell, Reveal, SectionLabel, CountUp } from "@/components/editorial/EditorialLayout";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 
 type Lang = "sv" | "en" | "es";
@@ -381,9 +381,7 @@ const SalesPartnerPage = () => {
     }
     setLoading(true);
     try {
-      const { error } = await supabase.functions.invoke("send-sales-partner-application", {
-        body: { ...form, language: lang },
-      });
+      const { error } = await submitForm("send-sales-partner-application", { ...form, language: lang });
       if (error) throw error;
       setSent(true);
       toast.success(t.f.success);

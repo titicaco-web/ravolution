@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { EditorialShell, Reveal, SectionLabel } from "@/components/editorial/EditorialLayout";
+import { submitForm } from "@/lib/submit-form";
 import { Helmet } from "@/lib/helmet-compat";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { useLangPath } from "@/hooks/use-lang-path";
@@ -14,7 +15,6 @@ import {
   Languages, Globe, Shield, FileText, Target, Rocket,
   Wrench, Scale, XCircle, Building, UserCheck
 } from "lucide-react";
-import { supabase } from "@/integrations/supabase/client";
 import InvestorPortfolioMarquee from "@/components/InvestorPortfolioMarquee";
 import { useToast } from "@/hooks/use-toast";
 
@@ -35,9 +35,7 @@ const AngelInvestor = () => {
     if (!consent || !formData.name || !formData.email) return;
     setIsSubmitting(true);
     try {
-      const { data, error } = await supabase.functions.invoke("send-angel-brief", {
-        body: formData,
-      });
+      const { data, error } = await submitForm("send-angel-brief", formData);
       if (error) throw error;
       setIsSubmitted(true);
     } catch (err) {

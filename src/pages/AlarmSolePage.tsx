@@ -1,9 +1,9 @@
 import { Helmet } from "@/lib/helmet-compat";
 import { useState } from "react";
+import { submitForm } from "@/lib/submit-form";
 import { Link } from "@/lib/router-compat";
 import { toast } from "sonner";
 import { z } from "zod";
-import { supabase } from "@/integrations/supabase/client";
 import { EditorialShell, Reveal, SectionLabel } from "@/components/editorial/EditorialLayout";
 import { useLangPath } from "@/hooks/use-lang-path";
 import { Footprints, ExternalLink, Shield, Users, Briefcase, Activity, Dumbbell, HeartPulse, Stethoscope, Smartphone, MoveRight } from "lucide-react";
@@ -99,9 +99,7 @@ const AlarmSolePage = () => {
     }
     setSending(true);
     try {
-      const { error } = await supabase.functions.invoke("send-alarmsole-inquiry", {
-        body: parsed.data,
-      });
+      const { error } = await submitForm("send-alarmsole-inquiry", parsed.data);
       if (error) throw error;
       toast.success("Thank you — your enquiry has been sent. We will be in touch.");
       setForm({ name: "", company: "", role: "", email: "", phone: "", country: "", interest: interests[0], message: "" });

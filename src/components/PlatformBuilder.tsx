@@ -1,5 +1,6 @@
 import { useState, useMemo, useRef } from "react";
 import { Button } from "@/components/ui/button";
+import { submitForm } from "@/lib/submit-form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -10,7 +11,6 @@ import {
   ArrowRight, SkipForward, CheckCircle2, Building2
 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
-import { supabase } from "@/integrations/supabase/client";
 
 /* ───────────────────── Industry data ───────────────────── */
 
@@ -316,8 +316,7 @@ const PlatformBuilder = () => {
         functions: Array.from(fns),
       }));
 
-      const { error } = await supabase.functions.invoke("send-platform-spec", {
-        body: {
+      const { error } = await submitForm("send-platform-spec", {
           name,
           email,
           company,
@@ -332,7 +331,6 @@ const PlatformBuilder = () => {
             ...Object.values(selections).flatMap((s) => Array.from(s)),
             ...Array.from(addonSelections),
           ],
-        },
       });
       if (error) throw error;
       toast({ title: "Spec sent!", description: "We'll review your configuration and get back within 48 hours." });

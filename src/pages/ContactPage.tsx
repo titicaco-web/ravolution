@@ -1,7 +1,7 @@
 import { Helmet } from "@/lib/helmet-compat";
 import { useState, useEffect } from "react";
+import { submitForm } from "@/lib/submit-form";
 import { useSearchParams } from "@/lib/router-compat";
-import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 import { EditorialShell, Reveal, SectionLabel } from "@/components/editorial/EditorialLayout";
 
@@ -42,14 +42,12 @@ const ContactPage = () => {
     e.preventDefault();
     setLoading(true);
     try {
-      const { error } = await supabase.functions.invoke("send-investor-inquiry", {
-        body: {
+      const { error } = await submitForm("send-investor-inquiry", {
           name: form.name,
           email: form.email,
           message: form.message,
           investorType: "contact-page",
           ticketRange: "n/a",
-        },
       });
       if (error) throw error;
       setSent(true);

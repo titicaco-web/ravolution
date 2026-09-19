@@ -1,9 +1,9 @@
 import { Helmet } from "@/lib/helmet-compat";
 import { useState } from "react";
+import { submitForm } from "@/lib/submit-form";
 import { Link } from "@/lib/router-compat";
 import { toast } from "sonner";
 import { z } from "zod";
-import { supabase } from "@/integrations/supabase/client";
 import { EditorialShell, Reveal, SectionLabel } from "@/components/editorial/EditorialLayout";
 import { useLangPath } from "@/hooks/use-lang-path";
 import { Heart, MoveRight, ShieldCheck, BookOpen, BellRing, PhoneCall, Lock } from "lucide-react";
@@ -87,7 +87,7 @@ const PratisPage = () => {
     }
     setSending(true);
     try {
-      const { error } = await supabase.functions.invoke("send-pratis-inquiry", { body: parsed.data });
+      const { error } = await submitForm("send-pratis-inquiry", parsed.data);
       if (error) throw error;
       toast.success("Thank you — your enquiry has been sent. We will be in touch.");
       setForm({ name: "", company: "", role: "", email: "", phone: "", country: "", interest: interests[0], message: "" });
