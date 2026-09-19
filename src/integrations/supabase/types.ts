@@ -16,6 +16,7 @@ export type Database = {
     Tables: {
       startup_applications: {
         Row: {
+          blocker: string | null
           building: string
           company_name: string
           country: string
@@ -23,6 +24,8 @@ export type Database = {
           email: string
           founder_name: string
           id: string
+          looking_for: string | null
+          sector: string | null
           source: string | null
           stage: string
           traction: string | null
@@ -30,6 +33,7 @@ export type Database = {
           why_partner: string
         }
         Insert: {
+          blocker?: string | null
           building: string
           company_name: string
           country: string
@@ -37,6 +41,8 @@ export type Database = {
           email: string
           founder_name: string
           id?: string
+          looking_for?: string | null
+          sector?: string | null
           source?: string | null
           stage: string
           traction?: string | null
@@ -44,6 +50,7 @@ export type Database = {
           why_partner: string
         }
         Update: {
+          blocker?: string | null
           building?: string
           company_name?: string
           country?: string
@@ -51,6 +58,8 @@ export type Database = {
           email?: string
           founder_name?: string
           id?: string
+          looking_for?: string | null
+          sector?: string | null
           source?: string | null
           stage?: string
           traction?: string | null
