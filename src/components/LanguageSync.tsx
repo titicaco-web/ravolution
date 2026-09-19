@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useParams, useLocation } from "react-router-dom";
+import { useParams, useLocation } from "@/lib/router-compat";
 import { useLanguage, Language } from "@/i18n/LanguageContext";
 
 const validLangs: Language[] = ["en", "sv", "es"];

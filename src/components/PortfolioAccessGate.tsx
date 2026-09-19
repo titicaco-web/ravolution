@@ -54,7 +54,7 @@ const PortfolioAccessGate = ({ project, onUnlock, code: accessCode = DEFAULT_ACC
   };
 
   const field =
-    "w-full bg-transparent border border-white/20 px-4 py-3 text-white text-sm placeholder:text-white/35 focus:outline-none focus:border-[hsl(var(--accent-edit))]";
+    "w-full bg-transparent border border-white/20 px-4 py-3 text-white text-sm placeholder:text-white/35 focus:outline-hidden focus:border-[hsl(var(--accent-edit))]";
 
   return (
     <div className="md:col-start-2 md:col-span-11 grid md:grid-cols-2 gap-px bg-white/10 border border-white/10">

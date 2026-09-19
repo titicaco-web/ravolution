@@ -3,7 +3,7 @@ import { ArrowRight, FileText } from "lucide-react";
 import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { useLanguage } from "@/i18n/LanguageContext";
-import { Link } from "react-router-dom";
+import { Link } from "@/lib/router-compat";
 import { useLangPath } from "@/hooks/use-lang-path";
 
 const HeroSection = () => {

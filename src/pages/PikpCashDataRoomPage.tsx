@@ -1,6 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link } from "@/lib/router-compat";
 import { EditorialShell, Reveal, SectionLabel } from "@/components/editorial/EditorialLayout";
 import { useLangPath } from "@/hooks/use-lang-path";
 
@@ -126,7 +126,7 @@ const PikpCashDataRoomPage = () => {
                     }}
                     placeholder="Data-room code"
                     aria-label="Data-room code"
-                    className="w-full bg-transparent border border-white/20 px-4 py-3 text-white text-sm placeholder:text-white/35 focus:outline-none focus:border-[hsl(var(--accent-edit))]"
+                    className="w-full bg-transparent border border-white/20 px-4 py-3 text-white text-sm placeholder:text-white/35 focus:outline-hidden focus:border-[hsl(var(--accent-edit))]"
                   />
                   <button
                     type="submit"

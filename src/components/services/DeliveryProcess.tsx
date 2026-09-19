@@ -1,6 +1,6 @@
 import { BarChart3, FileText, Hammer, Search, Sparkles, Rocket, Wrench, ArrowRight } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
-import { Link } from "react-router-dom";
+import { Link } from "@/lib/router-compat";
 import { useLangPath } from "@/hooks/use-lang-path";
 import { Reveal, SectionLabel } from "@/components/editorial/EditorialLayout";
 

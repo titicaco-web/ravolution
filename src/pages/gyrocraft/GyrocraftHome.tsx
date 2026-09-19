@@ -1,5 +1,5 @@
 import { Helmet } from "react-helmet-async";
-import { Link } from "react-router-dom";
+import { Link } from "@/lib/router-compat";
 import { Button } from "@/components/ui/button";
 import { Satellite, Plane, Car, Globe, ArrowRight, Zap, Shield, Infinity, FlaskConical, Microscope, AlertCircle } from "lucide-react";
 import GyrocraftNavbar from "@/components/gyrocraft/GyrocraftNavbar";
