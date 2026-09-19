@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet-async";
+import { Helmet } from "@/lib/helmet-compat";
 import ivanAnimation from "@/assets/ivan-animation.mp4.asset.json";
 import ivanBlueprint from "@/assets/ivan-numerology-blueprint.png.asset.json";
 import MetadataMachine from "@/components/MetadataMachine";

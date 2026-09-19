@@ -115,6 +115,7 @@ const ParticleMesh = () => {
         for (let j = i + 1; j < nodes.length; j++) {
           const a = nodes[i];
           const b = nodes[j];
+          if (!a || !b) continue;
           const dx = a.x - b.x;
           const dy = a.y - b.y;
           const d = Math.hypot(dx, dy);

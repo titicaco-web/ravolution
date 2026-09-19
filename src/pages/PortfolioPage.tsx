@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet-async";
+import { Helmet } from "@/lib/helmet-compat";
 import { EditorialShell, Reveal } from "@/components/editorial/EditorialLayout";
 import { SectionHead, TechGrid } from "@/components/lab/LabPrimitives";
 

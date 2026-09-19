@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Helmet } from "react-helmet-async";
+import { Helmet } from "@/lib/helmet-compat";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Send, CheckCircle } from "lucide-react";

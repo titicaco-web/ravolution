@@ -28,7 +28,7 @@ const TypewriterCycle = ({ words, className = "" }: Props) => {
 
     const tick = () => {
       if (cancelled) return;
-      const word = words[wordIdx];
+      const word = words[wordIdx] ?? "";
       if (!deleting) {
         charIdx++;
         setText(word.slice(0, charIdx));

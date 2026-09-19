@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet-async";
+import { Helmet } from "@/lib/helmet-compat";
 import { useState } from "react";
 import { Link } from "@/lib/router-compat";
 import { toast } from "sonner";

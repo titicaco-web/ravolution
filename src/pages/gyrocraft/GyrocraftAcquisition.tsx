@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet-async";
+import { Helmet } from "@/lib/helmet-compat";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { FileText, Database, BarChart3, Shield, Building2, Rocket, Plane, Settings, CheckCircle, TrendingUp, Tag } from "lucide-react";

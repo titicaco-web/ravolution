@@ -1,6 +1,6 @@
 import { useState, useCallback, useRef } from "react";
 import { EditorialShell } from "@/components/editorial/EditorialLayout";
-import { Helmet } from "react-helmet-async";
+import { Helmet } from "@/lib/helmet-compat";
 import { useForm } from "react-hook-form";
 import { useDropzone } from "react-dropzone";
 import { Link } from "@/lib/router-compat";

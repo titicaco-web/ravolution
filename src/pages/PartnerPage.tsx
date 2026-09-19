@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet-async";
+import { Helmet } from "@/lib/helmet-compat";
 import { Link } from "@/lib/router-compat";
 import { EditorialShell } from "@/components/editorial/EditorialLayout";
 import { useLangPath } from "@/hooks/use-lang-path";

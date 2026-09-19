@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet-async";
+import { Helmet } from "@/lib/helmet-compat";
 import { Link } from "@/lib/router-compat";
 import { ExternalLink, ArrowRight } from "lucide-react";
 import { EditorialShell, Reveal } from "@/components/editorial/EditorialLayout";

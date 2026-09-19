@@ -52,6 +52,7 @@ export default function LiveToast() {
 
   if (!visible) return null;
   const toast = TOASTS[current];
+  if (!toast) return null;
 
   return (
     <div className={`rav-toast ${exiting ? "is-exiting" : ""}`} role="status" aria-live="polite">
