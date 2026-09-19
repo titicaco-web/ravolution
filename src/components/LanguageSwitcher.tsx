@@ -1,7 +1,7 @@
 import { useLanguage, Language } from "@/i18n/LanguageContext";
 import { Globe } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, useLocation } from "@/lib/router-compat";
 
 const languages: { code: Language; label: string; flag: string }[] = [
   { code: "en", label: "EN", flag: "🇬🇧" },

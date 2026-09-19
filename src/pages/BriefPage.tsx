@@ -3,7 +3,7 @@ import { EditorialShell } from "@/components/editorial/EditorialLayout";
 import { Helmet } from "react-helmet-async";
 import { useForm } from "react-hook-form";
 import { useDropzone } from "react-dropzone";
-import { Link } from "react-router-dom";
+import { Link } from "@/lib/router-compat";
 import DeliveryProcess from "@/components/services/DeliveryProcess";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";

@@ -1,5 +1,5 @@
 import { Helmet } from "react-helmet-async";
-import { Link } from "react-router-dom";
+import { Link } from "@/lib/router-compat";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { useLangPath } from "@/hooks/use-lang-path";
 import {

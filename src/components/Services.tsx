@@ -1,5 +1,5 @@
 import { Monitor, Palette, Brain, Shield, Settings, Workflow, ArrowRight, CheckCircle2, Zap, Target, Users } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link } from "@/lib/router-compat";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { useLangPath } from "@/hooks/use-lang-path";
 
