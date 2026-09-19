@@ -20,7 +20,7 @@ const GyrocraftFooter = () => {
             </p>
             <div className="flex gap-3">
               <a 
-                href="https://linkedin.com/company/ravolution" 
+                href="https://www.linkedin.com/company/ravolution" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="w-10 h-10 bg-gyrocraft-text/10 rounded-lg flex items-center justify-center text-gyrocraft-text/60 hover:bg-gyrocraft-teal/20 hover:text-gyrocraft-teal transition-colors"
