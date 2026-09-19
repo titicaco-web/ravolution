@@ -24,7 +24,27 @@ const applySchema = z.object({
   why_partner: z.string().trim().min(1, "Required").max(600),
   traction: z.string().trim().max(1000).optional().or(z.literal("")),
   source: z.string().max(100).optional().or(z.literal("")),
+  sector: z.string().max(100).optional().or(z.literal("")),
+  blocker: z.string().trim().max(1000).optional().or(z.literal("")),
 });
+
+const SECTORS = [
+  "Language & education",
+  "Voice & security",
+  "Trade & export",
+  "Climate & materials",
+  "Health & prevention",
+  "Other",
+];
+
+const LOOKING_FOR = [
+  "Tech build",
+  "Brand & identity",
+  "Sales & go-to-market",
+  "Concept refinement",
+  "Capital",
+  "All of the above",
+];
 
 const faqs = [
   {
