@@ -185,11 +185,7 @@ const BriefPage = () => {
     if (files.length === 0) return [];
     const urls: string[] = [];
     for (const file of files) {
-      const fd = new FormData();
-      fd.append("file", file);
-      const { data, error } = await supabase.functions.invoke("upload-brief-file", {
-        body: fd,
-      });
+      const { data, error } = await uploadBriefFile(file);
       if (error || !data?.url) {
         console.error("Upload error:", error);
         continue;
