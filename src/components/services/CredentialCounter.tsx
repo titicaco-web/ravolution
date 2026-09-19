@@ -17,7 +17,7 @@ const CounterItem = ({ end, suffix = "", label }: CounterItemProps) => {
     if (!el) return;
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
+        if (entry?.isIntersecting) {
           setStarted(true);
           observer.unobserve(el);
         }

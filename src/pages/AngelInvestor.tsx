@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { EditorialShell, Reveal, SectionLabel } from "@/components/editorial/EditorialLayout";
-import { Helmet } from "react-helmet-async";
+import { Helmet } from "@/lib/helmet-compat";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { useLangPath } from "@/hooks/use-lang-path";
 import { Button } from "@/components/ui/button";
@@ -234,7 +234,7 @@ const AngelInvestor = () => {
             <SectionLabel number="03" title={t("angel.diffTitle")} />
             <div className="grid md:grid-cols-3 gap-px bg-white/10 border border-white/10">
               {diffKeys.map((key, i) => {
-                const Icon = diffIcons[i];
+                const Icon = diffIcons[i]!;
                 return (
                   <Reveal key={key} delay={i * 0.1}>
                     <div className="bg-[hsl(var(--bg))] p-8 md:p-10 h-full">
@@ -334,7 +334,7 @@ const AngelInvestor = () => {
             </Reveal>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-px bg-white/10 border border-white/10">
               {caseKeys.map((key, i) => {
-                const Icon = caseIcons[i];
+                const Icon = caseIcons[i]!;
                 return (
                   <Reveal key={key} delay={i * 0.08}>
                     <div className="bg-[hsl(var(--surface))] p-8 h-full">

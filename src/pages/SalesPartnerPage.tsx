@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Helmet } from "react-helmet-async";
+import { Helmet } from "@/lib/helmet-compat";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { EditorialShell, Reveal, SectionLabel, CountUp } from "@/components/editorial/EditorialLayout";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";

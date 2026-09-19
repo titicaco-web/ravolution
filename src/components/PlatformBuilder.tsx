@@ -259,7 +259,7 @@ const PlatformBuilder = () => {
   }, [selections, addonSelections]);
 
   const selectedIndustries = useMemo(
-    () => industries.filter((ind) => selections[ind.id]?.size > 0),
+    () => industries.filter((ind) => (selections[ind.id]?.size ?? 0) > 0),
     [selections]
   );
 
@@ -290,7 +290,7 @@ const PlatformBuilder = () => {
     const allPanels = [...industries.map((i) => i.id), "cross-industry"];
     const idx = allPanels.indexOf(currentId);
     if (idx < allPanels.length - 1) {
-      setExpandedPanel(allPanels[idx + 1]);
+      setExpandedPanel(allPanels[idx + 1] ?? null);
     } else {
       // Last panel → scroll to form
       setExpandedPanel(null);

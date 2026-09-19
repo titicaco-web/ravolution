@@ -77,7 +77,7 @@ const DeliveryProcess = ({ variant = "full" }: DeliveryProcessProps) => {
         {/* Steps */}
         <ol className="mb-20">
           {steps.map((s, i) => {
-            const deliverables = t(`delivery.${s.key}.deliverables`).split("·").map(d => d.trim()).filter(Boolean);
+            const deliverables = t(`delivery.${s.key}.deliverables`).split("·").map((d: string) => d.trim()).filter(Boolean);
             const highlight = t(`delivery.${s.key}.highlight`);
             const note = t(`delivery.${s.key}.note`);
 
@@ -95,7 +95,7 @@ const DeliveryProcess = ({ variant = "full" }: DeliveryProcessProps) => {
                     </h3>
                     <p className="edit-body text-white/65">{t(`delivery.${s.key}.desc`)}</p>
                     <div className="flex flex-wrap gap-2 pt-2">
-                      {deliverables.map((d, di) => (
+                      {deliverables.map((d: string, di: number) => (
                         <span key={di} className="edit-label text-white/70 px-3 py-1.5 border border-white/15">
                           {d}
                         </span>

@@ -31,7 +31,7 @@ export const NetworkCanvas = ({ className = "" }: { className?: string }) => {
         vx: (Math.random() - 0.5) * 0.22,
         vy: (Math.random() - 0.5) * 0.22,
         r: Math.random() * 1.8 + 0.7,
-        label: i < labels.length ? labels[i] : null,
+        label: i < labels.length ? (labels[i] ?? null) : null,
       }));
     };
 
@@ -47,6 +47,7 @@ export const NetworkCanvas = ({ className = "" }: { className?: string }) => {
         for (let j = i + 1; j < nodes.length; j++) {
           const a = nodes[i];
           const b = nodes[j];
+          if (!a || !b) continue;
           const d = Math.hypot(a.x - b.x, a.y - b.y);
           if (d < 160) {
             ctx.strokeStyle = `rgba(176,141,87,${(1 - d / 160) * 0.15})`;

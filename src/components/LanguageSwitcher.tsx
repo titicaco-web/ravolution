@@ -31,7 +31,7 @@ const LanguageSwitcher = () => {
     setIsOpen(false);
     // Replace the language prefix in the current path
     const pathParts = location.pathname.split("/");
-    if (pathParts.length >= 2 && ["en", "sv", "es"].includes(pathParts[1])) {
+    if (pathParts.length >= 2 && ["en", "sv", "es"].includes(pathParts[1] ?? "")) {
       pathParts[1] = lang;
     } else {
       pathParts.splice(1, 0, lang);

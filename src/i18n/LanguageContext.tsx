@@ -40,6 +40,7 @@ function getNestedValue(obj: any, path: string): any {
 
 export const LanguageProvider = ({ children }: { children: ReactNode }) => {
   const [language, setLanguageState] = useState<Language>(() => {
+    if (typeof window === "undefined") return "en";
     const stored = localStorage.getItem("site-language");
     if (stored === "sv" || stored === "es" || stored === "en") return stored;
     return "en";
@@ -47,7 +48,9 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
 
   const setLanguage = useCallback((lang: Language) => {
     setLanguageState(lang);
-    localStorage.setItem("site-language", lang);
+    if (typeof window !== "undefined") {
+      localStorage.setItem("site-language", lang);
+    }
   }, []);
 
   const t = useCallback(

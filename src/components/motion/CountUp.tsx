@@ -16,7 +16,7 @@ export default function CountUp({ end, duration = 1400, suffix = "", prefix = ""
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting && !started.current) {
+        if (entry?.isIntersecting && !started.current) {
           started.current = true;
           const start = performance.now();
           const tick = (now: number) => {

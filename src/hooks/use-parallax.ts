@@ -9,7 +9,7 @@ export function useParallax() {
     const update = () => {
       const els = document.querySelectorAll<HTMLElement>("[data-parallax]");
       els.forEach((el) => {
-        const speed = parseFloat(el.dataset.parallax || "0.15");
+        const speed = parseFloat(el.dataset["parallax"] || "0.15");
         const rect = el.getBoundingClientRect();
         const center = rect.top + rect.height / 2;
         const offset = (window.innerHeight / 2 - center) * speed;

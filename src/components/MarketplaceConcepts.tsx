@@ -52,7 +52,7 @@ const MarketplaceConcepts = () => {
               gold: "bg-gold/10 text-gold",
               primary: "bg-primary/10 text-primary",
             };
-            const status = statusMap[concept.status];
+            const status = statusMap[concept.status]!;
 
             return (
               <div

@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet-async";
+import { Helmet } from "@/lib/helmet-compat";
 import { Link } from "@/lib/router-compat";
 import { Button } from "@/components/ui/button";
 import { CheckCircle, MapPin, Building2, Calendar, Users, Mail, Phone, Globe, Zap, Shield, Target, AlertCircle, FlaskConical, Microscope } from "lucide-react";
