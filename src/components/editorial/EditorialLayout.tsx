@@ -188,7 +188,7 @@ export const EditorialNav = () => {
     { label: "Systems", href: lp("/portfolio") },
     { label: "IP & Evidence", href: lp("/evidence") },
     { label: "About", href: lp("/about") },
-    { label: "Partner", href: lp("/#partner") },
+    { label: "Partner", href: lp("/partner") },
   ];
 
   const gateways = [
@@ -327,6 +327,7 @@ export const EditorialFooter = () => {
             { l: "Studio", h: lp("/services") },
             { l: "For founders", h: lp("/build-for-equity") },
             { l: "Invest", h: lp("/invest") },
+            { l: "Partner", h: lp("/partner") },
             { l: applyLabel, h: applyHref },
             { l: salesPartnerLabel, h: salesPartnerHref },
             { l: "Journal", h: lp("/journal") },
