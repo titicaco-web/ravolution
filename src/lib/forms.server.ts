@@ -149,6 +149,7 @@ export type FormConfig = {
     subject: string;
     html: string;
     from: string;
+    to?: string[];
     bcc?: string[];
   } | null;
 };
