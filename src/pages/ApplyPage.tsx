@@ -122,6 +122,9 @@ const ApplyPage = () => {
         website: parsed.data.website || null,
         traction: parsed.data.traction || null,
         source: parsed.data.source || null,
+        sector: parsed.data.sector || null,
+        blocker: parsed.data.blocker || null,
+        looking_for: lookingFor.length ? lookingFor.join(", ") : null,
       };
       const { error } = await supabase
         .from("startup_applications")
