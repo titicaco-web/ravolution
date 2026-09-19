@@ -85,6 +85,7 @@ const PartnerPage = () => {
     address: { "@type": "PostalAddress", addressLocality: "Stockholm", addressCountry: "SE" },
     sameAs: [
       "https://www.linkedin.com/company/ravolution",
+      "https://www.crunchbase.com/organization/ravolution",
       "https://www.allabolag.se/5567097547",
     ],
     makesOffer: {
