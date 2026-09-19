@@ -381,8 +381,7 @@ const SalesPartnerPage = () => {
     }
     setLoading(true);
     try {
-      const { error } = await submitForm("send-sales-partner-application", { ...form, language: lang },
-      });
+      const { error } = await submitForm("send-sales-partner-application", { ...form, language: lang });
       if (error) throw error;
       setSent(true);
       toast.success(t.f.success);

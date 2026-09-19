@@ -182,8 +182,7 @@ const HundelserPage = () => {
     }
     setSending(true);
     try {
-      const { error } = await submitForm("send-hundelser-inquiry", parsed.data,
-      });
+      const { error } = await submitForm("send-hundelser-inquiry", parsed.data);
       if (error) throw error;
       toast.success("Thank you — your enquiry has been sent. We will be in touch.");
       setForm({ name: "", company: "", role: "", email: "", phone: "", interest: interests[0], message: "" });

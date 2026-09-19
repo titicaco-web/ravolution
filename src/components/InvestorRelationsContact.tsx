@@ -30,8 +30,7 @@ const InvestorRelationsContact = () => {
     setIsSubmitting(true);
     setHasError(false);
     try {
-      const { error } = await submitForm("send-investor-inquiry", formData,
-      });
+      const { error } = await submitForm("send-investor-inquiry", formData);
       if (error) throw error;
       setIsSubmitted(true);
     } catch (err) {

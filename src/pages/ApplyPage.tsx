@@ -131,8 +131,7 @@ const ApplyPage = () => {
         .insert(payload);
       if (error) throw error;
       // Notify Ivan by email (non-blocking on failure)
-      const { error: fnErr } = await submitForm("send-startup-application", payload,
-      });
+      const { error: fnErr } = await submitForm("send-startup-application", payload);
       if (fnErr) console.error("Notification email failed:", fnErr);
       setSent(new Date().toISOString());
     } catch (err) {

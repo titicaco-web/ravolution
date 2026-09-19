@@ -166,8 +166,7 @@ const PikpCashPage = () => {
     }
     setSending(true);
     try {
-      const { error } = await submitForm("send-pikpcash-inquiry", parsed.data,
-      });
+      const { error } = await submitForm("send-pikpcash-inquiry", parsed.data);
       if (error) throw error;
       toast.success("Thank you — your enquiry has been sent. We will be in touch.");
       setForm({ name: "", company: "", role: "", email: "", phone: "", country: "", interest: interests[0], message: "" });

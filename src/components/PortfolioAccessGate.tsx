@@ -39,8 +39,7 @@ const PortfolioAccessGate = ({ project, onUnlock, code: accessCode = DEFAULT_ACC
     }
     setSending(true);
     try {
-      const { error } = await submitForm("send-investor-inquiry", { project, ...form },
-      });
+      const { error } = await submitForm("send-investor-inquiry", { project, ...form });
       if (error) throw error;
       setSent(true);
       toast.success("Request sent — we'll be in touch.");

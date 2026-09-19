@@ -35,8 +35,7 @@ const AngelInvestor = () => {
     if (!consent || !formData.name || !formData.email) return;
     setIsSubmitting(true);
     try {
-      const { data, error } = await submitForm("send-angel-brief", formData,
-      });
+      const { data, error } = await submitForm("send-angel-brief", formData);
       if (error) throw error;
       setIsSubmitted(true);
     } catch (err) {
