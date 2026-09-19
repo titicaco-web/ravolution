@@ -96,6 +96,12 @@ const PartnerPage = () => {
         serviceType:
           "Tech build, branding, go-to-market, concept refinement and capital in exchange for cash and equity",
         provider: { "@type": "Organization", name: "Ravolution AB" },
+        areaServed: "Worldwide",
+        audience: {
+          "@type": "Audience",
+          audienceType: "Early-stage deep-tech startups and technical founders",
+        },
+        url: "https://ravolution.se/en/partner",
       },
     },
   };
