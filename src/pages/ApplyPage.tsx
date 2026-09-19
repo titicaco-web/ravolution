@@ -394,9 +394,25 @@ const ApplyPage = () => {
             <h2 className={`${display} text-3xl md:text-5xl mb-4`} style={{ color: BONE }}>
               Apply for investment
             </h2>
-            <p className="text-lg mb-12" style={{ color: `${BONE}CC` }}>
-              10 minutes. No pitch deck required. Every application is read by a partner.
+            <p className="text-lg mb-10" style={{ color: `${BONE}CC` }}>
+              Tell us what you're building. If there's a fit, Ivan will come back with honest
+              feedback and a concrete way to work together. Even if it's a no, you'll get a useful
+              read on your company.
             </p>
+
+            <div className="grid md:grid-cols-3 gap-8 mb-12">
+              {[
+                { n: "01", d: "Ivan personally reviews every submission." },
+                { n: "02", d: "If there's a fit, you get a call and a proposed way to work together." },
+                { n: "03", d: "If it's not a fit, you still get honest, specific feedback." },
+              ].map((s) => (
+                <div key={s.n} className="border-t pt-4" style={{ borderColor: GOLD }}>
+                  <p className={mono} style={{ color: GOLD }}>{s.n}</p>
+                  <p className="text-sm mt-2 leading-relaxed" style={{ color: `${BONE}CC` }}>{s.d}</p>
+                </div>
+              ))}
+            </div>
+
 
             {sent ? (
               <div className="p-10" style={{ background: BONE, color: NAVY }}>
