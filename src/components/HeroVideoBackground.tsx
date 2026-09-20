@@ -4,6 +4,8 @@ import { supabase } from "@/integrations/supabase/client";
 interface HeroVideoBackgroundProps {
   /** Tailwind classes for the dark overlay (default black/55) */
   overlayClassName?: string;
+  /** Tailwind opacity classes for the video itself, e.g. "opacity-45" to keep the layer beneath visible */
+  videoClassName?: string;
 }
 
 /**
@@ -13,6 +15,7 @@ interface HeroVideoBackgroundProps {
  */
 const HeroVideoBackground = ({
   overlayClassName = "bg-black/55",
+  videoClassName = "opacity-100",
 }: HeroVideoBackgroundProps) => {
   const [videos, setVideos] = useState<string[]>([]);
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
@@ -63,7 +66,7 @@ const HeroVideoBackground = ({
         loop
         playsInline
         className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
-          isTransitioning ? "opacity-0" : "opacity-100"
+          isTransitioning ? "opacity-0" : videoClassName
         }`}
       >
         <source src={videos[currentVideoIndex]} type="video/mp4" />
