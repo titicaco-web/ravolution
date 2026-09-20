@@ -9,6 +9,7 @@ import {
   MarqueeStrip,
 } from "@/components/editorial/EditorialLayout";
 import InvestorPortfolioMarquee from "@/components/InvestorPortfolioMarquee";
+import HeroVideoBackground from "@/components/HeroVideoBackground";
 import {
   NetworkCanvas,
   TechGrid,
@@ -245,6 +246,7 @@ const Index = () => {
       <EditorialShell>
         {/* ───── Hero ───── */}
         <section className="relative min-h-[92vh] flex flex-col justify-end pt-32 pb-16 px-6 md:px-12 overflow-hidden">
+          <HeroVideoBackground videoClassName="opacity-60" overlayClassName="bg-black/30" />
           <NetworkCanvas />
           <TechGrid />
           <div className="edit-container relative z-10">
