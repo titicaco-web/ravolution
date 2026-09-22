@@ -678,8 +678,11 @@ const StoryPage = () => {
                     className="absolute left-0 md:left-1 top-3 w-[10px] h-[10px] rounded-full border border-gold/60 bg-primary"
                   />
                   <Reveal>
-                    <div>
-                      <time className="block font-display font-bold text-4xl md:text-6xl text-gold leading-none">
+                    <article>
+                      <time
+                        dateTime={String(e.sortYear)}
+                        className="block font-display font-bold text-4xl md:text-6xl text-gold leading-none"
+                      >
                         {e.year}
                       </time>
                       <span className="edit-label text-white/45 mt-3 block">{e.kicker}</span>
