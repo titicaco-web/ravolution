@@ -85,7 +85,12 @@ const entries: Entry[] = [
     sortYear: 2005,
     kicker: "After the wave",
     title: "Phi Phi Island Foundation",
-    body: "Head of Operations after the tsunami. Built an internet school for children in a survival camp in Krabi and stood up microloan operations — interviewing around 100 families under Johan Staël von Holstein's foundation.",
+    body: "Head of Operations after the tsunami. Built Titicaco Communicaring School™ — the internet school from 2003 — for children in a survival camp in Krabi, and stood up microloan operations — interviewing around 100 families under Johan Staël von Holstein's foundation.",
+    video: {
+      src: "https://www.youtube.com/embed/W8zL0IV1K3k?si=5lUHyYLDBZYfEWcL",
+      title: "Titicaco Communicaring School i Krabi 2005",
+      caption: "Titicaco Communicaring School™ · Krabi, Thailand · 2005",
+    },
   },
   {
     year: "2005–10",
