@@ -265,6 +265,7 @@ const entries: Entry[] = [
       caption: "TV4 · Malou von Sivers intervjuar Ivan Daza · Blatteförmedlingen",
       size: "small",
     },
+    press: pressBlatte,
   },
   {
     year: "2008–2015",
@@ -272,6 +273,7 @@ const entries: Entry[] = [
     kicker: "Back to work",
     title: "Jobbfabriken",
     body: "Built to return the long-term unemployed to employment. In year one it placed roughly 10% back into work against an industry average near 2%; by year three, close to 20%.",
+    press: pressJobb,
   },
   {
     year: "2009",
