@@ -137,6 +137,9 @@ const pressBlatte: PressItem[] = [
     source: "Chef · feb 2007",
     title: "Duellen: raka svar om chefskap",
     body: "Ivan Daza tar ja-sidan i en ledarskapsduell om huruvida en chef kan vara ledig och ändå leda — linjen är att resultat, inte antal närvarotimmar, avgör.",
+    images: [
+      { src: pressChef0702.url, alt: "Chef februari 2007 — Duellen, Ivan Daza mot Jacob Fant om chefskap och långledighet" },
+    ],
   },
   {
     source: "Svenska Dagbladet Näringsliv · 22 jan 2008",
