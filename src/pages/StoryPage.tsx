@@ -27,6 +27,7 @@ type Entry = {
   body: string;
   highlight?: boolean;
   images?: EntryImage[];
+  video?: { src: string; title: string; caption?: string };
   articles?: { label: string; href: string }[];
 };
 
