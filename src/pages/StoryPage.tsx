@@ -56,7 +56,7 @@ type Entry = {
   body: string;
   highlight?: boolean;
   images?: EntryImage[];
-  video?: { src: string; title: string; caption?: string; size?: "small" };
+  video?: { src: string; title: string; caption?: string; size?: "small" | "thumb"; expandable?: boolean };
   articles?: { label: string; href: string }[];
   linkStyle?: "button";
   press?: PressItem[];
