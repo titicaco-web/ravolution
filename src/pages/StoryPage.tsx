@@ -198,11 +198,17 @@ const pressJobb: PressItem[] = [
     source: "di.se · Gästkrönika, 24 nov 2010",
     title: "Invandrare kan lyfta svensk export",
     body: "Ivan Daza som gästkrönikör: att svenska exportföretag underutnyttjar invandrares kompetens och nätverk för att nå nya marknader.",
+    images: [
+      { src: pressDise101124.url, alt: "di.se gästkrönika 24 november 2010 — Invandrare kan lyfta svensk export av Ivan Daza" },
+    ],
   },
   {
     source: "di.se · Gästkrönika, 27 jan 2011",
     title: "Paragrafryttarna kom på besök",
     body: "Krönika om hur regelverk och byråkrati kring långtidsarbetslöshet motarbetade Jobbfabrikens arbete, trots goda resultat.",
+    images: [
+      { src: pressDise110127.url, alt: "di.se gästkrönika 27 januari 2011 — Paragrafryttarna kom på besök av Ivan Daza" },
+    ],
   },
   {
     source: "di.se · Gästkrönikor, 2010–2011",
