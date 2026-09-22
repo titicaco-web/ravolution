@@ -937,38 +937,14 @@ const StoryPage = () => {
                               )}
                             </figure>
                           ))}
+                          {e.mediaRow && e.video && e.video.size === "thumb" && (
+                            <ThumbVideoFigure video={e.video} className="max-w-[230px]" onExpand={setExpandedVideo} />
+                          )}
                         </div>
                       )}
 
-                      {e.video && e.video.size === "thumb" && (
-                        <figure className="mt-7 max-w-[230px]">
-                          <Button
-                            type="button"
-                            variant="ghost"
-                            aria-label={`Enlarge video — ${e.video.title}`}
-                            onClick={() => e.video?.expandable && setExpandedVideo(e.video)}
-                            className="group relative block h-auto w-full overflow-hidden rounded-none border border-white/10 bg-transparent p-0 cursor-zoom-in"
-                          >
-                            <span className="relative block w-full" style={{ aspectRatio: "16 / 9" }}>
-                              <iframe
-                                src={e.video.src}
-                                title={e.video.title}
-                                loading="lazy"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                referrerPolicy="strict-origin-when-cross-origin"
-                                className="pointer-events-none absolute inset-0 size-full"
-                              />
-                            </span>
-                            <span className="pointer-events-none absolute right-1 top-1 grid size-6 place-items-center bg-primary/85 text-white opacity-70 transition group-hover:opacity-100">
-                              <Maximize2 aria-hidden className="size-3.5" />
-                            </span>
-                          </Button>
-                          {e.video.caption && (
-                            <figcaption className="mt-2 font-mono text-[11px] uppercase tracking-[0.12em] text-white/40">
-                              {e.video.caption}
-                            </figcaption>
-                          )}
-                        </figure>
+                      {e.video && e.video.size === "thumb" && !e.mediaRow && (
+                        <ThumbVideoFigure video={e.video} onExpand={setExpandedVideo} />
                       )}
 
                       {e.video && e.video.size !== "thumb" && (
