@@ -3,7 +3,7 @@ import { Helmet } from "@/lib/helmet-compat";
 import { EditorialShell, Reveal } from "@/components/editorial/EditorialLayout";
 import { Button } from "@/components/ui/button";
 import { useLangPath } from "@/hooks/use-lang-path";
-import { ChevronLeft, ChevronRight, Maximize2, X } from "lucide-react";
+import { ArrowUpRight, ChevronLeft, ChevronRight, Maximize2, X } from "lucide-react";
 import museumAsset from "@/assets/ivan-daza-ekonomiska-museet-2014.png.asset.json";
 import museumEntreAsset from "@/assets/ekonomiska-museet-entre.jpg.asset.json";
 import museumGlobeAsset from "@/assets/ekonomiska-museet-ivan-daza-globe.jpg.asset.json";
@@ -47,6 +47,7 @@ type PressItem = {
   source: string;
   title: string;
   body: string;
+  href?: string;
   images?: PressImage[];
 };
 
@@ -206,6 +207,7 @@ const pressJobb: PressItem[] = [
     source: "di.se · Gästkrönika, 24 nov 2010",
     title: "Invandrare kan lyfta svensk export",
     body: "Ivan Daza som gästkrönikör: att svenska exportföretag underutnyttjar invandrares kompetens och nätverk för att nå nya marknader.",
+    href: "https://www.di.se/artiklar/2010/11/15/gastkronika-invandrare-kan-lyfta-svensk-export/",
     images: [
       { src: pressDise101124.url, alt: "di.se gästkrönika 24 november 2010 — Invandrare kan lyfta svensk export av Ivan Daza" },
     ],
