@@ -188,11 +188,12 @@
   .offer{background:var(--bone-2)}
   .ocards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
   .oc{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;display:flex;flex-direction:column}
-  .oc .top{height:150px;display:flex;align-items:center;justify-content:center;position:relative;color:#EDE9DE;font-family:"Fraunces",serif;overflow:hidden}
+  .oc .top{height:190px;display:flex;align-items:center;justify-content:center;position:relative;color:#EDE9DE;font-family:"Fraunces",serif;overflow:hidden;background:var(--wenge)}
   .oc .top.studio{background:linear-gradient(160deg,#3a3128,#241F1B)}
   .oc .top.home{background:linear-gradient(160deg,#4a4030,#2c2519)}
   .oc .top.lexus{background:linear-gradient(160deg,#111,#1f1f1f)}
-  .oc .top .tag{position:absolute;top:12px;left:12px;font-size:11px;font-family:"Hanken Grotesk";font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--taupe);background:rgba(0,0,0,.35);padding:4px 9px;border-radius:20px}
+  .oc .top .media{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
+  .oc .top .tag{position:absolute;z-index:1;top:12px;left:12px;font-size:11px;font-family:"Hanken Grotesk";font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--taupe);background:rgba(0,0,0,.62);padding:4px 9px;border-radius:20px}
   .oc .top .ic{font-size:44px}
   .oc .bd{padding:22px;display:flex;flex-direction:column;flex:1}
   .oc .bd h3{font-size:21px;margin-bottom:4px}
@@ -470,7 +471,13 @@
     </div>
     <div class="ocards">
       <div class="oc feat">
-        <div class="top studio"><span class="tag">Kontoret</span><span class="ic">◈</span></div>
+        <div class="top studio">
+          <video class="media" autoplay muted loop playsinline aria-label="Studiorooms kontor och mötesmiljö">
+            <source src="/__l5e/assets-v1/305c3399-f0a9-40de-a043-0e738f0fcf95/studioroom-network-hero.webm" type="video/webm">
+            <source src="/__l5e/assets-v1/e28b0691-c4e3-4fbe-ba83-30b3c4a2957d/studioroom-network-hero.mp4" type="video/mp4">
+          </video>
+          <span class="tag">Kontoret</span>
+        </div>
         <div class="bd">
           <h3>Studioroom</h3>
           <div class="pr">3 500 kr <small>/ mån</small></div>
@@ -479,7 +486,10 @@
         </div>
       </div>
       <div class="oc">
-        <div class="top home"><span class="tag">Hemmakontoret</span><span class="ic">⌂</span></div>
+        <div class="top home">
+          <img class="media" src="/__l5e/assets-v1/87209842-d567-4825-b988-882dcfae13e1/metropole-home-office.webp" alt="Elegant hemmakontor i Studiorooms stil">
+          <span class="tag">Hemmakontoret</span>
+        </div>
         <div class="bd">
           <h3>Hemkontor i samma anda</h3>
           <div class="pr">1 500 kr <small>/ mån</small></div>
@@ -488,7 +498,13 @@
         </div>
       </div>
       <div class="oc">
-        <div class="top lexus"><span class="tag">Bilen · Lexus</span><span class="ic">⬡</span></div>
+        <div class="top lexus">
+          <video class="media" autoplay muted loop playsinline aria-label="Lexus på vägen till mötet">
+            <source src="/__l5e/assets-v1/46ca9385-abd0-472b-9640-fda4031af202/lexus-nx-hero.webm" type="video/webm">
+            <source src="/__l5e/assets-v1/466e7725-9e86-48c9-bc72-8c3b4a6e0182/lexus-nx-hero.mp4" type="video/mp4">
+          </video>
+          <span class="tag">Bilen · Lexus</span>
+        </div>
         <div class="bd">
           <h3>Lexus på vägen</h3>
           <div class="pr">4 000 kr <small>/ mån</small></div>
