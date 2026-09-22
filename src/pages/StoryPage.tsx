@@ -16,6 +16,14 @@ import pressCity070109 from "@/assets/press-city-2007-01-09.jpg.asset.json";
 import pressSvd070216 from "@/assets/press-svd-naringsliv-2007-02-16.jpg.asset.json";
 import pressStockholmCity070228 from "@/assets/press-stockholm-city-2007-02-28.jpg.asset.json";
 import pressSvdMangfald080122 from "@/assets/press-svd-mangfaldsbarometer-2008-01-22.jpg.asset.json";
+import pressDn060829 from "@/assets/press-dagens-naringsliv-2006-08-29.jpg.asset.json";
+import pressDi061023 from "@/assets/press-dagens-industri-2006-10-23.jpg.asset.json";
+import pressMetro2006 from "@/assets/press-metro-2006.jpg.asset.json";
+import pressChef0702 from "@/assets/press-chef-2007-02.jpg.asset.json";
+import pressFjarr0812 from "@/assets/press-fjarrvarmetidningen-2008-12.jpg.asset.json";
+import pressSvtDebatt from "@/assets/press-svt-debatt.jpg.asset.json";
+import pressDn100923p1 from "@/assets/press-dn-2010-09-23-p1.jpg.asset.json";
+import pressDn100923p2 from "@/assets/press-dn-2010-09-23-p2.jpg.asset.json";
 
 type EntryImage = {
   src: string;
@@ -65,11 +73,17 @@ const pressBlatte: PressItem[] = [
     source: "Dagens Næringsliv (Norge) · 29 aug 2006",
     title: "Headhunter innvandrere",
     body: "Norsk uppmärksamhet för Blatteförmedlingen som en internetbaserad rekryteringstjänst som hjälper invandrare in på arbetsmarknaden — ett tidigt tecken på att konceptet fick gehör utanför Sverige.",
+    images: [
+      { src: pressDn060829.url, alt: "Dagens Næringsliv 29 augusti 2006 — uppslag med rubriken Headhunter innvandrere om Ivan Daza och Blatteförmedlingen" },
+    ],
   },
   {
     source: "Dagens Industri · 23 okt 2006",
     title: "Företagen köar för mångfald",
     body: "Om rivstarten: med två rekryterare hade förmedlingen redan hjälpt fler än 80 personer till jobb, och kunder som Svenska Bostäder och Cap Gemini efterfrågade mångfaldsrekrytering. Expansion planerades.",
+    images: [
+      { src: pressDi061023.url, alt: "Dagens Industri 23 oktober 2006 — uppslaget Företagen köar för mångfald om Blatteförmedlingen" },
+    ],
   },
   {
     source: "SRAT-Information · nr 4, 2006",
@@ -83,6 +97,9 @@ const pressBlatte: PressItem[] = [
     source: "Metro · 2006",
     title: "Bemanningsföretag — alternativen till Arbetsförmedlingen blir allt fler",
     body: "Blatteförmedlingen lyfts fram som ett specialiserat alternativ i en växande bemanningsbransch. Medgrundaren Ayesha Quraishi och Ivan Daza om ambitionen att fylla ordet \u201Cblatte\u201D med positiv innebörd.",
+    images: [
+      { src: pressMetro2006.url, alt: "Metro 2006 — artikeln Bemanningsföretag: alternativen till Arbetsförmedlingen blir allt fler, med Blatteförmedlingen" },
+    ],
   },
   {
     source: "Kristdemokraten · nr 51–52, 22 dec 2006",
@@ -120,6 +137,9 @@ const pressBlatte: PressItem[] = [
     source: "Chef · feb 2007",
     title: "Duellen: raka svar om chefskap",
     body: "Ivan Daza tar ja-sidan i en ledarskapsduell om huruvida en chef kan vara ledig och ändå leda — linjen är att resultat, inte antal närvarotimmar, avgör.",
+    images: [
+      { src: pressChef0702.url, alt: "Chef februari 2007 — Duellen, Ivan Daza mot Jacob Fant om chefskap och långledighet" },
+    ],
   },
   {
     source: "Svenska Dagbladet Näringsliv · 22 jan 2008",
@@ -138,6 +158,9 @@ const pressBlatte: PressItem[] = [
     source: "Fjärrvärmetidningen · nr 8, dec 2008",
     title: "Framtidens tekniker finns på Blatteförmedlingen",
     body: "Om kompetensförsörjning: cirka 7 000 kandidater i databasen, och rekrytering av bl.a. starkströmsingenjörer från Polen och Ungern till svensk energibransch.",
+    images: [
+      { src: pressFjarr0812.url, alt: "Fjärrvärmetidningen nr 8 december 2008 — Framtidens tekniker finns på Blatteförmedlingen, med illustration av Ivan Daza" },
+    ],
   },
   {
     source: "Bok · \u201DNäringslivet och den offentliga sektorn\u201D · ~2005",
@@ -147,7 +170,10 @@ const pressBlatte: PressItem[] = [
   {
     source: "SVT Debatt · tv-medverkan",
     title: "Medverkan i SVT:s debattprogram",
-    body: "Ivan Daza medverkar i SVT Debatt.",
+    body: "Ivan Daza i publiken i SVT:s debattprogram, i diskussion om arbetsmarknad och integration.",
+    images: [
+      { src: pressSvtDebatt.url, alt: "Stillbild från SVT Debatt — Ivan Daza tar ordet i publiken" },
+    ],
   },
 ];
 
@@ -157,6 +183,10 @@ const pressJobb: PressItem[] = [
     source: "Dagens Nyheter · 23 sep 2010",
     title: "Jobb som business / Lönsamt att ta sig an arbetslösa",
     body: "Stort reportage (förstasida + uppslag) om Jobbfabriken: verksamheten sysselsatte fler än 500 långtidsarbetslösa och nådde omkring 10 % ut i arbete, mot omkring 2 % för jämförbara aktörer. Facket var kritiskt — men resultaten lyftes fram.",
+    images: [
+      { src: pressDn100923p1.url, alt: "Dagens Nyheter Ekonomi 23 september 2010 — förstasidan Jobb som business med Ivan Daza" },
+      { src: pressDn100923p2.url, alt: "Dagens Nyheter 23 september 2010 — uppslaget Lönsamt att ta sig an arbetslösa om Jobbfabriken" },
+    ],
   },
   {
     source: "di.se · Gästkrönika, 24 nov 2010",
