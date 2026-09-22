@@ -73,6 +73,9 @@ const pressBlatte: PressItem[] = [
     source: "Dagens Næringsliv (Norge) · 29 aug 2006",
     title: "Headhunter innvandrere",
     body: "Norsk uppmärksamhet för Blatteförmedlingen som en internetbaserad rekryteringstjänst som hjälper invandrare in på arbetsmarknaden — ett tidigt tecken på att konceptet fick gehör utanför Sverige.",
+    images: [
+      { src: pressDn060829.url, alt: "Dagens Næringsliv 29 augusti 2006 — uppslag med rubriken Headhunter innvandrere om Ivan Daza och Blatteförmedlingen" },
+    ],
   },
   {
     source: "Dagens Industri · 23 okt 2006",
