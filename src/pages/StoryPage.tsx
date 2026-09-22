@@ -561,8 +561,19 @@ const PressCarousel = ({
             {item.title}
           </h3>
           <p className="edit-body text-white/60 text-sm mt-2 flex-1">{item.body}</p>
+          {item.href && (
+            <a
+              href={item.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-4 inline-flex items-center gap-1.5 edit-label text-white/70 underline decoration-gold/60 underline-offset-4 transition hover:text-gold hover:decoration-gold"
+            >
+              Read the article
+              <ArrowUpRight aria-hidden className="size-3.5" />
+            </a>
+          )}
           {item.images && item.images.length > 0 && (
-            <div className="mt-4 flex gap-3">
+            <div className={`flex gap-3 ${item.href ? "mt-4" : "mt-4"}`}>
               {item.images.map((img) => (
                 <button
                   key={img.src}
