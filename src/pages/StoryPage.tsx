@@ -456,11 +456,19 @@ const entries: Entry[] = [
     body: "Sales leadership across gaming, retail, media, DOOH and native advertising — repeatedly breaking company sales records, and learning what actually moves markets.",
   },
   {
-    year: "2022",
+    year: "2022–25",
     sortYear: 2022,
     kicker: "Placing the builders",
     title: "TakeReference",
     body: "A recruitment firm placing sales leaders, sales managers and top management into Swedish tech and sales companies.",
+  },
+  {
+    year: "2025",
+    sortYear: 2025,
+    kicker: "Transparent recruitment",
+    title: "iApply launches",
+    body: "The iApply Transparent Recruitment Platform goes live — candidate-first hiring with AI matching between people and roles, built on the conviction that recruitment should be open, honest and measurable.",
+    articles: [{ label: "Visit iApply.se", href: "https://iapply.se" }],
   },
   {
     year: "2025",
