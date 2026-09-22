@@ -27,7 +27,7 @@ type Entry = {
   body: string;
   highlight?: boolean;
   images?: EntryImage[];
-  video?: { src: string; title: string; caption?: string };
+  video?: { src: string; title: string; caption?: string; size?: "small" };
   articles?: { label: string; href: string }[];
 };
 
@@ -90,6 +90,7 @@ const entries: Entry[] = [
       src: "https://www.youtube.com/embed/W8zL0IV1K3k?si=5lUHyYLDBZYfEWcL",
       title: "Titicaco Communicaring School i Krabi 2005",
       caption: "Titicaco Communicaring School™ · Krabi, Thailand · 2005",
+      size: "small",
     },
   },
   {
@@ -114,6 +115,12 @@ const entries: Entry[] = [
           "Även uppmärksammad i dåvarande arbetsmarknadsminister Sven Otto Littorins bok: Uppdrag arbete.",
       },
     ],
+    video: {
+      src: "https://www.youtube.com/embed/ognK5cWAmCI?si=oWcs8zQtf1l1F8xE",
+      title: "Ivan Daza intervjuas av Malou von Sivers i TV4 — Blatteförmedlingen",
+      caption: "TV4 · Malou von Sivers intervjuar Ivan Daza · Blatteförmedlingen",
+      size: "small",
+    },
   },
   {
     year: "2008–2015",
@@ -488,7 +495,7 @@ const StoryPage = () => {
                       )}
 
                       {e.video && (
-                        <figure className="mt-7 max-w-3xl">
+                        <figure className={`mt-7 ${e.video.size === "small" ? "max-w-md" : "max-w-3xl"}`}>
                           <div className="relative w-full overflow-hidden border border-white/10" style={{ aspectRatio: "16 / 9" }}>
                             <iframe
                               src={e.video.src}
