@@ -296,6 +296,16 @@ const entries: Entry[] = [
     kicker: "Education for the world",
     title: "Titicaco Communicaring School™",
     body: "Nominated best Swedish initiative in the United Nations World Summit Awards in 2003. Titicaco Communicaring School™ shall be part of shaping the future through education and: (1) shall deliver education for basic knowledge, problem solving, sustainable development, entrepreneurship and leadership. (2) Promote understanding, tolerance and friendship among all nations. (3) Use an educational environment consisting of eLearning, eTwinning, eCommunity, eDemocracy and eAdministration tools.",
+    images: [
+      {
+        src: yunusAsset.url,
+        alt: "Ivan Daza presenting CommunicaringSchool to Nobel Peace laureate Muhammad Yunus",
+        caption: "Presenting CommunicaringSchool to Nobel Peace laureate Muhammad Yunus.",
+        thumbnail: "small",
+        expandable: true,
+        protect: true,
+      },
+    ],
     articles: [
       {
         label: "Visit communicaringschool.com",
@@ -509,9 +519,6 @@ const studioProjects = [
     name: "CommunicaringSchool",
     sector: "Education",
     body: "The patented education platform, born as Titicaco Communicaring School™ in 2003 — Ravolution positions it in K1–K9 education, aligned with the UN Convention on the Rights of the Child.",
-    image: yunusAsset.url,
-    imageAlt: "Ivan Daza presenting CommunicaringSchool to Nobel Peace laureate Muhammad Yunus",
-    imageCaption: "Presenting CommunicaringSchool to Nobel Peace laureate Muhammad Yunus.",
   },
   { name: "Singuistic", sector: "Language", body: "Spotify-synced language learning that turns any song into a live lesson, one line at a time." },
   { name: "iApply", sector: "Work", body: "Candidate-first recruitment platform with AI matching between people and roles." },
@@ -1200,19 +1207,6 @@ const StoryPage = () => {
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-white/10 mt-12">
               {studioProjects.map((p) => (
                 <article key={p.name} className="bg-primary p-6 flex flex-col">
-                  {p.image && (
-                    <figure className="-mx-6 -mt-6 mb-6">
-                      <img
-                        src={p.image}
-                        alt={p.imageAlt}
-                        loading="lazy"
-                        className="w-full aspect-[4/3] object-cover"
-                      />
-                      <figcaption className="px-6 pt-3 pb-1 font-mono text-[11px] leading-relaxed tracking-[0.08em] uppercase text-white/50">
-                        {p.imageCaption}
-                      </figcaption>
-                    </figure>
-                  )}
                   <h3 className="flex items-center gap-3 text-lg font-display font-bold uppercase tracking-tight text-white">
                     <span aria-hidden className="w-1.5 h-1.5 rounded-full bg-gold" />
                     {p.name}
