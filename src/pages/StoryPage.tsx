@@ -302,6 +302,8 @@ const entries: Entry[] = [
         src: sagerskaAsset.url,
         alt: "Ivan Daza and fellow entrepreneurs with Prime Minister Fredrik Reinfeldt at Sagerska Palace",
         caption: "Statsministerbesök på Sagerska Palatset",
+        thumbnail: "small",
+        expandable: true,
         hoverText:
           "Som VD och grundare av Blatteförmedlingen blev jag med kollega inbjuden av dåvarande statsminister Fredrik Reinfeldt till Sagerska palatset under Första Advent, tillsammans med en rad andra entreprenörer. Sagerska palatset är Sveriges statsministers officiella residens, beläget i centrala Stockholm.",
       },
@@ -309,6 +311,8 @@ const entries: Entry[] = [
         src: littorinAsset.url,
         alt: "Ivan Daza with former labour-market minister Sven Otto Littorin at Blatteförmedlingen",
         caption: "Uppmärksammad i Uppdrag arbete",
+        thumbnail: "small",
+        expandable: true,
         hoverText:
           "Även uppmärksammad i dåvarande arbetsmarknadsminister Sven Otto Littorins bok: Uppdrag arbete.",
       },
@@ -317,7 +321,8 @@ const entries: Entry[] = [
       src: "https://www.youtube.com/embed/ognK5cWAmCI?si=oWcs8zQtf1l1F8xE",
       title: "Ivan Daza intervjuas av Malou von Sivers i TV4 — Blatteförmedlingen",
       caption: "TV4 · Malou von Sivers intervjuar Ivan Daza · Blatteförmedlingen",
-      size: "small",
+      size: "thumb",
+      expandable: true,
     },
     press: pressBlatte,
   },
