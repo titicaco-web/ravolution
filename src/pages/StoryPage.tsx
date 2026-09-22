@@ -12,6 +12,7 @@ type EntryImage = {
   alt: string;
   caption?: string;
   hoverText?: string;
+  fit?: "cover" | "contain";
 };
 
 type Entry = {
@@ -117,6 +118,7 @@ const entries: Entry[] = [
         src: gasellAsset.url,
         alt: "Dagens Industri clipping listing Blatteförmedlingen among Stockholm's 2012 Gasell companies",
         caption: "Dagens Industri · Gasellföretag 2012",
+        fit: "contain",
         hoverText:
           "Gasellföretag 2012: Blatteförmedlingen\n\nSom VD för Blatteförmedlingen ledde Ivan Daza bolaget till att bli utsett till Gasellföretag av Dagens Industri 2012 – en utmärkelse för exceptionell tillväxt och hållbarhet.",
       },
@@ -398,7 +400,11 @@ const StoryPage = () => {
                                   alt={image.alt}
                                   title={image.hoverText}
                                   loading="lazy"
-                                  className="aspect-[16/10] w-full object-cover transition duration-500 group-hover:scale-[1.015]"
+                                  className={`w-full transition duration-500 group-hover:scale-[1.015] ${
+                                    image.fit === "contain"
+                                      ? "max-h-[680px] object-contain"
+                                      : "aspect-[16/10] object-cover"
+                                  }`}
                                 />
                                 {image.hoverText && (
                                   <div className="absolute inset-0 flex items-end bg-primary/0 p-5 opacity-0 transition duration-300 group-hover:bg-primary/90 group-hover:opacity-100 group-focus-within:bg-primary/90 group-focus-within:opacity-100">
