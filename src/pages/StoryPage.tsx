@@ -488,6 +488,25 @@ const personJsonLd = {
   ],
 };
 
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Ravolution AB",
+  legalName: "Ravolution AB",
+  identifier: "556709-7547",
+  url: "https://ravolution.se",
+  description:
+    "Swedish invention company building the missing infrastructure for human progress — a patented portfolio of platforms across industries.",
+  founder: {
+    "@type": "Person",
+    name: "Ivan Daza",
+    jobTitle: "Tech inventor, Founder",
+    url: "https://ravolution.se/en/story",
+  },
+  address: { "@type": "PostalAddress", addressCountry: "SE" },
+  sameAs: ["https://www.linkedin.com/company/ravolution"],
+};
+
 const timelineJsonLd = {
   "@context": "https://schema.org",
   "@type": "ItemList",
