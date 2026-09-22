@@ -169,6 +169,9 @@ const pressBlatte: PressItem[] = [
     source: "Bok · \u201DNäringslivet och den offentliga sektorn\u201D · ~2005",
     title: "Omnämnande",
     body: "Blatteförmedlingen lyfts fram som ett effektivt exempel på att förmedla invandrares kompetens till företag.",
+    images: [
+      { src: pressBokNaringslivet.url, alt: "Uppslag ur boken Näringslivet och den offentliga sektorn, sid 132 — Ivan Daza och Blatteförmedlingen i avsnittet om sysselsättning" },
+    ],
   },
   {
     source: "SVT Debatt · tv-medverkan",
