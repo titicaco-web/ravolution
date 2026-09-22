@@ -407,7 +407,7 @@ const StoryPage = () => {
                                   }`}
                                 />
                                 {image.hoverText && (
-                                  <div className="absolute inset-0 flex items-end bg-primary/0 p-5 opacity-0 transition duration-300 group-hover:bg-primary/90 group-hover:opacity-100 group-focus-within:bg-primary/90 group-focus-within:opacity-100">
+                                  <div className="pointer-events-none absolute inset-0 flex items-end bg-primary/0 p-5 opacity-0 transition duration-300 group-hover:bg-primary/90 group-hover:opacity-100 group-focus-within:bg-primary/90 group-focus-within:opacity-100">
                                     <p className="whitespace-pre-line text-sm leading-relaxed text-white">
                                       {image.hoverText}
                                     </p>
