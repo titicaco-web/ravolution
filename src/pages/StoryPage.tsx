@@ -259,6 +259,18 @@ const entries: Entry[] = [
     body: "An e-democracy platform letting Swedish municipalities run rådslag — citizen consultations — and lowering the barrier to reach the participation threshold needed to put a question to the public.",
   },
   {
+    year: "2002–25",
+    sortYear: 2002,
+    kicker: "A parallel life's work",
+    title: "Titicaco — The King of the Sea",
+    body: "A creative universe begun in 2002: the trilogy Titicaco — The King of the Sea, \u201Cre-writing history as it really was, from the beginning of time to a hundred years from now.\u201D From 2010 it grew into 47 short films with deep-dive companion videos, and the full trilogy and its expanding world now live online.",
+    linkStyle: "button",
+    articles: [
+      { label: "Explore the world", href: "https://titicaco.com/en" },
+      { label: "Watch the films", href: "https://youtube.com/playlist?list=PLCDEAE77E2F4344C6" },
+    ],
+  },
+  {
     year: "2003",
     sortYear: 2003,
     kicker: "Education for the world",
