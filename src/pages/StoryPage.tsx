@@ -271,6 +271,7 @@ const entries: Entry[] = [
     kicker: "A parallel life's work",
     title: "Titicaco — The King of the Sea",
     body: "A creative universe begun in 2002: the trilogy Titicaco — The King of the Sea, \u201Cre-writing history as it really was, from the beginning of time to a hundred years from now.\u201D From 2010 it grew into 47 short films with deep-dive companion videos, and the full trilogy and its expanding world now live online.",
+    note: "In December 2011, Ivan travelled to New York and pitched the Titicaco saga to Donald Trump.",
     linkStyle: "button",
     articles: [
       { label: "Explore the world", href: "https://titicaco.com/en" },
@@ -905,6 +906,12 @@ const StoryPage = () => {
                       </h2>
                       <p className="edit-body text-white/60 mt-4 max-w-2xl">{e.body}</p>
 
+                      {e.note && (
+                        <p className="mt-4 max-w-2xl border-l-2 border-gold/60 pl-4 font-mono text-[11px] uppercase tracking-[0.14em] leading-relaxed text-gold/85">
+                          {e.note}
+                        </p>
+                      )}
+
                       {e.carousel && e.images && e.images.length > 0 && (
                         <EntryCarousel images={e.images} onExpand={setExpandedImage} />
                       )}
@@ -930,17 +937,34 @@ const StoryPage = () => {
                                 onClick={() => image.expandable && setExpandedImage(image)}
                                 className="relative h-auto w-full overflow-hidden rounded-none border border-white/10 bg-transparent p-0 disabled:pointer-events-none disabled:opacity-100"
                               >
-                                <img
-                                  src={image.src}
-                                  alt={image.alt}
-                                  title={image.hoverText}
-                                  loading="lazy"
-                                  className={`w-full transition duration-500 group-hover:scale-[1.015] ${
-                                    image.fit === "contain"
-                                      ? "h-auto object-contain"
-                                      : "aspect-[16/10] object-cover"
-                                  }`}
-                                />
+                                <div className="relative w-full">
+                                  <img
+                                    src={image.src}
+                                    alt={image.alt}
+                                    title={image.hoverText}
+                                    loading="lazy"
+                                    draggable={image.protect ? false : undefined}
+                                    onContextMenu={
+                                      image.protect ? (event) => event.preventDefault() : undefined
+                                    }
+                                    className={`w-full select-none transition duration-500 group-hover:scale-[1.015] ${
+                                      image.fit === "contain"
+                                        ? "h-auto object-contain"
+                                        : "aspect-[16/10] object-cover"
+                                    }`}
+                                  />
+                                  {image.hoverSrc && (
+                                    <img
+                                      src={image.hoverSrc}
+                                      alt=""
+                                      aria-hidden
+                                      loading="lazy"
+                                      draggable={false}
+                                      onContextMenu={(event) => event.preventDefault()}
+                                      className="absolute inset-0 size-full select-none object-cover opacity-0 transition duration-300 group-hover:opacity-100 group-focus-within:opacity-100"
+                                    />
+                                  )}
+                                </div>
                                 {image.hoverText && (
                                   <div className="pointer-events-none absolute inset-0 flex items-end bg-primary/0 p-5 opacity-0 transition duration-300 group-hover:bg-primary/90 group-hover:opacity-100 group-focus-within:bg-primary/90 group-focus-within:opacity-100">
                                     <p className="whitespace-pre-line text-sm leading-relaxed text-white">
@@ -1037,11 +1061,26 @@ const StoryPage = () => {
             onClick={() => setExpandedImage(null)}
           >
             <div className="relative flex max-h-full max-w-5xl flex-col items-center" onClick={(event) => event.stopPropagation()}>
-              <img
-                src={expandedImage.src}
-                alt={expandedImage.alt}
-                className="max-h-[82vh] max-w-full object-contain"
-              />
+              <div className="relative">
+                <img
+                  src={expandedImage.src}
+                  alt={expandedImage.alt}
+                  draggable={expandedImage.protect ? false : undefined}
+                  onContextMenu={
+                    expandedImage.protect ? (event) => event.preventDefault() : undefined
+                  }
+                  className={`max-h-[82vh] max-w-full object-contain ${
+                    expandedImage.protect ? "pointer-events-none select-none" : ""
+                  }`}
+                />
+                {expandedImage.protect && (
+                  <div
+                    aria-hidden
+                    className="absolute inset-0"
+                    onContextMenu={(event) => event.preventDefault()}
+                  />
+                )}
+              </div>
               {expandedImage.caption && (
                 <p className="mt-3 text-center font-mono text-xs uppercase tracking-[0.12em] text-white/60">
                   {expandedImage.caption}
