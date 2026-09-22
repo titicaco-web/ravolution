@@ -461,6 +461,7 @@ const entries: Entry[] = [
     kicker: "Placing the builders",
     title: "TakeReference",
     body: "A recruitment firm placing sales leaders, sales managers and top management into Swedish tech and sales companies.",
+    articles: [{ label: "Visit takereference.com", href: "https://takereference.com/" }],
   },
   {
     year: "2025",
