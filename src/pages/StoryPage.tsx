@@ -573,7 +573,7 @@ const PressCarousel = ({
             </a>
           )}
           {item.images && item.images.length > 0 && (
-            <div className={`flex gap-3 ${item.href ? "mt-4" : "mt-4"}`}>
+            <div className="mt-4 flex gap-3">
               {item.images.map((img) => (
                 <button
                   key={img.src}
