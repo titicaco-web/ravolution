@@ -799,7 +799,7 @@ const StoryPage = () => {
                           onExpand={setExpandedImage}
                         />
                       )}
-                    </div>
+                    </article>
                   </Reveal>
                 </li>
               ))}
