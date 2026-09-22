@@ -1,7 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 import { Helmet } from "@/lib/helmet-compat";
 import { EditorialShell, Reveal } from "@/components/editorial/EditorialLayout";
+import { Button } from "@/components/ui/button";
 import { useLangPath } from "@/hooks/use-lang-path";
+import { Maximize2, X } from "lucide-react";
 import museumAsset from "@/assets/ivan-daza-ekonomiska-museet-2014.png.asset.json";
 import gasellAsset from "@/assets/blatteformedlingen-di-gasell-2012.png.asset.json";
 import sagerskaAsset from "@/assets/ivan-daza-sagerska-palatset.png.asset.json";
@@ -13,6 +15,8 @@ type EntryImage = {
   caption?: string;
   hoverText?: string;
   fit?: "cover" | "contain";
+  thumbnail?: "small" | "medium";
+  expandable?: boolean;
 };
 
 type Entry = {
@@ -119,6 +123,8 @@ const entries: Entry[] = [
         alt: "Dagens Industri clipping listing Blatteförmedlingen among Stockholm's 2012 Gasell companies",
         caption: "Dagens Industri · Gasellföretag 2012",
         fit: "contain",
+        thumbnail: "small",
+        expandable: true,
         hoverText:
           "Gasellföretag 2012: Blatteförmedlingen\n\nSom VD för Blatteförmedlingen ledde Ivan Daza bolaget till att bli utsett till Gasellföretag av Dagens Industri 2012 – en utmärkelse för exceptionell tillväxt och hållbarhet.",
       },
@@ -136,6 +142,8 @@ const entries: Entry[] = [
         src: museumAsset.url,
         alt: "Ivan Daza featured in the Economy Museum exhibition about entrepreneurship",
         caption: "Ekonomiska museet · Utställning om entreprenörskap · 2014–2017",
+        thumbnail: "medium",
+        expandable: true,
       },
     ],
     articles: [
@@ -270,6 +278,7 @@ const StoryPage = () => {
   const railRef = useRef<HTMLDivElement>(null);
   const [fill, setFill] = useState(0);
   const [eraYear, setEraYear] = useState<string | null>(null);
+  const [expandedImage, setExpandedImage] = useState<EntryImage | null>(null);
 
   useEffect(() => {
     const onScroll = () => {
@@ -296,6 +305,19 @@ const StoryPage = () => {
       window.removeEventListener("resize", onScroll);
     };
   }, []);
+
+  useEffect(() => {
+    if (!expandedImage) return;
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setExpandedImage(null);
+    };
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", onKeyDown);
+    return () => {
+      document.body.style.overflow = "";
+      window.removeEventListener("keydown", onKeyDown);
+    };
+  }, [expandedImage]);
 
   return (
     <>
@@ -391,10 +413,26 @@ const StoryPage = () => {
                       <p className="edit-body text-white/60 mt-4 max-w-2xl">{e.body}</p>
 
                       {e.images && e.images.length > 0 && (
-                        <div className={`mt-7 grid max-w-4xl gap-5 ${e.images.length > 1 ? "md:grid-cols-2" : ""}`}>
+                        <div className={`mt-7 grid max-w-4xl items-start gap-5 ${e.images.length > 1 ? "md:grid-cols-2" : ""}`}>
                           {e.images.map((image) => (
-                            <figure key={image.src} className="group">
-                              <div className="relative overflow-hidden border border-white/10 bg-primary">
+                            <figure
+                              key={image.src}
+                              className={`group w-full ${
+                                image.thumbnail === "small"
+                                  ? "max-w-[230px]"
+                                  : image.thumbnail === "medium"
+                                    ? "max-w-md"
+                                    : ""
+                              }`}
+                            >
+                              <Button
+                                type="button"
+                                variant="ghost"
+                                disabled={!image.expandable}
+                                aria-label={image.expandable ? `Enlarge ${image.alt}` : undefined}
+                                onClick={() => image.expandable && setExpandedImage(image)}
+                                className="relative h-auto w-full overflow-hidden rounded-none border border-white/10 bg-transparent p-0 disabled:pointer-events-none disabled:opacity-100"
+                              >
                                 <img
                                   src={image.src}
                                   alt={image.alt}
@@ -402,7 +440,7 @@ const StoryPage = () => {
                                   loading="lazy"
                                   className={`w-full transition duration-500 group-hover:scale-[1.015] ${
                                     image.fit === "contain"
-                                      ? "max-h-[680px] object-contain"
+                                      ? "h-auto object-contain"
                                       : "aspect-[16/10] object-cover"
                                   }`}
                                 />
@@ -413,7 +451,12 @@ const StoryPage = () => {
                                     </p>
                                   </div>
                                 )}
-                              </div>
+                                {image.expandable && (
+                                  <span className="pointer-events-none absolute right-2 top-2 grid size-8 place-items-center bg-primary/85 text-white opacity-80 transition group-hover:opacity-100">
+                                    <Maximize2 aria-hidden className="size-4" />
+                                  </span>
+                                )}
+                              </Button>
                               {image.caption && (
                                 <figcaption className="mt-2 font-mono text-[11px] uppercase tracking-[0.12em] text-white/40">
                                   {image.caption}
@@ -447,6 +490,39 @@ const StoryPage = () => {
             </ol>
           </div>
         </section>
+
+        {expandedImage && (
+          <div
+            role="dialog"
+            aria-modal="true"
+            aria-label={expandedImage.alt}
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-primary/95 p-4 md:p-10"
+            onClick={() => setExpandedImage(null)}
+          >
+            <div className="relative flex max-h-full max-w-5xl flex-col items-center" onClick={(event) => event.stopPropagation()}>
+              <img
+                src={expandedImage.src}
+                alt={expandedImage.alt}
+                className="max-h-[82vh] max-w-full object-contain"
+              />
+              {expandedImage.caption && (
+                <p className="mt-3 text-center font-mono text-xs uppercase tracking-[0.12em] text-white/60">
+                  {expandedImage.caption}
+                </p>
+              )}
+              <Button
+                type="button"
+                variant="ghost"
+                size="icon"
+                aria-label="Close enlarged image"
+                onClick={() => setExpandedImage(null)}
+                className="absolute right-0 top-0 rounded-none bg-primary/85 text-white hover:bg-primary hover:text-white"
+              >
+                <X aria-hidden />
+              </Button>
+            </div>
+          </div>
+        )}
 
         {/* Recognition */}
         <section className="px-6 md:px-12 py-24 border-t border-white/10">
