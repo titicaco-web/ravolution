@@ -892,6 +892,44 @@ const StoryPage = () => {
           </div>
         )}
 
+        {expandedVideo && (
+          <div
+            role="dialog"
+            aria-modal="true"
+            aria-label={expandedVideo.title}
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-primary/95 p-4 md:p-10"
+            onClick={() => setExpandedVideo(null)}
+          >
+            <div className="relative w-full max-w-4xl" onClick={(event) => event.stopPropagation()}>
+              <div className="relative w-full overflow-hidden border border-white/10" style={{ aspectRatio: "16 / 9" }}>
+                <iframe
+                  src={expandedVideo.src}
+                  title={expandedVideo.title}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  allowFullScreen
+                  className="absolute inset-0 size-full"
+                />
+              </div>
+              {expandedVideo.caption && (
+                <p className="mt-3 text-center font-mono text-xs uppercase tracking-[0.12em] text-white/60">
+                  {expandedVideo.caption}
+                </p>
+              )}
+              <Button
+                type="button"
+                variant="ghost"
+                size="icon"
+                aria-label="Close enlarged video"
+                onClick={() => setExpandedVideo(null)}
+                className="absolute right-0 top-0 rounded-none bg-primary/85 text-white hover:bg-primary hover:text-white"
+              >
+                <X aria-hidden />
+              </Button>
+            </div>
+          </div>
+        )}
+
         {/* Recognition */}
         <section className="px-6 md:px-12 py-24 border-t border-white/10">
           <div className="edit-container">
