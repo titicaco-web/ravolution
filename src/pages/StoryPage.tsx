@@ -886,7 +886,7 @@ const StoryPage = () => {
                       )}
 
                       {e.images && e.images.length > 0 && !e.carousel && (
-                        <div className={`mt-7 grid max-w-4xl items-start gap-5 ${e.images.length > 1 ? "md:grid-cols-2" : ""}`}>
+                        <div className={`mt-7 max-w-4xl items-start gap-5 ${e.mediaRow ? "flex flex-wrap md:flex-nowrap" : `grid ${e.images.length > 1 ? "md:grid-cols-2" : ""}`}`}>
                           {e.images.map((image) => (
                             <figure
                               key={image.src}
