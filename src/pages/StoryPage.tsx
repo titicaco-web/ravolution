@@ -950,6 +950,7 @@ const StoryPage = () => {
                                     onContextMenu={
                                       image.protect ? (event) => event.preventDefault() : undefined
                                     }
+                                    style={image.objectPosition ? { objectPosition: image.objectPosition } : undefined}
                                     className={`w-full select-none transition duration-500 group-hover:scale-[1.015] ${
                                       image.fit === "contain"
                                         ? "h-auto object-contain"
