@@ -446,6 +446,54 @@ const timelineJsonLd = {
   })),
 };
 
+/* ───────── Press carousel (horizontal scroll, expandable clippings) ───────── */
+const PressCarousel = ({
+  label, items, onExpand,
+}: { label: string; items: PressItem[]; onExpand: (image: EntryImage) => void }) => (
+  <div className="mt-10 max-w-5xl">
+    <span className="edit-label text-white/45 block mb-4">{label}</span>
+    <div className="flex gap-4 overflow-x-auto pb-4 snap-x">
+      {items.map((item) => (
+        <article
+          key={`${item.source}-${item.title}`}
+          className="group/card snap-start shrink-0 w-[280px] md:w-[320px] flex flex-col border border-white/10 border-t-2 border-t-gold bg-white/[0.02] p-5"
+        >
+          <span className="edit-label text-gold">{item.source}</span>
+          <h3 className="text-base font-display font-bold text-white mt-3 leading-snug">
+            {item.title}
+          </h3>
+          <p className="edit-body text-white/60 text-sm mt-2 flex-1">{item.body}</p>
+          {item.images && item.images.length > 0 && (
+            <div className="mt-4 flex gap-3">
+              {item.images.map((img) => (
+                <button
+                  key={img.src}
+                  type="button"
+                  onClick={() =>
+                    onExpand({ src: img.src, alt: img.alt, caption: item.source, expandable: true })
+                  }
+                  aria-label={`Enlarge clipping — ${item.title}`}
+                  className="relative w-[120px] shrink-0 overflow-hidden border border-white/10 cursor-zoom-in group/thumb"
+                >
+                  <img
+                    src={img.src}
+                    alt={img.alt}
+                    loading="lazy"
+                    className="h-[150px] w-full object-cover object-top transition duration-500 group-hover/card:scale-[1.02]"
+                  />
+                  <span className="pointer-events-none absolute right-1 top-1 grid size-6 place-items-center bg-primary/85 text-white opacity-70 transition group-hover/card:opacity-100">
+                    <Maximize2 aria-hidden className="size-3.5" />
+                  </span>
+                </button>
+              ))}
+            </div>
+          )}
+        </article>
+      ))}
+    </div>
+  </div>
+);
+
 const StoryPage = () => {
   const lp = useLangPath();
   const railRef = useRef<HTMLDivElement>(null);
@@ -676,6 +724,14 @@ const StoryPage = () => {
                             </li>
                           ))}
                         </ul>
+                      )}
+
+                      {e.press && e.press.length > 0 && (
+                        <PressCarousel
+                          label={`Press · ${e.year}`}
+                          items={e.press}
+                          onExpand={setExpandedImage}
+                        />
                       )}
                     </div>
                   </Reveal>
