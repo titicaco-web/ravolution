@@ -769,14 +769,18 @@ const StoryPage = () => {
                       )}
 
                       {e.articles && e.articles.length > 0 && (
-                        <ul className="mt-5 flex flex-wrap gap-x-6 gap-y-2">
+                        <ul className={`mt-5 flex flex-wrap ${e.linkStyle === "button" ? "gap-3" : "gap-x-6 gap-y-2"}`}>
                           {e.articles.map((a) => (
                             <li key={a.href}>
                               <a
                                 href={a.href}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="font-mono text-[11px] tracking-[0.14em] uppercase text-gold hover:text-gold/70 border-b border-gold/30"
+                                className={
+                                  e.linkStyle === "button"
+                                    ? "inline-flex items-center border border-gold/50 px-4 py-2 font-mono text-[11px] tracking-[0.14em] uppercase text-gold hover:bg-gold hover:text-primary transition-colors"
+                                    : "font-mono text-[11px] tracking-[0.14em] uppercase text-gold hover:text-gold/70 border-b border-gold/30"
+                                }
                               >
                                 {a.label}
                               </a>
