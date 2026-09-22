@@ -81,6 +81,9 @@ const pressBlatte: PressItem[] = [
     source: "Dagens Industri · 23 okt 2006",
     title: "Företagen köar för mångfald",
     body: "Om rivstarten: med två rekryterare hade förmedlingen redan hjälpt fler än 80 personer till jobb, och kunder som Svenska Bostäder och Cap Gemini efterfrågade mångfaldsrekrytering. Expansion planerades.",
+    images: [
+      { src: pressDi061023.url, alt: "Dagens Industri 23 oktober 2006 — uppslaget Företagen köar för mångfald om Blatteförmedlingen" },
+    ],
   },
   {
     source: "SRAT-Information · nr 4, 2006",
