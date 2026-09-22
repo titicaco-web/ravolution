@@ -58,6 +58,7 @@ type Entry = {
   images?: EntryImage[];
   video?: { src: string; title: string; caption?: string; size?: "small" };
   articles?: { label: string; href: string }[];
+  linkStyle?: "button";
   press?: PressItem[];
 };
 
@@ -256,6 +257,18 @@ const entries: Entry[] = [
     kicker: "Democracy, digitised",
     title: "Votia & the rådslag",
     body: "An e-democracy platform letting Swedish municipalities run rådslag — citizen consultations — and lowering the barrier to reach the participation threshold needed to put a question to the public.",
+  },
+  {
+    year: "2002–25",
+    sortYear: 2002,
+    kicker: "A parallel life's work",
+    title: "Titicaco — The King of the Sea",
+    body: "A creative universe begun in 2002: the trilogy Titicaco — The King of the Sea, \u201Cre-writing history as it really was, from the beginning of time to a hundred years from now.\u201D From 2010 it grew into 47 short films with deep-dive companion videos, and the full trilogy and its expanding world now live online.",
+    linkStyle: "button",
+    articles: [
+      { label: "Explore the world", href: "https://titicaco.com/en" },
+      { label: "Watch the films", href: "https://youtube.com/playlist?list=PLCDEAE77E2F4344C6" },
+    ],
   },
   {
     year: "2003",
@@ -475,6 +488,25 @@ const personJsonLd = {
   ],
 };
 
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Ravolution AB",
+  legalName: "Ravolution AB",
+  identifier: "556709-7547",
+  url: "https://ravolution.se",
+  description:
+    "Swedish invention company building the missing infrastructure for human progress — a patented portfolio of platforms across industries.",
+  founder: {
+    "@type": "Person",
+    name: "Ivan Daza",
+    jobTitle: "Tech inventor, Founder",
+    url: "https://ravolution.se/en/story",
+  },
+  address: { "@type": "PostalAddress", addressCountry: "SE" },
+  sameAs: ["https://www.linkedin.com/company/ravolution"],
+};
+
 const timelineJsonLd = {
   "@context": "https://schema.org",
   "@type": "ItemList",
@@ -589,13 +621,13 @@ const StoryPage = () => {
   return (
     <>
       <Helmet>
-        <title>Ivan Daza — Twenty-Seven Years of Inventions | Ravolution AB</title>
+        <title>Ravolution AB — Twenty-seven years of building what didn't exist yet</title>
         <meta
           name="description"
-          content="The timeline of Swedish tech inventor Ivan Daza: from a 1998 aircraft patent and a pre-Facebook enterprise social network to Ravolution AB's patented platform portfolio."
+          content="From a 1998 aircraft patent to an invention company shipping patented platforms today — the story of Ivan Daza and Ravolution AB."
         />
         <link rel="canonical" href="https://ravolution.se/en/story" />
-        <meta property="og:title" content="Ivan Daza — Twenty-Seven Years of Inventions | Ravolution AB" />
+        <meta property="og:title" content="Ravolution AB — Twenty-seven years of building what didn't exist yet" />
         <meta
           property="og:description"
           content="From a 1998 aircraft patent to an invention company shipping patented platforms today — the story of Ivan Daza and Ravolution AB."
@@ -606,6 +638,7 @@ const StoryPage = () => {
         <meta property="og:image" content="https://ravolution.se/og-image.jpg" />
         <meta name="twitter:image" content="https://ravolution.se/og-image.jpg" />
         <script type="application/ld+json">{JSON.stringify(personJsonLd)}</script>
+        <script type="application/ld+json">{JSON.stringify(organizationJsonLd)}</script>
         <script type="application/ld+json">{JSON.stringify(timelineJsonLd)}</script>
       </Helmet>
 
@@ -665,8 +698,11 @@ const StoryPage = () => {
                     className="absolute left-0 md:left-1 top-3 w-[10px] h-[10px] rounded-full border border-gold/60 bg-primary"
                   />
                   <Reveal>
-                    <div>
-                      <time className="block font-display font-bold text-4xl md:text-6xl text-gold leading-none">
+                    <article>
+                      <time
+                        dateTime={String(e.sortYear)}
+                        className="block font-display font-bold text-4xl md:text-6xl text-gold leading-none"
+                      >
                         {e.year}
                       </time>
                       <span className="edit-label text-white/45 mt-3 block">{e.kicker}</span>
@@ -756,14 +792,18 @@ const StoryPage = () => {
                       )}
 
                       {e.articles && e.articles.length > 0 && (
-                        <ul className="mt-5 flex flex-wrap gap-x-6 gap-y-2">
+                        <ul className={`mt-5 flex flex-wrap ${e.linkStyle === "button" ? "gap-3" : "gap-x-6 gap-y-2"}`}>
                           {e.articles.map((a) => (
                             <li key={a.href}>
                               <a
                                 href={a.href}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="font-mono text-[11px] tracking-[0.14em] uppercase text-gold hover:text-gold/70 border-b border-gold/30"
+                                className={
+                                  e.linkStyle === "button"
+                                    ? "inline-flex items-center border border-gold/50 px-4 py-2 font-mono text-[11px] tracking-[0.14em] uppercase text-gold hover:bg-gold hover:text-primary transition-colors"
+                                    : "font-mono text-[11px] tracking-[0.14em] uppercase text-gold hover:text-gold/70 border-b border-gold/30"
+                                }
                               >
                                 {a.label}
                               </a>
@@ -779,7 +819,7 @@ const StoryPage = () => {
                           onExpand={setExpandedImage}
                         />
                       )}
-                    </div>
+                    </article>
                   </Reveal>
                 </li>
               ))}
