@@ -97,6 +97,9 @@ const pressBlatte: PressItem[] = [
     source: "Metro · 2006",
     title: "Bemanningsföretag — alternativen till Arbetsförmedlingen blir allt fler",
     body: "Blatteförmedlingen lyfts fram som ett specialiserat alternativ i en växande bemanningsbransch. Medgrundaren Ayesha Quraishi och Ivan Daza om ambitionen att fylla ordet \u201Cblatte\u201D med positiv innebörd.",
+    images: [
+      { src: pressMetro2006.url, alt: "Metro 2006 — artikeln Bemanningsföretag: alternativen till Arbetsförmedlingen blir allt fler, med Blatteförmedlingen" },
+    ],
   },
   {
     source: "Kristdemokraten · nr 51–52, 22 dec 2006",
