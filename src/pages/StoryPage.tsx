@@ -8,6 +8,14 @@ import museumAsset from "@/assets/ivan-daza-ekonomiska-museet-2014.png.asset.jso
 import gasellAsset from "@/assets/blatteformedlingen-di-gasell-2012.png.asset.json";
 import sagerskaAsset from "@/assets/ivan-daza-sagerska-palatset.png.asset.json";
 import littorinAsset from "@/assets/ivan-daza-sven-otto-littorin.png.asset.json";
+import pressHandel1 from "@/assets/press-handelskammartidningen-2006-p1.jpg.asset.json";
+import pressHandel2 from "@/assets/press-handelskammartidningen-2006-p2.jpg.asset.json";
+import pressSrat from "@/assets/press-srat-information-2006.jpg.asset.json";
+import pressKristdemokraten from "@/assets/press-kristdemokraten-2006.jpg.asset.json";
+import pressCity070109 from "@/assets/press-city-2007-01-09.jpg.asset.json";
+import pressSvd070216 from "@/assets/press-svd-naringsliv-2007-02-16.jpg.asset.json";
+import pressStockholmCity070228 from "@/assets/press-stockholm-city-2007-02-28.jpg.asset.json";
+import pressSvdMangfald080122 from "@/assets/press-svd-mangfaldsbarometer-2008-01-22.jpg.asset.json";
 
 type EntryImage = {
   src: string;
@@ -17,6 +25,15 @@ type EntryImage = {
   fit?: "cover" | "contain";
   thumbnail?: "small" | "medium";
   expandable?: boolean;
+};
+
+type PressImage = { src: string; alt: string };
+
+type PressItem = {
+  source: string;
+  title: string;
+  body: string;
+  images?: PressImage[];
 };
 
 type Entry = {
@@ -29,7 +46,134 @@ type Entry = {
   images?: EntryImage[];
   video?: { src: string; title: string; caption?: string; size?: "small" };
   articles?: { label: string; href: string }[];
+  press?: PressItem[];
 };
+
+/* Presskarusell 1 — Blatteförmedlingen (2005–2008). Texterna är omskrivna
+   sammanfattningar av klippen; siffror är tidsangivna ("vid tillfället"). */
+const pressBlatte: PressItem[] = [
+  {
+    source: "Handelskammartidningen · nr 8, 2006",
+    title: "Merit att vara blatte",
+    body: "Porträttintervju om vägen hit — född i La Paz, till Sverige som treåring — och varför Blatteförmedlingen startades våren 2005. Vid tillfället förmedlade förmedlingen jobb åt drygt 90 personer.",
+    images: [
+      { src: pressHandel1.url, alt: "Handelskammartidningen nr 8 2006 — porträttintervju med Ivan Daza, sidan med rubriken Merit att vara blatte" },
+      { src: pressHandel2.url, alt: "Handelskammartidningen nr 8 2006 — fortsättningen av intervjun med Ivan Daza" },
+    ],
+  },
+  {
+    source: "Dagens Næringsliv (Norge) · 29 aug 2006",
+    title: "Headhunter innvandrere",
+    body: "Norsk uppmärksamhet för Blatteförmedlingen som en internetbaserad rekryteringstjänst som hjälper invandrare in på arbetsmarknaden — ett tidigt tecken på att konceptet fick gehör utanför Sverige.",
+  },
+  {
+    source: "Dagens Industri · 23 okt 2006",
+    title: "Företagen köar för mångfald",
+    body: "Om rivstarten: med två rekryterare hade förmedlingen redan hjälpt fler än 80 personer till jobb, och kunder som Svenska Bostäder och Cap Gemini efterfrågade mångfaldsrekrytering. Expansion planerades.",
+  },
+  {
+    source: "SRAT-Information · nr 4, 2006",
+    title: "Blatteförmedlingen lyfter fram invandrares unika kunskaper",
+    body: "Intervju om att vända en negativ bild av invandrares möjligheter till en positiv — och om att den personliga presentationen ofta väger tyngre än cv:t.",
+    images: [
+      { src: pressSrat.url, alt: "SRAT-Information nr 4 2006 — uppslag om Blatteförmedlingen med Ivan Daza" },
+    ],
+  },
+  {
+    source: "Metro · 2006",
+    title: "Bemanningsföretag — alternativen till Arbetsförmedlingen blir allt fler",
+    body: "Blatteförmedlingen lyfts fram som ett specialiserat alternativ i en växande bemanningsbransch. Medgrundaren Ayesha Quraishi och Ivan Daza om ambitionen att fylla ordet \u201Cblatte\u201D med positiv innebörd.",
+  },
+  {
+    source: "Kristdemokraten · nr 51–52, 22 dec 2006",
+    title: "Blatteförmedlingen coachar invandrare till jobb",
+    body: "Intervju (Juan Fonseca) om coachning av arbetssökande och planer på verksamhet på fler orter.",
+    images: [
+      { src: pressKristdemokraten.url, alt: "Kristdemokraten nr 51–52, 22 december 2006 — intervju med Ivan Daza om Blatteförmedlingen" },
+    ],
+  },
+  {
+    source: "City · 9 jan 2007",
+    title: "Rekryteraren som satsar på blattar",
+    body: "Kort porträtt av Ivan Daza och Blatteförmedlingens mångfaldsinriktade rekrytering.",
+    images: [
+      { src: pressCity070109.url, alt: "City 9 januari 2007 — artikel om rekryteraren Ivan Daza" },
+    ],
+  },
+  {
+    source: "Svenska Dagbladet Näringsliv · 16 feb 2007",
+    title: "Svenskt Näringsliv tvivlar på att invandrare sorteras bort",
+    body: "I anslutning till en rapport från Svenskt Näringsliv efterlyser Ivan Daza bättre mottagningspolitik, modern språkintroduktion och validering av utländska examina.",
+    images: [
+      { src: pressSvd070216.url, alt: "SvD Näringsliv 16 februari 2007 — artikel om invandrares ställning på arbetsmarknaden med Ivan Daza" },
+    ],
+  },
+  {
+    source: "Stockholm City · 28 feb 2007",
+    title: "Månadens Stockholmare — \u201DBlatte? Självklart!\u201D",
+    body: "Ivan Daza utsedd till Månadens Stockholmare, framröstad före Christina Wahlström och Haddy Jallow. Om vikten av de första sekundernas \u201Celevator pitch\u201D.",
+    images: [
+      { src: pressStockholmCity070228.url, alt: "Stockholm City 28 februari 2007 — Ivan Daza utsedd till Månadens Stockholmare" },
+    ],
+  },
+  {
+    source: "Chef · feb 2007",
+    title: "Duellen: raka svar om chefskap",
+    body: "Ivan Daza tar ja-sidan i en ledarskapsduell om huruvida en chef kan vara ledig och ändå leda — linjen är att resultat, inte antal närvarotimmar, avgör.",
+  },
+  {
+    source: "Svenska Dagbladet Näringsliv · 22 jan 2008",
+    title: "Måttstock för mångfald",
+    body: "Blatteförmedlingen lanserar Mångfaldsbarometern — ett verktyg för att för första gången mäta företags attityder och mångfaldsarbete — framtaget tillsammans med konsulten Margareta Tham.",
+    images: [
+      { src: pressSvdMangfald080122.url, alt: "SvD Näringsliv Efterbörsen 22 januari 2008 — Mångfaldsbarometern med Ivan Daza och Margareta Tham" },
+    ],
+  },
+  {
+    source: "Dagens Industri · 19 maj 2008",
+    title: "Var finns framtidens chefer?",
+    body: "Ivan Daza medverkar som en av rösterna om framtidens ledarskap och mångfald i en enkät med personaldirektörer och HR-chefer.",
+  },
+  {
+    source: "Fjärrvärmetidningen · nr 8, dec 2008",
+    title: "Framtidens tekniker finns på Blatteförmedlingen",
+    body: "Om kompetensförsörjning: cirka 7 000 kandidater i databasen, och rekrytering av bl.a. starkströmsingenjörer från Polen och Ungern till svensk energibransch.",
+  },
+  {
+    source: "Bok · \u201DNäringslivet och den offentliga sektorn\u201D · ~2005",
+    title: "Omnämnande",
+    body: "Blatteförmedlingen lyfts fram som ett effektivt exempel på att förmedla invandrares kompetens till företag.",
+  },
+  {
+    source: "SVT Debatt · tv-medverkan",
+    title: "Medverkan i SVT:s debattprogram",
+    body: "Ivan Daza medverkar i SVT Debatt.",
+  },
+];
+
+/* Presskarusell 2 — Jobbfabriken (2010–2011). */
+const pressJobb: PressItem[] = [
+  {
+    source: "Dagens Nyheter · 23 sep 2010",
+    title: "Jobb som business / Lönsamt att ta sig an arbetslösa",
+    body: "Stort reportage (förstasida + uppslag) om Jobbfabriken: verksamheten sysselsatte fler än 500 långtidsarbetslösa och nådde omkring 10 % ut i arbete, mot omkring 2 % för jämförbara aktörer. Facket var kritiskt — men resultaten lyftes fram.",
+  },
+  {
+    source: "di.se · Gästkrönika, 24 nov 2010",
+    title: "Invandrare kan lyfta svensk export",
+    body: "Ivan Daza som gästkrönikör: att svenska exportföretag underutnyttjar invandrares kompetens och nätverk för att nå nya marknader.",
+  },
+  {
+    source: "di.se · Gästkrönika, 27 jan 2011",
+    title: "Paragrafryttarna kom på besök",
+    body: "Krönika om hur regelverk och byråkrati kring långtidsarbetslöshet motarbetade Jobbfabrikens arbete, trots goda resultat.",
+  },
+  {
+    source: "di.se · Gästkrönikor, 2010–2011",
+    title: "Återkommande krönikör",
+    body: "Utom ovanstående skrev Ivan Daza en rad krönikor på di.se — bl.a. \u201CDen ljusnande framtid är vår\u201D, \u201CVärlden måste komma i balans\u201D och \u201CSå blir du en framgångsrik företagare\u201D.",
+  },
+];
 
 const entries: Entry[] = [
   {
@@ -121,6 +265,7 @@ const entries: Entry[] = [
       caption: "TV4 · Malou von Sivers intervjuar Ivan Daza · Blatteförmedlingen",
       size: "small",
     },
+    press: pressBlatte,
   },
   {
     year: "2008–2015",
@@ -128,6 +273,7 @@ const entries: Entry[] = [
     kicker: "Back to work",
     title: "Jobbfabriken",
     body: "Built to return the long-term unemployed to employment. In year one it placed roughly 10% back into work against an industry average near 2%; by year three, close to 20%.",
+    press: pressJobb,
   },
   {
     year: "2009",
@@ -299,6 +445,54 @@ const timelineJsonLd = {
     },
   })),
 };
+
+/* ───────── Press carousel (horizontal scroll, expandable clippings) ───────── */
+const PressCarousel = ({
+  label, items, onExpand,
+}: { label: string; items: PressItem[]; onExpand: (image: EntryImage) => void }) => (
+  <div className="mt-10 max-w-5xl">
+    <span className="edit-label text-white/45 block mb-4">{label}</span>
+    <div className="flex gap-4 overflow-x-auto pb-4 snap-x">
+      {items.map((item) => (
+        <article
+          key={`${item.source}-${item.title}`}
+          className="group/card snap-start shrink-0 w-[280px] md:w-[320px] flex flex-col border border-white/10 border-t-2 border-t-gold bg-white/[0.02] p-5"
+        >
+          <span className="edit-label text-gold">{item.source}</span>
+          <h3 className="text-base font-display font-bold text-white mt-3 leading-snug">
+            {item.title}
+          </h3>
+          <p className="edit-body text-white/60 text-sm mt-2 flex-1">{item.body}</p>
+          {item.images && item.images.length > 0 && (
+            <div className="mt-4 flex gap-3">
+              {item.images.map((img) => (
+                <button
+                  key={img.src}
+                  type="button"
+                  onClick={() =>
+                    onExpand({ src: img.src, alt: img.alt, caption: item.source, expandable: true })
+                  }
+                  aria-label={`Enlarge clipping — ${item.title}`}
+                  className="relative w-[120px] shrink-0 overflow-hidden border border-white/10 cursor-zoom-in group/thumb"
+                >
+                  <img
+                    src={img.src}
+                    alt={img.alt}
+                    loading="lazy"
+                    className="h-[150px] w-full object-cover object-top transition duration-500 group-hover/card:scale-[1.02]"
+                  />
+                  <span className="pointer-events-none absolute right-1 top-1 grid size-6 place-items-center bg-primary/85 text-white opacity-70 transition group-hover/card:opacity-100">
+                    <Maximize2 aria-hidden className="size-3.5" />
+                  </span>
+                </button>
+              ))}
+            </div>
+          )}
+        </article>
+      ))}
+    </div>
+  </div>
+);
 
 const StoryPage = () => {
   const lp = useLangPath();
@@ -530,6 +724,14 @@ const StoryPage = () => {
                             </li>
                           ))}
                         </ul>
+                      )}
+
+                      {e.press && e.press.length > 0 && (
+                        <PressCarousel
+                          label={`Press · ${e.year}`}
+                          items={e.press}
+                          onExpand={setExpandedImage}
+                        />
                       )}
                     </div>
                   </Reveal>
