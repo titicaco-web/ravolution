@@ -59,6 +59,7 @@ type Entry = {
   body: string;
   highlight?: boolean;
   carousel?: boolean;
+  mediaRow?: boolean;
   images?: EntryImage[];
   video?: { src: string; title: string; caption?: string; size?: "small" | "thumb"; expandable?: boolean };
   articles?: { label: string; href: string }[];
@@ -302,6 +303,7 @@ const entries: Entry[] = [
     kicker: "A fairer labour market",
     title: "Blatteförmedlingen",
     body: "Founded to widen diversity in the Swedish labour market — showing large employers and municipalities why a workforce that mirrors the population is one that can reach and serve it. Ivan also authored Handbok för invandrade entreprenörer, a handbook for immigrant entrepreneurs.",
+    mediaRow: true,
     images: [
       {
         src: sagerskaAsset.url,
@@ -603,6 +605,47 @@ const PressCarousel = ({
   </div>
 );
 
+/* Miniatyrvideo med klick-förstoring. Används ensam (med marginal) eller
+   inne i en mediarad tillsammans med bilderna. */
+const ThumbVideoFigure = ({
+  video,
+  className = "mt-7 max-w-[230px]",
+  onExpand,
+}: {
+  video: NonNullable<Entry["video"]>;
+  className?: string;
+  onExpand: (video: NonNullable<Entry["video"]>) => void;
+}) => (
+  <figure className={className}>
+    <Button
+      type="button"
+      variant="ghost"
+      aria-label={`Enlarge video — ${video.title}`}
+      onClick={() => video.expandable && onExpand(video)}
+      className="group relative block h-auto w-full overflow-hidden rounded-none border border-white/10 bg-transparent p-0 cursor-zoom-in"
+    >
+      <span className="relative block w-full" style={{ aspectRatio: "16 / 9" }}>
+        <iframe
+          src={video.src}
+          title={video.title}
+          loading="lazy"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerPolicy="strict-origin-when-cross-origin"
+          className="pointer-events-none absolute inset-0 size-full"
+        />
+      </span>
+      <span className="pointer-events-none absolute right-1 top-1 grid size-6 place-items-center bg-primary/85 text-white opacity-70 transition group-hover:opacity-100">
+        <Maximize2 aria-hidden className="size-3.5" />
+      </span>
+    </Button>
+    {video.caption && (
+      <figcaption className="mt-2 font-mono text-[11px] uppercase tracking-[0.12em] text-white/40">
+        {video.caption}
+      </figcaption>
+    )}
+  </figure>
+);
+
 /* Fotosnurra — roterande bildvisning för en post. Roterar automatiskt,
    pausar vid pekare, pilar + punkter, klick öppnar förstoringsfönstret. */
 const EntryCarousel = ({ images, onExpand }: { images: EntryImage[]; onExpand: (image: EntryImage) => void }) => {
@@ -843,7 +886,7 @@ const StoryPage = () => {
                       )}
 
                       {e.images && e.images.length > 0 && !e.carousel && (
-                        <div className={`mt-7 grid max-w-4xl items-start gap-5 ${e.images.length > 1 ? "md:grid-cols-2" : ""}`}>
+                        <div className={`mt-7 max-w-4xl items-start gap-5 ${e.mediaRow ? "flex flex-wrap md:flex-nowrap" : `grid ${e.images.length > 1 ? "md:grid-cols-2" : ""}`}`}>
                           {e.images.map((image) => (
                             <figure
                               key={image.src}
@@ -894,38 +937,14 @@ const StoryPage = () => {
                               )}
                             </figure>
                           ))}
+                          {e.mediaRow && e.video && e.video.size === "thumb" && (
+                            <ThumbVideoFigure video={e.video} className="max-w-[230px]" onExpand={setExpandedVideo} />
+                          )}
                         </div>
                       )}
 
-                      {e.video && e.video.size === "thumb" && (
-                        <figure className="mt-7 max-w-[230px]">
-                          <Button
-                            type="button"
-                            variant="ghost"
-                            aria-label={`Enlarge video — ${e.video.title}`}
-                            onClick={() => e.video?.expandable && setExpandedVideo(e.video)}
-                            className="group relative block h-auto w-full overflow-hidden rounded-none border border-white/10 bg-transparent p-0 cursor-zoom-in"
-                          >
-                            <span className="relative block w-full" style={{ aspectRatio: "16 / 9" }}>
-                              <iframe
-                                src={e.video.src}
-                                title={e.video.title}
-                                loading="lazy"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                referrerPolicy="strict-origin-when-cross-origin"
-                                className="pointer-events-none absolute inset-0 size-full"
-                              />
-                            </span>
-                            <span className="pointer-events-none absolute right-1 top-1 grid size-6 place-items-center bg-primary/85 text-white opacity-70 transition group-hover:opacity-100">
-                              <Maximize2 aria-hidden className="size-3.5" />
-                            </span>
-                          </Button>
-                          {e.video.caption && (
-                            <figcaption className="mt-2 font-mono text-[11px] uppercase tracking-[0.12em] text-white/40">
-                              {e.video.caption}
-                            </figcaption>
-                          )}
-                        </figure>
+                      {e.video && e.video.size === "thumb" && !e.mediaRow && (
+                        <ThumbVideoFigure video={e.video} onExpand={setExpandedVideo} />
                       )}
 
                       {e.video && e.video.size !== "thumb" && (
