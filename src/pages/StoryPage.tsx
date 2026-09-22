@@ -215,11 +215,6 @@ const pressJobb: PressItem[] = [
       { src: pressDise110127.url, alt: "di.se gästkrönika 27 januari 2011 — Paragrafryttarna kom på besök av Ivan Daza" },
     ],
   },
-  {
-    source: "di.se · Gästkrönikor, 2010–2011",
-    title: "Återkommande krönikör",
-    body: "Utom ovanstående skrev Ivan Daza en rad krönikor på di.se — bl.a. \u201CDen ljusnande framtid är vår\u201D, \u201CVärlden måste komma i balans\u201D och \u201CSå blir du en framgångsrik företagare\u201D.",
-  },
 ];
 
 const entries: Entry[] = [
