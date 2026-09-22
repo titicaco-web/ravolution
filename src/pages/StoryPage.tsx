@@ -590,6 +590,97 @@ const PressCarousel = ({
   </div>
 );
 
+/* Fotosnurra — roterande bildvisning för en post. Roterar automatiskt,
+   pausar vid pekare, pilar + punkter, klick öppnar förstoringsfönstret. */
+const EntryCarousel = ({ images, onExpand }: { images: EntryImage[]; onExpand: (image: EntryImage) => void }) => {
+  const [index, setIndex] = useState(0);
+  const [paused, setPaused] = useState(false);
+
+  useEffect(() => {
+    if (paused || images.length < 2) return;
+    const timer = window.setInterval(() => {
+      setIndex((current) => (current + 1) % images.length);
+    }, 4500);
+    return () => window.clearInterval(timer);
+  }, [paused, images.length]);
+
+  const current = images[index] ?? images[0];
+  if (!current) return null;
+  const multiple = images.length > 1;
+
+  return (
+    <figure className="group relative mt-7 w-full max-w-md" onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)}>
+      <div className="relative overflow-hidden border border-white/10">
+        {images.map((image, i) => (
+          <img
+            key={image.src}
+            src={image.src}
+            alt={i === index ? image.alt : ""}
+            aria-hidden={i !== index}
+            loading="lazy"
+            className={`w-full transition-opacity duration-700 ${
+              i === index ? "relative opacity-100" : "absolute inset-0 size-full object-cover opacity-0"
+            }`}
+          />
+        ))}
+        <Button
+          type="button"
+          variant="ghost"
+          aria-label={`Enlarge ${current.alt}`}
+          onClick={() => onExpand(current)}
+          className="absolute inset-0 z-[1] h-full w-full cursor-zoom-in rounded-none bg-transparent p-0"
+        />
+        <span className="pointer-events-none absolute right-2 top-2 z-[2] grid size-8 place-items-center bg-primary/85 text-white opacity-80 transition group-hover:opacity-100">
+          <Maximize2 aria-hidden className="size-4" />
+        </span>
+        {multiple && (
+          <>
+            <button
+              type="button"
+              aria-label="Previous photo"
+              onClick={() => setIndex((i) => (i - 1 + images.length) % images.length)}
+              className="absolute left-0 top-1/2 z-[3] grid size-9 -translate-y-1/2 place-items-center bg-primary/70 text-white opacity-0 transition hover:bg-primary group-hover:opacity-100"
+            >
+              <ChevronLeft aria-hidden className="size-4" />
+            </button>
+            <button
+              type="button"
+              aria-label="Next photo"
+              onClick={() => setIndex((i) => (i + 1) % images.length)}
+              className="absolute right-0 top-1/2 z-[3] grid size-9 -translate-y-1/2 place-items-center bg-primary/70 text-white opacity-0 transition hover:bg-primary group-hover:opacity-100"
+            >
+              <ChevronRight aria-hidden className="size-4" />
+            </button>
+            <span className="absolute bottom-2 right-2 z-[2] bg-primary/85 px-2 py-0.5 font-mono text-[10px] tracking-[0.14em] text-white/80">
+              {index + 1} / {images.length}
+            </span>
+          </>
+        )}
+      </div>
+      {current.caption && (
+        <figcaption className="mt-2 font-mono text-[11px] uppercase tracking-[0.12em] text-white/40">
+          {current.caption}
+        </figcaption>
+      )}
+      {multiple && (
+        <div className="mt-2 flex gap-1.5" role="tablist" aria-label="Photos">
+          {images.map((image, i) => (
+            <button
+              key={image.src}
+              type="button"
+              role="tab"
+              aria-selected={i === index}
+              aria-label={`Photo ${i + 1} of ${images.length}`}
+              onClick={() => setIndex(i)}
+              className={`h-[3px] w-8 transition-colors ${i === index ? "bg-gold" : "bg-white/20 hover:bg-white/40"}`}
+            />
+          ))}
+        </div>
+      )}
+    </figure>
+  );
+};
+
 const StoryPage = () => {
   const lp = useLangPath();
   const railRef = useRef<HTMLDivElement>(null);
@@ -734,7 +825,11 @@ const StoryPage = () => {
                       </h2>
                       <p className="edit-body text-white/60 mt-4 max-w-2xl">{e.body}</p>
 
-                      {e.images && e.images.length > 0 && (
+                      {e.carousel && e.images && e.images.length > 0 && (
+                        <EntryCarousel images={e.images} onExpand={setExpandedImage} />
+                      )}
+
+                      {e.images && e.images.length > 0 && !e.carousel && (
                         <div className={`mt-7 grid max-w-4xl items-start gap-5 ${e.images.length > 1 ? "md:grid-cols-2" : ""}`}>
                           {e.images.map((image) => (
                             <figure
