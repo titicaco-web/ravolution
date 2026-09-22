@@ -158,6 +158,9 @@ const pressBlatte: PressItem[] = [
     source: "Fjärrvärmetidningen · nr 8, dec 2008",
     title: "Framtidens tekniker finns på Blatteförmedlingen",
     body: "Om kompetensförsörjning: cirka 7 000 kandidater i databasen, och rekrytering av bl.a. starkströmsingenjörer från Polen och Ungern till svensk energibransch.",
+    images: [
+      { src: pressFjarr0812.url, alt: "Fjärrvärmetidningen nr 8 december 2008 — Framtidens tekniker finns på Blatteförmedlingen, med illustration av Ivan Daza" },
+    ],
   },
   {
     source: "Bok · \u201DNäringslivet och den offentliga sektorn\u201D · ~2005",
@@ -167,7 +170,10 @@ const pressBlatte: PressItem[] = [
   {
     source: "SVT Debatt · tv-medverkan",
     title: "Medverkan i SVT:s debattprogram",
-    body: "Ivan Daza medverkar i SVT Debatt.",
+    body: "Ivan Daza i publiken i SVT:s debattprogram, i diskussion om arbetsmarknad och integration.",
+    images: [
+      { src: pressSvtDebatt.url, alt: "Stillbild från SVT Debatt — Ivan Daza tar ordet i publiken" },
+    ],
   },
 ];
 
