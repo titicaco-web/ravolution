@@ -2,8 +2,18 @@ import { useEffect, useRef, useState } from "react";
 import { Helmet } from "@/lib/helmet-compat";
 import { EditorialShell, Reveal } from "@/components/editorial/EditorialLayout";
 import { useLangPath } from "@/hooks/use-lang-path";
+import museumAsset from "@/assets/ivan-daza-ekonomiska-museet-2014.png.asset.json";
+import gasellAsset from "@/assets/blatteformedlingen-di-gasell-2012.png.asset.json";
+import sagerskaAsset from "@/assets/ivan-daza-sagerska-palatset.png.asset.json";
+import littorinAsset from "@/assets/ivan-daza-sven-otto-littorin.png.asset.json";
 
-/** Timeline entry. `image` and `articles` are optional — add them later without touching layout code. */
+type EntryImage = {
+  src: string;
+  alt: string;
+  caption?: string;
+  hoverText?: string;
+};
+
 type Entry = {
   year: string;
   sortYear: number;
@@ -11,7 +21,7 @@ type Entry = {
   title: string;
   body: string;
   highlight?: boolean;
-  image?: { src: string; alt: string; caption?: string };
+  images?: EntryImage[];
   articles?: { label: string; href: string }[];
 };
 
@@ -52,7 +62,7 @@ const entries: Entry[] = [
     body: "An e-democracy platform letting Swedish municipalities run rådslag — citizen consultations — and lowering the barrier to reach the participation threshold needed to put a question to the public.",
   },
   {
-    year: "2005",
+    year: "2005–10",
     sortYear: 2005,
     kicker: "After the wave",
     title: "Phi Phi Island Foundation",
@@ -64,6 +74,22 @@ const entries: Entry[] = [
     kicker: "A fairer labour market",
     title: "Blatteförmedlingen",
     body: "Founded to widen diversity in the Swedish labour market — showing large employers and municipalities why a workforce that mirrors the population is one that can reach and serve it. Ivan also authored Handbok för invandrade entreprenörer, a handbook for immigrant entrepreneurs.",
+    images: [
+      {
+        src: sagerskaAsset.url,
+        alt: "Ivan Daza and fellow entrepreneurs with Prime Minister Fredrik Reinfeldt at Sagerska Palace",
+        caption: "Statsministerbesök på Sagerska Palatset",
+        hoverText:
+          "Som VD och grundare av Blatteförmedlingen blev jag med kollega inbjuden av dåvarande statsminister Fredrik Reinfeldt till Sagerska palatset under Första Advent, tillsammans med en rad andra entreprenörer. Sagerska palatset är Sveriges statsministers officiella residens, beläget i centrala Stockholm.",
+      },
+      {
+        src: littorinAsset.url,
+        alt: "Ivan Daza with former labour-market minister Sven Otto Littorin at Blatteförmedlingen",
+        caption: "Uppmärksammad i Uppdrag arbete",
+        hoverText:
+          "Även uppmärksammad i dåvarande arbetsmarknadsminister Sven Otto Littorins bok: Uppdrag arbete.",
+      },
+    ],
   },
   {
     year: "2008",
@@ -86,6 +112,15 @@ const entries: Entry[] = [
     title: "DI Gasell",
     body: "Blatteförmedlingen is named a Gasell company by Dagens Industri — the second fastest-growing company in the Stockholm region, built on 450% revenue growth over three years and partnerships with 12 public agencies and 200+ employers. Former labour-market minister Sven Otto Littorin credited it with showing \u201Cthe power of diversity in Swedish business.\u201D",
     highlight: true,
+    images: [
+      {
+        src: gasellAsset.url,
+        alt: "Dagens Industri clipping listing Blatteförmedlingen among Stockholm's 2012 Gasell companies",
+        caption: "Dagens Industri · Gasellföretag 2012",
+        hoverText:
+          "Gasellföretag 2012: Blatteförmedlingen\n\nSom VD för Blatteförmedlingen ledde Ivan Daza bolaget till att bli utsett till Gasellföretag av Dagens Industri 2012 – en utmärkelse för exceptionell tillväxt och hållbarhet.",
+      },
+    ],
   },
   {
     year: "2014",
@@ -94,6 +129,19 @@ const entries: Entry[] = [
     title: "A place in entrepreneurial history",
     body: "Blatteförmedlingen and Ivan's work for inclusion are featured in the Economy Museum's (Kungliga Myntkabinettet) exhibition Entreprenörskapande, shown 2014–2017 — the museum's profile of the entrepreneurs who shaped Swedish society, alongside Ingvar Kamprad and Jan Stenbeck.",
     highlight: true,
+    images: [
+      {
+        src: museumAsset.url,
+        alt: "Ivan Daza featured in the Economy Museum exhibition about entrepreneurship",
+        caption: "Ekonomiska museet · Utställning om entreprenörskap · 2014–2017",
+      },
+    ],
+    articles: [
+      {
+        label: "View the Economy Museum exhibition",
+        href: "https://ekonomiskamuseet.se/utstallningar/tidigare-utstallningar/utstallning-om-entreprenorskap/",
+      },
+    ],
   },
   {
     year: "2015",
@@ -205,8 +253,13 @@ const timelineJsonLd = {
   itemListElement: entries.map((e, i) => ({
     "@type": "ListItem",
     position: i + 1,
-    name: `${e.year} — ${e.title}`,
-    description: e.body,
+    item: {
+      "@type": "CreativeWork",
+      name: `${e.year} — ${e.title}`,
+      description: e.body,
+      ...(e.images?.[0] ? { image: `https://ravolution.se${e.images[0].src}` } : {}),
+      ...(e.articles?.[0] ? { url: e.articles[0].href } : {}),
+    },
   })),
 };
 
@@ -335,20 +388,34 @@ const StoryPage = () => {
                       </h2>
                       <p className="edit-body text-white/60 mt-4 max-w-2xl">{e.body}</p>
 
-                      {e.image && (
-                        <figure className="mt-6 max-w-2xl">
-                          <img
-                            src={e.image.src}
-                            alt={e.image.alt}
-                            loading="lazy"
-                            className="w-full border border-white/10"
-                          />
-                          {e.image.caption && (
-                            <figcaption className="font-mono text-[11px] tracking-[0.12em] uppercase text-white/40 mt-2">
-                              {e.image.caption}
-                            </figcaption>
-                          )}
-                        </figure>
+                      {e.images && e.images.length > 0 && (
+                        <div className={`mt-7 grid max-w-4xl gap-5 ${e.images.length > 1 ? "md:grid-cols-2" : ""}`}>
+                          {e.images.map((image) => (
+                            <figure key={image.src} className="group">
+                              <div className="relative overflow-hidden border border-white/10 bg-primary">
+                                <img
+                                  src={image.src}
+                                  alt={image.alt}
+                                  title={image.hoverText}
+                                  loading="lazy"
+                                  className="aspect-[16/10] w-full object-cover transition duration-500 group-hover:scale-[1.015]"
+                                />
+                                {image.hoverText && (
+                                  <div className="absolute inset-0 flex items-end bg-primary/0 p-5 opacity-0 transition duration-300 group-hover:bg-primary/90 group-hover:opacity-100 group-focus-within:bg-primary/90 group-focus-within:opacity-100">
+                                    <p className="whitespace-pre-line text-sm leading-relaxed text-white">
+                                      {image.hoverText}
+                                    </p>
+                                  </div>
+                                )}
+                              </div>
+                              {image.caption && (
+                                <figcaption className="mt-2 font-mono text-[11px] uppercase tracking-[0.12em] text-white/40">
+                                  {image.caption}
+                                </figcaption>
+                              )}
+                            </figure>
+                          ))}
+                        </div>
                       )}
 
                       {e.articles && e.articles.length > 0 && (
