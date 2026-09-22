@@ -487,6 +487,27 @@ const StoryPage = () => {
                         </div>
                       )}
 
+                      {e.video && (
+                        <figure className="mt-7 max-w-3xl">
+                          <div className="relative w-full overflow-hidden border border-white/10" style={{ aspectRatio: "16 / 9" }}>
+                            <iframe
+                              src={e.video.src}
+                              title={e.video.title}
+                              loading="lazy"
+                              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                              referrerPolicy="strict-origin-when-cross-origin"
+                              allowFullScreen
+                              className="absolute inset-0 size-full"
+                            />
+                          </div>
+                          {e.video.caption && (
+                            <figcaption className="mt-2 font-mono text-[11px] uppercase tracking-[0.12em] text-white/40">
+                              {e.video.caption}
+                            </figcaption>
+                          )}
+                        </figure>
+                      )}
+
                       {e.articles && e.articles.length > 0 && (
                         <ul className="mt-5 flex flex-wrap gap-x-6 gap-y-2">
                           {e.articles.map((a) => (
