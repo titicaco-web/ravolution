@@ -3,8 +3,10 @@ import { Helmet } from "@/lib/helmet-compat";
 import { EditorialShell, Reveal } from "@/components/editorial/EditorialLayout";
 import { Button } from "@/components/ui/button";
 import { useLangPath } from "@/hooks/use-lang-path";
-import { Maximize2, X } from "lucide-react";
+import { ChevronLeft, ChevronRight, Maximize2, X } from "lucide-react";
 import museumAsset from "@/assets/ivan-daza-ekonomiska-museet-2014.png.asset.json";
+import museumEntreAsset from "@/assets/ekonomiska-museet-entre.jpg.asset.json";
+import museumGlobeAsset from "@/assets/ekonomiska-museet-ivan-daza-globe.jpg.asset.json";
 import gasellAsset from "@/assets/blatteformedlingen-di-gasell-2012.png.asset.json";
 import sagerskaAsset from "@/assets/ivan-daza-sagerska-palatset.png.asset.json";
 import littorinAsset from "@/assets/ivan-daza-sven-otto-littorin.png.asset.json";
@@ -55,6 +57,7 @@ type Entry = {
   title: string;
   body: string;
   highlight?: boolean;
+  carousel?: boolean;
   images?: EntryImage[];
   video?: { src: string; title: string; caption?: string; size?: "small" | "thumb"; expandable?: boolean };
   articles?: { label: string; href: string }[];
@@ -376,7 +379,22 @@ const entries: Entry[] = [
         thumbnail: "medium",
         expandable: true,
       },
+      {
+        src: museumEntreAsset.url,
+        alt: "Entrance sign for the Entreprenörskapande exhibition at the Royal Coin Cabinet, Economy Museum",
+        caption: "Kungl. Myntkabinettet · Utställningen Entreprenörskapande · 2014–2017",
+        thumbnail: "medium",
+        expandable: true,
+      },
+      {
+        src: museumGlobeAsset.url,
+        alt: "Exhibition globe profiling Ivan Daza — born 1969, South America in Sweden",
+        caption: "Ekonomiska museet · Ivan Daza · Född 1969 · Sydamerika i Sverige",
+        thumbnail: "medium",
+        expandable: true,
+      },
     ],
+    carousel: true,
     articles: [
       {
         label: "View the Economy Museum exhibition",
