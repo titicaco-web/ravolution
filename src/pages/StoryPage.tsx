@@ -9,6 +9,8 @@ import museumEntreAsset from "@/assets/ekonomiska-museet-entre.jpg.asset.json";
 import museumGlobeAsset from "@/assets/ekonomiska-museet-ivan-daza-globe.jpg.asset.json";
 import yunusAsset from "@/assets/yunus-ivan-daza.jpg.asset.json";
 import gasellAsset from "@/assets/blatteformedlingen-di-gasell-2012.png.asset.json";
+import trumpSigningAsset from "@/assets/trump-ny-2011-signing.jpg.asset.json";
+import trumpMouseoverAsset from "@/assets/trump-ny-2011-mouseover.jpg.asset.json";
 import sagerskaAsset from "@/assets/ivan-daza-sagerska-palatset.png.asset.json";
 import littorinAsset from "@/assets/ivan-daza-sven-otto-littorin.png.asset.json";
 import pressHandel1 from "@/assets/press-handelskammartidningen-2006-p1.jpg.asset.json";
@@ -37,6 +39,8 @@ type EntryImage = {
   alt: string;
   caption?: string;
   hoverText?: string;
+  hoverSrc?: string;
+  protect?: boolean;
   fit?: "cover" | "contain";
   thumbnail?: "small" | "medium";
   expandable?: boolean;
@@ -58,6 +62,7 @@ type Entry = {
   kicker: string;
   title: string;
   body: string;
+  note?: string;
   highlight?: boolean;
   carousel?: boolean;
   mediaRow?: boolean;
@@ -356,7 +361,17 @@ const entries: Entry[] = [
     title: "DI Gasell",
     body: "Blatteförmedlingen is named a Gasell company by Dagens Industri — the second fastest-growing company in the Stockholm region, built on 450% revenue growth over three years and partnerships with 12 public agencies and 200+ employers. Former labour-market minister Sven Otto Littorin credited it with showing \u201Cthe power of diversity in Swedish business.\u201D",
     highlight: true,
+    mediaRow: true,
     images: [
+      {
+        src: trumpSigningAsset.url,
+        alt: "Ivan Daza pitching the Titicaco saga to Donald Trump as he signs a book at Trump Tower, New York, December 2011",
+        caption: "Pitching the Titicaco saga to Donald Trump — New York, 19 December 2011.",
+        hoverSrc: trumpMouseoverAsset.url,
+        thumbnail: "small",
+        expandable: true,
+        protect: true,
+      },
       {
         src: gasellAsset.url,
         alt: "Dagens Industri clipping listing Blatteförmedlingen among Stockholm's 2012 Gasell companies",
