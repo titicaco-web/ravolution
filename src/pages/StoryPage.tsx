@@ -42,6 +42,7 @@ type EntryImage = {
   hoverSrc?: string;
   protect?: boolean;
   fit?: "cover" | "contain";
+  objectPosition?: string;
   thumbnail?: "small" | "medium";
   expandable?: boolean;
 };
@@ -379,7 +380,8 @@ const entries: Entry[] = [
         src: gasellAsset.url,
         alt: "Dagens Industri clipping listing Blatteförmedlingen among Stockholm's 2012 Gasell companies",
         caption: "Dagens Industri · Gasellföretag 2012",
-        fit: "contain",
+        fit: "cover",
+        objectPosition: "top",
         thumbnail: "small",
         expandable: true,
         hoverText:
@@ -949,6 +951,7 @@ const StoryPage = () => {
                                     onContextMenu={
                                       image.protect ? (event) => event.preventDefault() : undefined
                                     }
+                                    style={image.objectPosition ? { objectPosition: image.objectPosition } : undefined}
                                     className={`w-full select-none transition duration-500 group-hover:scale-[1.015] ${
                                       image.fit === "contain"
                                         ? "h-auto object-contain"
