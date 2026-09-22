@@ -42,6 +42,7 @@ type EntryImage = {
   hoverSrc?: string;
   protect?: boolean;
   fit?: "cover" | "contain";
+  objectPosition?: string;
   thumbnail?: "small" | "medium";
   expandable?: boolean;
 };
