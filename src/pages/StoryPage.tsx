@@ -7,6 +7,7 @@ import { ArrowUpRight, ChevronLeft, ChevronRight, Maximize2, X } from "lucide-re
 import museumAsset from "@/assets/ivan-daza-ekonomiska-museet-2014.png.asset.json";
 import museumEntreAsset from "@/assets/ekonomiska-museet-entre.jpg.asset.json";
 import museumGlobeAsset from "@/assets/ekonomiska-museet-ivan-daza-globe.jpg.asset.json";
+import yunusAsset from "@/assets/yunus-ivan-daza.jpg.asset.json";
 import gasellAsset from "@/assets/blatteformedlingen-di-gasell-2012.png.asset.json";
 import sagerskaAsset from "@/assets/ivan-daza-sagerska-palatset.png.asset.json";
 import littorinAsset from "@/assets/ivan-daza-sven-otto-littorin.png.asset.json";
