@@ -8,6 +8,7 @@ import museumAsset from "@/assets/ivan-daza-ekonomiska-museet-2014.png.asset.jso
 import museumEntreAsset from "@/assets/ekonomiska-museet-entre.jpg.asset.json";
 import museumGlobeAsset from "@/assets/ekonomiska-museet-ivan-daza-globe.jpg.asset.json";
 import yunusAsset from "@/assets/yunus-ivan-daza.jpg.asset.json";
+import sachsAsset from "@/assets/jeffrey-sachs-ivan-daza.jpg.asset.json";
 import gasellAsset from "@/assets/blatteformedlingen-di-gasell-2012.png.asset.json";
 import trumpSigningAsset from "@/assets/trump-ny-2011-signing.jpg.asset.json";
 import trumpMouseoverAsset from "@/assets/trump-ny-2011-mouseover.jpg.asset.json";
@@ -295,12 +296,20 @@ const entries: Entry[] = [
     sortYear: 2003,
     kicker: "Education for the world",
     title: "Titicaco Communicaring School™",
-    body: "Nominated best Swedish initiative in the United Nations World Summit Awards in 2003. Titicaco Communicaring School™ shall be part of shaping the future through education and: (1) shall deliver education for basic knowledge, problem solving, sustainable development, entrepreneurship and leadership. (2) Promote understanding, tolerance and friendship among all nations. (3) Use an educational environment consisting of eLearning, eTwinning, eCommunity, eDemocracy and eAdministration tools.",
+    body: "Nominated best Swedish initiative in the United Nations World Summit Awards in 2003. Titicaco Communicaring School™ shall be part of shaping the future through education and: (1) shall deliver education for basic knowledge, problem solving, sustainable development, entrepreneurship and leadership. (2) Promote understanding, tolerance and friendship among all nations. (3) Use an educational environment consisting of eLearning, eTwinning, eCommunity, eDemocracy and eAdministration tools. In June 2009, Ivan presented CommunicaringSchool to development economist Jeffrey Sachs as a solution for global education in rural areas and countries with limited access to schools.",
     images: [
       {
         src: yunusAsset.url,
         alt: "Ivan Daza presenting CommunicaringSchool to Nobel Peace laureate Muhammad Yunus",
         caption: "Presenting CommunicaringSchool to Nobel Peace laureate Muhammad Yunus.",
+        thumbnail: "small",
+        expandable: true,
+        protect: true,
+      },
+      {
+        src: sachsAsset.url,
+        alt: "Ivan Daza presenting CommunicaringSchool to development economist Jeffrey Sachs",
+        caption: "Presenting CommunicaringSchool to Jeffrey Sachs — 11 June 2009.",
         thumbnail: "small",
         expandable: true,
         protect: true,
