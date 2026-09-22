@@ -18,6 +18,7 @@ const Navbar = () => {
     { label: "Missions", href: lp("/#missions") },
     { label: "Systems", href: lp("/portfolio") },
     { label: "IP & Evidence", href: lp("/evidence") },
+    { label: "Story", href: lp("/story") },
     { label: t("nav.founder") || "About", href: lp("/about") },
     { label: "Studio", href: lp("/services") },
     { label: t("nav.investors") || "Invest", href: lp("/invest") },

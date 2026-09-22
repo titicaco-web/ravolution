@@ -19,6 +19,7 @@ import { Route as MetadatamachineRouteImport } from './routes/metadatamachine'
 import { Route as PartnerRouteImport } from './routes/partner'
 import { Route as PartystaRouteImport } from './routes/partysta'
 import { Route as PratisRouteImport } from './routes/pratis'
+import { Route as StoryRouteImport } from './routes/story'
 import { Route as StudioroomRouteImport } from './routes/studioroom'
 import { Route as XportmatchRouteImport } from './routes/xportmatch'
 import { Route as LangIndexRouteImport } from './routes/$lang/index'
@@ -46,6 +47,7 @@ import { Route as LangPratisRouteImport } from './routes/$lang/pratis'
 import { Route as LangPrivacyPolicyRouteImport } from './routes/$lang/privacy-policy'
 import { Route as LangSalesPartnerRouteImport } from './routes/$lang/sales-partner'
 import { Route as LangServicesRouteImport } from './routes/$lang/services'
+import { Route as LangStoryRouteImport } from './routes/$lang/story'
 import { Route as LangStudioroomRouteImport } from './routes/$lang/studioroom'
 import { Route as LangTechnicalCofounderAlternativeRouteImport } from './routes/$lang/technical-cofounder-alternative'
 import { Route as LangTermsOfServiceRouteImport } from './routes/$lang/terms-of-service'
@@ -122,6 +124,11 @@ const PartystaRoute = PartystaRouteImport.update({
 const PratisRoute = PratisRouteImport.update({
   id: '/pratis',
   path: '/pratis',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StoryRoute = StoryRouteImport.update({
+  id: '/story',
+  path: '/story',
   getParentRoute: () => rootRouteImport,
 } as any)
 const StudioroomRoute = StudioroomRouteImport.update({
@@ -258,6 +265,11 @@ const LangSalesPartnerRoute = LangSalesPartnerRouteImport.update({
 const LangServicesRoute = LangServicesRouteImport.update({
   id: '/$lang/services',
   path: '/$lang/services',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LangStoryRoute = LangStoryRouteImport.update({
+  id: '/$lang/story',
+  path: '/$lang/story',
   getParentRoute: () => rootRouteImport,
 } as any)
 const LangStudioroomRoute = LangStudioroomRouteImport.update({
@@ -409,6 +421,7 @@ export interface FileRoutesByFullPath {
   '/partner': typeof PartnerRoute
   '/partysta': typeof PartystaRoute
   '/pratis': typeof PratisRoute
+  '/story': typeof StoryRoute
   '/studioroom': typeof StudioroomRoute
   '/xportmatch': typeof XportmatchRoute
   '/$lang/about': typeof LangAboutRoute
@@ -435,6 +448,7 @@ export interface FileRoutesByFullPath {
   '/$lang/privacy-policy': typeof LangPrivacyPolicyRoute
   '/$lang/sales-partner': typeof LangSalesPartnerRoute
   '/$lang/services': typeof LangServicesRoute
+  '/$lang/story': typeof LangStoryRoute
   '/$lang/studioroom': typeof LangStudioroomRoute
   '/$lang/technical-cofounder-alternative': typeof LangTechnicalCofounderAlternativeRoute
   '/$lang/terms-of-service': typeof LangTermsOfServiceRoute
@@ -475,6 +489,7 @@ export interface FileRoutesByTo {
   '/partner': typeof PartnerRoute
   '/partysta': typeof PartystaRoute
   '/pratis': typeof PratisRoute
+  '/story': typeof StoryRoute
   '/studioroom': typeof StudioroomRoute
   '/xportmatch': typeof XportmatchRoute
   '/$lang/about': typeof LangAboutRoute
@@ -501,6 +516,7 @@ export interface FileRoutesByTo {
   '/$lang/privacy-policy': typeof LangPrivacyPolicyRoute
   '/$lang/sales-partner': typeof LangSalesPartnerRoute
   '/$lang/services': typeof LangServicesRoute
+  '/$lang/story': typeof LangStoryRoute
   '/$lang/studioroom': typeof LangStudioroomRoute
   '/$lang/technical-cofounder-alternative': typeof LangTechnicalCofounderAlternativeRoute
   '/$lang/terms-of-service': typeof LangTermsOfServiceRoute
@@ -542,6 +558,7 @@ export interface FileRoutesById {
   '/partner': typeof PartnerRoute
   '/partysta': typeof PartystaRoute
   '/pratis': typeof PratisRoute
+  '/story': typeof StoryRoute
   '/studioroom': typeof StudioroomRoute
   '/xportmatch': typeof XportmatchRoute
   '/$lang/about': typeof LangAboutRoute
@@ -568,6 +585,7 @@ export interface FileRoutesById {
   '/$lang/privacy-policy': typeof LangPrivacyPolicyRoute
   '/$lang/sales-partner': typeof LangSalesPartnerRoute
   '/$lang/services': typeof LangServicesRoute
+  '/$lang/story': typeof LangStoryRoute
   '/$lang/studioroom': typeof LangStudioroomRoute
   '/$lang/technical-cofounder-alternative': typeof LangTechnicalCofounderAlternativeRoute
   '/$lang/terms-of-service': typeof LangTermsOfServiceRoute
@@ -610,6 +628,7 @@ export interface FileRouteTypes {
     | '/partner'
     | '/partysta'
     | '/pratis'
+    | '/story'
     | '/studioroom'
     | '/xportmatch'
     | '/$lang/about'
@@ -636,6 +655,7 @@ export interface FileRouteTypes {
     | '/$lang/privacy-policy'
     | '/$lang/sales-partner'
     | '/$lang/services'
+    | '/$lang/story'
     | '/$lang/studioroom'
     | '/$lang/technical-cofounder-alternative'
     | '/$lang/terms-of-service'
@@ -676,6 +696,7 @@ export interface FileRouteTypes {
     | '/partner'
     | '/partysta'
     | '/pratis'
+    | '/story'
     | '/studioroom'
     | '/xportmatch'
     | '/$lang/about'
@@ -702,6 +723,7 @@ export interface FileRouteTypes {
     | '/$lang/privacy-policy'
     | '/$lang/sales-partner'
     | '/$lang/services'
+    | '/$lang/story'
     | '/$lang/studioroom'
     | '/$lang/technical-cofounder-alternative'
     | '/$lang/terms-of-service'
@@ -742,6 +764,7 @@ export interface FileRouteTypes {
     | '/partner'
     | '/partysta'
     | '/pratis'
+    | '/story'
     | '/studioroom'
     | '/xportmatch'
     | '/$lang/about'
@@ -768,6 +791,7 @@ export interface FileRouteTypes {
     | '/$lang/privacy-policy'
     | '/$lang/sales-partner'
     | '/$lang/services'
+    | '/$lang/story'
     | '/$lang/studioroom'
     | '/$lang/technical-cofounder-alternative'
     | '/$lang/terms-of-service'
@@ -809,6 +833,7 @@ export interface RootRouteChildren {
   PartnerRoute: typeof PartnerRoute
   PartystaRoute: typeof PartystaRoute
   PratisRoute: typeof PratisRoute
+  StoryRoute: typeof StoryRoute
   StudioroomRoute: typeof StudioroomRoute
   XportmatchRoute: typeof XportmatchRoute
   LangAboutRoute: typeof LangAboutRoute
@@ -835,6 +860,7 @@ export interface RootRouteChildren {
   LangPrivacyPolicyRoute: typeof LangPrivacyPolicyRoute
   LangSalesPartnerRoute: typeof LangSalesPartnerRoute
   LangServicesRoute: typeof LangServicesRoute
+  LangStoryRoute: typeof LangStoryRoute
   LangStudioroomRoute: typeof LangStudioroomRoute
   LangTechnicalCofounderAlternativeRoute: typeof LangTechnicalCofounderAlternativeRoute
   LangTermsOfServiceRoute: typeof LangTermsOfServiceRoute
@@ -935,6 +961,13 @@ declare module '@tanstack/react-router' {
       path: '/pratis'
       fullPath: '/pratis'
       preLoaderRoute: typeof PratisRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/story': {
+      id: '/story'
+      path: '/story'
+      fullPath: '/story'
+      preLoaderRoute: typeof StoryRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/studioroom': {
@@ -1124,6 +1157,13 @@ declare module '@tanstack/react-router' {
       path: '/$lang/services'
       fullPath: '/$lang/services'
       preLoaderRoute: typeof LangServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/$lang/story': {
+      id: '/$lang/story'
+      path: '/$lang/story'
+      fullPath: '/$lang/story'
+      preLoaderRoute: typeof LangStoryRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/$lang/studioroom': {
@@ -1329,6 +1369,7 @@ const rootRouteChildren: RootRouteChildren = {
   PartnerRoute: PartnerRoute,
   PartystaRoute: PartystaRoute,
   PratisRoute: PratisRoute,
+  StoryRoute: StoryRoute,
   StudioroomRoute: StudioroomRoute,
   XportmatchRoute: XportmatchRoute,
   LangAboutRoute: LangAboutRoute,
@@ -1355,6 +1396,7 @@ const rootRouteChildren: RootRouteChildren = {
   LangPrivacyPolicyRoute: LangPrivacyPolicyRoute,
   LangSalesPartnerRoute: LangSalesPartnerRoute,
   LangServicesRoute: LangServicesRoute,
+  LangStoryRoute: LangStoryRoute,
   LangStudioroomRoute: LangStudioroomRoute,
   LangTechnicalCofounderAlternativeRoute:
     LangTechnicalCofounderAlternativeRoute,
