@@ -1131,7 +1131,20 @@ const StoryPage = () => {
             </Reveal>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-white/10 mt-12">
               {studioProjects.map((p) => (
-                <article key={p.name} className="bg-primary p-6">
+                <article key={p.name} className="bg-primary p-6 flex flex-col">
+                  {p.image && (
+                    <figure className="-mx-6 -mt-6 mb-6">
+                      <img
+                        src={p.image}
+                        alt={p.imageAlt}
+                        loading="lazy"
+                        className="w-full aspect-[4/3] object-cover"
+                      />
+                      <figcaption className="px-6 pt-3 pb-1 font-mono text-[11px] leading-relaxed tracking-[0.08em] uppercase text-white/50">
+                        {p.imageCaption}
+                      </figcaption>
+                    </figure>
+                  )}
                   <h3 className="flex items-center gap-3 text-lg font-display font-bold uppercase tracking-tight text-white">
                     <span aria-hidden className="w-1.5 h-1.5 rounded-full bg-gold" />
                     {p.name}
