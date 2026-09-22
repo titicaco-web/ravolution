@@ -67,14 +67,14 @@ const entries: Entry[] = [
     body: "An e-democracy platform letting Swedish municipalities run rådslag — citizen consultations — and lowering the barrier to reach the participation threshold needed to put a question to the public.",
   },
   {
-    year: "2005–10",
+    year: "2005",
     sortYear: 2005,
     kicker: "After the wave",
     title: "Phi Phi Island Foundation",
     body: "Head of Operations after the tsunami. Built an internet school for children in a survival camp in Krabi and stood up microloan operations — interviewing around 100 families under Johan Staël von Holstein's foundation.",
   },
   {
-    year: "2005",
+    year: "2005–10",
     sortYear: 2005,
     kicker: "A fairer labour market",
     title: "Blatteförmedlingen",
@@ -97,7 +97,7 @@ const entries: Entry[] = [
     ],
   },
   {
-    year: "2008",
+    year: "2008–2015",
     sortYear: 2008,
     kicker: "Back to work",
     title: "Jobbfabriken",
