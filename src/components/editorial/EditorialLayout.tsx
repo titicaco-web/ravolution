@@ -221,12 +221,12 @@ export const EditorialNav = () => {
 
           <div className="flex items-center gap-4">
             <div className="hidden md:block"><LanguageSwitcher /></div>
-            <a
-              href="mailto:ivan.daza@ravolution.se?subject=Private%20briefing%20request"
+            <Link
+              to={lp("/contact")}
               className="edit-label hidden lg:inline-flex text-[hsl(var(--accent-edit))] border border-[hsl(var(--accent-edit))] px-4 py-2 hover:bg-[hsl(var(--accent-edit))] hover:text-black transition-colors"
             >
               Private briefing →
-            </a>
+            </Link>
             <button
               onClick={() => setOpen(true)}
               className="edit-label text-white border border-white/30 px-4 py-2 hover:bg-white hover:text-black transition-colors"
