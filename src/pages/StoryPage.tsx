@@ -3,7 +3,7 @@ import { Helmet } from "@/lib/helmet-compat";
 import { EditorialShell, Reveal } from "@/components/editorial/EditorialLayout";
 import { Button } from "@/components/ui/button";
 import { useLangPath } from "@/hooks/use-lang-path";
-import { ChevronLeft, ChevronRight, Maximize2, X } from "lucide-react";
+import { ArrowUpRight, ChevronLeft, ChevronRight, Maximize2, X } from "lucide-react";
 import museumAsset from "@/assets/ivan-daza-ekonomiska-museet-2014.png.asset.json";
 import museumEntreAsset from "@/assets/ekonomiska-museet-entre.jpg.asset.json";
 import museumGlobeAsset from "@/assets/ekonomiska-museet-ivan-daza-globe.jpg.asset.json";
@@ -47,6 +47,7 @@ type PressItem = {
   source: string;
   title: string;
   body: string;
+  href?: string;
   images?: PressImage[];
 };
 
@@ -206,6 +207,7 @@ const pressJobb: PressItem[] = [
     source: "di.se · Gästkrönika, 24 nov 2010",
     title: "Invandrare kan lyfta svensk export",
     body: "Ivan Daza som gästkrönikör: att svenska exportföretag underutnyttjar invandrares kompetens och nätverk för att nå nya marknader.",
+    href: "https://www.di.se/artiklar/2010/11/15/gastkronika-invandrare-kan-lyfta-svensk-export/",
     images: [
       { src: pressDise101124.url, alt: "di.se gästkrönika 24 november 2010 — Invandrare kan lyfta svensk export av Ivan Daza" },
     ],
@@ -559,6 +561,17 @@ const PressCarousel = ({
             {item.title}
           </h3>
           <p className="edit-body text-white/60 text-sm mt-2 flex-1">{item.body}</p>
+          {item.href && (
+            <a
+              href={item.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-4 inline-flex items-center gap-1.5 edit-label text-white/70 underline decoration-gold/60 underline-offset-4 transition hover:text-gold hover:decoration-gold"
+            >
+              Read the article
+              <ArrowUpRight aria-hidden className="size-3.5" />
+            </a>
+          )}
           {item.images && item.images.length > 0 && (
             <div className="mt-4 flex gap-3">
               {item.images.map((img) => (
