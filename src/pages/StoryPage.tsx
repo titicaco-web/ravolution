@@ -476,6 +476,14 @@ const recognition = [
 ];
 
 const studioProjects = [
+  {
+    name: "CommunicaringSchool",
+    sector: "Education",
+    body: "The patented education platform, born as Titicaco Communicaring School™ in 2003 — Ravolution positions it in K1–K9 education, aligned with the UN Convention on the Rights of the Child.",
+    image: yunusAsset.url,
+    imageAlt: "Ivan Daza presenting CommunicaringSchool to Nobel Peace laureate Muhammad Yunus",
+    imageCaption: "Presenting CommunicaringSchool to Nobel Peace laureate Muhammad Yunus.",
+  },
   { name: "Singuistic", sector: "Language", body: "Spotify-synced language learning that turns any song into a live lesson, one line at a time." },
   { name: "iApply", sector: "Work", body: "Candidate-first recruitment platform with AI matching between people and roles." },
   { name: "VoiceProtector", sector: "Trust & security", body: "Voice authentication and anti-deepfake architecture for a world of synthetic speech." },
