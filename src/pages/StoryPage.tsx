@@ -58,6 +58,7 @@ type Entry = {
   images?: EntryImage[];
   video?: { src: string; title: string; caption?: string; size?: "small" };
   articles?: { label: string; href: string }[];
+  linkStyle?: "button";
   press?: PressItem[];
 };
 
