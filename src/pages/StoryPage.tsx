@@ -27,6 +27,7 @@ type Entry = {
   body: string;
   highlight?: boolean;
   images?: EntryImage[];
+  video?: { src: string; title: string; caption?: string };
   articles?: { label: string; href: string }[];
 };
 
@@ -84,7 +85,12 @@ const entries: Entry[] = [
     sortYear: 2005,
     kicker: "After the wave",
     title: "Phi Phi Island Foundation",
-    body: "Head of Operations after the tsunami. Built an internet school for children in a survival camp in Krabi and stood up microloan operations — interviewing around 100 families under Johan Staël von Holstein's foundation.",
+    body: "Head of Operations after the tsunami. Built Titicaco Communicaring School™ — the internet school from 2003 — for children in a survival camp in Krabi, and stood up microloan operations — interviewing around 100 families under Johan Staël von Holstein's foundation.",
+    video: {
+      src: "https://www.youtube.com/embed/W8zL0IV1K3k?si=5lUHyYLDBZYfEWcL",
+      title: "Titicaco Communicaring School i Krabi 2005",
+      caption: "Titicaco Communicaring School™ · Krabi, Thailand · 2005",
+    },
   },
   {
     year: "2005–10",
@@ -479,6 +485,27 @@ const StoryPage = () => {
                             </figure>
                           ))}
                         </div>
+                      )}
+
+                      {e.video && (
+                        <figure className="mt-7 max-w-3xl">
+                          <div className="relative w-full overflow-hidden border border-white/10" style={{ aspectRatio: "16 / 9" }}>
+                            <iframe
+                              src={e.video.src}
+                              title={e.video.title}
+                              loading="lazy"
+                              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                              referrerPolicy="strict-origin-when-cross-origin"
+                              allowFullScreen
+                              className="absolute inset-0 size-full"
+                            />
+                          </div>
+                          {e.video.caption && (
+                            <figcaption className="mt-2 font-mono text-[11px] uppercase tracking-[0.12em] text-white/40">
+                              {e.video.caption}
+                            </figcaption>
+                          )}
+                        </figure>
                       )}
 
                       {e.articles && e.articles.length > 0 && (
