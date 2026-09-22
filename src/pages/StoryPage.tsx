@@ -272,6 +272,17 @@ const entries: Entry[] = [
     title: "Titicaco — The King of the Sea",
     body: "A creative universe begun in 2002: the trilogy Titicaco — The King of the Sea, \u201Cre-writing history as it really was, from the beginning of time to a hundred years from now.\u201D From 2010 it grew into 47 short films with deep-dive companion videos, and the full trilogy and its expanding world now live online.",
     note: "In December 2011, Ivan travelled to New York and pitched the Titicaco saga to Donald Trump.",
+    images: [
+      {
+        src: trumpSigningAsset.url,
+        alt: "Ivan Daza pitching the Titicaco saga to Donald Trump as he signs a book at Trump Tower, New York, December 2011",
+        caption: "Pitching the Titicaco saga to Donald Trump — New York, 19 December 2011.",
+        hoverSrc: trumpMouseoverAsset.url,
+        thumbnail: "small",
+        expandable: true,
+        protect: true,
+      },
+    ],
     linkStyle: "button",
     articles: [
       { label: "Explore the world", href: "https://titicaco.com/en" },
@@ -364,15 +375,6 @@ const entries: Entry[] = [
     highlight: true,
     mediaRow: true,
     images: [
-      {
-        src: trumpSigningAsset.url,
-        alt: "Ivan Daza pitching the Titicaco saga to Donald Trump as he signs a book at Trump Tower, New York, December 2011",
-        caption: "Pitching the Titicaco saga to Donald Trump — New York, 19 December 2011.",
-        hoverSrc: trumpMouseoverAsset.url,
-        thumbnail: "small",
-        expandable: true,
-        protect: true,
-      },
       {
         src: gasellAsset.url,
         alt: "Dagens Industri clipping listing Blatteförmedlingen among Stockholm's 2012 Gasell companies",
