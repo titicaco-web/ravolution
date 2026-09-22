@@ -22,6 +22,10 @@ import pressMetro2006 from "@/assets/press-metro-2006.jpg.asset.json";
 import pressChef0702 from "@/assets/press-chef-2007-02.jpg.asset.json";
 import pressFjarr0812 from "@/assets/press-fjarrvarmetidningen-2008-12.jpg.asset.json";
 import pressSvtDebatt from "@/assets/press-svt-debatt.jpg.asset.json";
+import pressDi080519 from "@/assets/press-dagens-industri-2008-05-19.jpg.asset.json";
+import pressBokNaringslivet from "@/assets/press-bok-naringslivet-offentliga-sektorn.jpg.asset.json";
+import pressDise101124 from "@/assets/press-di-se-2010-11-24-export.jpg.asset.json";
+import pressDise110127 from "@/assets/press-di-se-2011-01-27-paragrafryttarna.jpg.asset.json";
 import pressDn100923p1 from "@/assets/press-dn-2010-09-23-p1.jpg.asset.json";
 import pressDn100923p2 from "@/assets/press-dn-2010-09-23-p2.jpg.asset.json";
 
