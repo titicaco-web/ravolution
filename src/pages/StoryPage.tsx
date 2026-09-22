@@ -153,6 +153,9 @@ const pressBlatte: PressItem[] = [
     source: "Dagens Industri · 19 maj 2008",
     title: "Var finns framtidens chefer?",
     body: "Ivan Daza medverkar som en av rösterna om framtidens ledarskap och mångfald i en enkät med personaldirektörer och HR-chefer.",
+    images: [
+      { src: pressDi080519.url, alt: "Dagens Industri Jobb 19 maj 2008 — enkät: Var finns framtidens chefer? med Ivan Daza, Blatteförmedlingen" },
+    ],
   },
   {
     source: "Fjärrvärmetidningen · nr 8, dec 2008",
