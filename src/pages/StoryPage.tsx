@@ -621,13 +621,13 @@ const StoryPage = () => {
   return (
     <>
       <Helmet>
-        <title>Ivan Daza — Twenty-Seven Years of Inventions | Ravolution AB</title>
+        <title>Ravolution AB — Twenty-seven years of building what didn't exist yet</title>
         <meta
           name="description"
-          content="The timeline of Swedish tech inventor Ivan Daza: from a 1998 aircraft patent and a pre-Facebook enterprise social network to Ravolution AB's patented platform portfolio."
+          content="From a 1998 aircraft patent to an invention company shipping patented platforms today — the story of Ivan Daza and Ravolution AB."
         />
         <link rel="canonical" href="https://ravolution.se/en/story" />
-        <meta property="og:title" content="Ivan Daza — Twenty-Seven Years of Inventions | Ravolution AB" />
+        <meta property="og:title" content="Ravolution AB — Twenty-seven years of building what didn't exist yet" />
         <meta
           property="og:description"
           content="From a 1998 aircraft patent to an invention company shipping patented platforms today — the story of Ivan Daza and Ravolution AB."
@@ -638,6 +638,7 @@ const StoryPage = () => {
         <meta property="og:image" content="https://ravolution.se/og-image.jpg" />
         <meta name="twitter:image" content="https://ravolution.se/og-image.jpg" />
         <script type="application/ld+json">{JSON.stringify(personJsonLd)}</script>
+        <script type="application/ld+json">{JSON.stringify(organizationJsonLd)}</script>
         <script type="application/ld+json">{JSON.stringify(timelineJsonLd)}</script>
       </Helmet>
 
