@@ -183,6 +183,10 @@ const pressJobb: PressItem[] = [
     source: "Dagens Nyheter · 23 sep 2010",
     title: "Jobb som business / Lönsamt att ta sig an arbetslösa",
     body: "Stort reportage (förstasida + uppslag) om Jobbfabriken: verksamheten sysselsatte fler än 500 långtidsarbetslösa och nådde omkring 10 % ut i arbete, mot omkring 2 % för jämförbara aktörer. Facket var kritiskt — men resultaten lyftes fram.",
+    images: [
+      { src: pressDn100923p1.url, alt: "Dagens Nyheter Ekonomi 23 september 2010 — förstasidan Jobb som business med Ivan Daza" },
+      { src: pressDn100923p2.url, alt: "Dagens Nyheter 23 september 2010 — uppslaget Lönsamt att ta sig an arbetslösa om Jobbfabriken" },
+    ],
   },
   {
     source: "di.se · Gästkrönika, 24 nov 2010",
