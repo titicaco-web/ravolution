@@ -56,7 +56,7 @@ type Entry = {
   body: string;
   highlight?: boolean;
   images?: EntryImage[];
-  video?: { src: string; title: string; caption?: string; size?: "small" };
+  video?: { src: string; title: string; caption?: string; size?: "small" | "thumb"; expandable?: boolean };
   articles?: { label: string; href: string }[];
   linkStyle?: "button";
   press?: PressItem[];
@@ -302,6 +302,8 @@ const entries: Entry[] = [
         src: sagerskaAsset.url,
         alt: "Ivan Daza and fellow entrepreneurs with Prime Minister Fredrik Reinfeldt at Sagerska Palace",
         caption: "Statsministerbesök på Sagerska Palatset",
+        thumbnail: "small",
+        expandable: true,
         hoverText:
           "Som VD och grundare av Blatteförmedlingen blev jag med kollega inbjuden av dåvarande statsminister Fredrik Reinfeldt till Sagerska palatset under Första Advent, tillsammans med en rad andra entreprenörer. Sagerska palatset är Sveriges statsministers officiella residens, beläget i centrala Stockholm.",
       },
@@ -309,6 +311,8 @@ const entries: Entry[] = [
         src: littorinAsset.url,
         alt: "Ivan Daza with former labour-market minister Sven Otto Littorin at Blatteförmedlingen",
         caption: "Uppmärksammad i Uppdrag arbete",
+        thumbnail: "small",
+        expandable: true,
         hoverText:
           "Även uppmärksammad i dåvarande arbetsmarknadsminister Sven Otto Littorins bok: Uppdrag arbete.",
       },
@@ -317,7 +321,8 @@ const entries: Entry[] = [
       src: "https://www.youtube.com/embed/ognK5cWAmCI?si=oWcs8zQtf1l1F8xE",
       title: "Ivan Daza intervjuas av Malou von Sivers i TV4 — Blatteförmedlingen",
       caption: "TV4 · Malou von Sivers intervjuar Ivan Daza · Blatteförmedlingen",
-      size: "small",
+      size: "thumb",
+      expandable: true,
     },
     press: pressBlatte,
   },
@@ -573,6 +578,7 @@ const StoryPage = () => {
   const [fill, setFill] = useState(0);
   const [eraYear, setEraYear] = useState<string | null>(null);
   const [expandedImage, setExpandedImage] = useState<EntryImage | null>(null);
+  const [expandedVideo, setExpandedVideo] = useState<Entry["video"] | null>(null);
 
   useEffect(() => {
     const onScroll = () => {
@@ -765,7 +771,38 @@ const StoryPage = () => {
                         </div>
                       )}
 
-                      {e.video && (
+                      {e.video && e.video.size === "thumb" && (
+                        <figure className="mt-7 max-w-[230px]">
+                          <Button
+                            type="button"
+                            variant="ghost"
+                            aria-label={`Enlarge video — ${e.video.title}`}
+                            onClick={() => e.video?.expandable && setExpandedVideo(e.video)}
+                            className="group relative block h-auto w-full overflow-hidden rounded-none border border-white/10 bg-transparent p-0 cursor-zoom-in"
+                          >
+                            <span className="relative block w-full" style={{ aspectRatio: "16 / 9" }}>
+                              <iframe
+                                src={e.video.src}
+                                title={e.video.title}
+                                loading="lazy"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                referrerPolicy="strict-origin-when-cross-origin"
+                                className="pointer-events-none absolute inset-0 size-full"
+                              />
+                            </span>
+                            <span className="pointer-events-none absolute right-1 top-1 grid size-6 place-items-center bg-primary/85 text-white opacity-70 transition group-hover:opacity-100">
+                              <Maximize2 aria-hidden className="size-3.5" />
+                            </span>
+                          </Button>
+                          {e.video.caption && (
+                            <figcaption className="mt-2 font-mono text-[11px] uppercase tracking-[0.12em] text-white/40">
+                              {e.video.caption}
+                            </figcaption>
+                          )}
+                        </figure>
+                      )}
+
+                      {e.video && e.video.size !== "thumb" && (
                         <figure className={`mt-7 ${e.video.size === "small" ? "max-w-md" : "max-w-3xl"}`}>
                           <div className="relative w-full overflow-hidden border border-white/10" style={{ aspectRatio: "16 / 9" }}>
                             <iframe
@@ -847,6 +884,44 @@ const StoryPage = () => {
                 size="icon"
                 aria-label="Close enlarged image"
                 onClick={() => setExpandedImage(null)}
+                className="absolute right-0 top-0 rounded-none bg-primary/85 text-white hover:bg-primary hover:text-white"
+              >
+                <X aria-hidden />
+              </Button>
+            </div>
+          </div>
+        )}
+
+        {expandedVideo && (
+          <div
+            role="dialog"
+            aria-modal="true"
+            aria-label={expandedVideo.title}
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-primary/95 p-4 md:p-10"
+            onClick={() => setExpandedVideo(null)}
+          >
+            <div className="relative w-full max-w-4xl" onClick={(event) => event.stopPropagation()}>
+              <div className="relative w-full overflow-hidden border border-white/10" style={{ aspectRatio: "16 / 9" }}>
+                <iframe
+                  src={expandedVideo.src}
+                  title={expandedVideo.title}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  allowFullScreen
+                  className="absolute inset-0 size-full"
+                />
+              </div>
+              {expandedVideo.caption && (
+                <p className="mt-3 text-center font-mono text-xs uppercase tracking-[0.12em] text-white/60">
+                  {expandedVideo.caption}
+                </p>
+              )}
+              <Button
+                type="button"
+                variant="ghost"
+                size="icon"
+                aria-label="Close enlarged video"
+                onClick={() => setExpandedVideo(null)}
                 className="absolute right-0 top-0 rounded-none bg-primary/85 text-white hover:bg-primary hover:text-white"
               >
                 <X aria-hidden />
