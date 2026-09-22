@@ -67,6 +67,19 @@ const entries: Entry[] = [
     body: "An e-democracy platform letting Swedish municipalities run rådslag — citizen consultations — and lowering the barrier to reach the participation threshold needed to put a question to the public.",
   },
   {
+    year: "2003",
+    sortYear: 2003,
+    kicker: "Education for the world",
+    title: "Titicaco Communicaring School™",
+    body: "Nominated best Swedish initiative in the United Nations World Summit Awards in 2003. Titicaco Communicaring School™ shall be part of shaping the future through education and: (1) shall deliver education for basic knowledge, problem solving, sustainable development, entrepreneurship and leadership. (2) Promote understanding, tolerance and friendship among all nations. (3) Use an educational environment consisting of eLearning, eTwinning, eCommunity, eDemocracy and eAdministration tools.",
+    articles: [
+      {
+        label: "Visit communicaringschool.com",
+        href: "https://communicaringschool.com/",
+      },
+    ],
+  },
+  {
     year: "2005",
     sortYear: 2005,
     kicker: "After the wave",
@@ -251,6 +264,7 @@ const personJsonLd = {
   url: "https://ravolution.se/en/story",
   sameAs: ["https://www.linkedin.com/company/ravolution"],
   award: [
+    "Nominated best Swedish initiative — United Nations World Summit Awards 2003 (Titicaco Communicaring School™)",
     "DI Gasell 2012 — second fastest-growing company in the Stockholm region (Blatteförmedlingen)",
     "Featured in the Economy Museum exhibition Entreprenörskapande (2014–2017)",
   ],
