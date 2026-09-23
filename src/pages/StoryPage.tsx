@@ -583,6 +583,25 @@ const organizationJsonLd = {
   sameAs: ["https://www.linkedin.com/company/ravolution"],
 };
 
+const renderInline = (text: string) =>
+  text.split(/(\[[^\]]+\]\([^)]+\))/g).map((part, i) => {
+    const m = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
+    if (m) {
+      return (
+        <a
+          key={i}
+          href={m[2]}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="font-bold text-gold/90 underline decoration-gold/40 underline-offset-2 transition-colors hover:text-gold"
+        >
+          {m[1]}
+        </a>
+      );
+    }
+    return part;
+  });
+
 const timelineJsonLd = {
   "@context": "https://schema.org",
   "@type": "ItemList",
@@ -935,7 +954,7 @@ const StoryPage = () => {
                       </h2>
                       <div className="edit-body text-white/60 mt-4 max-w-2xl space-y-4">
                         {e.body.split("\n\n").map((para, i) => (
-                          <p key={i}>{para}</p>
+                          <p key={i}>{renderInline(para)}</p>
                         ))}
                       </div>
 
