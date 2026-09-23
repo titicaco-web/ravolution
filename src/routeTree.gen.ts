@@ -75,6 +75,8 @@ import { Route as LangPikpcashIndexRouteImport } from './routes/$lang/pikpcash/i
 import { Route as LangPikpcashDataroomRouteImport } from './routes/$lang/pikpcash/dataroom'
 import { Route as LangPikpcashSystemRouteImport } from './routes/$lang/pikpcash/system'
 import { Route as LangVenturesPratisRouteImport } from './routes/$lang/ventures/pratis'
+import { Route as EnPublicationsIndexRouteImport } from './routes/en/publications/index'
+import { Route as EnPublicationsHandbokForEntreprenorerRouteImport } from './routes/en/publications/handbok-for-entreprenorer'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -409,6 +411,17 @@ const LangVenturesPratisRoute = LangVenturesPratisRouteImport.update({
   path: '/$lang/ventures/pratis',
   getParentRoute: () => rootRouteImport,
 } as any)
+const EnPublicationsIndexRoute = EnPublicationsIndexRouteImport.update({
+  id: '/en/publications/',
+  path: '/en/publications/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EnPublicationsHandbokForEntreprenorerRoute =
+  EnPublicationsHandbokForEntreprenorerRouteImport.update({
+    id: '/en/publications/handbok-for-entreprenorer',
+    path: '/en/publications/handbok-for-entreprenorer',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -473,10 +486,12 @@ export interface FileRoutesByFullPath {
   '/$lang/pikpcash/dataroom': typeof LangPikpcashDataroomRoute
   '/$lang/pikpcash/system': typeof LangPikpcashSystemRoute
   '/$lang/ventures/pratis': typeof LangVenturesPratisRoute
+  '/en/publications/handbok-for-entreprenorer': typeof EnPublicationsHandbokForEntreprenorerRoute
   '/$lang/bizmeet/': typeof LangBizmeetIndexRoute
   '/$lang/gyrocraft/': typeof LangGyrocraftIndexRoute
   '/$lang/journal/': typeof LangJournalIndexRoute
   '/$lang/pikpcash/': typeof LangPikpcashIndexRoute
+  '/en/publications/': typeof EnPublicationsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -541,10 +556,12 @@ export interface FileRoutesByTo {
   '/$lang/pikpcash/dataroom': typeof LangPikpcashDataroomRoute
   '/$lang/pikpcash/system': typeof LangPikpcashSystemRoute
   '/$lang/ventures/pratis': typeof LangVenturesPratisRoute
+  '/en/publications/handbok-for-entreprenorer': typeof EnPublicationsHandbokForEntreprenorerRoute
   '/$lang/bizmeet': typeof LangBizmeetIndexRoute
   '/$lang/gyrocraft': typeof LangGyrocraftIndexRoute
   '/$lang/journal': typeof LangJournalIndexRoute
   '/$lang/pikpcash': typeof LangPikpcashIndexRoute
+  '/en/publications': typeof EnPublicationsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -610,10 +627,12 @@ export interface FileRoutesById {
   '/$lang/pikpcash/dataroom': typeof LangPikpcashDataroomRoute
   '/$lang/pikpcash/system': typeof LangPikpcashSystemRoute
   '/$lang/ventures/pratis': typeof LangVenturesPratisRoute
+  '/en/publications/handbok-for-entreprenorer': typeof EnPublicationsHandbokForEntreprenorerRoute
   '/$lang/bizmeet/': typeof LangBizmeetIndexRoute
   '/$lang/gyrocraft/': typeof LangGyrocraftIndexRoute
   '/$lang/journal/': typeof LangJournalIndexRoute
   '/$lang/pikpcash/': typeof LangPikpcashIndexRoute
+  '/en/publications/': typeof EnPublicationsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -680,10 +699,12 @@ export interface FileRouteTypes {
     | '/$lang/pikpcash/dataroom'
     | '/$lang/pikpcash/system'
     | '/$lang/ventures/pratis'
+    | '/en/publications/handbok-for-entreprenorer'
     | '/$lang/bizmeet/'
     | '/$lang/gyrocraft/'
     | '/$lang/journal/'
     | '/$lang/pikpcash/'
+    | '/en/publications/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -748,10 +769,12 @@ export interface FileRouteTypes {
     | '/$lang/pikpcash/dataroom'
     | '/$lang/pikpcash/system'
     | '/$lang/ventures/pratis'
+    | '/en/publications/handbok-for-entreprenorer'
     | '/$lang/bizmeet'
     | '/$lang/gyrocraft'
     | '/$lang/journal'
     | '/$lang/pikpcash'
+    | '/en/publications'
   id:
     | '__root__'
     | '/'
@@ -816,10 +839,12 @@ export interface FileRouteTypes {
     | '/$lang/pikpcash/dataroom'
     | '/$lang/pikpcash/system'
     | '/$lang/ventures/pratis'
+    | '/en/publications/handbok-for-entreprenorer'
     | '/$lang/bizmeet/'
     | '/$lang/gyrocraft/'
     | '/$lang/journal/'
     | '/$lang/pikpcash/'
+    | '/en/publications/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -885,10 +910,12 @@ export interface RootRouteChildren {
   LangPikpcashDataroomRoute: typeof LangPikpcashDataroomRoute
   LangPikpcashSystemRoute: typeof LangPikpcashSystemRoute
   LangVenturesPratisRoute: typeof LangVenturesPratisRoute
+  EnPublicationsHandbokForEntreprenorerRoute: typeof EnPublicationsHandbokForEntreprenorerRoute
   LangBizmeetIndexRoute: typeof LangBizmeetIndexRoute
   LangGyrocraftIndexRoute: typeof LangGyrocraftIndexRoute
   LangJournalIndexRoute: typeof LangJournalIndexRoute
   LangPikpcashIndexRoute: typeof LangPikpcashIndexRoute
+  EnPublicationsIndexRoute: typeof EnPublicationsIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -1355,6 +1382,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LangVenturesPratisRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/en/publications/': {
+      id: '/en/publications/'
+      path: '/en/publications'
+      fullPath: '/en/publications/'
+      preLoaderRoute: typeof EnPublicationsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/en/publications/handbok-for-entreprenorer': {
+      id: '/en/publications/handbok-for-entreprenorer'
+      path: '/en/publications/handbok-for-entreprenorer'
+      fullPath: '/en/publications/handbok-for-entreprenorer'
+      preLoaderRoute: typeof EnPublicationsHandbokForEntreprenorerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -1422,10 +1463,13 @@ const rootRouteChildren: RootRouteChildren = {
   LangPikpcashDataroomRoute: LangPikpcashDataroomRoute,
   LangPikpcashSystemRoute: LangPikpcashSystemRoute,
   LangVenturesPratisRoute: LangVenturesPratisRoute,
+  EnPublicationsHandbokForEntreprenorerRoute:
+    EnPublicationsHandbokForEntreprenorerRoute,
   LangBizmeetIndexRoute: LangBizmeetIndexRoute,
   LangGyrocraftIndexRoute: LangGyrocraftIndexRoute,
   LangJournalIndexRoute: LangJournalIndexRoute,
   LangPikpcashIndexRoute: LangPikpcashIndexRoute,
+  EnPublicationsIndexRoute: EnPublicationsIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

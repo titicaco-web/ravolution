@@ -188,6 +188,7 @@ export const EditorialNav = () => {
     { label: "Systems", href: lp("/portfolio") },
     { label: "IP & Evidence", href: lp("/evidence") },
     { label: "Story", href: lp("/story") },
+    { label: "Publications", href: "/en/publications" },
     { label: "About", href: lp("/about") },
     { label: "Partner", href: lp("/partner") },
     { label: "Apply", href: lp("/apply") },
@@ -255,7 +256,12 @@ export const EditorialNav = () => {
         </div>
 
         <nav className="flex flex-col justify-start max-w-[1400px] mx-auto w-full">
-          {links.map((l, i) => (
+          {links.map((l, i) => l.href.startsWith("/en/publications") ? (
+            <a key={l.href} href={l.href} className="menu-item border-b border-white/10" style={{ transitionDelay: open ? `${0.05 + i * 0.05}s` : "0s" }}>
+              <span className="edit-label text-white/40 text-sm">0{i + 1}</span>
+              <span>{l.label}</span>
+            </a>
+          ) : (
             <Link
               key={l.href}
               to={l.href}
@@ -334,11 +340,14 @@ export const EditorialFooter = () => {
             { l: salesPartnerLabel, h: salesPartnerHref },
             { l: "Story", h: lp("/story") },
             { l: "Journal", h: lp("/journal") },
+            { l: "Publications", h: "/en/publications" },
             { l: "Press", h: lp("/blog") },
             { l: "Experiments", h: lp("/metadatamachine") },
             { l: "BizMeet Demos", h: lp("/bizmeet/demo") },
             { l: "Contact", h: lp("/contact") },
-          ].map((x) => (
+          ].map((x) => x.h.startsWith("/en/publications") ? (
+            <a key={x.h} href={x.h} className="edit-label text-white/70 hover:text-white edit-link w-fit">{x.l}</a>
+          ) : (
             <Link key={x.h} to={x.h} className="edit-label text-white/70 hover:text-white edit-link w-fit">
               {x.l}
             </Link>

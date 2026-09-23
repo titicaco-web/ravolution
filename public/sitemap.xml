@@ -258,4 +258,6 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url><loc>https://ravolution.se/en/publications</loc></url>
+  <url><loc>https://ravolution.se/en/publications/handbok-for-entreprenorer</loc></url>
 </urlset>
