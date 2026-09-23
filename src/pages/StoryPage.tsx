@@ -933,7 +933,11 @@ const StoryPage = () => {
                       >
                         {e.title}
                       </h2>
-                      <p className="edit-body text-white/60 mt-4 max-w-2xl">{e.body}</p>
+                      <div className="edit-body text-white/60 mt-4 max-w-2xl space-y-4">
+                        {e.body.split("\n\n").map((para, i) => (
+                          <p key={i}>{para}</p>
+                        ))}
+                      </div>
 
                       {e.note && (
                         <p className="mt-4 max-w-2xl border-l-2 border-gold/60 pl-4 font-mono text-[11px] uppercase tracking-[0.14em] leading-relaxed text-gold/85">
