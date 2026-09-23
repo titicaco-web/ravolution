@@ -296,7 +296,7 @@ const entries: Entry[] = [
     sortYear: 2003,
     kicker: "Education for the world",
     title: "Titicaco Communicaring School™",
-    body: "A global, internet-based school built to bring high-quality digital education to rural and underserved regions — nominated in 2003 as Sweden's best initiative in the e-Inclusion category of the UN-backed World Summit Awards, in the awards' inaugural year.\n\nIts purpose is to help shape the future through education: to build not just basic knowledge but problem-solving, sustainable development, entrepreneurship and leadership; to promote understanding, tolerance and friendship among nations; and to deliver it through an integrated digital environment of eLearning, eTwinning, eCommunity, eDemocracy and eAdministration.\n\nThe model has been carried into the real world since — serving children in post-tsunami Thailand in 2005, and in June 2009 presented by Ivan to development economist Jeffrey Sachs as a solution for education in rural areas and countries with limited access to schools.",
+    body: "A global, internet-based school built to bring high-quality digital education to rural and underserved regions — nominated in 2003 as Sweden's best initiative in the e-Inclusion category of the UN-backed [World Summit Awards](https://wsa-global.org/wsa-global-congress-2003-geneva/), in the awards' inaugural year.\n\nIts purpose is to help shape the future through education: to build not just basic knowledge but problem-solving, sustainable development, entrepreneurship and leadership; to promote understanding, tolerance and friendship among nations; and to deliver it through an integrated digital environment of eLearning, eTwinning, eCommunity, eDemocracy and eAdministration.\n\nThe model has been carried into the real world since — serving children in post-tsunami Thailand in 2005, and in June 2009 presented by Ivan to development economist Jeffrey Sachs as a solution for education in rural areas and countries with limited access to schools.",
     images: [
       {
         src: yunusAsset.url,
@@ -582,6 +582,25 @@ const organizationJsonLd = {
   address: { "@type": "PostalAddress", addressCountry: "SE" },
   sameAs: ["https://www.linkedin.com/company/ravolution"],
 };
+
+const renderInline = (text: string) =>
+  text.split(/(\[[^\]]+\]\([^)]+\))/g).map((part, i) => {
+    const m = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
+    if (m) {
+      return (
+        <a
+          key={i}
+          href={m[2]}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="font-bold text-gold/90 underline decoration-gold/40 underline-offset-2 transition-colors hover:text-gold"
+        >
+          {m[1]}
+        </a>
+      );
+    }
+    return part;
+  });
 
 const timelineJsonLd = {
   "@context": "https://schema.org",
@@ -935,7 +954,7 @@ const StoryPage = () => {
                       </h2>
                       <div className="edit-body text-white/60 mt-4 max-w-2xl space-y-4">
                         {e.body.split("\n\n").map((para, i) => (
-                          <p key={i}>{para}</p>
+                          <p key={i}>{renderInline(para)}</p>
                         ))}
                       </div>
 
