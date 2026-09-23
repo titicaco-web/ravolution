@@ -323,6 +323,13 @@ const entries: Entry[] = [
     ],
   },
   {
+    year: "2003",
+    sortYear: 2003,
+    kicker: "UN recognition",
+    title: "World Summit Awards",
+    body: "The Titicaco Communicaring School — a global internet-based school built to bring high-quality digital education to rural and underserved regions — is selected as Sweden's national entry in the e-Inclusion category of the UN-backed World Summit Awards, in the awards' inaugural year. The same school model would go on to serve children in post-tsunami Thailand in 2005.",
+  },
+  {
     year: "2005",
     sortYear: 2005,
     kicker: "After the wave",
