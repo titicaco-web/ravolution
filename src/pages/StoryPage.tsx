@@ -296,7 +296,7 @@ const entries: Entry[] = [
     sortYear: 2003,
     kicker: "Education for the world",
     title: "Titicaco Communicaring School™",
-    body: "Nominated best Swedish initiative in the United Nations World Summit Awards in 2003. Titicaco Communicaring School™ shall be part of shaping the future through education and: (1) shall deliver education for basic knowledge, problem solving, sustainable development, entrepreneurship and leadership. (2) Promote understanding, tolerance and friendship among all nations. (3) Use an educational environment consisting of eLearning, eTwinning, eCommunity, eDemocracy and eAdministration tools. In June 2009, Ivan presented CommunicaringSchool to development economist Jeffrey Sachs as a solution for global education in rural areas and countries with limited access to schools.",
+    body: "A global, internet-based school built to bring high-quality digital education to rural and underserved regions — nominated in 2003 as Sweden's best initiative in the e-Inclusion category of the UN-backed World Summit Awards, in the awards' inaugural year.\n\nIts purpose is to help shape the future through education: to build not just basic knowledge but problem-solving, sustainable development, entrepreneurship and leadership; to promote understanding, tolerance and friendship among nations; and to deliver it through an integrated digital environment of eLearning, eTwinning, eCommunity, eDemocracy and eAdministration.\n\nThe model has been carried into the real world since — serving children in post-tsunami Thailand in 2005, and in June 2009 presented by Ivan to development economist Jeffrey Sachs as a solution for education in rural areas and countries with limited access to schools.",
     images: [
       {
         src: yunusAsset.url,
@@ -321,13 +321,6 @@ const entries: Entry[] = [
         href: "https://communicaringschool.com/",
       },
     ],
-  },
-  {
-    year: "2003",
-    sortYear: 2003,
-    kicker: "UN recognition",
-    title: "World Summit Awards",
-    body: "The Titicaco Communicaring School — a global internet-based school built to bring high-quality digital education to rural and underserved regions — is selected as Sweden's national entry in the e-Inclusion category of the UN-backed World Summit Awards, in the awards' inaugural year. The same school model would go on to serve children in post-tsunami Thailand in 2005.",
   },
   {
     year: "2005",
