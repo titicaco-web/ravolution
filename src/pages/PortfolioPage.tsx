@@ -10,6 +10,7 @@ import pikpcashPreview from "@/assets/portfolio-previews/pikpcash.webp.asset.jso
 import bizmeetPreview from "@/assets/portfolio-previews/bizmeet.webp.asset.json";
 import iapplyPreview from "@/assets/portfolio-previews/iapply.webp.asset.json";
 import newstoastPreview from "@/assets/portfolio-previews/newstoast.webp.asset.json";
+import carbonxPreview from "@/assets/portfolio-previews/carbonx.webp.asset.json";
 import pratisPreview from "@/assets/portfolio-previews/pratis.webp.asset.json";
 import okwerinPreview from "@/assets/portfolio-previews/okwerin.webp.asset.json";
 import aimagnificaPreview from "@/assets/portfolio-previews/aimagnifica.webp.asset.json";
@@ -44,7 +45,7 @@ const activeVentures: Company[] = [
   { name: "BizMeet", sector: "Community OS · SaaS", status: "ACTIVE", desc: "White-label community operating system for organisations running 2,000–20,000 members.", href: "/en/bizmeet", preview: bizmeetPreview },
   { name: "iApply", sector: "Recruitment AI", status: "ACTIVE", desc: "AI-driven recruitment and qualification on patented matching infrastructure.", href: "https://iapply.se", preview: iapplyPreview },
   { name: "NewsToast", sector: "Media", status: "ACTIVE", desc: "Editorial-grade curated news platform.", href: "https://newstoast.com", preview: newstoastPreview },
-  { name: "CarbonX", sector: "Climate · Marketplace", status: "ACTIVE", desc: "Carbon and climate infrastructure connected to the prevention-economy mission.", href: "#" },
+  { name: "CarbonX", sector: "Climate · Marketplace", status: "ACTIVE", desc: "Carbon and climate infrastructure connected to the prevention-economy mission.", href: "https://carbonx.se", preview: carbonxPreview },
   { name: "Pratis", sector: "AI Companion · HealthTech", status: "SEEKING INVESTORS", desc: "A calm, Swedish-speaking AI companion for lonely older adults. Companionship, not care. Co-owned with Susanne Örtegren.", href: "/en/pratis", preview: pratisPreview },
   { name: "Okwerin", sector: "Contract Lifecycle · B2B SaaS", status: "ACTIVE", desc: "E-signing and the full contract lifecycle in one flow — create with AI or templates, negotiate, sign, prove and monitor renewals, with a complete evidence chain. Pay-per-contract, no lock-in, EU-first.", href: "https://okwerin.com", preview: okwerinPreview },
 ];
