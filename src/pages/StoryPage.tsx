@@ -14,6 +14,7 @@ import trumpSigningAsset from "@/assets/trump-ny-2011-signing.jpg.asset.json";
 import trumpMouseoverAsset from "@/assets/trump-ny-2011-mouseover.jpg.asset.json";
 import sagerskaAsset from "@/assets/ivan-daza-sagerska-palatset.png.asset.json";
 import littorinAsset from "@/assets/ivan-daza-sven-otto-littorin.png.asset.json";
+import percyAsset from "@/assets/percy-barnevik.jpg.asset.json";
 import pressHandel1 from "@/assets/press-handelskammartidningen-2006-p1.jpg.asset.json";
 import pressHandel2 from "@/assets/press-handelskammartidningen-2006-p2.jpg.asset.json";
 import pressSrat from "@/assets/press-srat-information-2006.jpg.asset.json";
@@ -377,6 +378,18 @@ const entries: Entry[] = [
     kicker: "Poverty, at scale",
     title: "Hand in Hand",
     body: "Ivan serves on the board of Hand in Hand Sweden — the charitable foundation led by industrialist Percy Barnevik — reporting on the progress of its microloan work, which lifted hundreds of thousands of women entrepreneurs out of poverty in India.",
+    images: [
+      {
+        src: percyAsset.url,
+        alt: "Percy Barnevik",
+        caption: "Percy Barnevik — Hand in Hand Sweden",
+        hoverText:
+          "Percy Barnevik är en man som går till historien som leverantör av många stordåd och som bidragit till Sveriges 🇸🇪 välstånd, men också som möjliggörare för hundratusentals kvinnliga entreprenörer i Indien 🇮🇳 där Barneviks microlån gjort enorm positiv skillnad.\n\nHade förmånen att sitta i hans styrelse hos Hand in Hand och rapportera till honom kring mikrolånverksamhetens framskridande i vissa avseenden. Fick även frågan om att bli hans personliga sekreterare men var just då förhindrad att tacka ja. Ett av få karriärbeslut jag ångrar.\n\nKommer alltid minnas honom med värme och respekt.\n\nVila i frid.",
+        thumbnail: "small",
+        expandable: true,
+        protect: true,
+      },
+    ],
     articles: [
       {
         label: "A tribute to Percy Barnevik",
