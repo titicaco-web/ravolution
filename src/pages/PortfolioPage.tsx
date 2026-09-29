@@ -1,6 +1,24 @@
 import { Helmet } from "@/lib/helmet-compat";
 import { EditorialShell, Reveal } from "@/components/editorial/EditorialLayout";
 import { SectionHead, TechGrid } from "@/components/lab/LabPrimitives";
+import communicaringSchoolPreview from "@/assets/portfolio-previews/communicaringschool.webp.asset.json";
+import rosettaPreview from "@/assets/portfolio-previews/rosetta-livingstone.webp.asset.json";
+import singuisticPreview from "@/assets/portfolio-previews/singuistic.webp.asset.json";
+import toxinsidePreview from "@/assets/portfolio-previews/toxinside.webp.asset.json";
+import alarmsolePreview from "@/assets/portfolio-previews/alarmsole.webp.asset.json";
+import pikpcashPreview from "@/assets/portfolio-previews/pikpcash.webp.asset.json";
+import bizmeetPreview from "@/assets/portfolio-previews/bizmeet.webp.asset.json";
+import iapplyPreview from "@/assets/portfolio-previews/iapply.webp.asset.json";
+import newstoastPreview from "@/assets/portfolio-previews/newstoast.webp.asset.json";
+import pratisPreview from "@/assets/portfolio-previews/pratis.webp.asset.json";
+import okwerinPreview from "@/assets/portfolio-previews/okwerin.webp.asset.json";
+import aimagnificaPreview from "@/assets/portfolio-previews/aimagnifica.webp.asset.json";
+import xportmatchPreview from "@/assets/portfolio-previews/xportmatch.webp.asset.json";
+import partystaPreview from "@/assets/portfolio-previews/partysta.webp.asset.json";
+import beredskapadPreview from "@/assets/portfolio-previews/beredskapad.webp.asset.json";
+import hundelserPreview from "@/assets/portfolio-previews/hundelser.webp.asset.json";
+
+type StoredAsset = { url: string };
 
 type Company = {
   name: string;
@@ -8,34 +26,35 @@ type Company = {
   status: string;
   desc: string;
   href: string;
+  preview?: StoredAsset;
 };
 
 const missionSystems: Company[] = [
-  { name: "CommunicaringSchool", sector: "Mission 01 · Education", status: "ACTIVE", desc: "Global K1–K9 learning infrastructure aligned with the UN Convention on the Rights of the Child — curriculum equivalency, assessment and rights-aligned access.", href: "#" },
-  { name: "Rosetta Livingstone", sector: "Mission 02 · Language", status: "ACTIVE", desc: "Adaptive AI language acquisition built around immersion, context and personalised pathways.", href: "https://rosettalivingstone.com" },
-  { name: "SINGUISTIC", sector: "Mission 02 · Language", status: "ACTIVE", desc: "Music-native language learning — synced dual-language lyrics, tap-to-save vocabulary, spaced repetition and CEFR-anchored reporting in 26 languages.", href: "https://singuistic.com" },
+  { name: "CommunicaringSchool", sector: "Mission 01 · Education", status: "ACTIVE", desc: "Global K1–K9 learning infrastructure aligned with the UN Convention on the Rights of the Child — curriculum equivalency, assessment and rights-aligned access.", href: "https://communicaringschool.com", preview: communicaringSchoolPreview },
+  { name: "Rosetta Livingstone", sector: "Mission 02 · Language", status: "ACTIVE", desc: "Adaptive AI language acquisition built around immersion, context and personalised pathways.", href: "https://rosettalivingstone.com", preview: rosettaPreview },
+  { name: "SINGUISTIC", sector: "Mission 02 · Language", status: "ACTIVE", desc: "Music-native language learning — synced dual-language lyrics, tap-to-save vocabulary, spaced repetition and CEFR-anchored reporting in 26 languages.", href: "https://singuistic.com", preview: singuisticPreview },
   { name: "VoiceProtector", sector: "Mission 03 · Trust", status: "ACTIVE", desc: "Voice biometrics and deepfake authentication for a world where voice itself can be generated.", href: "https://voiceprotector.com" },
-  { name: "TOXINSIDE", sector: "Mission 05 · Prevention", status: "LAUNCHING 2026", desc: "Regulator-cited product safety scoring at the moment of purchase, with a public methodology and a native halal ingredient vertical.", href: "https://toxinside.com" },
-  { name: "AlarmSole", sector: "Mission 03 · Human safety", status: "PATENT PENDING", desc: "Discreet connected safety sole activated through the foot — SOS, live location and emergency workflows, as a product and as an embedded platform.", href: "/en/alarmsole" },
-  { name: "PikpCash", sector: "Mission 04 · Opportunity", status: "FIRST-JOB INFRASTRUCTURE", desc: "Paid first work, a curriculum that lives inside the job, verified skills and nine-level progression — with 26 filed patent claims behind the field-sales engine.", href: "/en/pikpcash" },
+  { name: "TOXINSIDE", sector: "Mission 05 · Prevention", status: "LAUNCHING 2026", desc: "Regulator-cited product safety scoring at the moment of purchase, with a public methodology and a native halal ingredient vertical.", href: "https://toxinside.com", preview: toxinsidePreview },
+  { name: "AlarmSole", sector: "Mission 03 · Human safety", status: "PATENT PENDING", desc: "Discreet connected safety sole activated through the foot — SOS, live location and emergency workflows, as a product and as an embedded platform.", href: "/en/alarmsole", preview: alarmsolePreview },
+  { name: "PikpCash", sector: "Mission 04 · Opportunity", status: "FIRST-JOB INFRASTRUCTURE", desc: "Paid first work, a curriculum that lives inside the job, verified skills and nine-level progression — with 26 filed patent claims behind the field-sales engine.", href: "/en/pikpcash", preview: pikpcashPreview },
 
 ];
 
 const activeVentures: Company[] = [
-  { name: "BizMeet", sector: "Community OS · SaaS", status: "ACTIVE", desc: "White-label community operating system for organisations running 2,000–20,000 members.", href: "/en/bizmeet" },
-  { name: "iApply", sector: "Recruitment AI", status: "ACTIVE", desc: "AI-driven recruitment and qualification on patented matching infrastructure.", href: "https://iapply.se" },
-  { name: "NewsToast", sector: "Media", status: "ACTIVE", desc: "Editorial-grade curated news platform.", href: "https://newstoast.com" },
+  { name: "BizMeet", sector: "Community OS · SaaS", status: "ACTIVE", desc: "White-label community operating system for organisations running 2,000–20,000 members.", href: "/en/bizmeet", preview: bizmeetPreview },
+  { name: "iApply", sector: "Recruitment AI", status: "ACTIVE", desc: "AI-driven recruitment and qualification on patented matching infrastructure.", href: "https://iapply.se", preview: iapplyPreview },
+  { name: "NewsToast", sector: "Media", status: "ACTIVE", desc: "Editorial-grade curated news platform.", href: "https://newstoast.com", preview: newstoastPreview },
   { name: "CarbonX", sector: "Climate · Marketplace", status: "ACTIVE", desc: "Carbon and climate infrastructure connected to the prevention-economy mission.", href: "#" },
-  { name: "Pratis", sector: "AI Companion · HealthTech", status: "SEEKING INVESTORS", desc: "A calm, Swedish-speaking AI companion for lonely older adults. Companionship, not care. Co-owned with Susanne Örtegren.", href: "/en/pratis" },
-  { name: "Okwerin", sector: "Contract Lifecycle · B2B SaaS", status: "ACTIVE", desc: "E-signing and the full contract lifecycle in one flow — create with AI or templates, negotiate, sign, prove and monitor renewals, with a complete evidence chain. Pay-per-contract, no lock-in, EU-first.", href: "https://okwerin.com" },
+  { name: "Pratis", sector: "AI Companion · HealthTech", status: "SEEKING INVESTORS", desc: "A calm, Swedish-speaking AI companion for lonely older adults. Companionship, not care. Co-owned with Susanne Örtegren.", href: "/en/pratis", preview: pratisPreview },
+  { name: "Okwerin", sector: "Contract Lifecycle · B2B SaaS", status: "ACTIVE", desc: "E-signing and the full contract lifecycle in one flow — create with AI or templates, negotiate, sign, prove and monitor renewals, with a complete evidence chain. Pay-per-contract, no lock-in, EU-first.", href: "https://okwerin.com", preview: okwerinPreview },
 ];
 
 const studioAssets: Company[] = [
-  { name: "AIMagnifica", sector: "AI Governance", status: "FOR SALE", desc: "AI governance and compliance layer screening prompts and documents before they reach any connected LLM, with audit-ready logging.", href: "https://aimagnifica.com/" },
-  { name: "XportMatch.com", sector: "Export Tech · B2B SaaS", status: "AVAILABLE FOR ACQUISITION", desc: "AI-native export matchmaking — market intelligence, buyer discovery and export opportunity management.", href: "/en/xportmatch" },
-  { name: "Partysta.com", sector: "Event Tech", status: "AVAILABLE FOR ACQUISITION", desc: "Party planning and memory-sharing platform — invitations, guests, budgets and shared responsibilities.", href: "/en/partysta" },
-  { name: "Beredskapad.se", sector: "Preparedness · EdTech", status: "AVAILABLE FOR ACQUISITION", desc: "Swedish digital crisis preparedness platform for households and organisations.", href: "/en/beredskapad" },
-  { name: "Hundelser.se", sector: "Pet Tech · Community", status: "AVAILABLE FOR ACQUISITION", desc: "Swedish social platform for dog owners — profiles, community, activities and marketplace.", href: "/en/hundelser" },
+  { name: "AIMagnifica", sector: "AI Governance", status: "FOR SALE", desc: "AI governance and compliance layer screening prompts and documents before they reach any connected LLM, with audit-ready logging.", href: "https://aimagnifica.com/", preview: aimagnificaPreview },
+  { name: "XportMatch.com", sector: "Export Tech · B2B SaaS", status: "AVAILABLE FOR ACQUISITION", desc: "AI-native export matchmaking — market intelligence, buyer discovery and export opportunity management.", href: "/en/xportmatch", preview: xportmatchPreview },
+  { name: "Partysta.com", sector: "Event Tech", status: "AVAILABLE FOR ACQUISITION", desc: "Party planning and memory-sharing platform — invitations, guests, budgets and shared responsibilities.", href: "/en/partysta", preview: partystaPreview },
+  { name: "Beredskapad.se", sector: "Preparedness · EdTech", status: "AVAILABLE FOR ACQUISITION", desc: "Swedish digital crisis preparedness platform for households and organisations.", href: "/en/beredskapad", preview: beredskapadPreview },
+  { name: "Hundelser.se", sector: "Pet Tech · Community", status: "AVAILABLE FOR ACQUISITION", desc: "Swedish social platform for dog owners — profiles, community, activities and marketplace.", href: "/en/hundelser", preview: hundelserPreview },
 ];
 
 const frontier: Company[] = [
@@ -65,7 +84,7 @@ const Layer = ({
                 href={c.href}
                 target={c.href.startsWith("http") ? "_blank" : undefined}
                 rel="noopener noreferrer"
-                className="group block border-t border-white/10 last:border-b py-8 md:py-10 grid md:grid-cols-12 gap-4 md:gap-6 items-baseline transition-colors hover:border-[hsl(var(--accent-edit))]"
+                className="group relative block border-t border-white/10 last:border-b py-8 md:py-10 grid md:grid-cols-12 gap-4 md:gap-6 items-baseline transition-colors hover:border-[hsl(var(--accent-edit))] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[hsl(var(--accent-edit))]"
               >
                 <span className="md:col-span-1 edit-label text-white/40">
                   {String(i + 1).padStart(2, "0")}
@@ -79,6 +98,23 @@ const Layer = ({
                 <span className="md:col-span-1 edit-label text-white/40 md:text-right group-hover:text-[hsl(var(--accent-edit))] transition-colors">
                   →
                 </span>
+                {c.preview && (
+                  <span
+                    aria-hidden="true"
+                    className="pointer-events-none absolute right-0 top-1/2 z-30 hidden w-[min(38vw,460px)] -translate-y-1/2 translate-x-3 overflow-hidden border border-white/20 bg-[hsl(var(--ink))] opacity-0 shadow-2xl transition-all duration-300 ease-out group-hover:translate-x-0 group-hover:opacity-100 group-focus-visible:translate-x-0 group-focus-visible:opacity-100 lg:block"
+                  >
+                    <img
+                      src={c.preview.url}
+                      alt=""
+                      loading="lazy"
+                      className="aspect-[8/5] w-full object-cover object-top"
+                    />
+                    <span className="flex items-center justify-between border-t border-white/15 px-3 py-2 edit-label text-white/70">
+                      <span>Landing page preview</span>
+                      <span>Open ↗</span>
+                    </span>
+                  </span>
+                )}
               </a>
             </li>
           </Reveal>
