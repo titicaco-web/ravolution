@@ -7,6 +7,7 @@ import { z } from "zod";
 import { EditorialShell, Reveal, SectionLabel } from "@/components/editorial/EditorialLayout";
 import { useLangPath } from "@/hooks/use-lang-path";
 import { Heart, MoveRight, ShieldCheck, BookOpen, BellRing, PhoneCall, Lock } from "lucide-react";
+import pratisLivePreview from "@/assets/pratis-live-preview.webp.asset.json";
 
 const PAGE_URL = "https://ravolution.se/en/pratis";
 
@@ -220,10 +221,42 @@ const PratisPage = () => {
           </div>
         </section>
 
+        {/* Live product */}
+        <section className="edit-section border-t border-white/10 bg-[hsl(var(--surface))]">
+          <div className="edit-container">
+            <SectionLabel number="01 — Live product" title="Meet Pratis." />
+            <Reveal>
+              <a
+                href="https://pratis.se/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group block border border-white/15 bg-[hsl(var(--bg))] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[hsl(var(--accent-edit))]"
+              >
+                <div className="overflow-hidden border-b border-white/15">
+                  <img
+                    src={pratisLivePreview.url}
+                    alt="The live Pratis conversational companion interface at pratis.se"
+                    className="aspect-[16/9] w-full object-cover object-top transition-transform duration-500 ease-out group-hover:scale-[1.015]"
+                  />
+                </div>
+                <span className="flex flex-wrap items-center justify-between gap-4 px-5 py-4 md:px-7">
+                  <span>
+                    <span className="edit-label block text-[hsl(var(--accent-edit))]">Live preview</span>
+                    <span className="mt-1 block text-sm text-white/60">Open the Swedish product experience</span>
+                  </span>
+                  <span className="edit-label text-white/80 transition-colors group-hover:text-[hsl(var(--accent-edit))]">
+                    Visit pratis.se ↗
+                  </span>
+                </span>
+              </a>
+            </Reveal>
+          </div>
+        </section>
+
         {/* Venture */}
         <section id="venture" className="edit-section border-t border-white/10">
           <div className="edit-container">
-            <SectionLabel number="01 — The venture" title="Companionship, not care." />
+            <SectionLabel number="02 — The venture" title="Companionship, not care." />
             <div className="grid md:grid-cols-12 gap-10">
               <Reveal className="md:col-span-7">
                 <p className="edit-body text-white/70">
@@ -269,7 +302,7 @@ const PratisPage = () => {
         {/* Why now */}
         <section className="edit-section border-t border-white/10 bg-[hsl(var(--surface))]">
           <div className="edit-container">
-            <SectionLabel number="02 — Why now" title="A demographic certainty meets a health need." />
+            <SectionLabel number="03 — Why now" title="A demographic certainty meets a health need." />
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-white/10 border border-white/10">
               {stats.map((s, i) => (
                 <Reveal key={s.t} delay={i * 0.05}>
@@ -293,7 +326,7 @@ const PratisPage = () => {
         {/* Model */}
         <section className="edit-section border-t border-white/10">
           <div className="edit-container">
-            <SectionLabel number="03 — Model" title="How Pratis makes money." />
+            <SectionLabel number="04 — Model" title="How Pratis makes money." />
             <Reveal>
               <p className="edit-body text-white/60 max-w-3xl mb-12">
                 Subscription tiers billed per conversation time, with a hard cap so costs never run away. Two payer tracks:
@@ -324,7 +357,7 @@ const PratisPage = () => {
         {/* Ownership */}
         <section className="edit-section border-t border-white/10 bg-[hsl(var(--surface))]">
           <div className="edit-container">
-            <SectionLabel number="04 — Ownership" title="Team & ownership." />
+            <SectionLabel number="05 — Ownership" title="Team & ownership." />
             <div className="grid md:grid-cols-12 gap-10">
               <Reveal className="md:col-span-7">
                 <p className="edit-body text-white/70">
@@ -355,7 +388,7 @@ const PratisPage = () => {
         {/* Investors + contact */}
         <section id="investors" className="edit-section border-t border-white/10">
           <div className="edit-container">
-            <SectionLabel number="05 — For investors" title="We are raising to bring Pratis to its Swedish pilot." />
+            <SectionLabel number="06 — For investors" title="We are raising to bring Pratis to its Swedish pilot." />
             <div className="grid md:grid-cols-12 gap-10">
               <Reveal className="md:col-span-7">
                 <ul className="space-y-4">
