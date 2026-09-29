@@ -377,7 +377,7 @@ const entries: Entry[] = [
     sortYear: 2007,
     kicker: "Poverty, at scale",
     title: "Hand in Hand",
-    body: "Ivan serves on the board of Hand in Hand Sweden — the charitable foundation led by industrialist Percy Barnevik — reporting on the progress of its microloan work, which lifted hundreds of thousands of women entrepreneurs out of poverty in India.",
+    body: "Ivan serves on the board of Hand in Hand Sweden — the charitable foundation led by industrialist Percy Barnevik — reporting on the progress of its microloan work, which lifted hundreds of thousands of women entrepreneurs out of poverty in India. Today, the global network has helped launch or strengthen over 7 million grassroots businesses, which in turn have created more than 10 million jobs.",
     images: [
       {
         src: percyAsset.url,
