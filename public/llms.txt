@@ -22,6 +22,7 @@ Ravolution AB operates a Build-for-Equity model, invests directly as an angel, a
 - [AlarmSole™](/en/alarmsole): Connected footwear safety platform — a discreet smart sole activated through the foot to send SOS, live location and emergency workflows. Patent pending PRV 2630522-7. Open to investment, OEM, licensing and strategic partnerships.
 - [PikpCash®](/en/pikpcash): Direct sales gamification platform — turns every address into a point of sale and selling into a level-based game. Zero barriers to start earning. Concept documented 2017. Investor access available.
 - [Pratis](/en/pratis): A calm, Swedish-speaking AI companion for lonely older adults — a voice that remembers you and is simply there to talk. Companionship, not care; not a medical device. A Ravolution venture co-owned with Susanne Örtegren. Seeking investors.
+- [Okwerin](https://okwerin.com): Contract lifecycle platform (B2B SaaS) — e-signing plus create, negotiate, sign, prove and monitor renewals with a complete evidence chain. Pay-per-completed-contract (0 kr/month, 19 kr per contract), no lock-in, EU-first. A Ravolution active venture.
 - [Patent Strategy for Startups](/en/patent-strategy-for-startups): Guide to strategic IP for founders.
 - [Technical Cofounder Alternative](/en/technical-cofounder-alternative): How we replace a missing technical co-founder.
 - [Brief](/en/brief): Intake form to submit a platform concept.
