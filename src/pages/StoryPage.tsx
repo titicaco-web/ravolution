@@ -372,6 +372,19 @@ const entries: Entry[] = [
     press: pressBlatte,
   },
   {
+    year: "2007–08",
+    sortYear: 2007,
+    kicker: "Poverty, at scale",
+    title: "Hand in Hand",
+    body: "Ivan serves on the board of Hand in Hand Sweden — the charitable foundation led by industrialist Percy Barnevik — reporting on the progress of its microloan work, which lifted hundreds of thousands of women entrepreneurs out of poverty in India.",
+    articles: [
+      {
+        label: "A tribute to Percy Barnevik",
+        href: "https://lnkd.in/p/dA_FSE8E",
+      },
+    ],
+  },
+  {
     year: "2008–2015",
     sortYear: 2008,
     kicker: "Back to work",
