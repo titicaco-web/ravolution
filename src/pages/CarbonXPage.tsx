@@ -40,7 +40,17 @@ const CarbonXPage = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-[#081426]/55 via-[#081426]/25 to-[#081426]/85 pointer-events-none" />
         <div className="edit-container relative w-full">
           <Reveal>
-            <span className="edit-label edit-eyebrow">CarbonX · A reflection</span>
+            <span className="edit-label edit-eyebrow">
+              <a
+                href="https://carbonx.se"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white/80 underline decoration-[hsl(var(--accent-edit))]/50 underline-offset-4 hover:text-[hsl(var(--accent-edit))] hover:decoration-[hsl(var(--accent-edit))] transition-colors"
+              >
+                CarbonX
+              </a>{" "}
+              · A reflection
+            </span>
             <h1 className="edit-display text-white mt-5 max-w-6xl">
               Carbon is not the{" "}
               <span className="edit-outline">enemy.</span>
