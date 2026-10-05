@@ -30,9 +30,9 @@ const CarbonXPage = () => (
           loop
           playsInline
           aria-hidden
-          className="absolute inset-0 w-full h-full object-cover opacity-40 pointer-events-none"
+          className="absolute inset-0 w-full h-full object-cover opacity-55 pointer-events-none"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#081426]/70 via-[#081426]/40 to-[#081426]/95 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#081426]/55 via-[#081426]/25 to-[#081426]/85 pointer-events-none" />
         <div className="edit-container relative w-full">
           <Reveal>
             <span className="edit-label text-[hsl(var(--accent-edit))]">CarbonX · A reflection</span>
