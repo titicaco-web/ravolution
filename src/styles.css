@@ -534,6 +534,16 @@
   -webkit-font-smoothing: antialiased;
 }
 
+/* Same brand tokens for dark surfaces built outside .editorial (hero bars etc.).
+   Values mirror the Brand Bible 3.0 block above — keep them in sync. */
+.edit-tokens {
+  --text-primary: 40 30% 96%; /* Human Ivory #F7F5F0 */
+  --text-secondary: 210 15% 66%; /* System Grey #9AA6B4 */
+  --accent-edit: 34 35% 52%;  /* Signal Gold #B08D57 */
+  --accent-dim: 34 35% 36%;   /* Dark Gold #7C633D */
+  --accent-edit-btn: 34 35% 52%;
+}
+
 .editorial ::selection {
   background: hsl(var(--accent-edit));
   color: #000;
@@ -547,6 +557,13 @@
   line-height: 0.88;
   letter-spacing: -0.055em;
   text-transform: uppercase;
+}
+
+/* Same display typography, scaled down for page-level heroes */
+.edit-display-sm {
+  font-size: clamp(2.25rem, 5.5vw, 4.25rem);
+  line-height: 0.92;
+  letter-spacing: -0.045em;
 }
 
 .edit-h2 {
