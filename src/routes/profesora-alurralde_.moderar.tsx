@@ -3,7 +3,7 @@ import { useServerFn } from "@tanstack/react-start";
 import { useState } from "react";
 import { listModeracion, moderarComentario } from "@/lib/profesora.functions";
 
-export const Route = createFileRoute("/profesora-alurralde/moderar")({
+export const Route = createFileRoute("/profesora-alurralde_/moderar")({
   head: () => ({
     meta: [
       { title: "Moderación — Valoración Profesora Alurralde" },
