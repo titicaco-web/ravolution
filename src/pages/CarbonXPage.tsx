@@ -22,8 +22,18 @@ const sections = [
 const CarbonXPage = () => (
   <EditorialShell>
     <main>
-      <section className="min-h-[85vh] flex items-end px-6 md:px-12 pt-32 pb-20">
-        <div className="edit-container w-full">
+      <section className="relative min-h-[85vh] flex items-end px-6 md:px-12 pt-32 pb-20 overflow-hidden">
+        <video
+          src={carbonxHeroVideo.url}
+          autoPlay
+          muted
+          loop
+          playsInline
+          aria-hidden
+          className="absolute inset-0 w-full h-full object-cover opacity-40 pointer-events-none"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#081426]/70 via-[#081426]/40 to-[#081426]/95 pointer-events-none" />
+        <div className="edit-container relative w-full">
           <Reveal>
             <span className="edit-label text-[hsl(var(--accent-edit))]">CarbonX · A reflection</span>
             <h1 className="font-display font-bold text-white tracking-tight text-5xl md:text-8xl leading-[0.95] mt-8 max-w-5xl">
