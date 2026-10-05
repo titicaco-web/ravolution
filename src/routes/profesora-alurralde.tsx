@@ -108,8 +108,7 @@ function Page() {
         <video aria-hidden="true" autoPlay muted loop playsInline className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-70">
           <source src={earthVideo.url} type="video/mp4" />
         </video>
-        <div aria-hidden="true" className="absolute inset-0 bg-[#081426]/60" />
-        <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-l from-[#081426]/75 via-[#081426]/20 to-transparent" />
+        <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-r from-[#081426]/75 via-[#081426]/50 to-[#081426]/30" />
         <div aria-hidden="true" className="absolute inset-0 opacity-[0.14] [background-image:linear-gradient(to_right,currentColor_1px,transparent_1px),linear-gradient(to_bottom,currentColor_1px,transparent_1px)] [background-size:40px_40px]" />
         <div aria-hidden="true" className="absolute right-[-12rem] top-[-15rem] h-[34rem] w-[34rem] rounded-full border border-[#B08D57]/30 md:right-[-5rem]" />
         <div className="relative mx-auto grid min-h-[72vh] max-w-6xl items-end gap-10 px-6 pb-10 pt-14 md:grid-cols-[minmax(170px,0.45fr)_minmax(0,1.9fr)] md:items-center md:gap-14 md:py-20">
