@@ -160,6 +160,13 @@ const Index = () => {
       href: "https://toxinside.com",
     },
     {
+      status: "PLANETARY BALANCE",
+      name: "CarbonX",
+      desc: "Carbon is not the enemy. Imbalance is. A reflection on carbon, planetary health and a marketplace built on quality, verifiability and trust.",
+      outcome: "READ → the idea behind CarbonX",
+      href: lp("/carbonx"),
+    },
+    {
       status: "HUMAN SAFETY",
       name: "AlarmSole",
       desc: "Discreet connected footwear safety architecture designed to activate emergency workflows directly from the foot.",
