@@ -105,7 +105,7 @@ function Page() {
   return (
     <main className={`min-h-screen bg-[#F7F5F0] ${navy}`}>
       <header className="edit-tokens relative min-h-[72vh] overflow-hidden border-b border-[#0F2747]/15 bg-[#081426] text-[#F7F5F0]">
-        <video aria-hidden="true" autoPlay muted loop playsInline className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-70">
+        <video aria-hidden="true" autoPlay muted loop playsInline className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-80">
           <source src={earthVideo.url} type="video/mp4" />
         </video>
         <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-r from-[#081426]/75 via-[#081426]/50 to-[#081426]/30" />
