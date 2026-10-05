@@ -99,6 +99,7 @@ const CarbonXPage = () => {
       </section>
     </main>
   </EditorialShell>
-);
+  );
+};
 
 export default CarbonXPage;
