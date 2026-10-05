@@ -103,7 +103,7 @@ function Page() {
 
   return (
     <main className={`min-h-screen bg-[#F7F5F0] ${navy}`}>
-      <header className="relative min-h-[72vh] overflow-hidden border-b border-[#0F2747]/15 bg-[#0F2747] text-[#F7F5F0]">
+      <header className="edit-tokens relative min-h-[72vh] overflow-hidden border-b border-[#0F2747]/15 bg-[#0F2747] text-[#F7F5F0]">
         <div aria-hidden="true" className="absolute inset-0 opacity-[0.14] [background-image:linear-gradient(to_right,currentColor_1px,transparent_1px),linear-gradient(to_bottom,currentColor_1px,transparent_1px)] [background-size:40px_40px]" />
         <div aria-hidden="true" className="absolute right-[-12rem] top-[-15rem] h-[34rem] w-[34rem] rounded-full border border-[#B08D57]/30 md:right-[-5rem]" />
         <div className="relative mx-auto grid min-h-[72vh] max-w-6xl items-end gap-10 px-6 pb-10 pt-14 md:grid-cols-[minmax(250px,0.72fr)_minmax(0,1.6fr)] md:items-center md:gap-16 md:py-20">
