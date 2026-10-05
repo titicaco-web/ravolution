@@ -32,6 +32,7 @@ import { Route as LangBeredskapadRouteImport } from './routes/$lang/beredskapad'
 import { Route as LangBlogRouteImport } from './routes/$lang/blog'
 import { Route as LangBriefRouteImport } from './routes/$lang/brief'
 import { Route as LangBuildForEquityRouteImport } from './routes/$lang/build-for-equity'
+import { Route as LangCarbonxRouteImport } from './routes/$lang/carbonx'
 import { Route as LangConfigureRouteImport } from './routes/$lang/configure'
 import { Route as LangContactRouteImport } from './routes/$lang/contact'
 import { Route as LangEaktiebokDraknasteRouteImport } from './routes/$lang/eaktiebok-draknaste'
@@ -191,6 +192,11 @@ const LangBriefRoute = LangBriefRouteImport.update({
 const LangBuildForEquityRoute = LangBuildForEquityRouteImport.update({
   id: '/$lang/build-for-equity',
   path: '/$lang/build-for-equity',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LangCarbonxRoute = LangCarbonxRouteImport.update({
+  id: '/$lang/carbonx',
+  path: '/$lang/carbonx',
   getParentRoute: () => rootRouteImport,
 } as any)
 const LangConfigureRoute = LangConfigureRouteImport.update({
@@ -446,6 +452,7 @@ export interface FileRoutesByFullPath {
   '/$lang/blog': typeof LangBlogRoute
   '/$lang/brief': typeof LangBriefRoute
   '/$lang/build-for-equity': typeof LangBuildForEquityRoute
+  '/$lang/carbonx': typeof LangCarbonxRoute
   '/$lang/configure': typeof LangConfigureRoute
   '/$lang/contact': typeof LangContactRoute
   '/$lang/eaktiebok-draknaste': typeof LangEaktiebokDraknasteRoute
@@ -516,6 +523,7 @@ export interface FileRoutesByTo {
   '/$lang/blog': typeof LangBlogRoute
   '/$lang/brief': typeof LangBriefRoute
   '/$lang/build-for-equity': typeof LangBuildForEquityRoute
+  '/$lang/carbonx': typeof LangCarbonxRoute
   '/$lang/configure': typeof LangConfigureRoute
   '/$lang/contact': typeof LangContactRoute
   '/$lang/eaktiebok-draknaste': typeof LangEaktiebokDraknasteRoute
@@ -587,6 +595,7 @@ export interface FileRoutesById {
   '/$lang/blog': typeof LangBlogRoute
   '/$lang/brief': typeof LangBriefRoute
   '/$lang/build-for-equity': typeof LangBuildForEquityRoute
+  '/$lang/carbonx': typeof LangCarbonxRoute
   '/$lang/configure': typeof LangConfigureRoute
   '/$lang/contact': typeof LangContactRoute
   '/$lang/eaktiebok-draknaste': typeof LangEaktiebokDraknasteRoute
@@ -659,6 +668,7 @@ export interface FileRouteTypes {
     | '/$lang/blog'
     | '/$lang/brief'
     | '/$lang/build-for-equity'
+    | '/$lang/carbonx'
     | '/$lang/configure'
     | '/$lang/contact'
     | '/$lang/eaktiebok-draknaste'
@@ -729,6 +739,7 @@ export interface FileRouteTypes {
     | '/$lang/blog'
     | '/$lang/brief'
     | '/$lang/build-for-equity'
+    | '/$lang/carbonx'
     | '/$lang/configure'
     | '/$lang/contact'
     | '/$lang/eaktiebok-draknaste'
@@ -799,6 +810,7 @@ export interface FileRouteTypes {
     | '/$lang/blog'
     | '/$lang/brief'
     | '/$lang/build-for-equity'
+    | '/$lang/carbonx'
     | '/$lang/configure'
     | '/$lang/contact'
     | '/$lang/eaktiebok-draknaste'
@@ -870,6 +882,7 @@ export interface RootRouteChildren {
   LangBlogRoute: typeof LangBlogRoute
   LangBriefRoute: typeof LangBriefRoute
   LangBuildForEquityRoute: typeof LangBuildForEquityRoute
+  LangCarbonxRoute: typeof LangCarbonxRoute
   LangConfigureRoute: typeof LangConfigureRoute
   LangContactRoute: typeof LangContactRoute
   LangEaktiebokDraknasteRoute: typeof LangEaktiebokDraknasteRoute
@@ -1079,6 +1092,13 @@ declare module '@tanstack/react-router' {
       path: '/$lang/build-for-equity'
       fullPath: '/$lang/build-for-equity'
       preLoaderRoute: typeof LangBuildForEquityRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/$lang/carbonx': {
+      id: '/$lang/carbonx'
+      path: '/$lang/carbonx'
+      fullPath: '/$lang/carbonx'
+      preLoaderRoute: typeof LangCarbonxRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/$lang/configure': {
@@ -1422,6 +1442,7 @@ const rootRouteChildren: RootRouteChildren = {
   LangBlogRoute: LangBlogRoute,
   LangBriefRoute: LangBriefRoute,
   LangBuildForEquityRoute: LangBuildForEquityRoute,
+  LangCarbonxRoute: LangCarbonxRoute,
   LangConfigureRoute: LangConfigureRoute,
   LangContactRoute: LangContactRoute,
   LangEaktiebokDraknasteRoute: LangEaktiebokDraknasteRoute,
