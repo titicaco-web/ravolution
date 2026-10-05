@@ -13,7 +13,9 @@ export const Route = createFileRoute("/$lang/carbonx")({
       { property: "og:title", content: title },
       { property: "og:description", content: description },
       { property: "og:type", content: "article" },
+      { property: "og:image", content: "https://ravolution.se/og-carbonx.jpg" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:image", content: "https://ravolution.se/og-carbonx.jpg" },
     ],
   }),
   component: () => (
