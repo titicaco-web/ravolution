@@ -1,4 +1,5 @@
 import { EditorialShell, Reveal, SectionLabel } from "@/components/editorial/EditorialLayout";
+import carbonxHeroVideo from "@/assets/carbonx-hero.mp4.asset.json";
 
 const sections = [
   {
