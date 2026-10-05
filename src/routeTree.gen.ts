@@ -19,6 +19,7 @@ import { Route as MetadatamachineRouteImport } from './routes/metadatamachine'
 import { Route as PartnerRouteImport } from './routes/partner'
 import { Route as PartystaRouteImport } from './routes/partysta'
 import { Route as PratisRouteImport } from './routes/pratis'
+import { Route as ProfesoraAlurraldeRouteImport } from './routes/profesora-alurralde'
 import { Route as StoryRouteImport } from './routes/story'
 import { Route as StudioroomRouteImport } from './routes/studioroom'
 import { Route as XportmatchRouteImport } from './routes/xportmatch'
@@ -60,6 +61,7 @@ import { Route as EsSocioComercialRouteImport } from './routes/es/socio-comercia
 import { Route as PikpcashIndexRouteImport } from './routes/pikpcash/index'
 import { Route as PikpcashDataroomRouteImport } from './routes/pikpcash/dataroom'
 import { Route as PikpcashSystemRouteImport } from './routes/pikpcash/system'
+import { Route as ProfesoraAlurraldeModerarRouteImport } from './routes/profesora-alurralde_.moderar'
 import { Route as SvAnsokRouteImport } from './routes/sv/ansok'
 import { Route as SvSaljpartnerRouteImport } from './routes/sv/saljpartner'
 import { Route as SvTjansterRouteImport } from './routes/sv/tjanster'
@@ -127,6 +129,11 @@ const PartystaRoute = PartystaRouteImport.update({
 const PratisRoute = PratisRouteImport.update({
   id: '/pratis',
   path: '/pratis',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProfesoraAlurraldeRoute = ProfesoraAlurraldeRouteImport.update({
+  id: '/profesora-alurralde',
+  path: '/profesora-alurralde',
   getParentRoute: () => rootRouteImport,
 } as any)
 const StoryRoute = StoryRouteImport.update({
@@ -336,6 +343,12 @@ const PikpcashSystemRoute = PikpcashSystemRouteImport.update({
   path: '/pikpcash/system',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ProfesoraAlurraldeModerarRoute =
+  ProfesoraAlurraldeModerarRouteImport.update({
+    id: '/profesora-alurralde_/moderar',
+    path: '/profesora-alurralde/moderar',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const SvAnsokRoute = SvAnsokRouteImport.update({
   id: '/sv/ansok',
   path: '/sv/ansok',
@@ -440,6 +453,7 @@ export interface FileRoutesByFullPath {
   '/partner': typeof PartnerRoute
   '/partysta': typeof PartystaRoute
   '/pratis': typeof PratisRoute
+  '/profesora-alurralde': typeof ProfesoraAlurraldeRoute
   '/story': typeof StoryRoute
   '/studioroom': typeof StudioroomRoute
   '/xportmatch': typeof XportmatchRoute
@@ -478,6 +492,7 @@ export interface FileRoutesByFullPath {
   '/es/socio-comercial': typeof EsSocioComercialRoute
   '/pikpcash/dataroom': typeof PikpcashDataroomRoute
   '/pikpcash/system': typeof PikpcashSystemRoute
+  '/profesora-alurralde/moderar': typeof ProfesoraAlurraldeModerarRoute
   '/sv/ansok': typeof SvAnsokRoute
   '/sv/saljpartner': typeof SvSaljpartnerRoute
   '/sv/tjanster': typeof SvTjansterRoute
@@ -511,6 +526,7 @@ export interface FileRoutesByTo {
   '/partner': typeof PartnerRoute
   '/partysta': typeof PartystaRoute
   '/pratis': typeof PratisRoute
+  '/profesora-alurralde': typeof ProfesoraAlurraldeRoute
   '/story': typeof StoryRoute
   '/studioroom': typeof StudioroomRoute
   '/xportmatch': typeof XportmatchRoute
@@ -549,6 +565,7 @@ export interface FileRoutesByTo {
   '/es/socio-comercial': typeof EsSocioComercialRoute
   '/pikpcash/dataroom': typeof PikpcashDataroomRoute
   '/pikpcash/system': typeof PikpcashSystemRoute
+  '/profesora-alurralde/moderar': typeof ProfesoraAlurraldeModerarRoute
   '/sv/ansok': typeof SvAnsokRoute
   '/sv/saljpartner': typeof SvSaljpartnerRoute
   '/sv/tjanster': typeof SvTjansterRoute
@@ -583,6 +600,7 @@ export interface FileRoutesById {
   '/partner': typeof PartnerRoute
   '/partysta': typeof PartystaRoute
   '/pratis': typeof PratisRoute
+  '/profesora-alurralde': typeof ProfesoraAlurraldeRoute
   '/story': typeof StoryRoute
   '/studioroom': typeof StudioroomRoute
   '/xportmatch': typeof XportmatchRoute
@@ -621,6 +639,7 @@ export interface FileRoutesById {
   '/es/socio-comercial': typeof EsSocioComercialRoute
   '/pikpcash/dataroom': typeof PikpcashDataroomRoute
   '/pikpcash/system': typeof PikpcashSystemRoute
+  '/profesora-alurralde_/moderar': typeof ProfesoraAlurraldeModerarRoute
   '/sv/ansok': typeof SvAnsokRoute
   '/sv/saljpartner': typeof SvSaljpartnerRoute
   '/sv/tjanster': typeof SvTjansterRoute
@@ -656,6 +675,7 @@ export interface FileRouteTypes {
     | '/partner'
     | '/partysta'
     | '/pratis'
+    | '/profesora-alurralde'
     | '/story'
     | '/studioroom'
     | '/xportmatch'
@@ -694,6 +714,7 @@ export interface FileRouteTypes {
     | '/es/socio-comercial'
     | '/pikpcash/dataroom'
     | '/pikpcash/system'
+    | '/profesora-alurralde/moderar'
     | '/sv/ansok'
     | '/sv/saljpartner'
     | '/sv/tjanster'
@@ -727,6 +748,7 @@ export interface FileRouteTypes {
     | '/partner'
     | '/partysta'
     | '/pratis'
+    | '/profesora-alurralde'
     | '/story'
     | '/studioroom'
     | '/xportmatch'
@@ -765,6 +787,7 @@ export interface FileRouteTypes {
     | '/es/socio-comercial'
     | '/pikpcash/dataroom'
     | '/pikpcash/system'
+    | '/profesora-alurralde/moderar'
     | '/sv/ansok'
     | '/sv/saljpartner'
     | '/sv/tjanster'
@@ -798,6 +821,7 @@ export interface FileRouteTypes {
     | '/partner'
     | '/partysta'
     | '/pratis'
+    | '/profesora-alurralde'
     | '/story'
     | '/studioroom'
     | '/xportmatch'
@@ -836,6 +860,7 @@ export interface FileRouteTypes {
     | '/es/socio-comercial'
     | '/pikpcash/dataroom'
     | '/pikpcash/system'
+    | '/profesora-alurralde_/moderar'
     | '/sv/ansok'
     | '/sv/saljpartner'
     | '/sv/tjanster'
@@ -870,6 +895,7 @@ export interface RootRouteChildren {
   PartnerRoute: typeof PartnerRoute
   PartystaRoute: typeof PartystaRoute
   PratisRoute: typeof PratisRoute
+  ProfesoraAlurraldeRoute: typeof ProfesoraAlurraldeRoute
   StoryRoute: typeof StoryRoute
   StudioroomRoute: typeof StudioroomRoute
   XportmatchRoute: typeof XportmatchRoute
@@ -908,6 +934,7 @@ export interface RootRouteChildren {
   EsSocioComercialRoute: typeof EsSocioComercialRoute
   PikpcashDataroomRoute: typeof PikpcashDataroomRoute
   PikpcashSystemRoute: typeof PikpcashSystemRoute
+  ProfesoraAlurraldeModerarRoute: typeof ProfesoraAlurraldeModerarRoute
   SvAnsokRoute: typeof SvAnsokRoute
   SvSaljpartnerRoute: typeof SvSaljpartnerRoute
   SvTjansterRoute: typeof SvTjansterRoute
@@ -1001,6 +1028,13 @@ declare module '@tanstack/react-router' {
       path: '/pratis'
       fullPath: '/pratis'
       preLoaderRoute: typeof PratisRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/profesora-alurralde': {
+      id: '/profesora-alurralde'
+      path: '/profesora-alurralde'
+      fullPath: '/profesora-alurralde'
+      preLoaderRoute: typeof ProfesoraAlurraldeRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/story': {
@@ -1290,6 +1324,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PikpcashSystemRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/profesora-alurralde_/moderar': {
+      id: '/profesora-alurralde_/moderar'
+      path: '/profesora-alurralde/moderar'
+      fullPath: '/profesora-alurralde/moderar'
+      preLoaderRoute: typeof ProfesoraAlurraldeModerarRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/sv/ansok': {
       id: '/sv/ansok'
       path: '/sv/ansok'
@@ -1430,6 +1471,7 @@ const rootRouteChildren: RootRouteChildren = {
   PartnerRoute: PartnerRoute,
   PartystaRoute: PartystaRoute,
   PratisRoute: PratisRoute,
+  ProfesoraAlurraldeRoute: ProfesoraAlurraldeRoute,
   StoryRoute: StoryRoute,
   StudioroomRoute: StudioroomRoute,
   XportmatchRoute: XportmatchRoute,
@@ -1469,6 +1511,7 @@ const rootRouteChildren: RootRouteChildren = {
   EsSocioComercialRoute: EsSocioComercialRoute,
   PikpcashDataroomRoute: PikpcashDataroomRoute,
   PikpcashSystemRoute: PikpcashSystemRoute,
+  ProfesoraAlurraldeModerarRoute: ProfesoraAlurraldeModerarRoute,
   SvAnsokRoute: SvAnsokRoute,
   SvSaljpartnerRoute: SvSaljpartnerRoute,
   SvTjansterRoute: SvTjansterRoute,
