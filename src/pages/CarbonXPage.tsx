@@ -40,13 +40,14 @@ const CarbonXPage = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-[#081426]/55 via-[#081426]/25 to-[#081426]/85 pointer-events-none" />
         <div className="edit-container relative w-full">
           <Reveal>
-            <span className="edit-label text-[hsl(var(--accent-edit))]">CarbonX · A reflection</span>
-            <h1 className="font-display font-bold text-white tracking-tight text-5xl md:text-8xl leading-[0.95] mt-8 max-w-5xl">
-              Carbon is not the enemy.
+            <span className="edit-label edit-eyebrow">CarbonX · A reflection</span>
+            <h1 className="edit-display text-white mt-5 max-w-6xl">
+              Carbon is not the{" "}
+              <span className="edit-outline">enemy.</span>
               <br />
               <span className="text-white/55">Imbalance is.</span>
             </h1>
-            <p className="edit-body text-white/65 text-lg max-w-2xl mt-10">
+            <p className="edit-lede text-white/65 max-w-2xl mt-10">
               The element of life, returned to balance — a project we believe in and contribute to.
             </p>
           </Reveal>
