@@ -1,4 +1,6 @@
 import { EditorialShell, Reveal, SectionLabel } from "@/components/editorial/EditorialLayout";
+import { Link } from "@/lib/router-compat";
+import { useLangPath } from "@/hooks/use-lang-path";
 import carbonxHeroVideo from "@/assets/carbonx-hero.mp4.asset.json";
 
 const sections = [
@@ -19,7 +21,10 @@ const sections = [
   },
 ];
 
-const CarbonXPage = () => (
+const CarbonXPage = () => {
+  const lp = useLangPath();
+
+  return (
   <EditorialShell>
     <main>
       <section className="relative min-h-[85vh] flex items-end px-6 md:px-12 pt-32 pb-20 overflow-hidden">
@@ -46,6 +51,19 @@ const CarbonXPage = () => (
             </p>
           </Reveal>
         </div>
+        <Link
+          to={lp("/")}
+          aria-label="Ravolution — this platform is built by Ravolution"
+          className="group absolute bottom-6 left-6 md:bottom-8 md:left-12 flex items-center gap-3 text-white/40 hover:text-white/70 transition-colors"
+        >
+          <span
+            aria-hidden
+            className="h-px w-8 bg-[hsl(var(--accent-edit))]/45 group-hover:bg-[hsl(var(--accent-edit))]/85 transition-colors"
+          />
+          <span className="edit-mono text-[10px] md:text-[11px] font-medium uppercase leading-none tracking-[0.22em]">
+            Platform built by <span className="text-[hsl(var(--accent-edit))]">Ravolution</span>
+          </span>
+        </Link>
       </section>
 
       {sections.map((s) => (
