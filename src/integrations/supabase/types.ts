@@ -14,6 +14,63 @@ export type Database = {
   }
   public: {
     Tables: {
+      profesora_comentarios: {
+        Row: {
+          created_at: string
+          estado: string
+          id: string
+          reportes: number
+          texto: string
+        }
+        Insert: {
+          created_at?: string
+          estado?: string
+          id?: string
+          reportes?: number
+          texto: string
+        }
+        Update: {
+          created_at?: string
+          estado?: string
+          id?: string
+          reportes?: number
+          texto?: string
+        }
+        Relationships: []
+      }
+      profesora_valoraciones: {
+        Row: {
+          claridad: number
+          created_at: string
+          disponibilidad: number
+          dominio: number
+          general: number
+          id: string
+          metodologia: number
+          motivacion: number
+        }
+        Insert: {
+          claridad: number
+          created_at?: string
+          disponibilidad: number
+          dominio: number
+          general: number
+          id?: string
+          metodologia: number
+          motivacion: number
+        }
+        Update: {
+          claridad?: number
+          created_at?: string
+          disponibilidad?: number
+          dominio?: number
+          general?: number
+          id?: string
+          metodologia?: number
+          motivacion?: number
+        }
+        Relationships: []
+      }
       startup_applications: {
         Row: {
           blocker: string | null
