@@ -103,17 +103,39 @@ function Page() {
 
   return (
     <main className={`min-h-screen bg-[#F7F5F0] ${navy}`}>
-      <div className="mx-auto max-w-3xl px-6 py-16 md:py-24">
-        <header className="flex flex-col sm:flex-row gap-8 items-start sm:items-center mb-12">
-          <img src={photo.url} alt="Profesora Claudia Alurralde" className="w-32 h-32 object-cover rounded-sm border border-[#0F2747]/15" />
-          <div>
-            <span className="edit-mono text-[11px] uppercase tracking-[0.2em] text-[#7C633D]">DER-501 · Relaciones Internacionales</span>
-            <h1 className="mt-3 text-3xl md:text-4xl font-semibold tracking-tight">Profesora Claudia Alurralde — Valoración del alumnado</h1>
-            <p className="mt-4 text-[#0F2747]/75 leading-relaxed">
+      <header className="relative min-h-[72vh] overflow-hidden border-b border-[#0F2747]/15 bg-[#0F2747] text-[#F7F5F0]">
+        <div aria-hidden="true" className="absolute inset-0 opacity-[0.14] [background-image:linear-gradient(to_right,currentColor_1px,transparent_1px),linear-gradient(to_bottom,currentColor_1px,transparent_1px)] [background-size:40px_40px]" />
+        <div aria-hidden="true" className="absolute right-[-12rem] top-[-15rem] h-[34rem] w-[34rem] rounded-full border border-[#B08D57]/30 md:right-[-5rem]" />
+        <div className="relative mx-auto grid min-h-[72vh] max-w-6xl items-end gap-10 px-6 pb-10 pt-14 md:grid-cols-[minmax(250px,0.72fr)_minmax(0,1.6fr)] md:items-center md:gap-16 md:py-20">
+          <div className="relative mx-auto w-full max-w-[290px] md:max-w-none">
+            <div aria-hidden="true" className="absolute -left-5 -top-5 h-16 w-16 border-l border-t border-[#B08D57]" />
+            <img
+              src={photo.url}
+              alt="Profesora Claudia Alurralde"
+              className="aspect-[4/5] w-full rounded-sm border border-[#F7F5F0]/20 object-cover object-top grayscale-[12%]"
+            />
+            <div className="absolute bottom-0 left-0 right-0 border-t border-[#F7F5F0]/20 bg-[#081426]/85 px-4 py-3 backdrop-blur-sm">
+              <p className="edit-mono text-[10px] uppercase tracking-[0.18em] text-[#F7F5F0]/65">Docencia · 2026</p>
+            </div>
+          </div>
+
+          <div className="pb-2 md:pb-0">
+            <div className="flex items-center gap-3">
+              <span aria-hidden="true" className="h-px w-10 bg-[#B08D57]" />
+              <span className="edit-mono text-[10px] uppercase tracking-[0.2em] text-[#B08D57] md:text-[11px]">DER-501 · Relaciones Internacionales</span>
+            </div>
+            <h1 className="mt-6 max-w-4xl text-4xl font-semibold leading-[1.02] md:text-6xl lg:text-7xl">
+              Profesora Claudia Alurralde
+              <span className="mt-3 block text-[#F7F5F0]/58">Valoración del alumnado</span>
+            </h1>
+            <p className="mt-7 max-w-2xl text-base leading-relaxed text-[#F7F5F0]/72 md:text-xl">
               Tu opinión, de forma anónima, ayuda a mejorar el curso de Relaciones Internacionales (DER-501). Valora y comenta con respeto.
             </p>
           </div>
-        </header>
+        </div>
+      </header>
+
+      <div className="mx-auto max-w-3xl px-6 py-12 md:py-16">
 
         {step === "gate" && (
           <form onSubmit={enter} className="border border-[#0F2747]/15 bg-white/60 p-6 md:p-8 flex flex-col sm:flex-row gap-3">
