@@ -562,8 +562,14 @@
 /* Same display typography, scaled down for page-level heroes */
 .edit-display-sm {
   font-size: clamp(2.25rem, 5.5vw, 4.25rem);
-  line-height: 0.92;
+  line-height: 1.02;
   letter-spacing: -0.045em;
+}
+
+@media (min-width: 768px) {
+  .edit-display-sm {
+    line-height: 0.92;
+  }
 }
 
 .edit-h2 {

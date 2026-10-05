@@ -112,7 +112,7 @@ function Page() {
         <div aria-hidden="true" className="absolute inset-0 opacity-[0.14] [background-image:linear-gradient(to_right,currentColor_1px,transparent_1px),linear-gradient(to_bottom,currentColor_1px,transparent_1px)] [background-size:40px_40px]" />
         <div aria-hidden="true" className="absolute right-[-12rem] top-[-15rem] h-[34rem] w-[34rem] rounded-full border border-[#B08D57]/30 md:right-[-5rem]" />
         <div className="relative mx-auto grid min-h-[72vh] max-w-6xl items-end gap-10 px-6 pb-10 pt-14 md:grid-cols-[minmax(170px,0.45fr)_minmax(0,1.9fr)] md:items-center md:gap-14 md:py-20">
-          <div className="relative mx-auto w-full max-w-[210px] md:max-w-[250px]">
+          <div className="relative mx-auto w-full max-w-[168px] md:max-w-[250px]">
             <div aria-hidden="true" className="absolute -left-5 -top-5 h-16 w-16 border-l border-t border-[#B08D57]" />
             <img
               src={photo.url}
