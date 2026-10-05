@@ -120,15 +120,14 @@ function Page() {
           </div>
 
           <div className="pb-2 md:pb-0">
-            <div className="flex items-center gap-3">
-              <span aria-hidden="true" className="h-px w-10 bg-[#B08D57]" />
-              <span className="edit-mono text-[10px] uppercase tracking-[0.2em] text-[#B08D57] md:text-[11px]">DER-501 · Relaciones Internacionales</span>
-            </div>
-            <h1 className="mt-6 max-w-4xl text-4xl font-semibold leading-[1.02] md:text-6xl lg:text-7xl">
+            <span className="edit-label edit-eyebrow">DER-501 · Relaciones Internacionales</span>
+            <h1 className="edit-display edit-display-sm text-white mt-5 max-w-3xl">
               Profesora Claudia Alurralde
-              <span className="mt-3 block text-[#F7F5F0]/58">Valoración del alumnado</span>
+              <span className="mt-2 block text-[#F7F5F0]/58">
+                Valoración del <span className="edit-outline">alumnado</span>
+              </span>
             </h1>
-            <p className="mt-7 max-w-2xl text-base leading-relaxed text-[#F7F5F0]/72 md:text-xl">
+            <p className="edit-lede mt-7 max-w-2xl">
               Tu opinión, de forma anónima, ayuda a mejorar el curso de Relaciones Internacionales (DER-501). Valora y comenta con respeto.
             </p>
           </div>
