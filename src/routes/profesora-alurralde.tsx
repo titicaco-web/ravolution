@@ -107,12 +107,12 @@ function Page() {
         <div aria-hidden="true" className="absolute inset-0 opacity-[0.14] [background-image:linear-gradient(to_right,currentColor_1px,transparent_1px),linear-gradient(to_bottom,currentColor_1px,transparent_1px)] [background-size:40px_40px]" />
         <div aria-hidden="true" className="absolute right-[-12rem] top-[-15rem] h-[34rem] w-[34rem] rounded-full border border-[#B08D57]/30 md:right-[-5rem]" />
         <div className="relative mx-auto grid min-h-[72vh] max-w-6xl items-end gap-10 px-6 pb-10 pt-14 md:grid-cols-[minmax(250px,0.72fr)_minmax(0,1.6fr)] md:items-center md:gap-16 md:py-20">
-          <div className="relative mx-auto w-full max-w-[290px] md:max-w-none">
+          <div className="relative mx-auto w-full max-w-[290px] md:max-w-[360px]">
             <div aria-hidden="true" className="absolute -left-5 -top-5 h-16 w-16 border-l border-t border-[#B08D57]" />
             <img
               src={photo.url}
               alt="Profesora Claudia Alurralde"
-              className="aspect-[4/5] w-full rounded-sm border border-[#F7F5F0]/20 object-cover object-top grayscale-[12%]"
+              className="aspect-[2/3] w-full rounded-sm border border-[#F7F5F0]/20 object-cover object-center grayscale-[12%]"
             />
             <div className="absolute bottom-0 left-0 right-0 border-t border-[#F7F5F0]/20 bg-[#081426]/85 px-4 py-3 backdrop-blur-sm">
               <p className="edit-mono text-[10px] uppercase tracking-[0.18em] text-[#F7F5F0]/65">Docencia · 2026</p>
