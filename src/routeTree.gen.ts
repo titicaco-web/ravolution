@@ -67,6 +67,8 @@ import { Route as SvSaljpartnerRouteImport } from './routes/sv/saljpartner'
 import { Route as SvTjansterRouteImport } from './routes/sv/tjanster'
 import { Route as LangBizmeetIndexRouteImport } from './routes/$lang/bizmeet/index'
 import { Route as LangBizmeetDemoRouteImport } from './routes/$lang/bizmeet/demo'
+import { Route as LangEyehealthintelIndexRouteImport } from './routes/$lang/eyehealthintel/index'
+import { Route as LangEyehealthintelMarketOpportunityRouteImport } from './routes/$lang/eyehealthintel/market-opportunity'
 import { Route as LangGyrocraftIndexRouteImport } from './routes/$lang/gyrocraft/index'
 import { Route as LangGyrocraftAboutRouteImport } from './routes/$lang/gyrocraft/about'
 import { Route as LangGyrocraftAcquisitionRouteImport } from './routes/$lang/gyrocraft/acquisition'
@@ -374,6 +376,17 @@ const LangBizmeetDemoRoute = LangBizmeetDemoRouteImport.update({
   path: '/$lang/bizmeet/demo',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LangEyehealthintelIndexRoute = LangEyehealthintelIndexRouteImport.update({
+  id: '/$lang/eyehealthintel/',
+  path: '/$lang/eyehealthintel/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LangEyehealthintelMarketOpportunityRoute =
+  LangEyehealthintelMarketOpportunityRouteImport.update({
+    id: '/$lang/eyehealthintel/market-opportunity',
+    path: '/$lang/eyehealthintel/market-opportunity',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const LangGyrocraftIndexRoute = LangGyrocraftIndexRouteImport.update({
   id: '/$lang/gyrocraft/',
   path: '/$lang/gyrocraft/',
@@ -500,6 +513,7 @@ export interface FileRoutesByFullPath {
   '/bizmeet/': typeof BizmeetIndexRoute
   '/pikpcash/': typeof PikpcashIndexRoute
   '/$lang/bizmeet/demo': typeof LangBizmeetDemoRoute
+  '/$lang/eyehealthintel/market-opportunity': typeof LangEyehealthintelMarketOpportunityRoute
   '/$lang/gyrocraft/about': typeof LangGyrocraftAboutRoute
   '/$lang/gyrocraft/acquisition': typeof LangGyrocraftAcquisitionRoute
   '/$lang/gyrocraft/investors': typeof LangGyrocraftInvestorsRoute
@@ -510,6 +524,7 @@ export interface FileRoutesByFullPath {
   '/$lang/ventures/pratis': typeof LangVenturesPratisRoute
   '/en/publications/handbok-for-entreprenorer': typeof EnPublicationsHandbokForEntreprenorerRoute
   '/$lang/bizmeet/': typeof LangBizmeetIndexRoute
+  '/$lang/eyehealthintel/': typeof LangEyehealthintelIndexRoute
   '/$lang/gyrocraft/': typeof LangGyrocraftIndexRoute
   '/$lang/journal/': typeof LangJournalIndexRoute
   '/$lang/pikpcash/': typeof LangPikpcashIndexRoute
@@ -573,6 +588,7 @@ export interface FileRoutesByTo {
   '/bizmeet': typeof BizmeetIndexRoute
   '/pikpcash': typeof PikpcashIndexRoute
   '/$lang/bizmeet/demo': typeof LangBizmeetDemoRoute
+  '/$lang/eyehealthintel/market-opportunity': typeof LangEyehealthintelMarketOpportunityRoute
   '/$lang/gyrocraft/about': typeof LangGyrocraftAboutRoute
   '/$lang/gyrocraft/acquisition': typeof LangGyrocraftAcquisitionRoute
   '/$lang/gyrocraft/investors': typeof LangGyrocraftInvestorsRoute
@@ -583,6 +599,7 @@ export interface FileRoutesByTo {
   '/$lang/ventures/pratis': typeof LangVenturesPratisRoute
   '/en/publications/handbok-for-entreprenorer': typeof EnPublicationsHandbokForEntreprenorerRoute
   '/$lang/bizmeet': typeof LangBizmeetIndexRoute
+  '/$lang/eyehealthintel': typeof LangEyehealthintelIndexRoute
   '/$lang/gyrocraft': typeof LangGyrocraftIndexRoute
   '/$lang/journal': typeof LangJournalIndexRoute
   '/$lang/pikpcash': typeof LangPikpcashIndexRoute
@@ -647,6 +664,7 @@ export interface FileRoutesById {
   '/bizmeet/': typeof BizmeetIndexRoute
   '/pikpcash/': typeof PikpcashIndexRoute
   '/$lang/bizmeet/demo': typeof LangBizmeetDemoRoute
+  '/$lang/eyehealthintel/market-opportunity': typeof LangEyehealthintelMarketOpportunityRoute
   '/$lang/gyrocraft/about': typeof LangGyrocraftAboutRoute
   '/$lang/gyrocraft/acquisition': typeof LangGyrocraftAcquisitionRoute
   '/$lang/gyrocraft/investors': typeof LangGyrocraftInvestorsRoute
@@ -657,6 +675,7 @@ export interface FileRoutesById {
   '/$lang/ventures/pratis': typeof LangVenturesPratisRoute
   '/en/publications/handbok-for-entreprenorer': typeof EnPublicationsHandbokForEntreprenorerRoute
   '/$lang/bizmeet/': typeof LangBizmeetIndexRoute
+  '/$lang/eyehealthintel/': typeof LangEyehealthintelIndexRoute
   '/$lang/gyrocraft/': typeof LangGyrocraftIndexRoute
   '/$lang/journal/': typeof LangJournalIndexRoute
   '/$lang/pikpcash/': typeof LangPikpcashIndexRoute
@@ -722,6 +741,7 @@ export interface FileRouteTypes {
     | '/bizmeet/'
     | '/pikpcash/'
     | '/$lang/bizmeet/demo'
+    | '/$lang/eyehealthintel/market-opportunity'
     | '/$lang/gyrocraft/about'
     | '/$lang/gyrocraft/acquisition'
     | '/$lang/gyrocraft/investors'
@@ -732,6 +752,7 @@ export interface FileRouteTypes {
     | '/$lang/ventures/pratis'
     | '/en/publications/handbok-for-entreprenorer'
     | '/$lang/bizmeet/'
+    | '/$lang/eyehealthintel/'
     | '/$lang/gyrocraft/'
     | '/$lang/journal/'
     | '/$lang/pikpcash/'
@@ -795,6 +816,7 @@ export interface FileRouteTypes {
     | '/bizmeet'
     | '/pikpcash'
     | '/$lang/bizmeet/demo'
+    | '/$lang/eyehealthintel/market-opportunity'
     | '/$lang/gyrocraft/about'
     | '/$lang/gyrocraft/acquisition'
     | '/$lang/gyrocraft/investors'
@@ -805,6 +827,7 @@ export interface FileRouteTypes {
     | '/$lang/ventures/pratis'
     | '/en/publications/handbok-for-entreprenorer'
     | '/$lang/bizmeet'
+    | '/$lang/eyehealthintel'
     | '/$lang/gyrocraft'
     | '/$lang/journal'
     | '/$lang/pikpcash'
@@ -868,6 +891,7 @@ export interface FileRouteTypes {
     | '/bizmeet/'
     | '/pikpcash/'
     | '/$lang/bizmeet/demo'
+    | '/$lang/eyehealthintel/market-opportunity'
     | '/$lang/gyrocraft/about'
     | '/$lang/gyrocraft/acquisition'
     | '/$lang/gyrocraft/investors'
@@ -878,6 +902,7 @@ export interface FileRouteTypes {
     | '/$lang/ventures/pratis'
     | '/en/publications/handbok-for-entreprenorer'
     | '/$lang/bizmeet/'
+    | '/$lang/eyehealthintel/'
     | '/$lang/gyrocraft/'
     | '/$lang/journal/'
     | '/$lang/pikpcash/'
@@ -942,6 +967,7 @@ export interface RootRouteChildren {
   BizmeetIndexRoute: typeof BizmeetIndexRoute
   PikpcashIndexRoute: typeof PikpcashIndexRoute
   LangBizmeetDemoRoute: typeof LangBizmeetDemoRoute
+  LangEyehealthintelMarketOpportunityRoute: typeof LangEyehealthintelMarketOpportunityRoute
   LangGyrocraftAboutRoute: typeof LangGyrocraftAboutRoute
   LangGyrocraftAcquisitionRoute: typeof LangGyrocraftAcquisitionRoute
   LangGyrocraftInvestorsRoute: typeof LangGyrocraftInvestorsRoute
@@ -952,6 +978,7 @@ export interface RootRouteChildren {
   LangVenturesPratisRoute: typeof LangVenturesPratisRoute
   EnPublicationsHandbokForEntreprenorerRoute: typeof EnPublicationsHandbokForEntreprenorerRoute
   LangBizmeetIndexRoute: typeof LangBizmeetIndexRoute
+  LangEyehealthintelIndexRoute: typeof LangEyehealthintelIndexRoute
   LangGyrocraftIndexRoute: typeof LangGyrocraftIndexRoute
   LangJournalIndexRoute: typeof LangJournalIndexRoute
   LangPikpcashIndexRoute: typeof LangPikpcashIndexRoute
@@ -1366,6 +1393,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LangBizmeetDemoRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/$lang/eyehealthintel/': {
+      id: '/$lang/eyehealthintel/'
+      path: '/$lang/eyehealthintel'
+      fullPath: '/$lang/eyehealthintel/'
+      preLoaderRoute: typeof LangEyehealthintelIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/$lang/eyehealthintel/market-opportunity': {
+      id: '/$lang/eyehealthintel/market-opportunity'
+      path: '/$lang/eyehealthintel/market-opportunity'
+      fullPath: '/$lang/eyehealthintel/market-opportunity'
+      preLoaderRoute: typeof LangEyehealthintelMarketOpportunityRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/$lang/gyrocraft/': {
       id: '/$lang/gyrocraft/'
       path: '/$lang/gyrocraft'
@@ -1519,6 +1560,8 @@ const rootRouteChildren: RootRouteChildren = {
   BizmeetIndexRoute: BizmeetIndexRoute,
   PikpcashIndexRoute: PikpcashIndexRoute,
   LangBizmeetDemoRoute: LangBizmeetDemoRoute,
+  LangEyehealthintelMarketOpportunityRoute:
+    LangEyehealthintelMarketOpportunityRoute,
   LangGyrocraftAboutRoute: LangGyrocraftAboutRoute,
   LangGyrocraftAcquisitionRoute: LangGyrocraftAcquisitionRoute,
   LangGyrocraftInvestorsRoute: LangGyrocraftInvestorsRoute,
@@ -1530,6 +1573,7 @@ const rootRouteChildren: RootRouteChildren = {
   EnPublicationsHandbokForEntreprenorerRoute:
     EnPublicationsHandbokForEntreprenorerRoute,
   LangBizmeetIndexRoute: LangBizmeetIndexRoute,
+  LangEyehealthintelIndexRoute: LangEyehealthintelIndexRoute,
   LangGyrocraftIndexRoute: LangGyrocraftIndexRoute,
   LangJournalIndexRoute: LangJournalIndexRoute,
   LangPikpcashIndexRoute: LangPikpcashIndexRoute,
