@@ -79,8 +79,8 @@
     .eyebrow,.number,.kicker { font:500 12px/1.5 var(--mono); color:var(--gold); letter-spacing:.16em; text-transform:uppercase; }
     .hero { position:relative; overflow:hidden; padding:64px 0 78px; border-bottom:1px solid var(--rule); }
     .hero-video { position:absolute; top:0; bottom:0; left:50%; transform:translateX(-50%); width:100vw; z-index:0; pointer-events:none; }
-    .hero-video video { width:100%; height:100%; object-fit:cover; opacity:.8; }
-    .hero-video::after { content:""; position:absolute; inset:0; background:linear-gradient(to right, rgba(16,30,45,.82), rgba(16,30,45,.55) 55%, rgba(16,30,45,.35)); }
+    .hero-video video { width:100%; height:100%; object-fit:cover; opacity:.92; }
+    .hero-video::after { content:""; position:absolute; inset:0; background:linear-gradient(to right, rgba(16,30,45,.6), rgba(16,30,45,.3) 55%, rgba(16,30,45,.12)); }
     .hero > *:not(.hero-video) { position:relative; z-index:1; }
     .hero-heading { display:flex; gap:28px; align-items:baseline; }
     .hero h1 { margin:0; font:800 clamp(3rem,7vw,6.5rem)/.97 var(--display); letter-spacing:-.055em; text-transform:uppercase; }
@@ -133,7 +133,7 @@
     .footer a { text-decoration:none; margin-right:18px; }
     @media(max-width:900px) { .wrap { width:min(100% - 40px,1280px); } .hero-body,.feature,.section-header,.questions { grid-template-columns:1fr; gap:30px; } .topic { grid-template-columns:38px 1fr; gap:10px 16px; } .topic p,.topic>a { grid-column:2; } .headlinks { gap:14px; } }
     @media(max-width:600px) { .header { min-height:78px; } .headlinks a:not(.outline) { display:none; } .brand { font-size:15px; letter-spacing:.13em; } .brand span { display:none; } .outline { padding:10px; font-size:10px; } .hero { padding:45px 0 50px; } .hero-heading { display:block; } .hero-heading .number { display:block; margin-bottom:12px; } .hero-body { margin-top:32px; } .feature,.section { padding-top:56px; padding-bottom:55px; } .questions { margin-top:36px; padding-top:55px; } .form-row { grid-template-columns:1fr; gap:0; } .ask { padding:20px; } }
-    @media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } .hero-video video { display:none; } }
+    @media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } .hero-video video { animation:none; } }
   .people{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));border-top:1px solid var(--rule)}.people li{padding:20px 16px 20px 0;border-bottom:1px solid var(--rule)}.people a{text-decoration:none;display:block;font:600 18px/1.3 var(--display)}.people a:hover{color:#dfc293}.people span{display:block;color:var(--muted);font-size:14px;margin-top:6px}
 </style>
 <meta name="keywords" content="Handbok för entreprenörer, Ivan Daza, Jobbfabriken, Blatteförmedlingen AB, Dani Evanoff, Maribel Alvarez, Namir Zetali, Amelia Adamo, Martin Ali Hosseini, Elcim Yilmaz, Maroun Aoun, Mernosh Saatchi, Mohammad Babulfath, Amir Sajadi, Ahmet Önal, Ali Karimi, Zdrvko Markovski, Akbar Seddigh, Shervin Razani, Alessandro Catenacci, Nima Sanandaji, invandrade entreprenörer, entreprenörer med utländsk bakgrund">
