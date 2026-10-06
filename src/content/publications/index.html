@@ -77,7 +77,11 @@
     .outline { border:1px solid var(--gold); color:#dfc293; padding:13px 18px; text-decoration:none; text-align:center; }
     main { padding-bottom:100px; }
     .eyebrow,.number,.kicker { font:500 12px/1.5 var(--mono); color:var(--gold); letter-spacing:.16em; text-transform:uppercase; }
-    .hero { padding:64px 0 78px; border-bottom:1px solid var(--rule); }
+    .hero { position:relative; overflow:hidden; padding:64px 0 78px; border-bottom:1px solid var(--rule); }
+    .hero-video { position:absolute; top:0; bottom:0; left:50%; transform:translateX(-50%); width:100vw; z-index:0; pointer-events:none; }
+    .hero-video video { width:100%; height:100%; object-fit:cover; opacity:.8; }
+    .hero-video::after { content:""; position:absolute; inset:0; background:linear-gradient(to right, rgba(16,30,45,.82), rgba(16,30,45,.55) 55%, rgba(16,30,45,.35)); }
+    .hero > *:not(.hero-video) { position:relative; z-index:1; }
     .hero-heading { display:flex; gap:28px; align-items:baseline; }
     .hero h1 { margin:0; font:800 clamp(3rem,7vw,6.5rem)/.97 var(--display); letter-spacing:-.055em; text-transform:uppercase; }
     .hero-body { display:grid; grid-template-columns:minmax(0,1.4fr) minmax(280px,.6fr); gap:72px; align-items:end; margin-top:60px; }
