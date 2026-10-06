@@ -107,6 +107,13 @@ const Index = () => {
     },
     {
       num: "06",
+      name: "EYE HEALTH",
+      question: "What if every person could build a record of their eyes over time — using a device they already own?",
+      body: "Infrastructure for guided smartphone eye capture, longitudinal Eye Records, image-quality control and evidence-governed AI — not a phone turned ophthalmologist, but eye images made structured and comparable over time. OUTCOME → eye information that becomes more useful over time. PATENT PENDING · CONSUMER + PRE-CLINICAL INFRASTRUCTURE.",
+      systems: ["EyeHealthIntel"],
+    },
+    {
+      num: "07",
       name: "HUMAN CAPABILITY",
       question: "What if technology amplified human agency instead of merely automating activity?",
       body: "Interfaces, wearables, companionship systems and unreleased inventions aimed at extending capability, resilience and freedom of action.",
@@ -119,7 +126,7 @@ const Index = () => {
     { title: "Language", systems: "Rosetta Livingstone · SINGUISTIC", pos: "right-[3%] top-[8%]" },
     { title: "Trust & Safety", systems: "VoiceProtector · AIMagnifica · AlarmSole", pos: "left-[3%] bottom-[8%]" },
     { title: "Opportunity", systems: "PikpCash · iApply · BizMeet · XportMatch", pos: "right-[3%] bottom-[8%]" },
-    { title: "Health & Planet", systems: "TOXINSIDE · CarbonX", pos: "left-1/2 -translate-x-1/2 top-[1%]" },
+    { title: "Health & Planet", systems: "TOXINSIDE · CarbonX · EyeHealthIntel", pos: "left-1/2 -translate-x-1/2 top-[1%]" },
     { title: "Frontier / Stealth", systems: "Gyrocraft · unreleased systems", pos: "left-1/2 -translate-x-1/2 bottom-[1%]" },
   ];
 
@@ -130,6 +137,13 @@ const Index = () => {
       desc: "Cross-national learning infrastructure built around K1–K9 access, curriculum equivalency, assessment and rights-aligned educational participation.",
       outcome: "OUTCOME → education less constrained by geography",
       href: lp("/portfolio"),
+    },
+    {
+      status: "EYE HEALTH INFRASTRUCTURE · PATENT PENDING",
+      name: "EyeHealthIntel",
+      desc: "Guided smartphone eye capture and longitudinal Eye Records built around device adaptation, image-quality gating, provenance and evidence-governed intelligence — for consumer health, telehealth, imaging, research and future validated clinical workflows.",
+      outcome: "Explore the invention →",
+      href: lp("/eyehealthintel"),
     },
     {
       status: "LANGUAGE INFRASTRUCTURE",
