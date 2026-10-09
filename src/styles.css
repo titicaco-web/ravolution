@@ -1268,7 +1268,7 @@
 .invitation-done h2 { font-size:28px; letter-spacing:0; line-height:1.2; }
 .invitation-done p { color:var(--invitation-muted); margin-top:16px; line-height:1.6; }
 .invitation-tick { display:grid; place-items:center; width:60px; height:60px; margin:0 auto 20px; background:var(--invitation-ink); color:var(--invitation-gold); border-radius:4px; }
-.invitation-reopen { position:fixed; right:22px; bottom:22px; z-index:40; border-radius:4px; background:hsl(var(--primary)); color:hsl(var(--primary-foreground)); border:1px solid hsl(var(--gold)); font:500 11px "IBM Plex Mono",monospace; text-transform:uppercase; }
+.invitation-reopen { position:fixed; right:22px; bottom:22px; z-index:60; border-radius:4px; background:hsl(var(--primary)); color:hsl(var(--primary-foreground)); border:1px solid hsl(var(--gold)); font:500 11px "IBM Plex Mono",monospace; text-transform:uppercase; }
 @media (max-width:520px) {
   .invitation-dialog { padding:24px 22px; top:16px; max-height:calc(100dvh - 32px); }
   .invitation-dialog .invitation-title { font-size:28px; }
