@@ -54,7 +54,7 @@ export default function LandingInvitation() {
   return <>
     {!open && <Button className="invitation-reopen" onClick={() => setOpen(true)}>{c.involved}<ArrowRight /></Button>}
     <Dialog open={open} onOpenChange={setOpen}>
-      <DialogContent className="invitation-dialog" onOpenAutoFocus={event => event.preventDefault()}>
+      <DialogContent className="invitation-dialog translate-x-0 translate-y-0" onOpenAutoFocus={event => event.preventDefault()}>
         {done ? <div className="invitation-done">
           <div className="invitation-tick"><Check size={28} /></div>
           <DialogTitle>{c.done}</DialogTitle>
