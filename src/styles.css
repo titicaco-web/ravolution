@@ -1215,8 +1215,8 @@
   --invitation-gold-text: #7C633D;
   --invitation-error: #a62d2d;
   top: 24px;
-  transform: translateX(-50%);
-  translate: none;
+  transform: none !important;
+  translate: -50% 0 !important;
   width: calc(100% - 36px);
   max-width: 560px;
   max-height: calc(100dvh - 48px);
