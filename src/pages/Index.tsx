@@ -303,7 +303,7 @@ const Index = () => {
                 </div>
               </Reveal>
               <Reveal delay={0.24} className="md:col-span-5 md:border-l border-white/10 md:pl-10">
-                <div className="font-display font-bold text-4xl md:text-5xl text-white">27 / 369</div>
+                <div className="font-display font-bold text-4xl md:text-5xl text-white">28 / 369</div>
                 <p className="edit-label text-white/50 mt-3 leading-relaxed">
                   Patent assets / claims
                   <br />
@@ -512,7 +512,7 @@ const Index = () => {
             />
             <div className="grid grid-cols-2 md:grid-cols-4 border-t border-l border-white/10">
               {[
-                { v: 27, s: "", l: "Patent assets" },
+                { v: 28, s: "", l: "Patent assets" },
                 { v: 369, s: "", l: "Patent claims" },
                 { v: 6, s: "", l: "Global mission areas" },
                 { v: 12, s: "+", l: "Built / active systems" },

@@ -30,7 +30,7 @@ const register: Record[] = [
 
 const claims = [
   {
-    claim: "27 patent assets · 369 claims",
+    claim: "28 patent assets · 369 claims",
     basis: "Portfolio count across granted, filed and pending assets in nine strategic verticals. Exact status, filing numbers and priority dates are supplied per asset in a qualified review.",
   },
   {

@@ -30,14 +30,14 @@ const FounderBlock = () => {
             </Reveal>
             <Reveal delay={0.15}>
               <p className="edit-body text-white/65">
-                Serial entrepreneur and inventor with 27 patents across education, recruitment, AI, and trade.
+                Serial entrepreneur and inventor with 28 patents across education, recruitment, AI, and trade.
                 Builds complex platforms end-to-end — from architecture to patent protection. Based in Stockholm,
                 operating globally in English, Swedish, and Spanish.
               </p>
             </Reveal>
             <Reveal delay={0.2}>
               <div className="flex flex-wrap gap-3 border-t border-white/10 pt-6">
-                {["27 Patents", "369 Claims", "10+ Platforms", "6 Industries"].map((s) => (
+                {["28 Patents", "369 Claims", "10+ Platforms", "6 Industries"].map((s) => (
                   <span key={s} className="edit-label text-white/70 px-4 py-2 border border-white/15">
                     {s}
                   </span>

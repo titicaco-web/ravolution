@@ -31,7 +31,7 @@ const organizationJsonLd = `{
   "url": "https://ravolution.se/",
   "logo": "https://ravolution.se/favicon.png",
   "image": "https://ravolution.se/og-image.jpg",
-  "description": "Swedish invention company and angel investor that partners with early-stage deep-tech startups by building product, brand and go-to-market, refining the concept for future demand, and investing capital in exchange for cash and equity. 27 patents, 369 claims. Founded by inventor Ivan Daza.",
+  "description": "Swedish invention company and angel investor that partners with early-stage deep-tech startups by building product, brand and go-to-market, refining the concept for future demand, and investing capital in exchange for cash and equity. 28 patents, 369 claims. Founded by inventor Ivan Daza.",
   "identifier": "556709-7547",
   "foundingDate": "2020",
   "founder": {

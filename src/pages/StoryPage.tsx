@@ -1259,7 +1259,7 @@ const StoryPage = () => {
             </Reveal>
             <Reveal delay={0.14}>
               <p className="font-mono text-xs tracking-[0.2em] uppercase text-gold mt-8 border border-gold/30 inline-block px-4 py-2">
-                27 patents · 369 claims
+                28 patents · 369 claims
               </p>
             </Reveal>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-white/10 mt-12">

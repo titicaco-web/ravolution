@@ -63,18 +63,18 @@ const Founder = () => {
     <>
       <Helmet>
         <title>Ivan Daza | Founder & Inventor | Ravolution AB</title>
-        <meta name="description" content="Ivan Daza — Swedish tech inventor & founder of Ravolution AB. 27 patents across language learning, voice security, AI trade & K1–K9 education." />
+        <meta name="description" content="Ivan Daza — Swedish tech inventor & founder of Ravolution AB. 28 patents across language learning, voice security, AI trade & K1–K9 education." />
         <link rel="canonical" href="https://ravolution.se/en/about" />
         <link rel="alternate" hrefLang="en" href="https://ravolution.se/en/about" />
         <link rel="alternate" hrefLang="sv" href="https://ravolution.se/sv/about" />
         <link rel="alternate" hrefLang="es" href="https://ravolution.se/es/about" />
         <meta property="og:title" content="Ivan Daza — Founder & Tech Inventor, Ravolution AB" />
-        <meta property="og:description" content="Swedish tech inventor with 27 patents. Founder of Ravolution AB — building deep tech platforms in language, voice security, AI trade and education." />
+        <meta property="og:description" content="Swedish tech inventor with 28 patents. Founder of Ravolution AB — building deep tech platforms in language, voice security, AI trade and education." />
         <meta property="og:type" content="profile" />
         <meta property="og:url" content="https://ravolution.se/en/about" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Ivan Daza — Founder & Tech Inventor, Ravolution AB" />
-        <meta name="twitter:description" content="Swedish tech inventor with 27 patents. Founder of Ravolution AB." />
+        <meta name="twitter:description" content="Swedish tech inventor with 28 patents. Founder of Ravolution AB." />
         <script type="application/ld+json">{JSON.stringify(founderSchema)}</script>
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
@@ -253,7 +253,7 @@ const Founder = () => {
                   <p className="edit-body text-[#344258]">
                     A Life Path 9 (the humanitarian), an Expression 6 (the responsible harmonizer), and a Soul Urge 4
                     (the master builder) converge into a single working mission: <em>build systems that protect people</em>.
-                    It's the throughline behind 27 patents and every platform on this page.
+                    It's the throughline behind 28 patents and every platform on this page.
                   </p>
                 </Reveal>
                 <Reveal delay={0.15}>
@@ -315,7 +315,7 @@ const Founder = () => {
                   <li className="border border-[#081426]/15 p-4">
                     <div className="edit-label text-[#081426]/50">Mission</div>
                     <div className="text-3xl font-display text-[#7C633D]">IP</div>
-                    <p className="text-xs text-[#536078] mt-1">27 patents · 369 claims protecting people through technology.</p>
+                    <p className="text-xs text-[#536078] mt-1">28 patents · 369 claims protecting people through technology.</p>
                   </li>
                 </ul>
                 <p>
