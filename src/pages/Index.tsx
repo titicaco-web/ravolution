@@ -10,6 +10,7 @@ import {
 } from "@/components/editorial/EditorialLayout";
 import InvestorPortfolioMarquee from "@/components/InvestorPortfolioMarquee";
 import HeroVideoBackground from "@/components/HeroVideoBackground";
+import LandingInvitation from "@/components/LandingInvitation";
 import {
   NetworkCanvas,
   TechGrid,
@@ -628,6 +629,7 @@ const Index = () => {
           </div>
         </section>
       </EditorialShell>
+      <LandingInvitation />
     </>
   );
 };

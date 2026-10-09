@@ -1202,3 +1202,75 @@
   background: #081426;
   color: #f7f5f0;
 }
+
+/* Landing invitation — ivory panel, architectural corners, brand typography. */
+.invitation-dialog {
+  --invitation-ink: #0F2747;
+  --invitation-surface: #F7F5F0;
+  --invitation-paper: #EEECE6;
+  --invitation-field-bg: #ffffff;
+  --invitation-muted: #536174;
+  --invitation-line: #cbd0d4;
+  --invitation-gold: #B08D57;
+  --invitation-gold-text: #7C633D;
+  --invitation-error: #a62d2d;
+  top: 24px;
+  transform: translateX(-50%);
+  translate: none;
+  width: calc(100% - 36px);
+  max-width: 560px;
+  max-height: calc(100dvh - 48px);
+  overflow-y: auto;
+  display: block;
+  padding: 28px 36px 32px;
+  border: 1px solid var(--invitation-line);
+  border-top: 3px solid var(--invitation-gold);
+  border-radius: 4px;
+  background: var(--invitation-surface);
+  color: var(--invitation-ink);
+  box-shadow: none;
+  animation: none;
+  font-family: "Inter Tight", sans-serif;
+  letter-spacing: 0;
+}
+.invitation-head { display:flex; align-items:center; gap:13px; margin-bottom:16px; }
+.invitation-mark { width:46px; height:46px; display:grid; place-items:center; position:relative; flex:none; background:var(--invitation-ink); color:var(--invitation-surface); font-size:28px; font-weight:700; border-radius:4px; }
+.invitation-mark::after { content:""; position:absolute; bottom:8px; width:16px; height:2px; background:var(--invitation-gold); }
+.invitation-label { font:500 10px "IBM Plex Mono",monospace; text-transform:uppercase; color:var(--invitation-gold-text); border:1px solid var(--invitation-gold); padding:5px 10px; border-radius:2px; }
+.invitation-dialog .invitation-title { font-size:32px; line-height:1.12; font-weight:650; letter-spacing:0; max-width:420px; }
+.invitation-dialog .invitation-intro { margin-top:12px; font-size:15px; line-height:1.55; color:var(--invitation-muted); }
+.invitation-dialog .invitation-tabs { width:100%; height:auto; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:5px; margin:22px 0 6px; padding:5px; background:var(--invitation-paper); border:1px solid var(--invitation-line); border-radius:4px; }
+.invitation-dialog .invitation-tab { padding:11px 4px; font:500 11px "IBM Plex Mono",monospace; text-transform:uppercase; color:var(--invitation-muted); border-radius:2px; box-shadow:none; }
+.invitation-dialog .invitation-tab[data-state=active] { background:var(--invitation-ink); color:var(--invitation-surface); }
+.invitation-panel { margin-top:18px; }
+.invitation-lead { font-size:14px; line-height:1.55; color:var(--invitation-muted); margin-bottom:14px; }
+.invitation-checks { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px; }
+.invitation-choice { display:flex; align-items:flex-start; gap:9px; min-width:0; padding:10px 11px; border:1px solid var(--invitation-line); border-radius:4px; background:var(--invitation-field-bg); cursor:pointer; }
+.invitation-choice:hover, .invitation-choice:has([data-state=checked]) { border-color:var(--invitation-gold); }
+.invitation-choice strong { display:block; font-size:14px; font-weight:600; line-height:1.25; overflow-wrap:anywhere; }
+.invitation-choice small { display:block; margin-top:3px; color:var(--invitation-muted); font-size:12px; line-height:1.35; }
+.invitation-choice [role=checkbox], .invitation-consent [role=checkbox] { margin-top:2px; }
+.invitation-dialog [role=checkbox] { border-color:var(--invitation-ink); }
+.invitation-dialog [role=checkbox][data-state=checked] { background:var(--invitation-ink); color:var(--invitation-surface); }
+.invitation-field { display:block; margin:14px 0 6px; font:500 10px "IBM Plex Mono",monospace; text-transform:uppercase; color:var(--invitation-muted); }
+.invitation-dialog input, .invitation-dialog textarea { width:100%; background:var(--invitation-field-bg); color:var(--invitation-ink); border-color:var(--invitation-line); border-radius:4px; font-size:15px; box-shadow:none; }
+.invitation-dialog input { height:44px; }
+.invitation-dialog textarea { min-height:92px; line-height:1.5; resize:vertical; }
+.invitation-dialog input::placeholder { color:var(--invitation-muted); }
+.invitation-row { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; }
+.invitation-consent { display:flex; align-items:flex-start; gap:10px; margin-top:18px; font-size:13px; line-height:1.45; color:var(--invitation-muted); }
+.invitation-consent a { color:var(--invitation-gold-text); text-decoration:underline; }
+.invitation-dialog .invitation-send { width:100%; height:48px; margin-top:20px; border-radius:4px; font:500 12px "IBM Plex Mono",monospace; text-transform:uppercase; background:var(--invitation-gold); color:var(--invitation-ink); }
+.invitation-dialog .invitation-send:hover { background:var(--invitation-ink); color:var(--invitation-surface); }
+.invitation-foot { margin-top:14px; text-align:center; font:400 10px "IBM Plex Mono",monospace; color:var(--invitation-muted); }
+.invitation-error { margin-top:14px; color:var(--invitation-error); font-size:13px; }
+.invitation-done { padding:28px 0 12px; text-align:center; }
+.invitation-done h2 { font-size:28px; letter-spacing:0; line-height:1.2; }
+.invitation-done p { color:var(--invitation-muted); margin-top:16px; line-height:1.6; }
+.invitation-tick { display:grid; place-items:center; width:60px; height:60px; margin:0 auto 20px; background:var(--invitation-ink); color:var(--invitation-gold); border-radius:4px; }
+.invitation-reopen { position:fixed; right:22px; bottom:22px; z-index:40; border-radius:4px; background:hsl(var(--primary)); color:hsl(var(--primary-foreground)); border:1px solid hsl(var(--gold)); font:500 11px "IBM Plex Mono",monospace; text-transform:uppercase; }
+@media (max-width:520px) {
+  .invitation-dialog { padding:24px 22px; top:16px; max-height:calc(100dvh - 32px); }
+  .invitation-dialog .invitation-title { font-size:28px; }
+  .invitation-checks, .invitation-row { grid-template-columns:minmax(0,1fr); }
+}
