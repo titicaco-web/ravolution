@@ -28,7 +28,7 @@ export const en = {
     subheadlineEnd: "",
     ctaExplore: "Explore Our Platforms",
     ctaLicensing: "Build With Ravolution",
-    statPatents: "27 Patents | 369 Claims",
+    statPatents: "28 Patents | 369 Claims",
     statARR: "€354M+",
     statARRLabel: "Combined ARR Potential",
     statCountries: "150+",
@@ -325,7 +325,7 @@ export const en = {
     leadershipSubtitle: "The team behind Ravolution's ventures.",
     ivanCardTitle: "Founder & CEO",
     ivanCardLocation: "Stockholm, Sweden",
-    ivanCardBio: "Serial tech inventor with 27 patents and 369 claims. 30+ years building patented platforms across education, recruitment, AI, and trade.",
+    ivanCardBio: "Serial tech inventor with 28 patents and 369 claims. 30+ years building patented platforms across education, recruitment, AI, and trade.",
     leonName: "Ivan Daza",
     leonTitle: "Founder & CEO",
     leonLocation: "Stockholm, Sweden",
@@ -336,15 +336,15 @@ export const en = {
   servicesPage: {
     // SEO meta
     seoTitle: "Build Your SaaS Platform Fast — Swedish Venture Studio | Ravolution",
-    seoDesc: "End-to-end platform development from a Swedish venture studio. SaaS, marketplaces, AI tools, CRMs — MVP in 8–12 weeks. 27 patents filed. Submit your brief and get a cost estimate in 48 hours.",
+    seoDesc: "End-to-end platform development from a Swedish venture studio. SaaS, marketplaces, AI tools, CRMs — MVP in 8–12 weeks. 28 patents filed. Submit your brief and get a cost estimate in 48 hours.",
     ogTitle: "Build Your SaaS Platform Fast — Ravolution",
-    ogDesc: "Submit your project brief in 5 minutes. Cost estimate or live mockup within 48 hours. MVP in 8–12 weeks. 27 patents. Swedish venture studio.",
+    ogDesc: "Submit your project brief in 5 minutes. Cost estimate or live mockup within 48 hours. MVP in 8–12 weeks. 28 patents. Swedish venture studio.",
     ogImageAlt: "Ravolution — Build Your SaaS Platform Fast. Brief → 48h estimate → MVP in 8–12 weeks.",
-    twitterDesc: "Brief → 48h estimate → MVP in 8–12 weeks. 27 patents. Swedish venture studio.",
+    twitterDesc: "Brief → 48h estimate → MVP in 8–12 weeks. 28 patents. Swedish venture studio.",
     // SEO H1 (sr-only for search engines)
     seoH1: "End-to-End SaaS Platform Development — Swedish Venture Studio",
     // GEO intro paragraph
-    geoIntro: "Ravolution is a Swedish venture studio that builds complex SaaS platforms, marketplaces, AI-powered tools, and CRMs end-to-end. With 27 patents filed and 10+ platforms live across 6 industries, we take your project from brief to production in 8–12 weeks.",
+    geoIntro: "Ravolution is a Swedish venture studio that builds complex SaaS platforms, marketplaces, AI-powered tools, and CRMs end-to-end. With 28 patents filed and 10+ platforms live across 6 industries, we take your project from brief to production in 8–12 weeks.",
     // Section H2s
     h2Platforms: "SaaS Platforms, Marketplaces & AI Tools Built in Sweden",
     h2Built: "Platforms We've Built — Real Products, Live Users",
@@ -482,7 +482,7 @@ export const en = {
     service4Tagline:
       "Protect your methods and systems—turn innovation into lasting competitive advantage.",
     service4Desc:
-      "We help founders and technical leaders identify patentable inventions within their products, develop filing strategies, and build IP portfolios that create real business value. With 27 patents and 369 claims of our own, we understand what makes IP commercially powerful.",
+      "We help founders and technical leaders identify patentable inventions within their products, develop filing strategies, and build IP portfolios that create real business value. With 28 patents and 369 claims of our own, we understand what makes IP commercially powerful.",
     service4WhoFor:
       "Founders, CTOs, and innovation teams with novel methods or systems worth protecting.",
     service4D1: "Patent landscape & freedom-to-operate analysis",
@@ -822,7 +822,7 @@ export const en = {
     metaTitle: "Invest in Ravolution | IP-Protected Deep Tech Platforms",
     metaDesc: "Early investment opportunity in Ravolution—venture studio building patented, AI-enabled platforms for civilization-scale challenges. Request the deck.",
     heroBadge: "Pre-Seed · Open Round",
-    heroH1: "27 patents. 369 claims. 12+ systems. One invention company.",
+    heroH1: "28 patents. 369 claims. 12+ systems. One invention company.",
     heroSubhead: "Ravolution owns the IP behind category-defining platforms in recruitment, education, language, and global trade — sectors worth $2T+ combined. We're raising pre-seed to take two patent-protected platforms from validated concept to revenue.",
     ctaDeck: "Request Deck — NDA-friendly, 48h",
     ctaCall: "Book a Call",
@@ -859,7 +859,7 @@ export const en = {
       },
       ip: {
         title: "IP Defensibility",
-        desc: "Patent strategy is integrated into product decisions from the start—not bolted on later. 27 patents and 369 claims create durable competitive moats across all verticals."
+        desc: "Patent strategy is integrated into product decisions from the start—not bolted on later. 28 patents and 369 claims create durable competitive moats across all verticals."
       },
       ai: {
         title: "AI Where It Pays",
@@ -904,7 +904,7 @@ export const en = {
       },
       defensibility: {
         q: "How do you create defensibility?",
-        a: "Patent strategy is embedded in our product development process. We currently hold 27 patents with 369 claims across 4 strategic verticals. This creates durable competitive moats that protect our platforms and licensing revenue."
+        a: "Patent strategy is embedded in our product development process. We currently hold 28 patents with 369 claims across 4 strategic verticals. This creates durable competitive moats that protect our platforms and licensing revenue."
       },
       studioModel: {
         q: "What is your venture studio model?",
@@ -979,7 +979,7 @@ export const en = {
           desc: "Ravolution AB (Org.nr 556709-7547) is a fully registered Swedish limited company operating under Swedish corporate law, with full transparency in Bolagsverket."
         },
         ipPortfolio: {
-          title: "27 Patents, 369 Claims",
+          title: "28 Patents, 369 Claims",
           desc: "Full patent portfolio documented across 6 industries with claims filed in priority jurisdictions. IP strategy integrated from day one. Patent register available under NDA."
         },
         gdpr: {
@@ -1354,8 +1354,8 @@ export const en = {
   founderBlock: {
     heading: "Who You'll Work With",
     role: "Founder & CEO — Tech Inventor & Patent Strategist",
-    bio: "30+ years of entrepreneurial innovation. Recognized as one of 200 entrepreneurs who shaped Sweden's business landscape. 27 patents filed, 369 claims across 6 industries. Ivan personally leads every engagement.",
-    stat1: "27 Patents", stat2: "369 Claims", stat3: "10+ Platforms", stat4: "6 Industries",
+    bio: "30+ years of entrepreneurial innovation. Recognized as one of 200 entrepreneurs who shaped Sweden's business landscape. 28 patents filed, 369 claims across 6 industries. Ivan personally leads every engagement.",
+    stat1: "28 Patents", stat2: "369 Claims", stat3: "10+ Platforms", stat4: "6 Industries",
   },
   expandedFaq: {
     heading: "Frequently Asked Questions",

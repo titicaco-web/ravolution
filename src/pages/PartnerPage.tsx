@@ -18,7 +18,7 @@ const PILLARS = [
   { n: "02", t: "Brand & identity", d: "Positioning, naming and a design system the product can grow inside." },
   { n: "03", t: "Sales & go-to-market", d: "Pricing, channels and the first paying customers." },
   { n: "04", t: "Concept evolution", d: "Refining the idea to meet where the market is going, not only where it is." },
-  { n: "05", t: "Capital & IP", d: "Angel investment plus patent strategy — 27 patents and 369 claims of our own." },
+  { n: "05", t: "Capital & IP", d: "Angel investment plus patent strategy — 28 patents and 369 claims of our own." },
 ];
 
 const GAPS = [
@@ -235,7 +235,7 @@ const PartnerPage = () => {
                   with many, because building is hands-on.
                 </p>
                 <p className={`${display} text-2xl md:text-3xl mt-10 leading-snug`} style={{ color: GOLD_DARK }}>
-                  27 patents · 369 claims.
+                  28 patents · 369 claims.
                 </p>
                 <p className={`${mono} mt-3`} style={{ color: `${INK}88` }}>
                   How seriously we treat defensibility
