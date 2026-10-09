@@ -167,6 +167,10 @@ const inquiry = (product: string): FormConfig => ({
 });
 
 export const FORM_CONFIG: Record<string, FormConfig> = {
+  "send-landing-invitation": {
+    ...inquiry("Ravolution AB"),
+    subject: (f) => `Landing invitation — ${s(f, "interest")} — ${s(f, "name")}`,
+  },
   "send-startup-application": {
     title: (f) => `New Startup Application — ${s(f, "founder_name")}${suffix(f, "company_name")}`,
     subject: (f) =>
