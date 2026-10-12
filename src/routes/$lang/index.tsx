@@ -10,6 +10,11 @@ export const Route = createFileRoute("/$lang/")({
     { property: "og:description", content: "Explore Ravolution's missions and platforms, invest or build with a Swedish invention company." },
     { property: "og:type", content: "website" },
     { name: "twitter:card", content: "summary_large_image" },
+    { property: "og:image", content: "https://ravolution.se/og-homepage.jpg" },
+    { property: "og:image:width", content: "1200" },
+    { property: "og:image:height", content: "630" },
+    { property: "og:image:alt", content: "Ravolution — Building the missing infrastructure for human progress. 28 patent assets / 369 claims." },
+    { name: "twitter:image", content: "https://ravolution.se/og-homepage.jpg" },
   ] }),
   component: () => (
     <LanguageSync>
