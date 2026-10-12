@@ -1,4 +1,4 @@
-import { useEffect, useState, type FormEvent } from "react";
+import { useEffect, useState, type CSSProperties, type FormEvent } from "react";
 import { ArrowRight, Check, Loader2 } from "lucide-react";
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
@@ -30,7 +30,12 @@ export default function LandingInvitation() {
   const [error, setError] = useState("");
   const [done, setDone] = useState<{ copySent: boolean } | null>(null);
 
-  useEffect(() => { setOpen(true); }, []);
+  useEffect(() => {
+    const mobile = window.matchMedia("(max-width: 767px)").matches;
+    if (!mobile) { setOpen(true); return; }
+    const timer = setTimeout(() => setOpen(true), 5000);
+    return () => clearTimeout(timer);
+  }, []);
 
   const toggle = (value: string, values: string[], update: (next: string[]) => void) => {
     update(values.includes(value) ? values.filter(v => v !== value) : [...values, value]);
@@ -54,7 +59,11 @@ export default function LandingInvitation() {
   return <>
     {!open && <Button className="invitation-reopen" onClick={() => setOpen(true)}>{c.involved}<ArrowRight /></Button>}
     <Dialog open={open} onOpenChange={setOpen}>
-      <DialogContent className="invitation-dialog translate-x-0 translate-y-0" onOpenAutoFocus={event => event.preventDefault()}>
+      <DialogContent
+        className="invitation-dialog translate-x-0 translate-y-0"
+        style={{ "--invitation-close-label": `"${c.close}"` } as CSSProperties}
+        onOpenAutoFocus={event => event.preventDefault()}
+      >
         {done ? <div className="invitation-done">
           <div className="invitation-tick"><Check size={28} /></div>
           <DialogTitle>{c.done}</DialogTitle>
