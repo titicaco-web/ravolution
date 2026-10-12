@@ -107,9 +107,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         content:
           "Not more apps. Better systems. Ravolution AB invents patented infrastructure for learning, language, trust, opportunity, prevention and human capability.",
       },
-      { property: "og:image", content: "https://ravolution.se/og-image.jpg" },
-      { property: "og:image:width", content: "1200" },
-      { property: "og:image:height", content: "630" },
       { property: "og:site_name", content: "Ravolution" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "Ravolution | Patented AI & Deep Tech Venture Studio" },
@@ -118,7 +115,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         content:
           "Swedish venture studio creating patented AI and deep-tech platforms for education, language learning, voice security, global trade, climate and health.",
       },
-      { name: "twitter:image", content: "https://ravolution.se/og-image.jpg" },
       { name: "google-site-verification", content: "BeeUnb4Up6ljydW2DT6VNZuFv5RX0quHioFQwyl3v_Q" },
     ],
     links: [
