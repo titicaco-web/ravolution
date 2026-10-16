@@ -19,6 +19,7 @@ const Navbar = () => {
     { label: "Systems", href: lp("/portfolio") },
     { label: "IP & Evidence", href: lp("/evidence") },
     { label: "Story", href: lp("/story") },
+    { label: "Blog & Pod", href: lp("/blog") },
     { label: t("nav.founder") || "About", href: lp("/about") },
     { label: "Studio", href: lp("/services") },
     { label: t("nav.investors") || "Invest", href: lp("/invest") },
@@ -47,7 +48,7 @@ const Navbar = () => {
               <a
                 key={link.href}
                 href={link.href}
-                className={`font-medium transition-colors whitespace-nowrap ${
+                className={`text-sm font-medium transition-colors whitespace-nowrap ${
                   isSalesPartner(link.href) || isApply(link.href)
                     ? "text-gold hover:text-gold/80"
                     : "text-white/80 hover:text-white"
@@ -95,7 +96,7 @@ const Navbar = () => {
                 <a
                   key={link.href}
                   href={link.href}
-                  className={`font-medium py-2 ${
+                  className={`text-sm font-medium py-2 ${
                     isSalesPartner(link.href) || isApply(link.href)
                       ? "text-gold hover:text-gold/80"
                       : "text-white/80 hover:text-white"

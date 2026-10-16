@@ -188,6 +188,7 @@ export const EditorialNav = () => {
     { label: "Systems", href: lp("/portfolio") },
     { label: "IP & Evidence", href: lp("/evidence") },
     { label: "Story", href: lp("/story") },
+    { label: "Blog & Pod", href: lp("/blog") },
     { label: "Publications", href: "/en/publications" },
     { label: "About", href: lp("/about") },
     { label: "Partner", href: lp("/partner") },
