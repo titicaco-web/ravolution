@@ -1,7 +1,7 @@
 import { Helmet } from "@/lib/helmet-compat";
 import { EditorialShell, Reveal, SectionLabel } from "@/components/editorial/EditorialLayout";
 import { useLanguage } from "@/i18n/LanguageContext";
-import { Headphones, BookOpen, ExternalLink, Mic, Calendar, Clock, ArrowRight, Mail, Phone, User, FileDown, Shield } from "lucide-react";
+import { Headphones, BookOpen, ExternalLink, Mic, Calendar, Clock, ArrowRight, Mail, Phone, User, FileDown, Shield, Newspaper } from "lucide-react";
 
 const BlogPodcast = () => {
   const { t } = useLanguage();
@@ -189,6 +189,24 @@ const BlogPodcast = () => {
               <p className="edit-body text-white/70 max-w-2xl mb-12">
                 {t("blogPod.articlesSubtitle")}
               </p>
+            </Reveal>
+            <Reveal delay={0.1}>
+              <a
+                href="https://it-kanalen.se/saas-bolagens-kris-har-redan-borjat-ar-ni-beredda/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group block border border-white/10 bg-[hsl(var(--surface))] p-8 md:p-12 mb-12 hover:bg-[hsl(var(--bg))] transition-colors"
+              >
+                <div className="flex items-center gap-3 edit-label text-[hsl(var(--accent-edit))] mb-5">
+                  <Newspaper className="w-4 h-4" /> {t("blogPod.featuredArticleLabel")}
+                </div>
+                <h3 className="edit-h2 text-white mb-5">{t("blogPod.featuredArticleTitle")}</h3>
+                <p className="edit-body text-white/70 max-w-3xl mb-8">{t("blogPod.featuredArticleDesc")}</p>
+                <div className="flex items-center gap-2 edit-label text-[hsl(var(--accent-edit))] group-hover:gap-4 transition-all">
+                  {t("blogPod.featuredArticleCta")}
+                  <ArrowRight className="w-4 h-4" />
+                </div>
+              </a>
             </Reveal>
             <div className="grid md:grid-cols-2 gap-px bg-white/10 border border-white/10">
               {externalArticles.map((article, i) => (
