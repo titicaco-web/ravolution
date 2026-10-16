@@ -31,8 +31,6 @@ export default function LandingInvitation() {
   const [done, setDone] = useState<{ copySent: boolean } | null>(null);
 
   useEffect(() => {
-    const mobile = window.matchMedia("(max-width: 767px)").matches;
-    if (!mobile) { setOpen(true); return; }
     const timer = setTimeout(() => setOpen(true), 5000);
     return () => clearTimeout(timer);
   }, []);
