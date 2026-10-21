@@ -269,7 +269,6 @@ const MetadataMachine = ({ light = false }: { light?: boolean }) => {
           </p>
         )}
         {submitted && result ? null : (
-        ) : (
           <div className={`border border-dashed p-8 text-center ${light ? "border-[#081426]/15 text-[#9AA6B4]" : "border-white/15 text-white/50"}`}>
             <p className="edit-body">
               Fill in your name and date of birth, then hit <em>Generate metadata</em>.
