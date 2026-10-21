@@ -1,4 +1,4 @@
-import { useEffect, useState, type CSSProperties, type FormEvent } from "react";
+import { useState, type CSSProperties, type FormEvent } from "react";
 import { ArrowRight, Check, Loader2 } from "lucide-react";
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
@@ -29,11 +29,6 @@ export default function LandingInvitation() {
   const [sending, setSending] = useState(false);
   const [error, setError] = useState("");
   const [done, setDone] = useState<{ copySent: boolean } | null>(null);
-
-  useEffect(() => {
-    const timer = setTimeout(() => setOpen(true), 5000);
-    return () => clearTimeout(timer);
-  }, []);
 
   const toggle = (value: string, values: string[], update: (next: string[]) => void) => {
     update(values.includes(value) ? values.filter(v => v !== value) : [...values, value]);
