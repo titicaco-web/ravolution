@@ -53,7 +53,8 @@ export default function LandingInvitation() {
     {!open && <Button className="invitation-reopen" onClick={() => setOpen(true)}>{c.involved}<ArrowRight /></Button>}
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogContent
-        className="invitation-dialog translate-x-0 translate-y-0"
+        className="invitation-dialog translate-x-0 translate-y-0 z-[90]"
+        overlayClassName="z-[90]"
         style={{ "--invitation-close-label": `"${c.close}"` } as CSSProperties}
         onOpenAutoFocus={event => event.preventDefault()}
       >
