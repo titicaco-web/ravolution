@@ -261,10 +261,14 @@ const MetadataMachine = ({ light = false }: { light?: boolean }) => {
         ) : null}
         {submitted && result && (
           <p className={`text-xs font-mono ${inkSoft}`}>
-            Built by Ravolution —{" "}
+            Built by Ravolution, the inventor of 28 patents —{" "}
             <a href={lp("/story")} onClick={() => trackEvent("metadata_story_click")}
               className={`underline underline-offset-4 ${light ? "hover:text-[#081426]" : "hover:text-white"}`}>
               read the story →
+            </a>{" · "}
+            <a href={lp("/portfolio")} onClick={() => trackEvent("metadata_portfolio_click")}
+              className={`underline underline-offset-4 ${light ? "hover:text-[#081426]" : "hover:text-white"}`}>
+              see the portfolio →
             </a>
           </p>
         )}
