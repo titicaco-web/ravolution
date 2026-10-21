@@ -32,6 +32,9 @@ const MetadataMachinePage = () => {
   const lp = useLangPath();
 
   const links: Array<{ to: string; title: string; desc: string }> = [
+    { to: lp("/life-path-number-calculator"), title: "Life Path Number Calculator", desc: "Calculate your Life Path number from your date of birth, master numbers included." },
+    { to: lp("/name-numerology"), title: "Name Numerology", desc: "What the letters in your full name say: Expression, Soul Urge and Personality." },
+    { to: lp("/what-does-my-birthdate-say-about-me"), title: "What Does My Birthdate Say?", desc: "Your Life Path and Birthday numbers explained." },
     { to: lp("/"), title: "Home", desc: "Ravolution AB — Swedish venture studio & IP innovation company building deep tech unicorns." },
     { to: lp("/about"), title: "About Ivan Daza", desc: "Founder, tech inventor. 28 patents · 369 claims across language, voice security, AI trade & education." },
     { to: lp("/services"), title: "Services", desc: "Build-for-equity, patent strategy and technical co-founder alternatives for ambitious startups." },

@@ -15,13 +15,16 @@ import { Route as BeredskapadRouteImport } from './routes/beredskapad'
 import { Route as EaktiebokDraknasteRouteImport } from './routes/eaktiebok-draknaste'
 import { Route as EvidenceRouteImport } from './routes/evidence'
 import { Route as HundelserRouteImport } from './routes/hundelser'
+import { Route as LifePathNumberCalculatorRouteImport } from './routes/life-path-number-calculator'
 import { Route as MetadatamachineRouteImport } from './routes/metadatamachine'
+import { Route as NameNumerologyRouteImport } from './routes/name-numerology'
 import { Route as PartnerRouteImport } from './routes/partner'
 import { Route as PartystaRouteImport } from './routes/partysta'
 import { Route as PratisRouteImport } from './routes/pratis'
 import { Route as ProfesoraAlurraldeRouteImport } from './routes/profesora-alurralde'
 import { Route as StoryRouteImport } from './routes/story'
 import { Route as StudioroomRouteImport } from './routes/studioroom'
+import { Route as WhatDoesMyBirthdateSayAboutMeRouteImport } from './routes/what-does-my-birthdate-say-about-me'
 import { Route as XportmatchRouteImport } from './routes/xportmatch'
 import { Route as LangIndexRouteImport } from './routes/$lang/index'
 import { Route as LangAboutRouteImport } from './routes/$lang/about'
@@ -40,7 +43,9 @@ import { Route as LangEaktiebokDraknasteRouteImport } from './routes/$lang/eakti
 import { Route as LangEvidenceRouteImport } from './routes/$lang/evidence'
 import { Route as LangHundelserRouteImport } from './routes/$lang/hundelser'
 import { Route as LangInvestRouteImport } from './routes/$lang/invest'
+import { Route as LangLifePathNumberCalculatorRouteImport } from './routes/$lang/life-path-number-calculator'
 import { Route as LangMetadatamachineRouteImport } from './routes/$lang/metadatamachine'
+import { Route as LangNameNumerologyRouteImport } from './routes/$lang/name-numerology'
 import { Route as LangPartnerRouteImport } from './routes/$lang/partner'
 import { Route as LangPartystaRouteImport } from './routes/$lang/partysta'
 import { Route as LangPatentStrategyForStartupsRouteImport } from './routes/$lang/patent-strategy-for-startups'
@@ -53,6 +58,7 @@ import { Route as LangStoryRouteImport } from './routes/$lang/story'
 import { Route as LangStudioroomRouteImport } from './routes/$lang/studioroom'
 import { Route as LangTechnicalCofounderAlternativeRouteImport } from './routes/$lang/technical-cofounder-alternative'
 import { Route as LangTermsOfServiceRouteImport } from './routes/$lang/terms-of-service'
+import { Route as LangWhatDoesMyBirthdateSayAboutMeRouteImport } from './routes/$lang/what-does-my-birthdate-say-about-me'
 import { Route as LangXportmatchRouteImport } from './routes/$lang/xportmatch'
 import { Route as BizmeetIndexRouteImport } from './routes/bizmeet/index'
 import { Route as BizmeetDemoRouteImport } from './routes/bizmeet/demo'
@@ -113,9 +119,20 @@ const HundelserRoute = HundelserRouteImport.update({
   path: '/hundelser',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LifePathNumberCalculatorRoute =
+  LifePathNumberCalculatorRouteImport.update({
+    id: '/life-path-number-calculator',
+    path: '/life-path-number-calculator',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const MetadatamachineRoute = MetadatamachineRouteImport.update({
   id: '/metadatamachine',
   path: '/metadatamachine',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NameNumerologyRoute = NameNumerologyRouteImport.update({
+  id: '/name-numerology',
+  path: '/name-numerology',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PartnerRoute = PartnerRouteImport.update({
@@ -148,6 +165,12 @@ const StudioroomRoute = StudioroomRouteImport.update({
   path: '/studioroom',
   getParentRoute: () => rootRouteImport,
 } as any)
+const WhatDoesMyBirthdateSayAboutMeRoute =
+  WhatDoesMyBirthdateSayAboutMeRouteImport.update({
+    id: '/what-does-my-birthdate-say-about-me',
+    path: '/what-does-my-birthdate-say-about-me',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const XportmatchRoute = XportmatchRouteImport.update({
   id: '/xportmatch',
   path: '/xportmatch',
@@ -238,9 +261,20 @@ const LangInvestRoute = LangInvestRouteImport.update({
   path: '/$lang/invest',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LangLifePathNumberCalculatorRoute =
+  LangLifePathNumberCalculatorRouteImport.update({
+    id: '/$lang/life-path-number-calculator',
+    path: '/$lang/life-path-number-calculator',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const LangMetadatamachineRoute = LangMetadatamachineRouteImport.update({
   id: '/$lang/metadatamachine',
   path: '/$lang/metadatamachine',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LangNameNumerologyRoute = LangNameNumerologyRouteImport.update({
+  id: '/$lang/name-numerology',
+  path: '/$lang/name-numerology',
   getParentRoute: () => rootRouteImport,
 } as any)
 const LangPartnerRoute = LangPartnerRouteImport.update({
@@ -305,6 +339,12 @@ const LangTermsOfServiceRoute = LangTermsOfServiceRouteImport.update({
   path: '/$lang/terms-of-service',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LangWhatDoesMyBirthdateSayAboutMeRoute =
+  LangWhatDoesMyBirthdateSayAboutMeRouteImport.update({
+    id: '/$lang/what-does-my-birthdate-say-about-me',
+    path: '/$lang/what-does-my-birthdate-say-about-me',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const LangXportmatchRoute = LangXportmatchRouteImport.update({
   id: '/$lang/xportmatch',
   path: '/$lang/xportmatch',
@@ -462,13 +502,16 @@ export interface FileRoutesByFullPath {
   '/eaktiebok-draknaste': typeof EaktiebokDraknasteRoute
   '/evidence': typeof EvidenceRoute
   '/hundelser': typeof HundelserRoute
+  '/life-path-number-calculator': typeof LifePathNumberCalculatorRoute
   '/metadatamachine': typeof MetadatamachineRoute
+  '/name-numerology': typeof NameNumerologyRoute
   '/partner': typeof PartnerRoute
   '/partysta': typeof PartystaRoute
   '/pratis': typeof PratisRoute
   '/profesora-alurralde': typeof ProfesoraAlurraldeRoute
   '/story': typeof StoryRoute
   '/studioroom': typeof StudioroomRoute
+  '/what-does-my-birthdate-say-about-me': typeof WhatDoesMyBirthdateSayAboutMeRoute
   '/xportmatch': typeof XportmatchRoute
   '/$lang/about': typeof LangAboutRoute
   '/$lang/alarmsole': typeof LangAlarmsoleRoute
@@ -486,7 +529,9 @@ export interface FileRoutesByFullPath {
   '/$lang/evidence': typeof LangEvidenceRoute
   '/$lang/hundelser': typeof LangHundelserRoute
   '/$lang/invest': typeof LangInvestRoute
+  '/$lang/life-path-number-calculator': typeof LangLifePathNumberCalculatorRoute
   '/$lang/metadatamachine': typeof LangMetadatamachineRoute
+  '/$lang/name-numerology': typeof LangNameNumerologyRoute
   '/$lang/partner': typeof LangPartnerRoute
   '/$lang/partysta': typeof LangPartystaRoute
   '/$lang/patent-strategy-for-startups': typeof LangPatentStrategyForStartupsRoute
@@ -499,6 +544,7 @@ export interface FileRoutesByFullPath {
   '/$lang/studioroom': typeof LangStudioroomRoute
   '/$lang/technical-cofounder-alternative': typeof LangTechnicalCofounderAlternativeRoute
   '/$lang/terms-of-service': typeof LangTermsOfServiceRoute
+  '/$lang/what-does-my-birthdate-say-about-me': typeof LangWhatDoesMyBirthdateSayAboutMeRoute
   '/$lang/xportmatch': typeof LangXportmatchRoute
   '/bizmeet/demo': typeof BizmeetDemoRoute
   '/es/servicios': typeof EsServiciosRoute
@@ -537,13 +583,16 @@ export interface FileRoutesByTo {
   '/eaktiebok-draknaste': typeof EaktiebokDraknasteRoute
   '/evidence': typeof EvidenceRoute
   '/hundelser': typeof HundelserRoute
+  '/life-path-number-calculator': typeof LifePathNumberCalculatorRoute
   '/metadatamachine': typeof MetadatamachineRoute
+  '/name-numerology': typeof NameNumerologyRoute
   '/partner': typeof PartnerRoute
   '/partysta': typeof PartystaRoute
   '/pratis': typeof PratisRoute
   '/profesora-alurralde': typeof ProfesoraAlurraldeRoute
   '/story': typeof StoryRoute
   '/studioroom': typeof StudioroomRoute
+  '/what-does-my-birthdate-say-about-me': typeof WhatDoesMyBirthdateSayAboutMeRoute
   '/xportmatch': typeof XportmatchRoute
   '/$lang/about': typeof LangAboutRoute
   '/$lang/alarmsole': typeof LangAlarmsoleRoute
@@ -561,7 +610,9 @@ export interface FileRoutesByTo {
   '/$lang/evidence': typeof LangEvidenceRoute
   '/$lang/hundelser': typeof LangHundelserRoute
   '/$lang/invest': typeof LangInvestRoute
+  '/$lang/life-path-number-calculator': typeof LangLifePathNumberCalculatorRoute
   '/$lang/metadatamachine': typeof LangMetadatamachineRoute
+  '/$lang/name-numerology': typeof LangNameNumerologyRoute
   '/$lang/partner': typeof LangPartnerRoute
   '/$lang/partysta': typeof LangPartystaRoute
   '/$lang/patent-strategy-for-startups': typeof LangPatentStrategyForStartupsRoute
@@ -574,6 +625,7 @@ export interface FileRoutesByTo {
   '/$lang/studioroom': typeof LangStudioroomRoute
   '/$lang/technical-cofounder-alternative': typeof LangTechnicalCofounderAlternativeRoute
   '/$lang/terms-of-service': typeof LangTermsOfServiceRoute
+  '/$lang/what-does-my-birthdate-say-about-me': typeof LangWhatDoesMyBirthdateSayAboutMeRoute
   '/$lang/xportmatch': typeof LangXportmatchRoute
   '/bizmeet/demo': typeof BizmeetDemoRoute
   '/es/servicios': typeof EsServiciosRoute
@@ -613,13 +665,16 @@ export interface FileRoutesById {
   '/eaktiebok-draknaste': typeof EaktiebokDraknasteRoute
   '/evidence': typeof EvidenceRoute
   '/hundelser': typeof HundelserRoute
+  '/life-path-number-calculator': typeof LifePathNumberCalculatorRoute
   '/metadatamachine': typeof MetadatamachineRoute
+  '/name-numerology': typeof NameNumerologyRoute
   '/partner': typeof PartnerRoute
   '/partysta': typeof PartystaRoute
   '/pratis': typeof PratisRoute
   '/profesora-alurralde': typeof ProfesoraAlurraldeRoute
   '/story': typeof StoryRoute
   '/studioroom': typeof StudioroomRoute
+  '/what-does-my-birthdate-say-about-me': typeof WhatDoesMyBirthdateSayAboutMeRoute
   '/xportmatch': typeof XportmatchRoute
   '/$lang/about': typeof LangAboutRoute
   '/$lang/alarmsole': typeof LangAlarmsoleRoute
@@ -637,7 +692,9 @@ export interface FileRoutesById {
   '/$lang/evidence': typeof LangEvidenceRoute
   '/$lang/hundelser': typeof LangHundelserRoute
   '/$lang/invest': typeof LangInvestRoute
+  '/$lang/life-path-number-calculator': typeof LangLifePathNumberCalculatorRoute
   '/$lang/metadatamachine': typeof LangMetadatamachineRoute
+  '/$lang/name-numerology': typeof LangNameNumerologyRoute
   '/$lang/partner': typeof LangPartnerRoute
   '/$lang/partysta': typeof LangPartystaRoute
   '/$lang/patent-strategy-for-startups': typeof LangPatentStrategyForStartupsRoute
@@ -650,6 +707,7 @@ export interface FileRoutesById {
   '/$lang/studioroom': typeof LangStudioroomRoute
   '/$lang/technical-cofounder-alternative': typeof LangTechnicalCofounderAlternativeRoute
   '/$lang/terms-of-service': typeof LangTermsOfServiceRoute
+  '/$lang/what-does-my-birthdate-say-about-me': typeof LangWhatDoesMyBirthdateSayAboutMeRoute
   '/$lang/xportmatch': typeof LangXportmatchRoute
   '/bizmeet/demo': typeof BizmeetDemoRoute
   '/es/servicios': typeof EsServiciosRoute
@@ -690,13 +748,16 @@ export interface FileRouteTypes {
     | '/eaktiebok-draknaste'
     | '/evidence'
     | '/hundelser'
+    | '/life-path-number-calculator'
     | '/metadatamachine'
+    | '/name-numerology'
     | '/partner'
     | '/partysta'
     | '/pratis'
     | '/profesora-alurralde'
     | '/story'
     | '/studioroom'
+    | '/what-does-my-birthdate-say-about-me'
     | '/xportmatch'
     | '/$lang/about'
     | '/$lang/alarmsole'
@@ -714,7 +775,9 @@ export interface FileRouteTypes {
     | '/$lang/evidence'
     | '/$lang/hundelser'
     | '/$lang/invest'
+    | '/$lang/life-path-number-calculator'
     | '/$lang/metadatamachine'
+    | '/$lang/name-numerology'
     | '/$lang/partner'
     | '/$lang/partysta'
     | '/$lang/patent-strategy-for-startups'
@@ -727,6 +790,7 @@ export interface FileRouteTypes {
     | '/$lang/studioroom'
     | '/$lang/technical-cofounder-alternative'
     | '/$lang/terms-of-service'
+    | '/$lang/what-does-my-birthdate-say-about-me'
     | '/$lang/xportmatch'
     | '/bizmeet/demo'
     | '/es/servicios'
@@ -765,13 +829,16 @@ export interface FileRouteTypes {
     | '/eaktiebok-draknaste'
     | '/evidence'
     | '/hundelser'
+    | '/life-path-number-calculator'
     | '/metadatamachine'
+    | '/name-numerology'
     | '/partner'
     | '/partysta'
     | '/pratis'
     | '/profesora-alurralde'
     | '/story'
     | '/studioroom'
+    | '/what-does-my-birthdate-say-about-me'
     | '/xportmatch'
     | '/$lang/about'
     | '/$lang/alarmsole'
@@ -789,7 +856,9 @@ export interface FileRouteTypes {
     | '/$lang/evidence'
     | '/$lang/hundelser'
     | '/$lang/invest'
+    | '/$lang/life-path-number-calculator'
     | '/$lang/metadatamachine'
+    | '/$lang/name-numerology'
     | '/$lang/partner'
     | '/$lang/partysta'
     | '/$lang/patent-strategy-for-startups'
@@ -802,6 +871,7 @@ export interface FileRouteTypes {
     | '/$lang/studioroom'
     | '/$lang/technical-cofounder-alternative'
     | '/$lang/terms-of-service'
+    | '/$lang/what-does-my-birthdate-say-about-me'
     | '/$lang/xportmatch'
     | '/bizmeet/demo'
     | '/es/servicios'
@@ -840,13 +910,16 @@ export interface FileRouteTypes {
     | '/eaktiebok-draknaste'
     | '/evidence'
     | '/hundelser'
+    | '/life-path-number-calculator'
     | '/metadatamachine'
+    | '/name-numerology'
     | '/partner'
     | '/partysta'
     | '/pratis'
     | '/profesora-alurralde'
     | '/story'
     | '/studioroom'
+    | '/what-does-my-birthdate-say-about-me'
     | '/xportmatch'
     | '/$lang/about'
     | '/$lang/alarmsole'
@@ -864,7 +937,9 @@ export interface FileRouteTypes {
     | '/$lang/evidence'
     | '/$lang/hundelser'
     | '/$lang/invest'
+    | '/$lang/life-path-number-calculator'
     | '/$lang/metadatamachine'
+    | '/$lang/name-numerology'
     | '/$lang/partner'
     | '/$lang/partysta'
     | '/$lang/patent-strategy-for-startups'
@@ -877,6 +952,7 @@ export interface FileRouteTypes {
     | '/$lang/studioroom'
     | '/$lang/technical-cofounder-alternative'
     | '/$lang/terms-of-service'
+    | '/$lang/what-does-my-birthdate-say-about-me'
     | '/$lang/xportmatch'
     | '/bizmeet/demo'
     | '/es/servicios'
@@ -916,13 +992,16 @@ export interface RootRouteChildren {
   EaktiebokDraknasteRoute: typeof EaktiebokDraknasteRoute
   EvidenceRoute: typeof EvidenceRoute
   HundelserRoute: typeof HundelserRoute
+  LifePathNumberCalculatorRoute: typeof LifePathNumberCalculatorRoute
   MetadatamachineRoute: typeof MetadatamachineRoute
+  NameNumerologyRoute: typeof NameNumerologyRoute
   PartnerRoute: typeof PartnerRoute
   PartystaRoute: typeof PartystaRoute
   PratisRoute: typeof PratisRoute
   ProfesoraAlurraldeRoute: typeof ProfesoraAlurraldeRoute
   StoryRoute: typeof StoryRoute
   StudioroomRoute: typeof StudioroomRoute
+  WhatDoesMyBirthdateSayAboutMeRoute: typeof WhatDoesMyBirthdateSayAboutMeRoute
   XportmatchRoute: typeof XportmatchRoute
   LangAboutRoute: typeof LangAboutRoute
   LangAlarmsoleRoute: typeof LangAlarmsoleRoute
@@ -940,7 +1019,9 @@ export interface RootRouteChildren {
   LangEvidenceRoute: typeof LangEvidenceRoute
   LangHundelserRoute: typeof LangHundelserRoute
   LangInvestRoute: typeof LangInvestRoute
+  LangLifePathNumberCalculatorRoute: typeof LangLifePathNumberCalculatorRoute
   LangMetadatamachineRoute: typeof LangMetadatamachineRoute
+  LangNameNumerologyRoute: typeof LangNameNumerologyRoute
   LangPartnerRoute: typeof LangPartnerRoute
   LangPartystaRoute: typeof LangPartystaRoute
   LangPatentStrategyForStartupsRoute: typeof LangPatentStrategyForStartupsRoute
@@ -953,6 +1034,7 @@ export interface RootRouteChildren {
   LangStudioroomRoute: typeof LangStudioroomRoute
   LangTechnicalCofounderAlternativeRoute: typeof LangTechnicalCofounderAlternativeRoute
   LangTermsOfServiceRoute: typeof LangTermsOfServiceRoute
+  LangWhatDoesMyBirthdateSayAboutMeRoute: typeof LangWhatDoesMyBirthdateSayAboutMeRoute
   LangXportmatchRoute: typeof LangXportmatchRoute
   BizmeetDemoRoute: typeof BizmeetDemoRoute
   EsServiciosRoute: typeof EsServiciosRoute
@@ -1029,11 +1111,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof HundelserRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/life-path-number-calculator': {
+      id: '/life-path-number-calculator'
+      path: '/life-path-number-calculator'
+      fullPath: '/life-path-number-calculator'
+      preLoaderRoute: typeof LifePathNumberCalculatorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/metadatamachine': {
       id: '/metadatamachine'
       path: '/metadatamachine'
       fullPath: '/metadatamachine'
       preLoaderRoute: typeof MetadatamachineRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/name-numerology': {
+      id: '/name-numerology'
+      path: '/name-numerology'
+      fullPath: '/name-numerology'
+      preLoaderRoute: typeof NameNumerologyRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/partner': {
@@ -1076,6 +1172,13 @@ declare module '@tanstack/react-router' {
       path: '/studioroom'
       fullPath: '/studioroom'
       preLoaderRoute: typeof StudioroomRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/what-does-my-birthdate-say-about-me': {
+      id: '/what-does-my-birthdate-say-about-me'
+      path: '/what-does-my-birthdate-say-about-me'
+      fullPath: '/what-does-my-birthdate-say-about-me'
+      preLoaderRoute: typeof WhatDoesMyBirthdateSayAboutMeRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/xportmatch': {
@@ -1204,11 +1307,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LangInvestRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/$lang/life-path-number-calculator': {
+      id: '/$lang/life-path-number-calculator'
+      path: '/$lang/life-path-number-calculator'
+      fullPath: '/$lang/life-path-number-calculator'
+      preLoaderRoute: typeof LangLifePathNumberCalculatorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/$lang/metadatamachine': {
       id: '/$lang/metadatamachine'
       path: '/$lang/metadatamachine'
       fullPath: '/$lang/metadatamachine'
       preLoaderRoute: typeof LangMetadatamachineRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/$lang/name-numerology': {
+      id: '/$lang/name-numerology'
+      path: '/$lang/name-numerology'
+      fullPath: '/$lang/name-numerology'
+      preLoaderRoute: typeof LangNameNumerologyRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/$lang/partner': {
@@ -1293,6 +1410,13 @@ declare module '@tanstack/react-router' {
       path: '/$lang/terms-of-service'
       fullPath: '/$lang/terms-of-service'
       preLoaderRoute: typeof LangTermsOfServiceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/$lang/what-does-my-birthdate-say-about-me': {
+      id: '/$lang/what-does-my-birthdate-say-about-me'
+      path: '/$lang/what-does-my-birthdate-say-about-me'
+      fullPath: '/$lang/what-does-my-birthdate-say-about-me'
+      preLoaderRoute: typeof LangWhatDoesMyBirthdateSayAboutMeRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/$lang/xportmatch': {
@@ -1508,13 +1632,16 @@ const rootRouteChildren: RootRouteChildren = {
   EaktiebokDraknasteRoute: EaktiebokDraknasteRoute,
   EvidenceRoute: EvidenceRoute,
   HundelserRoute: HundelserRoute,
+  LifePathNumberCalculatorRoute: LifePathNumberCalculatorRoute,
   MetadatamachineRoute: MetadatamachineRoute,
+  NameNumerologyRoute: NameNumerologyRoute,
   PartnerRoute: PartnerRoute,
   PartystaRoute: PartystaRoute,
   PratisRoute: PratisRoute,
   ProfesoraAlurraldeRoute: ProfesoraAlurraldeRoute,
   StoryRoute: StoryRoute,
   StudioroomRoute: StudioroomRoute,
+  WhatDoesMyBirthdateSayAboutMeRoute: WhatDoesMyBirthdateSayAboutMeRoute,
   XportmatchRoute: XportmatchRoute,
   LangAboutRoute: LangAboutRoute,
   LangAlarmsoleRoute: LangAlarmsoleRoute,
@@ -1532,7 +1659,9 @@ const rootRouteChildren: RootRouteChildren = {
   LangEvidenceRoute: LangEvidenceRoute,
   LangHundelserRoute: LangHundelserRoute,
   LangInvestRoute: LangInvestRoute,
+  LangLifePathNumberCalculatorRoute: LangLifePathNumberCalculatorRoute,
   LangMetadatamachineRoute: LangMetadatamachineRoute,
+  LangNameNumerologyRoute: LangNameNumerologyRoute,
   LangPartnerRoute: LangPartnerRoute,
   LangPartystaRoute: LangPartystaRoute,
   LangPatentStrategyForStartupsRoute: LangPatentStrategyForStartupsRoute,
@@ -1546,6 +1675,8 @@ const rootRouteChildren: RootRouteChildren = {
   LangTechnicalCofounderAlternativeRoute:
     LangTechnicalCofounderAlternativeRoute,
   LangTermsOfServiceRoute: LangTermsOfServiceRoute,
+  LangWhatDoesMyBirthdateSayAboutMeRoute:
+    LangWhatDoesMyBirthdateSayAboutMeRoute,
   LangXportmatchRoute: LangXportmatchRoute,
   BizmeetDemoRoute: BizmeetDemoRoute,
   EsServiciosRoute: EsServiciosRoute,
