@@ -1,5 +1,7 @@
 import { useMemo, useState } from "react";
 import { trackEvent } from "@/lib/analytics";
+import { useLanguage } from "@/i18n/LanguageContext";
+import { useLangPath } from "@/hooks/use-lang-path";
 
 /**
  * Metadata Creation Machine
@@ -75,6 +77,9 @@ const MetadataMachine = ({ light = false }: { light?: boolean }) => {
   const [name, setName] = useState("");
   const [dob, setDob] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [copied, setCopied] = useState(false);
+  const { language } = useLanguage();
+  const lp = useLangPath();
 
   const result = useMemo(() => {
     if (!name.trim() || !dob) return null;
@@ -110,6 +115,18 @@ const MetadataMachine = ({ light = false }: { light?: boolean }) => {
     try {
       await navigator.clipboard.writeText(fullPrompt);
       trackEvent("metadata_copy_prompt");
+    } catch { /* noop */ }
+  };
+
+  const shareUrl = (src: string) =>
+    `https://ravolution.se/${language}/metadatamachine?utm_source=${src}&utm_medium=social&utm_campaign=metadata_share`;
+
+  const copyLink = async () => {
+    try {
+      await navigator.clipboard.writeText(shareUrl("copy_link"));
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+      trackEvent("metadata_share", { platform: "copy_link", life_path: result?.lifePath ?? null });
     } catch { /* noop */ }
   };
 
@@ -215,7 +232,43 @@ const MetadataMachine = ({ light = false }: { light?: boolean }) => {
                <a href={grokUrl} target="_blank" rel="noopener noreferrer" onClick={() => trackLaunch("grok")} className={btnClass}><span>Ask Grok ↗</span></a>
               </div>
             </div>
+            <div className={`border-t ${border} pt-6`}>
+              <span className={`edit-label block mb-3 ${light ? "text-[#7C633D]" : "text-[hsl(var(--accent-edit))]"}`}>Share my result</span>
+              <div className="flex flex-wrap gap-3">
+                {(["whatsapp", "facebook", "linkedin"] as const).map((p) => {
+                  const url = shareUrl(p);
+                  const text = `My Life Path is ${result.lifePath}. Discover your metadata:`;
+                  const href =
+                    p === "whatsapp"
+                      ? `https://wa.me/?text=${encodeURIComponent(`${text} ${url}`)}`
+                      : p === "facebook"
+                      ? `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`
+                      : `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`;
+                  return (
+                    <a key={p} href={href} target="_blank" rel="noopener noreferrer"
+                      onClick={() => trackEvent("metadata_share", { platform: p, life_path: result.lifePath })}
+                      className={btnClass}>
+                      <span>{p === "whatsapp" ? "WhatsApp" : p === "facebook" ? "Facebook" : "LinkedIn"}</span>
+                    </a>
+                  );
+                })}
+                <button type="button" onClick={copyLink} className={btnClass}>
+                  <span>{copied ? "Link copied ✓" : "Copy link"}</span>
+                </button>
+              </div>
+            </div>
           </div>
+        ) : null}
+        {submitted && result && (
+          <p className={`text-xs font-mono ${inkSoft}`}>
+            Built by Ravolution —{" "}
+            <a href={lp("/story")} onClick={() => trackEvent("metadata_story_click")}
+              className={`underline underline-offset-4 ${light ? "hover:text-[#081426]" : "hover:text-white"}`}>
+              read the story →
+            </a>
+          </p>
+        )}
+        {submitted && result ? null : (
         ) : (
           <div className={`border border-dashed p-8 text-center ${light ? "border-[#081426]/15 text-[#9AA6B4]" : "border-white/15 text-white/50"}`}>
             <p className="edit-body">
