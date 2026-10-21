@@ -1,4 +1,4 @@
-import { useEffect, useState, type CSSProperties, type FormEvent } from "react";
+import { useState, type CSSProperties, type FormEvent } from "react";
 import { ArrowRight, Check, Loader2 } from "lucide-react";
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
@@ -30,11 +30,6 @@ export default function LandingInvitation() {
   const [error, setError] = useState("");
   const [done, setDone] = useState<{ copySent: boolean } | null>(null);
 
-  useEffect(() => {
-    const timer = setTimeout(() => setOpen(true), 5000);
-    return () => clearTimeout(timer);
-  }, []);
-
   const toggle = (value: string, values: string[], update: (next: string[]) => void) => {
     update(values.includes(value) ? values.filter(v => v !== value) : [...values, value]);
   };
@@ -58,7 +53,8 @@ export default function LandingInvitation() {
     {!open && <Button className="invitation-reopen" onClick={() => setOpen(true)}>{c.involved}<ArrowRight /></Button>}
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogContent
-        className="invitation-dialog translate-x-0 translate-y-0"
+        className="invitation-dialog translate-x-0 translate-y-0 z-[90]"
+        overlayClassName="z-[90]"
         style={{ "--invitation-close-label": `"${c.close}"` } as CSSProperties}
         onOpenAutoFocus={event => event.preventDefault()}
       >
