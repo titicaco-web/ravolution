@@ -30,13 +30,7 @@ const MetadataMachine = ({ light = false }: { light?: boolean }) => {
 
   const result = useMemo(() => {
     if (!name.trim() || !dob) return null;
-    const expression = reduce(sumLetters(name));
-    const soulUrge = reduce(sumLetters(name, (ch) => VOWELS.has(ch)));
-    const personality = reduce(sumLetters(name, (ch) => !VOWELS.has(ch)));
-    const lifePath = reduce(sumDigits(dob));
-    const day = Number(dob.split("-")[2] ?? 0);
-    const birthday = reduce(day);
-    return { expression, soulUrge, personality, lifePath, birthday };
+    return calculateNumbers(name, dob);
   }, [name, dob]);
 
   const fullPrompt = buildFullPrompt(name || "[your full name]", dob || "[YYYY-MM-DD]");
