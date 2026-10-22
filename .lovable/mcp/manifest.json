@@ -1,0 +1,84 @@
+{
+  "version": 1,
+  "sdk_version": "3.2.2",
+  "path": "/mcp",
+  "auth": {
+    "type": "none"
+  },
+  "mcp": {
+    "server": {
+      "name": "ravolution",
+      "version": "0.1.0",
+      "title": "ravolution"
+    },
+    "tools": [
+      {
+        "name": "get_company_overview",
+        "title": "Get Ravolution overview",
+        "description": "Return public facts about Ravolution AB: positioning, founder, patents, offer and contact.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "type": "object",
+          "properties": {},
+          "additionalProperties": false
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "list_portfolio",
+        "title": "List Ravolution portfolio",
+        "description": "List Ravolution's public portfolio ventures with a one-line summary and link.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "type": "object",
+          "properties": {},
+          "additionalProperties": false
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "calculate_numerology",
+        "title": "Calculate numerology (Metadata Machine)",
+        "description": "Run Ravolution's Metadata Machine: Pythagorean life path, expression, soul urge, personality and birthday numbers from a full name and birth date.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "full_name": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 200,
+              "description": "Full birth name, e.g. 'Ivan Davor Luksic Daza'."
+            },
+            "date_of_birth": {
+              "type": "string",
+              "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+              "description": "Date of birth as YYYY-MM-DD."
+            }
+          },
+          "required": [
+            "full_name",
+            "date_of_birth"
+          ],
+          "additionalProperties": false,
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        },
+        "outputSchema": null
+      }
+    ]
+  }
+}
