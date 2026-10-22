@@ -16,6 +16,7 @@ import { Route as EaktiebokDraknasteRouteImport } from './routes/eaktiebok-drakn
 import { Route as EvidenceRouteImport } from './routes/evidence'
 import { Route as HundelserRouteImport } from './routes/hundelser'
 import { Route as LifePathNumberCalculatorRouteImport } from './routes/life-path-number-calculator'
+import { Route as McpRouteImport } from './routes/mcp'
 import { Route as MetadatamachineRouteImport } from './routes/metadatamachine'
 import { Route as NameNumerologyRouteImport } from './routes/name-numerology'
 import { Route as PartnerRouteImport } from './routes/partner'
@@ -60,6 +61,7 @@ import { Route as LangTechnicalCofounderAlternativeRouteImport } from './routes/
 import { Route as LangTermsOfServiceRouteImport } from './routes/$lang/terms-of-service'
 import { Route as LangWhatDoesMyBirthdateSayAboutMeRouteImport } from './routes/$lang/what-does-my-birthdate-say-about-me'
 import { Route as LangXportmatchRouteImport } from './routes/$lang/xportmatch'
+import { Route as Char91DotwellKnownChar93OauthProtectedResourceRouteImport } from './routes/[.well-known]/oauth-protected-resource'
 import { Route as BizmeetIndexRouteImport } from './routes/bizmeet/index'
 import { Route as BizmeetDemoRouteImport } from './routes/bizmeet/demo'
 import { Route as EsServiciosRouteImport } from './routes/es/servicios'
@@ -125,6 +127,11 @@ const LifePathNumberCalculatorRoute =
     path: '/life-path-number-calculator',
     getParentRoute: () => rootRouteImport,
   } as any)
+const McpRoute = McpRouteImport.update({
+  id: '/mcp',
+  path: '/mcp',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const MetadatamachineRoute = MetadatamachineRouteImport.update({
   id: '/metadatamachine',
   path: '/metadatamachine',
@@ -350,6 +357,12 @@ const LangXportmatchRoute = LangXportmatchRouteImport.update({
   path: '/$lang/xportmatch',
   getParentRoute: () => rootRouteImport,
 } as any)
+const Char91DotwellKnownChar93OauthProtectedResourceRoute =
+  Char91DotwellKnownChar93OauthProtectedResourceRouteImport.update({
+    id: '/.well-known/oauth-protected-resource',
+    path: '/.well-known/oauth-protected-resource',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const BizmeetIndexRoute = BizmeetIndexRouteImport.update({
   id: '/bizmeet/',
   path: '/bizmeet/',
@@ -503,6 +516,7 @@ export interface FileRoutesByFullPath {
   '/evidence': typeof EvidenceRoute
   '/hundelser': typeof HundelserRoute
   '/life-path-number-calculator': typeof LifePathNumberCalculatorRoute
+  '/mcp': typeof McpRoute
   '/metadatamachine': typeof MetadatamachineRoute
   '/name-numerology': typeof NameNumerologyRoute
   '/partner': typeof PartnerRoute
@@ -546,6 +560,7 @@ export interface FileRoutesByFullPath {
   '/$lang/terms-of-service': typeof LangTermsOfServiceRoute
   '/$lang/what-does-my-birthdate-say-about-me': typeof LangWhatDoesMyBirthdateSayAboutMeRoute
   '/$lang/xportmatch': typeof LangXportmatchRoute
+  '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
   '/bizmeet/demo': typeof BizmeetDemoRoute
   '/es/servicios': typeof EsServiciosRoute
   '/es/socio-comercial': typeof EsSocioComercialRoute
@@ -584,6 +599,7 @@ export interface FileRoutesByTo {
   '/evidence': typeof EvidenceRoute
   '/hundelser': typeof HundelserRoute
   '/life-path-number-calculator': typeof LifePathNumberCalculatorRoute
+  '/mcp': typeof McpRoute
   '/metadatamachine': typeof MetadatamachineRoute
   '/name-numerology': typeof NameNumerologyRoute
   '/partner': typeof PartnerRoute
@@ -627,6 +643,7 @@ export interface FileRoutesByTo {
   '/$lang/terms-of-service': typeof LangTermsOfServiceRoute
   '/$lang/what-does-my-birthdate-say-about-me': typeof LangWhatDoesMyBirthdateSayAboutMeRoute
   '/$lang/xportmatch': typeof LangXportmatchRoute
+  '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
   '/bizmeet/demo': typeof BizmeetDemoRoute
   '/es/servicios': typeof EsServiciosRoute
   '/es/socio-comercial': typeof EsSocioComercialRoute
@@ -666,6 +683,7 @@ export interface FileRoutesById {
   '/evidence': typeof EvidenceRoute
   '/hundelser': typeof HundelserRoute
   '/life-path-number-calculator': typeof LifePathNumberCalculatorRoute
+  '/mcp': typeof McpRoute
   '/metadatamachine': typeof MetadatamachineRoute
   '/name-numerology': typeof NameNumerologyRoute
   '/partner': typeof PartnerRoute
@@ -709,6 +727,7 @@ export interface FileRoutesById {
   '/$lang/terms-of-service': typeof LangTermsOfServiceRoute
   '/$lang/what-does-my-birthdate-say-about-me': typeof LangWhatDoesMyBirthdateSayAboutMeRoute
   '/$lang/xportmatch': typeof LangXportmatchRoute
+  '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
   '/bizmeet/demo': typeof BizmeetDemoRoute
   '/es/servicios': typeof EsServiciosRoute
   '/es/socio-comercial': typeof EsSocioComercialRoute
@@ -749,6 +768,7 @@ export interface FileRouteTypes {
     | '/evidence'
     | '/hundelser'
     | '/life-path-number-calculator'
+    | '/mcp'
     | '/metadatamachine'
     | '/name-numerology'
     | '/partner'
@@ -792,6 +812,7 @@ export interface FileRouteTypes {
     | '/$lang/terms-of-service'
     | '/$lang/what-does-my-birthdate-say-about-me'
     | '/$lang/xportmatch'
+    | '/.well-known/oauth-protected-resource'
     | '/bizmeet/demo'
     | '/es/servicios'
     | '/es/socio-comercial'
@@ -830,6 +851,7 @@ export interface FileRouteTypes {
     | '/evidence'
     | '/hundelser'
     | '/life-path-number-calculator'
+    | '/mcp'
     | '/metadatamachine'
     | '/name-numerology'
     | '/partner'
@@ -873,6 +895,7 @@ export interface FileRouteTypes {
     | '/$lang/terms-of-service'
     | '/$lang/what-does-my-birthdate-say-about-me'
     | '/$lang/xportmatch'
+    | '/.well-known/oauth-protected-resource'
     | '/bizmeet/demo'
     | '/es/servicios'
     | '/es/socio-comercial'
@@ -911,6 +934,7 @@ export interface FileRouteTypes {
     | '/evidence'
     | '/hundelser'
     | '/life-path-number-calculator'
+    | '/mcp'
     | '/metadatamachine'
     | '/name-numerology'
     | '/partner'
@@ -954,6 +978,7 @@ export interface FileRouteTypes {
     | '/$lang/terms-of-service'
     | '/$lang/what-does-my-birthdate-say-about-me'
     | '/$lang/xportmatch'
+    | '/.well-known/oauth-protected-resource'
     | '/bizmeet/demo'
     | '/es/servicios'
     | '/es/socio-comercial'
@@ -993,6 +1018,7 @@ export interface RootRouteChildren {
   EvidenceRoute: typeof EvidenceRoute
   HundelserRoute: typeof HundelserRoute
   LifePathNumberCalculatorRoute: typeof LifePathNumberCalculatorRoute
+  McpRoute: typeof McpRoute
   MetadatamachineRoute: typeof MetadatamachineRoute
   NameNumerologyRoute: typeof NameNumerologyRoute
   PartnerRoute: typeof PartnerRoute
@@ -1036,6 +1062,7 @@ export interface RootRouteChildren {
   LangTermsOfServiceRoute: typeof LangTermsOfServiceRoute
   LangWhatDoesMyBirthdateSayAboutMeRoute: typeof LangWhatDoesMyBirthdateSayAboutMeRoute
   LangXportmatchRoute: typeof LangXportmatchRoute
+  Char91DotwellKnownChar93OauthProtectedResourceRoute: typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
   BizmeetDemoRoute: typeof BizmeetDemoRoute
   EsServiciosRoute: typeof EsServiciosRoute
   EsSocioComercialRoute: typeof EsSocioComercialRoute
@@ -1116,6 +1143,13 @@ declare module '@tanstack/react-router' {
       path: '/life-path-number-calculator'
       fullPath: '/life-path-number-calculator'
       preLoaderRoute: typeof LifePathNumberCalculatorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mcp': {
+      id: '/mcp'
+      path: '/mcp'
+      fullPath: '/mcp'
+      preLoaderRoute: typeof McpRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/metadatamachine': {
@@ -1426,6 +1460,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LangXportmatchRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/.well-known/oauth-protected-resource': {
+      id: '/.well-known/oauth-protected-resource'
+      path: '/.well-known/oauth-protected-resource'
+      fullPath: '/.well-known/oauth-protected-resource'
+      preLoaderRoute: typeof Char91DotwellKnownChar93OauthProtectedResourceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/bizmeet/': {
       id: '/bizmeet/'
       path: '/bizmeet'
@@ -1633,6 +1674,7 @@ const rootRouteChildren: RootRouteChildren = {
   EvidenceRoute: EvidenceRoute,
   HundelserRoute: HundelserRoute,
   LifePathNumberCalculatorRoute: LifePathNumberCalculatorRoute,
+  McpRoute: McpRoute,
   MetadatamachineRoute: MetadatamachineRoute,
   NameNumerologyRoute: NameNumerologyRoute,
   PartnerRoute: PartnerRoute,
@@ -1678,6 +1720,8 @@ const rootRouteChildren: RootRouteChildren = {
   LangWhatDoesMyBirthdateSayAboutMeRoute:
     LangWhatDoesMyBirthdateSayAboutMeRoute,
   LangXportmatchRoute: LangXportmatchRoute,
+  Char91DotwellKnownChar93OauthProtectedResourceRoute:
+    Char91DotwellKnownChar93OauthProtectedResourceRoute,
   BizmeetDemoRoute: BizmeetDemoRoute,
   EsServiciosRoute: EsServiciosRoute,
   EsSocioComercialRoute: EsSocioComercialRoute,
