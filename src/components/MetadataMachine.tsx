@@ -18,7 +18,7 @@ import { useLangPath } from "@/hooks/use-lang-path";
  * The full name and DOB are appended to the prompt so the AI has full context.
  */
 
-import { buildFullPrompt, calculateNumbers, MEANINGS } from "@/lib/numerology";
+import { buildFullPrompt, calculateNumbers, MEANINGS, PROMPT_TEMPLATE } from "@/lib/numerology";
 
 const MetadataMachine = ({ light = false }: { light?: boolean }) => {
   const [name, setName] = useState("");
