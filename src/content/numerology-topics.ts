@@ -14,7 +14,7 @@ export const NUMEROLOGY_TOPICS: NumerologyTopic[] = [
   {
     slug: "life-path-number-calculator",
     title: "Life Path Number Calculator — Free & Instant | Ravolution AB",
-    description: "Free life path number calculator. Enter your date of birth to get your Life Path number (incl. master numbers 11, 22, 33) and its meaning, then go deeper with ChatGPT or Grok.",
+    description: "Free life path number calculator. Enter your date of birth to get your Life Path number (incl. master numbers) and its meaning, then go deeper with ChatGPT or Grok.",
     h1: "Life Path Number Calculator",
     intro: "Your Life Path number is the most important number in Pythagorean numerology. It is calculated from your full date of birth and describes the road you are walking.",
     toolTitle: "Calculate your Life Path",
