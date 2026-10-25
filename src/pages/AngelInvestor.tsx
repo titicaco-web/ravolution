@@ -265,9 +265,9 @@ const AngelInvestor = () => {
                   <div className="bg-[hsl(var(--surface))] p-8 md:p-10 h-full">
                     <Scale className="w-6 h-6 text-[hsl(var(--accent-edit))] mb-4" />
                     <div className="edit-label text-white/40 mb-2">Model · 0{i + 1}</div>
-                    <h4 className="font-display font-bold text-white text-lg mb-3 uppercase">
+                    <h3 className="font-display font-bold text-white text-lg mb-3 uppercase">
                       {t(`angel.equity.${key}.title`)}
-                    </h4>
+                    </h3>
                     <p className="edit-body text-white/70">{t(`angel.equity.${key}.desc`)}</p>
                   </div>
                 </Reveal>
