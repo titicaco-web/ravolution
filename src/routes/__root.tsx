@@ -88,7 +88,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "description",
         content:
-          "Ravolution AB is a Swedish invention company building the missing infrastructure for human progress: patented systems for learning, language, trust, opportunity, prevention and human capability.",
+          "Ravolution AB is a Swedish invention company building the missing infrastructure for human progress with patented systems for learning, trust and opportunity.",
       },
       { name: "author", content: "Ravolution AB" },
       {
@@ -109,11 +109,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       { property: "og:site_name", content: "Ravolution" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "Ravolution | Patented AI & Deep Tech Venture Studio" },
+      { name: "twitter:title", content: "Ravolution AB | Swedish Invention Company" },
       {
         name: "twitter:description",
         content:
-          "Swedish venture studio creating patented AI and deep-tech platforms for education, language learning, voice security, global trade, climate and health.",
+          "Swedish invention company building patented systems for education, language learning, voice security, global trade, climate and health.",
       },
       { name: "google-site-verification", content: "BeeUnb4Up6ljydW2DT6VNZuFv5RX0quHioFQwyl3v_Q" },
     ],
