@@ -67,7 +67,6 @@ const Index = () => {
   const { language } = useLanguage();
   const lp = useLangPath();
   const seo = seoByLang[(language as "en" | "sv" | "es")] ?? seoByLang.en;
-  const canonicalUrl = `https://ravolution.se/${language}`;
 
   const missions: Mission[] = [
     {
