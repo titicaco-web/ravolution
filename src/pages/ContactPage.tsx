@@ -62,10 +62,10 @@ const ContactPage = () => {
   return (
     <>
       <Helmet>
-        <title>Contact Ravolution | Talk to the Venture Studio Team</title>
-        <meta name="description" content="Contact Ravolution AB about platform partnerships, licensing, acquisitions or investment. Direct line to founder Ivan Daza and the venture studio team." />
+        <title>Contact Ravolution | Talk to Ravolution AB</title>
+        <meta name="description" content="Contact Ravolution AB about platform partnerships, licensing, acquisitions or investment. Direct line to founder Ivan Daza and the Ravolution team." />
         <link rel="canonical" href="https://ravolution.se/en/contact" />
-        <meta property="og:title" content="Contact Ravolution | Talk to the Venture Studio Team" />
+        <meta property="og:title" content="Contact Ravolution | Talk to Ravolution AB" />
         <meta property="og:description" content="Contact Ravolution AB about platform partnerships, licensing, acquisitions or investment." />
         <meta property="og:url" content="https://ravolution.se/en/contact" />
         <meta property="og:type" content="website" />
@@ -77,6 +77,7 @@ const ContactPage = () => {
           <div className="edit-container">
             <Reveal><span className="edit-label text-[hsl(var(--accent-edit))]">Direct line</span></Reveal>
             <Reveal delay={0.1}>
+              <h1 className="sr-only">Contact Ravolution AB — Swedish invention company</h1>
               <a
                 href="mailto:ivan.daza@ravolution.se"
                 className="block mt-6 font-display font-bold text-white uppercase tracking-[-0.04em] leading-[0.9] break-words hover:text-[hsl(var(--accent-edit))] transition-colors text-7xl"
