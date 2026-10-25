@@ -100,7 +100,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "apple-mobile-web-app-title", content: "Ravolution" },
       { name: "application-name", content: "Ravolution" },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://ravolution.se/" },
       { property: "og:title", content: "Ravolution AB | Swedish Invention Company" },
       {
         property: "og:description",
@@ -132,7 +131,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         rel: "stylesheet",
         href: "https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter+Tight:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap",
       },
-      { rel: "canonical", href: "https://ravolution.se/" },
       { rel: "alternate", hrefLang: "en", href: "https://ravolution.se/en" },
       { rel: "alternate", hrefLang: "sv", href: "https://ravolution.se/sv" },
       { rel: "alternate", hrefLang: "es", href: "https://ravolution.se/es" },
