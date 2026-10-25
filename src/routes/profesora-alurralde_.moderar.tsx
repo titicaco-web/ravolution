@@ -7,10 +7,10 @@ export const Route = createFileRoute("/profesora-alurralde_/moderar")({
   head: () => ({
     meta: [
       { title: "Moderación — Valoración Profesora Alurralde" },
-      { name: "description", content: "Cola de moderación de comentarios." },
+      { name: "description", content: "Cola de moderación de comentarios del alumnado para la página de valoración de la profesora Claudia Alurralde." },
       { name: "robots", content: "noindex, nofollow" },
       { property: "og:title", content: "Moderación" },
-      { property: "og:description", content: "Cola de moderación de comentarios." },
+      { property: "og:description", content: "Cola de moderación de comentarios del alumnado para la página de valoración de la profesora Claudia Alurralde." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
     ],

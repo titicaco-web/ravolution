@@ -88,7 +88,7 @@ const PikpCashDataRoomPage = () => {
     <>
       <Helmet>
         <title>PikpCash® Data Room — Ravolution AB</title>
-        <meta name="description" content="Restricted PikpCash data room. Access by invitation only." />
+        <meta name="description" content="Restricted PikpCash data room with investor materials, metrics and documents from Ravolution AB. Access by invitation only." />
         <meta name="robots" content="noindex, nofollow" />
       </Helmet>
 
