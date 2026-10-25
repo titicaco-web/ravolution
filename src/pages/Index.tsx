@@ -241,11 +241,9 @@ const Index = () => {
       <Helmet>
         <title>{seo.title}</title>
         <meta name="description" content={seo.description} />
-        <link rel="canonical" href={canonicalUrl} />
         <meta property="og:title" content={seo.title} />
         <meta property="og:description" content={seo.description} />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content={canonicalUrl} />
         <meta name="twitter:card" content="summary_large_image" />
         <link rel="alternate" hrefLang="en" href="https://ravolution.se/en" />
         <link rel="alternate" hrefLang="sv" href="https://ravolution.se/sv" />
