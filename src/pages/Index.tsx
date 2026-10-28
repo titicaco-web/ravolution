@@ -1,3 +1,4 @@
+import inv_singuistic from "@/assets/portfolio-previews/singuistic.webp.asset.json";
 import inv_communicaringschool from "@/assets/portfolio-previews/communicaringschool.webp.asset.json";
 import inv_eyehealthintel from "@/assets/portfolio-previews/eyehealthintel.webp.asset.json";
 import inv_rosettalivingstone from "@/assets/portfolio-previews/rosetta-livingstone.webp.asset.json";
@@ -213,6 +214,7 @@ const Index = () => {
     {
       status: "LANGUAGE OS",
       name: "Singuistic",
+      preview: inv_singuistic.url as string | undefined,
       desc: "Music-native language learning that syncs original lyrics and live translation to Spotify, one line at a time.",
       outcome: "OUTCOME → every song becomes a lesson",
       href: "https://singuistic.com",
