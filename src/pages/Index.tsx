@@ -1,3 +1,12 @@
+import inv_singuistic from "@/assets/portfolio-previews/singuistic.webp.asset.json";
+import inv_communicaringschool from "@/assets/portfolio-previews/communicaringschool.webp.asset.json";
+import inv_eyehealthintel from "@/assets/portfolio-previews/eyehealthintel.webp.asset.json";
+import inv_rosettalivingstone from "@/assets/portfolio-previews/rosetta-livingstone.webp.asset.json";
+import inv_xportmatch from "@/assets/portfolio-previews/xportmatch.webp.asset.json";
+import inv_toxinside from "@/assets/portfolio-previews/toxinside.webp.asset.json";
+import inv_carbonx from "@/assets/portfolio-previews/carbonx.webp.asset.json";
+import inv_alarmsole from "@/assets/portfolio-previews/alarmsole.webp.asset.json";
+import inv_bizmeet from "@/assets/portfolio-previews/bizmeet.webp.asset.json";
 import { Helmet } from "@/lib/helmet-compat";
 import { Link } from "@/lib/router-compat";
 import { useLanguage } from "@/i18n/LanguageContext";
@@ -134,6 +143,7 @@ const Index = () => {
     {
       status: "FLAGSHIP · EDUCATION INFRASTRUCTURE",
       name: "CommunicaringSchool",
+      preview: inv_communicaringschool.url as string | undefined,
       desc: "Cross-national learning infrastructure built around K1–K9 access, curriculum equivalency, assessment and rights-aligned educational participation.",
       outcome: "OUTCOME → education less constrained by geography",
       href: lp("/portfolio"),
@@ -141,6 +151,7 @@ const Index = () => {
     {
       status: "EYE HEALTH INFRASTRUCTURE · PATENT PENDING",
       name: "EyeHealthIntel",
+      preview: inv_eyehealthintel.url as string | undefined,
       desc: "Guided smartphone eye capture and longitudinal Eye Records built around device adaptation, image-quality gating, provenance and evidence-governed intelligence — for consumer health, telehealth, imaging, research and future validated clinical workflows.",
       outcome: "Explore the invention →",
       href: lp("/eyehealthintel"),
@@ -148,6 +159,7 @@ const Index = () => {
     {
       status: "LANGUAGE INFRASTRUCTURE",
       name: "Rosetta Livingstone",
+      preview: inv_rosettalivingstone.url as string | undefined,
       desc: "Adaptive language acquisition built around immersion, context and AI-supported learning pathways.",
       outcome: "OUTCOME → faster access to language and work",
       href: "https://rosettalivingstone.com",
@@ -162,6 +174,7 @@ const Index = () => {
     {
       status: "GLOBAL OPPORTUNITY",
       name: "XportMatch",
+      preview: inv_xportmatch.url as string | undefined,
       desc: "AI-native export infrastructure for market prioritisation, buyer discovery and international opportunity management.",
       outcome: "OUTCOME → more companies can reach global markets",
       href: lp("/xportmatch"),
@@ -169,6 +182,7 @@ const Index = () => {
     {
       status: "PREVENTION ECONOMY",
       name: "TOXINSIDE",
+      preview: inv_toxinside.url as string | undefined,
       desc: "Consumer product intelligence that turns complex safety information into understandable decisions and alternatives.",
       outcome: "OUTCOME → healthier choices at the point of decision",
       href: "https://toxinside.com",
@@ -176,6 +190,7 @@ const Index = () => {
     {
       status: "PLANETARY BALANCE",
       name: "CarbonX",
+      preview: inv_carbonx.url as string | undefined,
       desc: "Carbon is not the enemy. Imbalance is. A reflection on carbon, planetary health and a marketplace built on quality, verifiability and trust.",
       outcome: "READ → the idea behind CarbonX",
       href: lp("/carbonx"),
@@ -183,6 +198,7 @@ const Index = () => {
     {
       status: "HUMAN SAFETY",
       name: "AlarmSole",
+      preview: inv_alarmsole.url as string | undefined,
       desc: "Discreet connected footwear safety architecture designed to activate emergency workflows directly from the foot.",
       outcome: "OUTCOME → safety without reaching for a phone",
       href: lp("/alarmsole"),
@@ -190,6 +206,7 @@ const Index = () => {
     {
       status: "COMMUNITY OS",
       name: "BizMeet",
+      preview: inv_bizmeet.url as string | undefined,
       desc: "White-label community operating system for verified member networks, events and professional matchmaking.",
       outcome: "OUTCOME → communities that run themselves",
       href: lp("/bizmeet/demo"),
@@ -197,6 +214,7 @@ const Index = () => {
     {
       status: "LANGUAGE OS",
       name: "Singuistic",
+      preview: inv_singuistic.url as string | undefined,
       desc: "Music-native language learning that syncs original lyrics and live translation to Spotify, one line at a time.",
       outcome: "OUTCOME → every song becomes a lesson",
       href: "https://singuistic.com",
@@ -439,7 +457,7 @@ const Index = () => {
                     href={c.href}
                     target={c.href.startsWith("http") ? "_blank" : undefined}
                     rel="noopener noreferrer"
-                    className={`group relative flex flex-col min-h-[330px] p-7 md:p-9 border-b border-[#081426]/15 md:border-r transition-colors ${
+                    className={`group relative hover:z-20 flex flex-col min-h-[330px] p-7 md:p-9 border-b border-[#081426]/15 md:border-r transition-colors ${
                       feature
                         ? "md:col-span-8 bg-[hsl(var(--bg))] text-white md:border-r-0"
                         : "md:col-span-4 hover:bg-[#efece4]"
@@ -475,6 +493,18 @@ const Index = () => {
                     >
                       {c.outcome}
                     </span>
+                    {"preview" in c && c.preview && (
+                      <span
+                        aria-hidden="true"
+                        className="pointer-events-none absolute left-1/2 bottom-[calc(100%-2rem)] z-30 hidden w-[min(34vw,420px)] -translate-x-1/2 translate-y-2 overflow-hidden border border-[#081426]/30 bg-[#081426] opacity-0 shadow-2xl transition-all duration-300 ease-out group-hover:translate-y-0 group-hover:opacity-100 group-focus-visible:translate-y-0 group-focus-visible:opacity-100 lg:block"
+                      >
+                        <img src={c.preview} alt="" loading="lazy" className="aspect-[8/5] w-full object-cover object-top" />
+                        <span className="flex items-center justify-between border-t border-white/15 px-3 py-2 edit-label text-[10px] text-white/70">
+                          <span>Website preview</span>
+                          <span>Open ↗</span>
+                        </span>
+                      </span>
+                    )}
                   </a>
                 );
               })}
