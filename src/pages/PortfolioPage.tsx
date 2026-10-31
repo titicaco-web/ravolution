@@ -43,7 +43,7 @@ const missionSystems: Company[] = [
 
 const activeVentures: Company[] = [
   { name: "BizMeet", sector: "Community OS · SaaS", status: "ACTIVE", desc: "White-label community operating system for organisations running 2,000–20,000 members.", href: "/en/bizmeet", preview: bizmeetPreview },
-  { name: "iApply", sector: "Recruitment AI", status: "ACTIVE", desc: "AI-driven recruitment and qualification on patented matching infrastructure.", href: "https://iapply.se", preview: iapplyPreview },
+  { name: "iApply", sector: "Transparent Recruitment · AI", status: "ACTIVE", desc: "The transparent recruitment platform. Candidates get a free, complete profile and AI matching on real fit; recruiters get accountability that ends ghosting — timeline enforcement, bias detection and explainable match scores. Patent pending: 26 filed claims, iApply AB.", href: "https://iapply.se", preview: iapplyPreview },
   { name: "NewsToast", sector: "Media", status: "ACTIVE", desc: "Editorial-grade curated news platform.", href: "https://newstoast.com", preview: newstoastPreview },
   { name: "CarbonX", sector: "Climate · Marketplace", status: "ACTIVE", desc: "Carbon and climate infrastructure connected to the prevention-economy mission.", href: "https://carbonx.se", preview: carbonxPreview },
   { name: "Pratis", sector: "AI Companion · HealthTech", status: "SEEKING INVESTORS", desc: "A calm, Swedish-speaking AI companion for lonely older adults. Companionship, not care. Co-owned with Susanne Örtegren.", href: "/en/pratis", preview: pratisPreview },
