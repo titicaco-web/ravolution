@@ -7,6 +7,7 @@ import inv_toxinside from "@/assets/portfolio-previews/toxinside.webp.asset.json
 import inv_carbonx from "@/assets/portfolio-previews/carbonx.webp.asset.json";
 import inv_alarmsole from "@/assets/portfolio-previews/alarmsole.webp.asset.json";
 import inv_bizmeet from "@/assets/portfolio-previews/bizmeet.webp.asset.json";
+import inv_iapply from "@/assets/portfolio-previews/iapply.webp.asset.json";
 import { Helmet } from "@/lib/helmet-compat";
 import { Link } from "@/lib/router-compat";
 import { useLanguage } from "@/i18n/LanguageContext";
@@ -170,6 +171,14 @@ const Index = () => {
       desc: "Voice authentication and anti-deepfake architecture for a world of synthetic speech and remote identity.",
       outcome: "OUTCOME → trust that travels digitally",
       href: "https://voiceprotector.com",
+    },
+    {
+      status: "TRANSPARENT RECRUITMENT · PATENT PENDING",
+      name: "iApply",
+      preview: inv_iapply.url as string | undefined,
+      desc: "Candidate-first recruitment with AI matching on real fit, and recruiter accountability that ends ghosting — timeline enforcement, bias detection and explainable match scores. 26 filed patent claims.",
+      outcome: "OUTCOME → hiring without the black hole",
+      href: "https://iapply.se",
     },
     {
       status: "GLOBAL OPPORTUNITY",
