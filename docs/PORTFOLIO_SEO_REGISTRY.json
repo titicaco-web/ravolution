@@ -1,0 +1,131 @@
+{
+  "version": "2026-11-10",
+  "scope": "titicaco-web excluding biblive/Healthcare Hackathon",
+  "rules": {
+    "hiddenLinks": false,
+    "bulkReciprocalLinking": false,
+    "medicalClaims": "evidence-only",
+    "crossSiteIdentity": "Verified project/portfolio relationship in Organization or WebPage structured data, not fabricated sameAs identities",
+    "publicLinks": "Only editorially relevant visible contextual links",
+    "production": "Test and review per site before deployment"
+  },
+  "sites": [
+    {
+      "repo": "ravolution",
+      "site": "https://ravolution.se",
+      "status": "public",
+      "project": "Ravolution"
+    },
+    {
+      "repo": "iapply",
+      "site": "https://iapply.se",
+      "status": "public",
+      "project": "iApply"
+    },
+    {
+      "repo": "sight-timeline",
+      "site": "https://eyehealthintel.com",
+      "status": "public",
+      "project": "EyeHealthIntel"
+    },
+    {
+      "repo": "newstoast",
+      "site": "https://newstoast.com",
+      "status": "public",
+      "project": "NewsToast"
+    },
+    {
+      "repo": "carbonxx",
+      "site": "https://carbonx.se",
+      "status": "public",
+      "project": "CarbonX",
+      "note": "separate legal entity Carbon X Sweden AB, do not assert parent ownership"
+    },
+    {
+      "repo": "sing-lingo",
+      "site": "https://singuistic.com",
+      "status": "public",
+      "project": "Singuistic"
+    },
+    {
+      "repo": "commentok",
+      "site": "https://commentok.com",
+      "status": "public",
+      "project": "CommentOK"
+    },
+    {
+      "repo": "cloud-core",
+      "site": "https://okwerin.com",
+      "status": "public",
+      "project": "Okwerin"
+    },
+    {
+      "repo": "craft-and-circuits",
+      "site": null,
+      "status": "prelaunch",
+      "project": "MecaniCraft"
+    },
+    {
+      "repo": "brandbible-lovelystuff",
+      "site": "https://brandbible-lovelystuff.lovable.app",
+      "status": "demo",
+      "project": "Reggakvittot"
+    },
+    {
+      "repo": "marriott-community-hub",
+      "site": null,
+      "status": "demo",
+      "project": "BizMeet demo"
+    },
+    {
+      "repo": "drivally",
+      "site": null,
+      "status": "confidential",
+      "project": "Drivally"
+    },
+    {
+      "repo": "givin-your-giving-hub",
+      "site": null,
+      "status": "unverified",
+      "project": "Givin"
+    },
+    {
+      "repo": "supabase-github-sync",
+      "site": null,
+      "status": "unverified",
+      "project": "Givin/technical duplicate"
+    },
+    {
+      "repo": "code-sync-hub",
+      "site": null,
+      "status": "internal",
+      "project": "Code Sync Hub"
+    },
+    {
+      "repo": "mlopsravolution",
+      "site": null,
+      "status": "internal",
+      "project": "MLOps Ravolution"
+    }
+  ],
+  "externallyListedDomainsToVerify": [
+    "communicaringschool.com",
+    "rosettalivingstone.com",
+    "toxinside.com",
+    "aimagnifica.com",
+    "alarmsole.com",
+    "voiceprotector.com",
+    "xportmatch.com",
+    "pikpcash.com",
+    "bizmeet.com",
+    "beredskapad.se",
+    "endofthirst.com",
+    "villaspar.se",
+    "nordicfreelance.se",
+    "hundelser.se",
+    "xn--nravn-grad.se"
+  ],
+  "excludedRepositories": [
+    "biblive"
+  ]
+}
