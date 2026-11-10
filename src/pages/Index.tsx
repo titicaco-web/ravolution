@@ -8,6 +8,7 @@ import inv_carbonx from "@/assets/portfolio-previews/carbonx.webp.asset.json";
 import inv_alarmsole from "@/assets/portfolio-previews/alarmsole.webp.asset.json";
 import inv_bizmeet from "@/assets/portfolio-previews/bizmeet.webp.asset.json";
 import inv_iapply from "@/assets/portfolio-previews/iapply.webp.asset.json";
+import inv_itcareer from "@/assets/portfolio-previews/itcareer.webp";
 import { Helmet } from "@/lib/helmet-compat";
 import { Link } from "@/lib/router-compat";
 import { useLanguage } from "@/i18n/LanguageContext";
@@ -179,6 +180,14 @@ const Index = () => {
       desc: "Candidate-first recruitment with AI matching on real fit, and recruiter accountability that ends ghosting — timeline enforcement, bias detection and explainable match scores. 26 filed patent claims.",
       outcome: "OUTCOME → hiring without the black hole",
       href: "https://iapply.se",
+    },
+    {
+      status: "PARTNER DEPLOYMENT · IT RECRUITMENT",
+      name: "IT-Karriär",
+      preview: inv_itcareer,
+      desc: "A white-label deployment of the iApply engine for IT-Karriär: every IT job in Sweden in one place, paired with a developer profile where each skill carries evidence — years from the CV, public GitHub activity and colleagues who confirm.",
+      outcome: "OUTCOME → developers hired on proof, not buzzwords",
+      href: "https://iapply.se/itcareer/om",
     },
     {
       status: "GLOBAL OPPORTUNITY",
