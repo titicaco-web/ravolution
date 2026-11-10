@@ -7,7 +7,8 @@
     "medicalClaims": "evidence-only",
     "crossSiteIdentity": "Verified project/portfolio relationship in Organization or WebPage structured data, not fabricated sameAs identities",
     "publicLinks": "Only editorially relevant visible contextual links",
-    "production": "Test and review per site before deployment"
+    "production": "Test and review per site before deployment",
+    "publicationStatus": "Listing is not evidence of deployed changes; unavailable sites/repositories require separate verified access"
   },
   "sites": [
     {
@@ -127,5 +128,176 @@
   ],
   "excludedRepositories": [
     "biblive"
-  ]
+  ],
+  "portfolioListings": [
+    {
+      "project": "CommunicaringSchool",
+      "site": "https://communicaringschool.com",
+      "repo": null,
+      "status": "public"
+    },
+    {
+      "project": "Rosetta Livingstone",
+      "site": "https://rosettalivingstone.com",
+      "repo": null,
+      "status": "public"
+    },
+    {
+      "project": "Singuistic",
+      "site": "https://singuistic.com",
+      "repo": "sing-lingo",
+      "status": "public"
+    },
+    {
+      "project": "VoiceProtector",
+      "site": "https://voiceprotector.com",
+      "repo": null,
+      "status": "public"
+    },
+    {
+      "project": "TOXINSIDE",
+      "site": "https://toxinside.com",
+      "repo": null,
+      "status": "public"
+    },
+    {
+      "project": "AlarmSole",
+      "site": "https://alarmsole.com",
+      "repo": null,
+      "status": "public"
+    },
+    {
+      "project": "PikpCash",
+      "site": null,
+      "repo": null,
+      "status": "unverified"
+    },
+    {
+      "project": "BizMeet",
+      "site": null,
+      "repo": "marriott-community-hub",
+      "status": "demo-repo-only"
+    },
+    {
+      "project": "iApply",
+      "site": "https://iapply.se",
+      "repo": "iapply",
+      "status": "public"
+    },
+    {
+      "project": "NewsToast",
+      "site": "https://newstoast.com",
+      "repo": "newstoast",
+      "status": "public"
+    },
+    {
+      "project": "CarbonX",
+      "site": "https://carbonx.se",
+      "repo": "carbonxx",
+      "status": "public"
+    },
+    {
+      "project": "Pratis",
+      "site": null,
+      "repo": null,
+      "status": "unverified"
+    },
+    {
+      "project": "Okwerin",
+      "site": "https://okwerin.com",
+      "repo": "cloud-core",
+      "status": "public"
+    },
+    {
+      "project": "AIMagnifica",
+      "site": "https://aimagnifica.com",
+      "repo": null,
+      "status": "public"
+    },
+    {
+      "project": "XportMatch",
+      "site": null,
+      "repo": null,
+      "status": "unverified"
+    },
+    {
+      "project": "Partysta",
+      "site": null,
+      "repo": null,
+      "status": "unverified"
+    },
+    {
+      "project": "Beredskapad",
+      "site": "https://beredskapad.se",
+      "repo": null,
+      "status": "public"
+    },
+    {
+      "project": "Hundelser",
+      "site": "https://hundelser.se",
+      "repo": null,
+      "status": "public"
+    },
+    {
+      "project": "EyeHealthIntel",
+      "site": "https://eyehealthintel.com",
+      "repo": "sight-timeline",
+      "status": "public"
+    },
+    {
+      "project": "Gyrocraft",
+      "site": null,
+      "repo": null,
+      "status": "stealth"
+    },
+    {
+      "project": "Eventor",
+      "site": null,
+      "repo": null,
+      "status": "unverified"
+    },
+    {
+      "project": "Givin",
+      "site": null,
+      "repo": "givin-your-giving-hub",
+      "status": "unverified"
+    },
+    {
+      "project": "NäraVän",
+      "site": "https://xn--nravn-grad.se",
+      "repo": null,
+      "status": "public"
+    },
+    {
+      "project": "EndOfThirst",
+      "site": "https://endofthirst.com",
+      "repo": null,
+      "status": "public"
+    },
+    {
+      "project": "VillaSpar",
+      "site": "https://villaspar.se",
+      "repo": null,
+      "status": "public"
+    },
+    {
+      "project": "NordicFreelance",
+      "site": "https://nordicfreelance.se",
+      "repo": null,
+      "status": "public"
+    },
+    {
+      "project": "TOXINSIDE / Consumer Safety",
+      "site": null,
+      "repo": null,
+      "status": "topic-only"
+    },
+    {
+      "project": "Rosetta Livingstone / Language Systems",
+      "site": null,
+      "repo": null,
+      "status": "topic-only"
+    }
+  ],
+  "portfolioListingsSource": "https://ravolution.se/ and https://ravolution.se/en/portfolio (publicly listed project names; domains listed where evidence exists, not proof of deployed/controlled hosting)"
 }
