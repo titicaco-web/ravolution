@@ -1,0 +1,57 @@
+{
+ "kitName": "World Skylines",
+ "layers": [
+  {
+   "file": "skyline_new_york.png",
+   "name": "NEW YORK"
+  },
+  {
+   "file": "skyline_paris.png",
+   "name": "PARIS"
+  },
+  {
+   "file": "skyline_london.png",
+   "name": "LONDON"
+  },
+  {
+   "file": "skyline_shenzhen.png",
+   "name": "SHENZHEN"
+  },
+  {
+   "file": "skyline_tokyo.png",
+   "name": "TOKYO"
+  },
+  {
+   "file": "skyline_dubai.png",
+   "name": "DUBAI"
+  },
+  {
+   "file": "skyline_moscow.png",
+   "name": "MOSCOW"
+  },
+  {
+   "file": "skyline_washington.png",
+   "name": "WASHINGTON D.C."
+  },
+  {
+   "file": "skyline_beijing.png",
+   "name": "BEIJING"
+  },
+  {
+   "file": "skyline_stockholm.png",
+   "name": "STOCKHOLM"
+  },
+  {
+   "file": "skyline_sydney.png",
+   "name": "SYDNEY"
+  },
+  {
+   "file": "skyline_rome.png",
+   "name": "ROME"
+  },
+  {
+   "file": "skyline_world_summit.png",
+   "name": "WORLD SUMMIT MIX"
+  }
+ ]
+}
