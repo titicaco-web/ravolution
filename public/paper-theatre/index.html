@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Paper Theatre Kit Builder</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Lora:wght@600;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<style>
+:root{--paper:#f5efe3;--card:#fffdf8;--ink:#1e1a15;--mute:#6b6257;--line:#e2d8c6;--red:#b3362b;--blue:#1f4e9c;--ok:#2e7d4f;--warn:#a8641a}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:14px/1.45 Inter,system-ui,sans-serif}
+header{display:flex;align-items:center;gap:16px;padding:14px 22px;border-bottom:1px solid var(--line);background:var(--card);position:sticky;top:0;z-index:5}
+header h1{font:700 21px Lora,Georgia,serif;margin:0;letter-spacing:.2px}
+header h1 small{font:600 11px Inter;color:var(--red);letter-spacing:1.4px;text-transform:uppercase;margin-left:8px;vertical-align:3px}
+.status{margin-left:auto;font-size:12px;color:var(--mute);padding:5px 10px;border-radius:99px;background:#f0e9db}
+.status.ok{color:var(--ok);background:#e6f2ea}.status.warn{color:var(--warn);background:#f8ecd9}
+.wrap{display:grid;grid-template-columns:240px 1fr;min-height:calc(100vh - 58px)}
+aside{border-right:1px solid var(--line);padding:18px 14px;background:#efe7d7}
+aside h2{font:600 11px Inter;letter-spacing:1.3px;text-transform:uppercase;color:var(--mute);margin:0 0 8px}
+#kits{list-style:none;margin:0 0 14px;padding:0}
+#kits li{display:flex;justify-content:space-between;align-items:center;padding:8px 10px;border-radius:8px;cursor:pointer;margin-bottom:2px}
+#kits li:hover{background:#e6dcc8}#kits li.on{background:var(--ink);color:#fff}
+#kits li small{opacity:.6}#kits li.empty{color:var(--mute);cursor:default}
+#newkit{display:flex;gap:6px}#newkit input{flex:1;min-width:0}
+input,select{font:inherit;padding:7px 9px;border:1px solid var(--line);border-radius:7px;background:#fff;color:var(--ink)}
+button{font:inherit;cursor:pointer;border-radius:7px;border:1px solid var(--line);background:#fff;padding:7px 12px;color:var(--ink)}
+button:disabled{opacity:.4;cursor:default}
+.pri{background:var(--red);border-color:var(--red);color:#fff;font-weight:600}.pri:hover{filter:brightness(1.08)}
+.sec{font-weight:600}
+.tabs{display:flex;gap:4px;padding:14px 26px 0;border-bottom:1px solid var(--line);background:var(--paper)}
+.tabs button{border:0;border-bottom:3px solid transparent;border-radius:0;background:none;padding:9px 14px;font-weight:600;color:var(--mute)}
+.tabs button.on{color:var(--ink);border-bottom-color:var(--red)}
+#main{padding:20px 26px 60px}
+.kithead{display:flex;align-items:center;gap:12px;margin-bottom:6px}
+.kitname{font:700 24px Lora,Georgia,serif;border:1px solid transparent;background:transparent;padding:2px 6px;margin-left:-6px;width:min(520px,100%)}
+.kitname:hover,.kitname:focus{border-color:var(--line);background:#fff}
+.count{color:var(--mute);font-size:13px}
+.intro{color:var(--mute);max-width:820px;margin:4px 0 14px}.intro b{color:var(--ink)}
+.drop{display:block;border:2px dashed #cbbd a3;border:2px dashed #c9bba1;border-radius:12px;padding:22px;text-align:center;background:var(--card);cursor:pointer;margin-bottom:18px}
+.drop.hover{border-color:var(--red);background:#fff6ef}.drop small{color:var(--mute)}
+.grid{display:grid;gap:14px}.grid.figure{grid-template-columns:repeat(auto-fill,minmax(230px,1fr))}.grid.layer{grid-template-columns:repeat(auto-fill,minmax(360px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;display:flex;flex-direction:column}
+.thumb{position:relative;background:#fff;display:flex;align-items:center;justify-content:center;min-height:240px;border-bottom:1px solid var(--line);padding:8px}
+.thumb.wide{min-height:0;padding:0}.thumb canvas{max-width:100%;max-height:300px;display:block}.thumb.wide canvas{width:100%;max-height:none}
+.busy{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.75);color:var(--mute);font-size:12px}
+.busy[hidden]{display:none}
+.meta{padding:10px 12px;display:flex;flex-direction:column;gap:7px}
+.row1{display:flex;gap:8px;align-items:center}.row1 .nm{flex:1;font-weight:600;min-width:0}
+.badge{font-size:11px;font-weight:700;background:#efe7d7;padding:3px 7px;border-radius:5px;white-space:nowrap}
+.sl{display:grid;grid-template-columns:96px minmax(0,1fr) 38px;align-items:center;gap:6px;font-size:12px;color:var(--mute)}
+.sl input{width:100%;min-width:0;padding:0;accent-color:var(--red)}
+.sl span{text-align:right;font-variant-numeric:tabular-nums}
+.row2{display:flex;justify-content:space-between;align-items:center;font-size:12px}
+.ck{display:flex;align-items:center;gap:6px;font-size:13px}
+.lnk{border:0;background:none;color:var(--blue);padding:0;font-size:12px;text-decoration:underline}
+.warn{font-size:12px;color:#8a4b0c;background:#fbeedd;border-radius:6px;padding:6px 8px}
+.warn[hidden]{display:none}
+.acts{display:flex;gap:6px}.acts .sp{flex:1}.ic{padding:4px 10px}.del{color:var(--red)}.del.arm{background:var(--red);color:#fff;border-color:var(--red)}
+.settings{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:end;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin:10px 0 16px}
+.settings label{display:flex;flex-direction:column;gap:4px;font-size:12px;color:var(--mute);font-weight:600}
+.settings .ck{flex-direction:row;color:var(--ink);font-weight:400}
+.exports{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;margin-bottom:18px}
+.exp{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+.exp h3{margin:0;font:700 17px Lora,Georgia,serif}.exp p{margin:4px 0 12px;color:var(--mute)}.btns{display:flex;gap:8px}
+.preview{display:flex;flex-wrap:wrap;gap:18px;align-items:flex-start}
+.pg{background:#fff;box-shadow:0 2px 10px rgba(60,40,10,.15);padding:0}
+.pg canvas{display:block;width:100%;height:auto}.pg{width:min(420px,100%)}
+.pglab{font-size:11px;color:var(--mute);padding:5px 8px;border-top:1px solid var(--line);background:var(--card)}
+.hint{color:var(--mute);padding:20px 0}
+.empty-state{max-width:520px;margin:60px auto;text-align:center}.empty-state h2{font:700 26px Lora,Georgia,serif;margin:0 0 8px}.empty-state p{color:var(--mute)}
+#toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--ink);color:#fff;padding:10px 16px;border-radius:9px;opacity:0;transition:.25s;pointer-events:none;font-size:13px;max-width:90vw}
+#toast.on{opacity:1;transform:translateX(-50%)}
+@media (max-width:760px){.wrap{grid-template-columns:1fr}aside{border-right:0;border-bottom:1px solid var(--line)}header{flex-wrap:wrap}.status{margin-left:0}}
+</style>
+</head>
+<body>
+<header><h1>Paper Theatre Kit Builder<small>Admin</small></h1><div id="status" class="status">Starting…</div></header>
+<div class="wrap">
+  <aside>
+    <h2>Kits</h2>
+    <ul id="kits"></ul>
+    <div id="starter" hidden style="margin:0 0 14px"><button id="starterbtn" type="button" style="width:100%">Add World Skylines starter kit</button><small style="display:block;color:var(--mute);margin-top:5px;font-size:11px">13 city skyline layers for tunnel books</small></div>
+    <form id="newkit"><input id="newkitname" placeholder="New kit name" aria-label="New kit name"><button class="pri" type="submit">Add</button></form>
+  </aside>
+  <section>
+    <nav class="tabs"><button data-tab="figures" class="on">Cast figures</button><button data-tab="layers">Tunnel-book layers</button><button data-tab="build">Build &amp; download</button></nav>
+    <div id="main"></div>
+  </section>
+</div>
+<div id="toast" role="status"></div>
+<script>
+// ===== Paper Theatre Kit Builder — image core (pure functions on pixel arrays) =====
+const Core = (() => {
+  function toGray(rgba, w, h) {
+    const g = new Uint8Array(w * h);
+    for (let i = 0, p = 0; i < g.length; i++, p += 4) {
+      const a = rgba[p + 3] / 255;
+      const l = 0.299 * rgba[p] + 0.587 * rgba[p + 1] + 0.114 * rgba[p + 2];
+      g[i] = Math.round(l * a + 255 * (1 - a)); // transparent -> white
+    }
+    return g;
+  }
+  function threshold(gray, thr) {
+    const m = new Uint8Array(gray.length);
+    for (let i = 0; i < gray.length; i++) m[i] = gray[i] < thr ? 1 : 0;
+    return m;
+  }
+  // chamfer (3-4) distance from set pixels, in pixel units
+  function distance(mask, w, h) {
+    const INF = 1e9, d = new Float32Array(w * h);
+    for (let i = 0; i < d.length; i++) d[i] = mask[i] ? 0 : INF;
+    for (let y = 0; y < h; y++) for (let x = 0; x < w; x++) {
+      const i = y * w + x; let v = d[i];
+      if (x > 0) v = Math.min(v, d[i - 1] + 3);
+      if (y > 0) {
+        v = Math.min(v, d[i - w] + 3);
+        if (x > 0) v = Math.min(v, d[i - w - 1] + 4);
+        if (x < w - 1) v = Math.min(v, d[i - w + 1] + 4);
+      }
+      d[i] = v;
+    }
+    for (let y = h - 1; y >= 0; y--) for (let x = w - 1; x >= 0; x--) {
+      const i = y * w + x; let v = d[i];
+      if (x < w - 1) v = Math.min(v, d[i + 1] + 3);
+      if (y < h - 1) {
+        v = Math.min(v, d[i + w] + 3);
+        if (x < w - 1) v = Math.min(v, d[i + w + 1] + 4);
+        if (x > 0) v = Math.min(v, d[i + w - 1] + 4);
+      }
+      d[i] = v;
+    }
+    for (let i = 0; i < d.length; i++) d[i] /= 3;
+    return d;
+  }
+  function dilate(mask, w, h, r) {
+    if (r <= 0) return mask.slice();
+    const d = distance(mask, w, h), o = new Uint8Array(w * h);
+    for (let i = 0; i < o.length; i++) o[i] = d[i] <= r ? 1 : 0;
+    return o;
+  }
+  function erode(mask, w, h, r) {
+    const inv = new Uint8Array(w * h);
+    for (let i = 0; i < inv.length; i++) inv[i] = mask[i] ? 0 : 1;
+    const di = dilate(inv, w, h, r);
+    for (let i = 0; i < di.length; i++) di[i] = di[i] ? 0 : 1;
+    return di;
+  }
+  // connected components (4-neighbour) of set pixels
+  function label(mask, w, h) {
+    const lab = new Int32Array(w * h).fill(-1), q = new Int32Array(w * h);
+    const sizes = [], border = [], boxes = [];
+    let n = 0;
+    for (let s = 0; s < mask.length; s++) {
+      if (!mask[s] || lab[s] >= 0) continue;
+      let qh = 0, qt = 0; q[qt++] = s; lab[s] = n;
+      let size = 0, tb = false, x0 = w, y0 = h, x1 = 0, y1 = 0;
+      while (qh < qt) {
+        const i = q[qh++], x = i % w, y = (i / w) | 0; size++;
+        if (x === 0 || y === 0 || x === w - 1 || y === h - 1) tb = true;
+        if (x < x0) x0 = x; if (x > x1) x1 = x; if (y < y0) y0 = y; if (y > y1) y1 = y;
+        if (x > 0 && mask[i - 1] && lab[i - 1] < 0) { lab[i - 1] = n; q[qt++] = i - 1; }
+        if (x < w - 1 && mask[i + 1] && lab[i + 1] < 0) { lab[i + 1] = n; q[qt++] = i + 1; }
+        if (y > 0 && mask[i - w] && lab[i - w] < 0) { lab[i - w] = n; q[qt++] = i - w; }
+        if (y < h - 1 && mask[i + w] && lab[i + w] < 0) { lab[i + w] = n; q[qt++] = i + w; }
+      }
+      sizes.push(size); border.push(tb); boxes.push([x0, y0, x1, y1]); n++;
+    }
+    return { lab, sizes, border, boxes, n };
+  }
+  // closed boundary loops of a binary mask, in pixel-corner coordinates
+  function trace(mask, w, h) {
+    const W1 = w + 1, out = new Map();
+    const add = (ax, ay, bx, by) => {
+      const k = ay * W1 + ax, v = by * W1 + bx;
+      const a = out.get(k); if (a) a.push(v); else out.set(k, [v]);
+    };
+    const M = (x, y) => x >= 0 && y >= 0 && x < w && y < h && mask[y * w + x];
+    for (let y = 0; y < h; y++) for (let x = 0; x < w; x++) {
+      if (!mask[y * w + x]) continue;
+      if (!M(x, y - 1)) add(x + 1, y, x, y);
+      if (!M(x, y + 1)) add(x, y + 1, x + 1, y + 1);
+      if (!M(x - 1, y)) add(x, y, x, y + 1);
+      if (!M(x + 1, y)) add(x + 1, y + 1, x + 1, y);
+    }
+    const loops = [];
+    for (const [start] of out) {
+      let lst = out.get(start); if (!lst || !lst.length) continue;
+      const pts = []; let cur = start, guard = 0;
+      while (guard++ < 4e6) {
+        const l = out.get(cur); if (!l || !l.length) break;
+        const nx = l.pop(); if (!l.length) out.delete(cur);
+        pts.push(cur % W1, (cur / W1) | 0);
+        cur = nx; if (cur === start) break;
+      }
+      if (pts.length >= 8) loops.push(pts);
+    }
+    return loops;
+  }
+  function rdp(pts, eps) {
+    const n = pts.length / 2; if (n < 3) return pts;
+    const keep = new Uint8Array(n); keep[0] = keep[n - 1] = 1;
+    const st = [[0, n - 1]];
+    while (st.length) {
+      const [a, b] = st.pop();
+      const ax = pts[2 * a], ay = pts[2 * a + 1], bx = pts[2 * b], by = pts[2 * b + 1];
+      const dx = bx - ax, dy = by - ay, L = Math.hypot(dx, dy) || 1;
+      let md = -1, mi = -1;
+      for (let i = a + 1; i < b; i++) {
+        const d = Math.abs((pts[2 * i] - ax) * dy - (pts[2 * i + 1] - ay) * dx) / L;
+        if (d > md) { md = d; mi = i; }
+      }
+      if (md > eps) { keep[mi] = 1; st.push([a, mi], [mi, b]); }
+    }
+    const o = []; for (let i = 0; i < n; i++) if (keep[i]) o.push(pts[2 * i], pts[2 * i + 1]);
+    return o;
+  }
+  function chaikin(pts, it) {
+    for (let k = 0; k < it; k++) {
+      const n = pts.length / 2, o = [];
+      for (let i = 0; i < n; i++) {
+        const j = (i + 1) % n, x0 = pts[2 * i], y0 = pts[2 * i + 1], x1 = pts[2 * j], y1 = pts[2 * j + 1];
+        const L = Math.hypot(x1 - x0, y1 - y0) || 1, t = Math.min(.25, 2.5 / L);
+        o.push(x0 + (x1 - x0) * t, y0 + (y1 - y0) * t, x1 - (x1 - x0) * t, y1 - (y1 - y0) * t);
+      }
+      pts = o;
+    }
+    return pts;
+  }
+  // closed loops: split at the point farthest from the start so no corner lies on a degenerate chord
+  function rdpClosed(pts, eps) {
+    const n = pts.length / 2; if (n < 4) return pts;
+    let m = 0, md = -1;
+    for (let i = 1; i < n; i++) { const d = Math.hypot(pts[2 * i] - pts[0], pts[2 * i + 1] - pts[1]); if (d > md) { md = d; m = i; } }
+    const a = rdp(pts.slice(0, 2 * m + 2), eps);
+    const b = rdp(pts.slice(2 * m).concat(pts.slice(0, 2)), eps);
+    return a.slice(0, -2).concat(b.slice(0, -2));
+  }
+  const smooth = (loop, eps = 1.2) => chaikin(rdpClosed(loop, eps), 2);
+
+  // ---------- FIGURE: silhouette from line art ----------
+  // returns silhouette mask (holes filled, specks dropped) and a cleaned grey image
+  function figure(gray, w, h, thr, closePx) {
+    const ink = threshold(gray, thr);
+    const closed = dilate(ink, w, h, closePx);
+    const free = new Uint8Array(w * h);
+    for (let i = 0; i < free.length; i++) free[i] = closed[i] ? 0 : 1;
+    // background = free pixels connected to the image border
+    const L = label(free, w, h), sil = new Uint8Array(w * h);
+    for (let i = 0; i < sil.length; i++) sil[i] = (free[i] && L.border[L.lab[i]]) ? 0 : 1;
+    // shrink back the closing dilation so the silhouette hugs the outer line
+    const sil2 = erode(sil, w, h, Math.max(0, closePx - 1));
+    // keep big components only (drop specks / stray text)
+    const C = label(sil2, w, h);
+    const big = Math.max(0, ...C.sizes);
+    const keep = C.sizes.map(s => s >= big * 0.04);
+    let x0 = w, y0 = h, x1 = -1, y1 = -1;
+    for (let i = 0; i < sil2.length; i++) {
+      if (sil2[i] && keep[C.lab[i]]) { const x = i % w, y = (i / w) | 0; if (x < x0) x0 = x; if (x > x1) x1 = x; if (y < y0) y0 = y; if (y > y1) y1 = y; }
+      else sil2[i] = 0;
+    }
+    if (x1 < 0) return null;
+    // cleaned print image: white outside silhouette, level-stretched inside
+    const clean = new Uint8Array(w * h);
+    for (let i = 0; i < clean.length; i++) {
+      if (!sil2[i]) { clean[i] = 255; continue; }
+      const v = gray[i];
+      clean[i] = v >= 236 ? 255 : Math.max(0, Math.min(255, Math.round((v - 20) * 255 / 210)));
+    }
+    return { sil: sil2, clean, bbox: [x0, y0, x1, y1] };
+  }
+  // build the cut contour (in source px) for a figure at a given mm/px scale
+  function figureCut(fig, w, h, mmPerPx, marginMm, tabMm, tabWmm) {
+    const [x0, y0, x1, y1] = fig.bbox;
+    const m = Math.ceil(marginMm / mmPerPx), tH = Math.ceil(tabMm / mmPerPx);
+    const pad = m + 2;
+    const W = x1 - x0 + 1 + 2 * pad, H = y1 - y0 + 1 + 2 * pad + tH;
+    const sub = new Uint8Array(W * H);
+    for (let y = y0; y <= y1; y++) for (let x = x0; x <= x1; x++)
+      if (fig.sil[y * w + x]) sub[(y - y0 + pad) * W + (x - x0 + pad)] = 1;
+    const dil = dilate(sub, W, H, m);
+    const foldY = y1 - y0 + pad + 1; // feet
+    // centre of the feet: mean x of silhouette pixels in the lowest 4% rows
+    const band = Math.max(2, Math.round((y1 - y0) * .04));
+    let sx = 0, sc = 0, fx0 = 1e9, fx1 = -1;
+    for (let y = y1 - band; y <= y1; y++) for (let x = x0; x <= x1; x++)
+      if (fig.sil[y * w + x]) { sx += x; sc++; if (x < fx0) fx0 = x; if (x > fx1) fx1 = x; }
+    const cx = (sc ? sx / sc : (x0 + x1) / 2) - x0 + pad;
+    const figWmm = (x1 - x0) * mmPerPx;
+    const tw = Math.min(tabWmm, Math.max(22, figWmm * .7)) / mmPerPx;
+    for (let y = foldY; y < H; y++) for (let x = 0; x < W; x++) dil[y * W + x] = 0;
+    const tx0 = Math.max(0, Math.round(cx - tw / 2)), tx1 = Math.min(W - 1, Math.round(cx + tw / 2));
+    for (let y = foldY - 1; y < foldY + tH - 1; y++) for (let x = tx0; x <= tx1; x++) dil[y * W + x] = 1;
+    // fill any holes so the cut is one outline
+    const inv = new Uint8Array(W * H); for (let i = 0; i < inv.length; i++) inv[i] = dil[i] ? 0 : 1;
+    const LI = label(inv, W, H);
+    for (let i = 0; i < inv.length; i++) if (inv[i] && !LI.border[LI.lab[i]]) dil[i] = 1;
+    const loops = trace(dil, W, H).sort((a, b) => b.length - a.length);
+    const loop = smooth(loops[0], 1.0);
+    // back to source px coords
+    for (let i = 0; i < loop.length; i += 2) { loop[i] += x0 - pad; loop[i + 1] += y0 - pad; }
+    return { loop, foldY: foldY + y0 - pad, tabX0: tx0 + x0 - pad, tabX1: tx1 + x0 - pad, tabBottom: foldY + tH - 1 + y0 - pad,
+             box: [x0 - pad, y0 - pad, x0 - pad + W, y0 - pad + H] };
+  }
+
+  // ---------- LAYER: windows to cut away from a scene ----------
+  function layer(gray, w, h, opts) {
+    const { thr, minWinPct, frameMm, pxPerMm, back, toggles = [] } = opts;
+    const clean = new Uint8Array(w * h);
+    for (let i = 0; i < clean.length; i++) { const v = gray[i]; clean[i] = v >= 236 ? 255 : Math.max(0, Math.min(255, Math.round((v - 20) * 255 / 210))); }
+    if (back) return { clean, loops: [], islands: [], win: new Uint8Array(w * h) };
+    const ink = threshold(gray, thr);
+    const closed = dilate(ink, w, h, 2);
+    const free = new Uint8Array(w * h);
+    for (let i = 0; i < free.length; i++) free[i] = closed[i] ? 0 : 1;
+    const L = label(free, w, h), minA = w * h * minWinPct / 100;
+    const win = new Uint8Array(w * h);
+    const inWin = L.sizes.map(sz => sz >= minA);
+    // user toggles: each point flips the region it lands in
+    const regionAt = (fx, fy) => {
+      const x0 = Math.round(fx * (w - 1)), y0 = Math.round(fy * (h - 1));
+      for (let r = 0; r < 14; r++) for (let dy = -r; dy <= r; dy++) for (let dx = -r; dx <= r; dx++) {
+        const x = x0 + dx, y = y0 + dy; if (x < 0 || y < 0 || x >= w || y >= h) continue;
+        const i = y * w + x; if (free[i]) return L.lab[i];
+      }
+      return -1;
+    };
+    for (const [fx, fy] of toggles) { const r = regionAt(fx, fy); if (r >= 0) inWin[r] = !inWin[r]; }
+    for (let i = 0; i < win.length; i++) if (free[i] && inWin[L.lab[i]]) win[i] = 1;
+    const fb = Math.round(frameMm * pxPerMm);
+    for (let y = 0; y < h; y++) for (let x = 0; x < w; x++)
+      if (x < fb || y < fb || x >= w - fb || y >= h - fb) win[y * w + x] = 0;
+    // smooth the window a touch
+    let w2 = erode(dilate(win, w, h, 1.5), w, h, 1.5);
+    for (let i = 0; i < w2.length; i++) if (!free[i]) w2[i] = 0;
+    // islands: paper pieces not connected to the panel edge
+    const paper = new Uint8Array(w * h); for (let i = 0; i < paper.length; i++) paper[i] = w2[i] ? 0 : 1;
+    const P = label(paper, w, h), tiny = 30 * pxPerMm * pxPerMm, islands = [];
+    for (let k = 0; k < P.n; k++) if (!P.border[k]) {
+      if (P.sizes[k] < tiny) continue;
+      islands.push(P.boxes[k]);
+    }
+    for (let i = 0; i < paper.length; i++) if (paper[i] && !P.border[P.lab[i]] && P.sizes[P.lab[i]] < tiny) w2[i] = 1;
+    const loops = trace(w2, w, h).map(l => smooth(l, 1.0));
+    return { clean, loops, islands, win: w2, regionAt };
+  }
+  return { toGray, threshold, distance, dilate, erode, label, trace, rdp, chaikin, smooth, figure, figureCut, layer };
+})();
+
+
+</script>
+<script>
+// ===== Paper Theatre Kit Builder — app =====
+(() => {
+const $ = (s, el = document) => el.querySelector(s);
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const uid = () => Math.random().toString(36).slice(2, 10) + Date.now().toString(36).slice(-4);
+
+const S = {
+  mode: "local", db: null, assets: null, downloads: null,
+  kits: [], items: [], kitId: null, tab: "figures",
+  pending: new Map(), timers: new Map(),
+};
+const imgCache = new Map(), procCache = new Map();
+
+// ---------------- IndexedDB (used when the page runs on a normal website) ----------------
+const IDB = {
+  db: null,
+  open() { return new Promise((res, rej) => { const r = indexedDB.open("paper-theatre-kit-builder", 1);
+    r.onupgradeneeded = () => { const d = r.result; ["kits", "items", "blobs"].forEach(n => d.objectStoreNames.contains(n) || d.createObjectStore(n)); };
+    r.onsuccess = () => { IDB.db = r.result; res(); }; r.onerror = () => rej(r.error); }); },
+  tx(store, mode, fn) { return new Promise((res, rej) => { const t = IDB.db.transaction(store, mode); const st = t.objectStore(store); const out = fn(st); t.oncomplete = () => res(out && out.result); t.onerror = () => rej(t.error); }); },
+  put(store, key, val) { return IDB.tx(store, "readwrite", st => st.put(val, key)); },
+  del(store, key) { return IDB.tx(store, "readwrite", st => st.delete(key)); },
+  all(store) { return new Promise((res, rej) => { const out = []; const t = IDB.db.transaction(store); const c = t.objectStore(store).openCursor();
+    c.onsuccess = () => { const cur = c.result; if (cur) { out.push([cur.key, cur.value]); cur.continue(); } else res(out); }; c.onerror = () => rej(c.error); }); },
+};
+const strip = o => { const { id, url, ...rest } = o; return rest; };
+async function idbSaveKit(k) { if (S.mode === "idb") { const { id, ...d } = k; await IDB.put("kits", id, d).catch(e => toast("Save failed: " + e.message)); } }
+async function idbSaveItem(it) { if (S.mode === "idb") await IDB.put("items", it.id, strip(it)).catch(e => toast("Save failed: " + e.message)); }
+
+
+// ---------------- storage ----------------
+function setStatus(msg, kind = "") { const el = $("#status"); el.textContent = msg; el.className = "status " + kind; }
+
+async function initStorage() {
+  if (!window.claude || !window.claude.use) {
+    try {
+      await IDB.open(); S.mode = "idb";
+      S.kits = (await IDB.all("kits")).map(([id, v]) => ({ id, ...v })).sort((a, b) => (a.createdAt || 0) - (b.createdAt || 0));
+      const blobs = new Map(await IDB.all("blobs"));
+      S.items = (await IDB.all("items")).map(([id, v]) => ({ id, ...v, url: blobs.has(id) ? URL.createObjectURL(blobs.get(id)) : "" })).filter(i => i.url);
+      if (!S.kitId && S.kits.length) S.kitId = S.kits[0].id;
+      setStatus("Saved in this browser · use the same computer and browser to keep your library", "ok");
+    } catch (e) { setStatus("Local mode · uploads are kept until you close the page", "warn"); }
+    renderKits(); renderMain(); checkStarter(); return;
+  }
+  const [db, assets, downloads] = await Promise.all([
+    window.claude.use("db").catch(() => null),
+    window.claude.use("assets").catch(() => null),
+    window.claude.use("downloads").catch(() => null),
+  ]);
+  S.downloads = downloads;
+  if (db && assets) {
+    S.mode = "cloud"; S.db = db; S.assets = assets;
+    setStatus("Connecting to your library…");
+    const t = setTimeout(() => setStatus("Library not reachable yet — showing what is loaded", "warn"), 10000);
+    db.collection("kits").onSnapshot(snap => {
+      clearTimeout(t);
+      S.kits = snap.docs.map(d => ({ id: d.id, ...d.data() })).sort((a, b) => (a.createdAt || 0) - (b.createdAt || 0));
+      if (!S.kitId && S.kits.length) S.kitId = S.kits[0].id;
+      if (!snap.metadata.fromCache) setStatus("Library saved online · images and settings stay between visits", "ok");
+      renderKits(); renderMain();
+    }, e => setStatus("Library error: " + e.code, "warn"));
+    db.collection("items").onSnapshot(snap => {
+      const before = sig();
+      S.items = snap.docs.map(d => ({ id: d.id, ...d.data(), ...(S.pending.get(d.id) || {}) }));
+      if (sig() !== before) renderMain();
+    }, e => setStatus("Library error: " + e.code, "warn"));
+  } else {
+    setStatus(db || assets ? "Read-only view · only editors can upload" : "Local mode · uploads are kept until you close the page", "warn");
+  }
+  renderDownloadState();
+}
+const sig = () => S.items.map(i => [i.id, i.kitId, i.kind, i.order, i.name, i.back ? 1 : 0].join(":")).sort().join("|");
+
+async function saveKit(kit) {
+  const k = S.kits.find(x => x.id === kit.id);
+  if (k) Object.assign(k, kit); else S.kits.push(kit);
+  if (S.mode === "cloud") { const { id, ...data } = S.kits.find(x => x.id === kit.id); try { await S.db.collection("kits").doc(id).set(data); } catch (e) { toast("Could not save kit: " + (e.code || e.message)); } }
+  await idbSaveKit(S.kits.find(x => x.id === kit.id));
+  renderKits(); renderMain();
+}
+function patchKit(id, patch) {
+  const k = S.kits.find(x => x.id === id); if (!k) return;
+  Object.assign(k, patch);
+  if (S.mode === "idb") debounce("kit" + id, 300, () => idbSaveKit(k));
+  if (S.mode === "cloud") debounce("kit" + id, 600, async () => {
+    const { id: _i, ...data } = k; try { await S.db.collection("kits").doc(id).set(data); } catch (e) { toast("Save failed: " + (e.code || e.message)); }
+  });
+}
+function patchItem(id, patch, delay = 700) {
+  const it = S.items.find(x => x.id === id); if (!it) return;
+  Object.assign(it, patch);
+  if (S.mode === "idb") { debounce("it" + id, 300, () => idbSaveItem(it)); return; }
+  if (S.mode !== "cloud") return;
+  S.pending.set(id, { ...(S.pending.get(id) || {}), ...patch });
+  debounce("it" + id, delay, async () => {
+    const { id: _i, ...data } = it;
+    try { await S.db.collection("items").doc(id).set(data); } catch (e) { toast("Save failed: " + (e.code || e.message)); }
+    S.pending.delete(id);
+  });
+}
+function debounce(key, ms, fn) { clearTimeout(S.timers.get(key)); S.timers.set(key, setTimeout(fn, ms)); }
+
+async function addFiles(files, kind, opts = {}) {
+  if (!S.kitId) { toast("Create a kit first"); return; }
+  const list = [...files].filter(f => /^image\//.test(f.type) || /\.(png|jpe?g|webp)$/i.test(f.name || ""));
+  if (!list.length) { toast("Please choose PNG or JPG images"); return; }
+  let order = Math.max(0, ...S.items.filter(i => i.kitId === S.kitId && i.kind === kind).map(i => i.order || 0));
+  for (const f of list) {
+    setStatus(`Uploading ${f.name}…`);
+    let url, assetId = null;
+    try {
+      if (S.mode === "cloud") { const r = await S.assets.upload(f); url = r.url || ("/_blob/" + r.id); assetId = r.id; }
+      else url = URL.createObjectURL(f);
+    } catch (e) { toast("Upload failed for " + f.name + ": " + (e.code || e.message)); continue; }
+    const name = f.name.replace(/\.[^.]+$/, "").replace(/[_-]+/g, " ").trim().toUpperCase().slice(0, 28);
+    const item = { id: uid(), kitId: S.kitId, kind, name: opts.names?.[f.name] || name, url, assetId, order: ++order, thr: 175, minWin: opts.minWin || 1.5, back: false, toggles: [], createdAt: Date.now() };
+    S.items.push(item);
+    if (S.mode === "idb") { try { await IDB.put("blobs", item.id, f); await idbSaveItem(item); } catch (e) { toast("Save failed: " + e.message); } }
+    if (S.mode === "cloud") { const { id, ...data } = item; try { await S.db.collection("items").doc(id).set(data); } catch (e) { toast("Save failed: " + (e.code || e.message)); } }
+  }
+  setStatus(S.mode === "cloud" ? "Library saved online · images and settings stay between visits" : S.mode === "idb" ? "Saved in this browser · use the same computer and browser to keep your library" : "Local mode · uploads are kept until you close the page", S.mode === "local" ? "warn" : "ok");
+  renderMain();
+}
+async function removeItem(it) {
+  S.items = S.items.filter(x => x.id !== it.id);
+  renderMain();
+  if (S.mode === "idb") { await IDB.del("items", it.id).catch(() => {}); await IDB.del("blobs", it.id).catch(() => {}); }
+  if (S.mode === "cloud") {
+    try { await S.db.collection("items").doc(it.id).delete(); if (it.assetId) await S.assets.delete(it.assetId).catch(() => {}); }
+    catch (e) { toast("Delete failed: " + (e.code || e.message)); }
+  }
+}
+async function move(it, dir) {
+  const list = kitItems(it.kind); const i = list.indexOf(it), j = i + dir;
+  if (j < 0 || j >= list.length) return;
+  const a = list[i], b = list[j], oa = a.order, ob = b.order === oa ? oa + dir : b.order;
+  patchItem(a.id, { order: ob }, 50); patchItem(b.id, { order: oa }, 400);
+  renderMain();
+}
+const kitItems = kind => S.items.filter(i => i.kitId === S.kitId && i.kind === kind).sort((a, b) => (a.order || 0) - (b.order || 0) || (a.createdAt || 0) - (b.createdAt || 0));
+const curKit = () => S.kits.find(k => k.id === S.kitId);
+
+// ---------------- image processing ----------------
+function loadImg(url) {
+  if (imgCache.has(url)) return imgCache.get(url);
+  const p = new Promise((res, rej) => { const im = new Image(); im.onload = () => res(im); im.onerror = () => rej(new Error("Image could not be loaded")); im.src = url; });
+  imgCache.set(url, p); return p;
+}
+function grayCanvas(gray, w, h) {
+  const c = document.createElement("canvas"); c.width = w; c.height = h;
+  const ctx = c.getContext("2d"), id = ctx.createImageData(w, h);
+  for (let i = 0; i < w * h; i++) { const v = gray[i]; id.data[4 * i] = id.data[4 * i + 1] = id.data[4 * i + 2] = v; id.data[4 * i + 3] = 255; }
+  ctx.putImageData(id, 0, 0); return c;
+}
+async function procFigure(it) {
+  const key = `F|${it.url}|${it.thr}`;
+  if (procCache.has(key)) return procCache.get(key);
+  const p = (async () => {
+    const im = await loadImg(it.url);
+    const sc = Math.min(1, 1400 / Math.max(im.naturalWidth, im.naturalHeight));
+    const w = Math.max(8, Math.round(im.naturalWidth * sc)), h = Math.max(8, Math.round(im.naturalHeight * sc));
+    const c = document.createElement("canvas"); c.width = w; c.height = h;
+    const ctx = c.getContext("2d"); ctx.fillStyle = "#fff"; ctx.fillRect(0, 0, w, h); ctx.drawImage(im, 0, 0, w, h);
+    const gray = Core.toGray(ctx.getImageData(0, 0, w, h).data, w, h);
+    const fig = Core.figure(gray, w, h, it.thr, 3);
+    if (!fig) throw new Error("No drawing found — try a higher line threshold");
+    return { w, h, fig, canvas: grayCanvas(fig.clean, w, h), cuts: new Map() };
+  })();
+  procCache.set(key, p); p.catch(() => procCache.delete(key)); return p;
+}
+function cutFor(P, mmPerPx, margin) {
+  const k = mmPerPx.toFixed(5) + "|" + margin;
+  if (!P.cuts.has(k)) P.cuts.set(k, Core.figureCut(P.fig, P.w, P.h, mmPerPx, margin, 12, 40));
+  return P.cuts.get(k);
+}
+const LW = 1200, LH = 780, LPX = 6; // layer working canvas: 200x130 mm at 6 px/mm
+async function procLayer(it, frameMm = 4) {
+  const key = `L|${it.url}|${it.thr}|${it.minWin}|${it.back ? 1 : 0}|${JSON.stringify(it.toggles || [])}`;
+  if (procCache.has(key)) return procCache.get(key);
+  const p = (async () => {
+    const im = await loadImg(it.url);
+    const c = document.createElement("canvas"); c.width = LW; c.height = LH;
+    const ctx = c.getContext("2d"); ctx.fillStyle = "#fff"; ctx.fillRect(0, 0, LW, LH);
+    const s = Math.max(LW / im.naturalWidth, LH / im.naturalHeight);
+    const dw = im.naturalWidth * s, dh = im.naturalHeight * s;
+    ctx.drawImage(im, (LW - dw) / 2, (LH - dh) / 2, dw, dh);
+    const gray = Core.toGray(ctx.getImageData(0, 0, LW, LH).data, LW, LH);
+    const L = Core.layer(gray, LW, LH, { thr: it.thr, minWinPct: it.minWin, frameMm, pxPerMm: LPX, back: !!it.back, toggles: it.toggles || [] });
+    return { ...L, canvas: grayCanvas(L.clean, LW, LH) };
+  })();
+  procCache.set(key, p); p.catch(() => procCache.delete(key)); return p;
+}
+
+// ---------------- drawing helpers (mm units, k = px per mm) ----------------
+function pathLoop(ctx, loop, tx, ty, s, k) {
+  ctx.moveTo((tx + loop[0] * s) * k, (ty + loop[1] * s) * k);
+  for (let i = 2; i < loop.length; i += 2) ctx.lineTo((tx + loop[i] * s) * k, (ty + loop[i + 1] * s) * k);
+  ctx.closePath();
+}
+function text(ctx, k, str, x, y, size, { font = "Inter", weight = 400, align = "left", color = "#111", rot = 0 } = {}) {
+  ctx.save(); ctx.fillStyle = color; ctx.textAlign = align; ctx.textBaseline = "alphabetic";
+  ctx.font = `${weight} ${size * k}px ${font === "serif" ? "Lora, Georgia, serif" : "Inter, Arial, sans-serif"}`;
+  ctx.translate(x * k, y * k); if (rot) ctx.rotate(rot); ctx.fillText(str, 0, 0); ctx.restore();
+}
+function line(ctx, k, x0, y0, x1, y1, kind = "cut") {
+  ctx.save(); ctx.beginPath(); ctx.strokeStyle = "#000";
+  ctx.lineWidth = (kind === "cut" ? .4 : .35) * k;
+  if (kind === "fold") ctx.setLineDash([2.4 * k, 1.4 * k]);
+  if (kind === "mfold") ctx.setLineDash([3.2 * k, 1 * k, .6 * k, 1 * k]);
+  ctx.moveTo(x0 * k, y0 * k); ctx.lineTo(x1 * k, y1 * k); ctx.stroke(); ctx.restore();
+}
+function legend(ctx, k, x, y, mfold) {
+  line(ctx, k, x, y, x + 7, y, "cut"); text(ctx, k, "cut", x + 8.5, y + 1, 2.6);
+  line(ctx, k, x + 17, y, x + 24, y, "fold"); text(ctx, k, mfold ? "valley fold" : "fold", x + 25.5, y + 1, 2.6);
+  let gx = x + 34;
+  if (mfold) { line(ctx, k, x + 43, y, x + 50, y, "mfold"); text(ctx, k, "mountain fold", x + 51.5, y + 1, 2.6); gx = x + 72; }
+  ctx.fillStyle = "#e4e4e4"; ctx.strokeStyle = "#000"; ctx.lineWidth = .35 * k;
+  ctx.fillRect(gx * k, (y - 1.6) * k, 6 * k, 3.2 * k); ctx.strokeRect(gx * k, (y - 1.6) * k, 6 * k, 3.2 * k);
+  text(ctx, k, "glue", gx + 7.5, y + 1, 2.6);
+}
+function header(ctx, k, W, kit, title, sheet) {
+  text(ctx, k, kit.name || "Paper Theatre", 10, 12, 6.5, { font: "serif", weight: 700 });
+  text(ctx, k, title, 10, 17.5, 3.4, { weight: 600 });
+  text(ctx, k, sheet, W - 10, 12, 3.6, { align: "right", weight: 600 });
+  text(ctx, k, (kit.brand || "").toUpperCase(), W - 10, 17.5, 2.6, { align: "right", color: "#555" });
+}
+function footer(ctx, k, W, H, mfold) {
+  text(ctx, k, "Print at 100% (actual size) on A4 card 160–220 g/m². Grown-ups cut with a craft knife on a mat.", 10, H - 6, 2.5, { color: "#555" });
+  legend(ctx, k, W - (mfold ? 92 : 62), H - 7, mfold);
+}
+function glueTab(ctx, k, xa, xb, y0, H, label) {
+  ctx.save(); ctx.beginPath();
+  ctx.moveTo(xa * k, y0 * k); ctx.lineTo(xb * k, (y0 + 5) * k); ctx.lineTo(xb * k, (y0 + H - 5) * k); ctx.lineTo(xa * k, (y0 + H) * k); ctx.closePath();
+  ctx.fillStyle = "#e4e4e4"; ctx.fill(); ctx.lineWidth = .4 * k; ctx.strokeStyle = "#000"; ctx.stroke(); ctx.restore();
+  text(ctx, k, label, (xa + xb) / 2 + 1, y0 + H / 2, 2.8, { align: "center", weight: 700, rot: -Math.PI / 2 });
+  line(ctx, k, xa, y0, xa, y0 + H, "fold");
+}
+
+// ---------------- pages ----------------
+const GRIDS = { 1: [1, 1], 2: [2, 1], 4: [2, 2], 6: [3, 2], 9: [3, 3] };
+async function castPages(kit) {
+  const figs = kitItems("figure"); const per = +kit.perSheet || 6; const [cols, rows] = GRIDS[per] || [3, 2];
+  const margin = +kit.margin || 3;
+  const procs = [];
+  for (const it of figs) { try { procs.push({ it, P: await procFigure(it) }); } catch (e) { toast(`${it.name}: ${e.message}`); } }
+  const pages = [];
+  const total = Math.ceil(procs.length / per);
+  for (let pi = 0; pi < total; pi++) {
+    const chunk = procs.slice(pi * per, pi * per + per);
+    pages.push({ orient: "p", W: 210, H: 297, draw: (ctx, k) => {
+      header(ctx, k, 210, kit, "Cast — colour, cut along the outline, fold the tab back to stand", `Cast ${pi + 1}/${total}`);
+      const gx = 10, gy = 24, gw = 190, gh = 297 - 24 - 14, cw = gw / cols, ch = gh / rows;
+      chunk.forEach(({ it, P }, n) => {
+        const c = n % cols, r = (n / cols) | 0, cx0 = gx + c * cw, cy0 = gy + r * ch;
+        const [x0, y0, x1, y1] = P.fig.bbox, bw = x1 - x0 + 1, bh = y1 - y0 + 1;
+        const availW = cw - 6 - 2 * margin, availH = ch - 6 - 13 - margin;
+        const s = Math.min(availW / bw, availH / bh);
+        const cut = cutFor(P, s, margin);
+        const foldMm = cy0 + ch - 4 - 12.5;
+        const ox = cx0 + cw / 2 - ((x0 + x1) / 2) * s, oy = foldMm - cut.foldY * s;
+        ctx.save(); ctx.imageSmoothingQuality = "high";
+        ctx.drawImage(P.canvas, x0, y0, bw, bh, (ox + x0 * s) * k, (oy + y0 * s) * k, bw * s * k, bh * s * k); ctx.restore();
+        ctx.save(); ctx.beginPath(); pathLoop(ctx, cut.loop, ox, oy, s, k); ctx.lineWidth = .4 * k; ctx.strokeStyle = "#000"; ctx.stroke(); ctx.restore();
+        const fx0 = ox + cut.tabX0 * s, fx1 = ox + (cut.tabX1 + 1) * s;
+        line(ctx, k, fx0, foldMm, fx1, foldMm, "fold");
+        const tcx = (fx0 + fx1) / 2;
+        let nm = it.name || ""; ctx.font = `700 ${2.8 * k}px Inter, Arial`; while (nm.length > 3 && ctx.measureText(nm).width > (fx1 - fx0 - 3) * k) nm = nm.slice(0, -1);
+        text(ctx, k, nm, tcx, foldMm + 5.2, 2.8, { align: "center", weight: 700 });
+        text(ctx, k, "fold back to stand", tcx, foldMm + 9.4, 2.2, { align: "center", color: "#777" });
+      });
+      text(ctx, k, "Show mode: tape a straw or skewer to the back of a figure and move it from above.", 105, 297 - 11, 2.6, { align: "center", color: "#444" });
+      footer(ctx, k, 210, 297, false);
+    } });
+  }
+  return pages;
+}
+const TX0 = 48.5, TY0 = 40, TW = 200, TH = 130;
+async function tunnelPages(kit) {
+  const lays = kitItems("layer"); const n = lays.length; const pages = [];
+  for (let i = 0; i < n; i++) {
+    const it = lays[i]; let L;
+    try { L = await procLayer(it); } catch (e) { toast(`${it.name}: ${e.message}`); continue; }
+    pages.push({ orient: "l", W: 297, H: 210, draw: (ctx, k) => {
+      header(ctx, k, 297, kit, `Layer ${i + 1}${i === 0 ? " · front" : i === n - 1 ? " · back" : ""} — ${it.name || ""}`, `Sheet ${i + 1}/${n + 1}`);
+      ctx.drawImage(L.canvas, 0, 0, LW, LH, TX0 * k, TY0 * k, TW * k, TH * k);
+      if (L.loops.length) {
+        ctx.save(); ctx.beginPath(); for (const lp of L.loops) pathLoop(ctx, lp, TX0, TY0, 1 / LPX, k);
+        ctx.fillStyle = "#fff"; ctx.fill("evenodd"); ctx.clip("evenodd");
+        ctx.strokeStyle = "#d9d9d9"; ctx.lineWidth = .25 * k;
+        for (let d = -TH; d < TW + TH; d += 4) { ctx.beginPath(); ctx.moveTo((TX0 + d) * k, TY0 * k); ctx.lineTo((TX0 + d - TH) * k, (TY0 + TH) * k); ctx.stroke(); }
+        ctx.restore();
+        ctx.save(); ctx.beginPath(); for (const lp of L.loops) pathLoop(ctx, lp, TX0, TY0, 1 / LPX, k);
+        ctx.lineWidth = .4 * k; ctx.strokeStyle = "#000"; ctx.stroke(); ctx.restore();
+        // label biggest window
+        let best = null, ba = 0; for (const lp of L.loops) { let a = 0, sx = 0, sy = 0; for (let j = 0; j < lp.length; j += 2) { sx += lp[j]; sy += lp[j + 1]; } const m = lp.length / 2; let x0 = 1e9, x1 = -1e9; for (let j = 0; j < lp.length; j += 2) { x0 = Math.min(x0, lp[j]); x1 = Math.max(x1, lp[j]); } a = x1 - x0; if (a > ba) { ba = a; best = [sx / m, sy / m]; } }
+        if (best) text(ctx, k, "✂ cut out", TX0 + best[0] / LPX, TY0 + best[1] / LPX, 3.4, { align: "center", weight: 700, color: "#a0a0a0" });
+      }
+      ctx.save(); ctx.strokeStyle = "#000"; ctx.lineWidth = .4 * k; ctx.strokeRect(TX0 * k, TY0 * k, TW * k, TH * k); ctx.restore();
+      glueTab(ctx, k, TX0, TX0 - 12, TY0, TH, `TAB ${i + 1}`); glueTab(ctx, k, TX0 + TW, TX0 + TW + 12, TY0, TH, `TAB ${i + 1}`);
+      text(ctx, k, it.back ? "Back layer — cut only the outline. Fold both side tabs back." : "Cut away the hatched areas, then cut the outline and fold both side tabs back.", 148.5, TY0 + TH + 8, 2.9, { align: "center", color: "#444" });
+      footer(ctx, k, 297, 210, true);
+    } });
+  }
+  if (n >= 2) pages.push({ orient: "l", W: 297, H: 210, draw: (ctx, k) => {
+    header(ctx, k, 297, kit, "Accordion sides — cut both strips, fold zig-zag", `Sheet ${n + 1}/${n + 1}`);
+    const GW = 12, P = n <= 5 ? 18 : Math.max(10, (136 - n * GW) / (n - 1)), SH = TH, L = n * GW + (n - 1) * P;
+    const total = 2 * L + 8, x0 = (297 - total) / 2;
+    [["LEFT SIDE", x0], ["RIGHT SIDE", x0 + L + 8]].forEach(([lab, sx]) => {
+      text(ctx, k, lab + " · front of the theatre at the TAB 1 end", sx + L / 2, TY0 - 3, 3, { align: "center", weight: 700 });
+      let xx = sx;
+      for (let i = 0; i < n; i++) {
+        ctx.fillStyle = "#e4e4e4"; ctx.fillRect(xx * k, TY0 * k, GW * k, SH * k);
+        text(ctx, k, `GLUE TAB ${i + 1} HERE`, xx + GW / 2 + 1, TY0 + SH / 2, 2.8, { align: "center", weight: 700, rot: -Math.PI / 2 });
+        if (i < n - 1) { line(ctx, k, xx + GW, TY0, xx + GW, TY0 + SH, "fold"); line(ctx, k, xx + GW + P, TY0, xx + GW + P, TY0 + SH, "mfold"); }
+        xx += GW + P;
+      }
+      ctx.save(); ctx.strokeStyle = "#000"; ctx.lineWidth = .4 * k; ctx.strokeRect(sx * k, TY0 * k, L * k, SH * k); ctx.restore();
+    });
+    text(ctx, k, "Fold dashed lines towards you and dash-dot lines away, so each strip zig-zags like a fan.", 148.5, TY0 + SH + 8, 3, { align: "center", color: "#444" });
+    text(ctx, k, "Glue each layer’s side tabs onto the matching grey panels — layer 1 at the front, the back scene at the end.", 148.5, TY0 + SH + 13, 3, { align: "center", color: "#444" });
+    footer(ctx, k, 297, 210, true);
+  } });
+  return pages;
+}
+function instrPage(kit, mode) {
+  const steps = mode === "cast" ? [
+    ["Colour first", "Colour every figure while the sheet is flat. Leave the outlines visible."],
+    ["Cut", "Cut along the solid outline around each figure, including the tab under its feet."],
+    ["Fold the tab", "Score the dashed line with a butter knife and a ruler, then fold the tab back."],
+    ["Stand & play", "Stand figures on a shelf or in a paper theatre. For a show, tape a straw to the back."],
+  ] : [
+    ["Colour first", "Colour all layers and both accordion strips while flat. Darker at the front, lighter at the back gives more depth."],
+    ["Cut the windows", "A grown-up cuts out the hatched areas with a craft knife on a mat. Then cut the outer lines."],
+    ["Fold", "Fold every side tab back. Fold the accordion strips zig-zag: dashed lines towards you, dash-dot lines away."],
+    ["Glue the layers", "Glue each layer’s tabs onto the matching grey panel on both strips: tab 1 at the front."],
+    ["Pull it open", "Stretch the accordions gently so the layers stand apart and look through the front window."],
+    ["Light & display", "Place an LED tea light behind or below. Fold it flat like a book to store."],
+  ];
+  return { orient: "p", W: 210, H: 297, draw: (ctx, k) => {
+    text(ctx, k, mode === "cast" ? "How to make your paper cast" : "How to build a tunnel-book theatre", 105, 26, 9.5, { font: "serif", weight: 700, align: "center" });
+    text(ctx, k, kit.name || "", 105, 35, 4.5, { align: "center", color: "#444" });
+    text(ctx, k, (kit.brand || "").toUpperCase(), 105, 41, 2.8, { align: "center", color: "#777" });
+    text(ctx, k, "You need: printer + A4 card · scissors · glue stick · ruler · butter knife to score folds · craft knife + mat (grown-up) · colours", 105, 52, 3, { align: "center" });
+    steps.forEach(([t, d], i) => {
+      const col = i % 2, row = (i / 2) | 0, x = 14 + col * 94, y = 62 + row * 46;
+      ctx.save(); ctx.strokeStyle = "#111"; ctx.lineWidth = .4 * k; roundRect(ctx, x * k, y * k, 88 * k, 40 * k, 3 * k); ctx.stroke();
+      ctx.beginPath(); ctx.arc((x + 8) * k, (y + 8) * k, 5 * k, 0, 7); ctx.stroke(); ctx.restore();
+      text(ctx, k, String(i + 1), x + 8, y + 10.2, 6, { font: "serif", weight: 700, align: "center" });
+      text(ctx, k, t, x + 16, y + 10, 5, { font: "serif", weight: 700 });
+      wrap(d, 36).forEach((ln, j) => text(ctx, k, ln, x + 5, y + 19 + j * 4.6, 3.3));
+    });
+    legend(ctx, k, 60, 262, mode !== "cast");
+  } };
+}
+function wrap(s, n) { const out = []; let l = ""; for (const w of s.split(" ")) { if ((l + " " + w).trim().length > n) { out.push(l); l = w; } else l = (l + " " + w).trim(); } if (l) out.push(l); return out; }
+function roundRect(ctx, x, y, w, h, r) { ctx.beginPath(); ctx.moveTo(x + r, y); ctx.arcTo(x + w, y, x + w, y + h, r); ctx.arcTo(x + w, y + h, x, y + h, r); ctx.arcTo(x, y + h, x, y, r); ctx.arcTo(x, y, x + w, y, r); ctx.closePath(); }
+
+async function buildPages(mode) {
+  const kit = curKit(); if (!kit) return [];
+  const body = mode === "cast" ? await castPages(kit) : await tunnelPages(kit);
+  if (!body.length) return [];
+  return (kit.instr !== false ? [instrPage(kit, mode)] : []).concat(body);
+}
+function renderPage(pg, k) {
+  const c = document.createElement("canvas"); c.width = Math.round(pg.W * k); c.height = Math.round(pg.H * k);
+  const ctx = c.getContext("2d"); ctx.fillStyle = "#fff"; ctx.fillRect(0, 0, c.width, c.height); pg.draw(ctx, k); return c;
+}
+async function preview(mode) {
+  const box = $("#preview"); box.innerHTML = `<div class="hint">Building preview…</div>`;
+  await document.fonts.ready;
+  const pages = await buildPages(mode);
+  if (!pages.length) { box.innerHTML = `<div class="hint">${mode === "cast" ? "Upload figures in the Cast tab first." : "Upload at least two layers in the Tunnel book tab first."}</div>`; return; }
+  box.innerHTML = "";
+  pages.forEach((pg, i) => { const w = document.createElement("div"); w.className = "pg"; const c = renderPage(pg, 2.4); w.appendChild(c); const l = document.createElement("div"); l.className = "pglab"; l.textContent = `Page ${i + 1}`; w.appendChild(l); box.appendChild(w); });
+}
+async function exportPdf(mode) {
+  const kit = curKit(); if (!kit) return;
+  if (!window.jspdf) { toast("PDF library did not load — check your connection and reload"); return; }
+
+  const btn = $(`#dl-${mode}`); const old = btn.textContent; btn.disabled = true; btn.textContent = "Rendering 300 dpi…";
+  try {
+    await document.fonts.ready;
+    const pages = await buildPages(mode);
+    if (!pages.length) { toast("Nothing to export yet"); return; }
+    const { jsPDF } = window.jspdf; let pdf = null;
+    for (const pg of pages) {
+      const c = renderPage(pg, 300 / 25.4);
+      const data = c.toDataURL("image/jpeg", .92);
+      const o = pg.orient === "l" ? "landscape" : "portrait";
+      if (!pdf) pdf = new jsPDF({ unit: "mm", format: "a4", orientation: o, compress: true }); else pdf.addPage("a4", o);
+      pdf.addImage(data, "JPEG", 0, 0, pg.W, pg.H);
+      await new Promise(r => setTimeout(r, 0));
+    }
+    const blob = pdf.output("blob");
+    const fname = `${(kit.name || "PaperTheatre").replace(/[^\w\- ]+/g, "").replace(/\s+/g, "_")}_${mode === "cast" ? "Cast" : "TunnelBook"}_A4.pdf`;
+    if (S.downloads) await S.downloads.save({ filename: fname, data: blob });
+    else { const a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = fname; document.body.appendChild(a); a.click(); setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 4000); }
+    toast("PDF saved");
+  } catch (e) { if (e && e.code === "declined") toast("Download cancelled"); else toast("Export failed: " + (e.code || e.message)); }
+  finally { btn.disabled = false; btn.textContent = old; }
+}
+
+// ---------------- UI ----------------
+function toast(msg) { const t = $("#toast"); t.textContent = msg; t.classList.add("on"); clearTimeout(toast.t); toast.t = setTimeout(() => t.classList.remove("on"), 3800); }
+function renderDownloadState() {}
+// ---------------- starter library (skylines shipped next to this page) ----------------
+let STARTER = null;
+async function checkStarter() {
+  try { const r = await fetch("skylines/manifest.json", { cache: "no-store" }); if (!r.ok) return; STARTER = await r.json(); } catch (e) { return; }
+  const box = $("#starter"); if (!box) return; box.hidden = false;
+  $("#starterbtn").onclick = loadStarter;
+}
+async function loadStarter() {
+  if (!STARTER) return;
+  const btn = $("#starterbtn"); btn.disabled = true; btn.textContent = "Loading skylines…";
+  try {
+    const kit = { id: uid(), name: STARTER.kitName || "World Skylines", brand: "Titicaco Paper Theatre", perSheet: 6, margin: 3, instr: true, createdAt: Date.now() };
+    S.kitId = kit.id; S.tab = "layers"; await saveKit(kit);
+    const files = [], names = {};
+    for (const e of STARTER.layers) { const b = await (await fetch("skylines/" + e.file)).blob(); files.push(new File([b], e.file, { type: "image/png" })); names[e.file] = e.name; }
+    await addFiles(files, "layer", { minWin: 6, names });
+    toast("World Skylines added — reorder or delete layers as you like");
+  } catch (e) { toast("Could not load skylines: " + e.message); }
+  btn.disabled = false; btn.textContent = "Add World Skylines starter kit";
+}
+
+function renderKits() {
+  const ul = $("#kits");
+  ul.innerHTML = S.kits.map(k => `<li class="${k.id === S.kitId ? "on" : ""}" data-id="${k.id}"><span>${esc(k.name)}</span><small>${S.items.filter(i => i.kitId === k.id).length}</small></li>`).join("") || `<li class="empty">No kits yet</li>`;
+  ul.querySelectorAll("li[data-id]").forEach(li => li.onclick = () => { S.kitId = li.dataset.id; renderKits(); renderMain(); });
+}
+function renderMain() {
+  renderKits();
+  const kit = curKit(), main = $("#main");
+  if (!kit) { main.innerHTML = `<div class="empty-state"><h2>Start a kit</h2><p>Give it a name on the left — for example <em>The Grand Summit</em> or <em>Jungle Jamboree</em> — then upload your drawings.</p></div>`; return; }
+  document.querySelectorAll(".tabs button").forEach(b => b.classList.toggle("on", b.dataset.tab === S.tab));
+  if (S.tab === "figures") renderItems("figure");
+  else if (S.tab === "layers") renderItems("layer");
+  else renderBuild();
+}
+function renderItems(kind) {
+  const kit = curKit(), main = $("#main"), list = kitItems(kind);
+  const intro = kind === "figure"
+    ? `<b>Cast figures.</b> Upload one character per image: black line art on a white background, PNG or JPG. The builder traces a cut outline around each figure and adds a fold-back stand tab.`
+    : `<b>Tunnel-book layers.</b> Upload one scene per layer, front first. Large white areas are marked to cut away (pink). <b>Click any area in a preview to keep it or cut it.</b> Orange boxes warn about pieces that would fall out.`;
+  main.innerHTML = `
+    <div class="kithead"><input class="kitname" value="${esc(kit.name)}" aria-label="Kit name"><span class="count">${list.length} ${kind === "figure" ? "figures" : "layers"}</span></div>
+    <p class="intro">${intro}</p>
+    <label class="drop" id="drop"><input type="file" accept="image/png,image/jpeg,image/webp" multiple hidden id="file">
+      <div><b>Drop images here</b> or click to upload</div><small>${S.mode === "cloud" ? "Saved to this kit’s online library" : "Kept in this browser tab only"}</small></label>
+    <div class="grid ${kind}">${list.map((it, i) => card(it, i, list.length, kind)).join("")}</div>`;
+  $(".kitname").onchange = e => { patchKit(kit.id, { name: e.target.value.trim() || "Untitled kit" }); renderKits(); };
+  const drop = $("#drop"), file = $("#file");
+  file.onchange = () => { addFiles(file.files, kind); file.value = ""; };
+  drop.ondragover = e => { e.preventDefault(); drop.classList.add("hover"); };
+  drop.ondragleave = () => drop.classList.remove("hover");
+  drop.ondrop = e => { e.preventDefault(); drop.classList.remove("hover"); addFiles(e.dataTransfer.files, kind); };
+  list.forEach((it, i) => wireCard(it, kind));
+}
+function card(it, i, n, kind) {
+  const isL = kind === "layer";
+  return `<div class="card" data-id="${it.id}">
+    <div class="thumb ${isL ? "wide" : ""}"><canvas></canvas><div class="busy">Processing…</div></div>
+    <div class="meta">
+      <div class="row1">${isL ? `<span class="badge">${i === 0 ? "Front · 1" : i === n - 1 ? `Back · ${i + 1}` : `Layer ${i + 1}`}</span>` : ""}<input class="nm" value="${esc(it.name)}" placeholder="Name" aria-label="Name"></div>
+      <label class="sl">Line darkness <input type="range" min="90" max="235" value="${it.thr}" class="thr"><span>${it.thr}</span></label>
+      ${isL ? `<label class="sl">Min. window size <input type="range" min="0.3" max="8" step="0.1" value="${it.minWin}" class="mw"><span>${it.minWin}%</span></label>
+      <div class="row2"><label class="ck"><input type="checkbox" class="bk" ${it.back ? "checked" : ""}> Back layer (no cutting)</label>${(it.toggles || []).length ? `<button class="lnk rst">Reset clicks</button>` : ""}</div>` : ""}
+      <div class="warn" hidden></div>
+      <div class="acts"><button class="ic up" ${i === 0 ? "disabled" : ""} title="Move earlier">↑</button><button class="ic dn" ${i === n - 1 ? "disabled" : ""} title="Move later">↓</button><span class="sp"></span><button class="ic del" title="Delete">Delete</button></div>
+    </div></div>`;
+}
+function wireCard(it, kind) {
+  const el = document.querySelector(`.card[data-id="${it.id}"]`); if (!el) return;
+  el.querySelector(".nm").onchange = e => patchItem(it.id, { name: e.target.value.trim().slice(0, 40) }, 200);
+  const thr = el.querySelector(".thr");
+  thr.oninput = () => { thr.nextElementSibling.textContent = thr.value; debounce("draw" + it.id, 220, () => { patchItem(it.id, { thr: +thr.value }); drawThumb(it, kind, el); }); };
+  const mw = el.querySelector(".mw");
+  if (mw) mw.oninput = () => { mw.nextElementSibling.textContent = mw.value + "%"; debounce("draw" + it.id, 220, () => { patchItem(it.id, { minWin: +mw.value }); drawThumb(it, kind, el); }); };
+  const bk = el.querySelector(".bk"); if (bk) bk.onchange = () => { patchItem(it.id, { back: bk.checked }, 200); drawThumb(it, kind, el); };
+  const rst = el.querySelector(".rst"); if (rst) rst.onclick = () => { patchItem(it.id, { toggles: [] }, 200); renderMain(); };
+  el.querySelector(".up").onclick = () => move(it, -1);
+  el.querySelector(".dn").onclick = () => move(it, 1);
+  const del = el.querySelector(".del");
+  del.onclick = () => { if (del.dataset.arm) removeItem(it); else { del.dataset.arm = 1; del.textContent = "Confirm delete"; del.classList.add("arm"); setTimeout(() => { if (del.isConnected) { delete del.dataset.arm; del.textContent = "Delete"; del.classList.remove("arm"); } }, 3000); } };
+  if (kind === "layer") {
+    const cv = el.querySelector("canvas");
+    cv.style.cursor = "pointer";
+    cv.onclick = async e => {
+      if (it.back) return;
+      const r = cv.getBoundingClientRect(); const fx = (e.clientX - r.left) / r.width, fy = (e.clientY - r.top) / r.height;
+      const L = await procLayer(it); const reg = L.regionAt(fx, fy);
+      if (reg < 0) { toast("Click inside an open area, not on a line"); return; }
+      const tg = (it.toggles || []).filter(([x, y]) => L.regionAt(x, y) !== reg);
+      if (tg.length === (it.toggles || []).length) tg.push([+fx.toFixed(4), +fy.toFixed(4)]);
+      patchItem(it.id, { toggles: tg }, 200);
+      drawThumb(it, kind, el);
+      const row2 = el.querySelector(".row2"); if (row2 && !row2.querySelector(".rst") && tg.length) { const b = document.createElement("button"); b.className = "lnk rst"; b.textContent = "Reset clicks"; b.onclick = () => { patchItem(it.id, { toggles: [] }, 200); renderMain(); }; row2.appendChild(b); }
+    };
+  }
+  drawThumb(it, kind, el);
+}
+async function drawThumb(it, kind, el) {
+  const cv = el.querySelector("canvas"), busy = el.querySelector(".busy"), warn = el.querySelector(".warn");
+  busy.hidden = false; warn.hidden = true;
+  await new Promise(r => setTimeout(r, 10));
+  try {
+    if (kind === "figure") {
+      const P = await procFigure(it); const kit = curKit();
+      const [x0, y0, x1, y1] = P.fig.bbox, bw = x1 - x0 + 1, bh = y1 - y0 + 1;
+      const s = Math.min(54 / bw, 84 / bh); // mm per px for a typical 6-up cell
+      const cut = cutFor(P, s, +kit.margin || 3);
+      const [bx0, by0, bx1, by1] = cut.box; const W = bx1 - bx0, H = by1 - by0;
+      const k = 220 / Math.max(W, H * .8);
+      cv.width = Math.round(W * k); cv.height = Math.round(H * k);
+      const ctx = cv.getContext("2d"); ctx.fillStyle = "#fff"; ctx.fillRect(0, 0, cv.width, cv.height);
+      ctx.drawImage(P.canvas, x0, y0, bw, bh, (x0 - bx0) * k, (y0 - by0) * k, bw * k, bh * k);
+      ctx.beginPath(); pathLoop(ctx, cut.loop, -bx0, -by0, 1, k); ctx.strokeStyle = "#c0392b"; ctx.lineWidth = 1.6; ctx.stroke();
+      ctx.save(); ctx.setLineDash([5, 3]); ctx.strokeStyle = "#1f4e9c"; ctx.lineWidth = 1.3; ctx.beginPath(); ctx.moveTo((cut.tabX0 - bx0) * k, (cut.foldY - by0) * k); ctx.lineTo((cut.tabX1 - bx0) * k, (cut.foldY - by0) * k); ctx.stroke(); ctx.restore();
+    } else {
+      const L = await procLayer(it);
+      cv.width = 480; cv.height = 312; const k = 480 / LW;
+      const ctx = cv.getContext("2d"); ctx.drawImage(L.canvas, 0, 0, cv.width, cv.height);
+      if (L.loops.length) {
+        ctx.save(); ctx.beginPath(); for (const lp of L.loops) pathLoop(ctx, lp, 0, 0, 1, k);
+        ctx.fillStyle = "rgba(214,72,72,.28)"; ctx.fill("evenodd"); ctx.strokeStyle = "#c0392b"; ctx.lineWidth = 1.4; ctx.stroke(); ctx.restore();
+      }
+      ctx.strokeStyle = "#111"; ctx.lineWidth = 1; ctx.strokeRect(.5, .5, cv.width - 1, cv.height - 1);
+      for (const [a, b, c, d] of L.islands) { ctx.strokeStyle = "#e67e22"; ctx.lineWidth = 2.5; ctx.strokeRect(a * k - 3, b * k - 3, (c - a) * k + 6, (d - b) * k + 6); }
+      if (L.islands.length) { warn.hidden = false; warn.textContent = `${L.islands.length} piece${L.islands.length > 1 ? "s" : ""} would fall out (orange). Click the pink area around ${L.islands.length > 1 ? "them" : "it"} to keep it, lower “Min. window size”, or tick “Back layer” if this is the back scene.`; }
+    }
+  } catch (e) { warn.hidden = false; warn.textContent = e.message; }
+  busy.hidden = true;
+}
+function renderBuild() {
+  const kit = curKit(), main = $("#main");
+  const nf = kitItems("figure").length, nl = kitItems("layer").length;
+  main.innerHTML = `
+    <div class="kithead"><input class="kitname" value="${esc(kit.name)}" aria-label="Kit name"></div>
+    <div class="settings">
+      <label>Brand line <input id="brand" value="${esc(kit.brand || "")}" placeholder="e.g. TITICACO PAPER THEATRE"></label>
+      <label>Figures per sheet <select id="per">${[1, 2, 4, 6, 9].map(n => `<option ${+(kit.perSheet || 6) === n ? "selected" : ""}>${n}</option>`).join("")}</select></label>
+      <label>Cut margin <select id="mar">${[2, 3, 4, 5].map(n => `<option value="${n}" ${+(kit.margin || 3) === n ? "selected" : ""}>${n} mm</option>`).join("")}</select></label>
+      <label class="ck"><input type="checkbox" id="instr" ${kit.instr !== false ? "checked" : ""}> Include instructions page</label>
+    </div>
+    <div class="exports">
+      <div class="exp"><h3>Cast sheets</h3><p>${nf} figure${nf === 1 ? "" : "s"} · ${nf ? Math.ceil(nf / (+kit.perSheet || 6)) : 0} A4 sheet(s)</p>
+        <div class="btns"><button class="sec" id="pv-cast">Preview</button><button class="pri dlbtn" id="dl-cast">Download PDF</button></div></div>
+      <div class="exp"><h3>Tunnel book</h3><p>${nl} layer${nl === 1 ? "" : "s"} + accordion sheet${nl < 2 ? " · needs at least 2 layers" : ""}</p>
+        <div class="btns"><button class="sec" id="pv-tunnel">Preview</button><button class="pri dlbtn" id="dl-tunnel">Download PDF</button></div></div>
+    </div>
+    <div id="preview" class="preview"><div class="hint">Choose Preview to see the printable pages.</div></div>`;
+  $(".kitname").onchange = e => { patchKit(kit.id, { name: e.target.value.trim() || "Untitled kit" }); renderKits(); };
+  $("#brand").onchange = e => patchKit(kit.id, { brand: e.target.value });
+  $("#per").onchange = e => { patchKit(kit.id, { perSheet: +e.target.value }); renderBuild(); };
+  $("#mar").onchange = e => patchKit(kit.id, { margin: +e.target.value });
+  $("#instr").onchange = e => patchKit(kit.id, { instr: e.target.checked });
+  $("#pv-cast").onclick = () => preview("cast"); $("#pv-tunnel").onclick = () => preview("tunnel");
+  $("#dl-cast").onclick = () => exportPdf("cast"); $("#dl-tunnel").onclick = () => exportPdf("tunnel");
+  renderDownloadState();
+}
+
+function boot() {
+  $("#newkit").onsubmit = e => {
+    e.preventDefault(); const inp = $("#newkitname"); const name = inp.value.trim(); if (!name) return;
+    const kit = { id: uid(), name, brand: "Titicaco Paper Theatre", perSheet: 6, margin: 3, instr: true, createdAt: Date.now() };
+    S.kitId = kit.id; inp.value = ""; S.tab = "figures"; saveKit(kit);
+  };
+  document.querySelectorAll(".tabs button").forEach(b => b.onclick = () => { S.tab = b.dataset.tab; renderMain(); });
+  renderKits(); renderMain();
+  initStorage().then(() => { if (S.mode !== "idb") checkStarter(); });
+}
+boot();
+})();
+
+</script>
+</body>
+</html>

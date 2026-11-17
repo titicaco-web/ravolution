@@ -19,6 +19,7 @@ import { Route as LifePathNumberCalculatorRouteImport } from './routes/life-path
 import { Route as McpRouteImport } from './routes/mcp'
 import { Route as MetadatamachineRouteImport } from './routes/metadatamachine'
 import { Route as NameNumerologyRouteImport } from './routes/name-numerology'
+import { Route as PaperTheatreRouteImport } from './routes/paper-theatre'
 import { Route as PartnerRouteImport } from './routes/partner'
 import { Route as PartystaRouteImport } from './routes/partysta'
 import { Route as PratisRouteImport } from './routes/pratis'
@@ -47,6 +48,7 @@ import { Route as LangInvestRouteImport } from './routes/$lang/invest'
 import { Route as LangLifePathNumberCalculatorRouteImport } from './routes/$lang/life-path-number-calculator'
 import { Route as LangMetadatamachineRouteImport } from './routes/$lang/metadatamachine'
 import { Route as LangNameNumerologyRouteImport } from './routes/$lang/name-numerology'
+import { Route as LangPaperTheatreRouteImport } from './routes/$lang/paper-theatre'
 import { Route as LangPartnerRouteImport } from './routes/$lang/partner'
 import { Route as LangPartystaRouteImport } from './routes/$lang/partysta'
 import { Route as LangPatentStrategyForStartupsRouteImport } from './routes/$lang/patent-strategy-for-startups'
@@ -140,6 +142,11 @@ const MetadatamachineRoute = MetadatamachineRouteImport.update({
 const NameNumerologyRoute = NameNumerologyRouteImport.update({
   id: '/name-numerology',
   path: '/name-numerology',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PaperTheatreRoute = PaperTheatreRouteImport.update({
+  id: '/paper-theatre',
+  path: '/paper-theatre',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PartnerRoute = PartnerRouteImport.update({
@@ -282,6 +289,11 @@ const LangMetadatamachineRoute = LangMetadatamachineRouteImport.update({
 const LangNameNumerologyRoute = LangNameNumerologyRouteImport.update({
   id: '/$lang/name-numerology',
   path: '/$lang/name-numerology',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LangPaperTheatreRoute = LangPaperTheatreRouteImport.update({
+  id: '/$lang/paper-theatre',
+  path: '/$lang/paper-theatre',
   getParentRoute: () => rootRouteImport,
 } as any)
 const LangPartnerRoute = LangPartnerRouteImport.update({
@@ -519,6 +531,7 @@ export interface FileRoutesByFullPath {
   '/mcp': typeof McpRoute
   '/metadatamachine': typeof MetadatamachineRoute
   '/name-numerology': typeof NameNumerologyRoute
+  '/paper-theatre': typeof PaperTheatreRoute
   '/partner': typeof PartnerRoute
   '/partysta': typeof PartystaRoute
   '/pratis': typeof PratisRoute
@@ -546,6 +559,7 @@ export interface FileRoutesByFullPath {
   '/$lang/life-path-number-calculator': typeof LangLifePathNumberCalculatorRoute
   '/$lang/metadatamachine': typeof LangMetadatamachineRoute
   '/$lang/name-numerology': typeof LangNameNumerologyRoute
+  '/$lang/paper-theatre': typeof LangPaperTheatreRoute
   '/$lang/partner': typeof LangPartnerRoute
   '/$lang/partysta': typeof LangPartystaRoute
   '/$lang/patent-strategy-for-startups': typeof LangPatentStrategyForStartupsRoute
@@ -602,6 +616,7 @@ export interface FileRoutesByTo {
   '/mcp': typeof McpRoute
   '/metadatamachine': typeof MetadatamachineRoute
   '/name-numerology': typeof NameNumerologyRoute
+  '/paper-theatre': typeof PaperTheatreRoute
   '/partner': typeof PartnerRoute
   '/partysta': typeof PartystaRoute
   '/pratis': typeof PratisRoute
@@ -629,6 +644,7 @@ export interface FileRoutesByTo {
   '/$lang/life-path-number-calculator': typeof LangLifePathNumberCalculatorRoute
   '/$lang/metadatamachine': typeof LangMetadatamachineRoute
   '/$lang/name-numerology': typeof LangNameNumerologyRoute
+  '/$lang/paper-theatre': typeof LangPaperTheatreRoute
   '/$lang/partner': typeof LangPartnerRoute
   '/$lang/partysta': typeof LangPartystaRoute
   '/$lang/patent-strategy-for-startups': typeof LangPatentStrategyForStartupsRoute
@@ -686,6 +702,7 @@ export interface FileRoutesById {
   '/mcp': typeof McpRoute
   '/metadatamachine': typeof MetadatamachineRoute
   '/name-numerology': typeof NameNumerologyRoute
+  '/paper-theatre': typeof PaperTheatreRoute
   '/partner': typeof PartnerRoute
   '/partysta': typeof PartystaRoute
   '/pratis': typeof PratisRoute
@@ -713,6 +730,7 @@ export interface FileRoutesById {
   '/$lang/life-path-number-calculator': typeof LangLifePathNumberCalculatorRoute
   '/$lang/metadatamachine': typeof LangMetadatamachineRoute
   '/$lang/name-numerology': typeof LangNameNumerologyRoute
+  '/$lang/paper-theatre': typeof LangPaperTheatreRoute
   '/$lang/partner': typeof LangPartnerRoute
   '/$lang/partysta': typeof LangPartystaRoute
   '/$lang/patent-strategy-for-startups': typeof LangPatentStrategyForStartupsRoute
@@ -771,6 +789,7 @@ export interface FileRouteTypes {
     | '/mcp'
     | '/metadatamachine'
     | '/name-numerology'
+    | '/paper-theatre'
     | '/partner'
     | '/partysta'
     | '/pratis'
@@ -798,6 +817,7 @@ export interface FileRouteTypes {
     | '/$lang/life-path-number-calculator'
     | '/$lang/metadatamachine'
     | '/$lang/name-numerology'
+    | '/$lang/paper-theatre'
     | '/$lang/partner'
     | '/$lang/partysta'
     | '/$lang/patent-strategy-for-startups'
@@ -854,6 +874,7 @@ export interface FileRouteTypes {
     | '/mcp'
     | '/metadatamachine'
     | '/name-numerology'
+    | '/paper-theatre'
     | '/partner'
     | '/partysta'
     | '/pratis'
@@ -881,6 +902,7 @@ export interface FileRouteTypes {
     | '/$lang/life-path-number-calculator'
     | '/$lang/metadatamachine'
     | '/$lang/name-numerology'
+    | '/$lang/paper-theatre'
     | '/$lang/partner'
     | '/$lang/partysta'
     | '/$lang/patent-strategy-for-startups'
@@ -937,6 +959,7 @@ export interface FileRouteTypes {
     | '/mcp'
     | '/metadatamachine'
     | '/name-numerology'
+    | '/paper-theatre'
     | '/partner'
     | '/partysta'
     | '/pratis'
@@ -964,6 +987,7 @@ export interface FileRouteTypes {
     | '/$lang/life-path-number-calculator'
     | '/$lang/metadatamachine'
     | '/$lang/name-numerology'
+    | '/$lang/paper-theatre'
     | '/$lang/partner'
     | '/$lang/partysta'
     | '/$lang/patent-strategy-for-startups'
@@ -1021,6 +1045,7 @@ export interface RootRouteChildren {
   McpRoute: typeof McpRoute
   MetadatamachineRoute: typeof MetadatamachineRoute
   NameNumerologyRoute: typeof NameNumerologyRoute
+  PaperTheatreRoute: typeof PaperTheatreRoute
   PartnerRoute: typeof PartnerRoute
   PartystaRoute: typeof PartystaRoute
   PratisRoute: typeof PratisRoute
@@ -1048,6 +1073,7 @@ export interface RootRouteChildren {
   LangLifePathNumberCalculatorRoute: typeof LangLifePathNumberCalculatorRoute
   LangMetadatamachineRoute: typeof LangMetadatamachineRoute
   LangNameNumerologyRoute: typeof LangNameNumerologyRoute
+  LangPaperTheatreRoute: typeof LangPaperTheatreRoute
   LangPartnerRoute: typeof LangPartnerRoute
   LangPartystaRoute: typeof LangPartystaRoute
   LangPatentStrategyForStartupsRoute: typeof LangPatentStrategyForStartupsRoute
@@ -1164,6 +1190,13 @@ declare module '@tanstack/react-router' {
       path: '/name-numerology'
       fullPath: '/name-numerology'
       preLoaderRoute: typeof NameNumerologyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/paper-theatre': {
+      id: '/paper-theatre'
+      path: '/paper-theatre'
+      fullPath: '/paper-theatre'
+      preLoaderRoute: typeof PaperTheatreRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/partner': {
@@ -1360,6 +1393,13 @@ declare module '@tanstack/react-router' {
       path: '/$lang/name-numerology'
       fullPath: '/$lang/name-numerology'
       preLoaderRoute: typeof LangNameNumerologyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/$lang/paper-theatre': {
+      id: '/$lang/paper-theatre'
+      path: '/$lang/paper-theatre'
+      fullPath: '/$lang/paper-theatre'
+      preLoaderRoute: typeof LangPaperTheatreRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/$lang/partner': {
@@ -1677,6 +1717,7 @@ const rootRouteChildren: RootRouteChildren = {
   McpRoute: McpRoute,
   MetadatamachineRoute: MetadatamachineRoute,
   NameNumerologyRoute: NameNumerologyRoute,
+  PaperTheatreRoute: PaperTheatreRoute,
   PartnerRoute: PartnerRoute,
   PartystaRoute: PartystaRoute,
   PratisRoute: PratisRoute,
@@ -1704,6 +1745,7 @@ const rootRouteChildren: RootRouteChildren = {
   LangLifePathNumberCalculatorRoute: LangLifePathNumberCalculatorRoute,
   LangMetadatamachineRoute: LangMetadatamachineRoute,
   LangNameNumerologyRoute: LangNameNumerologyRoute,
+  LangPaperTheatreRoute: LangPaperTheatreRoute,
   LangPartnerRoute: LangPartnerRoute,
   LangPartystaRoute: LangPartystaRoute,
   LangPatentStrategyForStartupsRoute: LangPatentStrategyForStartupsRoute,
