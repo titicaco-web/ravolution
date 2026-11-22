@@ -3,6 +3,7 @@ import { Link } from "@/lib/router-compat";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { useLangPath } from "@/hooks/use-lang-path";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
+import LoginMenu from "@/components/editorial/LoginMenu";
 
 /* ───────── Preloader ───────── */
 export const EditorialPreloader = () => {
@@ -223,6 +224,7 @@ export const EditorialNav = () => {
 
           <div className="flex items-center gap-4">
             <div className="hidden md:block"><LanguageSwitcher /></div>
+            <div className="hidden md:block"><LoginMenu /></div>
             <Link
               to={lp("/contact")}
               className="edit-label hidden lg:inline-flex text-[hsl(var(--accent-edit))] border border-[hsl(var(--accent-edit))] px-4 py-2 hover:bg-[hsl(var(--accent-edit))] hover:text-black transition-colors"
