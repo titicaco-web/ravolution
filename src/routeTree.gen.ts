@@ -10,12 +10,14 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
 import { Route as AlarmsoleRouteImport } from './routes/alarmsole'
 import { Route as BeredskapadRouteImport } from './routes/beredskapad'
 import { Route as EaktiebokDraknasteRouteImport } from './routes/eaktiebok-draknaste'
 import { Route as EvidenceRouteImport } from './routes/evidence'
 import { Route as HundelserRouteImport } from './routes/hundelser'
 import { Route as LifePathNumberCalculatorRouteImport } from './routes/life-path-number-calculator'
+import { Route as LoginRouteImport } from './routes/login'
 import { Route as McpRouteImport } from './routes/mcp'
 import { Route as MetadatamachineRouteImport } from './routes/metadatamachine'
 import { Route as NameNumerologyRouteImport } from './routes/name-numerology'
@@ -64,6 +66,7 @@ import { Route as LangTermsOfServiceRouteImport } from './routes/$lang/terms-of-
 import { Route as LangWhatDoesMyBirthdateSayAboutMeRouteImport } from './routes/$lang/what-does-my-birthdate-say-about-me'
 import { Route as LangXportmatchRouteImport } from './routes/$lang/xportmatch'
 import { Route as Char91DotwellKnownChar93OauthProtectedResourceRouteImport } from './routes/[.well-known]/oauth-protected-resource'
+import { Route as AuthenticatedNetworkRouteImport } from './routes/_authenticated/network'
 import { Route as BizmeetIndexRouteImport } from './routes/bizmeet/index'
 import { Route as BizmeetDemoRouteImport } from './routes/bizmeet/demo'
 import { Route as EsServiciosRouteImport } from './routes/es/servicios'
@@ -90,12 +93,17 @@ import { Route as LangPikpcashIndexRouteImport } from './routes/$lang/pikpcash/i
 import { Route as LangPikpcashDataroomRouteImport } from './routes/$lang/pikpcash/dataroom'
 import { Route as LangPikpcashSystemRouteImport } from './routes/$lang/pikpcash/system'
 import { Route as LangVenturesPratisRouteImport } from './routes/$lang/ventures/pratis'
+import { Route as AuthenticatedNetworkAdminRouteImport } from './routes/_authenticated/network_.admin'
 import { Route as EnPublicationsIndexRouteImport } from './routes/en/publications/index'
 import { Route as EnPublicationsHandbokForEntreprenorerRouteImport } from './routes/en/publications/handbok-for-entreprenorer'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthenticatedRouteRoute = AuthenticatedRouteRouteImport.update({
+  id: '/_authenticated',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AlarmsoleRoute = AlarmsoleRouteImport.update({
@@ -129,6 +137,11 @@ const LifePathNumberCalculatorRoute =
     path: '/life-path-number-calculator',
     getParentRoute: () => rootRouteImport,
   } as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const McpRoute = McpRouteImport.update({
   id: '/mcp',
   path: '/mcp',
@@ -375,6 +388,11 @@ const Char91DotwellKnownChar93OauthProtectedResourceRoute =
     path: '/.well-known/oauth-protected-resource',
     getParentRoute: () => rootRouteImport,
   } as any)
+const AuthenticatedNetworkRoute = AuthenticatedNetworkRouteImport.update({
+  id: '/network',
+  path: '/network',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
 const BizmeetIndexRoute = BizmeetIndexRouteImport.update({
   id: '/bizmeet/',
   path: '/bizmeet/',
@@ -508,6 +526,12 @@ const LangVenturesPratisRoute = LangVenturesPratisRouteImport.update({
   path: '/$lang/ventures/pratis',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AuthenticatedNetworkAdminRoute =
+  AuthenticatedNetworkAdminRouteImport.update({
+    id: '/network_/admin',
+    path: '/network/admin',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
 const EnPublicationsIndexRoute = EnPublicationsIndexRouteImport.update({
   id: '/en/publications/',
   path: '/en/publications/',
@@ -528,6 +552,7 @@ export interface FileRoutesByFullPath {
   '/evidence': typeof EvidenceRoute
   '/hundelser': typeof HundelserRoute
   '/life-path-number-calculator': typeof LifePathNumberCalculatorRoute
+  '/login': typeof LoginRoute
   '/mcp': typeof McpRoute
   '/metadatamachine': typeof MetadatamachineRoute
   '/name-numerology': typeof NameNumerologyRoute
@@ -575,6 +600,7 @@ export interface FileRoutesByFullPath {
   '/$lang/what-does-my-birthdate-say-about-me': typeof LangWhatDoesMyBirthdateSayAboutMeRoute
   '/$lang/xportmatch': typeof LangXportmatchRoute
   '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
+  '/network': typeof AuthenticatedNetworkRoute
   '/bizmeet/demo': typeof BizmeetDemoRoute
   '/es/servicios': typeof EsServiciosRoute
   '/es/socio-comercial': typeof EsSocioComercialRoute
@@ -597,6 +623,7 @@ export interface FileRoutesByFullPath {
   '/$lang/pikpcash/dataroom': typeof LangPikpcashDataroomRoute
   '/$lang/pikpcash/system': typeof LangPikpcashSystemRoute
   '/$lang/ventures/pratis': typeof LangVenturesPratisRoute
+  '/network/admin': typeof AuthenticatedNetworkAdminRoute
   '/en/publications/handbok-for-entreprenorer': typeof EnPublicationsHandbokForEntreprenorerRoute
   '/$lang/bizmeet/': typeof LangBizmeetIndexRoute
   '/$lang/eyehealthintel/': typeof LangEyehealthintelIndexRoute
@@ -613,6 +640,7 @@ export interface FileRoutesByTo {
   '/evidence': typeof EvidenceRoute
   '/hundelser': typeof HundelserRoute
   '/life-path-number-calculator': typeof LifePathNumberCalculatorRoute
+  '/login': typeof LoginRoute
   '/mcp': typeof McpRoute
   '/metadatamachine': typeof MetadatamachineRoute
   '/name-numerology': typeof NameNumerologyRoute
@@ -660,6 +688,7 @@ export interface FileRoutesByTo {
   '/$lang/what-does-my-birthdate-say-about-me': typeof LangWhatDoesMyBirthdateSayAboutMeRoute
   '/$lang/xportmatch': typeof LangXportmatchRoute
   '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
+  '/network': typeof AuthenticatedNetworkRoute
   '/bizmeet/demo': typeof BizmeetDemoRoute
   '/es/servicios': typeof EsServiciosRoute
   '/es/socio-comercial': typeof EsSocioComercialRoute
@@ -682,6 +711,7 @@ export interface FileRoutesByTo {
   '/$lang/pikpcash/dataroom': typeof LangPikpcashDataroomRoute
   '/$lang/pikpcash/system': typeof LangPikpcashSystemRoute
   '/$lang/ventures/pratis': typeof LangVenturesPratisRoute
+  '/network/admin': typeof AuthenticatedNetworkAdminRoute
   '/en/publications/handbok-for-entreprenorer': typeof EnPublicationsHandbokForEntreprenorerRoute
   '/$lang/bizmeet': typeof LangBizmeetIndexRoute
   '/$lang/eyehealthintel': typeof LangEyehealthintelIndexRoute
@@ -693,12 +723,14 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
   '/alarmsole': typeof AlarmsoleRoute
   '/beredskapad': typeof BeredskapadRoute
   '/eaktiebok-draknaste': typeof EaktiebokDraknasteRoute
   '/evidence': typeof EvidenceRoute
   '/hundelser': typeof HundelserRoute
   '/life-path-number-calculator': typeof LifePathNumberCalculatorRoute
+  '/login': typeof LoginRoute
   '/mcp': typeof McpRoute
   '/metadatamachine': typeof MetadatamachineRoute
   '/name-numerology': typeof NameNumerologyRoute
@@ -746,6 +778,7 @@ export interface FileRoutesById {
   '/$lang/what-does-my-birthdate-say-about-me': typeof LangWhatDoesMyBirthdateSayAboutMeRoute
   '/$lang/xportmatch': typeof LangXportmatchRoute
   '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
+  '/_authenticated/network': typeof AuthenticatedNetworkRoute
   '/bizmeet/demo': typeof BizmeetDemoRoute
   '/es/servicios': typeof EsServiciosRoute
   '/es/socio-comercial': typeof EsSocioComercialRoute
@@ -768,6 +801,7 @@ export interface FileRoutesById {
   '/$lang/pikpcash/dataroom': typeof LangPikpcashDataroomRoute
   '/$lang/pikpcash/system': typeof LangPikpcashSystemRoute
   '/$lang/ventures/pratis': typeof LangVenturesPratisRoute
+  '/_authenticated/network_/admin': typeof AuthenticatedNetworkAdminRoute
   '/en/publications/handbok-for-entreprenorer': typeof EnPublicationsHandbokForEntreprenorerRoute
   '/$lang/bizmeet/': typeof LangBizmeetIndexRoute
   '/$lang/eyehealthintel/': typeof LangEyehealthintelIndexRoute
@@ -786,6 +820,7 @@ export interface FileRouteTypes {
     | '/evidence'
     | '/hundelser'
     | '/life-path-number-calculator'
+    | '/login'
     | '/mcp'
     | '/metadatamachine'
     | '/name-numerology'
@@ -833,6 +868,7 @@ export interface FileRouteTypes {
     | '/$lang/what-does-my-birthdate-say-about-me'
     | '/$lang/xportmatch'
     | '/.well-known/oauth-protected-resource'
+    | '/network'
     | '/bizmeet/demo'
     | '/es/servicios'
     | '/es/socio-comercial'
@@ -855,6 +891,7 @@ export interface FileRouteTypes {
     | '/$lang/pikpcash/dataroom'
     | '/$lang/pikpcash/system'
     | '/$lang/ventures/pratis'
+    | '/network/admin'
     | '/en/publications/handbok-for-entreprenorer'
     | '/$lang/bizmeet/'
     | '/$lang/eyehealthintel/'
@@ -871,6 +908,7 @@ export interface FileRouteTypes {
     | '/evidence'
     | '/hundelser'
     | '/life-path-number-calculator'
+    | '/login'
     | '/mcp'
     | '/metadatamachine'
     | '/name-numerology'
@@ -918,6 +956,7 @@ export interface FileRouteTypes {
     | '/$lang/what-does-my-birthdate-say-about-me'
     | '/$lang/xportmatch'
     | '/.well-known/oauth-protected-resource'
+    | '/network'
     | '/bizmeet/demo'
     | '/es/servicios'
     | '/es/socio-comercial'
@@ -940,6 +979,7 @@ export interface FileRouteTypes {
     | '/$lang/pikpcash/dataroom'
     | '/$lang/pikpcash/system'
     | '/$lang/ventures/pratis'
+    | '/network/admin'
     | '/en/publications/handbok-for-entreprenorer'
     | '/$lang/bizmeet'
     | '/$lang/eyehealthintel'
@@ -950,12 +990,14 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/_authenticated'
     | '/alarmsole'
     | '/beredskapad'
     | '/eaktiebok-draknaste'
     | '/evidence'
     | '/hundelser'
     | '/life-path-number-calculator'
+    | '/login'
     | '/mcp'
     | '/metadatamachine'
     | '/name-numerology'
@@ -1003,6 +1045,7 @@ export interface FileRouteTypes {
     | '/$lang/what-does-my-birthdate-say-about-me'
     | '/$lang/xportmatch'
     | '/.well-known/oauth-protected-resource'
+    | '/_authenticated/network'
     | '/bizmeet/demo'
     | '/es/servicios'
     | '/es/socio-comercial'
@@ -1025,6 +1068,7 @@ export interface FileRouteTypes {
     | '/$lang/pikpcash/dataroom'
     | '/$lang/pikpcash/system'
     | '/$lang/ventures/pratis'
+    | '/_authenticated/network_/admin'
     | '/en/publications/handbok-for-entreprenorer'
     | '/$lang/bizmeet/'
     | '/$lang/eyehealthintel/'
@@ -1036,12 +1080,14 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AuthenticatedRouteRoute: typeof AuthenticatedRouteRouteWithChildren
   AlarmsoleRoute: typeof AlarmsoleRoute
   BeredskapadRoute: typeof BeredskapadRoute
   EaktiebokDraknasteRoute: typeof EaktiebokDraknasteRoute
   EvidenceRoute: typeof EvidenceRoute
   HundelserRoute: typeof HundelserRoute
   LifePathNumberCalculatorRoute: typeof LifePathNumberCalculatorRoute
+  LoginRoute: typeof LoginRoute
   McpRoute: typeof McpRoute
   MetadatamachineRoute: typeof MetadatamachineRoute
   NameNumerologyRoute: typeof NameNumerologyRoute
@@ -1129,6 +1175,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_authenticated': {
+      id: '/_authenticated'
+      path: ''
+      fullPath: '/'
+      preLoaderRoute: typeof AuthenticatedRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/alarmsole': {
       id: '/alarmsole'
       path: '/alarmsole'
@@ -1169,6 +1222,13 @@ declare module '@tanstack/react-router' {
       path: '/life-path-number-calculator'
       fullPath: '/life-path-number-calculator'
       preLoaderRoute: typeof LifePathNumberCalculatorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/mcp': {
@@ -1507,6 +1567,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof Char91DotwellKnownChar93OauthProtectedResourceRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_authenticated/network': {
+      id: '/_authenticated/network'
+      path: '/network'
+      fullPath: '/network'
+      preLoaderRoute: typeof AuthenticatedNetworkRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
     '/bizmeet/': {
       id: '/bizmeet/'
       path: '/bizmeet'
@@ -1689,6 +1756,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LangVenturesPratisRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_authenticated/network_/admin': {
+      id: '/_authenticated/network_/admin'
+      path: '/network/admin'
+      fullPath: '/network/admin'
+      preLoaderRoute: typeof AuthenticatedNetworkAdminRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
     '/en/publications/': {
       id: '/en/publications/'
       path: '/en/publications'
@@ -1706,14 +1780,29 @@ declare module '@tanstack/react-router' {
   }
 }
 
+interface AuthenticatedRouteRouteChildren {
+  AuthenticatedNetworkRoute: typeof AuthenticatedNetworkRoute
+  AuthenticatedNetworkAdminRoute: typeof AuthenticatedNetworkAdminRoute
+}
+
+const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
+  AuthenticatedNetworkRoute: AuthenticatedNetworkRoute,
+  AuthenticatedNetworkAdminRoute: AuthenticatedNetworkAdminRoute,
+}
+
+const AuthenticatedRouteRouteWithChildren =
+  AuthenticatedRouteRoute._addFileChildren(AuthenticatedRouteRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AuthenticatedRouteRoute: AuthenticatedRouteRouteWithChildren,
   AlarmsoleRoute: AlarmsoleRoute,
   BeredskapadRoute: BeredskapadRoute,
   EaktiebokDraknasteRoute: EaktiebokDraknasteRoute,
   EvidenceRoute: EvidenceRoute,
   HundelserRoute: HundelserRoute,
   LifePathNumberCalculatorRoute: LifePathNumberCalculatorRoute,
+  LoginRoute: LoginRoute,
   McpRoute: McpRoute,
   MetadatamachineRoute: MetadatamachineRoute,
   NameNumerologyRoute: NameNumerologyRoute,
