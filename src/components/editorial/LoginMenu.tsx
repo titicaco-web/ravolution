@@ -30,9 +30,9 @@ const LoginMenu = () => {
         >
           TC
         </span>
-        <span className="flex flex-col leading-none">
+        <span className="flex flex-col leading-none py-0.5">
           <span className="edit-label text-white">{c.login}</span>
-          <span className="mt-1 font-mono text-[9px] uppercase tracking-[0.28em] text-[hsl(var(--accent-edit))]/80 transition-colors duration-300 group-hover:text-[hsl(var(--accent-edit))]">
+          <span className="mt-[7px] font-mono text-[9px] uppercase tracking-[0.28em] text-[hsl(var(--accent-edit))]/80 transition-colors duration-300 group-hover:text-[hsl(var(--accent-edit))]">
             {c.sub}
           </span>
         </span>

@@ -284,7 +284,7 @@ export const EditorialNav = () => {
         >
           <span className="flex flex-col">
             <span className="edit-label">Log in to TheCreator</span>
-            <span className="mt-1 font-mono text-[9px] uppercase tracking-[0.28em] opacity-70">Founder Operating System</span>
+            <span className="mt-[7px] font-mono text-[9px] uppercase tracking-[0.28em] opacity-70">Founder Operating System</span>
           </span>
           <span aria-hidden>↗</span>
         </a>
