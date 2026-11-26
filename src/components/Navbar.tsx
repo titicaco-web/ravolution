@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
+import LoginMenu from "@/components/editorial/LoginMenu";
 import { useLangPath } from "@/hooks/use-lang-path";
 
 const Navbar = () => {
@@ -62,6 +63,7 @@ const Navbar = () => {
           {/* CTA Buttons + Language Switcher */}
           <div className="hidden lg:flex items-center gap-3 flex-shrink-0">
             <LanguageSwitcher />
+            <LoginMenu />
             <Button variant="ghost" className="text-white hover:bg-white/10" asChild>
               <a href="#contact">{t("nav.contact")}</a>
             </Button>
@@ -74,6 +76,7 @@ const Navbar = () => {
 
           {/* Mobile/Tablet: Language Switcher + Menu Toggle */}
           <div className="lg:hidden flex items-center gap-1">
+            <LoginMenu />
             <LanguageSwitcher />
             <button
               onClick={() => setIsOpen(!isOpen)}

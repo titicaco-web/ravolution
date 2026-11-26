@@ -222,9 +222,9 @@ export const EditorialNav = () => {
             <span className="edit-label text-[hsl(var(--accent-edit))] hidden sm:inline">/ Lab</span>
           </Link>
 
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2 md:gap-4">
             <div className="hidden md:block"><LanguageSwitcher /></div>
-            <div className="hidden md:block"><LoginMenu /></div>
+            <LoginMenu />
             <Link
               to={lp("/contact")}
               className="edit-label hidden lg:inline-flex text-[hsl(var(--accent-edit))] border border-[hsl(var(--accent-edit))] px-4 py-2 hover:bg-[hsl(var(--accent-edit))] hover:text-black transition-colors"

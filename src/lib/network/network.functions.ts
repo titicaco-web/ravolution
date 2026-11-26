@@ -2,6 +2,7 @@ import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
 import {
+  isAllowedProjectUrl,
   inviteSchema,
   membershipSchema,
   projectInputSchema,
@@ -28,16 +29,16 @@ export const getMyNetwork = createServerFn({ method: "GET" })
   .middleware([requireSupabaseAuth])
   .handler(async ({ context }) => {
     const sb = context.supabase;
-    const [{ data: isAdmin }, { data: projects, error }, { data: memberships }] = await Promise.all([
+    const [{ data: isAdmin, error: adminError }, { data: projects, error }, { data: memberships, error: membershipError }] = await Promise.all([
       sb.rpc("is_network_admin", { _user_id: context.userId }),
       sb.from("network_projects").select("id, slug, name, description, url, status").eq("status", "active").order("name"),
       sb.from("network_project_members").select("project_id, role").eq("user_id", context.userId),
     ]);
-    if (error) throw new Error(error.message);
+    if (error || adminError || membershipError) throw new Error("Could not verify project access");
     const roleBy = new Map((memberships ?? []).map((m) => [m.project_id, m.role]));
     return {
       isAdmin: isAdmin === true,
-      projects: (projects ?? []).map((p) => ({ ...p, role: roleBy.get(p.id) ?? (isAdmin ? "admin" : null) })),
+      projects: (projects ?? []).filter(p => isAllowedProjectUrl(p.url) && (isAdmin === true || roleBy.has(p.id))).map((p) => ({ ...p, role: isAdmin === true ? "admin" : roleBy.get(p.id)! })),
     };
   });
 
