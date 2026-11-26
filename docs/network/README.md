@@ -1,4 +1,11 @@
-# Ravolution Project Network — Phase 1
+# TheCreator — Project Intelligence by Ravolution — Phase 1
+
+## Naming and hierarchy (owner-approved)
+- TheCreator is the whole platform, never a peer project. Initial subprojects: Drivally, Yotaú, WorldVisum.
+- ravolution.se `/login` is the entry to TheCreator. Target: thecreator.ravolution.se becomes the central authenticated hub.
+- Migration blocker: thecreator.ravolution.se/overview currently serves WorldVisum and must keep working. Moving WorldVisum to its own host and turning the thecreator host into the hub needs changes in that portal and DNS, both outside this project. Until then the registry keeps WorldVisum at thecreator.ravolution.se/overview.
+- Shared capabilities are branded "TheCreator Shared Intelligence". Subprojects keep their local brand.
+- Internal code/table names (`network_*`, `/network`) are unchanged to avoid a breaking migration; only labels changed.
 
 ## Auth inventory (before this change)
 - ravolution.se had **no user sign-in**. The header "Login" was a static dropdown linking to yotau/drivally portals (public listing).

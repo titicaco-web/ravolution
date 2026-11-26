@@ -8,5 +8,5 @@
 
 - The public MCP server lives in `src/lib/mcp/` (one tool per file, public data only, no database or admin keys); numerology math is shared from `src/lib/numerology.ts` so the site and MCP never diverge.
 
-- Project Network (`/login`, `/network`, `/network/admin`, `src/lib/network/`) is invite-only: signup disabled, admin rights only via `network_admins` rows granted by a verified-email DB trigger — never by frontend email checks. Why: owner access must survive client tampering.
+- TheCreator platform UI (`/login`, `/network`, `/network/admin`, `src/lib/network/`) is invite-only: signup disabled, admin rights only via `network_admins` rows granted by a verified-email DB trigger — never by frontend email checks. Why: owner access must survive client tampering.
 - Project registry URLs must be HTTPS `*.ravolution.se` (DB CHECK + `isAllowedProjectUrl`); cross-portal SSO stays pending per `docs/network/README.md`. Why: no open redirects or shared cookies across subdomains.

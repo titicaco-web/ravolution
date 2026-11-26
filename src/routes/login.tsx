@@ -7,11 +7,11 @@ import { NetworkShell, btn, field } from "@/components/network/NetworkShell";
 export const Route = createFileRoute("/login")({
   head: () => ({
     meta: [
-      { title: "Sign in — Ravolution AB Project Network" },
-      { name: "description", content: "Invite-only sign-in to the Ravolution AB project network for invited partners and project members." },
+      { title: "Sign in — TheCreator, Project Intelligence by Ravolution AB" },
+      { name: "description", content: "Invite-only sign-in to TheCreator, the Project Intelligence platform by Ravolution AB, for invited project members." },
       { name: "robots", content: "noindex, nofollow" },
-      { property: "og:title", content: "Sign in — Ravolution AB Project Network" },
-      { property: "og:description", content: "Invite-only sign-in to the Ravolution AB project network." },
+      { property: "og:title", content: "Sign in — TheCreator, Project Intelligence by Ravolution AB" },
+      { property: "og:description", content: "Invite-only sign-in to TheCreator — Project Intelligence by Ravolution AB." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
     ],
@@ -51,7 +51,7 @@ function LoginPage() {
     <NetworkShell>
       <div className="max-w-md">
         <p className="edit-label text-[hsl(var(--accent-edit))] mb-4">Invite only</p>
-        <h1 className="font-display text-4xl font-bold uppercase mb-4">Project Network sign-in</h1>
+        <h1 className="font-display text-4xl font-bold uppercase mb-4">Sign in to TheCreator</h1>
         <p className="text-[hsl(var(--text-secondary))] mb-8">
           Enter the email you were invited with. We'll send a one-time sign-in link. There is no public sign-up.
         </p>

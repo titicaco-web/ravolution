@@ -1,4 +1,4 @@
-# Portal contract (Yotaú, Drivally, TheCreator / WorldVisum)
+# TheCreator subproject contract (Drivally, Yotaú, WorldVisum)
 
 Coordination document only. This project makes no changes to the portals.
 
@@ -6,7 +6,7 @@ Coordination document only. This project makes no changes to the portals.
 |---|---|
 | Yotaú | https://yotau.ravolution.se/inicio |
 | Drivally | https://drivally.ravolution.se/overview |
-| TheCreator / WorldVisum | https://thecreator.ravolution.se/overview |
+| WorldVisum (served at the thecreator host during migration) | https://thecreator.ravolution.se/overview |
 
 ## Now (phase 1)
 - The launcher only links to the registered URL. Portals keep their own sign-in and data.

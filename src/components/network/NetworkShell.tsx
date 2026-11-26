@@ -13,7 +13,7 @@ export function NetworkShell({ children, email }: { children: ReactNode; email?:
       <header className="border-b border-[hsl(var(--text-secondary)/0.3)]">
         <div className="mx-auto max-w-5xl px-6 py-5 flex items-center justify-between gap-4">
           <Link to="/" className="font-display font-bold uppercase tracking-[0.22em] text-[hsl(var(--text-primary))]">
-            Ravolution <span className="edit-label text-[hsl(var(--accent-edit))]">/ Network</span>
+            TheCreator <span className="edit-label text-[hsl(var(--accent-edit))]">— Project Intelligence by Ravolution</span>
           </Link>
           {email && (
             <div className="flex items-center gap-4">

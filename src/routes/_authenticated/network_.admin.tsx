@@ -11,11 +11,11 @@ import { NetworkShell, btn, field, nb } from "@/components/network/NetworkShell"
 export const Route = createFileRoute("/_authenticated/network_/admin")({
   head: () => ({
     meta: [
-      { title: "Network administration — Ravolution AB" },
-      { name: "description", content: "Ravolution AB network administration: project registry, invitations, roles, audit log and capability proposals." },
+      { title: "TheCreator administration — Ravolution AB" },
+      { name: "description", content: "TheCreator administration by Ravolution AB: subproject registry, invitations, roles, audit log and capability proposals." },
       { name: "robots", content: "noindex, nofollow" },
-      { property: "og:title", content: "Network administration — Ravolution AB" },
-      { property: "og:description", content: "Administer the Ravolution AB project network." },
+      { property: "og:title", content: "TheCreator administration — Ravolution AB" },
+      { property: "og:description", content: "Administer TheCreator — Project Intelligence by Ravolution AB." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
     ],
@@ -41,17 +41,17 @@ function Admin() {
   const [np, setNp] = useState({ slug: "", name: "", description: "", url: "https://" });
   const [inv, setInv] = useState<{ email: string; projectId: string; role: ProjectRole }>({ email: "", projectId: "", role: "viewer" });
 
-  if (q.isError) return <NetworkShell email={user.email}><h1 className="font-display text-3xl">Not authorised</h1><p className="mt-4 text-[hsl(var(--text-secondary))]">This area is for network administrators.</p></NetworkShell>;
+  if (q.isError) return <NetworkShell email={user.email}><h1 className="font-display text-3xl">Not authorised</h1><p className="mt-4 text-[hsl(var(--text-secondary))]">This area is for TheCreator administrators.</p></NetworkShell>;
   const d = q.data;
   const projName = (id: string | null) => d?.projects.find((p) => p.id === id)?.name ?? "—";
 
   return (
     <NetworkShell email={user.email}>
       <Link to="/network" className="edit-label text-[hsl(var(--text-secondary))]">← Launcher</Link>
-      <h1 className="font-display text-4xl font-bold uppercase mt-4">Network administration</h1>
+      <h1 className="font-display text-4xl font-bold uppercase mt-4">TheCreator administration</h1>
       {msg && <p role="status" className="mt-6 border border-[hsl(var(--accent-edit))] p-3 text-sm">{msg}</p>}
       {!d ? <p className="mt-8">Loading…</p> : (<>
-        <H2>Project registry</H2>
+        <H2>Subproject registry</H2>
         <ul className={`border-t ${nb}`}>
           {d.projects.map((p) => (
             <ProjectRow key={p.id} p={p} onSave={(v) => run(() => updateProject({ data: v }), "Project saved")} />
@@ -99,10 +99,10 @@ function Admin() {
               </span>
             </li>
           ))}
-          {d.members.length === 0 && <li className="text-[hsl(var(--text-secondary))]">No project members yet. Network administrators see every project.</li>}
+          {d.members.length === 0 && <li className="text-[hsl(var(--text-secondary))]">No project members yet. TheCreator administrators see every subproject.</li>}
         </ul>
 
-        <H2>Capability recommendations</H2>
+        <H2>TheCreator Shared Intelligence — recommendations</H2>
         <p className="text-sm text-[hsl(var(--text-secondary))] mb-3">Accepting only records your approval. Nothing is deployed or shared between projects automatically.</p>
         <ul className="text-sm">
           {d.recommendations.map((r) => {

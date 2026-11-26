@@ -6,11 +6,11 @@ import { NetworkShell, nb } from "@/components/network/NetworkShell";
 export const Route = createFileRoute("/_authenticated/network")({
   head: () => ({
     meta: [
-      { title: "Project launcher — Ravolution AB Network" },
-      { name: "description", content: "Your Ravolution AB project launcher: open the project portals you have been given access to." },
+      { title: "Projects — TheCreator by Ravolution AB" },
+      { name: "description", content: "TheCreator by Ravolution AB: open the subprojects you have been given access to." },
       { name: "robots", content: "noindex, nofollow" },
-      { property: "og:title", content: "Project launcher — Ravolution AB Network" },
-      { property: "og:description", content: "Open the Ravolution AB project portals you have access to." },
+      { property: "og:title", content: "Projects — TheCreator by Ravolution AB" },
+      { property: "og:description", content: "Open the TheCreator subprojects you have access to." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
     ],
@@ -24,7 +24,7 @@ function Launcher() {
 
   return (
     <NetworkShell email={user.email}>
-      <p className="edit-label text-[hsl(var(--accent-edit))] mb-4">Project launcher</p>
+      <p className="edit-label text-[hsl(var(--accent-edit))] mb-4">TheCreator platform</p>
       <h1 className="font-display text-4xl font-bold uppercase mb-10">Your projects</h1>
       {q.isPending && <p className="text-[hsl(var(--text-secondary))]">Loading…</p>}
       {q.isError && <p role="alert">Could not load your projects. {String(q.error.message)}</p>}
@@ -49,7 +49,7 @@ function Launcher() {
       </p>
       {q.data?.isAdmin && (
         <Link to="/network/admin" className="edit-label inline-block mt-10 text-[hsl(var(--accent-edit))] underline">
-          Network administration →
+          TheCreator administration →
         </Link>
       )}
     </NetworkShell>
