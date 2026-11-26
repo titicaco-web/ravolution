@@ -6,6 +6,7 @@ import { Link } from "@/lib/router-compat";
 import { toast } from "sonner";
 import { z } from "zod";
 import { EditorialShell } from "@/components/editorial/EditorialLayout";
+import TheCreatorApplySection from "@/components/apply/TheCreatorApplySection";
 
 // Brand tokens — IBM Plex Sans display, Inter body, JetBrains Mono labels.
 // Colors: bone #F7F5F0, navy #0F2747, gold #B08D57 (70/20/10 ratio).
@@ -44,6 +45,7 @@ const LOOKING_FOR = [
   "Sales & go-to-market",
   "Concept refinement",
   "Capital",
+  "TheCreator platform",
   "All of the above",
 ];
 
@@ -255,6 +257,13 @@ const ApplyPage = () => {
               >
                 How build-for-equity works ↓
               </a>
+              <a
+                href="#thecreator"
+                className={`${mono} border-b`}
+                style={{ color: GOLD, borderColor: GOLD }}
+              >
+                TheCreator platform ↓
+              </a>
             </div>
 
             {/* AI-search definition standfirst */}
@@ -332,6 +341,9 @@ const ApplyPage = () => {
             </div>
           </div>
         </section>
+
+        {/* THECREATOR PLATFORM */}
+        <TheCreatorApplySection />
 
         {/* HOW IT WORKS */}
         <section id="how-it-works" className="py-24 px-6 md:px-12" style={{ background: `${NAVY}08` }}>
