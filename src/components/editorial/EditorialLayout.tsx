@@ -278,6 +278,17 @@ export const EditorialNav = () => {
           ))}
         </nav>
 
+        <a
+          href="https://thecreator.ravolution.se/auth"
+          className="mt-10 flex items-center justify-between gap-4 border border-[hsl(var(--accent-edit))]/60 px-5 py-4 text-white transition-colors hover:bg-[hsl(var(--accent-edit))] hover:text-black md:hidden"
+        >
+          <span className="flex flex-col">
+            <span className="edit-label">Log in to TheCreator</span>
+            <span className="mt-1 font-mono text-[9px] uppercase tracking-[0.28em] opacity-70">Founder Operating System</span>
+          </span>
+          <span aria-hidden>↗</span>
+        </a>
+
         <div className="grid sm:grid-cols-2 gap-3 mt-10 pt-8 border-t border-white/10">
           {gateways.map((g) =>
             g.href.startsWith("mailto:") ? (
