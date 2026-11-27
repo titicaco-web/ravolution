@@ -3,7 +3,7 @@ import { Link } from "@/lib/router-compat";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { useLangPath } from "@/hooks/use-lang-path";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
-import LoginMenu from "@/components/editorial/LoginMenu";
+import LoginMenu, { THECREATOR_LOGIN_URL } from "@/components/editorial/LoginMenu";
 
 /* ───────── Preloader ───────── */
 export const EditorialPreloader = () => {
@@ -211,12 +211,12 @@ export const EditorialNav = () => {
           scrolled ? "bg-[hsl(var(--bg))]/70 backdrop-blur-md border-b border-white/10" : "bg-transparent"
         }`}
       >
-        <div className="flex items-center justify-between px-6 md:px-12 h-16 md:h-20">
-          <Link to={lp("/")} className="edit-link flex items-center gap-3">
+        <div className="flex items-center justify-between px-4 md:px-12 h-16 md:h-20">
+          <Link to={lp("/")} className="edit-link flex items-center gap-2 md:gap-3">
             <span className="edit-mark" aria-hidden>
               <span>R</span>
             </span>
-            <span className="font-display font-bold uppercase tracking-[0.22em] text-white text-base md:text-lg">
+            <span className="font-display font-bold uppercase tracking-[0.22em] text-white text-sm md:text-lg">
               Ravolution
             </span>
             <span className="edit-label text-[hsl(var(--accent-edit))] hidden sm:inline">/ Lab</span>
@@ -231,13 +231,33 @@ export const EditorialNav = () => {
             >
               Private briefing →
             </Link>
-            <button
-              onClick={() => setOpen(true)}
-              className="edit-label text-white border border-white/30 px-4 py-2 hover:bg-white hover:text-black transition-colors"
-              aria-label="Open menu"
-            >
-              Menu
-            </button>
+            <div className="flex items-center gap-2">
+              <a
+                href={THECREATOR_LOGIN_URL}
+                aria-label="Log in to TheCreator — Founder Operating System"
+                className="flex h-[34px] items-center gap-[5px] border border-white/30 pl-1.5 pr-1.5 text-white transition-colors hover:border-[hsl(var(--accent-edit))] focus-visible:border-[hsl(var(--accent-edit))] focus-visible:outline-none md:hidden"
+              >
+                <span
+                  aria-hidden
+                  className="grid h-[16px] w-[16px] shrink-0 place-items-center border border-[hsl(var(--accent-edit))]/70 font-display text-[9px] font-bold tracking-[0.02em] text-[hsl(var(--accent-edit))]"
+                >
+                  TC
+                </span>
+                <span className="flex flex-col leading-none">
+                  <span className="edit-label text-[9px] tracking-[0.12em] text-white">TheCreator</span>
+                  <span className="mt-[3px] font-mono text-[8px] uppercase leading-[8px] tracking-[0.24em] text-[hsl(var(--accent-edit))] max-[380px]:hidden">
+                    Founder OS
+                  </span>
+                </span>
+              </a>
+              <button
+                onClick={() => setOpen(true)}
+                className="edit-label text-white border border-white/30 px-4 py-2 hover:bg-white hover:text-black transition-colors"
+                aria-label="Open menu"
+              >
+                Menu
+              </button>
+            </div>
           </div>
         </div>
       </header>
