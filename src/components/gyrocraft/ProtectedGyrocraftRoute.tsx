@@ -1,9 +1,11 @@
-import type { ReactNode } from "react";
-import GyrocraftPasswordGate from "./GyrocraftPasswordGate";
+import GyrocraftAccessRequest from "./GyrocraftAccessRequest";
 
-// Ported from src/App.tsx (Classic) — wraps Gyrocraft routes in the password gate.
-const ProtectedGyrocraftRoute = ({ children }: { children: ReactNode }) => (
-  <GyrocraftPasswordGate>{children}</GyrocraftPasswordGate>
+// Gyrocraft is access-by-request. Rather than a client-side password gate (which
+// shipped the code and content to the browser and could be bypassed), every
+// Gyrocraft route shows the access-request page. The gated material is not served
+// to the public; access is granted manually after a request.
+const ProtectedGyrocraftRoute = (_: { children?: React.ReactNode }) => (
+  <GyrocraftAccessRequest />
 );
 
 export default ProtectedGyrocraftRoute;
