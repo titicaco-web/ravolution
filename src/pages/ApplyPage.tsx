@@ -2,11 +2,13 @@ import { Helmet } from "@/lib/helmet-compat";
 import { useState } from "react";
 import { submitForm } from "@/lib/submit-form";
 import { supabase } from "@/integrations/supabase/client";
-import { Link } from "@/lib/router-compat";
+import { Link, useLocation } from "@/lib/router-compat";
 import { toast } from "sonner";
 import { z } from "zod";
 import { EditorialShell } from "@/components/editorial/EditorialLayout";
 import TheCreatorApplySection from "@/components/apply/TheCreatorApplySection";
+import { applyCopy } from "@/components/apply/apply-copy";
+import type { ApplyLanguage, FormOption } from "@/components/apply/apply-copy";
 
 // Brand tokens — IBM Plex Sans display, Inter body, JetBrains Mono labels.
 // Colors: bone #F7F5F0, navy #0F2747, gold #B08D57 (70/20/10 ratio).
@@ -30,57 +32,18 @@ const applySchema = z.object({
   blocker: z.string().trim().max(1000).optional().or(z.literal("")),
 });
 
-const SECTORS = [
-  "Language & education",
-  "Voice & security",
-  "Trade & export",
-  "Climate & materials",
-  "Health & prevention",
-  "Other",
-];
-
-const LOOKING_FOR = [
-  "Tech build",
-  "Brand & identity",
-  "Sales & go-to-market",
-  "Concept refinement",
-  "Capital",
-  "TheCreator platform",
-  "All of the above",
-];
-
-const faqs = [
-  {
-    q: "What is build-for-equity?",
-    a: "Build-for-equity means a venture studio invests its development team, product expertise and sometimes capital into a startup in exchange for an ownership stake, instead of charging cash fees. The startup gets a senior technical team without burn; the studio succeeds only if the startup succeeds.",
-  },
-  {
-    q: "What stage startups does Ravolution invest in?",
-    a: "Ravolution invests in pre-seed and seed-stage startups, typically before or around their first institutional round. We prioritize founders with strong domain insight, early traction signals, and a clear path to a fundable milestone within 6–12 months.",
-  },
-  {
-    q: "How much equity does Ravolution take?",
-    a: "Equity is negotiated case by case based on scope, capital contribution, and stage — always documented in a transparent Swedish shareholder agreement. We structure deals so founders retain clear majority control.",
-  },
-  {
-    q: "Does Ravolution invest capital as well as work?",
-    a: "Yes. Alongside engineering and product work, Ravolution acts as an angel investor and can contribute capital directly where the case supports it, and connects portfolio startups with our investor network for follow-on funding.",
-  },
-  {
-    q: "Do you only work with Swedish startups?",
-    a: "We are based in Stockholm and work primarily with Nordic and European startups, but we accept applications from anywhere. All legal agreements follow Swedish law.",
-  },
-  {
-    q: "How long does the application process take?",
-    a: "Every application receives a response within 10 working days. The full process from application to signed term sheet typically takes 4–6 weeks.",
-  },
-];
-
 const mono = "font-mono text-[11px] uppercase tracking-[0.18em]";
 const display = "font-['IBM_Plex_Sans',_sans-serif] font-[600] tracking-[-0.01em]";
 const body = "font-['Inter',_sans-serif]";
 
 const ApplyPage = () => {
+  const location = useLocation();
+  const pathLanguage = location.pathname.split("/")[1];
+  const lang: ApplyLanguage = pathLanguage === "sv" || pathLanguage === "es" ? pathLanguage : "en";
+  const c = applyCopy[lang];
+  const canonicalUrl = `https://ravolution.se/${lang}/apply`;
+  const homePath = `/${lang}`;
+
   const [form, setForm] = useState({
     founder_name: "",
     email: "",
@@ -109,7 +72,7 @@ const ApplyPage = () => {
     if (form.website_url) return; // honeypot tripped
     const parsed = applySchema.safeParse(form);
     if (!parsed.success) {
-      toast.error(parsed.error.issues[0]?.message || "Please check the form.");
+      toast.error(c.validationError);
       return;
     }
     setLoading(true);
@@ -139,7 +102,7 @@ const ApplyPage = () => {
       setSent(new Date().toISOString());
     } catch (err) {
       console.error(err);
-      toast.error("Could not submit. Please email ivan.daza@ravolution.se directly.");
+      toast.error(c.submitError);
     } finally {
       setLoading(false);
     }
@@ -148,7 +111,7 @@ const ApplyPage = () => {
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    mainEntity: faqs.map((f) => ({
+    mainEntity: c.faqs.map((f) => ({
       "@type": "Question",
       name: f.q,
       acceptedAnswer: { "@type": "Answer", text: f.a },
@@ -160,8 +123,7 @@ const ApplyPage = () => {
     name: "Ravolution AB",
     url: "https://ravolution.se",
     logo: "https://ravolution.se/favicon.png",
-    description:
-      "Swedish venture studio and angel investor. Build-for-equity for early-stage startups.",
+    description: c.orgDescription,
     address: {
       "@type": "PostalAddress",
       addressLocality: "Stockholm",
@@ -172,40 +134,17 @@ const ApplyPage = () => {
   const webPageSchema = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    name: "Apply for Tech Investment — Ravolution",
-    url: "https://ravolution.se/en/apply",
+    name: c.meta.ogTitle,
+    url: canonicalUrl,
     potentialAction: {
       "@type": "ApplyAction",
-      target: "https://ravolution.se/en/apply#form",
+      target: `${canonicalUrl}#form`,
     },
   };
 
   return (
     <>
       <Helmet>
-        <title>Apply for Tech Investment | Build-for-Equity for Startups — Ravolution AB</title>
-        <meta
-          name="description"
-          content="Early-stage startup? Ravolution invests senior engineering, product and angel capital into pre-seed and seed startups in exchange for equity. Swedish venture studio. Apply in 10 minutes — response within 10 days."
-        />
-        <link rel="canonical" href="https://ravolution.se/en/apply" />
-        <link rel="alternate" hrefLang="en" href="https://ravolution.se/en/apply" />
-        <link rel="alternate" hrefLang="sv" href="https://ravolution.se/sv/ansok" />
-        <link rel="alternate" hrefLang="x-default" href="https://ravolution.se/en/apply" />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://ravolution.se/en/apply" />
-        <meta property="og:title" content="Apply for Tech Investment — Ravolution AB" />
-        <meta
-          property="og:description"
-          content="Build-for-equity for pre-seed and seed startups. Engineering, product and angel capital in exchange for equity. Response within 10 working days."
-        />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Apply for Tech Investment — Ravolution AB" />
-        <meta
-          name="twitter:description"
-          content="Build-for-equity for pre-seed and seed startups. Response within 10 working days."
-        />
-        <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
         <script type="application/ld+json">{JSON.stringify(orgSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(webPageSchema)}</script>
@@ -219,26 +158,26 @@ const ApplyPage = () => {
           <div className="max-w-6xl mx-auto">
             <div className="mb-8">
               <Link
-                to="/en"
+                to={homePath}
                 className={`${mono} inline-flex items-center gap-2 transition-colors`}
                 style={{ color: `${NAVY}99` }}
                 onMouseEnter={(e) => (e.currentTarget.style.color = GOLD)}
                 onMouseLeave={(e) => (e.currentTarget.style.color = `${NAVY}99`)}
               >
-                ← Back to Ravolution
+                {c.back}
               </Link>
             </div>
             <p className={`${mono} mb-8`} style={{ color: `${NAVY}99` }}>
-              FOR EARLY-STAGE FOUNDERS
+              {c.eyebrow}
             </p>
             <h1
               className={`${display} font-[600] text-4xl md:text-6xl lg:text-7xl leading-[1.05] max-w-4xl`}
               style={{ color: NAVY }}
             >
-              Tech investment for startups that can't afford to build slow.
+              {c.headline}
             </h1>
             <p className="mt-8 text-lg md:text-xl max-w-[560px] leading-relaxed" style={{ color: `${NAVY}CC` }}>
-              Ravolution is a Swedish venture studio investing engineering, product and capital into early-stage startups — in exchange for equity, not invoices. Apply below. We respond to every application within 10 working days.
+              {c.intro}
             </p>
             <div className="mt-10 flex flex-wrap gap-6 items-center">
               <a
@@ -248,21 +187,21 @@ const ApplyPage = () => {
                 onMouseEnter={(e) => (e.currentTarget.style.background = GOLD)}
                 onMouseLeave={(e) => (e.currentTarget.style.background = NAVY)}
               >
-                Start your application
+                {c.primaryCta}
               </a>
               <a
                 href="#how-it-works"
                 className={`${mono} border-b`}
                 style={{ color: GOLD, borderColor: GOLD }}
               >
-                How build-for-equity works ↓
+                {c.howCta}
               </a>
               <a
                 href="#thecreator"
                 className={`${mono} border-b`}
                 style={{ color: GOLD, borderColor: GOLD }}
               >
-                TheCreator platform ↓
+                {c.creatorCta}
               </a>
             </div>
 
@@ -271,7 +210,7 @@ const ApplyPage = () => {
               className="mt-16 pt-8 border-t max-w-3xl text-lg leading-relaxed italic"
               style={{ borderColor: `${NAVY}22`, color: `${NAVY}DD` }}
             >
-              Ravolution AB is a Stockholm-based venture studio that invests engineering, product development and angel capital into early-stage startups in exchange for equity — a model called build-for-equity. Startups apply online and receive a partner response within 10 working days.
+              {c.aiSummary}
             </p>
           </div>
         </section>
@@ -279,29 +218,13 @@ const ApplyPage = () => {
         {/* WHO */}
         <section className="py-20 px-6 md:px-12" style={{ background: NAVY, color: BONE }}>
           <div className="max-w-6xl mx-auto">
-            <h2 className={`${display} text-3xl md:text-5xl mb-16`}>Who we invest in</h2>
+            <h2 className={`${display} text-3xl md:text-5xl mb-16`}>{c.whoTitle}</h2>
             <div className="grid md:grid-cols-3 gap-10">
-              {[
-                {
-                  n: "01",
-                  t: "Pre-seed & seed startups",
-                  d: "You have traction signals or deep domain insight, but need a technical team you can't yet afford to hire.",
-                },
-                {
-                  n: "02",
-                  t: "Non-technical founders",
-                  d: "You know the market and the customer. We become your technical co-founder: product, engineering, architecture.",
-                },
-                {
-                  n: "03",
-                  t: "Technical teams needing velocity",
-                  d: "You have a prototype but need senior product and engineering firepower to reach investable milestones.",
-                },
-              ].map((c) => (
-                <div key={c.n} className="border-t pt-6" style={{ borderColor: GOLD }}>
-                  <p className={mono} style={{ color: GOLD }}>{c.n}</p>
-                  <h3 className={`${display} text-2xl mt-4 mb-3`}>{c.t}</h3>
-                  <p className="text-base leading-relaxed" style={{ color: `${BONE}CC` }}>{c.d}</p>
+              {c.whoCards.map((card) => (
+                <div key={card.n} className="border-t pt-6" style={{ borderColor: GOLD }}>
+                  <p className={mono} style={{ color: GOLD }}>{card.n}</p>
+                  <h3 className={`${display} text-2xl mt-4 mb-3`}>{card.t}</h3>
+                  <p className="text-base leading-relaxed" style={{ color: `${BONE}CC` }}>{card.d}</p>
                 </div>
               ))}
             </div>
@@ -312,17 +235,11 @@ const ApplyPage = () => {
         <section className="py-24 px-6 md:px-12">
           <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-start">
             <h2 className={`${display} text-3xl md:text-5xl`} style={{ color: NAVY }}>
-              What Ravolution invests
+              {c.investsTitle}
             </h2>
             <div>
               <ul className="space-y-4 text-lg">
-                {[
-                  "Senior product & engineering team (Sweden-based, EU timezone)",
-                  "Product strategy, MVP build, and technical architecture",
-                  "Angel capital where the case supports it",
-                  "Investor-readiness: pitch materials, data room, warm introductions",
-                  "Ongoing CTO-level guidance through your next raise",
-                ].map((item) => (
+                {c.investsItems.map((item) => (
                   <li key={item} className="flex gap-4">
                     <span
                       className="inline-block w-3 h-3 mt-2 flex-shrink-0"
@@ -336,32 +253,27 @@ const ApplyPage = () => {
                 className={`${display} text-2xl md:text-3xl mt-12 leading-snug`}
                 style={{ color: GOLD }}
               >
-                "No retainers. No invoices. Skin in the game from day one."
+                {c.investsQuote}
               </p>
             </div>
           </div>
         </section>
 
         {/* THECREATOR PLATFORM */}
-        <TheCreatorApplySection />
+        <TheCreatorApplySection lang={lang} />
 
         {/* HOW IT WORKS */}
         <section id="how-it-works" className="py-24 px-6 md:px-12" style={{ background: `${NAVY}08` }}>
           <div className="max-w-6xl mx-auto">
             <h2 className={`${display} text-3xl md:text-5xl mb-16`} style={{ color: NAVY }}>
-              From application to term sheet
+              {c.howTitle}
             </h2>
             <div className="grid md:grid-cols-4 gap-8 relative">
-              {[
-                { n: "01", t: "Apply", d: "10-minute form below. No deck required." },
-                { n: "02", t: "Screening call", d: "30 minutes with a partner within 10 working days." },
-                { n: "03", t: "Deep-dive", d: "We validate the market, the model, and the fit. 2–3 weeks." },
-                { n: "04", t: "Term sheet", d: "A transparent equity agreement. We start building within 30 days of signing." },
-              ].map((s) => (
-                <div key={s.n} className="border-t-2 pt-6" style={{ borderColor: GOLD }}>
-                  <p className={mono} style={{ color: GOLD }}>{s.n}</p>
-                  <h3 className={`${display} text-xl mt-3 mb-2`} style={{ color: NAVY }}>{s.t}</h3>
-                  <p className="text-sm leading-relaxed" style={{ color: `${NAVY}CC` }}>{s.d}</p>
+              {c.howSteps.map((step) => (
+                <div key={step.n} className="border-t-2 pt-6" style={{ borderColor: GOLD }}>
+                  <p className={mono} style={{ color: GOLD }}>{step.n}</p>
+                  <h3 className={`${display} text-xl mt-3 mb-2`} style={{ color: NAVY }}>{step.t}</h3>
+                  <p className="text-sm leading-relaxed" style={{ color: `${NAVY}CC` }}>{step.d}</p>
                 </div>
               ))}
             </div>
@@ -372,11 +284,11 @@ const ApplyPage = () => {
         <section className="py-24 px-6 md:px-12">
           <div className="max-w-4xl mx-auto">
             <h2 className={`${display} text-3xl md:text-5xl mb-12`} style={{ color: NAVY }}>
-              Frequently asked questions
+              {c.faqTitle}
             </h2>
             <div className="divide-y" style={{ borderColor: `${NAVY}22` }}>
-              {faqs.map((f, i) => (
-                <article key={i} className="py-4" style={{ borderColor: `${NAVY}22` }}>
+              {c.faqs.map((f) => (
+                <article key={f.q} className="py-4" style={{ borderColor: `${NAVY}22` }}>
                   <details className="group">
                     <summary className="cursor-pointer list-none flex justify-between items-center py-3">
                       <h3 className={`${display} text-lg md:text-xl pr-6`} style={{ color: NAVY }}>
@@ -403,33 +315,26 @@ const ApplyPage = () => {
         <section id="form" className="py-24 px-6 md:px-12" style={{ background: NAVY }}>
           <div className="max-w-3xl mx-auto">
             <h2 className={`${display} text-3xl md:text-5xl mb-4`} style={{ color: BONE }}>
-              Apply for investment
+              {c.formTitle}
             </h2>
             <p className="text-lg mb-10" style={{ color: `${BONE}CC` }}>
-              Tell us what you're building. If there's a fit, Ivan will come back with honest
-              feedback and a concrete way to work together. Even if it's a no, you'll get a useful
-              read on your company.
+              {c.formIntro}
             </p>
 
             <div className="grid md:grid-cols-3 gap-8 mb-12">
-              {[
-                { n: "01", d: "Ivan personally reviews every submission." },
-                { n: "02", d: "If there's a fit, you get a call and a proposed way to work together." },
-                { n: "03", d: "If it's not a fit, you still get honest, specific feedback." },
-              ].map((s) => (
-                <div key={s.n} className="border-t pt-4" style={{ borderColor: GOLD }}>
-                  <p className={mono} style={{ color: GOLD }}>{s.n}</p>
-                  <p className="text-sm mt-2 leading-relaxed" style={{ color: `${BONE}CC` }}>{s.d}</p>
+              {c.formSteps.map((step) => (
+                <div key={step.n} className="border-t pt-4" style={{ borderColor: GOLD }}>
+                  <p className={mono} style={{ color: GOLD }}>{step.n}</p>
+                  <p className="text-sm mt-2 leading-relaxed" style={{ color: `${BONE}CC` }}>{step.d}</p>
                 </div>
               ))}
             </div>
 
-
             {sent ? (
               <div className="p-10" style={{ background: BONE, color: NAVY }}>
-                <p className={mono} style={{ color: GOLD }}>APPLICATION RECEIVED</p>
+                <p className={mono} style={{ color: GOLD }}>{c.receivedLabel}</p>
                 <p className={`${display} text-2xl md:text-3xl mt-4 mb-4`}>
-                  A partner will respond within 10 working days.
+                  {c.receivedTitle}
                 </p>
                 <p className={`${mono}`} style={{ color: `${NAVY}88` }}>
                   {sent}
@@ -448,65 +353,59 @@ const ApplyPage = () => {
                   aria-hidden="true"
                 />
 
-                <FormField label="Founder name *" value={form.founder_name} onChange={(v) => upd("founder_name", v)} required />
-                <FormField label="Email *" type="email" value={form.email} onChange={(v) => upd("email", v)} required />
-                <FormField label="Company / project name *" value={form.company_name} onChange={(v) => upd("company_name", v)} required />
-                <FormField label="Website or LinkedIn" value={form.website} onChange={(v) => upd("website", v)} />
-                <FormField label="Country *" value={form.country} onChange={(v) => upd("country", v)} required />
+                <FormField label={c.labels.founderName} value={form.founder_name} onChange={(v) => upd("founder_name", v)} required />
+                <FormField label={c.labels.email} type="email" value={form.email} onChange={(v) => upd("email", v)} required />
+                <FormField label={c.labels.companyName} value={form.company_name} onChange={(v) => upd("company_name", v)} required />
+                <FormField label={c.labels.website} value={form.website} onChange={(v) => upd("website", v)} />
+                <FormField label={c.labels.country} value={form.country} onChange={(v) => upd("country", v)} required />
 
                 <FormSelect
-                  label="Stage *"
+                  label={c.labels.stage}
                   value={form.stage}
                   onChange={(v) => upd("stage", v)}
-                  options={[
-                    "Idea",
-                    "Prototype",
-                    "Launched, pre-revenue",
-                    "Revenue < €10k MRR",
-                    "Revenue > €10k MRR",
-                  ]}
+                  options={c.stageOptions}
                 />
 
                 <FormTextarea
-                  label="What are you building? *"
+                  label={c.labels.building}
                   value={form.building}
                   onChange={(v) => upd("building", v)}
                   max={600}
                   required
                 />
                 <FormTextarea
-                  label="Why do you need a technical partner? *"
+                  label={c.labels.whyPartner}
                   value={form.why_partner}
                   onChange={(v) => upd("why_partner", v)}
                   max={600}
                   required
                 />
                 <FormTextarea
-                  label="What traction or validation do you have?"
+                  label={c.labels.traction}
                   value={form.traction}
                   onChange={(v) => upd("traction", v)}
                   max={1000}
                 />
 
                 <FormSelect
-                  label="Sector"
+                  label={c.labels.sector}
                   value={form.sector}
                   onChange={(v) => upd("sector", v)}
-                  options={SECTORS}
+                  options={c.sectorOptions}
                 />
 
                 <fieldset className="block mb-6">
                   <legend className={labelCls} style={{ color: `${NAVY}88` }}>
-                    What are you looking for from Ravolution?
+                    {c.labels.lookingFor}
                   </legend>
                   <div className="flex flex-wrap gap-3 mt-2">
-                    {LOOKING_FOR.map((o) => {
-                      const on = lookingFor.includes(o);
+                    {c.lookingForOptions.map((option) => {
+                      const on = lookingFor.includes(option.value);
                       return (
                         <button
-                          key={o}
+                          key={option.value}
                           type="button"
-                          onClick={() => toggleLooking(o)}
+                          onClick={() => toggleLooking(option.value)}
                           className="px-4 py-2 text-sm border transition-colors"
                           style={{
                             borderColor: on ? GOLD : `${NAVY}33`,
@@ -515,7 +414,7 @@ const ApplyPage = () => {
                           }}
                           aria-pressed={on}
                         >
-                          {o}
+                          {option.label}
                         </button>
                       );
                     })}
@@ -523,17 +422,17 @@ const ApplyPage = () => {
                 </fieldset>
 
                 <FormTextarea
-                  label="Biggest blocker right now"
+                  label={c.labels.blocker}
                   value={form.blocker}
                   onChange={(v) => upd("blocker", v)}
                   max={1000}
                 />
 
                 <FormSelect
-                  label="How did you hear about us?"
+                  label={c.labels.source}
                   value={form.source}
                   onChange={(v) => upd("source", v)}
-                  options={["Search", "LinkedIn", "Referral", "AI assistant", "Event", "Other"]}
+                  options={c.sourceOptions}
                 />
 
                 <button
@@ -544,7 +443,7 @@ const ApplyPage = () => {
                   onMouseEnter={(e) => !loading && (e.currentTarget.style.background = GOLD)}
                   onMouseLeave={(e) => !loading && (e.currentTarget.style.background = NAVY)}
                 >
-                  {loading ? "Submitting…" : "Submit application"}
+                  {loading ? c.submitting : c.submit}
                 </button>
               </form>
             )}
@@ -555,7 +454,7 @@ const ApplyPage = () => {
         <section className="py-8 px-6 md:px-12" style={{ background: NAVY, color: BONE, borderTop: `1px solid ${GOLD}44` }}>
           <div className="max-w-6xl mx-auto flex flex-wrap gap-4 justify-between items-center">
             <p className="text-sm" style={{ color: `${BONE}CC` }}>
-              Not ready to apply? Follow Ravolution on LinkedIn for portfolio updates.
+              {c.footerText}
             </p>
             <a
               href="https://www.linkedin.com/company/ravolution"
@@ -564,14 +463,14 @@ const ApplyPage = () => {
               className={mono}
               style={{ color: GOLD }}
             >
-              LinkedIn →
+              {c.linkedin}
             </a>
           </div>
         </section>
 
         <div className="py-8 px-6 md:px-12 text-center">
-          <Link to="/en" className={mono} style={{ color: `${NAVY}88` }}>
-            ← Back to ravolution.se
+          <Link to={homePath} className={mono} style={{ color: `${NAVY}88` }}>
+            {c.backHome}
           </Link>
         </div>
       </main>
@@ -616,13 +515,13 @@ const FormTextarea = ({
 
 const FormSelect = ({
   label, value, onChange, options,
-}: { label: string; value: string; onChange: (v: string) => void; options: string[] }) => (
+}: { label: string; value: string; onChange: (v: string) => void; options: readonly FormOption[] }) => (
   <label className="block mb-6">
     <span className={labelCls} style={{ color: `${NAVY}88` }}>{label}</span>
     <select value={value} onChange={(e) => onChange(e.target.value)} className={inputCls} style={{ color: NAVY }}>
       <option value="">—</option>
-      {options.map((o) => (
-        <option key={o} value={o}>{o}</option>
+      {options.map((option) => (
+        <option key={option.value} value={option.value}>{option.label}</option>
       ))}
     </select>
   </label>
