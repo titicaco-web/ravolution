@@ -1239,6 +1239,11 @@
 .invitation-label { font:500 10px "IBM Plex Mono",monospace; text-transform:uppercase; color:var(--invitation-gold-text); border:1px solid var(--invitation-gold); padding:5px 10px; border-radius:2px; }
 .invitation-dialog .invitation-title { font-size:32px; line-height:1.12; font-weight:650; letter-spacing:0; max-width:420px; }
 .invitation-dialog .invitation-intro { margin-top:12px; font-size:15px; line-height:1.55; color:var(--invitation-muted); }
+.invitation-creator { margin-top:16px; padding:12px 14px 13px; background:var(--invitation-paper); border:1px solid var(--invitation-line); border-left:2px solid var(--invitation-gold); border-radius:4px; }
+.invitation-creator-label { display:block; font:500 9px "IBM Plex Mono",monospace; text-transform:uppercase; letter-spacing:0.14em; color:var(--invitation-gold-text); }
+.invitation-creator-copy { margin-top:7px; font-size:13px; line-height:1.45; color:var(--invitation-ink); }
+.invitation-creator-link { display:inline-block; margin-top:8px; font:500 10px "IBM Plex Mono",monospace; text-transform:uppercase; letter-spacing:0.1em; color:var(--invitation-gold-text); text-decoration:underline; text-underline-offset:3px; }
+.invitation-creator-link:hover { color:var(--invitation-ink); }
 .invitation-dialog .invitation-tabs { width:100%; height:auto; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:5px; margin:22px 0 6px; padding:5px; background:var(--invitation-paper); border:1px solid var(--invitation-line); border-radius:4px; }
 .invitation-dialog .invitation-tab { padding:11px 4px; font:500 11px "IBM Plex Mono",monospace; text-transform:uppercase; color:var(--invitation-muted); border-radius:2px; box-shadow:none; }
 .invitation-dialog .invitation-tab[data-state=active] { background:var(--invitation-ink); color:var(--invitation-surface); }
@@ -1279,4 +1284,7 @@
   .invitation-dialog { padding:24px 22px; top:16px; max-height:calc(100dvh - 32px); }
   .invitation-dialog .invitation-title { font-size:28px; }
   .invitation-checks, .invitation-row { grid-template-columns:minmax(0,1fr); }
+  .invitation-creator { padding:9px 11px 10px; }
+  .invitation-creator-copy { font-size:12px; line-height:1.35; }
+  .invitation-dialog .invitation-tabs { margin-top:14px; }
 }

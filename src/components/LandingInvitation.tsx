@@ -11,6 +11,7 @@ import { useLangPath } from "@/hooks/use-lang-path";
 import { invitationSchema, platformOptions, supportOptions } from "@/lib/invitation-schema";
 import { sendInvitation } from "@/lib/invitation.functions";
 import { invitationCopy } from "./invitation-copy";
+import { THECREATOR_LOGIN_URL } from "@/components/editorial/LoginMenu";
 
 export default function LandingInvitation() {
   const { language } = useLanguage();
@@ -69,6 +70,11 @@ export default function LandingInvitation() {
             <DialogTitle className="invitation-title">{c.title}</DialogTitle>
             <DialogDescription className="invitation-intro">{c.intro}</DialogDescription>
           </header>
+          <div className="invitation-creator">
+            <span className="invitation-creator-label">{c.creatorLabel}</span>
+            <p className="invitation-creator-copy">{c.creatorCopy}</p>
+            <a className="invitation-creator-link" href={THECREATOR_LOGIN_URL}>{c.creatorLink}</a>
+          </div>
           <form onSubmit={submit} noValidate>
             <fieldset disabled={sending}>
               <Tabs value={interest} onValueChange={value => { setInterest(value); setError(""); }}>
