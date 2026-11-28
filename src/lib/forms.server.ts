@@ -187,6 +187,11 @@ export const FORM_CONFIG: Record<string, FormConfig> = {
     to: () => ["titicaco@gmail.com"],
     required: ["name", "email"],
   },
+  "send-gyrocraft-access-request": {
+    ...inquiry("Gyrocraft"),
+    title: (f) => `Gyrocraft access request — ${s(f, "name")}${suffix(f, "company")}`,
+    subject: (f) => `Gyrocraft access request — ${s(f, "name")}${suffix(f, "company")}`,
+  },
   "send-platform-spec": {
     title: (f) => `New Platform Spec from ${s(f, "name")}`,
     subject: (f) => `Platform Spec from ${s(f, "name")} – ${s(f, "complexity")}`,
