@@ -1,4 +1,8 @@
 import "jsr:@supabase/functions-js/edge-runtime.d.ts";
+import { escapeHtml } from "../_shared/esc.ts";
+
+// Only allow http(s) links in hrefs (blocks javascript:, data:, attribute breakout).
+const safeUrl = (u: unknown) => (/^https?:\/\//i.test(String(u ?? "")) ? String(u) : "");
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -32,18 +36,19 @@ Deno.serve(async (req) => {
       );
     }
 
+    const safeDeck = safeUrl(deckUrl);
     const html = `
-<h2>New Angel Investor Brief from ${name}</h2>
+<h2>New Angel Investor Brief from ${escapeHtml(name)}</h2>
 <table style="border-collapse:collapse;width:100%;max-width:600px;">
-  <tr><td style="padding:6px 12px;font-weight:bold;">Name</td><td style="padding:6px 12px;">${name}</td></tr>
-  <tr><td style="padding:6px 12px;font-weight:bold;">Email</td><td style="padding:6px 12px;">${email}</td></tr>
-  ${company ? `<tr><td style="padding:6px 12px;font-weight:bold;">Company</td><td style="padding:6px 12px;">${company}</td></tr>` : ""}
-  ${industry ? `<tr><td style="padding:6px 12px;font-weight:bold;">Industry</td><td style="padding:6px 12px;">${industry}</td></tr>` : ""}
-  ${stage ? `<tr><td style="padding:6px 12px;font-weight:bold;">Stage</td><td style="padding:6px 12px;">${stage}</td></tr>` : ""}
-  ${timeline ? `<tr><td style="padding:6px 12px;font-weight:bold;">Timeline</td><td style="padding:6px 12px;">${timeline}</td></tr>` : ""}
-  ${deckUrl ? `<tr><td style="padding:6px 12px;font-weight:bold;">Deck/Link</td><td style="padding:6px 12px;"><a href="${deckUrl}">${deckUrl}</a></td></tr>` : ""}
+  <tr><td style="padding:6px 12px;font-weight:bold;">Name</td><td style="padding:6px 12px;">${escapeHtml(name)}</td></tr>
+  <tr><td style="padding:6px 12px;font-weight:bold;">Email</td><td style="padding:6px 12px;">${escapeHtml(email)}</td></tr>
+  ${company ? `<tr><td style="padding:6px 12px;font-weight:bold;">Company</td><td style="padding:6px 12px;">${escapeHtml(company)}</td></tr>` : ""}
+  ${industry ? `<tr><td style="padding:6px 12px;font-weight:bold;">Industry</td><td style="padding:6px 12px;">${escapeHtml(industry)}</td></tr>` : ""}
+  ${stage ? `<tr><td style="padding:6px 12px;font-weight:bold;">Stage</td><td style="padding:6px 12px;">${escapeHtml(stage)}</td></tr>` : ""}
+  ${timeline ? `<tr><td style="padding:6px 12px;font-weight:bold;">Timeline</td><td style="padding:6px 12px;">${escapeHtml(timeline)}</td></tr>` : ""}
+  ${safeDeck ? `<tr><td style="padding:6px 12px;font-weight:bold;">Deck/Link</td><td style="padding:6px 12px;"><a href="${escapeHtml(safeDeck)}">${escapeHtml(safeDeck)}</a></td></tr>` : ""}
 </table>
-${description ? `<h3>What they're building</h3><p>${description}</p>` : ""}
+${description ? `<h3>What they're building</h3><p>${escapeHtml(description)}</p>` : ""}
 `;
 
     const res = await fetch("https://api.resend.com/emails", {

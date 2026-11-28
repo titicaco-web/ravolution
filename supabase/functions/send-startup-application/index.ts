@@ -1,4 +1,5 @@
 import "jsr:@supabase/functions-js/edge-runtime.d.ts";
+import { escapeHtml, escapeHtmlMultiline } from "../_shared/esc.ts";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -31,10 +32,10 @@ Deno.serve(async (req) => {
     }
 
     const row = (k: string, v?: string) =>
-      v ? `<tr><td style="padding:6px 12px;font-weight:bold;">${k}</td><td style="padding:6px 12px;">${v}</td></tr>` : "";
+      v ? `<tr><td style="padding:6px 12px;font-weight:bold;">${k}</td><td style="padding:6px 12px;">${escapeHtml(v)}</td></tr>` : "";
 
     const html = `
-<h2>New Startup Application — ${founder_name}${company_name ? ` (${company_name})` : ""}</h2>
+<h2>New Startup Application — ${escapeHtml(founder_name)}${company_name ? ` (${escapeHtml(company_name)})` : ""}</h2>
 <table style="border-collapse:collapse;width:100%;max-width:640px;">
   ${row("Founder", founder_name)}
   ${row("Email", email)}
@@ -44,9 +45,9 @@ Deno.serve(async (req) => {
   ${row("Stage", stage)}
   ${row("Source", source)}
 </table>
-<h3>What they're building</h3><p>${(building || "").replace(/\n/g, "<br>")}</p>
-<h3>Why they need a technical partner</h3><p>${(why_partner || "").replace(/\n/g, "<br>")}</p>
-${traction ? `<h3>Traction / validation</h3><p>${traction.replace(/\n/g, "<br>")}</p>` : ""}
+<h3>What they're building</h3><p>${escapeHtmlMultiline(building)}</p>
+<h3>Why they need a technical partner</h3><p>${escapeHtmlMultiline(why_partner)}</p>
+${traction ? `<h3>Traction / validation</h3><p>${escapeHtmlMultiline(traction)}</p>` : ""}
 `;
 
     const res = await fetch("https://api.resend.com/emails", {
