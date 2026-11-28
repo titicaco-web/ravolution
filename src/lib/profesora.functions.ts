@@ -76,8 +76,10 @@ export const reportComentario = createServerFn({ method: "POST" })
     const db = await admin();
     const { data: row } = await db.from("profesora_comentarios").select("reportes").eq("id", data.id).maybeSingle();
     if (!row) return { ok: false };
-    // Reported comments go back to the queue for review.
-    await db.from("profesora_comentarios").update({ reportes: row.reportes + 1, estado: "pendiente" }).eq("id", data.id);
+    // A report only flags the comment (increments the counter) for a moderator to
+    // review with the moderation key. It must NOT change the published state, or
+    // anyone holding the course code could hide approved comments at will.
+    await db.from("profesora_comentarios").update({ reportes: row.reportes + 1 }).eq("id", data.id);
     return { ok: true };
   });
 

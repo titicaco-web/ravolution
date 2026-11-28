@@ -1,4 +1,5 @@
 import "jsr:@supabase/functions-js/edge-runtime.d.ts";
+import { escapeHtml, escapeHtmlMultiline } from "../_shared/esc.ts";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -62,34 +63,34 @@ Deno.serve(async (req) => {
     let industriesHtml = "";
     if (industries && Array.isArray(industries) && industries.length > 0) {
       industriesHtml = industries.map((ind: { industry: string; functions: string[] }) => `
-        <h3 style="margin:16px 0 8px;">${ind.industry}</h3>
-        <ul>${(ind.functions || []).map((f: string) => `<li>${f}</li>`).join("")}</ul>
+        <h3 style="margin:16px 0 8px;">${escapeHtml(ind.industry)}</h3>
+        <ul>${(ind.functions || []).map((f: string) => `<li>${escapeHtml(f)}</li>`).join("")}</ul>
       `).join("");
     }
 
     // Legacy fallback
     let legacyHtml = "";
     if (!industriesHtml && components && Array.isArray(components) && components.length > 0) {
-      legacyHtml = `<h3>Selected Components</h3><ul>${components.map((c: string) => `<li>${c}</li>`).join("")}</ul>`;
+      legacyHtml = `<h3>Selected Components</h3><ul>${components.map((c: string) => `<li>${escapeHtml(c)}</li>`).join("")}</ul>`;
     }
 
     const addonsHtml = addons && Array.isArray(addons) && addons.length > 0
-      ? `<h3 style="margin:16px 0 8px;">Cross-Industry Add-Ons</h3><ul>${addons.map((a: string) => `<li>${a}</li>`).join("")}</ul>`
+      ? `<h3 style="margin:16px 0 8px;">Cross-Industry Add-Ons</h3><ul>${addons.map((a: string) => `<li>${escapeHtml(a)}</li>`).join("")}</ul>`
       : "";
 
     const html = `
-<h2>New Platform Spec from ${name}</h2>
+<h2>New Platform Spec from ${escapeHtml(name)}</h2>
 <table style="border-collapse:collapse;width:100%;max-width:600px;">
-  <tr><td style="padding:6px 12px;font-weight:bold;">Name</td><td style="padding:6px 12px;">${name}</td></tr>
-  <tr><td style="padding:6px 12px;font-weight:bold;">Email</td><td style="padding:6px 12px;">${email}</td></tr>
-  ${company ? `<tr><td style="padding:6px 12px;font-weight:bold;">Company</td><td style="padding:6px 12px;">${company}</td></tr>` : ""}
-  ${budget ? `<tr><td style="padding:6px 12px;font-weight:bold;">Budget</td><td style="padding:6px 12px;">${budget}</td></tr>` : ""}
-  ${launch ? `<tr><td style="padding:6px 12px;font-weight:bold;">Desired launch</td><td style="padding:6px 12px;">${launch}</td></tr>` : ""}
+  <tr><td style="padding:6px 12px;font-weight:bold;">Name</td><td style="padding:6px 12px;">${escapeHtml(name)}</td></tr>
+  <tr><td style="padding:6px 12px;font-weight:bold;">Email</td><td style="padding:6px 12px;">${escapeHtml(email)}</td></tr>
+  ${company ? `<tr><td style="padding:6px 12px;font-weight:bold;">Company</td><td style="padding:6px 12px;">${escapeHtml(company)}</td></tr>` : ""}
+  ${budget ? `<tr><td style="padding:6px 12px;font-weight:bold;">Budget</td><td style="padding:6px 12px;">${escapeHtml(budget)}</td></tr>` : ""}
+  ${launch ? `<tr><td style="padding:6px 12px;font-weight:bold;">Desired launch</td><td style="padding:6px 12px;">${escapeHtml(launch)}</td></tr>` : ""}
   <tr><td style="padding:6px 12px;font-weight:bold;">Total functions (${totalCount})</td><td style="padding:6px 12px;">${complexity}</td></tr>
   ${notSure ? `<tr><td style="padding:6px 12px;font-weight:bold;">Note</td><td style="padding:6px 12px;">User marked "Not sure — needs guidance"</td></tr>` : ""}
 </table>
 ${industriesHtml}${legacyHtml}${addonsHtml}
-${idea ? `<h3>Notes</h3><p>${idea}</p>` : ""}
+${idea ? `<h3>Notes</h3><p>${escapeHtmlMultiline(idea)}</p>` : ""}
 `;
 
     const res = await fetch("https://api.resend.com/emails", {
