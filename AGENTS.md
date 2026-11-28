@@ -10,3 +10,5 @@
 
 - TheCreator platform UI (`/login`, `/network`, `/network/admin`, `src/lib/network/`) is invite-only: signup disabled, admin rights only via `network_admins` rows granted by a verified-email DB trigger — never by frontend email checks. Why: owner access must survive client tampering.
 - Project registry URLs must be HTTPS `*.ravolution.se` (DB CHECK + `isAllowedProjectUrl`); cross-portal SSO stays pending per `docs/network/README.md`. Why: no open redirects or shared cookies across subdomains.
+- TheCreator public page copy lives in `src/components/thecreator/thecreator-page-copy.ts` and reuses `thecreator-apply-copy.ts` for lifecycle/pricing; `public/llms-full.txt` is generated from these via `bun run scripts/build-llms-full.ts` (rerun after copy changes). Why: page, JSON-LD, FAQ and AI files never diverge.
+- Ravolution makes no cash investments (owner decision): copy, JSON-LD and AI files say build/IP/brand/go-to-market for equity; `thecreator-seo.test.ts` guards llms files. Why: avoid false investment claims.

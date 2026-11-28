@@ -18,7 +18,17 @@ const GREY = "#9AA6B4";
 const mono = "font-mono text-[11px] uppercase tracking-[0.18em]";
 const display = "font-['IBM_Plex_Sans',_sans-serif] font-[600] tracking-[-0.01em]";
 
-export default function TheCreatorApplySection({ lang }: { lang: ApplyLanguage }) {
+export default function TheCreatorApplySection({
+  lang,
+  applyHref = "#form",
+  readMoreHref,
+}: {
+  lang: ApplyLanguage;
+  /** Where "Apply for TheCreator" points; defaults to the form on /apply. */
+  applyHref?: string;
+  /** When set, shows a "Read more about TheCreator" link to the public page. */
+  readMoreHref?: string;
+}) {
   const c = theCreatorApplyCopy[lang];
 
   return (
@@ -163,7 +173,7 @@ export default function TheCreatorApplySection({ lang }: { lang: ApplyLanguage }
         {/* CTAs */}
         <div className="mt-12 flex flex-wrap items-center gap-6">
           <a
-            href="#form"
+            href={applyHref}
             className="inline-block px-8 py-4 text-sm md:text-base transition-colors"
             style={{ background: GOLD, color: INK }}
             onMouseEnter={(e) => { e.currentTarget.style.background = IVORY; }}
@@ -178,6 +188,11 @@ export default function TheCreatorApplySection({ lang }: { lang: ApplyLanguage }
           >
             {c.loginCta}
           </a>
+          {readMoreHref && (
+            <a href={readMoreHref} className={`${mono} border-b`} style={{ color: IVORY, borderColor: `${IVORY}80` }}>
+              {c.readMoreCta}
+            </a>
+          )}
         </div>
       </div>
     </section>

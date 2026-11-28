@@ -260,7 +260,7 @@ const ApplyPage = () => {
         </section>
 
         {/* THECREATOR PLATFORM */}
-        <TheCreatorApplySection lang={lang} />
+        <TheCreatorApplySection lang={lang} readMoreHref={`/${lang}/thecreator`} />
 
         {/* HOW IT WORKS */}
         <section id="how-it-works" className="py-24 px-6 md:px-12" style={{ background: `${NAVY}08` }}>

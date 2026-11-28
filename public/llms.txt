@@ -1,17 +1,26 @@
 # Ravolution AB
 
-> Swedish invention company and angel investor building deep tech platforms in language learning, voice security, AI trade infrastructure, and K1–K9 education. Founded by inventor Ivan Daza (28 patents, 369 claims).
+> Swedish invention company building deep tech platforms in language learning, voice security, AI trade infrastructure and K1–K9 education, and the home of TheCreator, the Founder Operating System. Founded by inventor Ivan Daza (28 patents, 369 claims).
 
-Ravolution AB operates a Build-for-Equity model, invests directly as an angel, and runs a portfolio of patented platforms — iApply, CommunicaringSchool, AIMagnifica (enterprise AI governance & compliance layer, available for sale), Rosetta Livingstone, SINGUISTIC (music-native language learning, live in 26 languages), xPortMatch, VoiceProtector, NewsToast, BizMeet, CarbonX, Partysta, It's a Fitt, AlarmSole (connected footwear safety platform, patent pending), PikpCash (direct sales gamification platform, concept documented 2017).
+Ravolution AB operates a Build-for-Equity model: it invests build, product, IP/patents, brand and go-to-market in exchange for equity; no cash investments. It runs a portfolio of patented platforms — iApply, CommunicaringSchool, AIMagnifica (enterprise AI governance & compliance layer, available for sale), Rosetta Livingstone, SINGUISTIC (music-native language learning, live in 26 languages), xPortMatch, VoiceProtector, NewsToast, BizMeet, CarbonX, Partysta, It's a Fitt, AlarmSole (connected footwear safety platform, patent pending), PikpCash (direct sales gamification platform, concept documented 2017).
+
+## TheCreator — Founder Operating System
+
+TheCreator is a founder and startup operating system built by Ravolution AB: one evidence-based workspace for strategy, product, decisions, growth and fundraising, with an AI advisory board (rolling out in phases) and an investor-ready data room. It is made for pre-seed and seed founders and the investors who back them.
+
+- Page: [TheCreator](https://ravolution.se/en/thecreator) (also [Svenska](https://ravolution.se/sv/thecreator), [Español](https://ravolution.se/es/thecreator))
+- Pricing (excl. VAT, charged in SEK): Flex 0 SEK monthly minimum (managed Claude & ChatGPT at cost + 20%, advisory 2,300 SEK/h ≈ $225); Pro 9,800 SEK/month (≈ $960; managed AI at cost or your own AI connection, 2 advisory hours included); Venture partnership — equity by agreement, no cash investment.
+- Apply: https://ravolution.se/en/apply#thecreator (access is by invitation)
+- Log in: https://thecreator.ravolution.se/auth
 
 ## Pages
 
-- [Apply for Tech Investment](/en/apply): Application page for early-stage startups seeking build-for-equity investment (engineering, product, and angel capital in exchange for equity). Response within 10 working days.
-- [Home](/en): Overview of the venture studio, portfolio, and three engagement pillars.
+- [Apply](/en/apply): Startup application for build-for-equity partnership — engineering, product, IP, brand and go-to-market in exchange for equity; no cash investments. Response within 10 working days.
+- [TheCreator](/en/thecreator): The Founder Operating System — lifecycle, AI advisory board, Trust Ledger, pricing and FAQ.
+- [Home](/en): Overview of the invention company, portfolio, and three engagement pillars.
 - [About Ivan Daza](/en/about): Founder biography, expertise, track record, and vision.
 - [Services](/en/services): Platform development, product & design, AI systems, and IP/patent strategy.
 - [Build for Equity](/en/build-for-equity): Partnership model — we build defensible platforms in exchange for equity.
-- [Angel Investor](/en/angel-investor): Direct early-stage capital with patent strategy and technical co-founder support.
 - [Invest](/en/invest): Investor landing page for qualified leads.
 - [Portfolio](/en/portfolio): Operated and licensed platforms across 6+ industries.
 - [SINGUISTIC™](https://singuistic.com): Music-native language learning platform — synced dual-language lyrics, tap-to-save vocabulary, spaced repetition and CEFR-anchored student reports. Live in 26 languages.
@@ -36,7 +45,7 @@ Ravolution AB operates a Build-for-Equity model, invests directly as an angel, a
 - [Sales Partner](/en/sales-partner): Program for sales partners in Sweden and LATAM.
 
 ## Partnership (what Ravolution offers startups)
-Ravolution is the partner for founders with strong technology but gaps in usability, brand, go-to-market or capital — the classic "great engine, no car" problem. It provides, in any combination: (1) tech build — architects and ships the product; (2) brand & identity — positioning, naming, design system; (3) sales & go-to-market — pricing, channels, first customers; (4) concept evolution — reshaping the idea for where the market is going; (5) capital & IP — angel investment plus patent strategy. In return Ravolution takes cash and equity and works as a hands-on building partner, not an advisor.
+Ravolution is the partner for founders with strong technology but gaps in usability, brand or go-to-market — the classic "great engine, no car" problem. It provides, in any combination: (1) tech build — architects and ships the product; (2) brand & identity — positioning, naming, design system; (3) sales & go-to-market — pricing, channels, first customers; (4) concept evolution — reshaping the idea for where the market is going; (5) IP — patent strategy and filings. Ravolution invests build, product, IP/patents, brand and go-to-market in exchange for equity; no cash investments. It works as a hands-on building partner, not an advisor.
 
 ## Who should apply
 Early-stage deep-tech startups in language & education, voice & security, trade & export, climate & materials, health & prevention, or adjacent fields, that want a partner to help build the product and take it to market. Technical solo founders and small teams strong on tech but weak on brand and go-to-market are the ideal fit.
@@ -47,6 +56,9 @@ Early-stage deep-tech startups in language & education, voice & security, trade 
 - Contact: ivan.daza@ravolution.se
 - Every application is reviewed personally by Ivan Daza, who replies with honest feedback even when the answer is no.
 
+## For investors
+Investors can back Ravolution's own platforms via https://ravolution.se/en/invest. Ravolution itself makes no cash investments in startups.
+
 ## Entity
 Ravolution AB · org. nr 556709-7547 · Stockholm, Sweden.
 
@@ -54,10 +66,10 @@ Ravolution AB · org. nr 556709-7547 · Stockholm, Sweden.
 
 # Ravolution AB (Svenska)
 
-> Svenskt uppfinningsbolag och affärsängel som går in som partner i tidiga deep tech-startups. Ravolution investerar kapital OCH bygger produkt, varumärke och go-to-market, samt vidareutvecklar grundkonceptet för framtida efterfrågan. Betalning i kontanter och aktier — inte arvoden. Grundat av uppfinnaren Ivan Daza — 28 patent, 369 patentkrav.
+> Svenskt uppfinningsbolag som går in som partner i tidiga deep tech-startups. Ravolution investerar utveckling, produkt, IP/patent, varumärke och go-to-market mot ägarandel — inga kontanta investeringar. Hemmet för TheCreator, operativsystemet för grundare: https://ravolution.se/sv/thecreator. Grundat av uppfinnaren Ivan Daza — 28 patent, 369 patentkrav.
 
 ## Vad Ravolution erbjuder startups
-Ravolution är partnern för grundare med stark teknik men luckor i användbarhet, varumärke, go-to-market eller kapital. Vi bidrar, i valfri kombination, med: (1) teknikbygge — vi arkitekterar och levererar produkten; (2) varumärke & identitet — positionering, namn, designsystem; (3) sälj & go-to-market — prissättning, kanaler, första kunderna; (4) konceptutveckling — vi formar om idén för dit marknaden är på väg; (5) kapital & IP — ängelinvestering plus patentstrategi. I gengäld tar vi kontanter och aktier och arbetar som en operativ byggpartner, inte rådgivare.
+Ravolution är partnern för grundare med stark teknik men luckor i användbarhet, varumärke eller go-to-market. Vi bidrar, i valfri kombination, med: (1) teknikbygge — vi arkitekterar och levererar produkten; (2) varumärke & identitet — positionering, namn, designsystem; (3) sälj & go-to-market — prissättning, kanaler, första kunderna; (4) konceptutveckling — vi formar om idén för dit marknaden är på väg; (5) IP — patentstrategi och patentansökningar. I gengäld tar vi en ägarandel — inga kontanta investeringar — och arbetar som en operativ byggpartner, inte rådgivare.
 
 ## Vem bör ansöka
 Tidiga deep tech-startups inom språk & utbildning, röst & säkerhet, handel & export, klimat & material samt hälsa & prevention, eller angränsande områden, som vill ha en partner för att bygga produkten och nå marknaden.

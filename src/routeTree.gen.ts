@@ -63,6 +63,7 @@ import { Route as LangStoryRouteImport } from './routes/$lang/story'
 import { Route as LangStudioroomRouteImport } from './routes/$lang/studioroom'
 import { Route as LangTechnicalCofounderAlternativeRouteImport } from './routes/$lang/technical-cofounder-alternative'
 import { Route as LangTermsOfServiceRouteImport } from './routes/$lang/terms-of-service'
+import { Route as LangThecreatorRouteImport } from './routes/$lang/thecreator'
 import { Route as LangWhatDoesMyBirthdateSayAboutMeRouteImport } from './routes/$lang/what-does-my-birthdate-say-about-me'
 import { Route as LangXportmatchRouteImport } from './routes/$lang/xportmatch'
 import { Route as Char91DotwellKnownChar93OauthProtectedResourceRouteImport } from './routes/[.well-known]/oauth-protected-resource'
@@ -371,6 +372,11 @@ const LangTermsOfServiceRoute = LangTermsOfServiceRouteImport.update({
   path: '/$lang/terms-of-service',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LangThecreatorRoute = LangThecreatorRouteImport.update({
+  id: '/$lang/thecreator',
+  path: '/$lang/thecreator',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const LangWhatDoesMyBirthdateSayAboutMeRoute =
   LangWhatDoesMyBirthdateSayAboutMeRouteImport.update({
     id: '/$lang/what-does-my-birthdate-say-about-me',
@@ -597,6 +603,7 @@ export interface FileRoutesByFullPath {
   '/$lang/studioroom': typeof LangStudioroomRoute
   '/$lang/technical-cofounder-alternative': typeof LangTechnicalCofounderAlternativeRoute
   '/$lang/terms-of-service': typeof LangTermsOfServiceRoute
+  '/$lang/thecreator': typeof LangThecreatorRoute
   '/$lang/what-does-my-birthdate-say-about-me': typeof LangWhatDoesMyBirthdateSayAboutMeRoute
   '/$lang/xportmatch': typeof LangXportmatchRoute
   '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
@@ -685,6 +692,7 @@ export interface FileRoutesByTo {
   '/$lang/studioroom': typeof LangStudioroomRoute
   '/$lang/technical-cofounder-alternative': typeof LangTechnicalCofounderAlternativeRoute
   '/$lang/terms-of-service': typeof LangTermsOfServiceRoute
+  '/$lang/thecreator': typeof LangThecreatorRoute
   '/$lang/what-does-my-birthdate-say-about-me': typeof LangWhatDoesMyBirthdateSayAboutMeRoute
   '/$lang/xportmatch': typeof LangXportmatchRoute
   '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
@@ -775,6 +783,7 @@ export interface FileRoutesById {
   '/$lang/studioroom': typeof LangStudioroomRoute
   '/$lang/technical-cofounder-alternative': typeof LangTechnicalCofounderAlternativeRoute
   '/$lang/terms-of-service': typeof LangTermsOfServiceRoute
+  '/$lang/thecreator': typeof LangThecreatorRoute
   '/$lang/what-does-my-birthdate-say-about-me': typeof LangWhatDoesMyBirthdateSayAboutMeRoute
   '/$lang/xportmatch': typeof LangXportmatchRoute
   '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
@@ -865,6 +874,7 @@ export interface FileRouteTypes {
     | '/$lang/studioroom'
     | '/$lang/technical-cofounder-alternative'
     | '/$lang/terms-of-service'
+    | '/$lang/thecreator'
     | '/$lang/what-does-my-birthdate-say-about-me'
     | '/$lang/xportmatch'
     | '/.well-known/oauth-protected-resource'
@@ -953,6 +963,7 @@ export interface FileRouteTypes {
     | '/$lang/studioroom'
     | '/$lang/technical-cofounder-alternative'
     | '/$lang/terms-of-service'
+    | '/$lang/thecreator'
     | '/$lang/what-does-my-birthdate-say-about-me'
     | '/$lang/xportmatch'
     | '/.well-known/oauth-protected-resource'
@@ -1042,6 +1053,7 @@ export interface FileRouteTypes {
     | '/$lang/studioroom'
     | '/$lang/technical-cofounder-alternative'
     | '/$lang/terms-of-service'
+    | '/$lang/thecreator'
     | '/$lang/what-does-my-birthdate-say-about-me'
     | '/$lang/xportmatch'
     | '/.well-known/oauth-protected-resource'
@@ -1132,6 +1144,7 @@ export interface RootRouteChildren {
   LangStudioroomRoute: typeof LangStudioroomRoute
   LangTechnicalCofounderAlternativeRoute: typeof LangTechnicalCofounderAlternativeRoute
   LangTermsOfServiceRoute: typeof LangTermsOfServiceRoute
+  LangThecreatorRoute: typeof LangThecreatorRoute
   LangWhatDoesMyBirthdateSayAboutMeRoute: typeof LangWhatDoesMyBirthdateSayAboutMeRoute
   LangXportmatchRoute: typeof LangXportmatchRoute
   Char91DotwellKnownChar93OauthProtectedResourceRoute: typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
@@ -1546,6 +1559,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LangTermsOfServiceRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/$lang/thecreator': {
+      id: '/$lang/thecreator'
+      path: '/$lang/thecreator'
+      fullPath: '/$lang/thecreator'
+      preLoaderRoute: typeof LangThecreatorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/$lang/what-does-my-birthdate-say-about-me': {
       id: '/$lang/what-does-my-birthdate-say-about-me'
       path: '/$lang/what-does-my-birthdate-say-about-me'
@@ -1848,6 +1868,7 @@ const rootRouteChildren: RootRouteChildren = {
   LangTechnicalCofounderAlternativeRoute:
     LangTechnicalCofounderAlternativeRoute,
   LangTermsOfServiceRoute: LangTermsOfServiceRoute,
+  LangThecreatorRoute: LangThecreatorRoute,
   LangWhatDoesMyBirthdateSayAboutMeRoute:
     LangWhatDoesMyBirthdateSayAboutMeRoute,
   LangXportmatchRoute: LangXportmatchRoute,

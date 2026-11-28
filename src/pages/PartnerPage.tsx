@@ -1,6 +1,7 @@
 import { Helmet } from "@/lib/helmet-compat";
 import { Link } from "@/lib/router-compat";
 import { EditorialShell } from "@/components/editorial/EditorialLayout";
+import TheCreatorMention from "@/components/thecreator/TheCreatorMention";
 import { useLangPath } from "@/hooks/use-lang-path";
 
 const NAVY = "#0F2747";
@@ -251,6 +252,7 @@ const PartnerPage = () => {
                     See the full Ravolution portfolio
                   </Link>
                 </p>
+                <TheCreatorMention className="text-sm mt-3" linkClassName="border-b" />
               </div>
             </div>
           </section>

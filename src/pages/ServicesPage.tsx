@@ -27,6 +27,7 @@ import HowWeWorkTimeline from "@/components/services/HowWeWorkTimeline";
 import TechStackStrip from "@/components/services/TechStackStrip";
 import FounderBlock from "@/components/services/FounderBlock";
 import ExpandedFAQ from "@/components/services/ExpandedFAQ";
+import TheCreatorMention from "@/components/thecreator/TheCreatorMention";
 import DeliveryProcess from "@/components/services/DeliveryProcess";
 
 const getServiceRouteSlug = (lang: string) => {
@@ -672,6 +673,9 @@ const ServicesPage = () => {
             </Reveal>
             <Reveal delay={0.1}>
               <h2 className="edit-display text-white mt-6">{t("servicesPage.bottomCtaTitle")}</h2>
+            </Reveal>
+            <Reveal delay={0.15}>
+              <TheCreatorMention className="text-white/75 mt-6" linkClassName="text-white underline underline-offset-4 hover:text-[hsl(var(--accent-edit))]" />
             </Reveal>
             <Reveal delay={0.2}>
               <p className="edit-body text-white/65 mt-6">{t("servicesPage.bottomCtaDesc")}</p>

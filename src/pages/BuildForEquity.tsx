@@ -4,6 +4,7 @@ import { useLanguage } from "@/i18n/LanguageContext";
 import { useLangPath } from "@/hooks/use-lang-path";
 import { ScrollAnimateWrapper } from "@/hooks/use-scroll-animation";
 import { Button } from "@/components/ui/button";
+import TheCreatorMention from "@/components/thecreator/TheCreatorMention";
 import { ArrowRight, CheckCircle, Send, Layers, Rocket, Shield } from "lucide-react";
 
 const BuildForEquity = () => {
@@ -154,6 +155,7 @@ const BuildForEquity = () => {
               <ScrollAnimateWrapper>
                 <div className="card-elevated p-8 bg-gradient-to-br from-card to-secondary">
                   <h2 className="text-2xl font-display font-bold text-foreground mb-6">Related Pages</h2>
+                  <TheCreatorMention className="text-muted-foreground mb-6" linkClassName="text-accent hover:text-accent-light underline font-medium" />
                   <div className="grid sm:grid-cols-3 gap-4">
                     <a href={lp("/angel-investor")} className="text-accent hover:text-accent-light underline font-medium">Angel Investor & Build-for-Equity</a>
                     <a href={lp("/patent-strategy-for-startups")} className="text-accent hover:text-accent-light underline font-medium">Patent Strategy for Startups</a>

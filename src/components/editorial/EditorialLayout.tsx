@@ -187,6 +187,7 @@ export const EditorialNav = () => {
   const links = [
     { label: "Missions", href: lp("/#missions") },
     { label: "Systems", href: lp("/portfolio") },
+    { label: "TheCreator", href: lp("/thecreator") },
     { label: "IP & Evidence", href: lp("/evidence") },
     { label: "Story", href: lp("/story") },
     { label: "Blog & Pod", href: lp("/blog") },
@@ -364,6 +365,7 @@ export const EditorialFooter = () => {
           {[
             { l: "Missions", h: lp("/#missions") },
             { l: "Systems", h: lp("/portfolio") },
+            { l: "TheCreator", h: lp("/thecreator") },
             { l: "IP & Evidence", h: lp("/evidence") },
             { l: "About", h: lp("/about") },
             { l: "Studio", h: lp("/services") },

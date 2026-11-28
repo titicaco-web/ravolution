@@ -1,0 +1,134 @@
+# Ravolution AB — full text for AI assistants
+
+> Swedish invention company. Ravolution invests build, product, IP/patents, brand and go-to-market in exchange for equity; no cash investments.
+
+## TheCreator — the Founder Operating System
+
+Source: https://ravolution.se/en/thecreator
+
+TheCreator is a founder and startup operating system built by Ravolution AB: one evidence-based workspace for strategy, product, decisions, growth and fundraising, with an AI advisory board and an investor-ready data room. It is made for pre-seed and seed founders and the investors who back them, and starts at 0 SEK per month on the Flex plan.
+
+### From idea to unicorn. One system for the whole venture.
+
+Every founder who applies can run the venture on TheCreator: strategy, product development, decisions, growth and fundraising in one evidence-based workspace. Operate it yourself, or build together with Ravolution for equity.
+
+### The venture lifecycle, gated by evidence
+
+01. Imagine — Problem, market, hypotheses
+02. Validate — Interviews, demand, willingness to pay
+03. Build — Specification, UX, architecture, code
+04. Launch — Pricing, payments, sales, support
+05. Grow — Acquisition, retention, expansion
+06. Scale — Governance, compliance, profitability
+
+- Parallel: Raise — Financial model, investor memorandum, pitch deck, data room and due diligence, maintained continuously.
+- Parallel: Protect — IP register, patent strategy and filings, maintained alongside the build — backed by Ravolution's 28 patents and 369 claims.
+
+### AI advisory board (Rolling out in phases)
+
+Product · Technology · Finance · Legal · Investor relations
+
+Specialist AI roles review plans, challenge assumptions and build skills over time. Every commitment is logged and checked against evidence.
+
+TheCreator helps you build the company, not your AI bill.
+
+### The Trust Ledger
+
+Every decision, commitment and milestone is logged together with the evidence behind it. Founders see what has actually been proven, and investors see verified progress instead of claims in a slide.
+
+### Start from what you already have
+
+- A git repository: Technical teams connect the existing codebase as the starting point for the venture workspace.
+- A pitch deck: Founders without code start from the deck: problem, market and plan become the first hypotheses to validate.
+
+### Engagement models
+
+- **Flex** — 0 SEK monthly minimum: Managed Claude & ChatGPT, cost + 20%; Start with a 1,000 SEK AI credit pack (≈ $98); Advisory 2,300 SEK/h (≈ $225), prepaid; 10 hours + 1 free: 23,000 SEK (≈ $2,253)
+- **Pro** — 9,800 SEK per month: Managed AI at cost, own AI connections; 2 advisory hours included monthly; Additional advisory 1,500 SEK/h (≈ $147); 10 hours + 1 free: 15,000 SEK (≈ $1,470)
+- **Venture partnership** — Equity · by agreement: Ravolution co-builds the venture for equity; Patent strategy and filings for your inventions; Individual approval by Ravolution; Signed partnership agreement
+
+Prices exclude VAT. USD amounts are approximate (ECB rate 26 Nov 2026) — you are charged in SEK. Unused purchased advisory hours are refundable within 45 days; unused AI credit is refundable on request. Included advisory hours expire each billing period. Equity terms require individual approval and a signed agreement. AI advisory supports, and does not replace, qualified legal, financial or security professionals.
+
+- Terms: https://thecreator.ravolution.se/terms
+- Refunds: https://thecreator.ravolution.se/refunds
+- Privacy: https://thecreator.ravolution.se/privacy
+
+### Built for founders — and the investors who back them
+
+- Pre-seed & seed founders: One system from first hypothesis to investor-ready company.
+- Non-technical founders: Structure, specification and an AI advisory board, with Ravolution as optional build partner.
+- Technical teams needing velocity: Turn an existing repository into a gated plan toward investable milestones.
+- Investors: Verified progress from portfolio companies, backed by the Trust Ledger.
+
+### Questions about TheCreator
+
+**What is a founder operating system?**
+
+A founder operating system is one workspace where a startup runs strategy, product, decisions, growth and fundraising together. TheCreator gates each stage — Imagine, Validate, Build, Launch, Grow, Scale — by evidence, with fundraising and IP protection running in parallel.
+
+**How is TheCreator different from Notion, Jira or ChatGPT?**
+
+Notion stores documents, Jira tracks tasks and ChatGPT answers prompts. TheCreator connects them to the venture lifecycle: decisions and commitments are logged against evidence, an AI advisory board reviews plans, and the investor data room stays current as the company is built.
+
+**What does TheCreator cost?**
+
+Flex has no monthly minimum (0 SEK), with managed AI at cost + 20% and prepaid advisory at 2,300 SEK/h (≈ $225). Pro is 9,800 SEK per month (≈ $960) with managed AI at cost and 2 advisory hours included. A Venture partnership is equity by agreement. Prices exclude VAT; you are charged in SEK.
+
+**Which AI models does TheCreator use?**
+
+Claude and ChatGPT. On Flex they are managed for you at cost + 20%. On Pro they are managed at cost, or you can use your own AI connection.
+
+**Is my data used to train AI models?**
+
+No. TheCreator uses the providers' APIs, and data sent through these APIs is not used to train their models.
+
+**Does Ravolution invest cash?**
+
+No. Ravolution makes no cash investments. In a Venture partnership Ravolution invests build, product, IP and patents, brand and go-to-market in exchange for equity.
+
+**How do investors use TheCreator?**
+
+Investors get verified progress from portfolio companies: milestones, decisions and data-room material backed by evidence in the Trust Ledger, instead of self-reported updates.
+
+**How do I get access?**
+
+Apply through Ravolution's application page. Access is by invitation: once your application is approved you receive an invite and log in at thecreator.ravolution.se.
+
+- Apply: https://ravolution.se/en/apply#thecreator
+- Log in: https://thecreator.ravolution.se/auth
+
+## Apply to Ravolution
+
+Source: https://ravolution.se/en/apply
+
+Ravolution is a Swedish venture studio that invests engineering, product, IP and go-to-market into early-stage startups — in exchange for equity, not invoices. We do not make cash investments. Apply below. We respond to every application within 10 working days.
+
+### Frequently asked questions
+
+**What is build-for-equity?**
+
+Build-for-equity means Ravolution invests its development team, product expertise, IP and go-to-market work into a startup in exchange for an ownership stake, instead of charging cash fees. The startup gets a senior technical team without paying invoices for that work; Ravolution succeeds only if the startup succeeds.
+
+**What stage startups does Ravolution invest in?**
+
+Ravolution invests in pre-seed and seed-stage startups, typically before or around their first institutional round. We prioritize founders with strong domain insight, early traction signals, and a clear path to a fundable milestone within 6–12 months.
+
+**How much equity does Ravolution take?**
+
+Equity is negotiated case by case based on scope, stage and the work we commit — always documented in a transparent Swedish shareholder agreement. We structure deals so founders retain clear majority control.
+
+**Does Ravolution invest capital as well as work?**
+
+No. Ravolution does not make cash investments. We invest work — engineering, product, IP, brand and go-to-market — for equity, and help you become investor-ready for your own raise.
+
+**Do you only work with Swedish startups?**
+
+We are based in Stockholm and work primarily with Nordic and European startups, but we accept applications from anywhere. All legal agreements follow Swedish law.
+
+**How long does the application process take?**
+
+Every application receives a response within 10 working days. The full process from application to signed term sheet typically takes 4–6 weeks.
+
+## Entity
+
+Ravolution AB · org. nr 556709-7547 · Stockholm, Sweden · ivan.daza@ravolution.se

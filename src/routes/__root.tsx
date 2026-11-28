@@ -31,7 +31,7 @@ const organizationJsonLd = `{
   "url": "https://ravolution.se/",
   "logo": "https://ravolution.se/favicon.png",
   "image": "https://ravolution.se/og-image.jpg",
-  "description": "Swedish invention company and angel investor that partners with early-stage deep-tech startups by building product, brand and go-to-market, refining the concept for future demand, and investing capital in exchange for cash and equity. 28 patents, 369 claims. Founded by inventor Ivan Daza.",
+  "description": "Swedish invention company that partners with early-stage deep-tech startups, investing build, product, IP/patents, brand and go-to-market in exchange for equity — no cash investments. Home of TheCreator, the Founder Operating System. 28 patents, 369 claims. Founded by inventor Ivan Daza.",
   "identifier": "556709-7547",
   "foundingDate": "2020",
   "founder": {
@@ -53,7 +53,7 @@ const organizationJsonLd = `{
     "itemOffered": {
       "@type": "Service",
       "name": "Venture partnership for early-stage startups",
-      "serviceType": "Tech build, branding, go-to-market, concept refinement and capital in exchange for cash and equity",
+      "serviceType": "Tech build, product, IP/patents, branding and go-to-market in exchange for equity (no cash investments)",
       "provider": { "@type": "Organization", "name": "Ravolution AB" },
       "areaServed": "Worldwide",
       "audience": { "@type": "Audience", "audienceType": "Early-stage deep-tech startups and technical founders" },

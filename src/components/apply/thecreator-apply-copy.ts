@@ -35,6 +35,7 @@ type TheCreatorCopy = {
   legalLinks: readonly { label: string; href: string }[];
   applyCta: string;
   loginCta: string;
+  readMoreCta: string;
 };
 
 export const theCreatorApplyCopy: Record<"en" | "sv" | "es", TheCreatorCopy> = {
@@ -79,6 +80,7 @@ export const theCreatorApplyCopy: Record<"en" | "sv" | "es", TheCreatorCopy> = {
     ],
     applyCta: "Apply for TheCreator",
     loginCta: "Log in to TheCreator →",
+    readMoreCta: "Read more about TheCreator →",
   },
   sv: {
     eyebrow: "TheCreator · Operativsystemet för grundare",
@@ -121,6 +123,7 @@ export const theCreatorApplyCopy: Record<"en" | "sv" | "es", TheCreatorCopy> = {
     ],
     applyCta: "Ansök till TheCreator",
     loginCta: "Logga in i TheCreator →",
+    readMoreCta: "Läs mer om TheCreator →",
   },
   es: {
     eyebrow: "TheCreator · El sistema operativo del fundador",
@@ -163,5 +166,6 @@ export const theCreatorApplyCopy: Record<"en" | "sv" | "es", TheCreatorCopy> = {
     ],
     applyCta: "Solicita TheCreator",
     loginCta: "Inicia sesión en TheCreator →",
+    readMoreCta: "Más sobre TheCreator →",
   },
 };

@@ -1,8 +1,8 @@
 export const applyCopy = {
   en: {
     meta: {
-      title: "Apply for Tech Investment | Build-for-Equity — Ravolution AB",
-      description: "Ravolution invests engineering, product, IP and go-to-market in early-stage startups for equity, not cash. Apply for a response within 10 working days.",
+      title: "Apply: Build for Equity Startup Program | Ravolution AB",
+      description: "Startup application to Ravolution AB, a venture studio in Sweden and technical co-founder alternative: we build product and IP for equity, never cash.",
       ogTitle: "Apply for Tech Investment — Ravolution AB",
       ogDescription: "Engineering, product, IP and go-to-market for equity — never a cash investment. Response within 10 working days.",
     },
@@ -80,8 +80,8 @@ export const applyCopy = {
   },
   sv: {
     meta: {
-      title: "Ansök om teknikinvestering | Bygg mot ägarandel — Ravolution AB",
-      description: "Ravolution investerar teknik, produkt, IP och go-to-market i startupbolag mot ägarandel, aldrig kontant. Svar inom 10 arbetsdagar.",
+      title: "Ansök: bygg mot ägarandel för startups | Ravolution AB",
+      description: "Startupansökan till Ravolution AB, venture studio i Sverige och alternativ till teknisk medgrundare: produkt och IP mot ägarandel, aldrig kontant.",
       ogTitle: "Ansök om teknikinvestering — Ravolution AB",
       ogDescription: "Teknik, produkt, IP och go-to-market mot ägarandel — aldrig kontanta investeringar. Svar inom 10 arbetsdagar.",
     },
@@ -159,8 +159,8 @@ export const applyCopy = {
   },
   es: {
     meta: {
-      title: "Solicita inversión tecnológica | Desarrollo por participación — Ravolution AB",
-      description: "Ravolution invierte ingeniería, producto, PI y salida al mercado en startups a cambio de participación, nunca efectivo. Respuesta en 10 días laborables.",
+      title: "Solicitud: desarrollo por participación | Ravolution AB",
+      description: "Solicitud de startups a Ravolution AB, venture studio en Suecia y alternativa a cofundador técnico: producto y PI por participación, sin efectivo.",
       ogTitle: "Solicita inversión tecnológica — Ravolution AB",
       ogDescription: "Ingeniería, producto, PI y salida al mercado por participación, nunca inversión en efectivo. Respuesta en 10 días laborables.",
     },

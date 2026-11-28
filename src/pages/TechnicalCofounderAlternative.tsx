@@ -4,6 +4,7 @@ import { useLangPath } from "@/hooks/use-lang-path";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { ScrollAnimateWrapper } from "@/hooks/use-scroll-animation";
 import { Button } from "@/components/ui/button";
+import TheCreatorMention from "@/components/thecreator/TheCreatorMention";
 import { ArrowRight, Send, Users, Building, UserCheck, CheckCircle, XCircle } from "lucide-react";
 
 const TechnicalCofounderAlternative = () => {
@@ -185,6 +186,7 @@ const TechnicalCofounderAlternative = () => {
               <ScrollAnimateWrapper>
                 <div className="card-elevated p-8 bg-gradient-to-br from-card to-secondary">
                   <h2 className="text-2xl font-display font-bold text-foreground mb-6">Related Pages</h2>
+                  <TheCreatorMention className="text-muted-foreground mb-6" linkClassName="text-accent hover:text-accent-light underline font-medium" />
                   <div className="grid sm:grid-cols-3 gap-4">
                     <a href={lp("/angel-investor")} className="text-accent hover:text-accent-light underline font-medium">Angel Investor & Build-for-Equity</a>
                     <a href={lp("/build-for-equity")} className="text-accent hover:text-accent-light underline font-medium">How Build-for-Equity Works</a>
